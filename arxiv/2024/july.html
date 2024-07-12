@@ -25,28 +25,36 @@
     <h2>Jul 12</h2>
     <a class="arxiv-link" href="https://arxiv.org/abs/2407.08613" data-arxiv-id="2407.08613">Loading...</a>
     <a class="arxiv-link" href="https://arxiv.org/abs/2407.07964" data-arxiv-id="2407.07964">Loading...</a>
-    <script>
-        function fetchArxivPreview(link) {
-            const proxyUrl = 'https://api.allorigins.win/get?url=';
-            const arxivApiUrl = `http://export.arxiv.org/api/query?id_list=${link.dataset.arxivId}`;
-            const requestUrl = proxyUrl + encodeURIComponent(arxivApiUrl);
+<script>
+    function fetchArxivPreview(link) {
+        const proxyUrl = 'https://api.allorigins.win/get?url=';
+        const arxivApiUrl = `http://export.arxiv.org/api/query?id_list=${link.dataset.arxivId}`;
+        const requestUrl = proxyUrl + encodeURIComponent(arxivApiUrl);
 
-            fetch(requestUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const parser = new DOMParser();
-                    const xml = parser.parseFromString(data.contents, "application/xml");
-                    const title = xml.querySelector('entry > title').textContent;
-                    const summary = xml.querySelector('entry > summary').textContent;
-                    link.innerHTML = `<strong>${title}</strong><p>${summary}</p>`;
-                })
-                .catch(error => console.error('Error fetching arXiv preview:', error));
-        }
+        fetch(requestUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data.contents, "application/xml");
+                const title = xml.querySelector('entry > title').textContent;
+                const summary = xml.querySelector('entry > summary').textContent;
+                link.innerHTML = `<strong>${title}</strong><p>${summary}</p>`;
+            })
+            .catch(error => {
+                console.error('Error fetching arXiv preview:', error);
+                link.innerHTML = 'Failed to load preview';
+            });
+    }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const arxivLinks = document.querySelectorAll('.arxiv-link');
-            arxivLinks.forEach(link => fetchArxivPreview(link));
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const arxivLinks = document.querySelectorAll('.arxiv-link');
+        arxivLinks.forEach(link => fetchArxivPreview(link));
+    });
+</script>
 </body>
 </html>
