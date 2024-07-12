@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>January - Today's arXiv</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .arxiv-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>January - Today's arXiv</h1>
+    <a class="arxiv-link" href="https://arxiv.org/abs/1234.56789" data-arxiv-id="1234.56789">Loading...</a>
+    <script>
+        function fetchArxivPreview(link) {
+            fetch(`https://arxiv.org/api/query?id_list=${link.dataset.arxivId}`)
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data, "application/xml");
+                    const title = xml.querySelector('entry > title').textContent;
+                    const summary = xml.querySelector('entry > summary').textContent;
+                    link.innerHTML = `<strong>${title}</strong><p>${summary}</p>`;
+                })
+                .catch(error => console.error('Error fetching arXiv preview:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const arxivLinks = document.querySelectorAll('.arxiv-link');
+            arxivLinks.forEach(link => fetchArxivPreview(link));
+        });
+    </script>
+</body>
+</html>
