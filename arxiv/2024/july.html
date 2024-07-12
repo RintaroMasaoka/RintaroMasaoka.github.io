@@ -24,13 +24,18 @@
     <h1>January - Today's arXiv</h1>
     <h2>Jul 12</h2>
     <a class="arxiv-link" href="https://arxiv.org/abs/2407.08613" data-arxiv-id="2407.08613">Loading...</a>
+    <a class="arxiv-link" href="https://arxiv.org/abs/2407.07964" data-arxiv-id="2407.07964">Loading...</a>
     <script>
         function fetchArxivPreview(link) {
-            fetch(`https://arxiv.org/api/query?id_list=${link.dataset.arxivId}`)
-                .then(response => response.text())
+            const proxyUrl = 'https://api.allorigins.win/get?url=';
+            const arxivApiUrl = `http://export.arxiv.org/api/query?id_list=${link.dataset.arxivId}`;
+            const requestUrl = proxyUrl + encodeURIComponent(arxivApiUrl);
+
+            fetch(requestUrl)
+                .then(response => response.json())
                 .then(data => {
                     const parser = new DOMParser();
-                    const xml = parser.parseFromString(data, "application/xml");
+                    const xml = parser.parseFromString(data.contents, "application/xml");
                     const title = xml.querySelector('entry > title').textContent;
                     const summary = xml.querySelector('entry > summary').textContent;
                     link.innerHTML = `<strong>${title}</strong><p>${summary}</p>`;
