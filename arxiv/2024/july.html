@@ -50,32 +50,24 @@
 <body>
     <h1>arXiv Paper Preview</h1>
 
-    <div class="arxiv-link" data-date="2023-07-17">https://arxiv.org/abs/2407.07832</div>
-    <div class="arxiv-link" data-date="2023-07-17">https://arxiv.org/abs/2407.06236</div>
-    <div class="arxiv-link" data-date="2023-07-18">https://arxiv.org/abs/2407.06427</div>
-    <!-- ここに追加のarXivリンクを追加してください -->
-
     <div id="previews"></div>
 
     <script>
+        const previews = [
+            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06427' },
+            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06236' },
+            { date: '2023-07-18', url: 'https://arxiv.org/abs/2407.07832' },
+            // ここに追加のarXiv URLを入力してください
+        ];
+
         document.addEventListener("DOMContentLoaded", function() {
             const previewsDiv = document.getElementById('previews');
-            const arxivLinks = document.querySelectorAll('.arxiv-link');
             let currentDate = '';
 
-            arxivLinks.forEach(link => {
-                const url = link.textContent.trim();
-                const date = link.getAttribute('data-date');
+            previews.forEach(preview => {
+                const { date, url } = preview;
                 const id = url.split('/').pop().trim();
                 const apiUrl = `https://export.arxiv.org/api/query?id_list=${id}`;
-
-                if (currentDate !== date) {
-                    currentDate = date;
-                    const dateHeader = document.createElement('h2');
-                    dateHeader.className = 'date-header';
-                    dateHeader.textContent = `Date: ${date}`;
-                    previewsDiv.appendChild(dateHeader);
-                }
 
                 fetch(apiUrl)
                     .then(response => response.text())
@@ -86,6 +78,14 @@
                         const entry = xmlDoc.getElementsByTagName('entry')[0];
                         const title = entry.getElementsByTagName('title')[0].textContent;
                         const summary = entry.getElementsByTagName('summary')[0].textContent;
+
+                        if (currentDate !== date) {
+                            currentDate = date;
+                            const dateHeader = document.createElement('h2');
+                            dateHeader.className = 'date-header';
+                            dateHeader.textContent = `Date: ${date}`;
+                            previewsDiv.appendChild(dateHeader);
+                        }
 
                         const previewDiv = document.createElement('div');
                         previewDiv.className = 'preview mathjax-process';
