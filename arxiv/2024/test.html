@@ -9,6 +9,12 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+        .date-header {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
         .preview {
             margin-top: 20px;
             padding: 10px;
@@ -26,6 +32,8 @@
             margin-top: 10px;
         }
     </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <h1>arXiv Paper Preview</h1>
@@ -34,18 +42,28 @@
 
     <script>
         const previews = [
-            { date: '2023-07-10', url: 'https://arxiv.org/abs/2407.06236' },
-            { date: '2023-07-10', url: 'https://arxiv.org/abs/2407.06427' },
+            { date: '2024-07-10', url: 'https://arxiv.org/abs/2407.06427' },
+            { date: '2024-07-10', url: 'https://arxiv.org/abs/2407.06236' },
+            { date: '2024-07-11', url: 'https://arxiv.org/abs/2407.07832' },
             // ここに追加のarXiv URLを入力してください
         ];
 
         document.addEventListener("DOMContentLoaded", function() {
             const previewsDiv = document.getElementById('previews');
+            let currentDate = '';
 
             previews.forEach(preview => {
                 const { date, url } = preview;
                 const id = url.split('/').pop().trim();
                 const apiUrl = `https://export.arxiv.org/api/query?id_list=${id}`;
+
+                if (currentDate !== date) {
+                    currentDate = date;
+                    const dateHeader = document.createElement('div');
+                    dateHeader.className = 'date-header';
+                    dateHeader.textContent = `Date: ${date}`;
+                    previewsDiv.appendChild(dateHeader);
+                }
 
                 fetch(apiUrl)
                     .then(response => response.text())
@@ -60,13 +78,15 @@
                         const previewDiv = document.createElement('div');
                         previewDiv.className = 'preview';
                         previewDiv.innerHTML = `
-                            <h3>Date: ${date}</h3>
                             <h2>Title: <span>${title.trim()}</span></h2>
                             <p><strong>Abstract:</strong></p>
                             <p>${summary.trim()}</p>
                             <a href="${url}" target="_blank">Read more on arXiv</a>
                         `;
                         previewsDiv.appendChild(previewDiv);
+
+                        // 数式のレンダリング
+                        MathJax.typesetPromise([previewDiv]);
                     })
                     .catch(error => {
                         console.error('Error fetching arXiv data:', error);
