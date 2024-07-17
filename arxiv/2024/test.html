@@ -9,55 +9,63 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        #preview {
+        .preview {
             margin-top: 20px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        #preview h2 {
+        .preview h2 {
             margin: 0 0 10px 0;
         }
-        #preview p {
+        .preview p {
             margin: 0;
         }
     </style>
 </head>
 <body>
     <h1>arXiv Paper Preview</h1>
-    <label for="arxiv-url">Enter arXiv URL:</label>
-    <input type="text" id="arxiv-url" placeholder="e.g., https://arxiv.org/abs/2407.06427">
-    <button onclick="fetchArxivData()">Get Preview</button>
 
-    <div id="preview">
-        <h2>Title: <span id="title"></span></h2>
-        <p><strong>Abstract:</strong></p>
-        <p id="abstract"></p>
-    </div>
+    <div id="previews"></div>
 
     <script>
-        function fetchArxivData() {
-            const url = document.getElementById('arxiv-url').value;
-            const id = url.split('/').pop();
-            const apiUrl = `https://export.arxiv.org/api/query?id_list=${id}`;
+        const urls = [
+            'https://arxiv.org/abs/2407.06427',
+            'https://arxiv.org/abs/2407.06236',
+            // ここに追加のarXiv URLを入力してください
+        ];
 
-            fetch(apiUrl)
-                .then(response => response.text())
-                .then(data => {
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(data, "application/xml");
+        document.addEventListener("DOMContentLoaded", function() {
+            const previewsDiv = document.getElementById('previews');
 
-                    const entry = xmlDoc.getElementsByTagName('entry')[0];
-                    const title = entry.getElementsByTagName('title')[0].textContent;
-                    const summary = entry.getElementsByTagName('summary')[0].textContent;
+            urls.forEach(url => {
+                const id = url.split('/').pop().trim();
+                const apiUrl = `https://export.arxiv.org/api/query?id_list=${id}`;
 
-                    document.getElementById('title').textContent = title.trim();
-                    document.getElementById('abstract').textContent = summary.trim();
-                })
-                .catch(error => {
-                    console.error('Error fetching arXiv data:', error);
-                });
-        }
+                fetch(apiUrl)
+                    .then(response => response.text())
+                    .then(data => {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(data, "application/xml");
+
+                        const entry = xmlDoc.getElementsByTagName('entry')[0];
+                        const title = entry.getElementsByTagName('title')[0].textContent;
+                        const summary = entry.getElementsByTagName('summary')[0].textContent;
+
+                        const previewDiv = document.createElement('div');
+                        previewDiv.className = 'preview';
+                        previewDiv.innerHTML = `
+                            <h2>Title: <span>${title.trim()}</span></h2>
+                            <p><strong>Abstract:</strong></p>
+                            <p>${summary.trim()}</p>
+                        `;
+                        previewsDiv.appendChild(previewDiv);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching arXiv data:', error);
+                    });
+            });
+        });
     </script>
 </body>
 </html>
