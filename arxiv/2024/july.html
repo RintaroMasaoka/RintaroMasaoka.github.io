@@ -29,8 +29,8 @@
             margin: 0;
         }
         .preview a {
-            display: block;
-            margin-top: 10px;
+            color: inherit;
+            text-decoration: none;
         }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -55,20 +55,22 @@
 
     <script>
         const previews = [
-            { date: '7-10', url: 'https://arxiv.org/abs/2407.06427' },
-            { date: '7-10', url: 'https://arxiv.org/abs/2407.06236' },
-            { date: '7-10', url: 'https://arxiv.org/abs/2407.06266' },
-            { date: '7-11', url: 'https://arxiv.org/abs/2407.07832' },
-            { date: '7-11', url: 'https://arxiv.org/abs/2407.07849' },
-            { date: '7-11', url: 'https://arxiv.org/abs/2407.07334' },
-            { date: '7-11', url: 'https://arxiv.org/abs/2308.11687' },
-            { date: '7-12', url: 'https://arxiv.org/abs/2407.08502' },
-            { date: '7-12', url: 'https://arxiv.org/abs/2407.07969' },
-            { date: '7-12', url: 'https://arxiv.org/abs/2407.07964' },
-            { date: '7-12', url: 'https://arxiv.org/abs/2407.08613' },
-            { date: '7-15', url: 'https://arxiv.org/abs/2407.08760' },
-            // { date: '7-15', url: '' },
-            // { date: '7-15', url: '' },
+            { date: '10 July', url: 'https://arxiv.org/abs/2407.06427' },
+            { date: '10 July', url: 'https://arxiv.org/abs/2407.06236' },
+            { date: '10 July', url: 'https://arxiv.org/abs/2407.06266' },
+            { date: '11 July', url: 'https://arxiv.org/abs/2407.07832' },
+            { date: '11 July', url: 'https://arxiv.org/abs/2407.07849' },
+            { date: '11 July', url: 'https://arxiv.org/abs/2407.07334' },
+            { date: '11 July', url: 'https://arxiv.org/abs/2308.11687' },
+            { date: '12 July', url: 'https://arxiv.org/abs/2407.08502' },
+            { date: '12 July', url: 'https://arxiv.org/abs/2407.07969' },
+            { date: '12 July', url: 'https://arxiv.org/abs/2407.07964' },
+            { date: '12 July', url: 'https://arxiv.org/abs/2407.08613' },
+            { date: '15 July', url: 'https://arxiv.org/abs/2407.08760' },
+            { date: '16 July', url: 'https://arxiv.org/abs/2407.10884' },
+            { date: '17 July', url: 'https://arxiv.org/abs/2407.11509' },
+            { date: '17 July', url: 'https://arxiv.org/abs/2407.09856' },
+            // { date: 'July', url: '' },
             // ここに追加のarXiv URLを入力してください
         ];
 
@@ -102,10 +104,13 @@
                     const previewDiv = document.createElement('div');
                     previewDiv.className = 'preview mathjax-process';
                     previewDiv.innerHTML = `
-                        <h3><span>${title.trim()}</span></h3>
+                        <h3>
+                            <a href="${url}" target="_blank">
+                                <span>${title.trim()}</span>
+                            </a>
+                        </h3>
                         <p><strong></strong></p>
                         <p>${summary.trim()}</p>
-                        <a href="${url}" target="_blank">Read more on arXiv</a>
                     `;
                     previewsDiv.appendChild(previewDiv);
 
