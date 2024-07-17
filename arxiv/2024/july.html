@@ -1,60 +1,111 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>July - Today's arXiv</title>
+    <title>arXiv Paper Preview</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        h1 {
-            text-align: center;
+        .date-header {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
         }
-        .arxiv-link {
-            display: block;
-            margin: 10px 0;
+        .preview {
+            margin-top: 20px;
             padding: 10px;
             border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .preview h3 {
+            margin: 0 0 10px 0;
+        }
+        .preview p {
+            margin: 0;
+        }
+        .preview a {
+            display: block;
+            margin-top: 10px;
         }
     </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                processHtmlClass: 'mathjax-process'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>January - Today's arXiv</h1>
-    <h2>Jul 12</h2>
-    <a class="arxiv-link" href="https://arxiv.org/abs/2407.08613" data-arxiv-id="2407.08613">Loading...</a>
-    <a class="arxiv-link" href="https://arxiv.org/abs/2407.07964" data-arxiv-id="2407.07964">Loading...</a>
-<script>
-    function fetchArxivPreview(link) {
-        const proxyUrl = 'https://api.allorigins.win/get?url=';
-        const arxivApiUrl = `http://export.arxiv.org/api/query?id_list=${link.dataset.arxivId}`;
-        const requestUrl = proxyUrl + encodeURIComponent(arxivApiUrl);
+    <h1>arXiv Paper Preview</h1>
 
-        fetch(requestUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+    <div class="arxiv-link" data-date="2023-07-17">https://arxiv.org/abs/2407.07832</div>
+    <div class="arxiv-link" data-date="2023-07-17">https://arxiv.org/abs/2407.06236</div>
+    <div class="arxiv-link" data-date="2023-07-18">https://arxiv.org/abs/2407.06427</div>
+    <!-- ここに追加のarXivリンクを追加してください -->
+
+    <div id="previews"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const previewsDiv = document.getElementById('previews');
+            const arxivLinks = document.querySelectorAll('.arxiv-link');
+            let currentDate = '';
+
+            arxivLinks.forEach(link => {
+                const url = link.textContent.trim();
+                const date = link.getAttribute('data-date');
+                const id = url.split('/').pop().trim();
+                const apiUrl = `https://export.arxiv.org/api/query?id_list=${id}`;
+
+                if (currentDate !== date) {
+                    currentDate = date;
+                    const dateHeader = document.createElement('h2');
+                    dateHeader.className = 'date-header';
+                    dateHeader.textContent = `Date: ${date}`;
+                    previewsDiv.appendChild(dateHeader);
                 }
-                return response.json();
-            })
-            .then(data => {
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(data.contents, "application/xml");
-                const title = xml.querySelector('entry > title').textContent;
-                const summary = xml.querySelector('entry > summary').textContent;
-                link.innerHTML = `<strong>${title}</strong><p>${summary}</p>`;
-            })
-            .catch(error => {
-                console.error('Error fetching arXiv preview:', error);
-                link.innerHTML = 'Failed to load preview';
-            });
-    }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const arxivLinks = document.querySelectorAll('.arxiv-link');
-        arxivLinks.forEach(link => fetchArxivPreview(link));
-    });
-</script>
+                fetch(apiUrl)
+                    .then(response => response.text())
+                    .then(data => {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(data, "application/xml");
+
+                        const entry = xmlDoc.getElementsByTagName('entry')[0];
+                        const title = entry.getElementsByTagName('title')[0].textContent;
+                        const summary = entry.getElementsByTagName('summary')[0].textContent;
+
+                        const previewDiv = document.createElement('div');
+                        previewDiv.className = 'preview mathjax-process';
+                        previewDiv.innerHTML = `
+                            <h3>Title: <span>${title.trim()}</span></h3>
+                            <p><strong>Abstract:</strong></p>
+                            <p>${summary.trim()}</p>
+                            <a href="${url}" target="_blank">Read more on arXiv</a>
+                        `;
+                        previewsDiv.appendChild(previewDiv);
+
+                        // 数式のレンダリング
+                        MathJax.typesetPromise([previewDiv])
+                            .catch((err) => console.error('MathJax typeset failed: ', err));
+                    })
+                    .catch(error => {
+                        console.error('Error fetching arXiv data:', error);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
