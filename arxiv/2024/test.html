@@ -33,6 +33,18 @@
         }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                processHtmlClass: 'mathjax-process'
+            }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
@@ -42,9 +54,9 @@
 
     <script>
         const previews = [
-            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.07832' },
+            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06427' },
             { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06236' },
-            { date: '2023-07-18', url: 'https://arxiv.org/abs/2407.06427' },
+            { date: '2023-07-18', url: 'https://arxiv.org/abs/2407.07832' },
             // ここに追加のarXiv URLを入力してください
         ];
 
@@ -76,11 +88,11 @@
                         const summary = entry.getElementsByTagName('summary')[0].textContent;
 
                         const previewDiv = document.createElement('div');
-                        previewDiv.className = 'preview';
+                        previewDiv.className = 'preview mathjax-process';
                         previewDiv.innerHTML = `
                             <h3>Title: <span>${title.trim()}</span></h3>
                             <p><strong>Abstract:</strong></p>
-                            <p class="mathjax-preview">${summary.trim()}</p>
+                            <p>${summary.trim()}</p>
                             <a href="${url}" target="_blank">Read more on arXiv</a>
                         `;
                         previewsDiv.appendChild(previewDiv);
