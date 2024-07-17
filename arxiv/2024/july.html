@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Today's arXiv</title>
+    <title>arXiv Paper Preview</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,63 +48,62 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Today's arXiv</h1>
+    <h1>arXiv Paper Preview</h1>
 
     <div id="previews"></div>
 
     <script>
         const previews = [
-            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.07832' },
+            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06427' },
             { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06236' },
-            { date: '2023-07-18', url: 'https://arxiv.org/abs/2407.06427' },
+            { date: '2023-07-18', url: 'https://arxiv.org/abs/2407.07832' },
             // ここに追加のarXiv URLを入力してください
         ];
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", async function() {
             const previewsDiv = document.getElementById('previews');
             let currentDate = '';
 
-            previews.forEach(preview => {
+            for (const preview of previews) {
                 const { date, url } = preview;
                 const id = url.split('/').pop().trim();
                 const apiUrl = `https://export.arxiv.org/api/query?id_list=${id}`;
 
-                fetch(apiUrl)
-                    .then(response => response.text())
-                    .then(data => {
-                        const parser = new DOMParser();
-                        const xmlDoc = parser.parseFromString(data, "application/xml");
+                try {
+                    const response = await fetch(apiUrl);
+                    const data = await response.text();
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data, "application/xml");
 
-                        const entry = xmlDoc.getElementsByTagName('entry')[0];
-                        const title = entry.getElementsByTagName('title')[0].textContent;
-                        const summary = entry.getElementsByTagName('summary')[0].textContent;
+                    const entry = xmlDoc.getElementsByTagName('entry')[0];
+                    const title = entry.getElementsByTagName('title')[0].textContent;
+                    const summary = entry.getElementsByTagName('summary')[0].textContent;
 
-                        if (currentDate !== date) {
-                            currentDate = date;
-                            const dateHeader = document.createElement('h2');
-                            dateHeader.className = 'date-header';
-                            dateHeader.textContent = `${date}`;
-                            previewsDiv.appendChild(dateHeader);
-                        }
+                    if (currentDate !== date) {
+                        currentDate = date;
+                        const dateHeader = document.createElement('h2');
+                        dateHeader.className = 'date-header';
+                        dateHeader.textContent = `Date: ${date}`;
+                        previewsDiv.appendChild(dateHeader);
+                    }
 
-                        const previewDiv = document.createElement('div');
-                        previewDiv.className = 'preview mathjax-process';
-                        previewDiv.innerHTML = `
-                            <h3><span>${title.trim()}</span></h3>
-                            <p><strong></strong></p>
-                            <p>${summary.trim()}</p>
-                            <a href="${url}" target="_blank">Read more on arXiv</a>
-                        `;
-                        previewsDiv.appendChild(previewDiv);
+                    const previewDiv = document.createElement('div');
+                    previewDiv.className = 'preview mathjax-process';
+                    previewDiv.innerHTML = `
+                        <h3>Title: <span>${title.trim()}</span></h3>
+                        <p><strong>Abstract:</strong></p>
+                        <p>${summary.trim()}</p>
+                        <a href="${url}" target="_blank">Read more on arXiv</a>
+                    `;
+                    previewsDiv.appendChild(previewDiv);
 
-                        // 数式のレンダリング
-                        MathJax.typesetPromise([previewDiv])
-                            .catch((err) => console.error('MathJax typeset failed: ', err));
-                    })
-                    .catch(error => {
-                        console.error('Error fetching arXiv data:', error);
-                    });
-            });
+                    // 数式のレンダリング
+                    await MathJax.typesetPromise([previewDiv]);
+
+                } catch (error) {
+                    console.error('Error fetching arXiv data:', error);
+                }
+            }
         });
     </script>
 </body>
