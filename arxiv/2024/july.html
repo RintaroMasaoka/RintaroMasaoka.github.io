@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today's arXiv</title>
     <style>
+        html, body {
+            margin: 0; /* ブラウザのデフォルトマージンをリセット */
+            padding: 0; /* パディングもリセット */
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            padding: 20px;
+        }
+        
         .page-title {
-            background-color: #1E948D;
+            background-color: #50C878; /* エメラルドグリーン */
             color: white;
             padding: 10px;
             text-align: left; /* 左詰め */
-            border-radius: 0; /* 角を丸くしない */
             width: 100%; /* 画面いっぱいに */
-            margin: 0; /* 枠の周りの白いエリアを消す */
             box-sizing: border-box; /* paddingを含めて幅を計算 */
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0; /* 白いエリアを消す */
-            padding: 20px;
         }
         .date-header {
             margin-top: 40px;
