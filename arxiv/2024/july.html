@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arXiv Paper Preview</title>
+    <title>Today's arXiv</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,15 +48,26 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>arXiv Paper Preview</h1>
+    <h1>Today's arXiv</h1>
 
     <div id="previews"></div>
 
     <script>
         const previews = [
-            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06427' },
-            { date: '2023-07-17', url: 'https://arxiv.org/abs/2407.06236' },
-            { date: '2023-07-18', url: 'https://arxiv.org/abs/2407.07832' },
+            { date: '7-10', url: 'https://arxiv.org/abs/2407.06427' },
+            { date: '7-10', url: 'https://arxiv.org/abs/2407.06236' },
+            { date: '7-10', url: 'https://arxiv.org/abs/2407.06266' },
+            { date: '7-11', url: 'https://arxiv.org/abs/2407.07832' },
+            { date: '7-11', url: 'https://arxiv.org/abs/2407.07849' },
+            { date: '7-11', url: 'https://arxiv.org/abs/2407.07334' },
+            { date: '7-11', url: 'https://arxiv.org/abs/2308.11687' },
+            { date: '7-12', url: 'https://arxiv.org/abs/2407.08502' },
+            { date: '7-12', url: 'https://arxiv.org/abs/2407.07969' },
+            { date: '7-12', url: 'https://arxiv.org/abs/2407.07964' },
+            { date: '7-12', url: 'https://arxiv.org/abs/2407.08613' },
+            { date: '7-15', url: 'https://arxiv.org/abs/2407.08760' },
+            // { date: '7-15', url: '' },
+            // { date: '7-15', url: '' },
             // ここに追加のarXiv URLを入力してください
         ];
 
@@ -83,15 +94,15 @@
                         currentDate = date;
                         const dateHeader = document.createElement('h2');
                         dateHeader.className = 'date-header';
-                        dateHeader.textContent = `Date: ${date}`;
+                        dateHeader.textContent = '${date}';
                         previewsDiv.appendChild(dateHeader);
                     }
 
                     const previewDiv = document.createElement('div');
                     previewDiv.className = 'preview mathjax-process';
                     previewDiv.innerHTML = `
-                        <h3>Title: <span>${title.trim()}</span></h3>
-                        <p><strong>Abstract:</strong></p>
+                        <h3><span>${title.trim()}</span></h3>
+                        <p><strong></strong></p>
                         <p>${summary.trim()}</p>
                         <a href="${url}" target="_blank">Read more on arXiv</a>
                     `;
