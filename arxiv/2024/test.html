@@ -21,6 +21,10 @@
         .preview p {
             margin: 0;
         }
+        .preview a {
+            display: block;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -29,16 +33,17 @@
     <div id="previews"></div>
 
     <script>
-        const urls = [
-            'https://arxiv.org/abs/2407.06427',
-            'https://arxiv.org/abs/2407.06236',
+        const previews = [
+            { date: '2023-07-10', url: 'https://arxiv.org/abs/2407.06236' },
+            { date: '2023-07-10', url: 'https://arxiv.org/abs/2407.06427' },
             // ここに追加のarXiv URLを入力してください
         ];
 
         document.addEventListener("DOMContentLoaded", function() {
             const previewsDiv = document.getElementById('previews');
 
-            urls.forEach(url => {
+            previews.forEach(preview => {
+                const { date, url } = preview;
                 const id = url.split('/').pop().trim();
                 const apiUrl = `https://export.arxiv.org/api/query?id_list=${id}`;
 
@@ -55,9 +60,11 @@
                         const previewDiv = document.createElement('div');
                         previewDiv.className = 'preview';
                         previewDiv.innerHTML = `
+                            <h3>Date: ${date}</h3>
                             <h2>Title: <span>${title.trim()}</span></h2>
                             <p><strong>Abstract:</strong></p>
                             <p>${summary.trim()}</p>
+                            <a href="${url}" target="_blank">Read more on arXiv</a>
                         `;
                         previewsDiv.appendChild(previewDiv);
                     })
