@@ -8,10 +8,12 @@
         .page-title {
             background-color: #1E948D;
             color: white;
-            text-align: center;
-            border-radius: 5px;
-            width: calc(100%); 
-            margin: 0 auto;
+            padding: 10px;
+            text-align: left; /* 左詰め */
+            border-radius: 0; /* 角を丸くしない */
+            width: 100%; /* 画面いっぱいに */
+            margin: 0; /* 枠の周りの白いエリアを消す */
+            box-sizing: border-box; /* paddingを含めて幅を計算 */
         }
         body {
             font-family: Arial, sans-serif;
