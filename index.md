@@ -1,4 +1,4 @@
-@def title = "Rintaro Masaoka 政岡凜太郎"
+@def title = "Rintaro Masaoka"
 @def tags = ["syntax", "code"]
 
 ## About me
