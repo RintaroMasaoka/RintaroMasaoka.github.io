@@ -1,0 +1,1891 @@
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  29 AUG 2024 15:51
+ restricted system commands enabled.
+ file:line:error style messages enabled.
+**"/Users/rintaromasaoka/Desktop/Study/Uncle Hamiltonian/Note_on_PEPS/images/AnyonsPEPS"
+("/Users/rintaromasaoka/Desktop/Study/Uncle Hamiltonian/Note_on_PEPS/images/AnyonsPEPS.tex"
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended collection.
+luaotfload | conf : Root cache directory is "/Users/rintaromasaoka/Library/texlive/2024/texmf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-resolved path "/usr/local/texlive/2024/texmf-dist/tex/luatex/luaotfload/fontloader-2023-12-28.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.134
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/Users/rintaromasaoka/Library/texlive/2024/texmf-var/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'. (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from /Users/rintaromasaoka/Library/texlive/2024/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen139
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks17
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen140
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen141
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count194
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count195
+\leftroot@=\count196
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count197
+\DOTSCASE@=\count198
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen142
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count199
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count266
+\dotsspace@=\muskip16
+\c@parentequation=\count267
+\dspbrk@lvl=\count268
+\tag@help=\toks19
+\row@=\count269
+\column@=\count270
+\maxfields@=\count271
+\andhelp@=\toks20
+\eqnshift@=\dimen143
+\alignsep@=\dimen144
+\tagshift@=\dimen145
+\tagwidth@=\dimen146
+\totwidth@=\dimen147
+\lineht@=\dimen148
+\@envbody=\toks21
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks23
+\thm@bodyfont=\toks24
+\thm@headfont=\toks25
+\thm@notefont=\toks26
+\thm@headpunct=\toks27
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
+\dth@everypar=\toks28
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/braket/braket.sty) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks29
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: luatex.def on input line 107.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks30
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count272
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count273
+)
+\@linkdim=\dimen151
+\Hy@linkcounter=\count274
+\Hy@pagecounter=\count275
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count276
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count277
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen152
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count278
+\Field@Width=\dimen153
+\Fld@charsize=\dimen154
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count279
+\c@Item=\count280
+\c@Hfootnote=\count281
+)
+Package hyperref Info: Driver (autodetected): hluatex.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2024-01-20 v7.01h Hyperref driver for luaTeX
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count282
+\c@bookmark@seq@number=\count283
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip56
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: luatex.def on input line 149.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks31
+\verbatim@line=\toks32
+\verbatim@in@stream=\read2
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/sidecap/sidecap.sty
+Package: sidecap 2023/01/24 v1.7a SideCap Package (RN/HjG)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\SC@BOXWD=\dimen155
+\SC@CAPWD=\dimen156
+\SC@tempdima=\dimen157
+\SC@tempdimb=\dimen158
+\c@SC@C=\count284
+\SC@BOX=\box53
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 112.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks33
+\inpenc@posthook=\toks34
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/preprint/authblk.sty
+Package: authblk 2001/02/27 1.3 (PWD)
+\affilsep=\skip57
+\@affilsep=\skip58
+\c@Maxaffil=\count285
+\c@authors=\count286
+\c@affil=\count287
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count288
+\Gm@cntv=\count289
+\c@Gm@tempcnt=\count290
+\Gm@bindingoffset=\dimen159
+\Gm@wd@mp=\dimen160
+\Gm@odd@mp=\dimen161
+\Gm@even@mp=\dimen162
+\Gm@layoutwidth=\dimen163
+\Gm@layoutheight=\dimen164
+\Gm@layouthoffset=\dimen165
+\Gm@layoutvoffset=\dimen166
+\Gm@dimlist=\toks35
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has section divisions on input line 50.
+
+
+Package tocbibind Note: Using section or other style headings.
+
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count291
+\float@exts=\toks36
+\float@box=\box54
+\@float@everytoks=\toks37
+\@floatcapt=\box55
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2024-02-20 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count292
+Inserting `l3color' in `luaotfload.parse_color'.
+\l__pdf_internal_box=\box56
+) (./AnyonsPEPS.aux
+
+LaTeX Warning: Label `StringnetMPO' multiply defined.
+
+)
+\openout1 = AnyonsPEPS.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 43.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+ (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count293
+\scratchdimen=\dimen167
+\scratchbox=\box57
+\nofMPsegments=\count294
+\nofMParguments=\count295
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen168
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
+\everyMPtoPDFconversion=\toks39
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package hyperref Info: Link coloring OFF on input line 43.
+ (./AnyonsPEPS.out) (./AnyonsPEPS.out)
+\@outlinefile=\write3
+
+\openout3 = AnyonsPEPS.out
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip59
+\RaggedLeftLeftskip=\skip60
+\RaggedRightLeftskip=\skip61
+\CenteringRightskip=\skip62
+\RaggedLeftRightskip=\skip63
+\RaggedRightRightskip=\skip64
+\CenteringParfillskip=\skip65
+\RaggedLeftParfillskip=\skip66
+\RaggedRightParfillskip=\skip67
+\JustifyingParfillskip=\skip68
+\CenteringParindent=\skip69
+\RaggedLeftParindent=\skip70
+\RaggedRightParindent=\skip71
+\JustifyingParindent=\skip72
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(81.94394pt, 433.62pt, 81.94394pt)
+* v-part:(T,H,B)=(77.84674pt, 650.43pt, 116.77011pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=433.62pt
+* \textheight=650.43pt
+* \oddsidemargin=9.67395pt
+* \evensidemargin=9.67395pt
+* \topmargin=-31.42325pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 44.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+Overfull \hbox (3.81999pt too wide) in paragraph at lines 47--48
+\T1/lmr/m/n/10.95 pair states pro-vide a nat-u-ral frame-work for rep-re-sent-ing ground states of gapped,
+ []
+
+[1
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+Missing character: There is no Ş (U+015E) in font ec-lmr12!
+Missing character: There is no ğ (U+011F) in font ec-lmr12!
+] (./AnyonsPEPS.toc [2])
+\tf@toc=\write4
+
+\openout4 = AnyonsPEPS.toc
+ [3] [4]
+<algebra1.pdf, id=321, 202.7575pt x 202.7575pt>
+File: algebra1.pdf Graphic file (type pdf)
+<use algebra1.pdf>
+Package luatex.def Info: algebra1.pdf  used on input line 71.
+(luatex.def)             Requested size: 65.04034pt x 65.0415pt.
+File: algebra1.pdf Graphic file (type pdf)
+<use algebra1.pdf>
+Package luatex.def Info: algebra1.pdf  used on input line 71.
+(luatex.def)             Requested size: 65.04034pt x 65.0415pt.
+<overviewzipper.pdf, id=325, 307.1475pt x 114.4275pt>
+File: overviewzipper.pdf Graphic file (type pdf)
+<use overviewzipper.pdf>
+Package luatex.def Info: overviewzipper.pdf  used on input line 79.
+(luatex.def)             Requested size: 151.76964pt x 56.54138pt.
+File: overviewzipper.pdf Graphic file (type pdf)
+<use overviewzipper.pdf>
+Package luatex.def Info: overviewzipper.pdf  used on input line 79.
+(luatex.def)             Requested size: 151.76964pt x 56.54138pt.
+<algebra2.pdf, id=326, 202.7575pt x 202.7575pt>
+File: algebra2.pdf Graphic file (type pdf)
+<use algebra2.pdf>
+Package luatex.def Info: algebra2.pdf  used on input line 85.
+(luatex.def)             Requested size: 65.04034pt x 65.0415pt.
+File: algebra2.pdf Graphic file (type pdf)
+<use algebra2.pdf>
+Package luatex.def Info: algebra2.pdf  used on input line 85.
+(luatex.def)             Requested size: 65.04034pt x 65.0415pt.
+ [5<./algebra1.pdf><./overviewzipper.pdf><./algebra2.pdf>]
+<overviewspin2.pdf, id=367, 278.09998pt x 291.06642pt>
+File: overviewspin2.pdf Graphic file (type pdf)
+<use overviewspin2.pdf>
+Package luatex.def Info: overviewspin2.pdf  used on input line 92.
+(luatex.def)             Requested size: 78.04842pt x 81.68901pt.
+<overviewspin1.pdf, id=368, 202.7575pt x 202.7575pt>
+File: overviewspin1.pdf Graphic file (type pdf)
+<use overviewspin1.pdf>
+Package luatex.def Info: overviewspin1.pdf  used on input line 92.
+(luatex.def)             Requested size: 56.37271pt x 56.3726pt.
+File: overviewspin2.pdf Graphic file (type pdf)
+<use overviewspin2.pdf>
+Package luatex.def Info: overviewspin2.pdf  used on input line 92.
+(luatex.def)             Requested size: 78.04842pt x 81.68901pt.
+File: overviewspin1.pdf Graphic file (type pdf)
+<use overviewspin1.pdf>
+Package luatex.def Info: overviewspin1.pdf  used on input line 92.
+(luatex.def)             Requested size: 56.37271pt x 56.3726pt.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 95.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+<toriccode1.pdf, id=372, 334.59003pt x 82.3075pt>
+File: toriccode1.pdf Graphic file (type pdf)
+<use toriccode1.pdf>
+Package luatex.def Info: toriccode1.pdf  used on input line 99.
+(luatex.def)             Requested size: 151.76964pt x 37.33566pt.
+File: toriccode1.pdf Graphic file (type pdf)
+<use toriccode1.pdf>
+Package luatex.def Info: toriccode1.pdf  used on input line 99.
+(luatex.def)             Requested size: 151.76964pt x 37.33566pt.
+<toriccodefusion.pdf, id=373, 433.71635pt x 80.39737pt>
+File: toriccodefusion.pdf Graphic file (type pdf)
+<use toriccodefusion.pdf>
+Package luatex.def Info: toriccodefusion.pdf  used on input line 104.
+(luatex.def)             Requested size: 216.81pt x 40.18999pt.
+File: toriccodefusion.pdf Graphic file (type pdf)
+<use toriccodefusion.pdf>
+Package luatex.def Info: toriccodefusion.pdf  used on input line 104.
+(luatex.def)             Requested size: 216.81pt x 40.18999pt.
+<toriccodebasis.pdf, id=376, 486.2165pt x 128.8815pt>
+File: toriccodebasis.pdf Graphic file (type pdf)
+<use toriccodebasis.pdf>
+Package luatex.def Info: toriccodebasis.pdf  used on input line 111.
+(luatex.def)             Requested size: 238.49231pt x 63.21738pt.
+File: toriccodebasis.pdf Graphic file (type pdf)
+<use toriccodebasis.pdf>
+Package luatex.def Info: toriccodebasis.pdf  used on input line 111.
+(luatex.def)             Requested size: 238.49231pt x 63.21738pt.
+ [6<./overviewspin2.pdf><./overviewspin1.pdf><./toriccode1.pdf><./toriccodefusion.pdf>]
+<toriccodeidempotents.pdf, id=426, 273.823pt x 265.92148pt>
+File: toriccodeidempotents.pdf Graphic file (type pdf)
+<use toriccodeidempotents.pdf>
+Package luatex.def Info: toriccodeidempotents.pdf  used on input line 118.
+(luatex.def)             Requested size: 151.76964pt x 147.39339pt.
+File: toriccodeidempotents.pdf Graphic file (type pdf)
+<use toriccodeidempotents.pdf>
+Package luatex.def Info: toriccodeidempotents.pdf  used on input line 118.
+(luatex.def)             Requested size: 151.76964pt x 147.39339pt.
+ [7<./toriccodebasis.pdf><./toriccodeidempotents.pdf>] [8]
+<n4.pdf, id=480, 97.8039pt x 97.2152pt>
+File: n4.pdf Graphic file (type pdf)
+<use n4.pdf>
+Package luatex.def Info: n4.pdf  used on input line 173.
+(luatex.def)             Requested size: 43.36464pt x 43.10413pt.
+<n5.pdf, id=481, 97.8039pt x 97.31155pt>
+File: n5.pdf Graphic file (type pdf)
+<use n5.pdf>
+Package luatex.def Info: n5.pdf  used on input line 174.
+(luatex.def)             Requested size: 43.36464pt x 43.14684pt.
+<n7.pdf, id=482, 291.2443pt x 177.21407pt>
+File: n7.pdf Graphic file (type pdf)
+<use n7.pdf>
+Package luatex.def Info: n7.pdf  used on input line 175.
+(luatex.def)             Requested size: 138.76157pt x 84.43443pt.
+
+Overfull \hbox (17.2762pt too wide) in paragraph at lines 183--184
+[]\T1/lmr/m/n/12 Sec-ondly, there can be nonzero blocks above the di-ag-o-nal, i.e. $\OML/cmm/m/it/12 X[] [] [] 
+ []
+
+
+Overfull \vbox (2.09337pt too high) has occurred while \output is active []
+
+ [9] [10
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.1'
+<./n4.pdf><./n5.pdf><./n7.pdf>] [11] [12]
+<pentagon1.pdf, id=564, 335.5727pt x 131.16202pt>
+File: pentagon1.pdf Graphic file (type pdf)
+<use pentagon1.pdf>
+Package luatex.def Info: pentagon1.pdf  used on input line 260.
+(luatex.def)             Requested size: 138.76157pt x 54.23708pt.
+<pentagon2.pdf, id=565, 347.61769pt x 120.12077pt>
+File: pentagon2.pdf Graphic file (type pdf)
+<use pentagon2.pdf>
+Package luatex.def Info: pentagon2.pdf  used on input line 260.
+(luatex.def)             Requested size: 151.76964pt x 52.44455pt.
+File: pentagon1.pdf Graphic file (type pdf)
+<use pentagon1.pdf>
+Package luatex.def Info: pentagon1.pdf  used on input line 260.
+(luatex.def)             Requested size: 138.76157pt x 54.23708pt.
+File: pentagon2.pdf Graphic file (type pdf)
+<use pentagon2.pdf>
+Package luatex.def Info: pentagon2.pdf  used on input line 260.
+(luatex.def)             Requested size: 151.76964pt x 52.44455pt.
+<pentagon3.pdf, id=566, 201.75375pt x 127.14702pt>
+File: pentagon3.pdf Graphic file (type pdf)
+<use pentagon3.pdf>
+Package luatex.def Info: pentagon3.pdf  used on input line 268.
+(luatex.def)             Requested size: 86.72267pt x 54.65274pt.
+<pentagon4.pdf, id=567, 462.72874pt x 124.13577pt>
+File: pentagon4.pdf Graphic file (type pdf)
+<use pentagon4.pdf>
+Package luatex.def Info: pentagon4.pdf  used on input line 268.
+(luatex.def)             Requested size: 182.1196pt x 48.85786pt.
+File: pentagon3.pdf Graphic file (type pdf)
+<use pentagon3.pdf>
+Package luatex.def Info: pentagon3.pdf  used on input line 268.
+(luatex.def)             Requested size: 86.72267pt x 54.65274pt.
+File: pentagon4.pdf Graphic file (type pdf)
+<use pentagon4.pdf>
+Package luatex.def Info: pentagon4.pdf  used on input line 268.
+(luatex.def)             Requested size: 182.1196pt x 48.85786pt.
+<pentagon5.pdf, id=569, 227.71776pt x 127.14702pt>
+File: pentagon5.pdf Graphic file (type pdf)
+<use pentagon5.pdf>
+Package luatex.def Info: pentagon5.pdf  used on input line 276.
+(luatex.def)             Requested size: 99.73074pt x 55.68488pt.
+<pentagon6.pdf, id=570, 490.83376pt x 128.15077pt>
+File: pentagon6.pdf Graphic file (type pdf)
+<use pentagon6.pdf>
+Package luatex.def Info: pentagon6.pdf  used on input line 276.
+(luatex.def)             Requested size: 203.80193pt x 53.20894pt.
+File: pentagon5.pdf Graphic file (type pdf)
+<use pentagon5.pdf>
+Package luatex.def Info: pentagon5.pdf  used on input line 276.
+(luatex.def)             Requested size: 99.73074pt x 55.68488pt.
+File: pentagon6.pdf Graphic file (type pdf)
+<use pentagon6.pdf>
+Package luatex.def Info: pentagon6.pdf  used on input line 276.
+(luatex.def)             Requested size: 203.80193pt x 53.20894pt.
+<n11.pdf, id=571, 480.09865pt x 257.98885pt>
+File: n11.pdf Graphic file (type pdf)
+<use n11.pdf>
+Package luatex.def Info: n11.pdf  used on input line 287.
+(luatex.def)             Requested size: 164.77771pt x 88.54565pt.
+<n10.pdf, id=572, 186.6975pt x 680.5425pt>
+File: n10.pdf Graphic file (type pdf)
+<use n10.pdf>
+Package luatex.def Info: n10.pdf  used on input line 288.
+(luatex.def)             Requested size: 23.84592pt x 86.91599pt.
+<n12.pdf, id=573, 468.05385pt x 257.98885pt>
+File: n12.pdf Graphic file (type pdf)
+<use n12.pdf>
+Package luatex.def Info: n12.pdf  used on input line 289.
+(luatex.def)             Requested size: 164.77771pt x 90.82494pt.
+<n13.pdf, id=574, 307.66243pt x 239.24281pt>
+File: n13.pdf Graphic file (type pdf)
+<use n13.pdf>
+Package luatex.def Info: n13.pdf  used on input line 295.
+(luatex.def)             Requested size: 151.76964pt x 118.01851pt.
+ [13<./pentagon1.pdf><./pentagon2.pdf><./pentagon3.pdf><./pentagon4.pdf><./pentagon5.pdf><./pentagon6.pdf>] [14
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.2'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.3'
+<./n11.pdf><./n10.pdf><./n12.pdf><./n13.pdf>]
+<z1.pdf, id=713, 157.04572pt x 47.81163pt>
+File: z1.pdf Graphic file (type pdf)
+<use z1.pdf>
+Package luatex.def Info: z1.pdf  used on input line 319.
+(luatex.def)             Requested size: 78.04842pt x 23.76202pt.
+<z2.pdf, id=714, 178.95457pt x 50.1875pt>
+File: z2.pdf Graphic file (type pdf)
+<use z2.pdf>
+Package luatex.def Info: z2.pdf  used on input line 319.
+(luatex.def)             Requested size: 86.72267pt x 24.32098pt.
+File: z1.pdf Graphic file (type pdf)
+<use z1.pdf>
+Package luatex.def Info: z1.pdf  used on input line 319.
+(luatex.def)             Requested size: 78.04842pt x 23.76202pt.
+File: z2.pdf Graphic file (type pdf)
+<use z2.pdf>
+Package luatex.def Info: z2.pdf  used on input line 319.
+(luatex.def)             Requested size: 86.72267pt x 24.32098pt.
+<z3.pdf, id=715, 189.87437pt x 50.1875pt>
+File: z3.pdf Graphic file (type pdf)
+<use z3.pdf>
+Package luatex.def Info: z3.pdf  used on input line 325.
+(luatex.def)             Requested size: 95.39693pt x 25.21544pt.
+<z4.pdf, id=716, 199.63283pt x 47.81163pt>
+File: z4.pdf Graphic file (type pdf)
+<use z4.pdf>
+Package luatex.def Info: z4.pdf  used on input line 325.
+(luatex.def)             Requested size: 95.39693pt x 22.8479pt.
+File: z3.pdf Graphic file (type pdf)
+<use z3.pdf>
+Package luatex.def Info: z3.pdf  used on input line 325.
+(luatex.def)             Requested size: 95.39693pt x 25.21544pt.
+File: z4.pdf Graphic file (type pdf)
+<use z4.pdf>
+Package luatex.def Info: z4.pdf  used on input line 325.
+(luatex.def)             Requested size: 95.39693pt x 22.8479pt.
+<z5.pdf, id=717, 266.9975pt x 51.82663pt>
+File: z5.pdf Graphic file (type pdf)
+<use z5.pdf>
+Package luatex.def Info: z5.pdf  used on input line 330.
+(luatex.def)             Requested size: 130.08731pt x 25.25212pt.
+File: z5.pdf Graphic file (type pdf)
+<use z5.pdf>
+Package luatex.def Info: z5.pdf  used on input line 330.
+(luatex.def)             Requested size: 130.08731pt x 25.25212pt.
+<zipper.pdf, id=719, 460.07433pt x 173.19907pt>
+File: zipper.pdf Graphic file (type pdf)
+<use zipper.pdf>
+Package luatex.def Info: zipper.pdf  used on input line 336.
+(luatex.def)             Requested size: 186.45341pt x 70.1928pt.
+File: zipper.pdf Graphic file (type pdf)
+<use zipper.pdf>
+Package luatex.def Info: zipper.pdf  used on input line 336.
+(luatex.def)             Requested size: 186.45341pt x 70.1928pt.
+<zipper2.pdf, id=720, 449.40622pt x 173.19907pt>
+File: zipper2.pdf Graphic file (type pdf)
+<use zipper2.pdf>
+Package luatex.def Info: zipper2.pdf  used on input line 340.
+(luatex.def)             Requested size: 186.45341pt x 71.86041pt.
+File: zipper2.pdf Graphic file (type pdf)
+<use zipper2.pdf>
+Package luatex.def Info: zipper2.pdf  used on input line 340.
+(luatex.def)             Requested size: 186.45341pt x 71.86041pt.
+ [15<./z1.pdf><./z2.pdf><./z3.pdf><./z4.pdf><./z5.pdf><./zipper.pdf>]
+<n24.pdf, id=815, 436.07417pt x 178.82208pt>
+File: n24.pdf Graphic file (type pdf)
+<use n24.pdf>
+Package luatex.def Info: n24.pdf  used on input line 348.
+(luatex.def)             Requested size: 203.80193pt x 83.57434pt.
+File: n24.pdf Graphic file (type pdf)
+<use n24.pdf>
+Package luatex.def Info: n24.pdf  used on input line 348.
+(luatex.def)             Requested size: 203.80193pt x 83.57434pt.
+<n15.pdf, id=822, 406.79478pt x 115.03879pt>
+File: n15.pdf Graphic file (type pdf)
+<use n15.pdf>
+Package luatex.def Info: n15.pdf  used on input line 360.
+(luatex.def)             Requested size: 229.81805pt x 64.99176pt.
+File: n15.pdf Graphic file (type pdf)
+<use n15.pdf>
+Package luatex.def Info: n15.pdf  used on input line 360.
+(luatex.def)             Requested size: 229.81805pt x 64.99176pt.
+ [16<./zipper2.pdf><./n24.pdf><./n15.pdf>]
+<righthanded.pdf, id=877, 251.21654pt x 116.68594pt>
+File: righthanded.pdf Graphic file (type pdf)
+<use righthanded.pdf>
+Package luatex.def Info: righthanded.pdf  used on input line 372.
+(luatex.def)             Requested size: 108.405pt x 50.352pt.
+File: righthanded.pdf Graphic file (type pdf)
+<use righthanded.pdf>
+Package luatex.def Info: righthanded.pdf  used on input line 372.
+(luatex.def)             Requested size: 108.405pt x 50.352pt.
+<lefthanded.pdf, id=878, 244.38803pt x 116.68594pt>
+File: lefthanded.pdf Graphic file (type pdf)
+<use lefthanded.pdf>
+Package luatex.def Info: lefthanded.pdf  used on input line 377.
+(luatex.def)             Requested size: 108.405pt x 51.75859pt.
+File: lefthanded.pdf Graphic file (type pdf)
+<use lefthanded.pdf>
+Package luatex.def Info: lefthanded.pdf  used on input line 377.
+(luatex.def)             Requested size: 108.405pt x 51.75859pt.
+<rightleft1.pdf, id=880, 317.57898pt x 82.31052pt>
+File: rightleft1.pdf Graphic file (type pdf)
+<use rightleft1.pdf>
+Package luatex.def Info: rightleft1.pdf  used on input line 388.
+(luatex.def)             Requested size: 151.76964pt x 39.33527pt.
+<rightleft2.pdf, id=881, 317.57898pt x 86.3225pt>
+File: rightleft2.pdf Graphic file (type pdf)
+<use rightleft2.pdf>
+Package luatex.def Info: rightleft2.pdf  used on input line 388.
+(luatex.def)             Requested size: 151.76964pt x 41.25255pt.
+File: rightleft1.pdf Graphic file (type pdf)
+<use rightleft1.pdf>
+Package luatex.def Info: rightleft1.pdf  used on input line 388.
+(luatex.def)             Requested size: 151.76964pt x 39.33527pt.
+File: rightleft2.pdf Graphic file (type pdf)
+<use rightleft2.pdf>
+Package luatex.def Info: rightleft2.pdf  used on input line 388.
+(luatex.def)             Requested size: 151.76964pt x 41.25255pt.
+ [17<./righthanded.pdf><./lefthanded.pdf><./rightleft1.pdf><./rightleft2.pdf>]
+<PEPSlattice.pdf, id=956, 194.7275pt x 194.7275pt>
+File: PEPSlattice.pdf Graphic file (type pdf)
+<use PEPSlattice.pdf>
+Package luatex.def Info: PEPSlattice.pdf  used on input line 401.
+(luatex.def)             Requested size: 91.0631pt x 91.06137pt.
+<PEPStensor.pdf, id=957, 186.1073pt x 109.43886pt>
+File: PEPStensor.pdf Graphic file (type pdf)
+<use PEPStensor.pdf>
+Package luatex.def Info: PEPStensor.pdf  used on input line 402.
+(luatex.def)             Requested size: 95.39693pt x 56.09862pt.
+<n18.pdf, id=958, 314.17375pt x 207.92279pt>
+File: n18.pdf Graphic file (type pdf)
+<use n18.pdf>
+Package luatex.def Info: n18.pdf  used on input line 411.
+(luatex.def)             Requested size: 169.11153pt x 111.91812pt.
+File: n18.pdf Graphic file (type pdf)
+<use n18.pdf>
+Package luatex.def Info: n18.pdf  used on input line 411.
+(luatex.def)             Requested size: 169.11153pt x 111.91812pt.
+ [18
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.4'
+<./PEPSlattice.pdf><./PEPStensor.pdf>]
+<n22.pdf, id=982, 591.20876pt x 224.51077pt>
+File: n22.pdf Graphic file (type pdf)
+<use n22.pdf>
+Package luatex.def Info: n22.pdf  used on input line 418.
+(luatex.def)             Requested size: 294.85841pt x 111.97418pt.
+File: n22.pdf Graphic file (type pdf)
+<use n22.pdf>
+Package luatex.def Info: n22.pdf  used on input line 418.
+(luatex.def)             Requested size: 294.85841pt x 111.97418pt.
+ [19<./n18.pdf><./n22.pdf>]
+<n9.pdf, id=1026, 281.9574pt x 145.17938pt>
+File: n9.pdf Graphic file (type pdf)
+<use n9.pdf>
+Package luatex.def Info: n9.pdf  used on input line 435.
+(luatex.def)             Requested size: 143.09538pt x 73.67941pt.
+<n14.pdf, id=1027, 467.7475pt x 207.91978pt>
+File: n14.pdf Graphic file (type pdf)
+<use n14.pdf>
+Package luatex.def Info: n14.pdf  used on input line 444.
+(luatex.def)             Requested size: 229.81805pt x 102.1576pt.
+File: n14.pdf Graphic file (type pdf)
+<use n14.pdf>
+Package luatex.def Info: n14.pdf  used on input line 444.
+(luatex.def)             Requested size: 229.81805pt x 102.1576pt.
+<n16.pdf, id=1028, 536.0025pt x 154.5775pt>
+File: n16.pdf Graphic file (type pdf)
+<use n16.pdf>
+Package luatex.def Info: n16.pdf  used on input line 449.
+(luatex.def)             Requested size: 229.81805pt x 66.27597pt.
+File: n16.pdf Graphic file (type pdf)
+<use n16.pdf>
+Package luatex.def Info: n16.pdf  used on input line 449.
+(luatex.def)             Requested size: 229.81805pt x 66.27597pt.
+ [20
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.5'
+<./n9.pdf><./n14.pdf><./n16.pdf>] [21]
+<annulus.pdf, id=1089, 242.9075pt x 246.9225pt>
+File: annulus.pdf Graphic file (type pdf)
+<use annulus.pdf>
+Package luatex.def Info: annulus.pdf  used on input line 482.
+(luatex.def)             Requested size: 104.07117pt x 105.79028pt.
+File: annulus.pdf Graphic file (type pdf)
+<use annulus.pdf>
+Package luatex.def Info: annulus.pdf  used on input line 482.
+(luatex.def)             Requested size: 104.07117pt x 105.79028pt.
+<reduction.pdf, id=1092, 676.13704pt x 262.97949pt>
+File: reduction.pdf Graphic file (type pdf)
+<use reduction.pdf>
+Package luatex.def Info: reduction.pdf  used on input line 487.
+(luatex.def)             Requested size: 303.53267pt x 118.05878pt.
+File: reduction.pdf Graphic file (type pdf)
+<use reduction.pdf>
+Package luatex.def Info: reduction.pdf  used on input line 487.
+(luatex.def)             Requested size: 303.53267pt x 118.05878pt.
+<algebraobject.pdf, id=1093, 287.0725pt x 363.3575pt>
+File: algebraobject.pdf Graphic file (type pdf)
+<use algebraobject.pdf>
+Package luatex.def Info: algebraobject.pdf  used on input line 492.
+(luatex.def)             Requested size: 99.73074pt x 126.22893pt.
+File: algebraobject.pdf Graphic file (type pdf)
+<use algebraobject.pdf>
+Package luatex.def Info: algebraobject.pdf  used on input line 492.
+(luatex.def)             Requested size: 99.73074pt x 126.22893pt.
+ [22<./annulus.pdf><./reduction.pdf>]
+<idempotent.pdf, id=1129, 225.643pt x 455.7025pt>
+File: idempotent.pdf Graphic file (type pdf)
+<use idempotent.pdf>
+Package luatex.def Info: idempotent.pdf  used on input line 510.
+(luatex.def)             Requested size: 108.405pt x 218.9294pt.
+File: idempotent.pdf Graphic file (type pdf)
+<use idempotent.pdf>
+Package luatex.def Info: idempotent.pdf  used on input line 510.
+(luatex.def)             Requested size: 108.405pt x 218.9294pt.
+ [23<./algebraobject.pdf>]
+Overfull \hbox (0.17194pt too wide) in paragraph at lines 515--516
+\T1/lmr/m/n/12 Hav-ing iden-ti-fied the topo-log-i-cal sec-tors we would now like to con-struct MPO-injective
+ []
+
+[24<./idempotent.pdf>]
+<anyontensor.pdf, id=1171, 106.3964pt x 118.4425pt>
+File: anyontensor.pdf Graphic file (type pdf)
+<use anyontensor.pdf>
+Package luatex.def Info: anyontensor.pdf  used on input line 540.
+(luatex.def)             Requested size: 43.36464pt x 48.27437pt.
+File: anyontensor.pdf Graphic file (type pdf)
+<use anyontensor.pdf>
+Package luatex.def Info: anyontensor.pdf  used on input line 540.
+(luatex.def)             Requested size: 43.36464pt x 48.27437pt.
+<anyontensorsupport1.pdf, id=1172, 181.21321pt x 181.96883pt>
+File: anyontensorsupport1.pdf Graphic file (type pdf)
+<use anyontensorsupport1.pdf>
+Package luatex.def Info: anyontensorsupport1.pdf  used on input line 548.
+(luatex.def)             Requested size: 73.7146pt x 74.02182pt.
+<anyontensorsupport2.pdf, id=1173, 106.3964pt x 118.4425pt>
+File: anyontensorsupport2.pdf Graphic file (type pdf)
+<use anyontensorsupport2.pdf>
+Package luatex.def Info: anyontensorsupport2.pdf  used on input line 548.
+(luatex.def)             Requested size: 43.36464pt x 48.27437pt.
+File: anyontensorsupport1.pdf Graphic file (type pdf)
+<use anyontensorsupport1.pdf>
+Package luatex.def Info: anyontensorsupport1.pdf  used on input line 548.
+(luatex.def)             Requested size: 73.7146pt x 74.02182pt.
+File: anyontensorsupport2.pdf Graphic file (type pdf)
+<use anyontensorsupport2.pdf>
+Package luatex.def Info: anyontensorsupport2.pdf  used on input line 548.
+(luatex.def)             Requested size: 43.36464pt x 48.27437pt.
+ [25<./anyontensor.pdf><./anyontensorsupport1.pdf><./anyontensorsupport2.pdf>]
+<anyonpair.pdf, id=1208, 275.0275pt x 275.0275pt>
+File: anyonpair.pdf Graphic file (type pdf)
+<use anyonpair.pdf>
+Package luatex.def Info: anyonpair.pdf  used on input line 555.
+(luatex.def)             Requested size: 104.07117pt x 104.07089pt.
+<vacuumpair1.pdf, id=1211, 361.54472pt x 124.99097pt>
+File: vacuumpair1.pdf Graphic file (type pdf)
+<use vacuumpair1.pdf>
+Package luatex.def Info: vacuumpair1.pdf  used on input line 565.
+(luatex.def)             Requested size: 143.09538pt x 49.47101pt.
+File: vacuumpair1.pdf Graphic file (type pdf)
+<use vacuumpair1.pdf>
+Package luatex.def Info: vacuumpair1.pdf  used on input line 565.
+(luatex.def)             Requested size: 143.09538pt x 49.47101pt.
+<vacuumpair2.pdf, id=1216, 460.7313pt x 141.03491pt>
+File: vacuumpair2.pdf Graphic file (type pdf)
+<use vacuumpair2.pdf>
+Package luatex.def Info: vacuumpair2.pdf  used on input line 571.
+(luatex.def)             Requested size: 208.13574pt x 63.7126pt.
+File: vacuumpair2.pdf Graphic file (type pdf)
+<use vacuumpair2.pdf>
+Package luatex.def Info: vacuumpair2.pdf  used on input line 571.
+(luatex.def)             Requested size: 208.13574pt x 63.7126pt.
+ [26
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.6'
+<./anyonpair.pdf><./vacuumpair1.pdf>]
+<nilpotent.pdf, id=1248, 185.97882pt x 150.5625pt>
+File: nilpotent.pdf Graphic file (type pdf)
+<use nilpotent.pdf>
+Package luatex.def Info: nilpotent.pdf  used on input line 582.
+(luatex.def)             Requested size: 73.7146pt x 59.67714pt.
+File: nilpotent.pdf Graphic file (type pdf)
+<use nilpotent.pdf>
+Package luatex.def Info: nilpotent.pdf  used on input line 582.
+(luatex.def)             Requested size: 73.7146pt x 59.67714pt.
+<vacuumpair3.pdf, id=1250, 334.17749pt x 124.68784pt>
+File: vacuumpair3.pdf Graphic file (type pdf)
+<use vacuumpair3.pdf>
+Package luatex.def Info: vacuumpair3.pdf  used on input line 588.
+(luatex.def)             Requested size: 151.76964pt x 56.6284pt.
+File: vacuumpair3.pdf Graphic file (type pdf)
+<use vacuumpair3.pdf>
+Package luatex.def Info: vacuumpair3.pdf  used on input line 588.
+(luatex.def)             Requested size: 151.76964pt x 56.6284pt.
+ [27<./vacuumpair2.pdf><./nilpotent.pdf><./vacuumpair3.pdf>] [28]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 632.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 632.
+
+<MES.pdf, id=1321, 376.64183pt x 237.26341pt>
+File: MES.pdf Graphic file (type pdf)
+<use MES.pdf>
+Package luatex.def Info: MES.pdf  used on input line 638.
+(luatex.def)             Requested size: 151.76964pt x 95.60602pt.
+[29] [30
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.7'
+<./MES.pdf>]
+<n33.pdf, id=1351, 299.1187pt x 311.6684pt>
+File: n33.pdf Graphic file (type pdf)
+<use n33.pdf>
+Package luatex.def Info: n33.pdf  used on input line 664.
+(luatex.def)             Requested size: 78.04842pt x 81.32196pt.
+File: n33.pdf Graphic file (type pdf)
+<use n33.pdf>
+Package luatex.def Info: n33.pdf  used on input line 664.
+(luatex.def)             Requested size: 78.04842pt x 81.32196pt.
+<n34.pdf, id=1353, 316.40207pt x 299.62038pt>
+File: n34.pdf Graphic file (type pdf)
+<use n34.pdf>
+Package luatex.def Info: n34.pdf  used on input line 670.
+(luatex.def)             Requested size: 69.38078pt x 65.69724pt.
+File: n34.pdf Graphic file (type pdf)
+<use n34.pdf>
+Package luatex.def Info: n34.pdf  used on input line 670.
+(luatex.def)             Requested size: 69.38078pt x 65.69724pt.
+<n35.pdf, id=1354, 312.6611pt x 295.60538pt>
+File: n35.pdf Graphic file (type pdf)
+<use n35.pdf>
+Package luatex.def Info: n35.pdf  used on input line 676.
+(luatex.def)             Requested size: 73.7146pt x 69.6928pt.
+File: n35.pdf Graphic file (type pdf)
+<use n35.pdf>
+Package luatex.def Info: n35.pdf  used on input line 676.
+(luatex.def)             Requested size: 73.7146pt x 69.6928pt.
+ [31<./n33.pdf><./n34.pdf><./n35.pdf>]
+File: anyonpair.pdf Graphic file (type pdf)
+<use anyonpair.pdf>
+Package luatex.def Info: anyonpair.pdf  used on input line 698.
+(luatex.def)             Requested size: 121.41115pt x 121.41306pt.
+<anyonpairsimplified.pdf, id=1395, 258.9675pt x 262.5268pt>
+File: anyonpairsimplified.pdf Graphic file (type pdf)
+<use anyonpairsimplified.pdf>
+Package luatex.def Info: anyonpairsimplified.pdf  used on input line 699.
+(luatex.def)             Requested size: 119.76663pt x 121.41306pt.
+ [32]
+<FusionIdempotents.pdf, id=1408, 358.38994pt x 241.49924pt>
+File: FusionIdempotents.pdf Graphic file (type pdf)
+<use FusionIdempotents.pdf>
+Package luatex.def Info: FusionIdempotents.pdf  used on input line 707.
+(luatex.def)             Requested size: 182.1196pt x 122.72446pt.
+ [33
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.8'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.9'
+<./anyonpairsimplified.pdf><./FusionIdempotents.pdf>]
+<pants1.pdf, id=1437, 143.24918pt x 168.98834pt>
+File: pants1.pdf Graphic file (type pdf)
+<use pants1.pdf>
+Package luatex.def Info: pants1.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+<pants2.pdf, id=1438, 143.24918pt x 168.98834pt>
+File: pants2.pdf Graphic file (type pdf)
+<use pants2.pdf>
+Package luatex.def Info: pants2.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+<pants3.pdf, id=1439, 143.24918pt x 168.98834pt>
+File: pants3.pdf Graphic file (type pdf)
+<use pants3.pdf>
+Package luatex.def Info: pants3.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+<pants4.pdf, id=1440, 143.24918pt x 168.98834pt>
+File: pants4.pdf Graphic file (type pdf)
+<use pants4.pdf>
+Package luatex.def Info: pants4.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+File: pants1.pdf Graphic file (type pdf)
+<use pants1.pdf>
+Package luatex.def Info: pants1.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+File: pants1.pdf Graphic file (type pdf)
+<use pants1.pdf>
+Package luatex.def Info: pants1.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+File: pants2.pdf Graphic file (type pdf)
+<use pants2.pdf>
+Package luatex.def Info: pants2.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+File: pants3.pdf Graphic file (type pdf)
+<use pants3.pdf>
+Package luatex.def Info: pants3.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+File: pants4.pdf Graphic file (type pdf)
+<use pants4.pdf>
+Package luatex.def Info: pants4.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+File: pants1.pdf Graphic file (type pdf)
+<use pants1.pdf>
+Package luatex.def Info: pants1.pdf  used on input line 731.
+(luatex.def)             Requested size: 73.7146pt x 86.96162pt.
+<DefinitionR_LHS.pdf, id=1444, 306.3445pt x 306.743pt>
+File: DefinitionR_LHS.pdf Graphic file (type pdf)
+<use DefinitionR_LHS.pdf>
+Package luatex.def Info: DefinitionR_LHS.pdf  used on input line 740.
+(luatex.def)             Requested size: 121.41306pt x 121.57169pt.
+<DefinitionR_RHS.pdf, id=1445, 306.3445pt x 306.743pt>
+File: DefinitionR_RHS.pdf Graphic file (type pdf)
+<use DefinitionR_RHS.pdf>
+Package luatex.def Info: DefinitionR_RHS.pdf  used on input line 740.
+(luatex.def)             Requested size: 121.41306pt x 121.57169pt.
+File: DefinitionR_LHS.pdf Graphic file (type pdf)
+<use DefinitionR_LHS.pdf>
+Package luatex.def Info: DefinitionR_LHS.pdf  used on input line 740.
+(luatex.def)             Requested size: 121.41306pt x 121.57169pt.
+File: DefinitionR_RHS.pdf Graphic file (type pdf)
+<use DefinitionR_RHS.pdf>
+Package luatex.def Info: DefinitionR_RHS.pdf  used on input line 740.
+(luatex.def)             Requested size: 121.41306pt x 121.57169pt.
+ [34<./pants1.pdf><./pants2.pdf><./pants3.pdf><./pants4.pdf>]
+<Rmatrix_LHS.pdf, id=1476, 322.4045pt x 388.5978pt>
+File: Rmatrix_LHS.pdf Graphic file (type pdf)
+<use Rmatrix_LHS.pdf>
+Package luatex.def Info: Rmatrix_LHS.pdf  used on input line 749.
+(luatex.def)             Requested size: 121.41306pt x 146.34047pt.
+<Rmatrix_RHS.pdf, id=1477, 322.4045pt x 388.5978pt>
+File: Rmatrix_RHS.pdf Graphic file (type pdf)
+<use Rmatrix_RHS.pdf>
+Package luatex.def Info: Rmatrix_RHS.pdf  used on input line 749.
+(luatex.def)             Requested size: 121.41306pt x 146.34047pt.
+File: Rmatrix_LHS.pdf Graphic file (type pdf)
+<use Rmatrix_LHS.pdf>
+Package luatex.def Info: Rmatrix_LHS.pdf  used on input line 749.
+(luatex.def)             Requested size: 121.41306pt x 146.34047pt.
+File: Rmatrix_RHS.pdf Graphic file (type pdf)
+<use Rmatrix_RHS.pdf>
+Package luatex.def Info: Rmatrix_RHS.pdf  used on input line 749.
+(luatex.def)             Requested size: 121.41306pt x 146.34047pt.
+<Rmatrix2_LHS.pdf, id=1479, 306.3445pt x 306.743pt>
+File: Rmatrix2_LHS.pdf Graphic file (type pdf)
+<use Rmatrix2_LHS.pdf>
+Package luatex.def Info: Rmatrix2_LHS.pdf  used on input line 756.
+(luatex.def)             Requested size: 121.41306pt x 121.57169pt.
+<Rmatrix2_RHS.pdf, id=1480, 290.2845pt x 306.743pt>
+File: Rmatrix2_RHS.pdf Graphic file (type pdf)
+<use Rmatrix2_RHS.pdf>
+Package luatex.def Info: Rmatrix2_RHS.pdf  used on input line 756.
+(luatex.def)             Requested size: 121.41306pt x 128.29759pt.
+File: Rmatrix2_LHS.pdf Graphic file (type pdf)
+<use Rmatrix2_LHS.pdf>
+Package luatex.def Info: Rmatrix2_LHS.pdf  used on input line 756.
+(luatex.def)             Requested size: 121.41306pt x 121.57169pt.
+File: Rmatrix2_RHS.pdf Graphic file (type pdf)
+<use Rmatrix2_RHS.pdf>
+Package luatex.def Info: Rmatrix2_RHS.pdf  used on input line 756.
+(luatex.def)             Requested size: 121.41306pt x 128.29759pt.
+<Aabcd.pdf, id=1482, 290.81448pt x 140.05725pt>
+File: Aabcd.pdf Graphic file (type pdf)
+<use Aabcd.pdf>
+Package luatex.def Info: Aabcd.pdf  used on input line 760.
+(luatex.def)             Requested size: 151.76964pt x 73.09303pt.
+ [35<./DefinitionR_LHS.pdf><./DefinitionR_RHS.pdf><./Rmatrix_LHS.pdf><./Rmatrix_RHS.pdf><./Rmatrix2_LHS.pdf><./Rmatrix2_RHS.pdf>]
+<FusionWithoutBraiding.pdf, id=1546, 322.4045pt x 229.29967pt>
+File: FusionWithoutBraiding.pdf Graphic file (type pdf)
+<use FusionWithoutBraiding.pdf>
+Package luatex.def Info: FusionWithoutBraiding.pdf  used on input line 770.
+(luatex.def)             Requested size: 130.08731pt x 92.52296pt.
+<FusionWithBraiding.pdf, id=1547, 322.4045pt x 229.0929pt>
+File: FusionWithBraiding.pdf Graphic file (type pdf)
+<use FusionWithBraiding.pdf>
+Package luatex.def Info: FusionWithBraiding.pdf  used on input line 771.
+(luatex.def)             Requested size: 130.08731pt x 92.43953pt.
+File: FusionWithBraiding.pdf Graphic file (type pdf)
+<use FusionWithBraiding.pdf>
+Package luatex.def Info: FusionWithBraiding.pdf  used on input line 783.
+(luatex.def)             Requested size: 130.08731pt x 92.43953pt.
+<FusionWithR.pdf, id=1552, 337.86224pt x 228.62314pt>
+File: FusionWithR.pdf Graphic file (type pdf)
+<use FusionWithR.pdf>
+Package luatex.def Info: FusionWithR.pdf  used on input line 783.
+(luatex.def)             Requested size: 130.08731pt x 88.0254pt.
+File: FusionWithBraiding.pdf Graphic file (type pdf)
+<use FusionWithBraiding.pdf>
+Package luatex.def Info: FusionWithBraiding.pdf  used on input line 783.
+(luatex.def)             Requested size: 130.08731pt x 92.43953pt.
+File: FusionWithR.pdf Graphic file (type pdf)
+<use FusionWithR.pdf>
+Package luatex.def Info: FusionWithR.pdf  used on input line 783.
+(luatex.def)             Requested size: 130.08731pt x 88.0254pt.
+ [36
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.10'
+<./Aabcd.pdf><./FusionWithoutBraiding.pdf><./FusionWithBraiding.pdf>]
+<FullBraid1.pdf, id=1591, 306.3445pt x 258.56902pt>
+File: FullBraid1.pdf Graphic file (type pdf)
+<use FullBraid1.pdf>
+Package luatex.def Info: FullBraid1.pdf  used on input line 789.
+(luatex.def)             Requested size: 118.16034pt x 99.73074pt.
+<FullBraid2.pdf, id=1592, 322.4045pt x 259.07089pt>
+File: FullBraid2.pdf Graphic file (type pdf)
+<use FullBraid2.pdf>
+Package luatex.def Info: FullBraid2.pdf  used on input line 790.
+(luatex.def)             Requested size: 124.1138pt x 99.73074pt.
+<FullBraid3.pdf, id=1593, 306.3445pt x 259.49146pt>
+File: FullBraid3.pdf Graphic file (type pdf)
+<use FullBraid3.pdf>
+Package luatex.def Info: FullBraid3.pdf  used on input line 791.
+(luatex.def)             Requested size: 117.73964pt x 99.73074pt.
+<FullBraid4.pdf, id=1594, 257.763pt x 243.26785pt>
+File: FullBraid4.pdf Graphic file (type pdf)
+<use FullBraid4.pdf>
+Package luatex.def Info: FullBraid4.pdf  used on input line 792.
+(luatex.def)             Requested size: 105.6717pt x 99.73074pt.
+<BraidSymm_LHS.pdf, id=1597, 595.4245pt x 323.75755pt>
+File: BraidSymm_LHS.pdf Graphic file (type pdf)
+<use BraidSymm_LHS.pdf>
+Package luatex.def Info: BraidSymm_LHS.pdf  used on input line 808.
+(luatex.def)             Requested size: 151.76964pt x 82.52002pt.
+<BraidSymm_RHS.pdf, id=1598, 595.4245pt x 227.15866pt>
+File: BraidSymm_RHS.pdf Graphic file (type pdf)
+<use BraidSymm_RHS.pdf>
+Package luatex.def Info: BraidSymm_RHS.pdf  used on input line 808.
+(luatex.def)             Requested size: 195.12767pt x 74.44266pt.
+File: BraidSymm_LHS.pdf Graphic file (type pdf)
+<use BraidSymm_LHS.pdf>
+Package luatex.def Info: BraidSymm_LHS.pdf  used on input line 808.
+(luatex.def)             Requested size: 151.76964pt x 82.52002pt.
+File: BraidSymm_RHS.pdf Graphic file (type pdf)
+<use BraidSymm_RHS.pdf>
+Package luatex.def Info: BraidSymm_RHS.pdf  used on input line 808.
+(luatex.def)             Requested size: 195.12767pt x 74.44266pt.
+ [37
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.11'
+<./FusionWithR.pdf><./FullBraid1.pdf><./FullBraid2.pdf><./FullBraid3.pdf><./FullBraid4.pdf>]
+<BraidFusionChannels1.pdf, id=1657, 467.7475pt x 226.8475pt>
+File: BraidFusionChannels1.pdf Graphic file (type pdf)
+<use BraidFusionChannels1.pdf>
+Package luatex.def Info: BraidFusionChannels1.pdf  used on input line 817.
+(luatex.def)             Requested size: 216.81pt x 105.1507pt.
+<BraidFusionChannels2.pdf, id=1658, 220.825pt x 388.45125pt>
+File: BraidFusionChannels2.pdf Graphic file (type pdf)
+<use BraidFusionChannels2.pdf>
+Package luatex.def Info: BraidFusionChannels2.pdf  used on input line 818.
+(luatex.def)             Requested size: 86.72267pt x 152.55043pt.
+ [38
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.12'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.13'
+<./BraidSymm_LHS.pdf><./BraidSymm_RHS.pdf><./BraidFusionChannels1.pdf><./BraidFusionChannels2.pdf>]
+<grouptensor1.pdf, id=1720, 98.3675pt x 74.2775pt>
+File: grouptensor1.pdf Graphic file (type pdf)
+<use grouptensor1.pdf>
+Package luatex.def Info: grouptensor1.pdf  used on input line 840.
+(luatex.def)             Requested size: 56.37271pt x 42.56642pt.
+<grouptensor2.pdf, id=1721, 406.5619pt x 187.50652pt>
+File: grouptensor2.pdf Graphic file (type pdf)
+<use grouptensor2.pdf>
+Package luatex.def Info: grouptensor2.pdf  used on input line 840.
+(luatex.def)             Requested size: 151.76964pt x 69.99718pt.
+File: grouptensor1.pdf Graphic file (type pdf)
+<use grouptensor1.pdf>
+Package luatex.def Info: grouptensor1.pdf  used on input line 840.
+(luatex.def)             Requested size: 56.37271pt x 42.56642pt.
+File: grouptensor2.pdf Graphic file (type pdf)
+<use grouptensor2.pdf>
+Package luatex.def Info: grouptensor2.pdf  used on input line 840.
+(luatex.def)             Requested size: 151.76964pt x 69.99718pt.
+
+Overfull \hbox (1.89877pt too wide) in paragraph at lines 840--842
+\T1/lmr/m/n/12 where the in-ter-nal MPO in-dices are the hor-i-zon-tal ones. All in-dices are $\OMS/cmsy/m/n/12 j\OT1/cmss/m/n/12 G\OMS/cmsy/m/n/12 j$\T1/lmr/m/n/12 -dimensional
+ []
+
+<groupfusiontensor1.pdf, id=1723, 111.83682pt x 97.38382pt>
+File: groupfusiontensor1.pdf Graphic file (type pdf)
+<use groupfusiontensor1.pdf>
+Package luatex.def Info: groupfusiontensor1.pdf  used on input line 857.
+(luatex.def)             Requested size: 65.04034pt x 56.6342pt.
+<groupfusiontensor2.pdf, id=1724, 317.14685pt x 148.65538pt>
+File: groupfusiontensor2.pdf Graphic file (type pdf)
+<use groupfusiontensor2.pdf>
+Package luatex.def Info: groupfusiontensor2.pdf  used on input line 857.
+(luatex.def)             Requested size: 160.43727pt x 75.20079pt.
+File: groupfusiontensor1.pdf Graphic file (type pdf)
+<use groupfusiontensor1.pdf>
+Package luatex.def Info: groupfusiontensor1.pdf  used on input line 857.
+(luatex.def)             Requested size: 65.04034pt x 56.6342pt.
+File: groupfusiontensor2.pdf Graphic file (type pdf)
+<use groupfusiontensor2.pdf>
+Package luatex.def Info: groupfusiontensor2.pdf  used on input line 857.
+(luatex.def)             Requested size: 160.43727pt x 75.20079pt.
+[39<./grouptensor1.pdf><./grouptensor2.pdf><./groupfusiontensor1.pdf><./groupfusiontensor2.pdf>]
+<TQDQ2.pdf, id=1795, 91.55806pt x 101.29243pt>
+File: TQDQ2.pdf Graphic file (type pdf)
+<use TQDQ2.pdf>
+Package luatex.def Info: TQDQ2.pdf  used on input line 876.
+(luatex.def)             Requested size: 43.36464pt x 47.9753pt.
+<TQDQ.pdf, id=1796, 191.93306pt x 129.39743pt>
+File: TQDQ.pdf Graphic file (type pdf)
+<use TQDQ.pdf>
+Package luatex.def Info: TQDQ.pdf  used on input line 876.
+(luatex.def)             Requested size: 108.405pt x 73.084pt.
+File: TQDQ2.pdf Graphic file (type pdf)
+<use TQDQ2.pdf>
+Package luatex.def Info: TQDQ2.pdf  used on input line 876.
+(luatex.def)             Requested size: 43.36464pt x 47.9753pt.
+File: TQDQ.pdf Graphic file (type pdf)
+<use TQDQ.pdf>
+Package luatex.def Info: TQDQ.pdf  used on input line 876.
+(luatex.def)             Requested size: 108.405pt x 73.084pt.
+ [40<./TQDQ2.pdf><./TQDQ.pdf>]
+<QDtensor1.pdf, id=1838, 201.64053pt x 128.03433pt>
+File: QDtensor1.pdf Graphic file (type pdf)
+<use QDtensor1.pdf>
+Package luatex.def Info: QDtensor1.pdf  used on input line 911.
+(luatex.def)             Requested size: 86.72267pt x 55.06735pt.
+<QDtensor2.pdf, id=1839, 201.97798pt x 123.1792pt>
+File: QDtensor2.pdf Graphic file (type pdf)
+<use QDtensor2.pdf>
+Package luatex.def Info: QDtensor2.pdf  used on input line 913.
+(luatex.def)             Requested size: 86.72267pt x 52.88895pt.
+<QDtensor3.pdf, id=1840, 227.66205pt x 175.1323pt>
+File: QDtensor3.pdf Graphic file (type pdf)
+<use QDtensor3.pdf>
+Package luatex.def Info: QDtensor3.pdf  used on input line 915.
+(luatex.def)             Requested size: 86.72267pt x 66.71396pt.
+ [41
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.14'
+<./QDtensor1.pdf><./QDtensor2.pdf><./QDtensor3.pdf>] [42]
+<groupfusion1.pdf, id=1926, 391.4625pt x 206.59183pt>
+File: groupfusion1.pdf Graphic file (type pdf)
+<use groupfusion1.pdf>
+Package luatex.def Info: groupfusion1.pdf  used on input line 981.
+(luatex.def)             Requested size: 117.07924pt x 61.78572pt.
+<groupfusion2.pdf, id=1927, 307.1475pt x 158.41182pt>
+File: groupfusion2.pdf Graphic file (type pdf)
+<use groupfusion2.pdf>
+Package luatex.def Info: groupfusion2.pdf  used on input line 981.
+(luatex.def)             Requested size: 108.405pt x 55.90906pt.
+File: groupfusion1.pdf Graphic file (type pdf)
+<use groupfusion1.pdf>
+Package luatex.def Info: groupfusion1.pdf  used on input line 981.
+(luatex.def)             Requested size: 117.07924pt x 61.78572pt.
+File: groupfusion2.pdf Graphic file (type pdf)
+<use groupfusion2.pdf>
+Package luatex.def Info: groupfusion2.pdf  used on input line 981.
+(luatex.def)             Requested size: 108.405pt x 55.90906pt.
+ [43<./groupfusion1.pdf><./groupfusion2.pdf>]
+<groupfusion3.pdf, id=1955, 307.1475pt x 198.56183pt>
+File: groupfusion3.pdf Graphic file (type pdf)
+<use groupfusion3.pdf>
+Package luatex.def Info: groupfusion3.pdf  used on input line 991.
+(luatex.def)             Requested size: 112.73882pt x 72.88197pt.
+<groupfusion4.pdf, id=1956, 307.1475pt x 154.39682pt>
+File: groupfusion4.pdf Graphic file (type pdf)
+<use groupfusion4.pdf>
+Package luatex.def Info: groupfusion4.pdf  used on input line 991.
+(luatex.def)             Requested size: 112.73882pt x 56.67122pt.
+File: groupfusion3.pdf Graphic file (type pdf)
+<use groupfusion3.pdf>
+Package luatex.def Info: groupfusion3.pdf  used on input line 991.
+(luatex.def)             Requested size: 112.73882pt x 72.88197pt.
+File: groupfusion4.pdf Graphic file (type pdf)
+<use groupfusion4.pdf>
+Package luatex.def Info: groupfusion4.pdf  used on input line 991.
+(luatex.def)             Requested size: 112.73882pt x 56.67122pt.
+ [44<./groupfusion3.pdf><./groupfusion4.pdf>]
+<StringNetMPO_LHS.pdf, id=1996, 149.45035pt x 130.4875pt>
+File: StringNetMPO_LHS.pdf Graphic file (type pdf)
+<use StringNetMPO_LHS.pdf>
+Package luatex.def Info: StringNetMPO_LHS.pdf  used on input line 1039.
+(luatex.def)             Requested size: 59.59435pt x 52.03227pt.
+<StringNetMPO_RHS.pdf, id=1997, 366.22421pt x 146.82253pt>
+File: StringNetMPO_RHS.pdf Graphic file (type pdf)
+<use StringNetMPO_RHS.pdf>
+Package luatex.def Info: StringNetMPO_RHS.pdf  used on input line 1039.
+(luatex.def)             Requested size: 162.22882pt x 65.04034pt.
+File: StringNetMPO_LHS.pdf Graphic file (type pdf)
+<use StringNetMPO_LHS.pdf>
+Package luatex.def Info: StringNetMPO_LHS.pdf  used on input line 1039.
+(luatex.def)             Requested size: 59.59435pt x 52.03227pt.
+File: StringNetMPO_RHS.pdf Graphic file (type pdf)
+<use StringNetMPO_RHS.pdf>
+Package luatex.def Info: StringNetMPO_RHS.pdf  used on input line 1039.
+(luatex.def)             Requested size: 162.22882pt x 65.04034pt.
+<StringNetFusion_LHS.pdf, id=1998, 134.95921pt x 125.71968pt>
+File: StringNetFusion_LHS.pdf Graphic file (type pdf)
+<use StringNetFusion_LHS.pdf>
+Package luatex.def Info: StringNetFusion_LHS.pdf  used on input line 1048.
+(luatex.def)             Requested size: 60.51485pt x 56.37271pt.
+<StringNetFusion_RHS.pdf, id=1999, 255.80971pt x 146.5475pt>
+File: StringNetFusion_RHS.pdf Graphic file (type pdf)
+<use StringNetFusion_RHS.pdf>
+Package luatex.def Info: StringNetFusion_RHS.pdf  used on input line 1048.
+(luatex.def)             Requested size: 121.10881pt x 69.38078pt.
+File: StringNetFusion_LHS.pdf Graphic file (type pdf)
+<use StringNetFusion_LHS.pdf>
+Package luatex.def Info: StringNetFusion_LHS.pdf  used on input line 1048.
+(luatex.def)             Requested size: 60.51485pt x 56.37271pt.
+File: StringNetFusion_RHS.pdf Graphic file (type pdf)
+<use StringNetFusion_RHS.pdf>
+Package luatex.def Info: StringNetFusion_RHS.pdf  used on input line 1048.
+(luatex.def)             Requested size: 121.10881pt x 69.38078pt.
+ [45<./StringNetMPO_LHS.pdf><./StringNetMPO_RHS.pdf>]
+<stringnetpivotal.pdf, id=2028, 400.71306pt x 203.44608pt>
+File: stringnetpivotal.pdf Graphic file (type pdf)
+<use stringnetpivotal.pdf>
+Package luatex.def Info: stringnetpivotal.pdf  used on input line 1053.
+(luatex.def)             Requested size: 187.89493pt x 95.39693pt.
+File: stringnetpivotal.pdf Graphic file (type pdf)
+<use stringnetpivotal.pdf>
+Package luatex.def Info: stringnetpivotal.pdf  used on input line 1053.
+(luatex.def)             Requested size: 187.89493pt x 95.39693pt.
+File: algebraobject.pdf Graphic file (type pdf)
+<use algebraobject.pdf>
+Package luatex.def Info: algebraobject.pdf  used on input line 1058.
+(luatex.def)             Requested size: 104.07117pt x 131.72342pt.
+ [46<./StringNetFusion_LHS.pdf><./StringNetFusion_RHS.pdf><./stringnetpivotal.pdf>] [47]
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1086
+
+ []
+
+[48]
+<triangle.pdf, id=2133, 518.93875pt x 119.79655pt>
+File: triangle.pdf Graphic file (type pdf)
+<use triangle.pdf>
+Package luatex.def Info: triangle.pdf  used on input line 1111.
+(luatex.def)             Requested size: 216.81pt x 50.05098pt.
+File: triangle.pdf Graphic file (type pdf)
+<use triangle.pdf>
+Package luatex.def Info: triangle.pdf  used on input line 1111.
+(luatex.def)             Requested size: 216.81pt x 50.05098pt.
+ [49<./triangle.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 1141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 1141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nu' on input line 1141.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1141.
+
+<multiplication1.pdf, id=2169, 264.17094pt x 355.87555pt>
+File: multiplication1.pdf Graphic file (type pdf)
+<use multiplication1.pdf>
+Package luatex.def Info: multiplication1.pdf  used on input line 1154.
+(luatex.def)             Requested size: 104.07117pt x 140.19733pt.
+File: multiplication1.pdf Graphic file (type pdf)
+<use multiplication1.pdf>
+Package luatex.def Info: multiplication1.pdf  used on input line 1154.
+(luatex.def)             Requested size: 104.07117pt x 140.19733pt.
+[50<./multiplication1.pdf>]
+<multiplication2.pdf, id=2194, 237.88875pt x 355.87555pt>
+File: multiplication2.pdf Graphic file (type pdf)
+<use multiplication2.pdf>
+Package luatex.def Info: multiplication2.pdf  used on input line 1160.
+(luatex.def)             Requested size: 104.07117pt x 155.68973pt.
+File: multiplication2.pdf Graphic file (type pdf)
+<use multiplication2.pdf>
+Package luatex.def Info: multiplication2.pdf  used on input line 1160.
+(luatex.def)             Requested size: 104.07117pt x 155.68973pt.
+<multiplication3.pdf, id=2195, 147.12265pt x 167.97656pt>
+File: multiplication3.pdf Graphic file (type pdf)
+<use multiplication3.pdf>
+Package luatex.def Info: multiplication3.pdf  used on input line 1167.
+(luatex.def)             Requested size: 73.7146pt x 84.16492pt.
+File: multiplication3.pdf Graphic file (type pdf)
+<use multiplication3.pdf>
+Package luatex.def Info: multiplication3.pdf  used on input line 1167.
+(luatex.def)             Requested size: 73.7146pt x 84.16492pt.
+File: algebraobject.pdf Graphic file (type pdf)
+<use algebraobject.pdf>
+Package luatex.def Info: algebraobject.pdf  used on input line 1174.
+(luatex.def)             Requested size: 117.07924pt x 148.19023pt.
+ [51<./multiplication2.pdf><./multiplication3.pdf>]
+<conjugation1.pdf, id=2227, 301.56766pt x 215.41177pt>
+File: conjugation1.pdf Graphic file (type pdf)
+<use conjugation1.pdf>
+Package luatex.def Info: conjugation1.pdf  used on input line 1187.
+(luatex.def)             Requested size: 130.08731pt x 92.92107pt.
+File: conjugation1.pdf Graphic file (type pdf)
+<use conjugation1.pdf>
+Package luatex.def Info: conjugation1.pdf  used on input line 1187.
+(luatex.def)             Requested size: 130.08731pt x 92.92107pt.
+<conjugation2.pdf, id=2228, 214.8025pt x 239.89626pt>
+File: conjugation2.pdf Graphic file (type pdf)
+<use conjugation2.pdf>
+Package luatex.def Info: conjugation2.pdf  used on input line 1192.
+(luatex.def)             Requested size: 99.73074pt x 111.38222pt.
+File: conjugation2.pdf Graphic file (type pdf)
+<use conjugation2.pdf>
+Package luatex.def Info: conjugation2.pdf  used on input line 1192.
+(luatex.def)             Requested size: 99.73074pt x 111.38222pt.
+<conjugation3.pdf, id=2230, 186.6975pt x 278.03876pt>
+File: conjugation3.pdf Graphic file (type pdf)
+<use conjugation3.pdf>
+Package luatex.def Info: conjugation3.pdf  used on input line 1197.
+(luatex.def)             Requested size: 86.72267pt x 129.15091pt.
+File: conjugation3.pdf Graphic file (type pdf)
+<use conjugation3.pdf>
+Package luatex.def Info: conjugation3.pdf  used on input line 1197.
+(luatex.def)             Requested size: 86.72267pt x 129.15091pt.
+ [52<./conjugation1.pdf><./conjugation2.pdf><./conjugation3.pdf>]
+Overfull \hbox (7.576pt too wide) in paragraph at lines 1227--1228
+\T1/lmr/m/n/12 can be cal-cu-lated as fol-lows. Find the small-est $\OML/cmm/m/it/12 q$ \T1/lmr/m/n/12 such that the ma-trix $\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 c\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 z[]\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 c\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 z\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 c\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[]\OT1/cmr/m/n/12 )]$
+ []
+
+[53] [54]
+File: StringNetMPO_RHS.pdf Graphic file (type pdf)
+<use StringNetMPO_RHS.pdf>
+Package luatex.def Info: StringNetMPO_RHS.pdf  used on input line 1266.
+(luatex.def)             Requested size: 151.76964pt x 60.84508pt.
+File: StringNetMPO_RHS.pdf Graphic file (type pdf)
+<use StringNetMPO_RHS.pdf>
+Package luatex.def Info: StringNetMPO_RHS.pdf  used on input line 1266.
+(luatex.def)             Requested size: 151.76964pt x 60.84508pt.
+File: StringNetFusion_RHS.pdf Graphic file (type pdf)
+<use StringNetFusion_RHS.pdf>
+Package luatex.def Info: StringNetFusion_RHS.pdf  used on input line 1277.
+(luatex.def)             Requested size: 130.08731pt x 74.52579pt.
+File: StringNetFusion_RHS.pdf Graphic file (type pdf)
+<use StringNetFusion_RHS.pdf>
+Package luatex.def Info: StringNetFusion_RHS.pdf  used on input line 1277.
+(luatex.def)             Requested size: 130.08731pt x 74.52579pt.
+ [55] [56]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1350.
+
+[57] [58]
+Overfull \hbox (63.32173pt too wide) in paragraph at lines 1401--1416
+ [] 
+ []
+
+[59]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1435.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\tau' on input line 1435.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1435.
+
+<tautauLHS.pdf, id=2333, 259.88292pt x 130.4875pt>
+File: tautauLHS.pdf Graphic file (type pdf)
+<use tautauLHS.pdf>
+Package luatex.def Info: tautauLHS.pdf  used on input line 1446.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+<tautauRHS1.pdf, id=2334, 259.88292pt x 130.4875pt>
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1446.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+<tautauRHS2.pdf, id=2335, 259.88292pt x 130.4875pt>
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1446.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauLHS.pdf Graphic file (type pdf)
+<use tautauLHS.pdf>
+Package luatex.def Info: tautauLHS.pdf  used on input line 1446.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1446.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1446.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+<tautauinvariantLHS.pdf, id=2336, 355.3275pt x 210.7875pt>
+File: tautauinvariantLHS.pdf Graphic file (type pdf)
+<use tautauinvariantLHS.pdf>
+Package luatex.def Info: tautauinvariantLHS.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+<tautauinvariantRHS211.pdf, id=2337, 355.3275pt x 210.7875pt>
+File: tautauinvariantRHS211.pdf Graphic file (type pdf)
+<use tautauinvariantRHS211.pdf>
+Package luatex.def Info: tautauinvariantRHS211.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+<tautauinvariantRHS212.pdf, id=2338, 355.3275pt x 210.7875pt>
+File: tautauinvariantRHS212.pdf Graphic file (type pdf)
+<use tautauinvariantRHS212.pdf>
+Package luatex.def Info: tautauinvariantRHS212.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+<tautauinvariantRHS221.pdf, id=2339, 355.3275pt x 210.7875pt>
+File: tautauinvariantRHS221.pdf Graphic file (type pdf)
+<use tautauinvariantRHS221.pdf>
+Package luatex.def Info: tautauinvariantRHS221.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+<tautauinvariantRHS222.pdf, id=2340, 355.3275pt x 210.7875pt>
+File: tautauinvariantRHS222.pdf Graphic file (type pdf)
+<use tautauinvariantRHS222.pdf>
+Package luatex.def Info: tautauinvariantRHS222.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauinvariantLHS.pdf Graphic file (type pdf)
+<use tautauinvariantLHS.pdf>
+Package luatex.def Info: tautauinvariantLHS.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauinvariantRHS211.pdf Graphic file (type pdf)
+<use tautauinvariantRHS211.pdf>
+Package luatex.def Info: tautauinvariantRHS211.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauinvariantRHS212.pdf Graphic file (type pdf)
+<use tautauinvariantRHS212.pdf>
+Package luatex.def Info: tautauinvariantRHS212.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauinvariantRHS221.pdf Graphic file (type pdf)
+<use tautauinvariantRHS221.pdf>
+Package luatex.def Info: tautauinvariantRHS221.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauinvariantRHS222.pdf Graphic file (type pdf)
+<use tautauinvariantRHS222.pdf>
+Package luatex.def Info: tautauinvariantRHS222.pdf  used on input line 1461.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauinvariantLHS.pdf Graphic file (type pdf)
+<use tautauinvariantLHS.pdf>
+Package luatex.def Info: tautauinvariantLHS.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+<tautauinvariantRHS31.pdf, id=2341, 258.9675pt x 142.87479pt>
+File: tautauinvariantRHS31.pdf Graphic file (type pdf)
+<use tautauinvariantRHS31.pdf>
+Package luatex.def Info: tautauinvariantRHS31.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+<tautauinvariantRHS32.pdf, id=2342, 258.9675pt x 142.87479pt>
+File: tautauinvariantRHS32.pdf Graphic file (type pdf)
+<use tautauinvariantRHS32.pdf>
+Package luatex.def Info: tautauinvariantRHS32.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+<tautauinvariantRHS33.pdf, id=2343, 258.9675pt x 142.87479pt>
+File: tautauinvariantRHS33.pdf Graphic file (type pdf)
+<use tautauinvariantRHS33.pdf>
+Package luatex.def Info: tautauinvariantRHS33.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+<tautauinvariantRHS34.pdf, id=2344, 258.9675pt x 138.4352pt>
+File: tautauinvariantRHS34.pdf Graphic file (type pdf)
+<use tautauinvariantRHS34.pdf>
+Package luatex.def Info: tautauinvariantRHS34.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+<tautauinvariantRHS35.pdf, id=2345, 258.9675pt x 138.4352pt>
+File: tautauinvariantRHS35.pdf Graphic file (type pdf)
+<use tautauinvariantRHS35.pdf>
+Package luatex.def Info: tautauinvariantRHS35.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+<tautauinvariantRHS36.pdf, id=2346, 258.9675pt x 138.43118pt>
+File: tautauinvariantRHS36.pdf Graphic file (type pdf)
+<use tautauinvariantRHS36.pdf>
+Package luatex.def Info: tautauinvariantRHS36.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.94847pt.
+<tautauinvariantRHS37.pdf, id=2347, 258.9675pt x 138.4352pt>
+File: tautauinvariantRHS37.pdf Graphic file (type pdf)
+<use tautauinvariantRHS37.pdf>
+Package luatex.def Info: tautauinvariantRHS37.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+File: tautauinvariantLHS.pdf Graphic file (type pdf)
+<use tautauinvariantLHS.pdf>
+Package luatex.def Info: tautauinvariantLHS.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauinvariantRHS31.pdf Graphic file (type pdf)
+<use tautauinvariantRHS31.pdf>
+Package luatex.def Info: tautauinvariantRHS31.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+File: tautauinvariantRHS32.pdf Graphic file (type pdf)
+<use tautauinvariantRHS32.pdf>
+Package luatex.def Info: tautauinvariantRHS32.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+File: tautauinvariantRHS33.pdf Graphic file (type pdf)
+<use tautauinvariantRHS33.pdf>
+Package luatex.def Info: tautauinvariantRHS33.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+File: tautauinvariantRHS34.pdf Graphic file (type pdf)
+<use tautauinvariantRHS34.pdf>
+Package luatex.def Info: tautauinvariantRHS34.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+File: tautauinvariantRHS35.pdf Graphic file (type pdf)
+<use tautauinvariantRHS35.pdf>
+Package luatex.def Info: tautauinvariantRHS35.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+File: tautauinvariantRHS36.pdf Graphic file (type pdf)
+<use tautauinvariantRHS36.pdf>
+Package luatex.def Info: tautauinvariantRHS36.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.94847pt.
+File: tautauinvariantRHS37.pdf Graphic file (type pdf)
+<use tautauinvariantRHS37.pdf>
+Package luatex.def Info: tautauinvariantRHS37.pdf  used on input line 1483.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+[60<./tautauLHS.pdf><./tautauRHS1.pdf><./tautauRHS2.pdf><./tautauinvariantLHS.pdf><./tautauinvariantRHS211.pdf><./tautauinvariantRHS212.pdf><./tautauinvariantRHS221.pdf><./tautauinvariantRHS222.pdf>]
+File: tautauinvariantLHS.pdf Graphic file (type pdf)
+<use tautauinvariantLHS.pdf>
+Package luatex.def Info: tautauinvariantLHS.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS33.pdf Graphic file (type pdf)
+<use tautauinvariantRHS33.pdf>
+Package luatex.def Info: tautauinvariantRHS33.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS37.pdf Graphic file (type pdf)
+<use tautauinvariantRHS37.pdf>
+Package luatex.def Info: tautauinvariantRHS37.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+File: tautauinvariantLHS.pdf Graphic file (type pdf)
+<use tautauinvariantLHS.pdf>
+Package luatex.def Info: tautauinvariantLHS.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 64.30779pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS33.pdf Graphic file (type pdf)
+<use tautauinvariantRHS33.pdf>
+Package luatex.def Info: tautauinvariantRHS33.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS37.pdf Graphic file (type pdf)
+<use tautauinvariantRHS37.pdf>
+Package luatex.def Info: tautauinvariantRHS37.pdf  used on input line 1506.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS37.pdf Graphic file (type pdf)
+<use tautauinvariantRHS37.pdf>
+Package luatex.def Info: tautauinvariantRHS37.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS33.pdf Graphic file (type pdf)
+<use tautauinvariantRHS33.pdf>
+Package luatex.def Info: tautauinvariantRHS33.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS1.pdf Graphic file (type pdf)
+<use tautauRHS1.pdf>
+Package luatex.def Info: tautauRHS1.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS37.pdf Graphic file (type pdf)
+<use tautauinvariantRHS37.pdf>
+Package luatex.def Info: tautauinvariantRHS37.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 57.95015pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauRHS2.pdf Graphic file (type pdf)
+<use tautauRHS2.pdf>
+Package luatex.def Info: tautauRHS2.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 54.43004pt.
+File: tautauinvariantRHS33.pdf Graphic file (type pdf)
+<use tautauinvariantRHS33.pdf>
+Package luatex.def Info: tautauinvariantRHS33.pdf  used on input line 1525.
+(luatex.def)             Requested size: 108.405pt x 59.8086pt.
+ [61<./tautauinvariantRHS31.pdf><./tautauinvariantRHS32.pdf><./tautauinvariantRHS33.pdf><./tautauinvariantRHS34.pdf><./tautauinvariantRHS35.pdf><./tautauinvariantRHS36.pdf><./tautauinvariantRHS37.pdf>] [62]
+<RmatrixFib1.pdf, id=2530, 306.3445pt x 306.743pt>
+File: RmatrixFib1.pdf Graphic file (type pdf)
+<use RmatrixFib1.pdf>
+Package luatex.def Info: RmatrixFib1.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 108.54582pt.
+<RmatrixFib2.pdf, id=2531, 290.2845pt x 306.743pt>
+File: RmatrixFib2.pdf Graphic file (type pdf)
+<use RmatrixFib2.pdf>
+Package luatex.def Info: RmatrixFib2.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+<RmatrixFib3.pdf, id=2532, 290.2845pt x 306.743pt>
+File: RmatrixFib3.pdf Graphic file (type pdf)
+<use RmatrixFib3.pdf>
+Package luatex.def Info: RmatrixFib3.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+<RmatrixFib4.pdf, id=2533, 290.2845pt x 306.743pt>
+File: RmatrixFib4.pdf Graphic file (type pdf)
+<use RmatrixFib4.pdf>
+Package luatex.def Info: RmatrixFib4.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+File: RmatrixFib1.pdf Graphic file (type pdf)
+<use RmatrixFib1.pdf>
+Package luatex.def Info: RmatrixFib1.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 108.54582pt.
+File: RmatrixFib2.pdf Graphic file (type pdf)
+<use RmatrixFib2.pdf>
+Package luatex.def Info: RmatrixFib2.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+File: RmatrixFib3.pdf Graphic file (type pdf)
+<use RmatrixFib3.pdf>
+Package luatex.def Info: RmatrixFib3.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+File: RmatrixFib4.pdf Graphic file (type pdf)
+<use RmatrixFib4.pdf>
+Package luatex.def Info: RmatrixFib4.pdf  used on input line 1562.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+File: RmatrixFib1.pdf Graphic file (type pdf)
+<use RmatrixFib1.pdf>
+Package luatex.def Info: RmatrixFib1.pdf  used on input line 1567.
+(luatex.def)             Requested size: 108.405pt x 108.54582pt.
+<RmatrixFib6.pdf, id=2535, 290.2845pt x 306.743pt>
+File: RmatrixFib6.pdf Graphic file (type pdf)
+<use RmatrixFib6.pdf>
+Package luatex.def Info: RmatrixFib6.pdf  used on input line 1568.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+<RmatrixFib5.pdf, id=2536, 290.2845pt x 306.743pt>
+File: RmatrixFib5.pdf Graphic file (type pdf)
+<use RmatrixFib5.pdf>
+Package luatex.def Info: RmatrixFib5.pdf  used on input line 1569.
+(luatex.def)             Requested size: 108.405pt x 114.55092pt.
+ [63<./RmatrixFib1.pdf><./RmatrixFib2.pdf><./RmatrixFib3.pdf><./RmatrixFib4.pdf>] [64<./RmatrixFib6.pdf><./RmatrixFib5.pdf>] (./AnyonsPEPS.bbl
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [65
+
+] [66] [67] [68] [69] [70]) [71] (./AnyonsPEPS.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `AnyonsPEPS.out' has not changed.
+(rerunfilecheck)             Checksum: 98313BCB66DA4F1175E1A46755D734F6;7520.
+)
+
+Here is how much of LuaTeX's memory you used:
+ 13853 strings out of 476447
+ 125129,1977958 words of node,token memory allocated
+ 1862 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 237 attribute, 71 glue_spec, 237 attribute_list, 1 write, 56 pdf_action nodes
+   avail lists: 1:1,2:1549,3:467,4:108,5:695,6:54,7:8269,8:80,9:2081,10:25,11:697
+ 34777 multiletter control sequences out of 65536+600000
+ 123 fonts using 7566103 bytes
+ 72i,20n,75p,2315b,496s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on AnyonsPEPS.pdf (71 pages, 2807244 bytes).
+
+PDF statistics: 2971 PDF objects out of 2984 (max. 8388607)
+ 2212 compressed objects within 23 object streams
+ 354 named destinations out of 1000 (max. 131072)
+ 353 words of extra memory for PDF output out of 10000 (max. 100000000)
+

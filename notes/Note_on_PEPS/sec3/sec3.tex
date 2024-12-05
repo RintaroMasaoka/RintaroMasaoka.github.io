@@ -1,0 +1,278 @@
+\providecommand{\main}{../main}
+\documentclass[\main/main.tex]{subfiles}
+\graphicspath{{../images/}}
+\begin{document}
+
+\section{$G$-injective MPS}
+\subsection{定義}
+この節では有限群の表現論についての知識を前提とする。
+\begin{definition}[Intertwiner]\label{def: intertwiner}
+    群$G$のベクトル空間$𝒱^α,𝒱^β$上の表現
+    $D^α: G → \GL(𝒱^α)$および$D^β: G → \GL(𝒱^β)$に対して
+    線形写像$A: 𝒱^α → 𝒱^β$が
+    \begin{align}
+        AD^α(g) = D^β(g)A
+    \end{align}
+    となるとき、$A$をintertwiner、または$G$-準同型と言い、$A ∈ \Hom_G(𝒱^α,𝒱^β)$と書く。
+\end{definition}
+
+\begin{definition}[$G$-injectivity]\label{def: G-injectivity}
+    $A ∈ \L(𝒱) ⊗ ℋ$に対してユニタリ表現$g ↦ U_g$が存在して
+    \begin{align}
+       \Span\{A^s\}_s = ｛ \mfig{alphaA} \Mid α ｝
+       = \Hom_G(𝒱,𝒱) 
+       = \{X\mid ∀g ∈ G, [X, U_g] = 0 \}
+    \end{align}
+    を満たすとき、$A$は$G$-injectiveであると言う。
+\end{definition}
+
+\begin{lemma}
+    以下は同値
+    \begin{enumerate}
+        \item $A$が\hyperref[def: G-injectivity]{$G$-injective}
+        \item $A$から定まる$𝒫(A): \L(𝒱) → ℋ$に対して
+        \begin{align}
+            𝒫(A)⁺𝒫(A)(X) = ÷1{|G|}∑_{g ∈ G}U_g X U_{g^{-1}}.
+        \end{align}
+        これは以下のように図示される。
+        \begin{align}
+           \AinvA = ÷1{|G|}∑_{g ∈ G}\mfig{gginv} ≕ \mfig{pi}
+        \end{align}
+        ただし図式では$U_g$の代わりに$g$と書いた。
+    \end{enumerate}
+\end{lemma}
+
+$Π ≔ 𝒫(A)^{-1}𝒫(A)$が射影演算子であることは以下のように示される。
+\begin{align}
+    Π²(X) = ÷1{|G|²}∑_{g,h ∈ G}U_{gh}XU_{gh}^† = ÷1{|G|}∑_{g ∈ G}U_g X U_g^† = Π(X).
+\end{align}
+さらに
+\begin{align}&
+    X = U_gXU_g^† = Π(X), \\
+    &
+    U_g Π(X) U_g^† = ÷1{|G|}∑_{h ∈ G}U_{gh}XU_{hg}^† = Π(X)
+\end{align}
+から$Π$は$\Hom_G(𝒱,𝒱)$への射影演算子だと分かる。一般に$\im (𝒫(A)⁺𝒫(A)) =  \im 𝒫(A)^† = \Span\{\＿A^s\}_s$が成り立つことと、$\Hom_G(𝒱,𝒱)$が複素共役について閉じていることから、1.と2.の同値性が示される。
+
+% \begin{proof}
+%     % よって$𝒫(A)^{-1}𝒫(A) = Π$のとき、$\Span\{⟨s|A\}_s = \Hom_G(𝒱,𝒱)$である。また$\Span\{⟨s|A\}_s = \Hom_G(𝒱,𝒱)$ならば
+%     % $𝒫(A)^{-1}𝒫(A) = Π$のとき、任意の$X ∈ \Hom_G(𝒱,𝒱)$に対して
+%     % \begin{align}
+%     %     \X = \mfig{XAinvA}
+%     % \end{align}
+%     % であるから、$\Hom_G(𝒱,𝒱) ⊂ \im 𝒫(A)^𝑇$である。また
+%     % \begin{align}
+%     %     \mfig{alphaA} = \mfig{alphaAAinvA}
+%     % \end{align}
+%     % $\im 𝒫(A)^𝑇 = \Hom_G(𝒱,𝒱)$ならば、$𝒫(A)^{-1}𝒫(A) = Π$となる。一方$𝒫(A)^{-1}𝒫(A) = Π$ならば、
+% \end{proof}
+
+\begin{lemma}
+    \hyperref[def: G-injectivity]{$G$-injectivity}は連結によって保たれる。
+\end{lemma}
+\begin{proof}
+    \hyperref[def: G-injectivity]{$G$-injective}なテンソル$A,B ∈ \L(𝒱) ⊗ ℋ$に対し
+    \begin{align}
+        \Span\{A^sB^t\} = \Hom_G(𝒱,𝒱)\Hom_G(𝒱,𝒱) = \Hom_G(𝒱,𝒱).
+    \end{align}
+\end{proof}
+
+
+\begin{lemma}
+    \begin{align}
+        \mfig{g_pulling1}
+        =\mfig{g_pulling2}.
+        \label{g_pulling}
+    \end{align}
+\end{lemma}
+\begin{proof}
+    \begin{align}
+       ÷1{|G|}∑_{h ∈ G} U_g U_h ⊗ U_{h^{-1}}
+       &
+       = ÷1{|G|}∑_{h ∈ G} U_{gh} ⊗ U_{h^{-1}g^{-1}} U_g \∅
+       &
+       = ÷1{|G|}∑_{h ∈ G} U_{h} ⊗ U_{h^{-1}} U_g.
+    \end{align}
+\end{proof}
+\begin{lemma}[ ,label=lem: Delta]
+    $Δ ∈ \L(𝒱)$を以下のように定める。
+    \begin{align}
+        Δ = ∑_i ÷{d_i}{m_i}Π_i
+    \end{align}
+    ここで$Π_i$は既約表現$D^i(g)$に対応する部分空間への射影である。
+    $d_i$は$D^i(g)$の次元であり、$m_i$は多重度である。
+    このとき
+    \begin{align}
+        ÷1{|G|}∑_{h ∈ G}\Tr[U_g U_{h^{-1}} Δ]U_{h} = U_g
+    \end{align}
+    となる。これを以下のように図示する。
+    \begin{align}
+        \mfig{G-orthogonality} = \mfig{U_g}
+    \end{align}
+\end{lemma}
+\begin{proof}
+    既約表現$D^i(g)$の指標を$χ^i(g)$と書く。$Π_i$は以下のように表示される。
+    \begin{align}
+        Π_i = ÷{d_i}{|G|}∑_{g ∈ G}χ^i(g)^* U_g
+    \end{align}
+    これを用いると、
+    \begin{align}
+        ÷1{|G|}∑_{h ∈ G}\Tr[U_g U_{h^{-1}} Δ]U_{h}
+        &
+        = ÷1{|G|}∑_{h ∈ G}\Tr[U_{h^{-1}} Δ] U_{h}U_g \∅
+        &
+        = ∑_i÷1{|G|}∑_{h ∈ G} ÷{d_i}{m_i} \Tr[U_{h^{-1}} Π_i]U_hU_g \∅
+        &
+        = ∑_i ÷1{|G|}∑_{h ∈ G}d_i χ^i(h)^* U_h U_g \∅
+        &
+        = ∑_i Π_i U_g = U_g
+    \end{align}
+\end{proof}
+
+\begin{lemma}
+    \hyperref[def: G-injectivity]{$G$-injective}な$A,B$の連結に対して、以下は一般化逆行列になっている。擬逆行列とは限らない。
+    \begin{align}
+        \mfig{AinvDBinv}
+    \end{align}
+    ここで$Δ$は補題\ref{lem: Delta}で定義される行列である。
+\end{lemma}
+\begin{proof}
+    \begin{align}
+       \mfig{AinvADBinvB} = \mfig{piDpi} = \mfig{pi}.
+    \end{align}
+\end{proof}
+
+\subsection{Parent Hamiltonian}
+\begin{theorem}[Intersection property] \label{G-Intersection property}
+    $A, B ∈ \L(𝒱) ⊗ ℋ$を\hyperref[def: G-injectivity]{$G$-injective}なテンソルとする。このとき、
+    \begin{align}
+        ｛\ABM\Mid M｝ ∩ ｛\NBC\Mid N｝ = ｛\ABCX\Mid X｝
+    \end{align}
+\end{theorem}
+\begin{proof}
+    右辺$⊂$左辺は明らかなので左辺$⊂$右辺を示す。
+    左辺の元に対し、$B, C$が\hyperref[def: G-injectivity]{$G$-injective}なことから
+    \begin{align}
+       \NBC = \mfig{NgginvBC}
+       \label{insertion of gginv to NBC}
+    \end{align}
+    である。ここで
+    \begin{align}
+            \mfig{gIntersection1}
+        &
+        = \mfig{gIntersection2}
+        = \mfig{gIntersection3}\∅[10pt]
+        &
+        = \mfig{gIntersection4}
+        = \mfig{gIntersection5}
+    \end{align}
+    である。これを(\ref{insertion of gginv to NBC})に代入することで左辺$⊂$右辺を得る。
+\end{proof}
+
+\begin{theorem}[Closure property]\label{G-Closure property}
+    $A, B ∈ \L(𝒱) ⊗ ℋ$を\hyperref[def: G-injectivity]{$G$-injective}なテンソルとする。
+    \begin{align}
+        ｛\AMB\Mid M｝ ∩ ｛\ANB\Mid N｝ = ｛∑_{g ∈ G} λ_g\gAB\Mid λ_g｝
+    \end{align}
+\end{theorem}
+\begin{proof}
+    $M = N = ∑_{g ∈ G} λ_g U_g$とおけるので右辺$⊂$左辺は明らか。
+    次に左辺の元に対して、
+    \begin{align}
+        \mfig{AMB} = \mfig{gMginvAB}
+        \label{insertion of gginv to AMB}
+    \end{align}
+    が成り立つ。等式
+    \begin{align}
+        \mfig{gClosure1}
+        &
+        = \mfig{gClosure2}
+        = \mfig{gClosure3}
+        = \mfig{gClosure4} \∅
+        &
+        = \mfig{gClosure5}
+        = \mfig{gClosure6}
+    \end{align}
+    を(\ref{insertion of gginv to AMB})に代入することで左辺$⊂$右辺を得る。
+    ここで3つ目の等号では$A^s,B^s$が\hyperref[def: intertwiner]{intertwiner}であることを用いた。
+    また5つ目の等号では(\ref{g_pulling})を用いた。
+\end{proof}
+
+\begin{theorem}
+    \hyperref[def: G-injectivity]{$G$-injective}なテンソル$A ∈\L(𝒱) ⊗ ℋ$に対するparent Hamiltonianの基底空間は$\Span\{\Tr[U_g\overbrace{A ⋯ A}^L]\}_{g ∈ G}$で与えられる。
+    基底空間の次元は表現空間$𝒱$に含まれる多重度を除いた既約表現の数に一致する。
+\end{theorem}
+
+\begin{proof}
+    基底空間が$\Span\{\Tr[U_g\overbrace{A ⋯ A}^L]\}_{g ∈ G}$になることの証明は、injectiveな場合と同様である。
+    $A$が\hyperref[def: G-injectivity]{$G$-injective}であることから\hyperref[G-Intersection property]{intersection property}により
+    \begin{align}
+        \ker H = ｛\Tr[X\overbrace{A ⋯ A}^L]\Mid X ∈ \L(𝒱) ｝ ∩ ｛\Tr[AX\overbrace{A ⋯ A}^{L-1}]\Mid X ∈ \L(𝒱) ｝
+    \end{align}
+    となる。
+    よって\hyperref[G-Closure property]{closure property}から
+    \begin{align}
+        \ker H = ｛λ_g\Tr[U_g\overbrace{A ⋯ A}^L]\Mid λ_g ∈ ℂ ｝
+    \end{align}
+    となる。次に縮退度を求める。$A$の$G$-injectivityから
+    \begin{align}
+        \Tr[U_g\overbrace{A ⋯ A}^L]= \Tr[U_gU_h \overbrace{A ⋯ A}^L U_{h^{-1}}] = \Tr[U_{h^{-1}gh}\overbrace{A ⋯ A}^L]
+    \end{align}
+    が成り立つ。よって同じ共役類$C_i$の元に対して$\Tr[\overbrace{A ⋯ A}^L U_g]$は等しくなる。
+    したがって
+    \begin{align}
+        \Span\{\Tr[U_g\overbrace{A ⋯ A}^L] \mid g ∈ G \}
+        &
+        = \Span ｛∑_{g ∈ C_i}\Tr[U_g\overbrace{A ⋯ A}^L] \Mid C_i｝
+    \end{align}
+    となる。
+    共役類を添字にもつベクトルの基底として、指標$χ^i(C_j)^*$を用いることができるので、
+    \begin{align}
+        \Span\{\Tr[U_g\overbrace{A ⋯ A}^L] \mid g ∈ G \}
+        &
+        = \Span｛ ∑_j \＿χ^i(C_j) ∑_{g ∈ C_j}\Tr[U_g\overbrace{A ⋯ A}^L]\Mid i｝ \∅
+        &
+        = \Span｛\Tr[Π_i\overbrace{A ⋯ A}^L]\Mid i｝ 
+    \end{align}
+    が成り立つ。
+    ここで、$Π_i$は既約表現$D^i$への射影であり、以下のように表される。
+    \begin{align}
+        Π_i ≔ ÷{d_i}{|G|} ∑_{g ∈ G} \＿χ^i(g)U_g.
+    \end{align}
+    次に$\Tr[Π_i\overbrace{A ⋯ A}^L]$の線形独立性を示す。
+    $∑_i μ_i\Tr[Π_i\overbrace{A ⋯ A}^L] = 0$とすると、$\overbrace{A ⋯ A}^L$の$G$-injectivityから
+    \begin{align}
+        ÷1{|G|}∑_{g ∈ G} ∑_i μ_i U_g Π_i U_{g^{-1}} = ∑_i μ_i Π_i = 0 ⇒ μ_i = 0.
+    \end{align}
+    したがって、基底空間の次元は表現空間$𝒱$に含まれる多重度を除いた既約表現の数に一致する。
+\end{proof}
+
+
+\begin{definition}[$G$-isometric MPS]\label{def: G-iso MPS}
+    \hyperref[def: G-injectivity]{$G$-injective}なテンソル$A$に対し、表現$g ↦ U_g$が正則であり、かつ$(A^+)^{ij}_s = \＿A^s_{ji}$が成り立つとき、テンソル$A$は$G$-isometricであるという。
+\end{definition}
+\begin{remark}
+    正則表現に対して$Δ = ∑_i Π_i = 𝟙$であることに注意すると、$G$-isometricなテンソルの擬逆行列は連結に対して保たれる。
+    すなわち以下は$AA$の擬逆行列である。
+    \begin{align}
+        \mfig{AdagAdag}.
+    \end{align}
+\end{remark}
+\begin{remark}
+    \hyperref[def: G-iso MPS]{$G$-isometric}なテンソルに対するparent Hamiltonianの局所項$h_i$は以下のように書ける。
+    \begin{align}
+         h_i = \mfig{parent2} ⊗ 𝟙
+    \end{align}
+\end{remark}
+\begin{theorem}
+    \hyperref[def: G-iso MPS]{$G$-isometric}なテンソルに対するparent Hamiltonianの各項は互いに交換する。
+\end{theorem}
+\begin{proof}
+    \begin{align}
+        \mfig{parentcommute1}
+        =\mfig{parentcommute2}
+        =\mfig{parentcommute3}
+        =\mfig{parentcommute4}.
+    \end{align}
+\end{proof}
+\end{document}

@@ -1,0 +1,242 @@
+\providecommand{\main}{../main}
+\documentclass[\main/main.tex]{subfiles}
+\graphicspath{{../images/}}
+\begin{document}
+\section{エニオンとMPO代数}
+
+\subsection*{MPO代数のデータ}
+\begin{definition}[Projector matrix product operators]
+    $B ∈ \L(𝒲)⊗\L(𝒱), Δ ∈ \L(𝒲)$によって表される以下のMPO $P_L ∈ \L(𝒱)^{⊗L}$を考える。
+    \begin{align}
+        P_L = \Tr[Δ\overbrace{B⋯B}^L]
+        =∑_{\{i\},\{j\}} \Tr[ΔB^{i₁j₂}⋯B^{i_Lj_L}]|i₁,…,i_L⟩⟨j₁,…,j_L|
+    \end{align}
+    ただし行列の積は$𝒲$についてとった。
+    $P_L$は射影であるとし、$Δ$を挿入する位置に依存しないとする。
+    さらに、以下のブロック対角化が成り立つとする。
+    \begin{align}&
+        𝒲 = ⨁_{a=1}^𝒩 𝒲_a, \\
+        &
+        B^{ij} = ⨁_{a=1}^𝒩 B^{ij}_a␣B^{ij}_a ∈ \L(𝒲) , \\
+        &
+        Δ = ⨁_{a=1}^𝒩 w_a 𝟙_a,␣w_a ∈ ℂ.
+    \end{align}
+    ここで$B_a$はinjectiveなテンソルであるとする。
+    すなわち、$\Span\{B^{ij}_a\}_{i,j} = \L(𝒲_a)$である。
+    さらに転送行列の最大固有値が$1$になるように規格化されているとする。
+    $P_L$が$Δ$の位置に依らないことと、$B_a$のinjectivityから$Δ$に対するブロック行列は$𝟙_a$の定数倍に限られることに注意する。
+    このような$P_L$をprojector matrix product operator (PMPO)と呼ぶ。
+\end{definition}
+
+\begin{theorem}[Fusion tensor]
+    $B$をPMPOを構成するテンソルとし、$\{B_a\}_{a=1}^𝒩$をinjectiveなブロックとする。
+    また$O_a^L ≔ \Tr[\overbrace{B_a⋯B_a}^L]$とおき、$\{O_a^L\}_{a=1}^𝒩$がなす行列代数が閉じているとする。
+    このとき、$X_{ab,μ}^c: 𝒲_c → 𝒲_a⊗𝒲_b,~μ=1,…,N_{ab}^c$が存在して
+    \begin{align}
+        {X}_{ab,μ}^{+c}（∑_j B_a^{ij}⊗B_b^{jk}）X_{ab,μ}^c
+        = B^{ik}_c.
+        \label{block diag. of MPO prod.}
+    \end{align}
+    が成り立つ。
+    テンソル$X_{ab,μ}^c$をfusion tensorと呼ぶ。
+    % (\ref{block diag. of MPO prod.})の左辺は以下のように図示される。
+    % \begin{align}
+    %     \mfig[0.4]{Fusion tensor}
+    % \end{align}
+\end{theorem}
+\begin{proof}
+    $O_a^LO_b^L$に対する標準形の存在からゲージ変換および非対角ブロックの削除によって
+    \begin{align}
+        B_a^{ij}⊗B_b^{jk} ↦ ⨁_{c=1}^𝒩 ⨁_{μ=1}^{N_{ab}^c} λ_{ab,μ}^c B^{ik}_c,␣
+        λ_{ab,μ}^c ∈ ℂ
+    \end{align}
+    と表せる。
+    ここから
+     \begin{align}
+        O_a^LO_b^L = ∑_{c,μ} (λ_{ab,μ}^c)^L O_c^L
+     \end{align}
+     である。よって
+     \begin{align}
+        P_L = P_L² = ∑_{a,b}w_aw_bO_a^LO_b^L = ∑_{a,b,c,μ} (λ_{ab,μ}^c)^L w_aw_b O_c^L
+     \end{align}
+     である。$P_L$が任意の$L$において射影であることから$λ_{ab,μ}^c = 1$が分かる。
+     よって$𝒲_a ⊗ 𝒲_b$と各ブロック$𝒲_c$の間の変換${X}_{ab,μ}^{c},{X}_{ab,μ}^{+c}$が存在して(\ref{block diag. of MPO prod.})が成り立つ。
+\end{proof}
+\begin{definition}[Zipper condition]\label{def: zipper condition}
+    (\ref{block diag. of MPO prod.})から直ちに以下が成り立つ。
+    \begin{align}&
+        （∑_j B_a^{ij} ⊗ B_b^{jk}）X_{ab,μ}^c = X_{ab,μ}^cB_c^{ik}, \\
+        &
+        X_{ab,μ}^{+c}（∑_j B_a^{ij} ⊗ B_b^{jk}） = B_c^{ik}X_{ab,μ}^{+c}
+    \end{align}
+    この式をzipper conditionと呼ぶ。
+\end{definition}
+\begin{definition}
+    行列代数$\{O_a^L\}_{a=1}^𝒩$は
+    \begin{align}
+        O_a^LO_b^L = ∑_c N_{ab}^c O_c^L,␣ N_{ab}^c ∈ ℤ_{≥0}
+    \end{align}
+    によって定まる。
+    $N$テンソルは$∑_j B_a^{ij}⊗B_b^{jk}$をinjectiveなブロックに分解したときの多重度によって与えられる。
+\end{definition}
+    % $P_L$が射影であることから、
+    % \begin{align}
+    %     P_L² = ∑_{a,b = 1}^{𝒩}w_aw_bO_aO_b = ∑_{a=1}^{𝒩}w_aO_a = P_L
+    %     \label{idemponent condition for PMPO}
+    % \end{align}
+    % が成り立つ。
+
+\begin{remark}
+    PMPO $P_L = ∑_a w_a O_a^L$と$N_{ab}^c$に対し、以下が成り立つ。
+    \begin{align}
+        ∑_{a,b=1}^𝒩 N_{ab}^c w_aw_b = w_c
+    \end{align}
+\end{remark}
+\begin{proof}
+    $P_L² = P_L$から
+    \begin{align}
+        P_L² = ∑_{a,b}w_aw_bO_aO_b = ∑_{a,b,c} N_{ab}^c w_aw_b O_c = ∑_c w_c O_c = P_L.
+    \end{align}
+\end{proof}
+
+\begin{definition}[Duality]
+    $P_L$がHermitianであることを課す。
+    このときブロック$a$に対して$\＿B_a$がinjectiveであることからブロック$a^*$が一意に存在し、
+    \begin{align}
+        \＿w_a = w_{a^*},␣
+        O_a^{L†} = O_{a^*}^L
+        \label{eq: channel duality}
+    \end{align}
+    となる。また
+    \begin{align}
+        N_{ab}^c = N_{b^*a^*}^{c^*}
+    \end{align}
+    となる。$(a^*)^* = a$であり、$a^*$を$a$に双対なブロックと呼ぶ。
+\end{definition}
+\begin{definition}[Frobenius Schur indicator]\label{def: Frobenius Schur indicator}
+    ブロック$a, a^*$は以下のゲージ変換によって結ばれる。
+    \begin{align}
+        \＿B_a^{ji} = Z_a^{-1}B^{ij}_{a^*}Z_a
+    \end{align}
+    ここで$Z_a$は
+    \begin{align}
+        % \begin{cases}
+        %     \＿Z_{a} = Z_{a^*}^{-1} & (a ≠ a^*) \\
+        %     \＿Z_a = ±Z_a^{-1} & (a = a^*)
+        % \end{cases}
+        Z_a\＿Z_{a^*} = \＿Z_{a^*}Z_a = ϰ_a𝟙,␣
+        ϰ_a = \begin{cases}
+            1 & (a ≠ a^*) \\
+            ±1 & (a=a^*)
+        \end{cases}
+    \end{align}
+    を満たす。$ϰ_a$をFrobenius--Schur indicatorと呼ぶ。
+    \end{definition}
+\begin{proof}
+    $O_a^{L^†} = O_{a^*}^L$の両辺を標準形で表すと、標準形の一意性からゲージ変換$Z_a: 𝒲_a → 𝒲_{a^*}$と$θ ∈ ℝ$が存在して
+    \begin{align}
+        \＿B_a^{ji} = ℯ^{¡θ} Z_a^{-1}B_{a^*}^{ij}Z_a
+    \end{align}
+    となる。(\ref{eq: channel duality})が$L$に依らずに成り立つことから$θ=0$としてよい。
+    これを2回用いると、
+    \begin{align}
+        B_a^{ji}
+        = \＿Z_a^{-1}\＿B_{a^*}^{ij}\＿Z_a
+        = \＿Z_a^{-1}Z_{a^*}^{-1}B_a^{ji}Z_{a^*}\＿Z_a
+        % &
+        % \＿B_{a^*}^{ji}
+        % = Z_{a^*}^{-1}B_{a}^{ij}Z_{a^*}
+        % = Z_{a^*}^{-1}\＿Z_a^{-1}\＿B_{a^*}^{ji}\＿Z_a Z_{a^*}
+    \end{align}
+    となる。よって$B_a$のinjectivityから$Z_{a^*}\＿Z_a = γ_a𝟙 = \＿Z_aZ_{a^*}$と表せる。
+    ここで$γ_a$は複素数であり$\＿γ_{a^*} = γ_a$を満たす。
+    $a ≠ a^*$の場合、$Z_a$を定数倍して再定義することで$γ_a = γ_{a^*} = 1$とできる。
+    $a = a^*$の場合、$Z_a\＿Z_a = \＿Z_aZ_a$から$γ_a$は実数に限られる。
+    $Z_a$を定数倍して再定義することで必ず$γ_a = ±1 ≕ ϰ_a$にできる。ただし符号を変えることはできない。
+\end{proof}
+
+\begin{lemma}[結合則 (associativity)] \label{lem: associativity}
+    $(O_a^LO_b^L)O_c^L = O_a^L(O_b^LO_c^L)$から$N$テンソルは以下の結合則を満たす。
+    \begin{align}
+        ∑_e N_{ab}^e N_{ec}^d = ∑_f N_{af}^dN_{bc}^f.
+    \end{align}
+\end{lemma}
+\begin{definition}[F行列] \label{def: F matrix}
+    F行列 $(F^{abc}_d)^{fλσ}_{eμν}$が存在して以下が成り立つ。
+    \begin{align}
+        (X_{ab,μ}^e ⊗ 𝟙_c)X_{ec,ν}^d = ∑_{f=1}^{𝒩}∑_{λ=1}^{N_{bc}^f}∑_{σ=1}^{N_{af}^d}(F^{abc}_d)^{fλσ}_{eμν}(𝟙_a ⊗ X_{bc,λ}^f) X_{af,σ}^d.
+        \label{eq: F matrix}
+    \end{align}
+\end{definition}
+\begin{proof}
+    \hyperref[def: zipper condition]{zipper condition}を2通りの順序で用いることで以下の等式が成り立つ。
+    \begin{align}
+        ∑_{deμν}\mfig[0.4]{pentagon1}
+        = ∑_{dfσλ}\mfig[0.4]{pentagon2}.
+    \end{align}
+    両辺に右からfusion tensorを掛けると
+    \begin{align}
+        \mfig[0.4]{pentagon3}
+        = ∑_{d'fσλ}\mfig[0.4]{pentagon4}.
+    \end{align}
+    よって$B_d, B_{d'}$のinjectivityから
+    \begin{align}
+        \mfig[0.4]{pentagon5}
+        =∑_{fσλ}\mfig[0.4]{pentagon6}.
+    \end{align}
+    よって右辺の2個目の因子を$(F^{abc}_d)^{fλσ}_{eμν} 𝟙_d$と書くことができ、(\ref{eq: F matrix})が示される。
+\end{proof}
+
+\begin{definition}[Pentagon equation]
+    \begin{align}
+        ∑_{h,σλω}(F^{abc}_g)^{fμν}_{hσλ}(F^{ahd}_e)^{gλρ}_{iωκ}(F^{bcd}_i)^{hσω}_{jλδ}
+        = ∑_σ (F^{fcd}_e)^{gνρ}_{jγσ}(F^{abj}_e)^{fμσ}_{iδκ}.
+    \end{align}
+\end{definition}
+\begin{proof}
+    \begin{align}
+        \mfig[0.5]{n13}.
+    \end{align}
+\end{proof}
+
+\begin{remark}
+    \begin{align}
+        N_{ab}^c = N_{bc^*}^{a^*} = N_{c^*a}^{b^*}
+        = N_{b^*a^*}^{c^*} = N_{cb^*}^a = N_{a^*c}^b.
+    \end{align}
+\end{remark}
+\subsection{Unitarity}
+\begin{definition}
+    これを以下に図示する。
+    \begin{align}
+        \mfig[0.4]{zipper} \\ \mfig[0.4]{zipper2}
+    \end{align}
+    ただし$X_{ab,μ}^c$については多重度の添字$μ$だけ図示した。
+\end{definition}
+\begin{definition}[Pivotal property]
+    \begin{align}
+        \mfig[0.4]{pivotal1}
+        = ∑_ν (A_{ab}^c)_{μν}\mfig[0.4]{pivotal2}
+    \end{align}
+    ここで$A_{ab}^c$は$(A_{ab}^c)^† A_{ab}^c = ÷{w_c}{w_b}𝟙$を満たす行列である。
+    また$b$の足を曲げることで同様に${A'}_{ab}^c$が定義される。
+\end{definition}
+\begin{lemma}
+    \begin{align}
+        \mfig[0.4]{pivotal_conj1}
+        = ∑_ν (C_{ab}^c)_{μν}\mfig[0.4]{pivotal_conj2}
+    \end{align}
+    ここで$C_{ab}^c = A_{a^*b}^c \＿{A'}_{a^*c^*}^b A_{b^*c^*}^{a^*}$である。
+\end{lemma}
+\begin{theorem}[Pulling through equation]
+    \begin{align}
+        \mfig[0.4]{n18}
+    \end{align}
+\end{theorem}
+\begin{proof}
+    \begin{align}
+        ∑_{bcμ}w_b\mfig[0.4]{PT_derive1}
+        = ∑_{bcν}w_c\mfig[0.4]{PT_derive2}
+    \end{align}
+\end{proof}
+\end{document}

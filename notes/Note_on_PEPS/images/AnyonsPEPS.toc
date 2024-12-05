@@ -1,0 +1,44 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Overview of the paper}{4}{section.2}%
+\contentsline {section}{\numberline {3}Projector Matrix Product Operators}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Definition}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Fusion tensors}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Hermiticity, duality and unital structure}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Associativity and the pentagon equation}{12}{subsection.3.4}%
+\contentsline {section}{\numberline {4}MPO-injective PEPS}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Unitarity, zipper condition and pivotal structure}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Entangled subspaces}{17}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Virtual support and parent Hamiltonians}{19}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Anyon sectors in MPO-injective PEPS}{22}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Topological charge}{22}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Anyon ansatz}{24}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Ground states on the torus and the $S$ matrix}{29}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Topological spin}{30}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Fusion}{32}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Braiding}{33}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Examples}{38}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Discrete gauge theories}{39}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Topological charge}{40}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Anyon ansatz}{41}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Topological spin}{43}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Fusion}{43}{subsubsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}String-nets}{45}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Discussion and outlook}{47}{section.7}%
+\contentsline {section}{\numberline {A}Hermitian PMPOs with unital structure and fusion categories}{49}{appendix.A}%
+\contentsline {section}{\numberline {B}$C^*$-Algebra structure of $A_{abcd,\mu \nu }$}{50}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Closedness under multiplication}{50}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Closedness under Hermitian conjugation}{51}{subsection.B.2}%
+\contentsline {section}{\numberline {C}Finding central idempotents}{53}{appendix.C}%
+\contentsline {section}{\numberline {D}Results for string-nets}{54}{appendix.D}%
+\contentsline {subsection}{\numberline {D.1}Fibonacci string-net}{54}{subsection.D.1}%
+\contentsline {subsubsection}{\numberline {D.1.1}MPO-tensors}{54}{subsubsection.D.1.1}%
+\contentsline {subsubsection}{\numberline {D.1.2}Central idempotents}{55}{subsubsection.D.1.2}%
+\contentsline {subsection}{\numberline {D.2}Ising string-net}{56}{subsection.D.2}%
+\contentsline {subsubsection}{\numberline {D.2.1}MPO-tensors}{56}{subsubsection.D.2.1}%
+\contentsline {subsubsection}{\numberline {D.2.2}Central idempotents}{57}{subsubsection.D.2.2}%
+\contentsline {subsection}{\numberline {D.3}$\text {Rep}(S_3)$ string-net}{58}{subsection.D.3}%
+\contentsline {subsubsection}{\numberline {D.3.1}MPO-tensors}{58}{subsubsection.D.3.1}%
+\contentsline {subsubsection}{\numberline {D.3.2}Central idempotents}{59}{subsubsection.D.3.2}%
+\contentsline {section}{\numberline {E}Vacuum $(\tau ,\bar {\tau })$-pair}{60}{appendix.E}%
+\contentsline {section}{\numberline {F}Braiding in the Fibonacci string-net}{62}{appendix.F}%
+\contentsline {section}{References}{65}{section*.2}%
