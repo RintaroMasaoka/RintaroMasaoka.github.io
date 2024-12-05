@@ -1,0 +1,189 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{kitaevFaulttolerantQuantumComputation1997}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=34266a35eedbd87dd79c5e408127a5e5}{%
+           family={Kitaev},
+           familyi={K\bibinitperiod},
+           given={A.\bibnamedelimi Yu},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{34266a35eedbd87dd79c5e408127a5e5}
+      \strng{fullhash}{34266a35eedbd87dd79c5e408127a5e5}
+      \strng{bibnamehash}{34266a35eedbd87dd79c5e408127a5e5}
+      \strng{authorbibnamehash}{34266a35eedbd87dd79c5e408127a5e5}
+      \strng{authornamehash}{34266a35eedbd87dd79c5e408127a5e5}
+      \strng{authorfullhash}{34266a35eedbd87dd79c5e408127a5e5}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://arxiv.org/abs/quant-ph/9707021v1}
+      \field{journaltitle}{arXiv.org}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{title}{Fault-Tolerant Quantum Computation by Anyons}
+      \field{year}{1997}
+      \verb{doi}
+      \verb 10.1016/S0003-4916(02)00018-0
+      \endverb
+    \endentry
+    \entry{sahinogluCharacterizingTopologicalOrder2021}{article}{}
+      \name{author}{7}{}{%
+        {{hash=b9e1af15c72ac3b4ce6bb3f3044975d0}{%
+           family={Şahinoğlu},
+           familyi={Ş\bibinitperiod},
+           given={Mehmet\bibnamedelima Burak},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=19fa71208e0d20c665e5dca564a07a63}{%
+           family={Williamson},
+           familyi={W\bibinitperiod},
+           given={Dominic},
+           giveni={D\bibinitperiod}}}%
+        {{hash=860c36b94295415e636d6fa282029d60}{%
+           family={Bultinck},
+           familyi={B\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+        {{hash=6de7fc8ed9188965e2b8836343959cdf}{%
+           family={Mariën},
+           familyi={M\bibinitperiod},
+           given={Michaël},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9531e7c6006adecb622581097ff2d509}{%
+           family={Haegeman},
+           familyi={H\bibinitperiod},
+           given={Jutho},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d6ad7cbe797863db505ad2d0b9cc77ce}{%
+           family={Schuch},
+           familyi={S\bibinitperiod},
+           given={Norbert},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1003ae5f362d7f74a9671760817ebb1a}{%
+           family={Verstraete},
+           familyi={V\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{4025617fe892962392074b4f38563d4d}
+      \strng{fullhash}{2644482295dc59a31cf6f26a918916ab}
+      \strng{bibnamehash}{4025617fe892962392074b4f38563d4d}
+      \strng{authorbibnamehash}{4025617fe892962392074b4f38563d4d}
+      \strng{authornamehash}{4025617fe892962392074b4f38563d4d}
+      \strng{authorfullhash}{2644482295dc59a31cf6f26a918916ab}
+      \field{sortinit}{Ş}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annales Henri Poincaré}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{Characterizing {{Topological Order}} with {{Matrix Product Operators}}}
+      \field{volume}{22}
+      \field{year}{2021}
+      \field{pages}{563\bibrangedash 592}
+      \range{pages}{30}
+      \verb{doi}
+      \verb 10.1007/s00023-020-00992-4
+      \endverb
+    \endentry
+    \entry{schuchPEPSGroundStates2010}{article}{}
+      \name{author}{3}{}{%
+        {{hash=d6ad7cbe797863db505ad2d0b9cc77ce}{%
+           family={Schuch},
+           familyi={S\bibinitperiod},
+           given={Norbert},
+           giveni={N\bibinitperiod}}}%
+        {{hash=fe13755c257fb2ccfe9490c05415070a}{%
+           family={Cirac},
+           familyi={C\bibinitperiod},
+           given={Ignacio},
+           giveni={I\bibinitperiod}}}%
+        {{hash=97fde1d0791120838fb482d1d8cffb60}{%
+           family={{Pérez-García}},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c972fdee4057ee5905cc2411cf4f0a9b}
+      \strng{fullhash}{c972fdee4057ee5905cc2411cf4f0a9b}
+      \strng{bibnamehash}{c972fdee4057ee5905cc2411cf4f0a9b}
+      \strng{authorbibnamehash}{c972fdee4057ee5905cc2411cf4f0a9b}
+      \strng{authornamehash}{c972fdee4057ee5905cc2411cf4f0a9b}
+      \strng{authorfullhash}{c972fdee4057ee5905cc2411cf4f0a9b}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{journaltitle}{Annals of Physics}
+      \field{month}{10}
+      \field{number}{10}
+      \field{shorttitle}{{{PEPS}} as Ground States}
+      \field{title}{{{PEPS}} as Ground States: {{Degeneracy}} and Topology}
+      \field{volume}{325}
+      \field{year}{2010}
+      \field{pages}{2153\bibrangedash 2192}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1016/j.aop.2010.05.008
+      \endverb
+    \endentry
+    \entry{simonTopologicalQuantum2023}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8129c2a9c928bf3c21cf74dd4cf4f79c}{%
+           family={Simon},
+           familyi={S\bibinitperiod},
+           given={Steven\bibnamedelima H.},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=8129c2a9c928bf3c21cf74dd4cf4f79c}{%
+           family={Simon},
+           familyi={S\bibinitperiod},
+           given={Steven\bibnamedelima H.},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Oxford, New York}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{2d7f71965097628a5a0341afdbcf6398}
+      \strng{fullhash}{2d7f71965097628a5a0341afdbcf6398}
+      \strng{bibnamehash}{2d7f71965097628a5a0341afdbcf6398}
+      \strng{authorbibnamehash}{2d7f71965097628a5a0341afdbcf6398}
+      \strng{authornamehash}{2d7f71965097628a5a0341afdbcf6398}
+      \strng{authorfullhash}{2d7f71965097628a5a0341afdbcf6398}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-19-888672-3}
+      \field{month}{9}
+      \field{title}{Topological {{Quantum}}}
+      \field{year}{2023}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

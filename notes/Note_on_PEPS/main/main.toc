@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Injectivity MPS}{3}{section.2}%
+\contentsline {section}{\numberline {3}$G$-injective MPS}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}定義}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Parent Hamiltonian}{12}{subsection.3.2}%
+\contentsline {section}{\numberline {4}$G$-injective PEPS}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}定義}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Parent Hamiltonian}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}トポロジカルエンタングルメントエントロピー}{30}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}エニオン励起とその分類}{32}{subsection.4.4}%
+\contentsline {section}{\numberline {A}標準形}{39}{appendix.A}%

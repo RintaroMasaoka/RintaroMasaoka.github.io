@@ -1,0 +1,220 @@
+\providecommand{\main}{../main}
+\documentclass[\main/main.tex]{subfiles}
+\graphicspath{{../images/}}
+\begin{document}
+
+
+\section{Injectivie MPS}
+\begin{definition}[TI-MPS]\label{def: MPS}
+    $𝒱, ℋ$を有限次元Hilbert空間とする。
+    $𝒱$をvirtual space, $ℋ$をphysical spaceまたはlocal Hilbert spaceと呼ぶことにする。
+    テンソル$A ∈  \L(𝒱) ⊗ ℋ$を以下のように定義する。
+    \begin{align}
+        A = ∑_{i,j,s} A^s_{ij} |i⟩⟨j|_{𝒱} |s⟩_{ℋ} = \A
+    \end{align}
+    % このとき以下の状態$|ψ⟩ ∈ ℋ^{⊗L}$を$A$から定まるOBC-MPSと呼ぶ。
+    % \begin{align}
+    %     |ψ(A)⟩ = ⟨𝑙|_𝒱 A ⋯ A|𝑟⟩_𝒱 = \mfig{OBCMPS}
+    % \end{align}
+    このとき以下の状態を$A$から構成されるtranslation invariant matrix product state (TI-MPS)と呼ぶ。
+    \begin{align}
+        |ψ(A)⟩
+        =  \Tr_𝒱[A ⋯ A]
+        = \mfig{PBCMPS}
+    \end{align}
+    なおこのノートでは並進対称性のある場合しか扱わない。
+\end{definition}
+
+% \begin{definition}[Matrix product operator]
+    
+% \end{definition}
+% \begin{definition}[Projected entangled pair state]
+    
+% \end{definition}
+
+\begin{definition}[Injectivity]\label{def: injective}
+    テンソル$A ∈ \L(𝒱) ⊗ ℋ $が
+    \begin{align}
+        \Span\{A^s\}_s = ｛ \mfig{alphaA} \Mid α ｝ = \L(𝒱)
+    \end{align}
+    を満たすとき、$A$がinjectiveであると言う。
+\end{definition}
+
+\begin{definition}[一般化逆行列]
+    $m × n$行列$X$に対し$n × m$行列$X^𝑔$が$XX^𝑔X = X$を満たすとき、$X^𝑔$は$X$の一般化逆行列(generalized inverse)であるという。
+\end{definition}
+\begin{definition}[擬逆行列]
+    $m × n$行列$X$が特異値分解によって
+    \begin{align}
+        X = UΣV^†
+    \end{align}
+    と書かれているとする。ここで$U, V$はユニタリ行列、$Σ$は対角行列である。
+    このとき$X$の擬逆行列(pseudoinverse)は以下のように定められる。
+    \begin{align}
+        X⁺ ≔ VΣ^+U^†
+    \end{align}
+    ここで
+    \begin{align}
+         Σ⁺_{ij} = \begin{cases}
+            (Σ_{ij})^{-1} & Σ_{ij} ≠ 0 \\
+            0 & Σ_{ij} = 0
+        \end{cases}
+    \end{align}
+    である。擬逆行列は一般化逆行列であり、$X$が正則なときは逆行列に一致する。
+    $A ∈ \L(𝒱) ⊗ ℋ$に対し、対応する$𝒱 ⊗ 𝒱$から$ℋ$への写像が以下のように定まる。
+    \begin{align}
+        𝒫(A) = ∑_{i,j,s} A^s_{ij} |s⟩_ℋ ⟨i,j|_{𝒱 ⊗ 𝒱} = \mfig{P(A)}
+    \end{align}
+    この擬逆行列 $𝒫(A)⁺$を与えるテンソルを$A⁺$とする。すなわち、
+    \begin{align}
+        𝒫(A)⁺ = ∑_{i,j,s} (A⁺)_s^{ij} |i,j⟩_{𝒱 ⊗ 𝒱} ⟨s|_ℋ = \mfig{P(A)+}
+    \end{align}
+    とする。
+\end{definition}
+
+\begin{remark}
+    $𝒫(A)𝒫(A)⁺$および$𝒫(A)⁺𝒫(A)$を図示すると
+    \begin{align}
+        𝒫(A)𝒫(A)⁺ = \mfig{P(A)P(A)+},␣
+        𝒫(A)⁺𝒫(A) = \mfig{P(A)+P(A)}
+    \end{align}
+    である。これらは擬逆行列の定義から直交射影となる。
+    これらの射影の像を考えよう。
+    $\im (𝒫(A)𝒫(A)⁺) = \im 𝒫(A) ⊊ ℋ$の場合はlocal Hilbert spaceをとり直すことで常に$\im 𝒫(A) = ℋ$とできる。
+    次に$\im (𝒫(A)𝒫(A)⁺) ⊂ 𝒱' ⊗ 𝒱' ⊊ 𝒱 ⊗ 𝒱$の場合、virtual spaceを$𝒱'$に取り直す。
+    しかし、それでも$\im (𝒫(A)𝒫(A)⁺) ⊊ 𝒱' ⊗ 𝒱'$となり得る。
+    この空間をMPSおよびPEPSの特徴づけとして利用するのがinjectivityの考え方である。
+    さらに$\im(𝒫(A)⁺𝒫(A))$は
+    \begin{align}&
+        \im (𝒫(A)⁺𝒫(A)) = \im(𝒫(A)^† 𝒫(A)^{+†}) = \im 𝒫(A)^† = \Span\{\＿A^s\}_s
+    \end{align}
+    と表せる。多くの場合は$*$演算に対して閉じた行列代数を考えるので、$\Span\{A^s\}_s$を考えれば良い。
+\end{remark}
+
+
+\begin{lemma}
+    テンソル$A ∈ \L(𝒱) ⊗ ℋ$について、以下は同値
+    \begin{enumerate}
+        \item  $\Span\{A^s\}_s  = \L(𝒱) = \Span\{\＿A^s\}_s.$
+        \item $A$から定まる写像$𝒫(A) :\L(𝒱) → ℋ$が単射(injective)
+        \item $𝒫(A)⁺𝒫(A) = 𝟙.$
+        これは以下のように図示される。
+        \begin{align}
+            \AinvA ~=~\idid
+        \end{align}
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1. $⇔$ 2.) 
+    $\ker 𝒫(A) = \coker 𝒫(A)^† =\L(𝒱)/\im 𝒫(A)^†$より、
+    $\Span\{\＿A^s\}_s = \im 𝒫(A)^† = \L(𝒱)$と$\ker 𝒫(A) = 0$は同値。
+    (1. $⇔$ 3.)
+    $𝒫(A)⁺𝒫(A)$が$\Span\{\＿A^s\}_s$への射影であることから直ちに同値性が分かる。
+\end{proof}
+
+\begin{lemma}[連結(Concatenation)]
+    injectivityはテンソルの連結(concatenation)によって保たれる。 
+    つまりinjectiveなテンソル$A^s_{ij},B^s_{ij}$に対し、$∑_j A^{s}_{ij}B^{t}_{jk}$はinjectiveである。
+\end{lemma}
+\begin{proof}
+    $\Span\{A^sB^t\}_{s,t} = \L(𝒱)\L(𝒱) = \L(𝒱).$
+    % \begin{align}
+    %     \AinvA\BinvB = \idid\idid ∝ \idid.
+    % \end{align}
+\end{proof}
+
+\begin{remark}
+    MPS $|ψ(A)⟩$ がinjectiveであるというとき、有限個の$A$の連結$A⋯A$がinjectiveであることを意味することがあるので注意。
+    例えばAffleck--Keneddy--Lieb--Tasaki模型の基底状態は
+    \begin{align}
+        A⁺ = √{÷{3}{2}}σ⁺,␣ A⁰ = -√{÷1{3}}σ^z,␣ A⁻ = -√{÷{3}{2}}σ⁻
+    \end{align}
+    によるMPSとして与えられるが、local Hilbert spaceの次元は$3$、virtual spaceの次元は$2×2 = 4$であるから$A$は明らかにinjectiveではない。2つの$A$をconcatenateしてはじめてinjectiveになる。
+\end{remark}
+
+\begin{theorem}[Intersection property] \label{Intersection property}
+    $A, B ∈ \L(𝒱) ⊗ ℋ$をinjectiveなテンソルとする。このとき、
+    \begin{align}
+        ｛\ABM\Mid M｝ ∩ ｛\NBC\Mid N｝ = ｛\ABCX\Mid X｝
+    \end{align}
+\end{theorem}
+\begin{proof}
+右辺$⊂$左辺は明らかなので左辺$⊂$右辺を示す。
+左辺の元に対して、テンソル$X$が存在して
+\begin{align}
+    \N ∝ \AX
+\end{align}
+と書けるならば、右辺にも属することが示される。
+このような$X$は具体的に以下のように構成される。
+\begin{align}
+      \mfig{Intersection1}
+    ∝ \mfig{Intersection2}
+    = \mfig{Intersection3}
+    = \mfig{Intersection4}
+\end{align}
+\end{proof}
+
+\begin{theorem}[Closure property]\label{Closure property}
+    $A, B ∈ \L(𝒱) ⊗ ℋ$をinjectiveなテンソルとする。このとき
+    \begin{align}
+        ｛\AMB\Mid M｝ ∩ ｛\ANB\Mid N｝ = ｛λ\AB\Mid λ ∈ ℂ｝
+    \end{align}
+\end{theorem}
+\begin{proof}
+    右辺$⊂$左辺は明らか。左辺の元に対して等式
+    \begin{align}
+        \mfig{Closure1}
+    ∝ \mfig{Closure2}
+    = \mfig{Closure3}
+    = \mfig{Closure4}
+    \end{align}
+    を代入することで、左辺$⊂$右辺が得られる。
+\end{proof}
+
+\begin{definition}[Parent Hamiltonian]
+    長さ$L$の周期的な1次元スピン系のHilbert空間を
+    \begin{align}
+        ℋ＿{tot} ≔ ⊗_{i=1}^L ℋ_i,␣ ℋ_i = ℋ,␣ ℋ_{L+1} = ℋ₁ 
+    \end{align}
+    とする。$ℋ_i ⊗ ℋ_{i+1}$のみに非自明に作用する直交射影$h_i$を、injectiveなテンソル$A ∈ \L(𝒱) ⊗ ℋ$から以下のように定義する。
+    \begin{align}&
+        \ker h_i = ｛\mfig{AMA}\Mid M ｝ ⊗ （⨂_{j ≠ i,i+1} ℋ_j）
+    \end{align}
+    Hamiltonian $H = ∑_{i=1}^L h_i$を(周期境界条件における) $A$に対するparent Hamiltonianと呼ぶ。
+\end{definition}
+
+\begin{theorem}
+    injectiveなテンソル$A ∈ \L(𝒱) ⊗ ℋ$に対するparent Hamiltonianの基底状態はTI-MPS $|ψ(A)⟩$のみである。
+\end{theorem}
+\begin{proof}
+    $\ker H = ⋂_{i=1}^L \ker h_i$を\hyperref[Intersection property]{intersection property}, \hyperref[Closure property]{closure property}を用いて求める。
+    まず、\hyperref[Intersection property]{intersection property}において$A=B=C$とすることで、
+    \begin{align}
+        \ker h_i ∩ \ker h_{i+1} = ｛\Tr[XAAA] \mid X ∈ \L(𝒱) ｝ ⊗ （⨂_{j ≠ i,i+1,i+2} ℋ_j）
+    \end{align}
+    を得る。同様の議論を帰納的に繰り返すことで、
+    \begin{align}
+        ⋂_{i=1}^{L-1} \ker h_i = ｛\Tr[X\overbrace{A ⋯ A}^L]\Mid X ∈ \L(𝒱) ｝
+    \end{align}
+    となる。また同様の議論から、
+    \begin{align}
+        ⋂_{i=0}^{L} \ker h_i = ｛\Tr[AX\overbrace{A ⋯ A}^{L-1}]\Mid X ∈ \L(𝒱) ｝
+    \end{align}
+    である。よって\hyperref[Closure property]{closure property}において$B=\overbrace{A ⋯ A}^{L-1}$とすることで
+    \begin{align}
+        \ker H 
+        = （⋂_{i=1}^{L-1} \ker h_i） ∩ （⋂_{i=0}^{L} \ker h_i）
+        = ｛λ\Tr[\overbrace{A ⋯ A}^L]\Mid λ ∈ ℂ ｝.
+    \end{align}
+\end{proof}
+
+
+\begin{theorem}[Energy gap]
+    injectiveなテンソルに対するparent Hamiltonianはgappedである。
+\end{theorem}
+\begin{proof}
+    証明は\cite{fannesFinitelyCorrelatedStates1992}にある。
+    追っていない。
+\end{proof}
+
+\end{document}

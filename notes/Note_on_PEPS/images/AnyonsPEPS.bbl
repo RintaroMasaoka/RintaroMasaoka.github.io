@@ -1,0 +1,448 @@
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
+
+\bibitem{VerstraeteMurgCirac08}
+F.~Verstraete, V.~Murg, and J.~Cirac, ``Matrix product states, projected
+  entangled pair states, and variational renormalization group methods for
+  quantum spin systems,''
+  \href{http://dx.doi.org/10.1080/14789940801912366}{{\em Advances in Physics}
+  {\bf 57} (2008) no.~2, 143--224}.
+  \url{http://www.tandfonline.com/doi/abs/10.1080/14789940801912366}.
+
+\bibitem{DMRG}
+S.~R. White, \href{http://dx.doi.org/10.1103/PhysRevLett.69.2863}{``Density
+  matrix formulation for quantum renormalization groups,''{\em Phys. Rev.
+  Lett.} {\bf 69} (Nov, 1992)  2863--2866}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.69.2863}.
+
+\bibitem{OstlundRommer}
+S.~\"Ostlund and S.~Rommer,
+  \href{http://dx.doi.org/10.1103/PhysRevLett.75.3537}{``Thermodynamic limit of
+  density matrix renormalization,''{\em Phys. Rev. Lett.} {\bf 75} (Nov, 1995)
+  3537--3540}. \url{http://link.aps.org/doi/10.1103/PhysRevLett.75.3537}.
+
+\bibitem{1Done}
+X.~Chen, Z.-C. Gu, and X.-G. Wen,
+  \href{http://dx.doi.org/10.1103/PhysRevB.83.035107}{``Classification of
+  gapped symmetric phases in one-dimensional spin systems,''{\em Phys. Rev. B}
+  {\bf 83} (Jan, 2011)  035107}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.83.035107}.
+
+\bibitem{1Dtwo}
+F.~Pollmann, A.~M. Turner, E.~Berg, and M.~Oshikawa,
+  \href{http://dx.doi.org/10.1103/PhysRevB.81.064439}{``Entanglement spectrum
+  of a topological phase in one dimension,''{\em Phys. Rev. B} {\bf 81} (Feb,
+  2010)  064439}. \url{http://link.aps.org/doi/10.1103/PhysRevB.81.064439}.
+
+\bibitem{SchuchGarciaCirac11}
+N.~Schuch, D.~P\'erez-Garc\'ia, and I.~Cirac,
+  \href{http://dx.doi.org/10.1103/PhysRevB.84.165139}{``Classifying quantum
+  phases using matrix product states and projected entangled pair states,''{\em
+  Phys. Rev. B} {\bf 84} (Oct, 2011)  165139}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.84.165139}.
+
+\bibitem{peps}
+F.~{Verstraete} and J.~I. {Cirac}, ``{Renormalization algorithms for
+  Quantum-Many Body Systems in two and higher dimensions},''{\em eprint
+  arXiv:cond-mat/0407066} (July, 2004)  ,
+  \href{http://arxiv.org/abs/cond-mat/0407066}{{\tt cond-mat/0407066}}.
+
+\bibitem{einarsson}
+T.~Einarsson, \href{http://dx.doi.org/10.1103/PhysRevLett.64.1995}{``Fractional
+  statistics on a torus,''{\em Phys. Rev. Lett.} {\bf 64} (Apr, 1990)
+  1995--1998}. \url{http://link.aps.org/doi/10.1103/PhysRevLett.64.1995}.
+
+\bibitem{Wen90}
+X.~Wen, ``Topological orders in rigid states,''
+  \href{http://dx.doi.org/10.1142/S0217979290000139}{{\em International Journal
+  of Modern Physics B} {\bf 04} (1990) no.~02, 239--271}.
+  \url{http://www.worldscientific.com/doi/abs/10.1142/S0217979290000139}.
+
+\bibitem{BravyiHastingsVerstraete}
+S.~Bravyi, M.~B. Hastings, and F.~Verstraete,
+  \href{http://dx.doi.org/10.1103/PhysRevLett.97.050401}{``Lieb-robinson bounds
+  and the generation of correlations and topological quantum order,''{\em Phys.
+  Rev. Lett.} {\bf 97} (Jul, 2006)  050401}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.97.050401}.
+
+\bibitem{KitaevPreskill}
+A.~Kitaev and J.~Preskill,
+  \href{http://dx.doi.org/10.1103/PhysRevLett.96.110404}{``Topological
+  entanglement entropy,''{\em Phys. Rev. Lett.} {\bf 96} (Mar, 2006)  110404}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.96.110404}.
+
+\bibitem{levinwenentanglement}
+M.~Levin and X.-G. Wen,
+  \href{http://dx.doi.org/10.1103/PhysRevLett.96.110405}{``Detecting
+  topological order in a ground state wave function,''{\em Phys. Rev. Lett.}
+  {\bf 96} (Mar, 2006)  110405}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.96.110405}.
+
+\bibitem{LRE}
+X.~Chen, Z.-C. Gu, and X.-G. Wen,
+  \href{http://dx.doi.org/10.1103/PhysRevB.82.155138}{``Local unitary
+  transformation, long-range quantum entanglement, wave function
+  renormalization, and topological order,''{\em Phys. Rev. B} {\bf 82} (Oct,
+  2010)  155138}. \url{http://link.aps.org/doi/10.1103/PhysRevB.82.155138}.
+
+\bibitem{MES}
+Y.~Zhang, T.~Grover, A.~Turner, M.~Oshikawa, and A.~Vishwanath,
+  \href{http://dx.doi.org/10.1103/PhysRevB.85.235151}{``Quasiparticle
+  statistics and braiding from ground-state entanglement,''{\em Phys. Rev. B}
+  {\bf 85} (Jun, 2012)  235151}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.85.235151}.
+
+\bibitem{LiHaldane}
+H.~Li and F.~D.~M. Haldane,
+  \href{http://dx.doi.org/10.1103/PhysRevLett.101.010504}{``Entanglement
+  spectrum as a generalization of entanglement entropy: Identification of
+  topological order in non-abelian fractional quantum hall effect states,''{\em
+  Phys. Rev. Lett.} {\bf 101} (Jul, 2008)  010504}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.101.010504}.
+
+\bibitem{haah}
+J.~Haah, ``An invariant of topologically ordered states under local unitary
+  transformations,'' \href{http://dx.doi.org/10.1007/s00220-016-2594-y}{{\em
+  Communications in Mathematical Physics} {\bf 342} (2016) no.~3, 771--801}.
+  \url{http://dx.doi.org/10.1007/s00220-016-2594-y}.
+
+\bibitem{Criticality}
+F.~Verstraete, M.~M. Wolf, D.~Perez-Garcia, and J.~I. Cirac,
+  \href{http://dx.doi.org/10.1103/PhysRevLett.96.220601}{``Criticality, the
+  area law, and the computational power of projected entangled pair
+  states,''{\em Phys. Rev. Lett.} {\bf 96} (Jun, 2006)  220601}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.96.220601}.
+
+\bibitem{Ginjectivity}
+N.~Schuch, I.~Cirac, and D.~Perez-Garcia, ``Peps as ground states: Degeneracy
+  and topology,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/j.aop.2010.05.008}{{\em
+  Annals of Physics} {\bf 325} (2010) no.~10, 2153 -- 2192}.
+  \url{http://www.sciencedirect.com/science/article/pii/S0003491610000990}.
+
+\bibitem{Buerschaper14}
+O.~Buerschaper, ``Twisted injectivity in projected entangled pair states and
+  the classification of quantum phases,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/j.aop.2014.09.007}{{\em
+  Annals of Physics} {\bf 351} (2014) no.~0, 447 -- 476}.
+  \url{http://www.sciencedirect.com/science/article/pii/S000349161400267X}.
+
+\bibitem{MPOpaper}
+M.~{Burak {\c S}ahino{\u g}lu}, D.~{Williamson}, N.~{Bultinck},
+  M.~{Mari{\"e}n}, J.~{Haegeman}, N.~{Schuch}, and F.~{Verstraete},
+  ``{Characterizing Topological Order with Matrix Product Operators},''{\em
+  ArXiv e-prints} (Sept., 2014)  , \href{http://arxiv.org/abs/1409.2150}{{\tt
+  arXiv:1409.2150 [quant-ph]}}.
+
+\bibitem{SPTpaper}
+D.~J. Williamson, N.~Bultinck, M.~Mari\"en, M.~B. \ifmmode \mbox{\c{S}}\else
+  \c{S}\fi{}ahino\ifmmode~\breve{g}\else \u{g}\fi{}lu, J.~Haegeman, and
+  F.~Verstraete, \href{http://dx.doi.org/10.1103/PhysRevB.94.205150}{``Matrix
+  product operators for symmetry-protected topological phases: Gauging and edge
+  theories,''{\em Phys. Rev. B} {\bf 94} (Nov, 2016)  205150}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.94.205150}.
+
+\bibitem{stringnet1}
+O.~Buerschaper, M.~Aguado, and G.~Vidal,
+  \href{http://dx.doi.org/10.1103/PhysRevB.79.085119}{``Explicit tensor network
+  representation for the ground states of string-net models,''{\em Phys. Rev.
+  B} {\bf 79} (Feb, 2009)  085119}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.79.085119}.
+
+\bibitem{stringnet2}
+Z.-C. Gu, M.~Levin, B.~Swingle, and X.-G. Wen,
+  \href{http://dx.doi.org/10.1103/PhysRevB.79.085118}{``Tensor-product
+  representations for string-net condensed states,''{\em Phys. Rev. B} {\bf 79}
+  (Feb, 2009)  085118}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.79.085118}.
+
+\bibitem{transfermatrix}
+N.~Schuch, D.~Poilblanc, J.~I. Cirac, and D.~Perez-Garcia, ``Topological order
+  in peps: Transfer operator and boundary hamiltonians,'' {\em Phys. Rev.
+  Lett.} {\bf 111} (2013)  090501,
+  \href{http://arxiv.org/abs/arXiv:1210.5601}{{\tt arXiv:1210.5601}}.
+
+\bibitem{shadows}
+J.~Haegeman, V.~Zauner, N.~Schuch, and F.~Verstraete, ``Shadows of anyons and
+  the entanglement structure of topological phases,''{\em Nature
+  Communications} {\bf 6} (10, 2015)  8284 EP --.
+  \url{http://dx.doi.org/10.1038/ncomms9284}.
+
+\bibitem{Qalgebra}
+T.~Lan and X.-G. Wen,
+  \href{http://dx.doi.org/10.1103/PhysRevB.90.115119}{``Topological
+  quasiparticles and the holographic bulk-edge relation in $(2+1)$-dimensional
+  string-net models,''{\em Phys. Rev. B} {\bf 90} (Sep, 2014)  115119}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.90.115119}.
+
+\bibitem{Aasen}
+D.~{Aasen}, R.~S.~K. {Mong}, and P.~{Fendley},
+  \href{http://dx.doi.org/10.1088/1751-8113/49/35/354001}{``{Topological
+  defects on the lattice: I. The Ising model},''{\em Journal of Physics A
+  Mathematical General} {\bf 49} (Sept., 2016)  354001},
+  \href{http://arxiv.org/abs/1601.07185}{{\tt arXiv:1601.07185
+  [cond-mat.stat-mech]}}.
+
+\bibitem{toriccode}
+A.~Kitaev, ``Fault-tolerant quantum computation by anyons,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/S0003-4916(02)00018-0}{{\em
+  Annals of Physics} {\bf 303} (2003) no.~1, 2 -- 30}.
+  \url{http://www.sciencedirect.com/science/article/pii/S0003491602000180}.
+
+\bibitem{MPSrepresentations}
+D.~Perez-Garcia, F.~Verstraete, M.~M. Wolf, and J.~I. Cirac, ``Matrix product
+  state representations,''{\em Quantum Info. Comput.} {\bf 7} (July, 2007)
+  401--430. \url{http://dl.acm.org/citation.cfm?id=2011832.2011833}.
+
+\bibitem{PerezGarciaRG}
+J.~I. {Cirac}, D.~{Perez-Garcia}, N.~{Schuch}, and F.~{Verstraete}, ``{Matrix
+  Product Density Operators: Renormalization Fixed Points and Boundary
+  Theories},''{\em ArXiv e-prints} (June, 2016)  ,
+  \href{http://arxiv.org/abs/1606.00608}{{\tt arXiv:1606.00608 [quant-ph]}}.
+
+\bibitem{Kitaev06}
+A.~Kitaev, ``Anyons in an exactly solved model and beyond,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/j.aop.2005.10.005}{{\em
+  Annals of Physics} {\bf 321} (2006) no.~1, 2 -- 111}.
+  \url{http://www.sciencedirect.com/science/article/pii/S0003491605002381}.
+  January Special Issue.
+
+\bibitem{maclane}
+S.~Mac~Lane {\em Categories for the working mathematician, Graduate texts in
+  mathamatics, Springer-Verlag}  .
+
+\bibitem{ocneanu}
+P.~{Etingof}, D.~{Nikshych}, and V.~{Ostrik}, ``{On fusion categories},''{\em
+  ArXiv Mathematics e-prints} (Mar., 2002)  ,
+  \href{http://arxiv.org/abs/math/0203060}{{\tt math/0203060}}.
+
+\bibitem{KongWen}
+L.~{Kong} and X.-G. {Wen}, ``{Braided fusion categories, gravitational
+  anomalies, and the mathematical framework for topological orders in any
+  dimensions},''{\em ArXiv e-prints} (May, 2014)  ,
+  \href{http://arxiv.org/abs/1405.5858}{{\tt arXiv:1405.5858
+  [cond-mat.str-el]}}.
+
+\bibitem{GarciaVerstraeteWolfCirac08}
+D.~Perez-Garcia, F.~Verstraete, M.~M. Wolf, and J.~I. Cirac, ``Peps as unique
+  ground states of local hamiltonians,''{\em Quantum Info. Comput.} {\bf 8}
+  (July, 2008)  650--663.
+  \url{http://dl.acm.org/citation.cfm?id=2016976.2016982}.
+
+\bibitem{wilczek}
+F.~Wilczek, \href{http://dx.doi.org/10.1103/PhysRevLett.49.957}{``Quantum
+  mechanics of fractional-spin particles,''{\em Phys. Rev. Lett.} {\bf 49}
+  (Oct, 1982)  957--959}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.49.957}.
+
+\bibitem{LeinaasMyrheim}
+J.~Leinaas and J.~Myrheim, ``On the theory of identical particles,''
+  \href{http://dx.doi.org/10.1007/BF02727953}{{\em Il Nuovo Cimento B
+  (1971-1996)} {\bf 37} (1977) no.~1, 1--23}.
+  \url{http://dx.doi.org/10.1007/BF02727953}.
+
+\bibitem{dyonicspectrum}
+Y.~{Hu}, N.~{Geer}, and Y.-S. {Wu}, ``{Full Dyon Excitation Spectrum in
+  Generalized Levin-Wen Models},''{\em ArXiv e-prints} (Feb., 2015)  ,
+  \href{http://arxiv.org/abs/1502.03433}{{\tt arXiv:1502.03433
+  [cond-mat.str-el]}}.
+
+\bibitem{tubealgebra}
+D.~Evans and Y.~Kawahigashi, ``On ocneanu's theory of asymptotic inclusions for
+  subfactors, topological quantum field theories and quantum doubles,'' {\em
+  International journal of mathematics} {\bf 6} (1995)  205--228.
+
+\bibitem{Haegeman}
+J.~Haegeman, B.~Pirvu, D.~J. Weir, J.~I. Cirac, T.~J. Osborne, H.~Verschelde,
+  and F.~Verstraete,
+  \href{http://dx.doi.org/10.1103/PhysRevB.85.100408}{``Variational matrix
+  product ansatz for dispersion relations,''{\em Phys. Rev. B} {\bf 85} (Mar,
+  2012)  100408}. \url{http://link.aps.org/doi/10.1103/PhysRevB.85.100408}.
+
+\bibitem{Vanderstraeten}
+L.~Vanderstraeten, M.~Mari\"en, F.~Verstraete, and J.~Haegeman,
+  \href{http://dx.doi.org/10.1103/PhysRevB.92.201111}{``Excitations and the
+  tangent space of projected entangled-pair states,''{\em Phys. Rev. B} {\bf
+  92} (Nov, 2015)  201111}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.92.201111}.
+
+\bibitem{AharonovBohm}
+Y.~Aharonov and D.~Bohm,
+  \href{http://dx.doi.org/10.1103/PhysRev.115.485}{``Significance of
+  electromagnetic potentials in the quantum theory,''{\em Phys. Rev.} {\bf 115}
+  (Aug, 1959)  485--491}.
+  \url{http://link.aps.org/doi/10.1103/PhysRev.115.485}.
+
+\bibitem{Berry}
+M.~V. Berry, ``Quantal phase factors accompanying adiabatic changes,''
+  \href{http://dx.doi.org/10.1098/rspa.1984.0023}{{\em Proceedings of the Royal
+  Society of London A: Mathematical, Physical and Engineering Sciences} {\bf
+  392} (1984) no.~1802, 45--57}.
+
+\bibitem{WickWightmanWigner}
+G.~C. Wick, A.~S. Wightman, and E.~P. Wigner,
+  \href{http://dx.doi.org/10.1103/PhysRev.88.101}{``The intrinsic parity of
+  elementary particles,''{\em Phys. Rev.} {\bf 88} (Oct, 1952)  101--105}.
+  \url{http://link.aps.org/doi/10.1103/PhysRev.88.101}.
+
+\bibitem{ReadChakraborty}
+N.~Read and B.~Chakraborty,
+  \href{http://dx.doi.org/10.1103/PhysRevB.40.7133}{``Statistics of the
+  excitations of the resonating-valence-bond state,''{\em Phys. Rev. B} {\bf
+  40} (Oct, 1989)  7133--7140}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.40.7133}.
+
+\bibitem{Kitaev03}
+A.~Kitaev, ``Fault-tolerant quantum computation by anyons,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/S0003-4916(02)00018-0}{{\em
+  Annals of Physics} {\bf 303} (2003) no.~1, 2 -- 30}.
+  \url{http://www.sciencedirect.com/science/article/pii/S0003491602000180}.
+
+\bibitem{LevinWen05}
+M.~A. Levin and X.-G. Wen,
+  \href{http://dx.doi.org/10.1103/PhysRevB.71.045110}{``String-net
+  condensation:\quad{}a physical mechanism for topological phases,''{\em Phys.
+  Rev. B} {\bf 71} (Jan, 2005)  045110}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.71.045110}.
+
+\bibitem{verlinde}
+E.~Verlinde, ``Fusion rules and modular transformations in 2d conformal field
+  theory,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/0550-3213(88)90603-7}{{\em
+  Nuclear Physics B} {\bf 300} (1988)  360 -- 376}.
+  \url{http://www.sciencedirect.com/science/article/pii/0550321388906037}.
+
+\bibitem{Vafa}
+C.~Vafa, ``Toward classification of conformal theories,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/0370-2693(88)91603-6}{{\em
+  Physics Letters B} {\bf 206} (1988) no.~3, 421 -- 426}.
+  \url{http://www.sciencedirect.com/science/article/pii/0370269388916036}.
+
+\bibitem{DijkgraafWitten}
+R.~Dijkgraaf and E.~Witten, ``Topological gauge theories and group
+  cohomology,'' {\em Comm. Math. Phys.} {\bf 129} (1990) no.~2, 393--429.
+  \url{http://projecteuclid.org/euclid.cmp/1104180750}.
+
+\bibitem{propitius}
+M.~{de Wild Propitius}, {\em {Topological interactions in broken gauge
+  theories}}.
+\newblock PhD thesis, 1995.
+
+\bibitem{tqd}
+Y.~Hu, Y.~Wan, and Y.-S. Wu,
+  \href{http://dx.doi.org/10.1103/PhysRevB.87.125114}{``Twisted quantum double
+  model of topological phases in two dimensions,''{\em Phys. Rev. B} {\bf 87}
+  (Mar, 2013)  125114}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.87.125114}.
+
+\bibitem{TuraevViro}
+V.~Turaev and O.~Viro, ``State sum invariants of 3-manifolds and quantum
+  6j-symbols,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/0040-9383(92)90015-A}{{\em
+  Topology} {\bf 31} (1992) no.~4, 865 -- 902}.
+  \url{http://www.sciencedirect.com/science/article/pii/004093839290015A}.
+
+\bibitem{czxmodel}
+X.~Chen, Z.-X. Liu, and X.-G. Wen,
+  \href{http://dx.doi.org/10.1103/PhysRevB.84.235141}{``Two-dimensional
+  symmetry-protected topological orders and their protected gapless edge
+  excitations,''{\em Phys. Rev. B} {\bf 84} (Dec, 2011)  235141}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.84.235141}.
+
+\bibitem{orbifold}
+R.~Dijkgraaf, C.~Vafa, E.~Verlinde, and H.~Verlinde, ``The operator algebra of
+  orbifold models,'' {\em Comm. Math. Phys.} {\bf 123} (1989) no.~3, 485--526.
+  \url{http://projecteuclid.org/euclid.cmp/1104178892}.
+
+\bibitem{DijkgraafPasquierRoche}
+R.~{Dijkgraaf}, V.~{Pasquier}, and P.~{Roche},
+  \href{http://dx.doi.org/10.1016/0920-5632(91)90123-V}{``{Quasi hopf algebras,
+  group cohomology and orbifold models},''{\em Nuclear Physics B Proceedings
+  Supplements} {\bf 18} (Jan., 1991)  60--72}.
+
+\bibitem{friedl1985polynomial}
+K.~Friedl and L.~R{\'o}nyai, ``Polynomial time solutions of some problems of
+  computational algebra,'' in {\em Proceedings of the seventeenth annual ACM
+  symposium on Theory of computing}, pp.~153--162, ACM.
+\newblock 1985.
+
+\bibitem{drinfeld}
+V.~Drinfel'd, ``Quantum groups,'' {\em Proceedings of the International
+  Congress of Mathematicians} {\bf 1} (1986)  798--820.
+  \url{http://www.mathunion.org/ICM/ICM1986.1/Main/icm1986.1.0798.0820.ocr.pdf}.
+
+\bibitem{DrinfeldCenter}
+M.~Muger, ``From subfactors to categories and topology ii: The quantum double
+  of tensor categories and subfactors,''
+  \href{http://dx.doi.org/http://dx.doi.org/10.1016/S0022-4049(02)00248-7}{{\em
+  Journal of Pure and Applied Algebra} {\bf 180} (2003) no.~1--2, 159 -- 219}.
+  \url{http://www.sciencedirect.com/science/article/pii/S0022404902002487}.
+
+\bibitem{LagrangianAlgebra}
+A.~{Davydov}, M.~{Muger}, D.~{Nikshych}, and V.~{Ostrik}, ``{The Witt group of
+  non-degenerate braided fusion categories},''{\em ArXiv e-prints} (Sept.,
+  2010)  , \href{http://arxiv.org/abs/1009.2117}{{\tt arXiv:1009.2117
+  [math.QA]}}.
+
+\bibitem{LevinEdges}
+M.~Levin, \href{http://dx.doi.org/10.1103/PhysRevX.3.021009}{``Protected edge
+  modes without symmetry,''{\em Phys. Rev. X} {\bf 3} (May, 2013)  021009}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevX.3.021009}.
+
+\bibitem{EnrichingLevinWen}
+L.~Chang, M.~Cheng, S.~X. Cui, Y.~Hu, W.~Jin, R.~Movassagh, P.~Naaijkens,
+  Z.~Wang, and A.~Young, ``On enriching the levin--wen model with symmetry,''
+  {\em Journal of Physics A: Mathematical and Theoretical} {\bf 48} (2015)
+  no.~12, 12FT01. \url{http://stacks.iop.org/1751-8121/48/i=12/a=12FT01}.
+
+\bibitem{chiral1}
+T.~B. Wahl, H.-H. Tu, N.~Schuch, and J.~I. Cirac,
+  \href{http://dx.doi.org/10.1103/PhysRevLett.111.236805}{``Projected
+  entangled-pair states can describe chiral topological states,''{\em Phys.
+  Rev. Lett.} {\bf 111} (Dec, 2013)  236805}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.111.236805}.
+
+\bibitem{chiral2}
+J.~Dubail and N.~Read,
+  \href{http://dx.doi.org/10.1103/PhysRevB.92.205307}{``Tensor network trial
+  states for chiral topological phases in two dimensions and a no-go theorem in
+  any dimension,''{\em Phys. Rev. B} {\bf 92} (Nov, 2015)  205307}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.92.205307}.
+
+\bibitem{JiangRan}
+S.~Jiang and Y.~Ran,
+  \href{http://dx.doi.org/10.1103/PhysRevB.92.104414}{``Symmetric tensor
+  networks and practical simulation algorithms to sharply identify classes of
+  quantum phases distinguishable by short-range physics,''{\em Phys. Rev. B}
+  {\bf 92} (Sep, 2015)  104414}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevB.92.104414}.
+
+\bibitem{fPEPS}
+C.~V. Kraus, N.~Schuch, F.~Verstraete, and J.~I. Cirac,
+  \href{http://dx.doi.org/10.1103/PhysRevA.81.052338}{``Fermionic projected
+  entangled pair states,''{\em Phys. Rev. A} {\bf 81} (May, 2010)  052338}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevA.81.052338}.
+
+\bibitem{MERA1}
+R.~K\"onig, B.~W. Reichardt, and G.~Vidal,
+  \href{http://dx.doi.org/10.1103/PhysRevB.79.195123}{``Exact entanglement
+  renormalization for string-net models,''{\em Phys. Rev. B} {\bf 79} (May,
+  2009)  195123}. \url{http://link.aps.org/doi/10.1103/PhysRevB.79.195123}.
+
+\bibitem{MERA2}
+L.~Tagliacozzo and G.~Vidal,
+  \href{http://dx.doi.org/10.1103/PhysRevB.83.115127}{``Entanglement
+  renormalization and gauge symmetry,''{\em Phys. Rev. B} {\bf 83} (Mar, 2011)
+  115127}. \url{http://link.aps.org/doi/10.1103/PhysRevB.83.115127}.
+
+\bibitem{DS3}
+S.~Beigi, P.~Shor, and D.~Whalen, ``The quantum double model with boundary:
+  Condensations and symmetries,''
+  \href{http://dx.doi.org/10.1007/s00220-011-1294-x}{{\em Communications in
+  Mathematical Physics} {\bf 306} (2011) no.~3, 663--694}.
+  \url{http://dx.doi.org/10.1007/s00220-011-1294-x}.
+
+\bibitem{preskill1999lecture}
+J.~Preskill, ``Lecture notes for physics 219: Quantum computation,'' {\em
+  Caltech Lecture Notes} (1999)  .
+
+\end{thebibliography}\endgroup
