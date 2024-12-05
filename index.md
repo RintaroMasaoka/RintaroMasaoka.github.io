@@ -2,7 +2,7 @@
 @def tags = ["syntax", "code"]
 
 ## About me
-I am Rintaro Masaoka, and I am a Master's student at the University of Tokyo, working in the Watanabe Group. My research focuses on condensed matter theory and statistical physics. Especially I am interested in quantum critical phenomena with nontrivial dynamical exponents.
+I am Rintaro Masaoka, a Master's student at the University of Tokyo in the [Watanabe Group](https://sites.google.com/view/watanabegroup/home?authuser=0). My research focuses on condensed matter theory and statistical physics, with a particular interest in quantum critical phenomena characterized by nontrivial dynamical exponents.
 
 [Google Scholar](https://scholar.google.com/citations?user=qoSWWasAAAAJ&hl=en)
 
