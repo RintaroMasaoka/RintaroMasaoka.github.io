@@ -1,0 +1,620 @@
+\providecommand{\main}{../main}
+\documentclass[\main/main.tex]{subfiles}
+\graphicspath{{../images/}}
+\begin{document}
+
+\section{$G$-injective PEPS}
+\subsection{定義}
+主に\cite{schuchPEPSGroundStates2010, sahinogluCharacterizingTopologicalOrder2021, simonTopologicalQuantum2023}に従って$G$-injective PEPSを導入する。
+これはKitaev quantum double模型\cite{kitaevFaulttolerantQuantumComputation1997}を記述するようなPEPSである。
+ただし後でMPOによる形式に拡張しやすいようにはじめからMPOを使って議論している。
+
+\begin{definition}[半正則表現]\label{def: semireg}
+    ユニタリ表現$g ↦ U_g$が全ての既約表現を含むとき、半正則(semi-regular)であると言う。
+\end{definition}
+
+\begin{definition}[正則表現]\label{def: regrep}
+    群環$ℂG$における左作用$L_g: h ↦ gh$によって与えられる表現$g ↦ L_g$を正則表現(regular representation)と呼ぶ。
+\end{definition}
+
+\begin{lemma}[,label=lem: linear independence of semi-reg rep]
+    ユニタリな\hyperref[def: semireg]{半正則表現}$g ↦ U_g$に対し、$\{U_g\}_{g ∈ G}$は線形独立である。
+    また補題\ref{lem: Delta}で定義される$Δ = ∑_i ÷{d_i}{m_i}Π_i$に対して
+    \begin{align}
+        \Tr[U_gΔ] = |G| δ_{g,e}
+    \end{align}
+    が成り立つ。ここで$e$は$G$の単位元である。これを以下のように図示する。
+    \begin{align}
+        \mfig{delta_g} = |G|δ_{g,e} \label{eq: Tr Delta}
+    \end{align}
+\end{lemma}
+\begin{proof}
+    \begin{align}
+        \Tr[U_gΔ]
+        = ∑_i ÷{d_i}{m_i} \Tr[U_g Π_i] 
+        =  ∑_i d_i χ^i(g)
+        = |G| δ_{g,e}.
+    \end{align}
+    ただし正則表現の指標が$∑_i d_i χ^i(g) = δ(g)$となることを用いた。
+    もし$∑_{g ∈ G} μ_g U_g = 0$ならば、
+    \begin{align}
+        ÷1{|G|}∑_g μ_g\Tr[U_gU_{h^{-1}}Δ] = μ_h = 0
+    \end{align}
+    よって$\{U_g\}_{g ∈ G}$は線形独立。
+\end{proof}
+\begin{definition}[$G$-injective PEPS]\label{def: G-injective PEPS}
+    正方格子上のPEPSを構成するテンソル$A ∈ 𝒱 ⊗ 𝒱 ⊗ 𝒱^* ⊗ 𝒱^* ⊗ ℋ$が有限群$G$に対して$G$-injectiveであるとは、\hyperref[def: semireg]{半正則}なユニタリ表現$U: g → \GL(𝒱)$が存在して
+    \begin{align}
+        \Span\{A^s\}_s = ｛X\Mid\mfig{X4} = \mfig{g4X}｝
+        \label{def: G-inv}
+    \end{align}
+    となること。右辺の元を$G$-invariantなテンソルと呼ぶことにする。
+    より一般の格子についても、辺の向き付けを決めると同様に$G$-injectivityが定義される。
+\end{definition}
+\begin{theorem}
+    $A ∈ 𝒱 ⊗ 𝒱 ⊗ 𝒱^* ⊗ 𝒱^* ⊗ ℋ$と擬逆行列との積が
+    \begin{align}
+        ∑_s A^s ⊗ A⁺_s = \mfig{G-AAinv} = ÷1{|G|}∑_{g ∈ G}\mfig{gMPO}.
+        \label{G injective projector}
+    \end{align}
+    となることは$G$-injectivityと同値。
+\end{theorem}
+\begin{proof}
+    (\ref{G injective projector})右辺を$Π ∈ \L(𝒱 ⊗ 𝒱 ⊗ 𝒱^* ⊗ 𝒱^*)$とおく。これが射影であることは以下のように分かる。
+    \begin{align}
+        ÷1{|G|²}∑_{g,h ∈ G} \mfig{gMPOsq} = ÷1{|G|}∑_{g ∈ G}\mfig{gMPO}.
+    \end{align}
+    また
+    \begin{align}
+        ÷1{|G|}∑_{g ∈ G} \mfig{gMPOsq} = ÷1{|G|}∑_{g ∈ G}\mfig{gMPO}
+    \end{align}
+    から$\im Π$の元は必ず\hyperref[def: G-inv]{$G$-invariant}になる。
+    一方$G$-invaritantな$X$に対して
+    \begin{align}
+        \mfig{X4} = ÷1{|G|}∑_{g ∈ |G|} \mfig{g4X} = ΠX
+    \end{align}
+    である。よって$\im Π $は$G$-invariantなテンソルの空間に一致する。
+    $∑_s A^s ⊗ A⁺_s$は$\Span\{\＿A^s\}_s$への射影であり、$G$-invariantなテンソルの空間が複素共役について閉じていることから(\ref{G injective projector})は$G$-injectivityと同値である。
+\end{proof}
+% \begin{align}
+%     (B₊)_i^j\∩{gh} = (U_g)_{ij} δ_{gh},␣
+%     (B₋)_i^j\∩{gh} = (U_{g^{-1}})_{ij} δ_{gh}
+% \end{align}
+
+% \begin{align}
+%     \mfig{A5tensor} = \mfig{g4A} =  \mfig{MPO_A}
+% \end{align}
+
+% \begin{align}
+%     |ψ⟩ = \mfig{G-injective PEPS}
+% \end{align}
+
+\begin{definition}[MPOによる表現]
+    MPO $B_±$を以下のように定義する。
+    \begin{align}
+        B₊ = ∑_{g ∈ G} U_g |g\r\l g|,␣
+        B₋ = ∑_{g ∈ G} U_{g^{-1}}|g\r\l g|
+    \end{align}
+    これを以下のように図示する。
+    \begin{align}
+        \mfig{lMPO} = \mfig{lU_g},␣
+        \mfig{rMPO} = \mfig{rU_g}
+        \label{fig of G-MPO}
+    \end{align}
+    すると(\ref{G injective projector})は
+    \begin{align}
+        ∑_s A^s ⊗ A⁺_s = ÷1{|G|}\mfig{G-PMPO}
+    \end{align}
+    と表される。以降の議論では$1/|G|$の係数を省略する。
+\end{definition}
+\begin{theorem}[Pulling through equation]
+    (\ref{fig of G-MPO})で定義されるMPOについて、以下の等式が成り立つ。
+    \begin{align}
+        \mfig{PT1} &= \mfig{PT2},\\[10pt]
+        \mfig{PT3} &= \mfig{PT4},\\[10pt]
+        \mfig{PT5} &= \mfig{PT6}.
+    \end{align}
+    また向きを反転したり回転したりした式も同様に成り立つ。
+    以上の式をpulling through equationと呼ぶ。
+    図の赤い辺をストリングと呼ぶことにする。
+    ストリングはpulling through equationによりトポロジカルな紐のように自由に動かすことができる。
+\end{theorem}
+
+\begin{lemma}
+   \hyperref[def: G-injective PEPS]{$G$-injectivity}は連結によって保存される。また$G$-injectiveな$A$と$B$の連結に対して以下は一般化逆行列である。
+   \begin{align}
+    \mfig{ABinvconcat} \label{eq: ABinvconcat}.
+   \end{align}
+   ここで$Δ$は補題\ref{lem: Delta}で定義される$Δ = ⨁_i ÷{d_i}{m_i}Π_i$である。
+\end{lemma}
+\begin{proof}
+    $\Span\{A^sB^t\}$が\hyperref[def: G-inv]{$G$-invariant}なテンソルの空間に一致することを示せばよい。
+    $AB$に対して(\ref{eq: ABinvconcat})を掛けると、
+    \begin{align}
+        \mfig{ABconcat} ↦  \mfig{Aconcat2}
+        =\mfig{Aconcat3}.
+    \end{align}
+    ここで(\ref{eq: Tr Delta})を用いた。
+    これは$G$-invaritantな空間への射影になっているので、内側の添字を任意のテンソルと縮約することで任意の$G$-invariantなテンソルが構成できる。
+\end{proof}
+
+\begin{lemma}[Zipper condition]
+    $g,h$のラベルがついたストリングを束ねることで$gh$のストリングとみなすことができる。
+    これは以下のzipper conditionによって保証される。
+    \begin{align}
+        \mfig{Gzipper1}
+        =\mfig{Gzipper2}
+    \end{align}
+    黒い辺の向きは両辺で同じ向きを取ればどちらでも良い。
+\end{lemma}
+
+\begin{lemma}[$F$-move]
+    群の表現について結合則から、直ちに以下の等式が成り立つ。
+    \begin{align}
+        \mfig{G-Fmove1}
+        =\mfig{G-Fmove2}
+    \end{align}
+\end{lemma}
+\subsection{Parent Hamiltonian}
+\begin{theorem}[Intersection property]\label{thm: intersection for G-inj PEPS}
+    (\ref{fig of G-MPO})で定義されるMPOについて、以下の等式が成り立つ。
+    \begin{align}&
+        ｛\mfig[0.09]{PEPS_ABM}｝ ∩ ｛\mfig[0.09]{PEPS_NBC}｝\∅
+        &
+        = ｛\mfig[0.09]{PEPS_ABCX}｝.
+    \end{align}
+    ただし、灰色のテンソルは任意のテンソルを表すとする。
+\end{theorem}
+\begin{proof}
+    右辺$⊂$左辺は明らか。左辺の元について、
+    \begin{align}
+        \mfig[0.09]{PEPS_NBC}
+        &
+        = \mfig[0.09]{PEPS_int1} \∅
+        &
+        = \mfig[0.09]{PEPS_int2}
+    \end{align}
+    である。これに等式
+    \begin{align}
+        \mfig[0.09]{PEPS_int3} 
+        &
+        =\mfig[0.09]{PEPS_int4} \∅
+        &
+        =\mfig[0.09]{PEPS_int5}
+    \end{align}
+    を代入することで左辺$⊂$右辺を得る。
+\end{proof}
+\begin{theorem}[Closure property]\label{thm: closure for G-inj PEPS}
+    (\ref{fig of G-MPO})で定義されるMPOについて、以下の等式が成り立つ。
+    \begin{align}&
+        ｛\mfig{MPOClosureA}｝
+        ∩ ｛\mfig{MPOClosureC}｝
+        ∩ ｛\mfig{MPOClosureB}｝ \∅
+        &
+        ∩ ｛\mfig{MPOClosureD}｝
+        = ｛ ∑_{\substack{g,h ∈ G \\ gh = hg}}λ_{g,h}\mfig{Toric_state_with_gh}\Mid λ_{g,h}｝
+        \label{eq: G-inj PEPS Closure}
+    \end{align}
+    ただし、灰色のテンソルは任意のテンソルを表すとする。
+    また点線は周期境界条件を表す。
+\end{theorem}
+\begin{proof}
+    (\ref{eq: G-inj PEPS Closure})で右辺$⊂$左辺は明らか。
+    (\ref{eq: G-inj PEPS Closure})の左辺の元について、以下の等式が成り立つ。
+    \begin{align}
+        \mfig{MPOClosure1}
+        &
+        =\mfig{MPOClosure2}
+        =\mfig{MPOClosure3}
+        =\mfig{MPOClosure4} \∅
+        &
+        ≕\mfig{MPOClosure5}
+        ≕\mfig{MPOClosure6}
+    \end{align}
+    また同様の議論により
+    \begin{align}
+        \mfig{MPOClosure1}=\mfig{MPOClosure7}
+    \end{align}
+    と表せる。これらをMPSの形で見やすくまとめると、
+    \begin{align}
+        CB² ≔\mfig{ClosureMPOH} = \mfig{ClosureMPOV} ≕ B²D.
+    \end{align}
+    ここで$B²$の擬逆行列を挿入することで
+    \begin{align}
+        \mfig{ClosureMPO1} = 
+        \mfig{ClosureMPO2}
+        &=\mfig{ClosureMPO3}
+    \end{align}
+    と表せる。よってもとの書き方では、
+    \begin{align}
+        \mfig{MPOClosure1} = ∑_{g,h}λ_{g,h} \mfig{MPOClosure_gh}.
+        \label{MPOClosure: sum gh}
+    \end{align}
+    である。
+    したがって、
+    \begin{align}
+        \mfig{MPOClosureA} = \mfig{MPOClosure0}
+        = ∑_{g,h ∈ G}λ_{g,h}\mfig{Toric_state_with_gh} 
+    \end{align}
+    が成り立つ。次に$gh ≠ hg$のとき$λ_{g,h} = 0$となることを示す。
+    (\ref{eq: G-inj PEPS Closure})左辺の元について以下の等式が成り立つ。
+    \begin{align}&
+        \mfig{MPOClosure1}
+        =\mfig{MPOClosure2}
+        =\mfig{MPOClosure9}
+        =\mfig{MPOClosure10} \∅
+        &
+        ≕\mfig{MPOClosure11}
+        ≕ ∑_{\substack{g₁,g₂,h₁,h₂\\h₂g₁h₁^{-1}g₂^{-1}=e}}
+        λ_{g₁,g₂,h₁,h₂}\mfig{MPOClosure12}
+        \label{MPOClosure: sum gghh}
+    \end{align}
+    半正則表現$g ↦ U_g$において$\{U_g\}_{g ∈ G}$が\hyperref[lem: linear independence of semi-reg rep]{線形独立である}ことから$\{U¹_{g₁} ⊗ U²_{g₂} ⊗ U³_{h₁} ⊗ U⁴_{h₂}\}_{g₁,g₂,h₁,h₂}$は線形独立である。
+    よって(\ref{MPOClosure: sum gh})と(\ref{MPOClosure: sum gghh})を見比べることで$g₁=g₂,h₁=h₂$かつ$gh ≠ hg$のとき$λ_{g,h} = 0$が分かる。
+\end{proof}
+\begin{remark}
+    $gh = hg$のとき、
+    \begin{align}
+        \mfig{Toric_state_with_gh}
+        =\mfig{deform_g_str}
+        =\mfig{deform_g_str2}.
+    \end{align}
+    すなわち$g$と$h$のストリングを自由に動かすことができる。
+    逆に$g ≠ h$の場合は2つのストリングの交点を動かそうとすると$ghg^{-1}$などが現れるため自由に動かすことができない。
+\end{remark}
+\begin{remark}
+    $G$-injectiveなPEPSに$(g,h)$のストリングを挿入した状態と$(xgx^{-1},xhx^{-1})$を挿入した状態は等しい。
+    \begin{align}
+        \mfig{Toric_state_with_gh} = \mfig{Toric_conj}.
+    \end{align}
+\end{remark}
+\begin{definition}[Parent Hamiltonian]\label{def: parent for G injective PEPS}
+    $A ∈ 𝒱 ⊗ 𝒱 ⊗ 𝒱^* ⊗ 𝒱^* ⊗ ℋ$を正方格子上のPEPSを構成する$G$-injectiveなテンソルとする。
+    直交射影$h_i$を以下を満たすように構成する。
+    \begin{align}&
+        \ker h_i = ｛\mfig{parent_ker}\Mid X｝ ⊗ （⨂_j ℋ_j）.
+    \end{align}
+    ただし$⨂_j$は$2×2$の領域に含まれない格子点に関してのテンソル積とする。
+    Hamiltonian $H = ∑_i h_i$を$A$に対するparent Hamiltonianと呼ぶ。
+\end{definition}
+
+\begin{theorem}
+    $G$-injectiveなテンソル$A$に対するparent Hamiltonianのトーラスにおける基底空間は
+    \begin{align}
+        \Span ｛\mfig{ToricPEPS_gh}\Mid g,h ∈ G, gh = hg ｝ \label{gnd space of G-inj PEPS}
+    \end{align}
+    である。また縮退度は$\{(g,h) ∈ G × G \mid gh = hg\}$を同値関係$(g,h) ∼ (xgx^{-1},xhx^{-1})$で割った類 (pair conjugacy class)の数に等しい。
+\end{theorem}
+
+\begin{proof}
+    \hyperref[thm: intersection for G-inj PEPS]{intersection propery}, \hyperref[thm: closure for G-inj PEPS]{closure propety}から基底空間が(\ref{gnd space of G-inj PEPS})に一致することが分かる。
+    次に
+    \begin{align}
+        |ψ(A;g,h)⟩ ≔ \mfig{ToricPEPS_gh} =  \mfig{PEPS_gh_conj}
+    \end{align}
+    から$|ψ(A;g,h)⟩ = |ψ(A;ygy^{-1},yhy^{-1})⟩$である。
+    そこで$\{(g,h) ∈ G × G \mid gh = hg\}$を同値関係$(g,h) ∼ (xgx^{-1},xhx^{-1})$で割り、その同値類の代表元を$(g₁, h₁),…,(g_K, h_K)$と書く。
+    $∑_{k=1}^K μ_k |ψ(A;g_k,h_k)⟩ = 0$ならば、$A$の一般化逆行列を掛けることで
+    \begin{align}&
+        ∑_{k=1}^K μ_k ÷1{|G|}∑_{x ∈ G}\mfig{GS_gh} \∅
+        &
+        = ∑_{k=1}^K μ_k ÷1{|G|} ∑_{x ∈ G} (U_{xg_kx^{-1}})^{⊗L} ⊗ (U_{xh_kx^{-1}})^{⊗L} = 0
+    \end{align}
+    を得る。
+    すると半正則表現に対して$\{U_g\}_{g ∈ G}$が線形独立であることから、$μ_k = 0$である。よって$\{|ψ(A;g_k,h_k)⟩\}_{k=1}^K$は線形独立である。
+\end{proof}
+
+\begin{lemma}[Burnsideの補題]\label{lem: Burnside}
+    群$G$が集合$X$に作用しているとき、軌道の数は
+    \begin{align}
+        |X/G| = ÷1{|G|}∑_{g ∈ G}|\{x ∈ X \mid gx = x\}|
+    \end{align}
+    で与えられる。
+\end{lemma}
+\begin{corollary}
+    $\{(g,h) ∈ G × G \mid gh = hg\}$に対するpair conjugacy classの数は以下で与えられる。
+    \begin{align}
+        ÷1{|G|}|\{(g,h,k) ∈ G×G×G \mid gh = hg, hk = kh, kg = gk \}|
+    \end{align}
+\end{corollary}
+
+\begin{definition}[$G$-isometric tensor]
+    \hyperref[def: G-injective PEPS]{$G$-injective}なテンソル$A ∈ 𝒱 ⊗ 𝒱 ⊗ 𝒱^* ⊗ 𝒱^* ⊗ ℋ$に対し、表現$g ↦ U_g$が正則であり、かつ$A⁺ = A^†$すなわち
+    \begin{align}
+        \mfig{Ainv_comp} = \mfig{Abar_comp}
+    \end{align}
+    が成り立つとき、テンソル$A$は$G$-isometricであるという。
+\end{definition}
+\begin{lemma}
+    \begin{align}
+        \mfig{A4} ≅ \mfig{G-PMPO}.
+    \end{align}
+    ただし$≅$は両辺がphysical spaceへのisometricな変換によって移り合うことを指す。
+    ここから任意の$G$-isometric PEPSの代わりに右辺のMPOを用いることができる。
+\end{lemma}
+\begin{proof}
+    $A^+ = A^†$がisometricなことから明らか。
+\end{proof}
+
+\begin{lemma}
+    $G$-isometricなPEPSに対して、parent Hamiltonianの局所項は以下のように表される。
+    \begin{align}
+        h_i = \mfig{parent4} \label{eq: G isometric 4 site parent Hamiltonian}
+    \end{align}
+    またこの局所項は互いに可換である。
+\end{lemma}
+\begin{proof}
+    % (\ref{eq: G isometric 4 site parent Hamiltonian})右辺は冪等であり、さらにHermitianであるから直交射影になっている。
+    $h_i$の可換性は以下のように示される。
+    \begin{align}
+        \mfig{parent4commute1}
+        =\mfig{parent4commute2}
+        &
+        =\mfig{parent4commute3} \∅
+        &
+        =\mfig{parent4commute4}.
+    \end{align}
+    $h_i$が$1$サイトで重なり合う場合にも同様の議論で可換性が示せる。
+\end{proof}
+
+\begin{corollary}
+    $G$-isometricなPEPSのparent Hamiltonianに対し、局所項$h_i$を同時対角化できるので、parent Hamiltonianはgappedである。
+\end{corollary}
+
+\subsection{トポロジカルエンタングルメントエントロピー}
+
+\begin{lemma}[,label=lem: concat of G-iso PEPS]
+    \begin{align}
+        \mfig{Aconcat1} ≅ \mfig{Aconcat4}.
+    \end{align}
+\end{lemma}
+\begin{proof}
+    $g,h ∈ G$を以下のように定める。
+    \begin{align}
+        \mfig{Aconcat1} = ÷1{|G|²}∑_{g,h ∈ G}\mfig{Aconcat5}.
+    \end{align}
+    内側の2つのphysical indexを測定することで$h^{-1}g$が得られる。
+    この結果を以下の作用を与えるconditionalなユニタリ演算子を構成できる。
+    \begin{align}&
+        ↦  \mfig{Aconcat6} = \mfig{Aconcat7}
+    \end{align}
+    このユニタリ演算子は$g,h$に依存しないことに注意。
+    すると$h$は内側のテンソルにしか現れないため
+    \begin{align}
+        ÷1{|G|}∑_{h ∈ G}∑_{x ∈ G}|x⟩⊗|hx⟩ = |G⟩⊗|G⟩ ,␣ |G⟩ ≔ ÷1{√{|G|}} ∑_{g ∈ G} |g⟩
+    \end{align}
+    と表せる。
+\end{proof}
+\begin{lemma}
+    $g ↦ L_g$を左正則表現とすると
+    \begin{align}
+        (L_g)^{⊗N} ≅ L_g ⊗ (𝟙_{ℂG})^{⊗(N-1)}.
+    \end{align}
+    ここで$𝟙_{ℂG} ≔ ∑_{g ∈ G} |g⟩⟨g|$である。
+\end{lemma}
+\begin{proof}
+    $(L_g)^N$に対する指標は
+    \begin{align}
+        χ(g) = (|G|δ_{g,e})^{N} = |G|^{N} δ_{g,e}.
+    \end{align}
+    よって$(L^g)^N$は$|G|^{N-1}$個の正則表現の直和として表される。
+    これは$L_g ⊗ (𝟙_{ℂG})^{⊗(N-1)}$とユニタリ同値。
+\end{proof}
+
+\begin{theorem}[粗視化に対する安定性]
+    $G$-isometricなテンソルの連結に対し、
+    \begin{align}
+        \mfig{RG1} ≅ \mfig{RG2} ⊗\mfig{RG3} ⊗\mfig{RG4}.
+        \label{eq: concat of G-iso PEPS}
+    \end{align}
+    よって局所的な自由度を取り除くことで$G$-isometricなテンソルは粗視化に対して不変となる。
+\end{theorem}
+\begin{proof}
+    補題\ref{lem: concat of G-iso PEPS}と同様の議論により
+    \begin{align}
+        \mfig{RG1} ≅ \mfig{RG5}.
+    \end{align}
+    よって$L_g ⊗ L_g ≅ L_g ⊗ 𝟙_{ℂG}$から(\ref{eq: concat of G-iso PEPS})を得る。
+\end{proof}
+
+\begin{theorem}[トポロジカルエンタングルメントエントロピー]
+    $G$-isometric PEPSに対するエンタングルメントエントロピーは
+    \begin{align}
+        S_α = \log |G| ⋅ |∂D| - \log |G|
+    \end{align}
+    となる。ここで$|∂D|$は対象となる領域の境界の長さである。
+\end{theorem}
+\begin{proof}
+    トーラス上の$2×2$のPEPSを左上の領域$S$とそれ以外の領域$E$に分けてエンタングルメントエントロピーを計算する。他の形状についても同様である。
+    $E$に対するユニタリ演算子によって以下のように状態を書き直す。
+    \begin{align}&
+        \mfig{Toric_state_with_gh}
+        ≅\mfig{TEE1}
+        =÷1{|G|}∑_{x ∈ G}\mfig{TEE2}
+    \end{align}
+    ここで$E$に対する測定によって$xgx^{-1}, xhx^{-1}$が分かるので、conditionalなユニタリ演算子によって以下のように状態を変更できる。
+    \begin{align}
+        \mfig{TEE2} 
+        ≅ ÷1{|G|}∑_{x ∈ G}\mfig{TEE3}
+    \end{align}
+    よってエンタングルメントエントロピーは密度行列
+    \begin{align}
+        ρ = ÷1{|G|} ∑_{g ∈ G} L_g^{⊗|∂D|} ≅ ÷1{|G|}∑_{g ∈ G} L_g ⊗ (𝟙_{ℂG})^{⊗(|∂D|-1)}
+    \end{align}
+    に対して計算すれば良い。
+    \begin{align}
+        ÷1{|G|}∑_{g ∈ G} L_g = |G⟩⟨G|,␣ |G⟩ = ÷1{√{|G|}}∑_{g ∈ G}|g⟩
+    \end{align}
+    より、R\'enyi $α$-エントロピーは
+    \begin{align}
+        S_α = \log |G| (|∂D| - 1)
+    \end{align}
+    となる。$ρ$が射影なことからR\'enyi $α$-エントロピーは$α$によらないことに注意。
+\end{proof}
+
+\subsection{エニオン励起とその分類}
+$G$-injectiveなPEPSについてもエニオン励起を考えることは可能であるが、簡単のため、以下では$G$-isometricなPEPSを考える。
+\begin{definition}[磁気的な励起]
+    $G$-isometricなPEPS $|ψ(A)⟩$に対して端点のあるストリングを追加する:
+    \begin{align}
+        \mfig{magnetic_excitation}.
+    \end{align}
+    端点を動かさなければストリングは自由に動かすことができるので、parent Hamiltonianに対して端点以外でのエネルギーコストは発生しない。
+    この状態は磁気的な励起(magnetic excitation)と呼ばれる。
+    端のない領域では磁気的な励起は必ず複数個の組で現れる。
+    また$g ↦ xgx^{-1}$に対して状態は不変なので、磁気的な励起は$G$の共約類$C_i$によってラベルされる。
+\end{definition}
+% \begin{theorem}[Fusion]
+%     磁気的な励起$C_i, C_j$に対して、そのfusionは共役類の積
+%     \begin{align}
+%         C_iC_j = ∑_k N_{ij}^k C_k
+%     \end{align}
+%     で与えられる。
+% \end{theorem}
+\begin{definition}[電気的な励起]
+    $G$-isometricなPEPS$|ψ(A)⟩$に対して$1$つのテンソル$A$を$B ∈ \Span\{A^s\}^⊥$に置き換える:
+    \begin{align}
+        \mfig{electric_excitation}.
+    \end{align}
+    $|ψ(A)⟩$のphysical spaceへの局所的な作用によってこの状態を構成することはできない。
+    よってこの状態は非局所的な点状励起を表し、電気的な励起(electric excitation)と呼ばれる。
+    この励起は周期境界条件において必ず複数個の組で現れる。
+    端のない領域で励起が一つだけ存在すると
+    \begin{align}
+        \mfig{electric_excitation}
+        = ∑_{g ∈ G}\mfig{e_exc_loop}
+        = \mfig{e_exc_projected} = 0
+    \end{align}
+    から必ずゼロになってしまう。
+\end{definition}
+\begin{definition}[ダイオン励起]
+    電気的な励起と磁気的な励起を組み合わせたものをダイオン励起(dyonic excitation)と呼ぶ。
+    \begin{align}
+        \mfig{dyonic_excitation}.
+    \end{align}
+\end{definition}
+% \begin{definition}[Topological spin]
+%     \begin{align}
+%         \mfig{topological_spin} = ℯ^{2π¡h} \mfig{dyonic_excitation}
+%     \end{align}
+% \end{definition}
+
+
+\begin{definition}[Tube algebra]\label{def: tube algebra}
+    励起は果たしてこれだけだろうか。
+    また励起を系統的に分類することはできるだろうか。
+    この疑問に答えるために、
+    円筒状の領域における$G$-isometric PEPSの\hyperref[def: parent for G injective PEPS]{parent Hamiltonian}の基底空間を考える。
+    \hyperref[thm: closure for G-inj PEPS]{Closure property}と同様の議論によって基底状態は
+    \begin{align}
+        \mfig[0.08]{GS_cylinder} \label{eq: GS_cylinder}
+    \end{align}
+    と表される。ただし、任意の境界条件をとることが許される。
+    よって、励起が有限の領域の中にに存在し、外部のparent Hamiltonianによって検出できないならば、それはダイオン励起の形に限られる。
+    次に、(\ref{eq: GS_cylinder})に擬逆行列を掛けて
+    \begin{align}
+        \mfig[0.08]{GS_cylinder} ↦\mfig[0.08]{Cylinder_operator}
+    \end{align}
+    とすると、内側の境界条件は以下のMPOを通じてしかphysical spaceに影響を及ぼせないことが分かる。
+    \begin{align}
+        A_{g,h} ≔ \mfig{A_for_GPEPS} \label{Tube alg generator for quantum double}
+    \end{align}
+    よってある頂点を$A_{g,h}$の線形結合で置き換えることでエニオン励起を構成できる。
+    ただし、以下のように$A_{g,h}$を作用させて変形することが可能なためこの表現は一意ではない。
+    \begin{align}
+        \mfig{GAnyon1}
+        =\mfig{GAnyon2}
+        ≕\mfig{GAnyon3}
+        \label{eq: GAnyon deformation}
+    \end{align}
+    よって$\{A_{g,h}\}_{g,h}$から生成される行列代数に注目する必要がある。
+    これをtube algebraと呼ぶ。
+    重要な性質として、$\Span\{A_{g,h}\}_{g,h}$は積について閉じている:
+    \begin{align}
+        A_{g',h'}A_{g,h} = δ_{g',hgh^{-1}} A_{g, h'h}.
+    \end{align}
+    したがってtube algebraは$\Span\{A_{g,h}\}_{g,h}$に等しい。
+    ここで構造定数がMPOの長さに依らないことから、tube algebraは円筒状領域の取り方に依らない。
+    また群元の逆を取ると共役転置が得られるので、$\Span\{A_{g,h}\}_{g,h}$は$C^*$代数となる。
+\end{definition}
+\begin{definition}[中心冪等元]\label{def: central idempotent}
+    任意の有限次元$C^*$代数はユニタリ変換によって$⨁_i \L(ℂ^{r_i}) ⊗ 𝟙_{m_i}$と直和分解できる。
+    \hyperref[def: central idempotent]{tube algebra}を直和分解したとき、それぞれの直和因子は以下の性質を満たす中心冪等元(central idempotent) $𝒫_i ∈ \Span\{A_{g,h}\}_{g,h}$によってラベルされる。
+    \begin{align}
+        𝒫_i 𝒫_j = δ_{ij} 𝒫_i,␣ 𝒫_i^† = 𝒫_i,␣ 𝒫_iA_{g,h} = A_{g,h}𝒫_i.
+    \end{align}
+    ただし、$𝒫_i$はそれ以上は中心冪等元の和によって分解できないとする。
+    このとき中心冪等元はミニマルであると言う。
+    具体的には$⨁_i \L(ℂ^{r_i}) ⊗ 𝟙_{m_i}$に対して$𝒫_i = 𝟙_{r_i} ⊗ 𝟙_{m_i}$である。
+    (\ref{eq: GAnyon deformation})の変形から、tube algebraの作用によって移り合う励起は同一視されるので、エニオンはミニマルな中心冪等元$𝒫_i$でラベルされる。
+\end{definition}
+
+\begin{theorem}
+    (\ref{Tube alg generator for quantum double})の定義は不便なので、改めて定義する。
+    まず、$G$の共役類$C$に対する代表元を$g_C ∈ G$と書く。
+    ここで任意の$g ∈ C$に対し$pgp^{-1} = g_C$となるような$p ∈ G$が存在する。
+    これを用いて、
+    \begin{align}
+        \mfig[0.15]{Tubealg1} = \mfig[0.15]{Tubealg2} ≕ A(C,z;p,p')
+    \end{align}
+    と定義し直す。
+    ただしMPOの他の部分は計算に関係ないので省略してしまった。
+    ここで頂点における整合性を満たすために$z$は$g_C$と交換する必要がある。
+    このとき、\hyperref[def: tube algebra]{tube algebra}の\hyperref[def: central idempotent]{中心冪等元}は
+    \begin{align}
+        𝒫_{C,R} ≔ ÷{d_R}{|Z(g_C)|}∑_{z ∈ Z(g_C)}\＿χ^R(z)∑_p A(C,z;p,p)
+    \end{align}
+    で与えられる。ただし$Z(g_C) ≔ \{h ∈ G \mid g_Ch = hg_C\}$は$g_C$に対する中心化群である。また$χ^R$は中心化群$Z(g_C)$の既約表現$Γ^R(z)$に対する指標であり、$d_R$は$Γ^R(z)$の次元である。
+    $C$は磁荷、$R$は電荷を表す。
+\end{theorem}
+\begin{proof}
+    $A(C,z;p'p)$の積は以下の図式で与えられる。
+    \begin{align}
+        \mfig[0.15]{Tube_prod1}=\mfig[0.15]{Tube_prod2}
+    \end{align}
+    ただしこれ以外の積は全てゼロになる。
+    異なる共役類についての積がゼロになることから、tube algebraは共役類$C$についてブロック対角化されている。
+    さらに、各ブロックは$g_C$の中心化群$Z(g_C) ≔ \{h ∈ G \mid g_Ch = hg_C\}$の正則表現$L_z$を用いて
+    \begin{align}
+        A(C,z;p,p') ≅ L_z ⊗ |p⟩⟨p'|
+    \end{align}
+    と書ける。
+    $|p⟩⟨p'|$は$\L(ℂ^{|C|})$を成すのでブロック対角化は出来ない。
+    次に$Z(g_C)$は既約表現ごとブロック対角化が可能である。
+    よって既約表現$Γ^R$への射影を構成することで、
+    \begin{align}&
+        ÷{d_R}{|Z(g_C)|}∑_{z ∈ Z(g_C)}\＿χ^R(z) L_z ⊗ ∑_p |p⟩⟨p| \∅
+        &
+        ≅ ÷{d_R}{|Z(g_C)|}∑_{z ∈ Z(g_C)}\＿χ^R(z)∑_p A(C,z;p,p)
+    \end{align}
+    が中心冪等元となることが分かる。
+    ここで$χ^R(z) ≔ \Tr[Γ^R(z)]$は指標であり、$d_R$は$Γ^R$の次元である。
+    またこれ以上の分解は不可能である。
+    $Z(g_C)$の既約表現への分解は一般に多重度を含むが、$L_z$の線形結合によって同値な表現を区別する射影を作ることは出来ないので、これを考慮する必要はない。
+\end{proof}
+
+\begin{theorem}[Topological spin]
+    磁荷$C$、電荷$R$をもつエニオンに対して
+    \begin{align}
+        \mfig{topological_spin} = ℯ^{2π¡h_{C,R}}\mfig{GAnyon1}.
+    \end{align}
+    ここで$ℯ^{2π¡h_{C,R}} = Γ^R(g_C)$である。
+    ただし$g_C$は共役類$C$の代表元、$Γ^R$は中心化群$Z(g_C)$の既約表現である。
+\end{theorem}
+\begin{proof}
+    トポロジカルスピンは以下の演算子の作用から求まる。
+    \begin{align}
+        A(C,g_C;e,e) = \mfig[0.15]{Tubealg_topological_spin}
+    \end{align}
+    ここで$Z(g_C)$の既約表現$Γ^R$に対して
+    \begin{align}
+        ∀z ∈ Z(g_C),~ Γ^R(g_C)Γ^R(z) = Γ^R(z)Γ^R(g_C)
+    \end{align}
+    が成り立つ。よってSchurの補題から$Γ^R(g_C) ∝ 𝟙$である。
+    さらに$g_C^n = e$となる$n$が存在することから$h_{C,R} ∈ [0,1)$が存在して$Γ^R(g_C) = ℯ^{2π¡h_{C,R}}𝟙$である。
+\end{proof}
+
+\begin{theorem}[Braiding]
+    
+\end{theorem}
+\end{document}
