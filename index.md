@@ -1,5 +1,5 @@
 +++
-title = "Rintaro Masaoka"
+title = "Rintaro Masaoka's Website"
 lang_ja = false
 +++
 
