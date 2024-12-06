@@ -1,5 +1,7 @@
-@def title = "Rintaro Masaoka"
-@def tags = ["syntax", "code"]
++++
+title = "Rintaro Masaoka"
+lang_ja = false
++++
 
 ## About me
 I am Rintaro Masaoka, a Master's student at the University of Tokyo in the [Watanabe Group](https://sites.google.com/view/watanabegroup/home?authuser=0). My research focuses on condensed matter theory and statistical physics, with a particular interest in quantum critical phenomena characterized by nontrivial dynamical exponents.
@@ -13,7 +15,7 @@ masaokarintaro2115[at]g.ecc.u-tokyo.ac.jp
 
 ## CV
 
-Apr. 2019 - Mar. 2023: B.S. in Physics, University of Tokyo
+Apr. 2020 - Mar. 2024: B.S. in Physics, University of Tokyo
 
 ## Grant
 
