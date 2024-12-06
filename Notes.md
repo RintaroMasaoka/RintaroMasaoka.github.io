@@ -1,6 +1,7 @@
 +++
 title = "Notes (JP)"
 rss_pubdate = Date(2024, 5, 12)
+lang_ja = true
 +++
 
 
