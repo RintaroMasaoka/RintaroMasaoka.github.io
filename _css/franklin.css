@@ -187,7 +187,7 @@ td {
 }
 
 .franklin-content a {
-  color: #004de6;
+  color: #0ba17e;
   text-decoration: none;
 }
 
@@ -199,8 +199,8 @@ td {
     HYPERREFS AND FOOTNOTES
 ================================================================== */
 
-.franklin-content .eqref a { color: green; }
-.franklin-content .bibref a { color: green; }
+.franklin-content .eqref a { color: chocolate; }
+.franklin-content .bibref a { color: chocolate; }
 
 .franklin-content sup {
   font-size: 70%;
