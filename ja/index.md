@@ -15,7 +15,7 @@ lang_ja = true
 [物理工学専攻](https://www.ap.t.u-tokyo.ac.jp/)
 [渡辺研究室](https://sites.google.com/view/watanabegroup/home?authuser=0)
 
-〒113-8656 東京都文京区本郷7-3-1 東京大学工学部6号館211号室
+〒113-8656 東京都文京区本郷7-3-1 東京大学工学部6号館210号室
 
 ## 連絡先
 masaokarintaro2115[at]g.ecc.u-tokyo.ac.jp
