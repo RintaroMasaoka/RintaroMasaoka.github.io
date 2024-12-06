@@ -1,5 +1,5 @@
 +++
-title = "政岡凜太郎のウェブサイト"
+title = "政岡凜太郎"
 lang_ja = true
 +++
 
