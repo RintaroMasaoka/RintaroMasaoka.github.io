@@ -1,6 +1,7 @@
 +++
 title = "Rintaro Masaoka"
 lang_ja = false
+home = true
 +++
 
 ## About me

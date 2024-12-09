@@ -1,6 +1,7 @@
 +++
 title = "政岡凜太郎"
 lang_ja = true
+home = true
 +++
 
 ## 自己紹介

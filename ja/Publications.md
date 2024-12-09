@@ -1,6 +1,7 @@
 +++
 title = "論文"
 lang_ja = true
+publications = true
 +++
 
 ## 出版論文
