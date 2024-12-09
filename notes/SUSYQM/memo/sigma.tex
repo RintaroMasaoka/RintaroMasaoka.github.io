@@ -1,0 +1,60 @@
+\documentclass[12pt]{ltjsarticle}
+\usepackage{amsmath,ascmac,amssymb,mathtools,siunitx,diffcoeff,inputenc}
+\usepackage{mygraphics}
+\graphicspath{{../images/}}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../ref/ref.bib}
+\usepackage[oldfont,exchangeupit]{unicommand}
+\usepackage{subfiles}
+
+%% options %%
+\renewcommand{\headfont}{\bfseries}
+% \numberwithin{equation}{section}
+% \renewcommand*\abstractname{}
+% \setlength{\parindent}{0pt}
+\begin{document}
+\title{多様体上の量子力学}
+\author{政岡凜太郎}
+\maketitle
+
+$ℝ^d$上の量子力学に対し、運動量演算子は
+\begin{align}
+    [p_i, x_j] = -¡δ_{ij}
+\end{align}
+を満たす。
+この定義を一般の多様体に拡張したい。
+まず位置座標を$x ∈ ℳ$として、一般の状態は
+\begin{align}
+    |ψ⟩ = ∫_ℳ \𝑑{\vol} ψ(x) |x⟩
+\end{align}
+と書かれるとする。
+$ℳ$上の座標$(x¹,…,x^d)$に対して、運動量演算子は
+\begin{align}
+    p_i|x⟩ = ¡÷{∂}{∂x^i}|x⟩
+\end{align}
+と定義すれば良さそう。
+ただし問題として、座標$(x¹,…,x^d)$は$ℳ$全域で定義されるとは限らない。
+次に座標の取り方によらない定義として、
+\begin{align}
+    ⟨x|p_f|ψ⟩ = -¡f^i(x)÷{∂}{∂x^i}⟨x|ψ⟩
+\end{align}
+を考える。正準交換関係は
+\begin{align}
+    [g(x), p_f] = ¡f^i÷{∂g}{∂x^i}
+\end{align}
+もう一つの解決策として、外微分を用いて
+\begin{align}
+    p ≔ -¡𝑑
+\end{align}
+とする。
+このとき波動関数の空間は関数だけでなく微分形式も含む。(超対称量子力学)
+
+
+\begin{align}
+    ⟨ξ|η⟩ = ∫ξ^*∧★η
+\end{align}
+\begin{align}
+    ★(η_{i₁⋯i_m}𝑑x^{i₁}∧⋯∧𝑑x^{i_m})
+    = ÷{√{|g|}}{}
+\end{align}
+\end{document}

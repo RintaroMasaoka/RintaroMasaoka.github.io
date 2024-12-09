@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  9 DEC 2024 21:21
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  21 NOV 2024 17:13
  restricted system commands enabled.
  file:line:error style messages enabled.
-**"/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/XY model/XY"
-("/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/XY model/XY.tex"
+**/Users/rintaromasaoka/Desktop/自主ゼミ/中原トポロジーII/memo/sigma
+(/Users/rintaromasaoka/Desktop/自主ゼミ/中原トポロジーII/memo/sigma.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -1194,8 +1194,6 @@ Package: mathcommand 2021/06/07 v1.04
 Package: l3keys2e 2024-02-18 LaTeX2e option processing using LaTeX3 keys
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/carlisle/slashed.sty
-Package: slashed 1997/01/16 v0.01 Feynman Slashed Character Notation (DPC)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math-luatex.sty
@@ -1255,8 +1253,8 @@ Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 15.
 \@quotelevel=\count495
 \@quotereset=\count496
- (./XY.aux)
-\openout1 = XY.aux
+ (./sigma.aux)
+\openout1 = sigma.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -1309,10 +1307,10 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 15.
- (./XY.out) (./XY.out)
+ (./sigma.out) (./sigma.out)
 \@outlinefile=\write5
 
-\openout5 = XY.out
+\openout5 = sigma.out
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1323,11 +1321,11 @@ Package biblatex Info: LuaTeX detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
 
-\openout4 = XY.bcf
+\openout4 = sigma.bcf
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'XY.bbl' not found.
+Package biblatex Info: ... file 'sigma.bbl' not found.
 
-No file XY.bbl.
+No file sigma.bbl.
 Package biblatex Info: Reference section=0 on input line 15.
 Package biblatex Info: Reference segment=0 on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
@@ -1475,72 +1473,34 @@ LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 7.76755pt on input line 19.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 5.54828pt on input line 19.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 69.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 69.
-(load cache: extra_lmsans12-regular.luc)
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 69.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 69.
-(load cache: extra_lmsans10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <14.4> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 69.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09657pt on input line 69.
-LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <14.4> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 69.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09657pt on input line 69.
-[1
+(load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc) [1
 
-](load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc) [2](load cache: extra_lmroman12-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 164.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24715pt on input line 164.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 164.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24715pt on input line 164.
- [3] [4] [5] [6] [7] [8] [9] [10]
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 600.
-LaTeX Font Info:    Calculating math sizes for size <9.59998> on input line 602.
-(load cache: extra_lmroman6-regular.luc)
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.17834pt on input line 602.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 3.69885pt on input line 602.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.17834pt on input line 602.
- [11] [12] [13] [14] (./XY.aux)
+] [2] (./sigma.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-Package rerunfilecheck Info: File `XY.out' has not changed.
-(rerunfilecheck)             Checksum: EF6F95FBE1E3643907EE45F61199415F;279.
-Package logreq Info: Writing requests to 'XY.run.xml'.
+Package rerunfilecheck Info: File `sigma.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to 'sigma.run.xml'.
 
-\openout1 = XY.run.xml
+\openout1 = sigma.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 47147 strings out of 476447
+ 46966 strings out of 476447
  125244,2373549 words of node,token memory allocated
- 1290 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 3 glue, 4 kern, 1 glyph, 260 attribute, 72 glue_spec, 36 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:42,2:32251,3:288,4:450,5:315,6:26,7:4778,8:66,9:2130,10:26,11:27
- 68186 multiletter control sequences out of 65536+600000
- 114 fonts using 88453639 bytes
- 125i,14n,141p,1986b,851s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on XY.pdf (14 pages, 218613 bytes).
+ 1206 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 227 attribute, 71 glue_spec, 33 attribute_list, 2 write, 14 user_defined nodes
+   avail lists: 1:9,2:15450,3:244,4:483,5:190,6:34,7:2714,8:27,9:1457,10:9
+ 68100 multiletter control sequences out of 65536+600000
+ 82 fonts using 61081423 bytes
+ 125i,11n,141p,1989b,851s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on sigma.pdf (2 pages, 59756 bytes).
 
-PDF statistics: 275 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 101 named destinations out of 1000 (max. 131072)
- 40 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 75 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 131072)
+ 16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
