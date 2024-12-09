@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  7 DEC 2024 21:55
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  9 DEC 2024 21:21
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/XY model/XY"
@@ -1506,41 +1506,41 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24715pt on input line 164.
  [3] [4] [5] [6] [7] [8] [9] [10]
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 565.
-LaTeX Font Info:    Calculating math sizes for size <9.59998> on input line 567.
+(Font)              scaled to size 6.47299pt on input line 600.
+LaTeX Font Info:    Calculating math sizes for size <9.59998> on input line 602.
 (load cache: extra_lmroman6-regular.luc)
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.17834pt on input line 567.
+(Font)              scaled to size 5.17834pt on input line 602.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 3.69885pt on input line 567.
+(Font)              scaled to size 3.69885pt on input line 602.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.17834pt on input line 567.
+(Font)              scaled to size 5.17834pt on input line 602.
  [11] [12] [13] [14] (./XY.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `XY.out' has not changed.
-(rerunfilecheck)             Checksum: AA98596E15A42037932574A2BB768826;502.
+(rerunfilecheck)             Checksum: EF6F95FBE1E3643907EE45F61199415F;279.
 Package logreq Info: Writing requests to 'XY.run.xml'.
 
 \openout1 = XY.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 47150 strings out of 476447
+ 47147 strings out of 476447
  125244,2373549 words of node,token memory allocated
  1290 words of node memory still in use:
    11 hlist, 2 vlist, 5 rule, 3 glue, 4 kern, 1 glyph, 260 attribute, 72 glue_spec, 36 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:38,2:32249,3:289,4:419,5:299,6:26,7:4778,8:66,9:2131,10:23,11:27
+   avail lists: 1:42,2:32251,3:288,4:450,5:315,6:26,7:4778,8:66,9:2130,10:26,11:27
  68186 multiletter control sequences out of 65536+600000
- 114 fonts using 88453515 bytes
+ 114 fonts using 88453639 bytes
  125i,14n,141p,1986b,851s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on XY.pdf (14 pages, 216766 bytes).
+Output written on XY.pdf (14 pages, 218613 bytes).
 
-PDF statistics: 277 PDF objects out of 1000 (max. 8388607)
- 219 compressed objects within 3 object streams
- 104 named destinations out of 1000 (max. 131072)
+PDF statistics: 275 PDF objects out of 1000 (max. 8388607)
+ 217 compressed objects within 3 object streams
+ 101 named destinations out of 1000 (max. 131072)
  40 words of extra memory for PDF output out of 10000 (max. 100000000)
 
