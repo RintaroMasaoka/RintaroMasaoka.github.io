@@ -1,4 +1,4 @@
-- [共形ブートストラップ入門](/notes/bootstrap.pdf)
+- [共形ブートストラップ入門](/notes/conformal_bootstrap/統計班_政岡凜太郎.pdf)
 - [PEPSによるエニオンの構成](/notes/Note_on_PEPS/main/main.pdf)
 - [超対称量子力学](/notes/SUSYQM/SUSY_index.pdf)
 - [XY模型とくりこみ群](/notes/XY%20model/XY.pdf)
