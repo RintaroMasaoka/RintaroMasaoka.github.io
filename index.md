@@ -8,7 +8,11 @@ home = true
 I am Rintaro Masaoka, a master's student in condensed matter theory and statistical physics.
 My research focuses on quantum phase transitions, with a particular interest in quantum critical phenomena characterized by nontrivial dynamical exponents.
 
+## Links
+
 [Google Scholar](https://scholar.google.com/citations?user=qoSWWasAAAAJ&hl=en)
+
+[Repository of this site](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io)
 
 ## Affiliation
 
