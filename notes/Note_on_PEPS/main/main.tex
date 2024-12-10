@@ -1,0 +1,194 @@
+\documentclass[12pt]{ltjsarticle}
+\usepackage{amsmath,ascmac,amssymb,mathtools,amsthm,siunitx,diffcoeff,inputenc}
+\usepackage{stackengine}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}
+\usepackage{float,subcaption,tikz}
+
+\newcommand\Includegraphics[2][]{\vcenter{\hbox{\includegraphics[#1]{#2}}}}
+\graphicspath{{../images/}}
+
+
+%% tcolorbox %%
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems}
+% \tcbset{
+%     enhanced,
+%     % frame hidden,
+%     colback=OliveDrab!15,
+%     fonttitle=\bfseries
+% }
+\newtcolorbox{block}[1]{
+    colback=black!5,
+    colframe=white,
+    colbacktitle=DarkCyan,
+    coltitle=white,
+    boxrule=0pt,
+    fonttitle=\sffamily\bfseries,
+    title=#1
+}
+\newtcolorbox{exampleblock}[1]{
+    colback=black!10,
+    colframe=white,
+    colbacktitle=DarkSeaGreen,
+    coltitle=white,
+    boxrule=0pt,
+    fonttitle=\sffamily\bfseries,
+    title=#1
+}
+\newtcolorbox{alertblock}[1]{
+    colback=black!10,
+    colframe=white,
+    colbacktitle=OliveDrab,
+    coltitle=white,
+    boxrule=0pt,
+    fonttitle=\sffamily\bfseries,
+    title=#1
+}
+
+% text colors %
+\newcommand{\red}[1]{\textcolor{IndianRed}{#1}}
+\newcommand{\blue}[1]{\textcolor{RoyalBlue}{#1}}
+\newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+\newcommand{\yellow}[1]{\textcolor{Goldenrod}{#1}}
+\newcommand{\gray}[1]{\textcolor{DarkGray}{#1}}
+\newcommand{\purple}[1]{\textcolor{DarkOrchid}{#1}}
+
+% titlesec %
+\usepackage{titlesec}
+% \titleformat{\section}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{DarkCyan}{\begin{picture}(0,10)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Large\bfseries \thesection
+%     \hspace{0.5em}
+% }
+\titleformat{\section}
+{\Large\sffamily\bfseries\color{DarkCyan}}
+{\thesection .}{20pt}{}
+
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
+% hyperref %
+\usepackage{hyperref}
+\hypersetup{
+    unicode,
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=DarkCyan,
+    citecolor=Chocolate,
+    urlcolor=Chocolate
+}
+
+% tcolorbox %
+\tcbuselibrary{raster,skins,theorems,breakable}
+\tcbset{
+    breakable,
+    coltitle=black,
+    colbacktitle=white,
+    boxrule=2pt,
+    colback=white,
+    fonttitle=\bfseries,
+}
+
+\newcounter{theorem}[section]
+
+\newtcolorbox[auto counter, number within = section]{definition}[1][]{
+    colframe=RoyalBlue,
+    title=定義 \thetcbcounter.~#1
+}
+\newtcolorbox[auto counter, number within = section]{theorem}[1][]{
+    colframe=DarkCyan,
+    title=定理 \thetcbcounter.~#1
+}
+\newtcolorbox[auto counter, number within = section]{lemma}[1][]{
+    colframe=DarkCyan,
+    title=補題 \thetcbcounter.~#1
+}
+\newtcolorbox[auto counter, number within = section]{corollary}[1][]{
+    colframe=DarkCyan,
+    title=系 \thetcbcounter.~#1
+}
+\newtcolorbox[auto counter, number within = section]{remark}[1][]{
+    colframe=OliveDrab,
+    title=Remark \thetcbcounter.~#1
+}
+\newtcolorbox[auto counter, number within = section]{observation}[1][]{
+    colframe=OliveDrab,
+    title=Observation \thetcbcounter.~#1
+}
+
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../ref/ref.bib}
+\usepackage[oldfont,exchangeupit]{unicommand}
+\usepackage{stackengine}
+\usepackage{subfiles}
+
+\let\l\relax
+\newcommand{\l}{\lparen}
+\let\r\relax
+\newcommand{\r}{\rparen}
+\newcommand{\∩}[1]{
+  \vcenter{\hbox{\scriptsize$#1$}}
+}
+
+\newcommand{\graph}[1]{\vcenter{\hbox{\includegraphics[scale=0.11]{#1}}}}
+\newcommand{\mfig}[2][0.11]{~\vcenter{\hbox{\includegraphics[scale=#1]{#2}}}~}
+
+\newcommand{\idid}{\graph{idid}}
+\newcommand{\AinvA}{\graph{AinvA}}
+\newcommand{\BinvB}{\graph{BinvB}}
+\let\A\relax
+\newcommand{\A}{\mfig{A}}
+\let\B\relax
+\newcommand{\B}{\mfig{B}}
+\let\N\relax
+\newcommand{\N}{\mfig{N}}
+\let\M\relax
+\newcommand{\M}{\mfig{M}}
+\let\X\relax
+\newcommand{\X}{\mfig{X}}
+\newcommand{\NBC}{\mfig{NBC}}
+\newcommand{\ABM}{\mfig{ABM}}
+\newcommand{\ABCX}{\mfig{ABCX}}
+\newcommand{\AX}{\mfig{AX}}
+\newcommand{\AB}{\mfig{AB}}
+\newcommand{\gAB}{\mfig{gAB}}
+\newcommand{\ANB}{\mfig{ANB}}
+\newcommand{\AMB}{\mfig{AMB}}
+\newcommand{\gAginv}{\mfig{gAginv}}
+
+%% options %%
+\renewcommand{\headfont}{\bfseries}
+\numberwithin{equation}{section}
+% \renewcommand*\abstractname{}
+% \setlength{\parindent}{0pt}
+\begin{document}
+\title{Anyons and matrix product operator  algebras}
+\author{政岡凜太郎}
+\maketitle
+
+\tableofcontents
+\newpage
+\subfile{../sec1/sec1.tex}
+\newpage
+\subfile{../sec2/sec2.tex}
+\newpage
+\subfile{../sec3/sec3.tex}
+\newpage
+\subfile{../sec4/sec4.tex}
+\newpage
+\subfile{../sec5/sec5.tex}
+\newpage
+\appendix
+\def\thesection{\Alph{section}}
+\subfile{../appendix/appendix.tex}
+\newpage
+\printbibliography
+\end{document}
