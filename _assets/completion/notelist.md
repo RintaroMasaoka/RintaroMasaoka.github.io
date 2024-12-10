@@ -7,3 +7,5 @@
 - [ダイマー模型による2次元Ising模型の厳密解](/notes/Ising_Dimer/Ising_Dimer.pdf)
 - [ダイマー模型とゲージ理論 (Fradkin 9章)](/notes/Fradkin_chap9/main/fradkin_chap9_v3.pdf)
 - [スピン波 (Feynman統計力学 7章)](/notes/feynmanstat_7/ファインマン統計_7章.pdf)
+
+[Tex source](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io/tree/main/notes)
