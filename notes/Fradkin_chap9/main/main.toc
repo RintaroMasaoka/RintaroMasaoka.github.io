@@ -1,0 +1,25 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {1}{ ホモロジー・コホモロジー}{3}{0}{1}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {2}{ 量子ダイマー模型}{10}{0}{2}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {4}{ 古典ダイマー模型}{20}{0}{3}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {5}{ $ℤ₂$ゲージ理論}{26}{0}{4}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {6}{ $ℤ₂$閉じ込め相}{31}{0}{5}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {7}{ $ℤ₂$非閉じ込め相}{37}{0}{6}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {8}{ 境界条件とトポロジー}{43}{0}{7}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {9}{ 物質場を入れた$ℤ₂$ゲージ理論}{47}{0}{8}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {10}{ CQED }{52}{0}{9}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {11}{ $\symup {U}(1)$ゲージ理論におけるトポロジカル相}{55}{0}{10}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {12}{ 双対変換とダイマー模型}{62}{0}{11}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {14}{ 量子Lifshitz模型}{75}{0}{12}

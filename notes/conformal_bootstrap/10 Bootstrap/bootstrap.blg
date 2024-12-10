@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'bootstrap.blg'
+[136] biber-darwin:322> INFO - === Fri May 12, 2023, 22:52:04
+[170] Biber.pm:415> INFO - Reading 'bootstrap.bcf'
+[366] Biber.pm:943> INFO - Found 4 citekeys in bib section 0
+[387] Biber.pm:4256> INFO - Processing section 0
+[387] Utils.pm:75> INFO - Globbing data source '../ref/ref.bib'
+[387] Utils.pm:91> INFO - Globbed data source '../ref/ref.bib' to ../ref/ref.bib
+[405] Biber.pm:4455> INFO - Looking for bibtex format file '../ref/ref.bib' for section 0
+[407] bibtex.pm:1653> INFO - LaTeX decoding ...
+[433] bibtex.pm:1471> INFO - Found BibTeX data source '../ref/ref.bib'
+[504] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[504] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[504] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[504] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[510] bbl.pm:652> INFO - Writing 'bootstrap.bbl' with encoding 'UTF-8'
+[533] bbl.pm:755> INFO - Output to bootstrap.bbl

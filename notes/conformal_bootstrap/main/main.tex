@@ -1,0 +1,121 @@
+\documentclass[11pt,titlepage]{ltjsarticle}
+\usepackage{luatexja}
+\usepackage{amsmath,ascmac,amssymb,siunitx,physics,cancel}
+\usepackage[math-style=ISO,bold-style=ISO,sans-style=literal]{unicode-math}
+
+%% biblatex %%
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{../ref/ref.bib}
+
+%% font %%
+% \setmathfont{Asana Math}
+% \setmathfont{TeX Gyre Pagella Math}
+% \setmathfont{TeX Gyre Termes Math}
+\setmathfont{STIX Two Math}
+\let\mathcal=\mathscr
+
+%% graphics %%
+\usepackage{graphicx,float,subcaption}
+\newcommand\graph[2][scale=0.15]{\vcenter{\hbox{~\includegraphics[#1]{#2}~}}}
+\graphicspath{{../images/}}
+
+%% tcolorbox %%
+\usepackage[svgnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems}
+\tcbset{
+    enhanced,
+    frame hidden,
+    colback=Teal!10,
+}
+\newtcolorbox{block}[1]{
+    colback=black!10,
+    colframe=white,
+    colbacktitle=SeaGreen,
+    coltitle=white,
+    boxrule=0pt,
+    fonttitle=\sffamily\bfseries,
+    title=#1
+}
+\newtcolorbox{exampleblock}[1]{
+    colback=black!10,
+    colframe=white,
+    colbacktitle=ForestGreen!60!yellow!90!black,
+    coltitle=white,
+    boxrule=0pt,
+    fonttitle=\sffamily\bfseries,
+    title=#1
+}
+\newtcolorbox{alertblock}[1]{
+    colback=black!10,
+    colframe=white,
+    colbacktitle=OliveDrab,
+    coltitle=white,
+    boxrule=0pt,
+    fonttitle=\sffamily\bfseries,
+    title=#1
+}
+
+% hyperref %
+\usepackage{hyperref}
+\hypersetup{
+    unicode,
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=DarkCyan!80!black,
+    citecolor=Chocolate,
+    urlcolor=Chocolate
+}
+
+%% options %%
+\renewcommand*\abstractname{}
+\renewcommand{\headfont}{\bfseries}
+\numberwithin{equation}{section}
+\renewenvironment{frame}[1][]{[#1]}{}
+\newenvironment{beamercolorbox}[1][]{\begin{block}}{\end{block}}
+\newcommand{\alert}[1][]{#1}
+\usepackage{shortcommands}
+
+%% titlesec %%
+% \usepackage[explicit]{titlesec}
+%     \titleformat{\section}[block]{}{
+%         \Large\bfseries\gtfamily\thesection.\quad#1}{10pt}{\titleline[l]{\titlerule[1pt]}
+%     }
+\usepackage{subfiles}
+
+%% commands %%
+\DeclareMathOperator{\Sym}{Sym}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{共形ブートストラップ入門}
+\author{政岡凜太郎}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\newpage
+\subfile{../0 intro/intro.tex}
+\newpage
+\subfile{../1 qft/qft.tex}
+\newpage
+\subfile{../2 RG/RG.tex}
+\newpage
+\subfile{../3 conformal/conformal.tex}
+\newpage
+\subfile{../4 field/field.tex}
+\newpage
+\subfile{../5 CWTI/CWTI.tex}
+\newpage
+\subfile{../6 correlation/correlation.tex}
+\newpage
+\subfile{../7 cylinder/cylinder.tex}
+\newpage
+\subfile{../8 expression/expression.tex}
+\newpage
+\subfile{../9 OPE/OPE.tex}
+\newpage
+\subfile{../10 Bootstrap/bootstrap.tex}
+\newpage
+\printbibliography
+\end{document}

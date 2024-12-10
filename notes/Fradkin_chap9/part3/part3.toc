@@ -1,0 +1,5 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {1}{ 双対変換とダイマー模型}{1}{0}{1}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {3}{ 量子Lifshitz模型}{14}{0}{2}
