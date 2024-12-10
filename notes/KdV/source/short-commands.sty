@@ -1,0 +1,67 @@
+\RequirePackage{amsmath,unicode-math,physics,mathcommand,newunicodechar}
+
+% Math-mode accents
+\renewmathcommand{\~}{\tilde}
+\renewmathcommand{\.}{\dot}
+\renewmathcommand{\"}{\ddot}
+\renewmathcommand{\^}{\hat}
+\renewmathcommand{\=}{\bar}
+\renewmathcommand{\v}{\check}
+\renewmathcommand{\u}{\breve}
+\renewmathcommand{\'}{\acute}
+\renewmathcommand{\`}{\grave}
+\newcommand{\→}{\vec}
+
+% constants
+\newcommand{\e}{e}
+\renewmathcommand{\i}{i}
+\renewmathcommand{\c}{c}
+\newcommand{\π}{π}
+\newcommand{\kB}{k_{\mathrm{B}}}
+
+% short commands
+\renewmathcommand{\d}[2][]{\dd[#1]{#2}}
+\newcommand{\q}{\quad}
+\newcommand{\n}{\nonumber \\}
+\newcommand{\f}{\frac}
+\renewmathcommand{\t}{\text}
+\renewcommand{\r}{\right}
+\renewcommand{\l}{\left}
+\newcommand{\m}{\middle}
+\newcommand{\Q}{\qty}
+\newcommand{\M}{\mqty}
+\newcommand{\E}{\eval}
+\newcommand{\∂}{\pdv}
+\newcommand{\δ}{\fdv}
+\newcommand{\√}[1]{\sqrt{#1}\,}
+\newcommand{\𝒟}[1]{𝒟#1\,}
+\newcommand{\⟨}{\left\langle}
+\newcommand{\⟩}{\right\rangle}
+
+% other commands
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\str}{str}
+
+% Mathmatical fonts
+\renewcommand{\rm}{\textrm}
+\renewcommand{\tt}{\texttt}
+\renewcommand{\it}{\textit}
+\renewcommand{\bf}{\textbf}
+\renewcommand{\sf}{\textsf}
+\newcommand{\bb}{\mathbb}
+\newcommand{\cl}{\mathcal}
+\newcommand{\fk}{\mathfrak}
+\newcommand{\bm}{\mathbfit}
+\renewmathcommand{\rm}{\mathrm}
+\renewmathcommand{\tt}{\mathtt}
+\renewmathcommand{\it}{\mathit}
+\renewmathcommand{\bf}{\mathbf}
+\renewmathcommand{\sf}{\mathsf}
+\renewmathcommand{\bb}{\mathbb}
+
+% unicode character redefine
+\newunicodechar{ℜ}{\operatorname{Re}}
+\newunicodechar{⋯}{\,\cdots\,}
+\newunicodechar{ℑ}{\operatorname{Im}}

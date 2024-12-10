@@ -1,0 +1,245 @@
+\documentclass[../main.tex]{subfiles}
+\setcounter{section}{1}
+\begin{document}
+
+\section{スピン波}
+
+\begin{frame}{基底状態}
+    XXX模型
+    \begin{align}
+        H = -J\sum_{n=1}^N \bm{\sigma}_n\cdot \bm{\sigma}_{n+1} = -J \sum_{n=1}^N (2\Pi^{n,n+1}-1)
+    \end{align}
+    の基底状態を求めよう．強磁性($-J < 0$)の場合，
+    \begin{align}
+        \ket{0} \equiv \ket{\uparrow \cdots \uparrow} = \ket{\uparrow}_1 \otimes \cdots \otimes \ket{\uparrow}_N
+    \end{align}
+    は基底状態である．明らかにこれは$H$の固有状態である．さらに$\Pi^{n,n+1}$の期待値は最大$1$であるから，最低エネルギー状態になっている．
+    
+    反強磁性($-J > 0$)の場合，基底状態を求めるのは途端に難しくなる．素朴にスピンが交互に並んだ状態(N\'eel状態)
+    \begin{align}
+        \ket{\textrm{N\'{e}el}} = \ket{\uparrow\downarrow\uparrow\downarrow \cdots}
+    \end{align}
+    を考えて，$H$を掛けてみると，$\ket{\cdots \uparrow\uparrow\downarrow\downarrow \cdots}$のような項が出てきてしまう．したがって，N\'eel状態は固有状態ではない
+    \footnote{
+        関連する話が\href{https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/94910/1/KJ00004789857.pdf}{田崎さんの講義ノート}に載っている．
+    }．
+\end{frame} 
+
+\begin{frame}{スピン波}
+    しばらくは，強磁性的な場合 ($-J<0$)を考える．基底状態のエネルギーが$0$になるように，
+    \begin{align}
+        H' = H + NJ = -2J \sum_{n=1}^N (\Pi^{n,n+1}-1)
+    \end{align}
+    と定義する．基底状態の次にエネルギーが低い状態は，1つを除いて他のスピンが揃った状態だと考えられる．ここで，
+    \begin{align}
+        \ket{n} = \ket*{\uparrow \cdots \underbrace{\downarrow}_n\cdots\uparrow},
+        \quad (n=1,2,\ldots,N)
+    \end{align}
+    は全て等価で，どれも固有状態ではない．そこで，$\ket{n}$の重ね合わせ
+    \begin{align}
+        \ket{\psi} = \sum_n \psi_n \ket{n}
+    \end{align}
+    を考えてみる．
+\end{frame}
+
+\begin{frame}
+    $\ket{\psi}$が固有状態となる条件は，
+    \begin{align}
+        \nonumber
+        E \sum_n \psi_n \ket{n} &= -2J \sum_m(\Pi^{m,m+1}-1)\sum_n \psi_n\ket{n}
+        \\ & \nonumber
+        = -2J \sum_n \sum_{\xi= \pm1} \psi_n (\Pi^{n,n+\xi}-1)\ket{n}
+        \\ &
+        = -2J \sum_n \sum_{\xi=\pm 1}(\psi_{n+\xi}-\psi_n)\ket{n}
+    \end{align}
+    したがって，
+    \begin{align}
+        E\psi_n = -2J(\psi_{n+1}+\psi_{n-1}-2\psi_n)
+    \end{align}
+    が成り立てばよい．この線形連立方程式の解として，$\psi_n = e^{ikn}$とおくと，
+    \begin{align}
+        E = -2J(e^{ik} + e^{-ik}-2) = 4J(1-\cos k) = 8J \sin^2 \frac{k}{2}
+    \end{align}
+    となる．周期的境界条件から，波数は$k = 2\pi l/N,~ l \in \mathbb{Z}$と離散化されている．
+\end{frame}
+
+\begin{frame}
+    高次元への拡張は容易である．$d$次元格子で最近接相互作用のみを考える．位置$\bm{x}$にあるスピンだけが下向きである状態を，$\ket{\bm{x}}$と書く．
+    \begin{align}
+        \ket{\psi} = \sum_{\bm{x}}\psi(\bm{x})\ket{\bm{x}}, \quad
+        \bm{x}\in \mathbb{Z}^d
+    \end{align}
+    という状態を考えれば，$\ket{\psi}$が固有状態となる条件は，1次元の場合と同様にして
+    \begin{gather}
+        E\psi(\bm{x}) = -2J \sum_{i = 1}^d \sum_{\xi = \pm 1} \qty(\psi(\bm{x} + \xi\bm{e}_i) - \psi(\bm{x}))
+        \label{Bloch theory: 1 spin wave condition}
+    \end{gather}
+    と求まる．ただし，$\bm{e}_i$は第$i$成分が$1$であり，その他の成分が$0$であるような単位ベクトルである．$\psi(\bm{x}) = e^{i\bm{k} \cdot \bm{x}}$とおけば，
+    \begin{align}
+        E(\bm{k}) = 4J \sum_{i=1}^d (1- \cos k_i) =
+        8J \sum_{i=1}^d \sin^2 \frac{k_i}{2}
+    \end{align}
+    となる．
+\end{frame}
+
+\begin{frame}
+    次に，下向きのスピンが2つあるような場合を考えよう．
+    この場合2つのスピン波が存在し，一般にそれらは相互作用をする．
+    波動関数を$\ket*{\psi^{(2)}}$と書いて，
+    \begin{align}
+        \ket*{\psi^{(2)}} = \sum_{\bm{x}_1 \ne \bm{x}_2} \psi(\bm{x}_1, \bm{x}_2) \ket{\bm{x}_1, \bm{x}_2}
+    \end{align}
+    と展開する．展開係数として，相互作用をしない2つの波
+    \begin{align}
+        \psi(\bm{x}_1, \bm{x}_2) = e^{i(\bm{k}_1\cdot \bm{x}_1 + \bm{k}_2 \cdot \bm{x}_2)} 
+        \label{Bloch theory: 2 spin wave solution}
+    \end{align}
+    を考えてみる．波動関数が満たすべき条件は，(\ref{Bloch theory: 1 spin wave condition})と同様に
+    \begin{align}
+        \nonumber
+        E\psi(\bm{x}_1, \bm{x}_2)
+        = -2J \sum_{i=1}^d \sum_{\xi=\pm 1} &(\psi(\bm{x}_1 + \xi\bm{e}_i, \bm{x}_2) - \psi(\bm{x}_1, \bm{x}_2)
+        \\ &
+       +\psi(\bm{x}_1, \bm{x}_2 + \xi \bm{e}_i) - \psi(\bm{x}_1, \bm{x}_2))
+       \label{Bloch theory: wave function condition}
+    \end{align}
+    となり，(\ref{Bloch theory: 2 spin wave solution})は$E = E(\bm{k}_1) + E(\bm{k}_2)$をエネルギーにもつ固有状態となるように見える．
+    しかし，$\bm{x}_1,\bm{x}_2$が隣接している場合，$\Pi^{\bm{x}_1,\bm{x}_2}$によって下向きスピンの入れ替わりが起こる．これは(\ref{Bloch theory: wave function condition})では考慮していない．
+\end{frame}
+
+\begin{frame}{マグノンの統計力学}
+    系が十分大きければ，2つのスピンが隣接する場合の寄与はその他の寄与に比べて小さい．
+    ここから相互作用しない2個のスピン波(\ref{Bloch theory: 2 spin wave solution})を近似的な固有状態とすることができる．
+
+    さらに多数のスピン波があっても，その間の相互作用を無視すれば，固有状態の波動関数は，
+    \begin{align}
+        \psi(\bm{x}_1, \ldots, \bm{x}_M) = \exp(i \bm{k}_1 \cdot \bm{x}_1 + \cdots + \bm{k}_M \cdot \bm{x}_M)
+    \end{align}
+    と書ける．このエネルギーは
+    \begin{align}
+        E = \sum_{m=1}^M E(\bm{k}_m)
+    \end{align}
+    となる．
+    ここまでくれば，スピン波を1つの粒子だとみなしてグランドカノニカル集団の方法を適用することができる．
+    複数のスピン波は同じ波数をとっても問題ないから，これはBose粒子である．
+    スピン波の素励起を\alert{マグノン}と呼ぶ．
+\end{frame}
+
+\begin{frame}
+    低温の場合，低いエネルギーのモードのみが励起される．低エネルギーでのマグノンの分散関係は
+    \begin{align}
+        E(\bm{k}) \approx c\bm{k}^2, \quad c = 2J
+    \end{align}
+    と書ける．フォノンのエネルギーは低温では$|\bm{k}|$に比例していたが，マグノンでは$\bm{k}^2$に比例していることが分かる．
+
+    マグノンの粒子数は保存しなくてよいので化学ポテンシャルは$0$である．粒子数の期待値は，
+    \begin{align}
+        \expval{n}_{\bm{k}} = \frac{1}{e^{\beta c \bm{k}^2}-1}
+    \end{align}
+    で与えられる．
+\end{frame}
+
+\begin{frame}{}
+    したがって3次元格子の場合，内部エネルギーは，
+    \begin{align}
+        U = \frac{V}{(2\pi)^3}\int_0^\infty \frac{ck^2}{e^{\beta c k^2}-1} 4\pi k^2 \dd{k}
+    \end{align}
+    となる．ただし，$V \to \infty$の極限をとり，和を積分で置き換えた．積分はBrillouinゾーン内で行うべきだが，低温では$k$が大きい場合の寄与が無視できるので，積分範囲を無限大にとった．
+
+    積分を無次元化すると，
+    \begin{align}
+        U = \frac{cV}{2\pi^2} \qty(\frac{1}{\beta c})^{5/2} \int_0^\infty \frac{x^5}{e^{x^2} - 1} \dd{x}
+    \end{align}
+    であり，$U \propto T^{5/2}$が分かる．したがって，比熱は$T^{3/2}$に比例する．
+    \begin{align}
+        C \propto T^{3/2}
+    \end{align}
+\end{frame}
+
+\begin{frame}
+    $d$次元格子の場合のマグノンの粒子数は，
+    \begin{align}
+        \sum_{\bm{k}} \expval{n}_{\bm{k}}
+        &\nonumber
+        = \frac{V}{(2\pi)^3} \int_0^\infty \frac{S_{d-1}k^{d-1}}{e^{\beta c k^2}-1} \dd{k}
+        \\ &
+        = \frac{VS_{d-1}}{(2\pi)^3} \qty(\frac{1}{\beta c})^{d/2}\int_0^\infty \frac{x^{d-1}}{e^{x^2}-1}\dd{x}
+        \label{Bloch theory: Magnon number}
+    \end{align}
+    となる．ただし，$S_{d-1}$は単位$d-1$次元球面の面積である．
+    
+    $d=3$のとき，マグノンの粒子数は$T^{3/2}$に比例する．
+    すなわち，磁化は$T^{3/2}$に比例して減少していく．
+    またマグノン1個あたりの比熱が$T^0$に比例することが分かる．
+
+    $d \le 2$のとき，$x \to 0$での被積分関数は
+    \begin{align}
+        \frac{x^{d-1}}{e^{x^2}-1} \approx x^{d-3}
+    \end{align}
+    となり，積分(\ref{Bloch theory: Magnon number})は発散する．マグノン数の発散は，$d \le 2$のとき有限温度で\alert{強磁性状態が不安定}であることを意味する．
+\end{frame}
+
+\begin{frame}{南部-Goldstoneボソン}
+    マグノンのエネルギー$k=0$において$0$になる．これはマグノンの1粒子状態がつくるエネルギーバンドと基底状態の間に\alert{ギャップがない}ことを意味している．
+
+    このことを別の方法で確かめることもできる．
+    我々は基底状態として，全てのスピンが上を向いた状態を考えた．
+    しかしこの選択は恣意的であって，別の方向を向いた基底状態を考えても良い．
+    例えば，全てのスピンが上方向から微小な角度$\theta$だけ傾いた状態を考える．
+    \begin{align}
+        \ket{\chi} = \bigotimes_{n=1}^N \qty(\cos\frac{\theta}{2}\ket{\uparrow}_n + \sin \frac{\theta}{2}\ket{\downarrow}_n)
+    \end{align}
+    $\theta$の2次以上の項を無視すると，
+    \begin{align}
+        \ket{\chi} = \ket{\uparrow\cdots\uparrow} + \frac{\theta}{2}\qty(\ket{\downarrow\uparrow\uparrow\cdots\uparrow}+ \ket{\uparrow\downarrow\uparrow\cdots\uparrow}+\cdots)
+    \end{align}
+    となる．基底状態の項を取り除くと，$k=0$の場合のスピン波$\ket{\chi'} = \sum_n \ket{n}$が得られる．$\ket{\chi}$は$\ket{\uparrow\cdots\uparrow}$と同じ固有値をもつから，$\ket{\chi'}$も同じ固有値をもつ．
+\end{frame}
+
+\begin{frame}
+    Heisenberg模型は連続的な対称性($SU(2)$対称性)をもっている．
+    一般に，模型が連続的対称性をもつ場合，基底状態は以下のどちらかになる．
+    \begin{itemize}
+        \item 1つの対称な基底状態
+        \item 連続的な変換で移り合う無限に縮退した基底状態
+    \end{itemize}
+    強磁性Heisenberg模型は後者の場合である．
+    このとき，もともとの模型には対称性があったにも関わらず，実現する基底状態を1つ選択することで系の対称性が失われる．これを\alert{対称性が自発的に破れた}という．
+
+    対称性が自発的に破れていても，もともとの対称性の名残として，基底状態をすぐ近くの基底状態に移す励起が存在する．
+    これは基底状態に大域的な対称性変換を施すものであるから，長波長であり，また基底状態の間の変換であるから，エネルギーを要さない．
+
+    このように，対称性の自発的破れによって生まれる長波長・低エネルギーの励起を南部-Goldstoneモードという．あるいはそれを素励起とみなして南部-Goldstoneボソンという．マグノンはこの一例となっている．
+\end{frame}
+
+\begin{frame}
+    一般に，
+    \begin{block}{南部-Goldstoneの定理}
+        系にローレンツ対称性がある場合，
+        系のグローバルな連続的対称性が自発的に破れると，
+        破れた対称性一つに付き一つゼロ質量ボソンが現れる．
+    \end{block}
+    が知られている．素粒子論において，質量ゼロは線形分散$E \propto |\bm{p}|$を意味する．
+
+    物性においてはローレンツ対称性があるという仮定が外れるので，素粒子の場合とは違った結果が現れる．
+    強磁性体のマグノンの場合，$SU(2)$のLie代数は$3$次元である．基底状態では$z$軸まわりの$U(1)$対称性だけが守られているから，破れた対称性の数は2つである．
+    しかし，現れる南部-Goldstoneボソンは\alert{1成分}のマグノンだけである．
+    またマグノンは\alert{2乗分散}$E \propto |\bm{k}|^2$をもつ．
+\end{frame}
+
+\begin{frame}
+    反強磁性体の場合も対称性の自発的破れが生じる．ただし，このとき破れた対称性$J_x, J_y$に対応して，\alert{2成分}のマグノンが現れることが知られている．またこれらは強磁性の場合と違って\alert{線形分散}をもつ．
+
+    このように，対称性の自発的破れといっても，現れるボソンの数と，低エネルギーの分散関係の次数はモデルによって異なる．
+    実は，これらの要素を左右するのは破れた対称性の間の交換関係の期待値であることが知られている．マグノンの例でいうと，
+    \begin{align}
+        \mel{0}{[J_x, J_y]}{0} = i \mel{0}{J_z}{0}
+        \label{NG boson: comm}
+    \end{align}
+    である．強磁性では$\mel{0}{J_z}{0} \ne 0$になり，その結果，$J_x$方向の励起と$J_y$方向の励起は独立にはなりえず，1つの励起になる．
+    一方反強磁性の場合$\mel{0}{J_z}{0} = 0$となり，$J_x$方向と$J_y$方向の独立な励起が存在する．
+
+    さらに例外的な場合を除き，分散関係の次数も(\ref{NG boson: comm})から分かるようである．詳細な話は\href{https://www.jstage.jst.go.jp/article/butsuri/68/4/68_KJ00008636350/_article/-char/ja/}{ここ}に載っている．
+\end{frame}
+
+\end{document}
