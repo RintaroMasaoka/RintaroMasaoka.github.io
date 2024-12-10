@@ -1,0 +1,80 @@
+\documentclass[8pt,unicode,xcolor=svgnames]{beamer}
+
+% beamer settings %
+\usepackage{luatexja}
+\usepackage[ipaex]{luatexja-preset}% IPAex font
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usetheme[
+    outer/progressbar=foot,
+    % outer/numbering=none
+]{metropolis}
+\usefonttheme{professionalfonts}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{frametitle}{fg=white,bg=Teal}
+\setbeamercolor{progress bar}{fg=Teal,bg=white!90!black}
+\setbeamercolor{colorbox}{bg=Teal!10}
+\setbeamercolor{block body}{bg=white!90!black}
+\setbeamercolor{block title}{fg=white,bg=DarkGreen}
+\setbeamercolor{block title example}{fg=white,bg=DarkSeaGreen}
+\setbeamercolor{block title alerted}{fg=white,bg=DarkKhaki}
+\setbeamercolor{itemize item}{fg=ForestGreen}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\setlength{\metropolis@titleseparator@linewidth}{2pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{2pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
+\makeatother
+
+% packages %
+\usepackage{amsmath,amssymb,mathtools,diffcoeff}
+\usepackage[oldfont,exchangeupit]{unicommand}
+\DeclareMathOperator{\vac}{\mathup{vac}}
+\DeclareMathOperator{\Link}{\mathup{Link}}
+
+% graphics %
+\usepackage{graphicx,float,tikz}
+\newcommand\Includegraphics[2][]{\vcenter{\hbox{\includegraphics[#1]{#2}}}}
+\graphicspath{{../images/}}
+
+% biblatex %
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../ref/ref.bib}
+
+% tcolorbox %
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems}
+\tcbset{
+    enhanced,
+    frame hidden,
+    sharp corners,
+    colback=Teal!10,
+    boxsep=0pt,
+    fonttitle=\bfseries
+}
+
+% hyperref %
+\usepackage{hyperref}
+\hypersetup{
+    unicode,
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=DarkCyan!80!black,
+    citecolor=Chocolate,
+    urlcolor=Chocolate
+}
+
+\usepackage{subfiles}
+
+% options %
+\numberwithin{equation}{section}
+
+\begin{document}
+\title{Fradkin 14章}
+\author{政岡凜太郎}
+\frame{\titlepage}
+\begin{frame}{Table of contents}\tableofcontents\end{frame}
+\subfile{../part1/part1.tex}
+\subfile{../part2/part2.tex}
+\end{document}

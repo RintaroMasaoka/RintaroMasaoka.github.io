@@ -1,0 +1,63 @@
+\providecommand{\main}{.}
+\documentclass[9pt, dvipdfmx]{beamer}
+\usepackage{bxdpx-beamer}
+\usepackage{minijs}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usetheme{metropolis}
+\usecolortheme{spruce}
+\setbeamercolor{block title}{fg = white, bg = green!50!blue}
+\setbeamercolor{block body}{fg = black, bg = white!90!black}
+\setbeamercolor{block title example}{fg = white, bg = green!40!yellow!60!blue}
+\setbeamercolor{block body example}{fg = black, bg = white!90!black}
+\setbeamercolor{block title alerted}{fg = white, bg = green!30!yellow!60!blue}
+\setbeamercolor{block body alerted}{fg = black, bg = white!90!black}
+\setbeamercolor{itemize item}{fg=green!50!black}
+\usefonttheme{professionalfonts}
+\usepackage{amsmath,amsfonts,bm,graphicx,tikz,mathtools,physics,float}
+\graphicspath{{./images/}}
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=green!50!blue!60!white!65!black,
+    citecolor=green!50!blue!80!black,
+    urlcolor=green!60!yellow!75!red!85!blue
+}
+\newcommand{\del}{\partial}
+\newcommand{\dblpi}{(2\pi)}
+\newcommand{\kB}{k_\mathrm{B}}
+\numberwithin{equation}{section}
+\usepackage{subfiles}
+\begin{document}
+\begin{frame}{}
+    \title{Jacobiの三重積と朝永-Luttinger模型}
+    \author{政岡凜太郎}
+    \titlepage
+\end{frame}
+\begin{frame}{Jacobiの三重積}
+    こんな式がある。
+    \begin{block}{Jacobiの三重積}
+        \begin{align}
+            \sum_{n\in \mathbb{Z}} q^{n(n+1)/2}z^n
+            = \prod_{k=1}^{\infty}
+                (1-q^{k})(1+q^{k}z)(1+q^{k-1}z^{-1})
+        \end{align}
+    \end{block}
+    % 左辺では、$q^0,q^1,q^3,q^6,\ldots$に比例する項しか出てこない。
+    % 右辺で$q^2$に掛かる係数を書き出してみると、
+    % \begin{align}
+    %     (1+z^{-1})(-1+z+z^{-1}-z+1-z^{-1}) = 0
+    % \end{align}
+    % となってキャンセルしている。
+    % 同様のことが$q^4,q^5,q^7,\ldots$で起こる。
+    これはもともとJacobiがテータ関数を研究する中で見つけたものである。
+
+    複素関数論を使った証明も知られているが、ここでは組み合わせ論を使った証明をする。
+\end{frame}
+\subfile{1/1.tex}
+\subfile{2/2.tex}
+\subfile{3/3.tex}
+\end{document}
