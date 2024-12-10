@@ -1,0 +1,48 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Fujikawa_2001}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2f869054f7a2df2db63e77b216325638}{%
+           family={藤川和男},
+           familyi={藤\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {岩波書店}%
+      }
+      \strng{namehash}{2f869054f7a2df2db63e77b216325638}
+      \strng{fullhash}{2f869054f7a2df2db63e77b216325638}
+      \strng{bibnamehash}{2f869054f7a2df2db63e77b216325638}
+      \strng{authorbibnamehash}{2f869054f7a2df2db63e77b216325638}
+      \strng{authornamehash}{2f869054f7a2df2db63e77b216325638}
+      \strng{authorfullhash}{2f869054f7a2df2db63e77b216325638}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{新物理学選書}
+      \field{title}{経路積分と対称性の量子的破れ}
+      \field{year}{2001}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,92 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Nakayama_2019}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ddb83efefe04d1f217070280fd58e7e4}{%
+           family={中山優},
+           familyi={中\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {サイエンス社}%
+      }
+      \strng{namehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{fullhash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{bibnamehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{authorbibnamehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{authornamehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{authorfullhash}{ddb83efefe04d1f217070280fd58e7e4}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{SGCライブラリ}
+      \field{title}{高次元共形場理論への招待 : 3次元臨界Ising模型を解く}
+      \field{year}{2019}
+    \endentry
+    \entry{Dolan_2004}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bb8b63dbcf067e516effbcbf9ade3205}{%
+           family={Dolan},
+           familyi={D\bibinitperiod},
+           given={F.A.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=fad061ec90822a96a4b3e1a0d57c1621}{%
+           family={Osborn},
+           familyi={O\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{a7af37df10ab6986ea948ca3a0d361ff}
+      \strng{fullhash}{a7af37df10ab6986ea948ca3a0d361ff}
+      \strng{bibnamehash}{a7af37df10ab6986ea948ca3a0d361ff}
+      \strng{authorbibnamehash}{a7af37df10ab6986ea948ca3a0d361ff}
+      \strng{authornamehash}{a7af37df10ab6986ea948ca3a0d361ff}
+      \strng{authorfullhash}{a7af37df10ab6986ea948ca3a0d361ff}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nuclear Physics B}
+      \field{month}{2}
+      \field{number}{1-2}
+      \field{title}{Conformal partial waves and the operator product expansion}
+      \field{volume}{678}
+      \field{year}{2004}
+      \field{pages}{491\bibrangedash 507}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.nuclphysb.2003.11.016
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016%2Fj.nuclphysb.2003.11.016
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016%2Fj.nuclphysb.2003.11.016
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

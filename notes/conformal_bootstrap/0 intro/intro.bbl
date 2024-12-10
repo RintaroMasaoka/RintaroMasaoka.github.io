@@ -1,0 +1,314 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{simmonsduffin2016tasi}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0a5ad5a8a6b643bcc451a17714572945}{%
+           family={Simmons-Duffin},
+           familyi={S\bibinithyphendelim D\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a5ad5a8a6b643bcc451a17714572945}
+      \strng{fullhash}{0a5ad5a8a6b643bcc451a17714572945}
+      \strng{bibnamehash}{0a5ad5a8a6b643bcc451a17714572945}
+      \strng{authorbibnamehash}{0a5ad5a8a6b643bcc451a17714572945}
+      \strng{authornamehash}{0a5ad5a8a6b643bcc451a17714572945}
+      \strng{authorfullhash}{0a5ad5a8a6b643bcc451a17714572945}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{hep-th}
+      \field{eprinttype}{arXiv}
+      \field{title}{TASI Lectures on the Conformal Bootstrap}
+      \field{year}{2016}
+      \verb{eprint}
+      \verb 1602.07982
+      \endverb
+    \endentry
+    \entry{Nakayama_2019}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ddb83efefe04d1f217070280fd58e7e4}{%
+           family={中山優},
+           familyi={中\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {サイエンス社}%
+      }
+      \strng{namehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{fullhash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{bibnamehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{authorbibnamehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{authornamehash}{ddb83efefe04d1f217070280fd58e7e4}
+      \strng{authorfullhash}{ddb83efefe04d1f217070280fd58e7e4}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{SGCライブラリ}
+      \field{title}{高次元共形場理論への招待 : 3次元臨界Ising模型を解く}
+      \field{year}{2019}
+    \endentry
+    \entry{Rychkov_2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=5d7bd6d47a8bccf9abc7b1ad149ecebc}{%
+           family={Rychkov},
+           familyi={R\bibinitperiod},
+           given={Slava},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{5d7bd6d47a8bccf9abc7b1ad149ecebc}
+      \strng{fullhash}{5d7bd6d47a8bccf9abc7b1ad149ecebc}
+      \strng{bibnamehash}{5d7bd6d47a8bccf9abc7b1ad149ecebc}
+      \strng{authorbibnamehash}{5d7bd6d47a8bccf9abc7b1ad149ecebc}
+      \strng{authornamehash}{5d7bd6d47a8bccf9abc7b1ad149ecebc}
+      \strng{authorfullhash}{5d7bd6d47a8bccf9abc7b1ad149ecebc}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{EPFL} Lectures on Conformal Field Theory in D $\geq$ 3 Dimensions}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1007/978-3-319-43626-5
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007%2F978-3-319-43626-5
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007%2F978-3-319-43626-5
+      \endverb
+    \endentry
+    \entry{Hikita_2020}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8bd29f65ea9350e912cf8638674b7391}{%
+           family={疋田泰章},
+           familyi={疋\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {講談社}%
+      }
+      \strng{namehash}{8bd29f65ea9350e912cf8638674b7391}
+      \strng{fullhash}{8bd29f65ea9350e912cf8638674b7391}
+      \strng{bibnamehash}{8bd29f65ea9350e912cf8638674b7391}
+      \strng{authorbibnamehash}{8bd29f65ea9350e912cf8638674b7391}
+      \strng{authornamehash}{8bd29f65ea9350e912cf8638674b7391}
+      \strng{authorfullhash}{8bd29f65ea9350e912cf8638674b7391}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{共形場理論入門: 基礎からホログラフィへの道}
+      \field{year}{2020}
+    \endentry
+    \entry{takahasi2017}{book}{}
+      \name{author}{2}{}{%
+        {{hash=a0d34c4d9421cef1a5d7e1fe6289f92e}{%
+           family={高橋和孝},
+           familyi={高\bibinitperiod}}}%
+        {{hash=69403c2ebea8449f386d9cb6ffde7323}{%
+           family={西森秀稔},
+           familyi={西\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {丸善出版}%
+      }
+      \strng{namehash}{c5b418a515768a0ecaffc4126025740d}
+      \strng{fullhash}{c5b418a515768a0ecaffc4126025740d}
+      \strng{bibnamehash}{c5b418a515768a0ecaffc4126025740d}
+      \strng{authorbibnamehash}{c5b418a515768a0ecaffc4126025740d}
+      \strng{authornamehash}{c5b418a515768a0ecaffc4126025740d}
+      \strng{authorfullhash}{c5b418a515768a0ecaffc4126025740d}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{相転移・臨界現象とくりこみ群}
+      \field{year}{2017}
+    \endentry
+    \entry{goldenfeld2018lectures}{book}{}
+      \name{author}{1}{}{%
+        {{hash=759283a59942ff546567b2ee6d4a489e}{%
+           family={Goldenfeld},
+           familyi={G\bibinitperiod},
+           given={Nigel},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{759283a59942ff546567b2ee6d4a489e}
+      \strng{fullhash}{759283a59942ff546567b2ee6d4a489e}
+      \strng{bibnamehash}{759283a59942ff546567b2ee6d4a489e}
+      \strng{authorbibnamehash}{759283a59942ff546567b2ee6d4a489e}
+      \strng{authornamehash}{759283a59942ff546567b2ee6d4a489e}
+      \strng{authorfullhash}{759283a59942ff546567b2ee6d4a489e}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lectures on phase transitions and the renormalization group}
+      \field{year}{2018}
+    \endentry
+    \entry{cardy1996scaling}{book}{}
+      \name{author}{1}{}{%
+        {{hash=4ac5aa12178c604ccb16b418a3bdc44c}{%
+           family={Cardy},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{4ac5aa12178c604ccb16b418a3bdc44c}
+      \strng{fullhash}{4ac5aa12178c604ccb16b418a3bdc44c}
+      \strng{bibnamehash}{4ac5aa12178c604ccb16b418a3bdc44c}
+      \strng{authorbibnamehash}{4ac5aa12178c604ccb16b418a3bdc44c}
+      \strng{authornamehash}{4ac5aa12178c604ccb16b418a3bdc44c}
+      \strng{authorfullhash}{4ac5aa12178c604ccb16b418a3bdc44c}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Scaling and renormalization in statistical physics}
+      \field{volume}{5}
+      \field{year}{1996}
+    \endentry
+    \entry{altland2010condensed}{book}{}
+      \name{author}{2}{}{%
+        {{hash=0e8283059ab66548e6a111f680ea5d02}{%
+           family={Altland},
+           familyi={A\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3cb61c02c5e5f84d82da5b094ab84adf}{%
+           family={Simons},
+           familyi={S\bibinitperiod},
+           given={Ben\bibnamedelima D},
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{ef0b9c2e0d67fbcf0d86ec48c63e8a05}
+      \strng{fullhash}{ef0b9c2e0d67fbcf0d86ec48c63e8a05}
+      \strng{bibnamehash}{ef0b9c2e0d67fbcf0d86ec48c63e8a05}
+      \strng{authorbibnamehash}{ef0b9c2e0d67fbcf0d86ec48c63e8a05}
+      \strng{authornamehash}{ef0b9c2e0d67fbcf0d86ec48c63e8a05}
+      \strng{authorfullhash}{ef0b9c2e0d67fbcf0d86ec48c63e8a05}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Condensed matter field theory}
+      \field{year}{2010}
+    \endentry
+    \entry{Sakamoto_2020I}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3442bcb55507a4b4de3876b31f550799}{%
+           family={坂本眞人},
+           familyi={坂\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {裳華房}%
+      }
+      \strng{namehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{fullhash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{bibnamehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{authorbibnamehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{authornamehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{authorfullhash}{3442bcb55507a4b4de3876b31f550799}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{量子力学選書}
+      \field{title}{場の量子論:不変性と自由場を中心にして}
+      \field{year}{2020}
+    \endentry
+    \entry{Sakamoto_2020II}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3442bcb55507a4b4de3876b31f550799}{%
+           family={坂本眞人},
+           familyi={坂\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {裳華房}%
+      }
+      \strng{namehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{fullhash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{bibnamehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{authorbibnamehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{authornamehash}{3442bcb55507a4b4de3876b31f550799}
+      \strng{authorfullhash}{3442bcb55507a4b4de3876b31f550799}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{量子力学選書}
+      \field{title}{場の量子論(II) : ファインマン・グラフとくりこみを中心にして}
+      \field{year}{2020}
+    \endentry
+    \entry{francesco2012conformal}{book}{}
+      \name{author}{3}{}{%
+        {{hash=bcda20c482722039d46c18b9186be4c1}{%
+           family={Francesco},
+           familyi={F\bibinitperiod},
+           given={Philippe},
+           giveni={P\bibinitperiod}}}%
+        {{hash=9f61021095c369f7a804116d297250d6}{%
+           family={Mathieu},
+           familyi={M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=34f0ec3cd13d92097b92789fb9626c06}{%
+           family={S{é}n{é}chal},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{e342dd6d70ab1d1b83f78dca685d40dc}
+      \strng{fullhash}{e342dd6d70ab1d1b83f78dca685d40dc}
+      \strng{bibnamehash}{e342dd6d70ab1d1b83f78dca685d40dc}
+      \strng{authorbibnamehash}{e342dd6d70ab1d1b83f78dca685d40dc}
+      \strng{authornamehash}{e342dd6d70ab1d1b83f78dca685d40dc}
+      \strng{authorfullhash}{e342dd6d70ab1d1b83f78dca685d40dc}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Conformal field theory}
+      \field{year}{2012}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

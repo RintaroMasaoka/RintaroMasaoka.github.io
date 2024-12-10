@@ -1,0 +1,7 @@
+\beamer@subsectionintoc {0}{1}{Constants}{3}{0}{0}
+\beamer@sectionintoc {1}{14.1 Quantum Hall fluids on a torus}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{14.1.1 Flux attachment on a torus}{9}{0}{1}
+\beamer@subsectionintoc {1}{2}{14.1.2 Chern-Simons on a torus}{14}{0}{1}
+\beamer@sectionintoc {2}{14.2 Hydrodynamic theory}{19}{0}{2}
+\beamer@sectionintoc {3}{14.3 Hierarchical state}{22}{0}{3}
+\beamer@sectionintoc {4}{14.4 Multi-component abelian fluids}{28}{0}{4}

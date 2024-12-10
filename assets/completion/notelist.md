@@ -3,4 +3,6 @@
 - [超対称量子力学](/notes/SUSYQM/SUSY_index.pdf)
 - [XY模型とくりこみ群](/notes/XY%20model/XY.pdf)
 - [KdV方程式](/notes/KdV/source/数理班_政岡凜太郎.pdf)
-- [Quantum dimers and gauge theories (Fradkin 9章)](/notes/fradkin_chap9.pdf)
+- [朝永-Luttinger流体](/notes/Tomonaga-Luttinger%20liquid/TL_liquid.pdf)
+- [ダイマー模型とゲージ理論 (Fradkin 9章)](/notes/fradkin_chap9.pdf)
+- [スピン波 (Feynman統計力学 7章)](/notes/feynmanstat_7/ファインマン統計_7章.pdf)
