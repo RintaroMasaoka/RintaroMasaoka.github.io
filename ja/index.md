@@ -8,7 +8,10 @@ home = true
 物性理論および統計力学を研究している大学院生(M1)です。
 興味のある分野は相転移・臨界現象で、特に非自明な動的臨界指数をもつ量子臨界現象を研究しています。
 
+## リンク
 [Google Scholar](https://scholar.google.com/citations?user=qoSWWasAAAAJ&hl=en)
+
+[Repository of this site](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io)
 
 ## 所属
 [東京大学](https://www.u-tokyo.ac.jp/ja/index.html)
