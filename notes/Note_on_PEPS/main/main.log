@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  6 SEP 2024 19:24
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  10 DEC 2024 17:01
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1247,6 +1247,8 @@ Package: mathcommand 2021/06/07 v1.04
 Package: l3keys2e 2024-02-18 LaTeX2e option processing using LaTeX3 keys
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/carlisle/slashed.sty
+Package: slashed 1997/01/16 v0.01 Feynman Slashed Character Notation (DPC)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math-luatex.sty
@@ -1551,7 +1553,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 
 ] (../sec1/../sec1/sec1.tex) [2] (../sec2/../sec2/sec2.tex
 warning  (file ../sec2/../images/A.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/A.pdf, id=101, 361.35pt x 361.35pt>
+<../sec2/../images/A.pdf, id=91, 361.35pt x 361.35pt>
 File: ../sec2/../images/A.pdf Graphic file (type pdf)
 <use ../sec2/../images/A.pdf>
 Package luatex.def Info: ../sec2/../images/A.pdf  used on input line 14.
@@ -1562,7 +1564,7 @@ Package luatex.def Info: ../sec2/../images/A.pdf  used on input line 14.
 (luatex.def)             Requested size: 39.74861pt x 39.74861pt.
 (load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc)
 warning  (file ../sec2/../images/PBCMPS.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/PBCMPS.pdf, id=102, 1328.965pt x 363.3575pt>
+<../sec2/../images/PBCMPS.pdf, id=92, 1328.965pt x 363.3575pt>
 File: ../sec2/../images/PBCMPS.pdf Graphic file (type pdf)
 <use ../sec2/../images/PBCMPS.pdf>
 Package luatex.def Info: ../sec2/../images/PBCMPS.pdf  used on input line 24.
@@ -1573,7 +1575,7 @@ Package luatex.def Info: ../sec2/../images/PBCMPS.pdf  used on input line 24.
 (luatex.def)             Requested size: 146.1866pt x 39.96944pt.
 
 warning  (file ../sec2/../images/alphaA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/alphaA.pdf, id=103, 361.35pt x 481.8pt>
+<../sec2/../images/alphaA.pdf, id=93, 361.35pt x 481.8pt>
 File: ../sec2/../images/alphaA.pdf Graphic file (type pdf)
 <use ../sec2/../images/alphaA.pdf>
 Package luatex.def Info: ../sec2/../images/alphaA.pdf  used on input line 39.
@@ -1584,7 +1586,7 @@ Package luatex.def Info: ../sec2/../images/alphaA.pdf  used on input line 39.
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
 
 warning  (file ../sec2/../images/P(A).pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/P(A).pdf, id=104, 365.365pt x 301.125pt>
+<../sec2/../images/P(A).pdf, id=94, 365.365pt x 301.125pt>
 File: ../sec2/../images/P(A).pdf Graphic file (type pdf)
 <use ../sec2/../images/P(A).pdf>
 Package luatex.def Info: ../sec2/../images/P(A).pdf  used on input line 67.
@@ -1595,7 +1597,7 @@ Package luatex.def Info: ../sec2/../images/P(A).pdf  used on input line 67.
 (luatex.def)             Requested size: 40.19026pt x 33.12384pt.
 
 warning  (file ../sec2/../images/P(A)+.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/P(A)+.pdf, id=105, 365.365pt x 301.125pt>
+<../sec2/../images/P(A)+.pdf, id=95, 365.365pt x 301.125pt>
 File: ../sec2/../images/P(A)+.pdf Graphic file (type pdf)
 <use ../sec2/../images/P(A)+.pdf>
 Package luatex.def Info: ../sec2/../images/P(A)+.pdf  used on input line 71.
@@ -1606,14 +1608,14 @@ Package luatex.def Info: ../sec2/../images/P(A)+.pdf  used on input line 71.
 (luatex.def)             Requested size: 40.19026pt x 33.12384pt.
 [3<../sec2/../images/A.pdf><../sec2/../images/PBCMPS.pdf><../sec2/../images/alphaA.pdf>]
 warning  (file ../sec2/../images/P(A)P(A)+.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/P(A)P(A)+.pdf, id=121, 365.365pt x 602.25pt>
+<../sec2/../images/P(A)P(A)+.pdf, id=111, 365.365pt x 602.25pt>
 File: ../sec2/../images/P(A)P(A)+.pdf Graphic file (type pdf)
 <use ../sec2/../images/P(A)P(A)+.pdf>
 Package luatex.def Info: ../sec2/../images/P(A)P(A)+.pdf  used on input line 80.
 (luatex.def)             Requested size: 40.19026pt x 66.2477pt.
 
 warning  (file ../sec2/../images/P(A)+P(A).pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/P(A)+P(A).pdf, id=122, 365.365pt x 481.8pt>
+<../sec2/../images/P(A)+P(A).pdf, id=112, 365.365pt x 481.8pt>
 File: ../sec2/../images/P(A)+P(A).pdf Graphic file (type pdf)
 <use ../sec2/../images/P(A)+P(A).pdf>
 Package luatex.def Info: ../sec2/../images/P(A)+P(A).pdf  used on input line 80.
@@ -1628,14 +1630,14 @@ Package luatex.def Info: ../sec2/../images/P(A)+P(A).pdf  used on input line 80.
 (luatex.def)             Requested size: 40.19026pt x 52.99815pt.
 [4<../sec2/../images/P(A).pdf><../sec2/../images/P(A)+.pdf><../sec2/../images/P(A)P(A)+.pdf><../sec2/../images/P(A)+P(A).pdf>]
 warning  (file ../sec2/../images/AinvA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/AinvA.pdf, id=134, 361.35pt x 481.8pt>
+<../sec2/../images/AinvA.pdf, id=124, 361.35pt x 481.8pt>
 File: ../sec2/../images/AinvA.pdf Graphic file (type pdf)
 <use ../sec2/../images/AinvA.pdf>
 Package luatex.def Info: ../sec2/../images/AinvA.pdf  used on input line 104.
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
 
 warning  (file ../sec2/../images/idid.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/idid.pdf, id=135, 301.125pt x 244.915pt>
+<../sec2/../images/idid.pdf, id=125, 301.125pt x 244.915pt>
 File: ../sec2/../images/idid.pdf Graphic file (type pdf)
 <use ../sec2/../images/idid.pdf>
 Package luatex.def Info: ../sec2/../images/idid.pdf  used on input line 104.
@@ -1659,21 +1661,21 @@ LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 7.70596pt on input line 108.
 
 warning  (file ../sec2/../images/ABM.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/ABM.pdf, id=136, 664.4825pt x 481.8pt>
+<../sec2/../images/ABM.pdf, id=126, 664.4825pt x 481.8pt>
 File: ../sec2/../images/ABM.pdf Graphic file (type pdf)
 <use ../sec2/../images/ABM.pdf>
 Package luatex.def Info: ../sec2/../images/ABM.pdf  used on input line 139.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 
 warning  (file ../sec2/../images/NBC.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/NBC.pdf, id=137, 664.4825pt x 481.8pt>
+<../sec2/../images/NBC.pdf, id=127, 664.4825pt x 481.8pt>
 File: ../sec2/../images/NBC.pdf Graphic file (type pdf)
 <use ../sec2/../images/NBC.pdf>
 Package luatex.def Info: ../sec2/../images/NBC.pdf  used on input line 139.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 
 warning  (file ../sec2/../images/ABCX.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/ABCX.pdf, id=138, 726.715pt x 481.8pt>
+<../sec2/../images/ABCX.pdf, id=128, 726.715pt x 481.8pt>
 File: ../sec2/../images/ABCX.pdf Graphic file (type pdf)
 <use ../sec2/../images/ABCX.pdf>
 Package luatex.def Info: ../sec2/../images/ABCX.pdf  used on input line 139.
@@ -1697,14 +1699,14 @@ Overfull \hbox (2.13246pt too wide) detected at line 139
 
 [5<../sec2/../images/AinvA.pdf><../sec2/../images/idid.pdf>]
 warning  (file ../sec2/../images/N.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/N.pdf, id=152, 240.9pt x 481.8pt>
+<../sec2/../images/N.pdf, id=142, 240.9pt x 481.8pt>
 File: ../sec2/../images/N.pdf Graphic file (type pdf)
 <use ../sec2/../images/N.pdf>
 Package luatex.def Info: ../sec2/../images/N.pdf  used on input line 146.
 (luatex.def)             Requested size: 26.49907pt x 52.99815pt.
 
 warning  (file ../sec2/../images/AX.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/AX.pdf, id=153, 301.125pt x 481.8pt>
+<../sec2/../images/AX.pdf, id=143, 301.125pt x 481.8pt>
 File: ../sec2/../images/AX.pdf Graphic file (type pdf)
 <use ../sec2/../images/AX.pdf>
 Package luatex.def Info: ../sec2/../images/AX.pdf  used on input line 146.
@@ -1719,28 +1721,28 @@ Package luatex.def Info: ../sec2/../images/AX.pdf  used on input line 146.
 (luatex.def)             Requested size: 33.12384pt x 52.99815pt.
 
 warning  (file ../sec2/../images/Intersection1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Intersection1.pdf, id=154, 544.0325pt x 722.7pt>
+<../sec2/../images/Intersection1.pdf, id=144, 544.0325pt x 722.7pt>
 File: ../sec2/../images/Intersection1.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection1.pdf>
 Package luatex.def Info: ../sec2/../images/Intersection1.pdf  used on input line 154.
 (luatex.def)             Requested size: 59.84375pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Intersection2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Intersection2.pdf, id=155, 664.4825pt x 722.7pt>
+<../sec2/../images/Intersection2.pdf, id=145, 664.4825pt x 722.7pt>
 File: ../sec2/../images/Intersection2.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection2.pdf>
 Package luatex.def Info: ../sec2/../images/Intersection2.pdf  used on input line 154.
 (luatex.def)             Requested size: 73.09329pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Intersection3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Intersection3.pdf, id=156, 726.715pt x 722.7pt>
+<../sec2/../images/Intersection3.pdf, id=146, 726.715pt x 722.7pt>
 File: ../sec2/../images/Intersection3.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection3.pdf>
 Package luatex.def Info: ../sec2/../images/Intersection3.pdf  used on input line 154.
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Intersection4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Intersection4.pdf, id=157, 726.715pt x 722.7pt>
+<../sec2/../images/Intersection4.pdf, id=147, 726.715pt x 722.7pt>
 File: ../sec2/../images/Intersection4.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection4.pdf>
 Package luatex.def Info: ../sec2/../images/Intersection4.pdf  used on input line 154.
@@ -1763,21 +1765,21 @@ Package luatex.def Info: ../sec2/../images/Intersection4.pdf  used on input line
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 
 warning  (file ../sec2/../images/AMB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/AMB.pdf, id=158, 485.815pt x 481.8pt>
+<../sec2/../images/AMB.pdf, id=148, 485.815pt x 481.8pt>
 File: ../sec2/../images/AMB.pdf Graphic file (type pdf)
 <use ../sec2/../images/AMB.pdf>
 Package luatex.def Info: ../sec2/../images/AMB.pdf  used on input line 161.
 (luatex.def)             Requested size: 53.4398pt x 52.99815pt.
 
 warning  (file ../sec2/../images/ANB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/ANB.pdf, id=159, 485.815pt x 483.8075pt>
+<../sec2/../images/ANB.pdf, id=149, 485.815pt x 483.8075pt>
 File: ../sec2/../images/ANB.pdf Graphic file (type pdf)
 <use ../sec2/../images/ANB.pdf>
 Package luatex.def Info: ../sec2/../images/ANB.pdf  used on input line 161.
 (luatex.def)             Requested size: 53.4398pt x 53.21898pt.
 
 warning  (file ../sec2/../images/AB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/AB.pdf, id=160, 485.815pt x 303.1325pt>
+<../sec2/../images/AB.pdf, id=150, 485.815pt x 303.1325pt>
 File: ../sec2/../images/AB.pdf Graphic file (type pdf)
 <use ../sec2/../images/AB.pdf>
 Package luatex.def Info: ../sec2/../images/AB.pdf  used on input line 161.
@@ -1796,28 +1798,28 @@ Package luatex.def Info: ../sec2/../images/AB.pdf  used on input line 161.
 (luatex.def)             Requested size: 53.4398pt x 33.34467pt.
 
 warning  (file ../sec2/../images/Closure1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Closure1.pdf, id=161, 485.815pt x 722.7pt>
+<../sec2/../images/Closure1.pdf, id=151, 485.815pt x 722.7pt>
 File: ../sec2/../images/Closure1.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure1.pdf>
 Package luatex.def Info: ../sec2/../images/Closure1.pdf  used on input line 170.
 (luatex.def)             Requested size: 53.4398pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Closure2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Closure2.pdf, id=162, 485.815pt x 722.7pt>
+<../sec2/../images/Closure2.pdf, id=152, 485.815pt x 722.7pt>
 File: ../sec2/../images/Closure2.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure2.pdf>
 Package luatex.def Info: ../sec2/../images/Closure2.pdf  used on input line 170.
 (luatex.def)             Requested size: 53.4398pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Closure3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Closure3.pdf, id=163, 485.815pt x 724.7075pt>
+<../sec2/../images/Closure3.pdf, id=153, 485.815pt x 724.7075pt>
 File: ../sec2/../images/Closure3.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure3.pdf>
 Package luatex.def Info: ../sec2/../images/Closure3.pdf  used on input line 170.
 (luatex.def)             Requested size: 53.4398pt x 79.71806pt.
 
 warning  (file ../sec2/../images/Closure4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/Closure4.pdf, id=164, 485.815pt x 724.7075pt>
+<../sec2/../images/Closure4.pdf, id=154, 485.815pt x 724.7075pt>
 File: ../sec2/../images/Closure4.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure4.pdf>
 Package luatex.def Info: ../sec2/../images/Closure4.pdf  used on input line 170.
@@ -1840,7 +1842,7 @@ Package luatex.def Info: ../sec2/../images/Closure4.pdf  used on input line 170.
 (luatex.def)             Requested size: 53.4398pt x 79.71806pt.
 [6<../sec2/../images/ABM.pdf><../sec2/../images/NBC.pdf><../sec2/../images/ABCX.pdf><../sec2/../images/N.pdf><../sec2/../images/AX.pdf><../sec2/../images/Intersection1.pdf><../sec2/../images/Intersection2.pdf><../sec2/../images/Intersection3.pdf><../sec2/../images/Intersection4.pdf><../sec2/../images/AMB.pdf><../sec2/../images/ANB.pdf><../sec2/../images/AB.pdf>]
 warning  (file ../sec2/../images/AMA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec2/../images/AMA.pdf, id=176, 485.815pt x 481.8pt>
+<../sec2/../images/AMA.pdf, id=166, 485.815pt x 481.8pt>
 File: ../sec2/../images/AMA.pdf Graphic file (type pdf)
 <use ../sec2/../images/AMA.pdf>
 Package luatex.def Info: ../sec2/../images/AMA.pdf  used on input line 182.
@@ -1875,7 +1877,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24715pt on input line 7.
 
 warning  (file ../sec3/../images/alphaA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/alphaA.pdf, id=205, 361.35pt x 481.8pt>
+<../sec3/../images/alphaA.pdf, id=195, 361.35pt x 481.8pt>
 File: ../sec3/../images/alphaA.pdf Graphic file (type pdf)
 <use ../sec3/../images/alphaA.pdf>
 Package luatex.def Info: ../sec3/../images/alphaA.pdf  used on input line 25.
@@ -1886,21 +1888,21 @@ Package luatex.def Info: ../sec3/../images/alphaA.pdf  used on input line 25.
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
 
 warning  (file ../sec3/../images/AinvA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/AinvA.pdf, id=207, 361.35pt x 481.8pt>
+<../sec3/../images/AinvA.pdf, id=197, 361.35pt x 481.8pt>
 File: ../sec3/../images/AinvA.pdf Graphic file (type pdf)
 <use ../sec3/../images/AinvA.pdf>
 Package luatex.def Info: ../sec3/../images/AinvA.pdf  used on input line 40.
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
 
 warning  (file ../sec3/../images/gginv.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gginv.pdf, id=208, 395.93698pt x 365.365pt>
+<../sec3/../images/gginv.pdf, id=198, 395.93698pt x 365.365pt>
 File: ../sec3/../images/gginv.pdf Graphic file (type pdf)
 <use ../sec3/../images/gginv.pdf>
 Package luatex.def Info: ../sec3/../images/gginv.pdf  used on input line 40.
 (luatex.def)             Requested size: 43.55319pt x 40.19026pt.
 
 warning  (file ../sec3/../images/pi.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/pi.pdf, id=209, 361.35pt x 365.37578pt>
+<../sec3/../images/pi.pdf, id=199, 361.35pt x 365.37578pt>
 File: ../sec3/../images/pi.pdf Graphic file (type pdf)
 <use ../sec3/../images/pi.pdf>
 Package luatex.def Info: ../sec3/../images/pi.pdf  used on input line 40.
@@ -1919,14 +1921,14 @@ Package luatex.def Info: ../sec3/../images/pi.pdf  used on input line 40.
 (luatex.def)             Requested size: 39.74861pt x 40.19145pt.
 [9<../sec3/../images/alphaA.pdf>]
 warning  (file ../sec3/../images/g_pulling1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/g_pulling1.pdf, id=227, 308.15125pt x 361.35pt>
+<../sec3/../images/g_pulling1.pdf, id=217, 308.15125pt x 361.35pt>
 File: ../sec3/../images/g_pulling1.pdf Graphic file (type pdf)
 <use ../sec3/../images/g_pulling1.pdf>
 Package luatex.def Info: ../sec3/../images/g_pulling1.pdf  used on input line 86.
 (luatex.def)             Requested size: 33.89673pt x 39.74861pt.
 
 warning  (file ../sec3/../images/g_pulling2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/g_pulling2.pdf, id=228, 310.0029pt x 361.35pt>
+<../sec3/../images/g_pulling2.pdf, id=218, 310.0029pt x 361.35pt>
 File: ../sec3/../images/g_pulling2.pdf Graphic file (type pdf)
 <use ../sec3/../images/g_pulling2.pdf>
 Package luatex.def Info: ../sec3/../images/g_pulling2.pdf  used on input line 86.
@@ -1941,14 +1943,14 @@ Package luatex.def Info: ../sec3/../images/g_pulling2.pdf  used on input line 86
 (luatex.def)             Requested size: 34.10042pt x 39.74861pt.
 [10<../sec3/../images/AinvA.pdf><../sec3/../images/gginv.pdf><../sec3/../images/pi.pdf><../sec3/../images/g_pulling1.pdf><../sec3/../images/g_pulling2.pdf>]
 warning  (file ../sec3/../images/G-orthogonality.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/G-orthogonality.pdf, id=242, 575.14874pt x 393.47pt>
+<../sec3/../images/G-orthogonality.pdf, id=232, 575.14874pt x 393.47pt>
 File: ../sec3/../images/G-orthogonality.pdf Graphic file (type pdf)
 <use ../sec3/../images/G-orthogonality.pdf>
 Package luatex.def Info: ../sec3/../images/G-orthogonality.pdf  used on input line 111.
 (luatex.def)             Requested size: 63.26656pt x 43.28183pt.
 
 warning  (file ../sec3/../images/U_g.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/U_g.pdf, id=243, 213.79875pt x 365.365pt>
+<../sec3/../images/U_g.pdf, id=233, 213.79875pt x 365.365pt>
 File: ../sec3/../images/U_g.pdf Graphic file (type pdf)
 <use ../sec3/../images/U_g.pdf>
 Package luatex.def Info: ../sec3/../images/U_g.pdf  used on input line 111.
@@ -1963,7 +1965,7 @@ Package luatex.def Info: ../sec3/../images/U_g.pdf  used on input line 111.
 (luatex.def)             Requested size: 23.51793pt x 40.19026pt.
 
 warning  (file ../sec3/../images/AinvDBinv.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/AinvDBinv.pdf, id=245, 481.8pt x 281.05pt>
+<../sec3/../images/AinvDBinv.pdf, id=235, 481.8pt x 281.05pt>
 File: ../sec3/../images/AinvDBinv.pdf Graphic file (type pdf)
 <use ../sec3/../images/AinvDBinv.pdf>
 Package luatex.def Info: ../sec3/../images/AinvDBinv.pdf  used on input line 136.
@@ -1974,14 +1976,14 @@ Package luatex.def Info: ../sec3/../images/AinvDBinv.pdf  used on input line 136
 (luatex.def)             Requested size: 52.99815pt x 30.91559pt.
 [11<../sec3/../images/G-orthogonality.pdf><../sec3/../images/U_g.pdf>]
 warning  (file ../sec3/../images/AinvADBinvB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/AinvADBinvB.pdf, id=259, 481.8pt x 602.25pt>
+<../sec3/../images/AinvADBinvB.pdf, id=249, 481.8pt x 602.25pt>
 File: ../sec3/../images/AinvADBinvB.pdf Graphic file (type pdf)
 <use ../sec3/../images/AinvADBinvB.pdf>
 Package luatex.def Info: ../sec3/../images/AinvADBinvB.pdf  used on input line 142.
 (luatex.def)             Requested size: 52.99815pt x 66.2477pt.
 
 warning  (file ../sec3/../images/piDpi.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/piDpi.pdf, id=260, 722.7pt x 393.47pt>
+<../sec3/../images/piDpi.pdf, id=250, 722.7pt x 393.47pt>
 File: ../sec3/../images/piDpi.pdf Graphic file (type pdf)
 <use ../sec3/../images/piDpi.pdf>
 Package luatex.def Info: ../sec3/../images/piDpi.pdf  used on input line 142.
@@ -2004,21 +2006,21 @@ Package luatex.def Info: ../sec3/../images/pi.pdf  used on input line 142.
 (luatex.def)             Requested size: 39.74861pt x 40.19145pt.
 
 warning  (file ../sec3/../images/ABM.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/ABM.pdf, id=262, 664.4825pt x 481.8pt>
+<../sec3/../images/ABM.pdf, id=252, 664.4825pt x 481.8pt>
 File: ../sec3/../images/ABM.pdf Graphic file (type pdf)
 <use ../sec3/../images/ABM.pdf>
 Package luatex.def Info: ../sec3/../images/ABM.pdf  used on input line 150.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 
 warning  (file ../sec3/../images/NBC.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/NBC.pdf, id=263, 664.4825pt x 481.8pt>
+<../sec3/../images/NBC.pdf, id=253, 664.4825pt x 481.8pt>
 File: ../sec3/../images/NBC.pdf Graphic file (type pdf)
 <use ../sec3/../images/NBC.pdf>
 Package luatex.def Info: ../sec3/../images/NBC.pdf  used on input line 150.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 
 warning  (file ../sec3/../images/ABCX.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/ABCX.pdf, id=264, 726.715pt x 481.8pt>
+<../sec3/../images/ABCX.pdf, id=254, 726.715pt x 481.8pt>
 File: ../sec3/../images/ABCX.pdf Graphic file (type pdf)
 <use ../sec3/../images/ABCX.pdf>
 Package luatex.def Info: ../sec3/../images/ABCX.pdf  used on input line 150.
@@ -2046,7 +2048,7 @@ Package luatex.def Info: ../sec3/../images/NBC.pdf  used on input line 158.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 
 warning  (file ../sec3/../images/NgginvBC.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/NgginvBC.pdf, id=266, 724.7075pt x 481.8pt>
+<../sec3/../images/NgginvBC.pdf, id=256, 724.7075pt x 481.8pt>
 File: ../sec3/../images/NgginvBC.pdf Graphic file (type pdf)
 <use ../sec3/../images/NgginvBC.pdf>
 Package luatex.def Info: ../sec3/../images/NgginvBC.pdf  used on input line 158.
@@ -2061,35 +2063,35 @@ Package luatex.def Info: ../sec3/../images/NgginvBC.pdf  used on input line 158.
 (luatex.def)             Requested size: 79.71806pt x 52.99815pt.
 
 warning  (file ../sec3/../images/gIntersection1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gIntersection1.pdf, id=267, 572.1375pt x 722.7pt>
+<../sec3/../images/gIntersection1.pdf, id=257, 572.1375pt x 722.7pt>
 File: ../sec3/../images/gIntersection1.pdf Graphic file (type pdf)
 <use ../sec3/../images/gIntersection1.pdf>
 Package luatex.def Info: ../sec3/../images/gIntersection1.pdf  used on input line 168.
 (luatex.def)             Requested size: 62.93532pt x 79.49724pt.
 
 warning  (file ../sec3/../images/gIntersection2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gIntersection2.pdf, id=268, 664.4825pt x 722.7pt>
+<../sec3/../images/gIntersection2.pdf, id=258, 664.4825pt x 722.7pt>
 File: ../sec3/../images/gIntersection2.pdf Graphic file (type pdf)
 <use ../sec3/../images/gIntersection2.pdf>
 Package luatex.def Info: ../sec3/../images/gIntersection2.pdf  used on input line 168.
 (luatex.def)             Requested size: 73.09329pt x 79.49724pt.
 
 warning  (file ../sec3/../images/gIntersection3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gIntersection3.pdf, id=269, 726.715pt x 722.7pt>
+<../sec3/../images/gIntersection3.pdf, id=259, 726.715pt x 722.7pt>
 File: ../sec3/../images/gIntersection3.pdf Graphic file (type pdf)
 <use ../sec3/../images/gIntersection3.pdf>
 Package luatex.def Info: ../sec3/../images/gIntersection3.pdf  used on input line 168.
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 
 warning  (file ../sec3/../images/gIntersection4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gIntersection4.pdf, id=270, 726.715pt x 722.7pt>
+<../sec3/../images/gIntersection4.pdf, id=260, 726.715pt x 722.7pt>
 File: ../sec3/../images/gIntersection4.pdf Graphic file (type pdf)
 <use ../sec3/../images/gIntersection4.pdf>
 Package luatex.def Info: ../sec3/../images/gIntersection4.pdf  used on input line 168.
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 
 warning  (file ../sec3/../images/gIntersection5.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gIntersection5.pdf, id=271, 726.715pt x 722.7pt>
+<../sec3/../images/gIntersection5.pdf, id=261, 726.715pt x 722.7pt>
 File: ../sec3/../images/gIntersection5.pdf Graphic file (type pdf)
 <use ../sec3/../images/gIntersection5.pdf>
 Package luatex.def Info: ../sec3/../images/gIntersection5.pdf  used on input line 168.
@@ -2116,21 +2118,21 @@ Package luatex.def Info: ../sec3/../images/gIntersection5.pdf  used on input lin
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 [12<../sec3/../images/AinvDBinv.pdf><../sec3/../images/AinvADBinvB.pdf><../sec3/../images/piDpi.pdf><../sec3/../images/ABM.pdf><../sec3/../images/NBC.pdf><../sec3/../images/ABCX.pdf><../sec3/../images/NgginvBC.pdf>]
 warning  (file ../sec3/../images/AMB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/AMB.pdf, id=286, 485.815pt x 481.8pt>
+<../sec3/../images/AMB.pdf, id=276, 485.815pt x 481.8pt>
 File: ../sec3/../images/AMB.pdf Graphic file (type pdf)
 <use ../sec3/../images/AMB.pdf>
 Package luatex.def Info: ../sec3/../images/AMB.pdf  used on input line 176.
 (luatex.def)             Requested size: 53.4398pt x 52.99815pt.
 
 warning  (file ../sec3/../images/ANB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/ANB.pdf, id=287, 485.815pt x 483.8075pt>
+<../sec3/../images/ANB.pdf, id=277, 485.815pt x 483.8075pt>
 File: ../sec3/../images/ANB.pdf Graphic file (type pdf)
 <use ../sec3/../images/ANB.pdf>
 Package luatex.def Info: ../sec3/../images/ANB.pdf  used on input line 176.
 (luatex.def)             Requested size: 53.4398pt x 53.21898pt.
 
 warning  (file ../sec3/../images/gAB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gAB.pdf, id=288, 485.815pt x 391.4625pt>
+<../sec3/../images/gAB.pdf, id=278, 485.815pt x 391.4625pt>
 File: ../sec3/../images/gAB.pdf Graphic file (type pdf)
 <use ../sec3/../images/gAB.pdf>
 Package luatex.def Info: ../sec3/../images/gAB.pdf  used on input line 176.
@@ -2153,7 +2155,7 @@ Package luatex.def Info: ../sec3/../images/AMB.pdf  used on input line 184.
 (luatex.def)             Requested size: 53.4398pt x 52.99815pt.
 
 warning  (file ../sec3/../images/gMginvAB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gMginvAB.pdf, id=289, 542.025pt x 602.25pt>
+<../sec3/../images/gMginvAB.pdf, id=279, 542.025pt x 602.25pt>
 File: ../sec3/../images/gMginvAB.pdf Graphic file (type pdf)
 <use ../sec3/../images/gMginvAB.pdf>
 Package luatex.def Info: ../sec3/../images/gMginvAB.pdf  used on input line 184.
@@ -2168,42 +2170,42 @@ Package luatex.def Info: ../sec3/../images/gMginvAB.pdf  used on input line 184.
 (luatex.def)             Requested size: 59.62292pt x 66.2477pt.
 
 warning  (file ../sec3/../images/gClosure1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gClosure1.pdf, id=290, 542.025pt x 722.7pt>
+<../sec3/../images/gClosure1.pdf, id=280, 542.025pt x 722.7pt>
 File: ../sec3/../images/gClosure1.pdf Graphic file (type pdf)
 <use ../sec3/../images/gClosure1.pdf>
 Package luatex.def Info: ../sec3/../images/gClosure1.pdf  used on input line 195.
 (luatex.def)             Requested size: 59.62292pt x 79.49724pt.
 
 warning  (file ../sec3/../images/gClosure2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gClosure2.pdf, id=291, 485.815pt x 722.7pt>
+<../sec3/../images/gClosure2.pdf, id=281, 485.815pt x 722.7pt>
 File: ../sec3/../images/gClosure2.pdf Graphic file (type pdf)
 <use ../sec3/../images/gClosure2.pdf>
 Package luatex.def Info: ../sec3/../images/gClosure2.pdf  used on input line 195.
 (luatex.def)             Requested size: 53.4398pt x 79.49724pt.
 
 warning  (file ../sec3/../images/gClosure3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gClosure3.pdf, id=292, 485.815pt x 724.7075pt>
+<../sec3/../images/gClosure3.pdf, id=282, 485.815pt x 724.7075pt>
 File: ../sec3/../images/gClosure3.pdf Graphic file (type pdf)
 <use ../sec3/../images/gClosure3.pdf>
 Package luatex.def Info: ../sec3/../images/gClosure3.pdf  used on input line 195.
 (luatex.def)             Requested size: 53.4398pt x 79.71806pt.
 
 warning  (file ../sec3/../images/gClosure4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gClosure4.pdf, id=293, 606.265pt x 724.7075pt>
+<../sec3/../images/gClosure4.pdf, id=283, 606.265pt x 724.7075pt>
 File: ../sec3/../images/gClosure4.pdf Graphic file (type pdf)
 <use ../sec3/../images/gClosure4.pdf>
 Package luatex.def Info: ../sec3/../images/gClosure4.pdf  used on input line 195.
 (luatex.def)             Requested size: 66.68935pt x 79.71806pt.
 
 warning  (file ../sec3/../images/gClosure5.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gClosure5.pdf, id=294, 542.025pt x 724.7075pt>
+<../sec3/../images/gClosure5.pdf, id=284, 542.025pt x 724.7075pt>
 File: ../sec3/../images/gClosure5.pdf Graphic file (type pdf)
 <use ../sec3/../images/gClosure5.pdf>
 Package luatex.def Info: ../sec3/../images/gClosure5.pdf  used on input line 195.
 (luatex.def)             Requested size: 59.62292pt x 79.71806pt.
 
 warning  (file ../sec3/../images/gClosure6.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/gClosure6.pdf, id=295, 513.92pt x 724.7075pt>
+<../sec3/../images/gClosure6.pdf, id=285, 513.92pt x 724.7075pt>
 File: ../sec3/../images/gClosure6.pdf Graphic file (type pdf)
 <use ../sec3/../images/gClosure6.pdf>
 Package luatex.def Info: ../sec3/../images/gClosure6.pdf  used on input line 195.
@@ -2234,7 +2236,7 @@ Package luatex.def Info: ../sec3/../images/gClosure6.pdf  used on input line 195
 (luatex.def)             Requested size: 56.53137pt x 79.71806pt.
 [13<../sec3/../images/gIntersection1.pdf><../sec3/../images/gIntersection2.pdf><../sec3/../images/gIntersection3.pdf><../sec3/../images/gIntersection4.pdf><../sec3/../images/gIntersection5.pdf><../sec3/../images/AMB.pdf><../sec3/../images/ANB.pdf><../sec3/../images/gAB.pdf><../sec3/../images/gMginvAB.pdf>] [14<../sec3/../images/gClosure1.pdf><../sec3/../images/gClosure2.pdf><../sec3/../images/gClosure3.pdf><../sec3/../images/gClosure4.pdf><../sec3/../images/gClosure5.pdf><../sec3/../images/gClosure6.pdf>]
 warning  (file ../sec3/../images/AdagAdag.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/AdagAdag.pdf, id=324, 542.025pt x 361.35pt>
+<../sec3/../images/AdagAdag.pdf, id=313, 542.025pt x 361.35pt>
 File: ../sec3/../images/AdagAdag.pdf Graphic file (type pdf)
 <use ../sec3/../images/AdagAdag.pdf>
 Package luatex.def Info: ../sec3/../images/AdagAdag.pdf  used on input line 259.
@@ -2245,7 +2247,7 @@ Package luatex.def Info: ../sec3/../images/AdagAdag.pdf  used on input line 259.
 (luatex.def)             Requested size: 59.62292pt x 39.74861pt.
 
 warning  (file ../sec3/../images/parent2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/parent2.pdf, id=326, 425.59pt x 602.25pt>
+<../sec3/../images/parent2.pdf, id=315, 425.59pt x 602.25pt>
 File: ../sec3/../images/parent2.pdf Graphic file (type pdf)
 <use ../sec3/../images/parent2.pdf>
 Package luatex.def Info: ../sec3/../images/parent2.pdf  used on input line 265.
@@ -2256,28 +2258,28 @@ Package luatex.def Info: ../sec3/../images/parent2.pdf  used on input line 265.
 (luatex.def)             Requested size: 46.81503pt x 66.2477pt.
 [15<../sec3/../images/AdagAdag.pdf>]
 warning  (file ../sec3/../images/parentcommute1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/parentcommute1.pdf, id=340, 606.265pt x 1022.82124pt>
+<../sec3/../images/parentcommute1.pdf, id=330, 606.265pt x 1022.82124pt>
 File: ../sec3/../images/parentcommute1.pdf Graphic file (type pdf)
 <use ../sec3/../images/parentcommute1.pdf>
 Package luatex.def Info: ../sec3/../images/parentcommute1.pdf  used on input line 276.
 (luatex.def)             Requested size: 66.68935pt x 112.51068pt.
 
 warning  (file ../sec3/../images/parentcommute2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/parentcommute2.pdf, id=341, 606.265pt x 1023.825pt>
+<../sec3/../images/parentcommute2.pdf, id=331, 606.265pt x 1023.825pt>
 File: ../sec3/../images/parentcommute2.pdf Graphic file (type pdf)
 <use ../sec3/../images/parentcommute2.pdf>
 Package luatex.def Info: ../sec3/../images/parentcommute2.pdf  used on input line 276.
 (luatex.def)             Requested size: 66.68935pt x 112.6211pt.
 
 warning  (file ../sec3/../images/parentcommute3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/parentcommute3.pdf, id=342, 606.265pt x 1023.825pt>
+<../sec3/../images/parentcommute3.pdf, id=332, 606.265pt x 1023.825pt>
 File: ../sec3/../images/parentcommute3.pdf Graphic file (type pdf)
 <use ../sec3/../images/parentcommute3.pdf>
 Package luatex.def Info: ../sec3/../images/parentcommute3.pdf  used on input line 276.
 (luatex.def)             Requested size: 66.68935pt x 112.6211pt.
 
 warning  (file ../sec3/../images/parentcommute4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec3/../images/parentcommute4.pdf, id=343, 606.265pt x 1022.82124pt>
+<../sec3/../images/parentcommute4.pdf, id=333, 606.265pt x 1022.82124pt>
 File: ../sec3/../images/parentcommute4.pdf Graphic file (type pdf)
 <use ../sec3/../images/parentcommute4.pdf>
 Package luatex.def Info: ../sec3/../images/parentcommute4.pdf  used on input line 276.
@@ -2309,7 +2311,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 warning  (file ../sec4/../images/delta_g.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/delta_g.pdf, id=359, 348.30125pt x 393.47pt>
+<../sec4/../images/delta_g.pdf, id=349, 348.30125pt x 393.47pt>
 File: ../sec4/../images/delta_g.pdf Graphic file (type pdf)
 <use ../sec4/../images/delta_g.pdf>
 Package luatex.def Info: ../sec4/../images/delta_g.pdf  used on input line 29.
@@ -2320,14 +2322,14 @@ Package luatex.def Info: ../sec4/../images/delta_g.pdf  used on input line 29.
 (luatex.def)             Requested size: 38.31325pt x 43.28183pt.
 [17<../sec4/../images/delta_g.pdf>]
 warning  (file ../sec4/../images/X4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/X4.pdf, id=374, 542.025pt x 542.025pt>
+<../sec4/../images/X4.pdf, id=364, 542.025pt x 542.025pt>
 File: ../sec4/../images/X4.pdf Graphic file (type pdf)
 <use ../sec4/../images/X4.pdf>
 Package luatex.def Info: ../sec4/../images/X4.pdf  used on input line 50.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/g4X.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/g4X.pdf, id=375, 550.96318pt x 542.025pt>
+<../sec4/../images/g4X.pdf, id=365, 550.96318pt x 542.025pt>
 File: ../sec4/../images/g4X.pdf Graphic file (type pdf)
 <use ../sec4/../images/g4X.pdf>
 Package luatex.def Info: ../sec4/../images/g4X.pdf  used on input line 50.
@@ -2342,14 +2344,14 @@ Package luatex.def Info: ../sec4/../images/g4X.pdf  used on input line 50.
 (luatex.def)             Requested size: 60.60612pt x 59.62292pt.
 
 warning  (file ../sec4/../images/G-AAinv.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/G-AAinv.pdf, id=376, 582.175pt x 572.1375pt>
+<../sec4/../images/G-AAinv.pdf, id=366, 582.175pt x 572.1375pt>
 File: ../sec4/../images/G-AAinv.pdf Graphic file (type pdf)
 <use ../sec4/../images/G-AAinv.pdf>
 Package luatex.def Info: ../sec4/../images/G-AAinv.pdf  used on input line 59.
 (luatex.def)             Requested size: 64.03944pt x 62.93532pt.
 
 warning  (file ../sec4/../images/gMPO.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/gMPO.pdf, id=377, 602.25pt x 602.25pt>
+<../sec4/../images/gMPO.pdf, id=367, 602.25pt x 602.25pt>
 File: ../sec4/../images/gMPO.pdf Graphic file (type pdf)
 <use ../sec4/../images/gMPO.pdf>
 Package luatex.def Info: ../sec4/../images/gMPO.pdf  used on input line 59.
@@ -2364,7 +2366,7 @@ Package luatex.def Info: ../sec4/../images/gMPO.pdf  used on input line 59.
 (luatex.def)             Requested size: 66.2477pt x 66.2477pt.
 
 warning  (file ../sec4/../images/gMPOsq.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/gMPOsq.pdf, id=379, 811.58186pt x 782.925pt>
+<../sec4/../images/gMPOsq.pdf, id=369, 811.58186pt x 782.925pt>
 File: ../sec4/../images/gMPOsq.pdf Graphic file (type pdf)
 <use ../sec4/../images/gMPOsq.pdf>
 Package luatex.def Info: ../sec4/../images/gMPOsq.pdf  used on input line 66.
@@ -2416,28 +2418,28 @@ Package luatex.def Info: ../sec4/../images/g4X.pdf  used on input line 75.
 (luatex.def)             Requested size: 60.60612pt x 59.62292pt.
 
 warning  (file ../sec4/../images/lMPO.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/lMPO.pdf, id=392, 361.35pt x 361.35pt>
+<../sec4/../images/lMPO.pdf, id=382, 361.35pt x 361.35pt>
 File: ../sec4/../images/lMPO.pdf Graphic file (type pdf)
 <use ../sec4/../images/lMPO.pdf>
 Package luatex.def Info: ../sec4/../images/lMPO.pdf  used on input line 103.
 (luatex.def)             Requested size: 39.74861pt x 39.74861pt.
 
 warning  (file ../sec4/../images/lU_g.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/lU_g.pdf, id=393, 126.31665pt x 361.35pt>
+<../sec4/../images/lU_g.pdf, id=383, 126.31665pt x 361.35pt>
 File: ../sec4/../images/lU_g.pdf Graphic file (type pdf)
 <use ../sec4/../images/lU_g.pdf>
 Package luatex.def Info: ../sec4/../images/lU_g.pdf  used on input line 103.
 (luatex.def)             Requested size: 13.89487pt x 39.74861pt.
 
 warning  (file ../sec4/../images/rMPO.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/rMPO.pdf, id=394, 361.35pt x 361.35pt>
+<../sec4/../images/rMPO.pdf, id=384, 361.35pt x 361.35pt>
 File: ../sec4/../images/rMPO.pdf Graphic file (type pdf)
 <use ../sec4/../images/rMPO.pdf>
 Package luatex.def Info: ../sec4/../images/rMPO.pdf  used on input line 103.
 (luatex.def)             Requested size: 39.74861pt x 39.74861pt.
 
 warning  (file ../sec4/../images/rU_g.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/rU_g.pdf, id=395, 211.24673pt x 361.35pt>
+<../sec4/../images/rU_g.pdf, id=385, 211.24673pt x 361.35pt>
 File: ../sec4/../images/rU_g.pdf Graphic file (type pdf)
 <use ../sec4/../images/rU_g.pdf>
 Package luatex.def Info: ../sec4/../images/rU_g.pdf  used on input line 103.
@@ -2460,7 +2462,7 @@ Package luatex.def Info: ../sec4/../images/rU_g.pdf  used on input line 103.
 (luatex.def)             Requested size: 23.2372pt x 39.74861pt.
 
 warning  (file ../sec4/../images/G-PMPO.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/G-PMPO.pdf, id=397, 542.025pt x 542.025pt>
+<../sec4/../images/G-PMPO.pdf, id=387, 542.025pt x 542.025pt>
 File: ../sec4/../images/G-PMPO.pdf Graphic file (type pdf)
 <use ../sec4/../images/G-PMPO.pdf>
 Package luatex.def Info: ../sec4/../images/G-PMPO.pdf  used on input line 107.
@@ -2471,42 +2473,42 @@ Package luatex.def Info: ../sec4/../images/G-PMPO.pdf  used on input line 107.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/PT1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PT1.pdf, id=399, 542.025pt x 542.025pt>
+<../sec4/../images/PT1.pdf, id=389, 542.025pt x 542.025pt>
 File: ../sec4/../images/PT1.pdf Graphic file (type pdf)
 <use ../sec4/../images/PT1.pdf>
 Package luatex.def Info: ../sec4/../images/PT1.pdf  used on input line 116.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/PT2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PT2.pdf, id=400, 542.025pt x 542.025pt>
+<../sec4/../images/PT2.pdf, id=390, 542.025pt x 542.025pt>
 File: ../sec4/../images/PT2.pdf Graphic file (type pdf)
 <use ../sec4/../images/PT2.pdf>
 Package luatex.def Info: ../sec4/../images/PT2.pdf  used on input line 116.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/PT3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PT3.pdf, id=401, 542.025pt x 542.025pt>
+<../sec4/../images/PT3.pdf, id=391, 542.025pt x 542.025pt>
 File: ../sec4/../images/PT3.pdf Graphic file (type pdf)
 <use ../sec4/../images/PT3.pdf>
 Package luatex.def Info: ../sec4/../images/PT3.pdf  used on input line 116.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/PT4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PT4.pdf, id=402, 542.025pt x 542.025pt>
+<../sec4/../images/PT4.pdf, id=392, 542.025pt x 542.025pt>
 File: ../sec4/../images/PT4.pdf Graphic file (type pdf)
 <use ../sec4/../images/PT4.pdf>
 Package luatex.def Info: ../sec4/../images/PT4.pdf  used on input line 116.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/PT5.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PT5.pdf, id=403, 331.2375pt x 481.8pt>
+<../sec4/../images/PT5.pdf, id=393, 331.2375pt x 481.8pt>
 File: ../sec4/../images/PT5.pdf Graphic file (type pdf)
 <use ../sec4/../images/PT5.pdf>
 Package luatex.def Info: ../sec4/../images/PT5.pdf  used on input line 116.
 (luatex.def)             Requested size: 36.43623pt x 52.99815pt.
 
 warning  (file ../sec4/../images/PT6.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PT6.pdf, id=404, 210.7875pt x 481.8pt>
+<../sec4/../images/PT6.pdf, id=394, 210.7875pt x 481.8pt>
 File: ../sec4/../images/PT6.pdf Graphic file (type pdf)
 <use ../sec4/../images/PT6.pdf>
 Package luatex.def Info: ../sec4/../images/PT6.pdf  used on input line 116.
@@ -2537,7 +2539,7 @@ Package luatex.def Info: ../sec4/../images/PT6.pdf  used on input line 116.
 (luatex.def)             Requested size: 23.18669pt x 52.99815pt.
 [19<../sec4/../images/lMPO.pdf><../sec4/../images/lU_g.pdf><../sec4/../images/rMPO.pdf><../sec4/../images/rU_g.pdf><../sec4/../images/G-PMPO.pdf>]
 warning  (file ../sec4/../images/ABinvconcat.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ABinvconcat.pdf, id=417, 481.8pt x 240.9pt>
+<../sec4/../images/ABinvconcat.pdf, id=407, 481.8pt x 240.9pt>
 File: ../sec4/../images/ABinvconcat.pdf Graphic file (type pdf)
 <use ../sec4/../images/ABinvconcat.pdf>
 Package luatex.def Info: ../sec4/../images/ABinvconcat.pdf  used on input line 127.
@@ -2548,21 +2550,21 @@ Package luatex.def Info: ../sec4/../images/ABinvconcat.pdf  used on input line 1
 (luatex.def)             Requested size: 52.99815pt x 26.49907pt.
 
 warning  (file ../sec4/../images/ABconcat.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ABconcat.pdf, id=421, 481.8pt x 240.9pt>
+<../sec4/../images/ABconcat.pdf, id=411, 481.8pt x 240.9pt>
 File: ../sec4/../images/ABconcat.pdf Graphic file (type pdf)
 <use ../sec4/../images/ABconcat.pdf>
 Package luatex.def Info: ../sec4/../images/ABconcat.pdf  used on input line 136.
 (luatex.def)             Requested size: 52.99815pt x 26.49907pt.
 
 warning  (file ../sec4/../images/Aconcat2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Aconcat2.pdf, id=422, 963.6pt x 542.025pt>
+<../sec4/../images/Aconcat2.pdf, id=412, 963.6pt x 542.025pt>
 File: ../sec4/../images/Aconcat2.pdf Graphic file (type pdf)
 <use ../sec4/../images/Aconcat2.pdf>
 Package luatex.def Info: ../sec4/../images/Aconcat2.pdf  used on input line 136.
 (luatex.def)             Requested size: 105.99632pt x 59.62292pt.
 
 warning  (file ../sec4/../images/Aconcat3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Aconcat3.pdf, id=423, 963.6pt x 542.025pt>
+<../sec4/../images/Aconcat3.pdf, id=413, 963.6pt x 542.025pt>
 File: ../sec4/../images/Aconcat3.pdf Graphic file (type pdf)
 <use ../sec4/../images/Aconcat3.pdf>
 Package luatex.def Info: ../sec4/../images/Aconcat3.pdf  used on input line 136.
@@ -2581,14 +2583,14 @@ Package luatex.def Info: ../sec4/../images/Aconcat3.pdf  used on input line 136.
 (luatex.def)             Requested size: 105.99632pt x 59.62292pt.
 [20<../sec4/../images/PT1.pdf><../sec4/../images/PT2.pdf><../sec4/../images/PT3.pdf><../sec4/../images/PT4.pdf><../sec4/../images/PT5.pdf><../sec4/../images/PT6.pdf><../sec4/../images/ABinvconcat.pdf><../sec4/../images/ABconcat.pdf><../sec4/../images/Aconcat2.pdf><../sec4/../images/Aconcat3.pdf>]
 warning  (file ../sec4/../images/Gzipper1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Gzipper1.pdf, id=437, 481.8pt x 697.86307pt>
+<../sec4/../images/Gzipper1.pdf, id=427, 481.8pt x 697.86307pt>
 File: ../sec4/../images/Gzipper1.pdf Graphic file (type pdf)
 <use ../sec4/../images/Gzipper1.pdf>
 Package luatex.def Info: ../sec4/../images/Gzipper1.pdf  used on input line 147.
 (luatex.def)             Requested size: 52.99815pt x 76.76517pt.
 
 warning  (file ../sec4/../images/Gzipper2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Gzipper2.pdf, id=438, 481.8pt x 697.86307pt>
+<../sec4/../images/Gzipper2.pdf, id=428, 481.8pt x 697.86307pt>
 File: ../sec4/../images/Gzipper2.pdf Graphic file (type pdf)
 <use ../sec4/../images/Gzipper2.pdf>
 Package luatex.def Info: ../sec4/../images/Gzipper2.pdf  used on input line 147.
@@ -2603,14 +2605,14 @@ Package luatex.def Info: ../sec4/../images/Gzipper2.pdf  used on input line 147.
 (luatex.def)             Requested size: 52.99815pt x 76.76517pt.
 
 warning  (file ../sec4/../images/G-Fmove1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/G-Fmove1.pdf, id=439, 560.76628pt x 627.7231pt>
+<../sec4/../images/G-Fmove1.pdf, id=429, 560.76628pt x 627.7231pt>
 File: ../sec4/../images/G-Fmove1.pdf Graphic file (type pdf)
 <use ../sec4/../images/G-Fmove1.pdf>
 Package luatex.def Info: ../sec4/../images/G-Fmove1.pdf  used on input line 156.
 (luatex.def)             Requested size: 61.68448pt x 69.04974pt.
 
 warning  (file ../sec4/../images/G-Fmove2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/G-Fmove2.pdf, id=440, 560.76616pt x 627.7231pt>
+<../sec4/../images/G-Fmove2.pdf, id=430, 560.76616pt x 627.7231pt>
 File: ../sec4/../images/G-Fmove2.pdf Graphic file (type pdf)
 <use ../sec4/../images/G-Fmove2.pdf>
 Package luatex.def Info: ../sec4/../images/G-Fmove2.pdf  used on input line 156.
@@ -2625,21 +2627,21 @@ Package luatex.def Info: ../sec4/../images/G-Fmove2.pdf  used on input line 156.
 (luatex.def)             Requested size: 61.68446pt x 69.04974pt.
 
 warning  (file ../sec4/../images/PEPS_ABM.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_ABM.pdf, id=442, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_ABM.pdf, id=432, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_ABM.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_ABM.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_ABM.pdf  used on input line 165.
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/PEPS_NBC.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_NBC.pdf, id=443, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_NBC.pdf, id=433, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_NBC.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_NBC.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_NBC.pdf  used on input line 165.
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/PEPS_ABCX.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_ABCX.pdf, id=444, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_ABCX.pdf, id=434, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_ABCX.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_ABCX.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_ABCX.pdf  used on input line 165.
@@ -2666,14 +2668,14 @@ Package luatex.def Info: ../sec4/../images/PEPS_NBC.pdf  used on input line 176.
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/PEPS_int1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_int1.pdf, id=455, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_int1.pdf, id=445, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_int1.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_int1.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_int1.pdf  used on input line 176.
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/PEPS_int2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_int2.pdf, id=456, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_int2.pdf, id=446, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_int2.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_int2.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_int2.pdf  used on input line 176.
@@ -2692,21 +2694,21 @@ Package luatex.def Info: ../sec4/../images/PEPS_int2.pdf  used on input line 176
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/PEPS_int3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_int3.pdf, id=457, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_int3.pdf, id=447, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_int3.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_int3.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_int3.pdf  used on input line 184.
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/PEPS_int4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_int4.pdf, id=458, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_int4.pdf, id=448, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_int4.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_int4.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_int4.pdf  used on input line 184.
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/PEPS_int5.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_int5.pdf, id=459, 1626.075pt x 782.925pt>
+<../sec4/../images/PEPS_int5.pdf, id=449, 1626.075pt x 782.925pt>
 File: ../sec4/../images/PEPS_int5.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_int5.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_int5.pdf  used on input line 184.
@@ -2725,35 +2727,35 @@ Package luatex.def Info: ../sec4/../images/PEPS_int5.pdf  used on input line 184
 (luatex.def)             Requested size: 146.34044pt x 70.4602pt.
 
 warning  (file ../sec4/../images/MPOClosureA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosureA.pdf, id=461, 722.7pt x 722.7pt>
+<../sec4/../images/MPOClosureA.pdf, id=451, 722.7pt x 722.7pt>
 File: ../sec4/../images/MPOClosureA.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosureA.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosureA.pdf  used on input line 197.
 (luatex.def)             Requested size: 79.49724pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosureC.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosureC.pdf, id=462, 752.8125pt x 722.7pt>
+<../sec4/../images/MPOClosureC.pdf, id=452, 752.8125pt x 722.7pt>
 File: ../sec4/../images/MPOClosureC.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosureC.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosureC.pdf  used on input line 197.
 (luatex.def)             Requested size: 82.80963pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosureB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosureB.pdf, id=463, 722.7pt x 752.8125pt>
+<../sec4/../images/MPOClosureB.pdf, id=453, 722.7pt x 752.8125pt>
 File: ../sec4/../images/MPOClosureB.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosureB.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosureB.pdf  used on input line 197.
 (luatex.def)             Requested size: 79.49724pt x 82.80963pt.
 
 warning  (file ../sec4/../images/MPOClosureD.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosureD.pdf, id=464, 752.8125pt x 752.8125pt>
+<../sec4/../images/MPOClosureD.pdf, id=454, 752.8125pt x 752.8125pt>
 File: ../sec4/../images/MPOClosureD.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosureD.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosureD.pdf  used on input line 197.
 (luatex.def)             Requested size: 82.80963pt x 82.80963pt.
 
 warning  (file ../sec4/../images/Toric_state_with_gh.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Toric_state_with_gh.pdf, id=465, 843.15pt x 843.15pt>
+<../sec4/../images/Toric_state_with_gh.pdf, id=455, 843.15pt x 843.15pt>
 File: ../sec4/../images/Toric_state_with_gh.pdf Graphic file (type pdf)
 <use ../sec4/../images/Toric_state_with_gh.pdf>
 Package luatex.def Info: ../sec4/../images/Toric_state_with_gh.pdf  used on input line 197.
@@ -2780,42 +2782,42 @@ Package luatex.def Info: ../sec4/../images/Toric_state_with_gh.pdf  used on inpu
 (luatex.def)             Requested size: 92.74678pt x 92.74678pt.
 [22<../sec4/../images/PEPS_ABM.pdf><../sec4/../images/PEPS_NBC.pdf><../sec4/../images/PEPS_ABCX.pdf><../sec4/../images/PEPS_int1.pdf><../sec4/../images/PEPS_int2.pdf><../sec4/../images/PEPS_int3.pdf><../sec4/../images/PEPS_int4.pdf><../sec4/../images/PEPS_int5.pdf>]
 warning  (file ../sec4/../images/MPOClosure1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure1.pdf, id=478, 722.7pt x 722.7pt>
+<../sec4/../images/MPOClosure1.pdf, id=467, 722.7pt x 722.7pt>
 File: ../sec4/../images/MPOClosure1.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure1.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure1.pdf  used on input line 213.
 (luatex.def)             Requested size: 79.49724pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure2.pdf, id=479, 722.7pt x 722.7pt>
+<../sec4/../images/MPOClosure2.pdf, id=468, 722.7pt x 722.7pt>
 File: ../sec4/../images/MPOClosure2.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure2.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure2.pdf  used on input line 213.
 (luatex.def)             Requested size: 79.49724pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure3.pdf, id=480, 752.8125pt x 722.7pt>
+<../sec4/../images/MPOClosure3.pdf, id=469, 752.8125pt x 722.7pt>
 File: ../sec4/../images/MPOClosure3.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure3.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure3.pdf  used on input line 213.
 (luatex.def)             Requested size: 82.80963pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure4.pdf, id=481, 752.8125pt x 722.7pt>
+<../sec4/../images/MPOClosure4.pdf, id=470, 752.8125pt x 722.7pt>
 File: ../sec4/../images/MPOClosure4.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure4.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure4.pdf  used on input line 213.
 (luatex.def)             Requested size: 82.80963pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure5.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure5.pdf, id=482, 752.8125pt x 722.7pt>
+<../sec4/../images/MPOClosure5.pdf, id=471, 752.8125pt x 722.7pt>
 File: ../sec4/../images/MPOClosure5.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure5.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure5.pdf  used on input line 213.
 (luatex.def)             Requested size: 82.80963pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure6.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure6.pdf, id=483, 752.8125pt x 843.15pt>
+<../sec4/../images/MPOClosure6.pdf, id=472, 752.8125pt x 843.15pt>
 File: ../sec4/../images/MPOClosure6.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure6.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure6.pdf  used on input line 213.
@@ -2850,7 +2852,7 @@ Package luatex.def Info: ../sec4/../images/MPOClosure1.pdf  used on input line 2
 (luatex.def)             Requested size: 79.49724pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure7.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure7.pdf, id=484, 843.15pt x 752.8125pt>
+<../sec4/../images/MPOClosure7.pdf, id=473, 843.15pt x 752.8125pt>
 File: ../sec4/../images/MPOClosure7.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure7.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure7.pdf  used on input line 217.
@@ -2865,14 +2867,14 @@ Package luatex.def Info: ../sec4/../images/MPOClosure7.pdf  used on input line 2
 (luatex.def)             Requested size: 92.74678pt x 82.80963pt.
 [23<../sec4/../images/MPOClosureA.pdf><../sec4/../images/MPOClosureC.pdf><../sec4/../images/MPOClosureB.pdf><../sec4/../images/MPOClosureD.pdf><../sec4/../images/Toric_state_with_gh.pdf><../sec4/../images/MPOClosure1.pdf><../sec4/../images/MPOClosure2.pdf><../sec4/../images/MPOClosure3.pdf><../sec4/../images/MPOClosure4.pdf><../sec4/../images/MPOClosure5.pdf><../sec4/../images/MPOClosure6.pdf>]
 warning  (file ../sec4/../images/ClosureMPOH.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ClosureMPOH.pdf, id=493, 843.15pt x 210.7875pt>
+<../sec4/../images/ClosureMPOH.pdf, id=483, 843.15pt x 210.7875pt>
 File: ../sec4/../images/ClosureMPOH.pdf Graphic file (type pdf)
 <use ../sec4/../images/ClosureMPOH.pdf>
 Package luatex.def Info: ../sec4/../images/ClosureMPOH.pdf  used on input line 221.
 (luatex.def)             Requested size: 92.74678pt x 23.18669pt.
 
 warning  (file ../sec4/../images/ClosureMPOV.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ClosureMPOV.pdf, id=494, 843.15pt x 210.7875pt>
+<../sec4/../images/ClosureMPOV.pdf, id=484, 843.15pt x 210.7875pt>
 File: ../sec4/../images/ClosureMPOV.pdf Graphic file (type pdf)
 <use ../sec4/../images/ClosureMPOV.pdf>
 Package luatex.def Info: ../sec4/../images/ClosureMPOV.pdf  used on input line 221.
@@ -2887,21 +2889,21 @@ Package luatex.def Info: ../sec4/../images/ClosureMPOV.pdf  used on input line 2
 (luatex.def)             Requested size: 92.74678pt x 23.18669pt.
 
 warning  (file ../sec4/../images/ClosureMPO1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ClosureMPO1.pdf, id=495, 843.15pt x 391.4625pt>
+<../sec4/../images/ClosureMPO1.pdf, id=485, 843.15pt x 391.4625pt>
 File: ../sec4/../images/ClosureMPO1.pdf Graphic file (type pdf)
 <use ../sec4/../images/ClosureMPO1.pdf>
 Package luatex.def Info: ../sec4/../images/ClosureMPO1.pdf  used on input line 227.
 (luatex.def)             Requested size: 92.74678pt x 43.061pt.
 
 warning  (file ../sec4/../images/ClosureMPO2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ClosureMPO2.pdf, id=496, 843.15pt x 391.4625pt>
+<../sec4/../images/ClosureMPO2.pdf, id=486, 843.15pt x 391.4625pt>
 File: ../sec4/../images/ClosureMPO2.pdf Graphic file (type pdf)
 <use ../sec4/../images/ClosureMPO2.pdf>
 Package luatex.def Info: ../sec4/../images/ClosureMPO2.pdf  used on input line 227.
 (luatex.def)             Requested size: 92.74678pt x 43.061pt.
 
 warning  (file ../sec4/../images/ClosureMPO3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ClosureMPO3.pdf, id=497, 843.15pt x 391.4625pt>
+<../sec4/../images/ClosureMPO3.pdf, id=487, 843.15pt x 391.4625pt>
 File: ../sec4/../images/ClosureMPO3.pdf Graphic file (type pdf)
 <use ../sec4/../images/ClosureMPO3.pdf>
 Package luatex.def Info: ../sec4/../images/ClosureMPO3.pdf  used on input line 227.
@@ -2924,7 +2926,7 @@ Package luatex.def Info: ../sec4/../images/MPOClosure1.pdf  used on input line 2
 (luatex.def)             Requested size: 79.49724pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure_gh.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure_gh.pdf, id=498, 752.8125pt x 752.8125pt>
+<../sec4/../images/MPOClosure_gh.pdf, id=488, 752.8125pt x 752.8125pt>
 File: ../sec4/../images/MPOClosure_gh.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure_gh.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure_gh.pdf  used on input line 232.
@@ -2943,7 +2945,7 @@ Package luatex.def Info: ../sec4/../images/MPOClosureA.pdf  used on input line 2
 (luatex.def)             Requested size: 79.49724pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure0.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure0.pdf, id=499, 722.7pt x 722.7pt>
+<../sec4/../images/MPOClosure0.pdf, id=489, 722.7pt x 722.7pt>
 File: ../sec4/../images/MPOClosure0.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure0.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure0.pdf  used on input line 238.
@@ -2974,28 +2976,28 @@ Package luatex.def Info: ../sec4/../images/MPOClosure2.pdf  used on input line 2
 (luatex.def)             Requested size: 79.49724pt x 79.49724pt.
 
 warning  (file ../sec4/../images/MPOClosure9.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure9.pdf, id=501, 752.8125pt x 752.8125pt>
+<../sec4/../images/MPOClosure9.pdf, id=491, 752.8125pt x 752.8125pt>
 File: ../sec4/../images/MPOClosure9.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure9.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure9.pdf  used on input line 251.
 (luatex.def)             Requested size: 82.80963pt x 82.80963pt.
 
 warning  (file ../sec4/../images/MPOClosure10.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure10.pdf, id=502, 752.8125pt x 753.81625pt>
+<../sec4/../images/MPOClosure10.pdf, id=492, 752.8125pt x 753.81625pt>
 File: ../sec4/../images/MPOClosure10.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure10.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure10.pdf  used on input line 251.
 (luatex.def)             Requested size: 82.80963pt x 82.92004pt.
 
 warning  (file ../sec4/../images/MPOClosure11.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure11.pdf, id=503, 752.8125pt x 752.8125pt>
+<../sec4/../images/MPOClosure11.pdf, id=493, 752.8125pt x 752.8125pt>
 File: ../sec4/../images/MPOClosure11.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure11.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure11.pdf  used on input line 251.
 (luatex.def)             Requested size: 82.80963pt x 82.80963pt.
 
 warning  (file ../sec4/../images/MPOClosure12.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/MPOClosure12.pdf, id=504, 873.2625pt x 993.7125pt>
+<../sec4/../images/MPOClosure12.pdf, id=494, 873.2625pt x 993.7125pt>
 File: ../sec4/../images/MPOClosure12.pdf Graphic file (type pdf)
 <use ../sec4/../images/MPOClosure12.pdf>
 Package luatex.def Info: ../sec4/../images/MPOClosure12.pdf  used on input line 251.
@@ -3031,14 +3033,14 @@ Package luatex.def Info: ../sec4/../images/Toric_state_with_gh.pdf  used on inpu
 (luatex.def)             Requested size: 92.74678pt x 92.74678pt.
 
 warning  (file ../sec4/../images/deform_g_str.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/deform_g_str.pdf, id=518, 843.15pt x 843.15pt>
+<../sec4/../images/deform_g_str.pdf, id=508, 843.15pt x 843.15pt>
 File: ../sec4/../images/deform_g_str.pdf Graphic file (type pdf)
 <use ../sec4/../images/deform_g_str.pdf>
 Package luatex.def Info: ../sec4/../images/deform_g_str.pdf  used on input line 261.
 (luatex.def)             Requested size: 92.74678pt x 92.74678pt.
 
 warning  (file ../sec4/../images/deform_g_str2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/deform_g_str2.pdf, id=519, 843.15pt x 843.15pt>
+<../sec4/../images/deform_g_str2.pdf, id=509, 843.15pt x 843.15pt>
 File: ../sec4/../images/deform_g_str2.pdf Graphic file (type pdf)
 <use ../sec4/../images/deform_g_str2.pdf>
 Package luatex.def Info: ../sec4/../images/deform_g_str2.pdf  used on input line 261.
@@ -3061,7 +3063,7 @@ Package luatex.def Info: ../sec4/../images/Toric_state_with_gh.pdf  used on inpu
 (luatex.def)             Requested size: 92.74678pt x 92.74678pt.
 
 warning  (file ../sec4/../images/Toric_conj.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Toric_conj.pdf, id=520, 843.15pt x 843.15pt>
+<../sec4/../images/Toric_conj.pdf, id=510, 843.15pt x 843.15pt>
 File: ../sec4/../images/Toric_conj.pdf Graphic file (type pdf)
 <use ../sec4/../images/Toric_conj.pdf>
 Package luatex.def Info: ../sec4/../images/Toric_conj.pdf  used on input line 269.
@@ -3076,7 +3078,7 @@ Package luatex.def Info: ../sec4/../images/Toric_conj.pdf  used on input line 26
 (luatex.def)             Requested size: 92.74678pt x 92.74678pt.
 [25<../sec4/../images/MPOClosure9.pdf><../sec4/../images/MPOClosure10.pdf><../sec4/../images/MPOClosure11.pdf><../sec4/../images/MPOClosure12.pdf><../sec4/../images/deform_g_str.pdf><../sec4/../images/deform_g_str2.pdf>]
 warning  (file ../sec4/../images/parent_ker.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/parent_ker.pdf, id=529, 662.475pt x 662.475pt>
+<../sec4/../images/parent_ker.pdf, id=519, 662.475pt x 662.475pt>
 File: ../sec4/../images/parent_ker.pdf Graphic file (type pdf)
 <use ../sec4/../images/parent_ker.pdf>
 Package luatex.def Info: ../sec4/../images/parent_ker.pdf  used on input line 276.
@@ -3087,7 +3089,7 @@ Package luatex.def Info: ../sec4/../images/parent_ker.pdf  used on input line 27
 (luatex.def)             Requested size: 72.87247pt x 72.87247pt.
 
 warning  (file ../sec4/../images/ToricPEPS_gh.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/ToricPEPS_gh.pdf, id=530, 903.375pt x 903.375pt>
+<../sec4/../images/ToricPEPS_gh.pdf, id=520, 903.375pt x 903.375pt>
 File: ../sec4/../images/ToricPEPS_gh.pdf Graphic file (type pdf)
 <use ../sec4/../images/ToricPEPS_gh.pdf>
 Package luatex.def Info: ../sec4/../images/ToricPEPS_gh.pdf  used on input line 285.
@@ -3103,7 +3105,7 @@ Package luatex.def Info: ../sec4/../images/ToricPEPS_gh.pdf  used on input line 
 (luatex.def)             Requested size: 99.37155pt x 99.37155pt.
 
 warning  (file ../sec4/../images/PEPS_gh_conj.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/PEPS_gh_conj.pdf, id=544, 1034.86626pt x 903.375pt>
+<../sec4/../images/PEPS_gh_conj.pdf, id=534, 1034.86626pt x 903.375pt>
 File: ../sec4/../images/PEPS_gh_conj.pdf Graphic file (type pdf)
 <use ../sec4/../images/PEPS_gh_conj.pdf>
 Package luatex.def Info: ../sec4/../images/PEPS_gh_conj.pdf  used on input line 294.
@@ -3118,7 +3120,7 @@ Package luatex.def Info: ../sec4/../images/PEPS_gh_conj.pdf  used on input line 
 (luatex.def)             Requested size: 113.83563pt x 99.37155pt.
 
 warning  (file ../sec4/../images/GS_gh.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/GS_gh.pdf, id=545, 1078.0275pt x 903.375pt>
+<../sec4/../images/GS_gh.pdf, id=535, 1078.0275pt x 903.375pt>
 File: ../sec4/../images/GS_gh.pdf Graphic file (type pdf)
 <use ../sec4/../images/GS_gh.pdf>
 Package luatex.def Info: ../sec4/../images/GS_gh.pdf  used on input line 302.
@@ -3129,14 +3131,14 @@ Package luatex.def Info: ../sec4/../images/GS_gh.pdf  used on input line 302.
 (luatex.def)             Requested size: 118.58339pt x 99.37155pt.
 [27<../sec4/../images/PEPS_gh_conj.pdf><../sec4/../images/GS_gh.pdf>]
 warning  (file ../sec4/../images/Ainv_comp.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Ainv_comp.pdf, id=556, 313.68547pt x 407.58278pt>
+<../sec4/../images/Ainv_comp.pdf, id=546, 313.68547pt x 407.58278pt>
 File: ../sec4/../images/Ainv_comp.pdf Graphic file (type pdf)
 <use ../sec4/../images/Ainv_comp.pdf>
 Package luatex.def Info: ../sec4/../images/Ainv_comp.pdf  used on input line 325.
 (luatex.def)             Requested size: 34.50551pt x 44.83424pt.
 
 warning  (file ../sec4/../images/Abar_comp.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Abar_comp.pdf, id=557, 328.95259pt x 409.55891pt>
+<../sec4/../images/Abar_comp.pdf, id=547, 328.95259pt x 409.55891pt>
 File: ../sec4/../images/Abar_comp.pdf Graphic file (type pdf)
 <use ../sec4/../images/Abar_comp.pdf>
 Package luatex.def Info: ../sec4/../images/Abar_comp.pdf  used on input line 325.
@@ -3151,7 +3153,7 @@ Package luatex.def Info: ../sec4/../images/Abar_comp.pdf  used on input line 325
 (luatex.def)             Requested size: 36.18489pt x 45.0516pt.
 
 warning  (file ../sec4/../images/A4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/A4.pdf, id=558, 240.9pt x 240.9pt>
+<../sec4/../images/A4.pdf, id=548, 240.9pt x 240.9pt>
 File: ../sec4/../images/A4.pdf Graphic file (type pdf)
 <use ../sec4/../images/A4.pdf>
 Package luatex.def Info: ../sec4/../images/A4.pdf  used on input line 331.
@@ -3170,7 +3172,7 @@ Package luatex.def Info: ../sec4/../images/G-PMPO.pdf  used on input line 331.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/parent4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/parent4.pdf, id=559, 527.97183pt x 517.93597pt>
+<../sec4/../images/parent4.pdf, id=549, 527.97183pt x 517.93597pt>
 File: ../sec4/../images/parent4.pdf Graphic file (type pdf)
 <use ../sec4/../images/parent4.pdf>
 Package luatex.def Info: ../sec4/../images/parent4.pdf  used on input line 343.
@@ -3181,28 +3183,28 @@ Package luatex.def Info: ../sec4/../images/parent4.pdf  used on input line 343.
 (luatex.def)             Requested size: 58.07707pt x 56.97313pt.
 [28<../sec4/../images/Ainv_comp.pdf><../sec4/../images/Abar_comp.pdf><../sec4/../images/A4.pdf>]
 warning  (file ../sec4/../images/parent4commute1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/parent4commute1.pdf, id=571, 1029.84677pt x 828.09473pt>
+<../sec4/../images/parent4commute1.pdf, id=561, 1029.84677pt x 828.09473pt>
 File: ../sec4/../images/parent4commute1.pdf Graphic file (type pdf)
 <use ../sec4/../images/parent4commute1.pdf>
 Package luatex.def Info: ../sec4/../images/parent4commute1.pdf  used on input line 356.
 (luatex.def)             Requested size: 113.2835pt x 91.0907pt.
 
 warning  (file ../sec4/../images/parent4commute2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/parent4commute2.pdf, id=572, 786.93951pt x 538.51187pt>
+<../sec4/../images/parent4commute2.pdf, id=562, 786.93951pt x 538.51187pt>
 File: ../sec4/../images/parent4commute2.pdf Graphic file (type pdf)
 <use ../sec4/../images/parent4commute2.pdf>
 Package luatex.def Info: ../sec4/../images/parent4commute2.pdf  used on input line 356.
 (luatex.def)             Requested size: 86.56361pt x 59.23648pt.
 
 warning  (file ../sec4/../images/parent4commute3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/parent4commute3.pdf, id=573, 786.93976pt x 517.93597pt>
+<../sec4/../images/parent4commute3.pdf, id=563, 786.93976pt x 517.93597pt>
 File: ../sec4/../images/parent4commute3.pdf Graphic file (type pdf)
 <use ../sec4/../images/parent4commute3.pdf>
 Package luatex.def Info: ../sec4/../images/parent4commute3.pdf  used on input line 356.
 (luatex.def)             Requested size: 86.56363pt x 56.97313pt.
 
 warning  (file ../sec4/../images/parent4commute4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/parent4commute4.pdf, id=574, 652.43652pt x 979.66098pt>
+<../sec4/../images/parent4commute4.pdf, id=564, 652.43652pt x 979.66098pt>
 File: ../sec4/../images/parent4commute4.pdf Graphic file (type pdf)
 <use ../sec4/../images/parent4commute4.pdf>
 Package luatex.def Info: ../sec4/../images/parent4commute4.pdf  used on input line 356.
@@ -3225,14 +3227,14 @@ Package luatex.def Info: ../sec4/../images/parent4commute4.pdf  used on input li
 (luatex.def)             Requested size: 71.76823pt x 107.76303pt.
 
 warning  (file ../sec4/../images/Aconcat1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Aconcat1.pdf, id=575, 963.6pt x 542.025pt>
+<../sec4/../images/Aconcat1.pdf, id=565, 963.6pt x 542.025pt>
 File: ../sec4/../images/Aconcat1.pdf Graphic file (type pdf)
 <use ../sec4/../images/Aconcat1.pdf>
 Package luatex.def Info: ../sec4/../images/Aconcat1.pdf  used on input line 369.
 (luatex.def)             Requested size: 105.99632pt x 59.62292pt.
 
 warning  (file ../sec4/../images/Aconcat4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Aconcat4.pdf, id=576, 963.6pt x 542.025pt>
+<../sec4/../images/Aconcat4.pdf, id=566, 963.6pt x 542.025pt>
 File: ../sec4/../images/Aconcat4.pdf Graphic file (type pdf)
 <use ../sec4/../images/Aconcat4.pdf>
 Package luatex.def Info: ../sec4/../images/Aconcat4.pdf  used on input line 369.
@@ -3252,7 +3254,7 @@ Package luatex.def Info: ../sec4/../images/Aconcat1.pdf  used on input line 375.
 (luatex.def)             Requested size: 105.99632pt x 59.62292pt.
 
 warning  (file ../sec4/../images/Aconcat5.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Aconcat5.pdf, id=585, 963.6pt x 542.025pt>
+<../sec4/../images/Aconcat5.pdf, id=575, 963.6pt x 542.025pt>
 File: ../sec4/../images/Aconcat5.pdf Graphic file (type pdf)
 <use ../sec4/../images/Aconcat5.pdf>
 Package luatex.def Info: ../sec4/../images/Aconcat5.pdf  used on input line 375.
@@ -3267,14 +3269,14 @@ Package luatex.def Info: ../sec4/../images/Aconcat5.pdf  used on input line 375.
 (luatex.def)             Requested size: 105.99632pt x 59.62292pt.
 
 warning  (file ../sec4/../images/Aconcat6.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Aconcat6.pdf, id=586, 963.6pt x 542.025pt>
+<../sec4/../images/Aconcat6.pdf, id=576, 963.6pt x 542.025pt>
 File: ../sec4/../images/Aconcat6.pdf Graphic file (type pdf)
 <use ../sec4/../images/Aconcat6.pdf>
 Package luatex.def Info: ../sec4/../images/Aconcat6.pdf  used on input line 380.
 (luatex.def)             Requested size: 105.99632pt x 59.62292pt.
 
 warning  (file ../sec4/../images/Aconcat7.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Aconcat7.pdf, id=587, 963.6pt x 542.025pt>
+<../sec4/../images/Aconcat7.pdf, id=577, 963.6pt x 542.025pt>
 File: ../sec4/../images/Aconcat7.pdf Graphic file (type pdf)
 <use ../sec4/../images/Aconcat7.pdf>
 Package luatex.def Info: ../sec4/../images/Aconcat7.pdf  used on input line 380.
@@ -3289,28 +3291,28 @@ Package luatex.def Info: ../sec4/../images/Aconcat7.pdf  used on input line 380.
 (luatex.def)             Requested size: 105.99632pt x 59.62292pt.
 [30<../sec4/../images/Aconcat1.pdf><../sec4/../images/Aconcat4.pdf><../sec4/../images/Aconcat5.pdf><../sec4/../images/Aconcat6.pdf><../sec4/../images/Aconcat7.pdf>]
 warning  (file ../sec4/../images/RG1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/RG1.pdf, id=601, 542.025pt x 542.025pt>
+<../sec4/../images/RG1.pdf, id=591, 542.025pt x 542.025pt>
 File: ../sec4/../images/RG1.pdf Graphic file (type pdf)
 <use ../sec4/../images/RG1.pdf>
 Package luatex.def Info: ../sec4/../images/RG1.pdf  used on input line 409.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/RG2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/RG2.pdf, id=602, 271.0125pt x 271.0125pt>
+<../sec4/../images/RG2.pdf, id=592, 271.0125pt x 271.0125pt>
 File: ../sec4/../images/RG2.pdf Graphic file (type pdf)
 <use ../sec4/../images/RG2.pdf>
 Package luatex.def Info: ../sec4/../images/RG2.pdf  used on input line 409.
 (luatex.def)             Requested size: 29.81146pt x 29.81146pt.
 
 warning  (file ../sec4/../images/RG3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/RG3.pdf, id=603, 271.0125pt x 271.0125pt>
+<../sec4/../images/RG3.pdf, id=593, 271.0125pt x 271.0125pt>
 File: ../sec4/../images/RG3.pdf Graphic file (type pdf)
 <use ../sec4/../images/RG3.pdf>
 Package luatex.def Info: ../sec4/../images/RG3.pdf  used on input line 409.
 (luatex.def)             Requested size: 29.81146pt x 29.81146pt.
 
 warning  (file ../sec4/../images/RG4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/RG4.pdf, id=604, 331.2375pt x 331.2375pt>
+<../sec4/../images/RG4.pdf, id=594, 331.2375pt x 331.2375pt>
 File: ../sec4/../images/RG4.pdf Graphic file (type pdf)
 <use ../sec4/../images/RG4.pdf>
 Package luatex.def Info: ../sec4/../images/RG4.pdf  used on input line 409.
@@ -3337,7 +3339,7 @@ Package luatex.def Info: ../sec4/../images/RG1.pdf  used on input line 416.
 (luatex.def)             Requested size: 59.62292pt x 59.62292pt.
 
 warning  (file ../sec4/../images/RG5.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/RG5.pdf, id=606, 542.025pt x 542.025pt>
+<../sec4/../images/RG5.pdf, id=596, 542.025pt x 542.025pt>
 File: ../sec4/../images/RG5.pdf Graphic file (type pdf)
 <use ../sec4/../images/RG5.pdf>
 Package luatex.def Info: ../sec4/../images/RG5.pdf  used on input line 416.
@@ -3356,14 +3358,14 @@ Package luatex.def Info: ../sec4/../images/Toric_state_with_gh.pdf  used on inpu
 (luatex.def)             Requested size: 92.74678pt x 92.74678pt.
 
 warning  (file ../sec4/../images/TEE1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/TEE1.pdf, id=608, 843.15pt x 843.15pt>
+<../sec4/../images/TEE1.pdf, id=598, 843.15pt x 843.15pt>
 File: ../sec4/../images/TEE1.pdf Graphic file (type pdf)
 <use ../sec4/../images/TEE1.pdf>
 Package luatex.def Info: ../sec4/../images/TEE1.pdf  used on input line 434.
 (luatex.def)             Requested size: 92.74678pt x 92.74678pt.
 
 warning  (file ../sec4/../images/TEE2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/TEE2.pdf, id=609, 977.6574pt x 970.07806pt>
+<../sec4/../images/TEE2.pdf, id=599, 977.6574pt x 970.07806pt>
 File: ../sec4/../images/TEE2.pdf Graphic file (type pdf)
 <use ../sec4/../images/TEE2.pdf>
 Package luatex.def Info: ../sec4/../images/TEE2.pdf  used on input line 434.
@@ -3387,7 +3389,7 @@ Package luatex.def Info: ../sec4/../images/TEE2.pdf  used on input line 439.
 (luatex.def)             Requested size: 107.54263pt x 106.70891pt.
 
 warning  (file ../sec4/../images/TEE3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/TEE3.pdf, id=621, 872.26366pt x 863.22525pt>
+<../sec4/../images/TEE3.pdf, id=611, 872.26366pt x 863.22525pt>
 File: ../sec4/../images/TEE3.pdf Graphic file (type pdf)
 <use ../sec4/../images/TEE3.pdf>
 Package luatex.def Info: ../sec4/../images/TEE3.pdf  used on input line 439.
@@ -3402,7 +3404,7 @@ Package luatex.def Info: ../sec4/../images/TEE3.pdf  used on input line 439.
 (luatex.def)             Requested size: 95.9493pt x 94.95506pt.
 
 warning  (file ../sec4/../images/magnetic_excitation.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/magnetic_excitation.pdf, id=622, 813.0375pt x 813.0375pt>
+<../sec4/../images/magnetic_excitation.pdf, id=612, 813.0375pt x 813.0375pt>
 File: ../sec4/../images/magnetic_excitation.pdf Graphic file (type pdf)
 <use ../sec4/../images/magnetic_excitation.pdf>
 Package luatex.def Info: ../sec4/../images/magnetic_excitation.pdf  used on input line 461.
@@ -3413,7 +3415,7 @@ Package luatex.def Info: ../sec4/../images/magnetic_excitation.pdf  used on inpu
 (luatex.def)             Requested size: 89.4344pt x 89.4344pt.
 [32<../sec4/../images/TEE1.pdf><../sec4/../images/TEE2.pdf><../sec4/../images/TEE3.pdf>]
 warning  (file ../sec4/../images/electric_excitation.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/electric_excitation.pdf, id=633, 813.0375pt x 813.0375pt>
+<../sec4/../images/electric_excitation.pdf, id=622, 813.0375pt x 813.0375pt>
 File: ../sec4/../images/electric_excitation.pdf Graphic file (type pdf)
 <use ../sec4/../images/electric_excitation.pdf>
 Package luatex.def Info: ../sec4/../images/electric_excitation.pdf  used on input line 478.
@@ -3428,14 +3430,14 @@ Package luatex.def Info: ../sec4/../images/electric_excitation.pdf  used on inpu
 (luatex.def)             Requested size: 89.4344pt x 89.4344pt.
 
 warning  (file ../sec4/../images/e_exc_loop.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/e_exc_loop.pdf, id=634, 813.0375pt x 835.3582pt>
+<../sec4/../images/e_exc_loop.pdf, id=623, 813.0375pt x 835.3582pt>
 File: ../sec4/../images/e_exc_loop.pdf Graphic file (type pdf)
 <use ../sec4/../images/e_exc_loop.pdf>
 Package luatex.def Info: ../sec4/../images/e_exc_loop.pdf  used on input line 487.
 (luatex.def)             Requested size: 89.4344pt x 91.88968pt.
 
 warning  (file ../sec4/../images/e_exc_projected.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/e_exc_projected.pdf, id=635, 813.0375pt x 813.0375pt>
+<../sec4/../images/e_exc_projected.pdf, id=624, 813.0375pt x 813.0375pt>
 File: ../sec4/../images/e_exc_projected.pdf Graphic file (type pdf)
 <use ../sec4/../images/e_exc_projected.pdf>
 Package luatex.def Info: ../sec4/../images/e_exc_projected.pdf  used on input line 487.
@@ -3454,7 +3456,7 @@ Package luatex.def Info: ../sec4/../images/e_exc_projected.pdf  used on input li
 (luatex.def)             Requested size: 89.4344pt x 89.4344pt.
 [33<../sec4/../images/magnetic_excitation.pdf><../sec4/../images/electric_excitation.pdf><../sec4/../images/e_exc_loop.pdf><../sec4/../images/e_exc_projected.pdf>]
 warning  (file ../sec4/../images/dyonic_excitation.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/dyonic_excitation.pdf, id=645, 813.0375pt x 813.0473pt>
+<../sec4/../images/dyonic_excitation.pdf, id=635, 813.0375pt x 813.0473pt>
 File: ../sec4/../images/dyonic_excitation.pdf Graphic file (type pdf)
 <use ../sec4/../images/dyonic_excitation.pdf>
 Package luatex.def Info: ../sec4/../images/dyonic_excitation.pdf  used on input line 494.
@@ -3465,7 +3467,7 @@ Package luatex.def Info: ../sec4/../images/dyonic_excitation.pdf  used on input 
 (luatex.def)             Requested size: 89.4344pt x 89.43547pt.
 
 warning  (file ../sec4/../images/GS_cylinder.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/GS_cylinder.pdf, id=648, 1355.0625pt x 1355.0625pt>
+<../sec4/../images/GS_cylinder.pdf, id=638, 1355.0625pt x 1355.0625pt>
 File: ../sec4/../images/GS_cylinder.pdf Graphic file (type pdf)
 <use ../sec4/../images/GS_cylinder.pdf>
 Package luatex.def Info: ../sec4/../images/GS_cylinder.pdf  used on input line 511.
@@ -3480,7 +3482,7 @@ Package luatex.def Info: ../sec4/../images/GS_cylinder.pdf  used on input line 5
 (luatex.def)             Requested size: 108.40721pt x 108.40721pt.
 
 warning  (file ../sec4/../images/Cylinder_operator.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Cylinder_operator.pdf, id=650, 1355.0625pt x 1355.0625pt>
+<../sec4/../images/Cylinder_operator.pdf, id=640, 1355.0625pt x 1355.0625pt>
 File: ../sec4/../images/Cylinder_operator.pdf Graphic file (type pdf)
 <use ../sec4/../images/Cylinder_operator.pdf>
 Package luatex.def Info: ../sec4/../images/Cylinder_operator.pdf  used on input line 517.
@@ -3495,7 +3497,7 @@ Package luatex.def Info: ../sec4/../images/Cylinder_operator.pdf  used on input 
 (luatex.def)             Requested size: 108.40721pt x 108.40721pt.
 
 warning  (file ../sec4/../images/A_for_GPEPS.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/A_for_GPEPS.pdf, id=651, 602.25pt x 704.34627pt>
+<../sec4/../images/A_for_GPEPS.pdf, id=641, 602.25pt x 704.34627pt>
 File: ../sec4/../images/A_for_GPEPS.pdf Graphic file (type pdf)
 <use ../sec4/../images/A_for_GPEPS.pdf>
 Package luatex.def Info: ../sec4/../images/A_for_GPEPS.pdf  used on input line 521.
@@ -3506,21 +3508,21 @@ Package luatex.def Info: ../sec4/../images/A_for_GPEPS.pdf  used on input line 5
 (luatex.def)             Requested size: 66.2477pt x 77.47832pt.
 
 warning  (file ../sec4/../images/GAnyon1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/GAnyon1.pdf, id=652, 813.0375pt x 813.0375pt>
+<../sec4/../images/GAnyon1.pdf, id=642, 813.0375pt x 813.0375pt>
 File: ../sec4/../images/GAnyon1.pdf Graphic file (type pdf)
 <use ../sec4/../images/GAnyon1.pdf>
 Package luatex.def Info: ../sec4/../images/GAnyon1.pdf  used on input line 529.
 (luatex.def)             Requested size: 89.4344pt x 89.4344pt.
 
 warning  (file ../sec4/../images/GAnyon2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/GAnyon2.pdf, id=653, 813.0375pt x 813.0375pt>
+<../sec4/../images/GAnyon2.pdf, id=643, 813.0375pt x 813.0375pt>
 File: ../sec4/../images/GAnyon2.pdf Graphic file (type pdf)
 <use ../sec4/../images/GAnyon2.pdf>
 Package luatex.def Info: ../sec4/../images/GAnyon2.pdf  used on input line 529.
 (luatex.def)             Requested size: 89.4344pt x 89.4344pt.
 
 warning  (file ../sec4/../images/GAnyon3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/GAnyon3.pdf, id=654, 813.0375pt x 813.0375pt>
+<../sec4/../images/GAnyon3.pdf, id=644, 813.0375pt x 813.0375pt>
 File: ../sec4/../images/GAnyon3.pdf Graphic file (type pdf)
 <use ../sec4/../images/GAnyon3.pdf>
 Package luatex.def Info: ../sec4/../images/GAnyon3.pdf  used on input line 529.
@@ -3539,14 +3541,14 @@ Package luatex.def Info: ../sec4/../images/GAnyon3.pdf  used on input line 529.
 (luatex.def)             Requested size: 89.4344pt x 89.4344pt.
 [34<../sec4/../images/dyonic_excitation.pdf><../sec4/../images/GS_cylinder.pdf>] [35<../sec4/../images/Cylinder_operator.pdf><../sec4/../images/A_for_GPEPS.pdf><../sec4/../images/GAnyon1.pdf><../sec4/../images/GAnyon2.pdf><../sec4/../images/GAnyon3.pdf>]
 warning  (file ../sec4/../images/Tubealg1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Tubealg1.pdf, id=676, 481.8pt x 492.78831pt>
+<../sec4/../images/Tubealg1.pdf, id=666, 481.8pt x 492.78831pt>
 File: ../sec4/../images/Tubealg1.pdf Graphic file (type pdf)
 <use ../sec4/../images/Tubealg1.pdf>
 Package luatex.def Info: ../sec4/../images/Tubealg1.pdf  used on input line 559.
 (luatex.def)             Requested size: 72.26688pt x 73.91505pt.
 
 warning  (file ../sec4/../images/Tubealg2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Tubealg2.pdf, id=677, 528.97626pt x 485.75423pt>
+<../sec4/../images/Tubealg2.pdf, id=667, 528.97626pt x 485.75423pt>
 File: ../sec4/../images/Tubealg2.pdf Graphic file (type pdf)
 <use ../sec4/../images/Tubealg2.pdf>
 Package luatex.def Info: ../sec4/../images/Tubealg2.pdf  used on input line 559.
@@ -3561,14 +3563,14 @@ Package luatex.def Info: ../sec4/../images/Tubealg2.pdf  used on input line 559.
 (luatex.def)             Requested size: 79.343pt x 72.85999pt.
 
 warning  (file ../sec4/../images/Tube_prod1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Tube_prod1.pdf, id=680, 555.07375pt x 758.77423pt>
+<../sec4/../images/Tube_prod1.pdf, id=670, 555.07375pt x 758.77423pt>
 File: ../sec4/../images/Tube_prod1.pdf Graphic file (type pdf)
 <use ../sec4/../images/Tube_prod1.pdf>
 Package luatex.def Info: ../sec4/../images/Tube_prod1.pdf  used on input line 574.
 (luatex.def)             Requested size: 83.25746pt x 113.81122pt.
 
 warning  (file ../sec4/../images/Tube_prod2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Tube_prod2.pdf, id=681, 603.25375pt x 498.80298pt>
+<../sec4/../images/Tube_prod2.pdf, id=671, 603.25375pt x 498.80298pt>
 File: ../sec4/../images/Tube_prod2.pdf Graphic file (type pdf)
 <use ../sec4/../images/Tube_prod2.pdf>
 Package luatex.def Info: ../sec4/../images/Tube_prod2.pdf  used on input line 574.
@@ -3583,7 +3585,7 @@ Package luatex.def Info: ../sec4/../images/Tube_prod2.pdf  used on input line 57
 (luatex.def)             Requested size: 90.48415pt x 74.81721pt.
 [36<../sec4/../images/Tubealg1.pdf><../sec4/../images/Tubealg2.pdf>]
 warning  (file ../sec4/../images/topological_spin.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/topological_spin.pdf, id=692, 813.0375pt x 813.0375pt>
+<../sec4/../images/topological_spin.pdf, id=682, 813.0375pt x 813.0375pt>
 File: ../sec4/../images/topological_spin.pdf Graphic file (type pdf)
 <use ../sec4/../images/topological_spin.pdf>
 Package luatex.def Info: ../sec4/../images/topological_spin.pdf  used on input line 600.
@@ -3602,7 +3604,7 @@ Package luatex.def Info: ../sec4/../images/GAnyon1.pdf  used on input line 600.
 (luatex.def)             Requested size: 89.4344pt x 89.4344pt.
 [37<../sec4/../images/Tube_prod1.pdf><../sec4/../images/Tube_prod2.pdf><../sec4/../images/topological_spin.pdf>]
 warning  (file ../sec4/../images/Tubealg_topological_spin.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../sec4/../images/Tubealg_topological_spin.pdf, id=702, 564.1075pt x 485.75423pt>
+<../sec4/../images/Tubealg_topological_spin.pdf, id=692, 564.1075pt x 485.75423pt>
 File: ../sec4/../images/Tubealg_topological_spin.pdf Graphic file (type pdf)
 <use ../sec4/../images/Tubealg_topological_spin.pdf>
 Package luatex.def Info: ../sec4/../images/Tubealg_topological_spin.pdf  used on input line 608.
@@ -3611,160 +3613,9 @@ File: ../sec4/../images/Tubealg_topological_spin.pdf Graphic file (type pdf)
 <use ../sec4/../images/Tubealg_topological_spin.pdf>
 Package luatex.def Info: ../sec4/../images/Tubealg_topological_spin.pdf  used on input line 608.
 (luatex.def)             Requested size: 84.61247pt x 72.85999pt.
-) [38<../sec4/../images/Tubealg_topological_spin.pdf>] (../sec5/../sec5/sec5.tex [39] [40] [41]
-<../sec5/../images/pentagon1.pdf, id=752, 335.5727pt x 131.16202pt>
-File: ../sec5/../images/pentagon1.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon1.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon1.pdf  used on input line 176.
-(luatex.def)             Requested size: 134.22668pt x 52.46387pt.
-<../sec5/../images/pentagon2.pdf, id=753, 347.61769pt x 120.12077pt>
-File: ../sec5/../images/pentagon2.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon2.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon2.pdf  used on input line 176.
-(luatex.def)             Requested size: 139.0446pt x 48.04744pt.
-File: ../sec5/../images/pentagon1.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon1.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon1.pdf  used on input line 176.
-(luatex.def)             Requested size: 134.22668pt x 52.46387pt.
-File: ../sec5/../images/pentagon2.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon2.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon2.pdf  used on input line 176.
-(luatex.def)             Requested size: 139.0446pt x 48.04744pt.
-<../sec5/../images/pentagon3.pdf, id=754, 201.75375pt x 127.14702pt>
-File: ../sec5/../images/pentagon3.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon3.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon3.pdf  used on input line 181.
-(luatex.def)             Requested size: 80.70006pt x 50.8579pt.
-<../sec5/../images/pentagon4.pdf, id=755, 462.72874pt x 124.13577pt>
-File: ../sec5/../images/pentagon4.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon4.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon4.pdf  used on input line 181.
-(luatex.def)             Requested size: 185.08821pt x 49.65341pt.
-File: ../sec5/../images/pentagon3.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon3.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon3.pdf  used on input line 181.
-(luatex.def)             Requested size: 80.70006pt x 50.8579pt.
-File: ../sec5/../images/pentagon4.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon4.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon4.pdf  used on input line 181.
-(luatex.def)             Requested size: 185.08821pt x 49.65341pt.
-<../sec5/../images/pentagon5.pdf, id=756, 227.71776pt x 127.14702pt>
-File: ../sec5/../images/pentagon5.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon5.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon5.pdf  used on input line 186.
-(luatex.def)             Requested size: 91.08548pt x 50.8579pt.
-<../sec5/../images/pentagon6.pdf, id=757, 490.83376pt x 128.15077pt>
-File: ../sec5/../images/pentagon6.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon6.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon6.pdf  used on input line 186.
-(luatex.def)             Requested size: 196.33002pt x 51.25938pt.
-File: ../sec5/../images/pentagon5.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon5.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon5.pdf  used on input line 186.
-(luatex.def)             Requested size: 91.08548pt x 50.8579pt.
-File: ../sec5/../images/pentagon6.pdf Graphic file (type pdf)
-<use ../sec5/../images/pentagon6.pdf>
-Package luatex.def Info: ../sec5/../images/pentagon6.pdf  used on input line 186.
-(luatex.def)             Requested size: 196.33002pt x 51.25938pt.
- [42<../sec5/../images/pentagon1.pdf><../sec5/../images/pentagon2.pdf><../sec5/../images/pentagon3.pdf><../sec5/../images/pentagon4.pdf>]
-<../sec5/../images/n13.pdf, id=817, 307.66243pt x 239.24281pt>
-File: ../sec5/../images/n13.pdf Graphic file (type pdf)
-<use ../sec5/../images/n13.pdf>
-Package luatex.def Info: ../sec5/../images/n13.pdf  used on input line 199.
-(luatex.def)             Requested size: 153.83083pt x 119.62111pt.
-File: ../sec5/../images/n13.pdf Graphic file (type pdf)
-<use ../sec5/../images/n13.pdf>
-Package luatex.def Info: ../sec5/../images/n13.pdf  used on input line 199.
-(luatex.def)             Requested size: 153.83083pt x 119.62111pt.
-<../sec5/../images/zipper.pdf, id=818, 460.07433pt x 173.19907pt>
-File: ../sec5/../images/zipper.pdf Graphic file (type pdf)
-<use ../sec5/../images/zipper.pdf>
-Package luatex.def Info: ../sec5/../images/zipper.pdf  used on input line 213.
-(luatex.def)             Requested size: 184.02646pt x 69.2784pt.
-<../sec5/../images/zipper2.pdf, id=819, 449.40622pt x 173.19907pt>
-File: ../sec5/../images/zipper2.pdf Graphic file (type pdf)
-<use ../sec5/../images/zipper2.pdf>
-Package luatex.def Info: ../sec5/../images/zipper2.pdf  used on input line 213.
-(luatex.def)             Requested size: 179.7593pt x 69.2784pt.
-File: ../sec5/../images/zipper.pdf Graphic file (type pdf)
-<use ../sec5/../images/zipper.pdf>
-Package luatex.def Info: ../sec5/../images/zipper.pdf  used on input line 213.
-(luatex.def)             Requested size: 184.02646pt x 69.2784pt.
-File: ../sec5/../images/zipper2.pdf Graphic file (type pdf)
-<use ../sec5/../images/zipper2.pdf>
-Package luatex.def Info: ../sec5/../images/zipper2.pdf  used on input line 213.
-(luatex.def)             Requested size: 179.7593pt x 69.2784pt.
- [43<../sec5/../images/pentagon5.pdf><../sec5/../images/pentagon6.pdf><../sec5/../images/n13.pdf>]
-
-Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before break' or set page breaks manually on input line 215.
-
-<../sec5/../images/pivotal1.pdf, id=864, 142.23517pt x 234.55179pt>
-File: ../sec5/../images/pivotal1.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal1.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal1.pdf  used on input line 220.
-(luatex.def)             Requested size: 56.89305pt x 93.81903pt.
-<../sec5/../images/pivotal2.pdf, id=865, 156.98389pt x 223.40163pt>
-File: ../sec5/../images/pivotal2.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal2.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal2.pdf  used on input line 220.
-(luatex.def)             Requested size: 62.79243pt x 89.35905pt.
-File: ../sec5/../images/pivotal1.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal1.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal1.pdf  used on input line 220.
-(luatex.def)             Requested size: 56.89305pt x 93.81903pt.
-File: ../sec5/../images/pivotal2.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal2.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal2.pdf  used on input line 220.
-(luatex.def)             Requested size: 62.79243pt x 89.35905pt.
-<../sec5/../images/pivotal_conj1.pdf, id=866, 147.3163pt x 119.42287pt>
-File: ../sec5/../images/pivotal_conj1.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal_conj1.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal_conj1.pdf  used on input line 228.
-(luatex.def)             Requested size: 58.92546pt x 47.7683pt.
-<../sec5/../images/pivotal_conj2.pdf, id=867, 113.49442pt x 113.13658pt>
-File: ../sec5/../images/pivotal_conj2.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal_conj2.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal_conj2.pdf  used on input line 228.
-(luatex.def)             Requested size: 45.39696pt x 45.25381pt.
-File: ../sec5/../images/pivotal_conj1.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal_conj1.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal_conj1.pdf  used on input line 228.
-(luatex.def)             Requested size: 58.92546pt x 47.7683pt.
-File: ../sec5/../images/pivotal_conj2.pdf Graphic file (type pdf)
-<use ../sec5/../images/pivotal_conj2.pdf>
-Package luatex.def Info: ../sec5/../images/pivotal_conj2.pdf  used on input line 228.
-(luatex.def)             Requested size: 45.39696pt x 45.25381pt.
-<../sec5/../images/n18.pdf, id=868, 315.51784pt x 132.83116pt>
-File: ../sec5/../images/n18.pdf Graphic file (type pdf)
-<use ../sec5/../images/n18.pdf>
-Package luatex.def Info: ../sec5/../images/n18.pdf  used on input line 234.
-(luatex.def)             Requested size: 126.2049pt x 53.13152pt.
-File: ../sec5/../images/n18.pdf Graphic file (type pdf)
-<use ../sec5/../images/n18.pdf>
-Package luatex.def Info: ../sec5/../images/n18.pdf  used on input line 234.
-(luatex.def)             Requested size: 126.2049pt x 53.13152pt.
-[44<../sec5/../images/zipper.pdf><../sec5/../images/zipper2.pdf><../sec5/../images/pivotal1.pdf><../sec5/../images/pivotal2.pdf><../sec5/../images/pivotal_conj1.pdf><../sec5/../images/pivotal_conj2.pdf>]
-<../sec5/../images/PT_derive1.pdf, id=971, 162.88672pt x 227.10034pt>
-File: ../sec5/../images/PT_derive1.pdf Graphic file (type pdf)
-<use ../sec5/../images/PT_derive1.pdf>
-Package luatex.def Info: ../sec5/../images/PT_derive1.pdf  used on input line 240.
-(luatex.def)             Requested size: 65.15352pt x 90.83852pt.
-<../sec5/../images/PT_derive2.pdf, id=972, 220.34892pt x 214.55739pt>
-File: ../sec5/../images/PT_derive2.pdf Graphic file (type pdf)
-<use ../sec5/../images/PT_derive2.pdf>
-Package luatex.def Info: ../sec5/../images/PT_derive2.pdf  used on input line 240.
-(luatex.def)             Requested size: 88.138pt x 85.82143pt.
-File: ../sec5/../images/PT_derive1.pdf Graphic file (type pdf)
-<use ../sec5/../images/PT_derive1.pdf>
-Package luatex.def Info: ../sec5/../images/PT_derive1.pdf  used on input line 240.
-(luatex.def)             Requested size: 65.15352pt x 90.83852pt.
-File: ../sec5/../images/PT_derive2.pdf Graphic file (type pdf)
-<use ../sec5/../images/PT_derive2.pdf>
-Package luatex.def Info: ../sec5/../images/PT_derive2.pdf  used on input line 240.
-(luatex.def)             Requested size: 88.138pt x 85.82143pt.
-) [45<../sec5/../images/n18.pdf><../sec5/../images/PT_derive1.pdf><../sec5/../images/PT_derive2.pdf>] (../appendix/../appendix/appendix.tex
+) [38<../sec4/../images/Tubealg_topological_spin.pdf>] (../appendix/../appendix/appendix.tex
 warning  (file ../appendix/../images/AstarA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<../appendix/../images/AstarA.pdf, id=1025, 361.35pt x 481.8pt>
+<../appendix/../images/AstarA.pdf, id=700, 361.35pt x 481.8pt>
 File: ../appendix/../images/AstarA.pdf Graphic file (type pdf)
 <use ../appendix/../images/AstarA.pdf>
 Package luatex.def Info: ../appendix/../images/AstarA.pdf  used on input line 10.
@@ -3773,7 +3624,7 @@ File: ../appendix/../images/AstarA.pdf Graphic file (type pdf)
 <use ../appendix/../images/AstarA.pdf>
 Package luatex.def Info: ../appendix/../images/AstarA.pdf  used on input line 10.
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
-[46<../appendix/../images/AstarA.pdf>] [47] [48] [49]) [50]
+[39<../appendix/../images/AstarA.pdf>] [40] [41] [42]) [43]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 193.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
@@ -3800,32 +3651,32 @@ Overfull \hbox (64.3969pt too wide) in paragraph at lines 194--194
 []\TU/lmr/m/n/11.99997 A. Yu Ki-taev. \TU/lmr/m/it/11.99997 Fault-Tolerant Quan-tum Com-pu-ta-tion by Anyons\TU/lmr/m/n/11.99997 . https://arxiv.org/abs/quant-
  []
 
-[51] (./main.aux)
+[44] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 25A837653E926C2402777EB04BF49F32;1801.
+(rerunfilecheck)             Checksum: 510348AB124F493A4DD90A9B14810E79;1544.
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 53107 strings out of 476447
+ 52702 strings out of 476447
  125244,2373549 words of node,token memory allocated
- 1669 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 425 attribute, 76 glue_spec, 51 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
-   avail lists: 1:6,2:34276,3:898,4:668,5:268,6:69,7:3322,8:70,9:1439,10:35,11:158,12:3
- 71333 multiletter control sequences out of 65536+600000
- 117 fonts using 88843511 bytes
+ 1573 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 381 attribute, 76 glue_spec, 47 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
+   avail lists: 1:7,2:34323,3:898,4:667,5:251,6:61,7:3322,8:60,9:1439,10:35,11:158,12:3
+ 71181 multiletter control sequences out of 65536+600000
+ 117 fonts using 88843387 bytes
  125i,16n,128p,1927b,1346s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmromancaps10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (51 pages, 1483029 bytes).
+Output written on main.pdf (44 pages, 1071027 bytes).
 
-PDF statistics: 1228 PDF objects out of 1440 (max. 8388607)
- 861 compressed objects within 9 object streams
- 351 named destinations out of 1000 (max. 131072)
- 120 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 902 PDF objects out of 1000 (max. 8388607)
+ 636 compressed objects within 7 object streams
+ 294 named destinations out of 1000 (max. 131072)
+ 104 words of extra memory for PDF output out of 10000 (max. 100000000)
 
