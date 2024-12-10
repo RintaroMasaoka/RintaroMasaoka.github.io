@@ -1,0 +1,310 @@
+\providecommand{\main}{..}
+\documentclass[\main/main.tex]{subfiles}
+\setcounter{section}{2}
+\begin{document}
+
+\section{演算子法}
+\begin{frame}{Holstein-Primakoffの方法}
+    $\bm{S}_l$を大きさ$S$のスピン演算子とする．またハミルトニアンは
+    \begin{align}
+        H = -J \sum_{\expval{i,j}} \bm{S}_i \cdot \bm{S}_j
+    \end{align}
+    とする．
+    ただし$\expval{i,j}$は最近接格子点を意味する．まず強磁性($J>0$)の場合を考える．
+    昇降演算子$S_l^{\pm}$と粒子数演算子$n_l$を
+    \begin{align}
+        S_l^{\pm} = S_l^x \pm iS_l^y,
+        \quad
+        n_l = S - S_l^z
+    \end{align}
+    と定義する．$S_l^z$の固有値$M$の固有状態$\ket{M}$に対し，
+    \begin{align}
+        S_l^{\pm}\ket{M} = \sqrt{(S \mp M)(S \pm M + 1)}\ket{M \pm 1}.
+    \end{align}
+    となる．
+\end{frame}
+
+\begin{frame}
+    ここで，$S-M = n$によって$\ket{M}$を$\ket{n}$と書き換える．
+    また$a_-^\dagger a_- = n_l$によってBose粒子の生成消滅演算子$a_-^\dagger, a_-$を導入すれば，
+    \begin{align*}
+        S_l^+ \ket{n} &
+        = \sqrt{n(2S-n+1)}\ket{n-1} 
+        \\ &
+        = \sqrt{n}\cdot\sqrt{2S-a_-^\dagger a_-}\ket{n-1}
+        \\ &
+        = \sqrt{2S-a_-^\dagger a_-}\cdot a_- \ket{n}
+    \end{align*}
+    と書ける．
+    $S_l^-$についても同様に計算することで
+    \begin{align}
+        S_l^z &= S - a_-^\dagger a_-
+        \label{HP method: def n}
+        \\
+        S_l^+ &= \sqrt{2S} \qty(1-\frac{a_-^\dagger a_-}{2S})^{1/2}a_-,
+        \\
+        S_l^- &= \sqrt{2S}a_-^\dagger \qty(1-\frac{a_-^\dagger a_-}{2S})^{1/2}
+        \label{HP method: def a and a^dagger}
+    \end{align}
+    を得る．
+\end{frame}
+
+\begin{frame}
+    これらを$H = -J \sum_{\expval{i,j}} [S_i^z S_j^z + (S_i^+ S_j^- + S_i^- S_j^+)/2]$に代入し，平方根をTaylor展開すると，$n_l/S$による展開式が得られる．
+    \begin{align}
+        H = & -JS^2 \sum_{\expval{i,j}} 1
+        + JS \sum_{\expval{i,j}} (n_i + n_j - a_i^\dagger a_j - a_i a_j^\dagger) \nonumber
+        \\ &
+        -J \sum_{\expval{i,j}} \qty[n_i n_j - \frac{1}{4}\qty(a_i^\dagger (n_i + n_j)a_j + a_j^\dagger(n_j + n_i)a_i)] + \cdots
+        \\ 
+        = & -\frac{NzJS^2}{2}
+        +  zJS \sum_i a_i^\dagger a_i - JS \sum_{\expval{i,j}}(a_i^\dagger a_j - a_j^\dagger a_i)
+        \nonumber
+        \\ &
+        +\frac{J}{4} \sum_{\expval{i,j}} \qty[a_i^\dagger a_j^\dagger(a_i - a_j)^2+(a_i^\dagger - a_j^\dagger)^2 a_i a_j] + \cdots.
+        \label{HP method: ferromagnetic H}
+    \end{align}
+    ただし$N$は格子点の総数であり，$z$は最近接格子点の数である．
+\end{frame}
+
+\begin{frame}{}
+    (\ref{HP method: ferromagnetic H})において，定数部分およびマグノンの相互作用を無視すると，
+    \begin{align}
+        H =  zJS \sum_i a_i^\dagger a_i - JS \sum_{\expval{i,j}}(a_i^\dagger a_j + a_j^\dagger a_i) 
+        \label{HP method: modified H}
+    \end{align}
+    となる．ここで，
+    \begin{align}
+        a_i = \frac{1}{\sqrt{N}}\sum_{\bm{k}} e^{i \bm{k} \cdot \bm{x}_i}a_{\bm{k}},
+        \quad
+        a_i^\dagger = \frac{1}{\sqrt{N}} \sum_{\bm{k}} e^{-i \bm{k}\cdot \bm{x}_i}a_{\bm{k}}^\dagger
+    \end{align}
+    と定義する．$\bm{k}$は結晶運動量であり，$\sum_{\bm{k}}$はBrillouinゾーン内の和である．
+    \begin{align}
+        \sum_{i} e^{i \bm{k}\cdot \bm{x}_i} = N \delta_{\bm{k}, \bm{0}}
+    \end{align}
+    が成り立つことに注意すると，(\ref{HP method: modified H})第1項は，
+    \begin{align}
+        \frac{zJS}{N} \sum_{\bm{k},\bm{k}'} a_{\bm{k}}^\dagger a_{\bm{k}'} \sum_i e^{i (-\bm{k}+\bm{k}')\cdot \bm{x}_i}
+        = zJS \sum_{\bm{k}} a_{\bm{k}}^\dagger a_{\bm{k}}
+    \end{align}
+    と書ける．
+\end{frame}
+
+\begin{frame}
+    (\ref{HP method: modified H})第2項は，
+    \begin{align*}
+        &
+        -\frac{JS}{N} \sum_{\bm{k}, \bm{k}'} (a_{-\bm{k}}^\dagger a_{\bm{k}'} + a_{-\bm{k}'}^\dagger a_{\bm{k}}) 
+        \sum_{\expval{i,j}}e^{i(\bm{k} \cdot \bm{x}_i + \bm{k}'\cdot \bm{x}_j)}
+        \\ &
+        = - \frac{JS}{N} \sum_{\bm{k}, \bm{k}'} (a_{-\bm{k}}^\dagger a_{\bm{k}'} + a_{-\bm{k}'}^\dagger a_{\bm{k}})
+        \frac{1}{2}\sum_{\bm{\delta}}e^{i \bm{k}' \cdot \bm{\delta}} \sum_{i}e^{i(\bm{k} + \bm{k}')\cdot \bm{x}_i} 
+    \end{align*}
+    と書ける．ここで$\bm{\delta}$はある格子点を基準としたときの最近接格子点の位置を表している．
+    $d$次元立方格子の場合$\bm{\delta} = \pm \bm{e}_1, \ldots, \pm \bm{e}_d$である．
+    さらに変形を続けると，
+    \begin{align}
+        = - \frac{JS}{2} \sum_{\bm{k},\bm{\delta}}e^{-i \bm{k} \cdot \bm{\delta}}(a_{- \bm{k}}^\dagger a_{-\bm{k}} + a_{\bm{k}}^\dagger a_{\bm{k}})
+        = -JS \sum_{\bm{k}, \bm{\delta}} \cos(\bm{k}\cdot \bm{\delta})  a_{\bm{k}}^\dagger a_{\bm{k}}
+    \end{align}
+    したがって，マグノンの対角化されたハミルトニアン
+    \begin{align}
+        H = \sum_{\bm{k}} \epsilon_{\bm{k}} a_{\bm{k}}^\dagger a_{\bm{k}},
+        \quad
+        \epsilon_{\bm{k}} = zJS\qty[1 - \frac{1}{z}\sum_{\bm{\delta}}\cos(\bm{k}\cdot \bm{\delta})]
+    \end{align}
+    を得る．この結果は以前に波動関数を仮定して導いたものと同じである．
+\end{frame}
+
+\begin{frame}{反強磁性の場合}
+    反強磁性の場合を考える．ハミルトニアンは
+    \begin{align}
+        H = J \sum_{\expval{i,j}} \bm{S}_i \cdot \bm{S}_j
+    \end{align}
+    である．ただし$J > 0$である．
+
+    反強磁性の場合，格子点を$A$格子と$B$格子の部分格子に分割すると扱いやすい．
+    また，同じ格子に属するスピンの間では相互作用がないと仮定する．
+    この仮定はスピンをフラストレーションなく上下交互に並べられることを意味している．
+\end{frame}
+\begin{frame}
+    $A$格子のスピン演算子に対し，(\ref{HP method: def n})-(\ref{HP method: def a and a^dagger})によって$a_-^\dagger, a_-$を定義する．
+    $B$格子に対しては，$b_l^\dagger, b_l$を以下のように定義する．
+    \begin{align}
+        S_l^z &= b_l^\dagger b_l - S,
+        \\
+        S_l^+ &= \sqrt{2S}b_l^\dagger \qty\Big(1-\frac{b_l^\dagger b_l}{2S})^{1/2}
+        \\
+        S_l^- &= \sqrt{2S} \qty\Big(1- \frac{b_l^\dagger b_l}{2S})^{1/2}b_l
+    \end{align}
+    これは$A$格子の場合の定義に対し，$S_l^z$の符号を入れ替え，$S_l^+$と$S_l^-$を入れ替えたものになっている．
+\end{frame}
+
+\begin{frame}
+    $H$を$S$の一次の項まで展開すると，
+    \begin{align}
+        H
+        & \nonumber
+        = \sum_{\expval{i,j}}\qty[(S - a_i^\dagger a_i)(b_j^\dagger b_j - S)+\frac{2S}{2}(a_i b_j + a_i^\dagger b_j^\dagger)]
+        \\ & \nonumber
+        = -\frac{NzJS^2}{2} + zJS \qty(\sum_{i \in A} a_i^\dagger a_i + \sum_{j \in B} b_j^\dagger b_j)
+        +JS \sum_{\expval{i,j}}(a_i b_j + a_i^\dagger b_j^\dagger)
+        \\ &
+        \equiv H_0 + H_1 + H_2
+    \end{align}
+    となる．ただし$N$は格子点の総数であり，$z$は最近接格子点の数である．
+    ここで，
+    \begin{align}
+        a_i = \sqrt{\frac{2}{N}} \sum_{\bm{k}} e^{i\bm{k}\cdot \bm{x}_i} a_{\bm{k}},
+        \quad
+        a_i^\dagger = \sqrt{\frac{2}{N}} \sum_{\bm{k}} e^{-i \bm{k}\cdot \bm{x}_i} a_{\bm{k}}^\dagger
+        \\
+        b_j = \sqrt{\frac{2}{N}} \sum_{\bm{k}} e^{i \bm{k}\cdot \bm{x}_j} b_{\bm{k}},
+        \quad
+        b_j^\dagger = \sqrt{\frac{2}{N}} \sum_{\bm{k}} e^{-i \bm{k}\cdot \bm{x}_j} b_{\bm{k}}^\dagger
+    \end{align}
+    とFourier変換する．
+\end{frame}
+
+\begin{frame}{}
+    \begin{align}
+        \sum_{i \in A} e^{i \bm{k} \cdot \bm{x}_i} = \frac{N}{2}\delta_{\bm{k},\bm{0}}
+    \end{align}
+    に注意すると，
+    \begin{align}
+        H_1 = zJS \sum_{\bm{k}}(a_{\bm{k}}^\dagger a_{\bm{k}} + b_{\bm{k}}^\dagger b_{\bm{k}})
+    \end{align}
+    となる．また，
+    \begin{align}
+        H_2
+        &\nonumber
+        = \frac{2JS}{N} \sum_{\expval{i,j}} \sum_{\bm{k}, \bm{k}'} (a_{\bm{k}} b_{\bm{k}} + a_{-\bm{k}}^\dagger b_{-\bm{k}'}^\dagger)e^{i (\bm{k}\cdot \bm{x}_i + \bm{k}' \cdot \bm{x}_j)}
+        \\ &\nonumber
+        = \frac{2JS}{N} \sum_{\bm{k}, \bm{k}'} (a_{\bm{k}} b_{\bm{k}'} + a_{-\bm{k}}^\dagger b_{-\bm{k}'}^\dagger) 
+        \sum_{\bm{\delta}} e^{i \bm{k}'\cdot \bm{\delta}}
+        \sum_{i \in A}  e^{i(\bm{k}+\bm{k}')\cdot \bm{x}_i}
+        \\ &
+        = zJS \sum_{\bm{k}} (\gamma_{\bm{k}}^* a_{\bm{k}} b_{-\bm{k}} + \gamma_{\bm{k}} a_{\bm{k}}^\dagger b_{-\bm{k}}^\dagger).
+    \end{align}
+    ただし，$\gamma_{\bm{k}} \equiv \sum_{\bm{\delta}} e^{i \bm{k}\cdot \bm{\delta}}/z$
+    と定義した．
+\end{frame}
+
+\begin{frame}{Bogoliubov変換}
+    以上より，
+    \begin{align}
+        H = zJS \sum_{\bm{k}}(a_{\bm{k}}^\dagger a_{\bm{k}} + b_{-\bm{k}}^\dagger b_{-\bm{k}} + \gamma_{\bm{k}} a_{\bm{k}} b_{-\bm{k}} + \gamma_{\bm{k}} a_{\bm{k}}^\dagger b_{-\bm{k}}^\dagger)
+    \end{align}
+    を得る．ただし定数部分は除いた．これを対角化したいので，Bogoliubov変換
+    \begin{align}
+        \mqty(\alpha_{\bm{k}}\\ \beta_{\bm{k}}^\dagger) =
+        \mqty(
+            \cosh \theta_{\bm{k}} & e^{-i\phi_{\bm{k}}}\sinh \theta_{\bm{k}} \\
+            e^{i\phi_{\bm{k}}}\sinh\theta_{\bm{k}} & \cosh \theta_{\bm{k}}
+        )
+        \mqty(a_{\bm{k}}\\b_{-\bm{k}}^\dagger)
+        \label{HP method: Bogoliubov transformation}
+    \end{align}
+    を用いる．$\phi_{\bm{k}},\theta_{\bm{k}}$は後で求めるとして，まずこの変換の性質について述べておく．
+    変換行列を$U(\phi_{\bm{k}},\theta_{\bm{k}})$とおくと，これは明らかにエルミートである．また$\theta$に関する加法性
+    \begin{align}
+        U(\phi,\theta)U(\phi,\theta') = U(\phi,\theta + \theta')
+    \end{align}
+    が成り立つ．$U(\phi,0) = I$であるから$U(\phi,-\theta) = U(\phi,\theta)^{-1}$である．さらに，
+    \begin{align}
+        \eta U(\phi,\theta) \eta = U(\phi,-\theta) = U(\phi,\theta)^{-1}, \quad \eta = \mqty(1&0\\0&-1)
+    \end{align}
+    が分かる．
+\end{frame}
+
+\begin{frame}
+    ここで，
+    \begin{align}
+        \mqty(
+            [A,C] & [A,D] \\ 
+            [B,C] & [B,D]
+            )
+        = \qty[\mqty(A\\B)\mqty(C&D)]
+    \end{align}
+    という表記を導入しよう．すると，
+    \begin{align}
+        \qty[\mqty(\alpha_{\bm{k}}\\ \beta_{\bm{k}}^\dagger)\mqty(\alpha_{\bm{k}'}^\dagger & \beta_{\bm{k}'})]
+        &\nonumber
+        =
+        U\qty[\mqty(a_{\bm{k}}\\ b_{-\bm{k}}^\dagger)\mqty(a_{\bm{k}'}^\dagger & b_{-\bm{k}'})]U
+        \\ &\nonumber
+        = \delta_{\bm{k},\bm{k}'}U \eta U
+        = \delta_{\bm{k},\bm{k}'} U\eta U \eta \eta
+        \\ &
+        = \delta_{\bm{k},\bm{k}'}\eta
+    \end{align}
+    となる．すなわち
+    \begin{gather}
+        [\alpha_{\bm{k}}, \alpha_{\bm{k}'}^\dagger] = [\beta_{\bm{k}}, 
+        \beta_{\bm{k}'}^\dagger] = \delta_{\bm{k},\bm{k}'},
+        \\
+        [\alpha_{\bm{k}},\beta_{\bm{k}'}] = [\alpha_{\bm{k}}^\dagger, \beta_{\bm{k}'}^\dagger] = 0
+    \end{gather}
+    となる．その他の交換関係は明らかにゼロになるから，\alert{Bogoliubov変換は交換関係を保つ}．
+\end{frame}
+
+\begin{frame}{}
+    ハミルトニアンは
+    \begin{align}
+        H
+        &
+        = zJS \sum_{\bm{k}}\mqty(a_{\bm{k}}^\dagger & b_{-\bm{k}})\mqty(1 & \gamma_{\bm{k}}^* \\ \gamma_{\bm{k}} &1)\mqty(a_{\bm{k}}\\b_{-\bm{k}}^\dagger) - zJS \sum_{\bm{k}} 1
+    \end{align}
+    と書ける．ここで，
+    \begin{align}
+        &
+        \gamma_{\bm{k}} = e^{i\phi_{\bm{k}}}|\gamma_{\bm{k}}|
+        \\ &
+        \tanh(2\theta_{\bm{k}}) = |\gamma_{\bm{k}}|
+    \end{align}
+    によって$\phi_{\bm{k}},\theta_{\bm{k}}$を定義すると，
+    \begin{align}
+        \mqty(1 & \gamma_{\bm{k}}^* \\ \gamma_{\bm{k}} &1) = \sqrt{1-|\gamma_{\bm{k}}|^2}~U(\phi_{\bm{k}},2\theta_{\bm{k}})
+    \end{align}
+    と書ける．
+    そこで，Bogoliubov変換(\ref{HP method: Bogoliubov transformation})を用いると，
+    $
+        U(\phi_{\bm{k}},2\theta_{\bm{k}})
+        = U(\phi_{\bm{k}},\theta_{\bm{k}})U(\phi_{\bm{k}},\theta_{\bm{k}})
+        = U^\dagger(\phi_{\bm{k}},\theta_{\bm{k}}) U(\phi_{\bm{k}},\theta_{\bm{k}})
+    $から，
+\end{frame}
+
+\begin{frame}
+    \begin{align}
+        H 
+        = zJS \sum_{\bm{k}} \sqrt{1-|\gamma_{\bm{k}}|^2}\mqty(\alpha_{\bm{k}}^\dagger & \beta_{\bm{k}})
+        \mqty(\alpha_{\bm{k}}\\\beta_{\bm{k}}^\dagger)
+        -zJS \sum_{\bm{k}} 1
+    \end{align}
+    となる．したがって，
+    \begin{align}
+        &
+        H = \sum_{\bm{k}}\epsilon_{\bm{k}}(\alpha_{\bm{k}}^\dagger \alpha + \beta_{\bm{k}}^\dagger \beta_{\bm{k}})
+        -
+        zJS \sum_{\bm{k}}\qty(1 - \sqrt{1-|\gamma_{\bm{k}}|^2})
+        \\ &
+        \epsilon_{\bm{k}} = zJS \sqrt{1-|\gamma_{\bm{k}}|^2}
+    \end{align}
+    と書ける．$\alpha_{\bm{k}},\beta_{\bm{k}}$は独立な2つのマグノンを表している．
+    $d$次元立方格子の場合，
+    \begin{align}
+        \gamma_{\bm{k}}
+        = \frac{1}{z}\sum_{\bm{\delta}} e^{i \bm{k} \cdot \bm{\delta}}
+        = \frac{1}{d} \sum_{i=1}^d \cos k_i 
+        = 1 - \frac{\bm{k}^2}{2d} + \cdots
+    \end{align}
+    であるから，長波長で
+    \begin{align}
+        \epsilon_{\bm{k}} \approx 2dJ \sqrt{\frac{\bm{k}^2}{d}}
+        = 2\sqrt{d}J|\bm{k}|
+    \end{align}
+    となる．したがって，反強磁性では\alert{2種類}の\alert{線形分散}のマグノンが現れる．
+\end{frame}
+\end{document}
