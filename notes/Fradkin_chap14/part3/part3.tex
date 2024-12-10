@@ -1,0 +1,152 @@
+\documentclass[8pt,unicode,xcolor=svgnames]{beamer}
+
+% beamer settings %
+\usepackage{luatexja}
+\usepackage[ipaex]{luatexja-preset}% IPAex font
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usetheme[
+    outer/progressbar=foot,
+    % outer/numbering=none
+]{metropolis}
+\usefonttheme{professionalfonts}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{frametitle}{fg=white,bg=Teal}
+\setbeamercolor{progress bar}{fg=Teal,bg=white!90!black}
+\setbeamercolor{colorbox}{bg=Teal!10}
+\setbeamercolor{block body}{bg=white!90!black}
+\setbeamercolor{block title}{fg=white,bg=DarkGreen}
+\setbeamercolor{block title example}{fg=white,bg=DarkSeaGreen}
+\setbeamercolor{block title alerted}{fg=white,bg=DarkKhaki}
+\setbeamercolor{itemize item}{fg=ForestGreen}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\setlength{\metropolis@titleseparator@linewidth}{2pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{2pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
+\makeatother
+
+% packages %
+\usepackage{amsmath,amssymb,mathtools,diffcoeff}
+\usepackage[oldfont,exchangeupit]{unicommand}
+
+% graphics %
+\usepackage{graphicx,float,tikz}
+\newcommand\Includegraphics[2][]{\vcenter{\hbox{\includegraphics[#1]{#2}}}}
+\graphicspath{{../images/}}
+
+% biblatex %
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../ref/ref.bib}
+
+% tcolorbox %
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems}
+\tcbset{
+    enhanced,
+    frame hidden,
+    sharp corners,
+    colback=Teal!10,
+    boxsep=0pt,
+    fonttitle=\bfseries
+}
+
+% hyperref %
+\usepackage{hyperref}
+\hypersetup{
+    unicode,
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=DarkCyan!80!black,
+    citecolor=Chocolate,
+    urlcolor=Chocolate
+}
+
+\usepackage{subfiles}
+
+% options %
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\section{14.5 Superconductors as topological fluids}
+\begin{frame}{\currentname}
+    BCS理論によると、spin-singlet superconductorの基底状態は以下のpair-field
+    \begin{align}
+        Δ(𝒙,𝒚) = ϵ_{σσ'}ψ_{σ}^†(𝒙)ψ_{σ'}^†(𝒚),␣
+        Δ(𝒌) = ϵ_{σσ'}ψ_{σ}^†(𝒌)ψ_{σ'}^†(-𝒌)
+    \end{align}
+    がノンゼロの期待値を取る状態として特徴づけられる。
+    pair-fieldは大域的な$\U(1)$変換$ψ_σ(𝒙) ↦ ℯ^{¡θ}ψ_{σ'}(𝒙)$に対して$Δ ↦ ℯ^{-2¡θ} Δ$となる。
+
+    超伝導の基底状態は$\U(1)$対称性を自発的に破る状態であり、その考えのもとにGinzburg--Landau理論が展開される。
+    しかし、厳密には\alert{超伝導における秩序変数の概念には問題がある。}
+\end{frame}
+\begin{frame}{\currentname}
+    次にgauge invariantな秩序変数を考える。
+    \begin{align}
+        𝒪(𝒙,𝒚) = Δ(𝒙, 𝒚)\exp（¡∫\𝑑^2z 𝑨(𝒛)⋅𝑬_c(𝒛)）
+    \end{align}
+    ここで
+    \begin{align}
+        ∇⋅𝑬_c(𝒛) = δ(𝒛-𝒙) + δ(𝒛-𝒚)
+    \end{align}
+    とする。
+\end{frame}
+\begin{frame}{\currentname}
+    超伝導のスペクトラムには中性のfermionicな励起が存在することが知られている。
+\end{frame}
+\begin{frame}{\currentname}
+    Coulombゲージでは
+    \begin{align}
+        \exp（-¡∫\𝑑^2z 𝑨(z) ⋅∇U_c(z)） = \exp（¡e∫\𝑑^2z ∇⋅𝑨(z) U_c(z)） = 1
+    \end{align}
+\end{frame}
+\begin{frame}{\currentname}
+    \begin{align}
+        ℒ＿{topo}[a_μ, b_μ] = ÷1{𝜋}ϵ^{μνλ}a_μ∂_νb_λ - a^μj＿{qp}^μ - j^𝑣_μb^μ
+    \end{align}
+    \begin{align}
+        K = \（ 0&2\\2&0\）
+    \end{align}
+\end{frame}
+\begin{frame}{\currentname}
+    \begin{align}
+        ℒ = (D_μϕ)^*D^μϕ + ÷1{4}F_{μν}² + V(ϕ^*ϕ) - A_μj^μ＿{up}
+    \end{align}
+    \begin{align}
+        D_μ = ∂_μ + 2¡A_μ
+    \end{align}
+    $V(ϕ^*ϕ)$はメキシカンハット型のポテンシャルとし、$ϕ = √{ρ_𝑠}ℯ^{¡φ}$に最小をもつとする。ここで$ρ_s$は$|Δ|$に比例する。
+    渦の寄与を入れるために$𝑑φ$を$𝑑η + 𝛿χ$で置き換える。
+    ただし$𝑑(𝑑η+𝛿χ) = Δχ$が渦密度を表すとする。
+    すると
+    \begin{align}
+        ∮_{∂Σ}𝛿χ  = ∫_Σ Δχ = 2𝜋N_𝑣[Σ]
+    \end{align}
+    となる。
+\end{frame}
+\begin{frame}{\currentname}
+    さらに$a ≔ ÷1{2} 𝛿χ$とする。
+    vortex currentは
+    \begin{align}
+        j^𝑣 = ÷1{𝜋}𝑑a
+    \end{align}
+    によって定義する。
+    スムースな場$η$の方はgauge場に``食べられて''、massiveな場に変わる (Anderson--Higgs機構):
+    \begin{align}
+        ℒ＿{eff} = ÷1{4}F²_{μν} + ÷{m_s²}{2}（A_μ-a_μ）² - A_μj^μ
+    \end{align}
+    ここで$m_s$とLondon侵入長$λ_𝐿$の間の関係は$m_s = λ_𝐿^{-1}$で与えられる。
+    \begin{align}
+        Z[j_μ＾{qp}, j_μ^𝑣]
+        &
+        =∫\𝒟{A_μ}\𝒟{a_μ}δ（÷1{𝜋}ϵ_{μνλ}∂^νa^λ - j_μ^𝑣）
+        \exp（-∫\𝑑^3xℒ＿{eff}[A_μ,a_μ,b_μ]） \∅
+        &
+        = ∫\𝒟{a_μ}\𝒟{b_μ}\exp（-∫\𝑑^3xℒ＿{eff}[a_μ,b_μ]）
+    \end{align}
+\end{frame}
+\section{14.9 Topological superconductors}
+\end{document}

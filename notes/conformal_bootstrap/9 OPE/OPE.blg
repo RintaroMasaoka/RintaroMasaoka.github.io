@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'OPE.blg'
+[187] biber-darwin:322> INFO - === Thu May 11, 2023, 18:31:55
+[219] Biber.pm:415> INFO - Reading 'OPE.bcf'
+[444] Biber.pm:943> INFO - Found 2 citekeys in bib section 0
+[469] Biber.pm:4256> INFO - Processing section 0
+[470] Utils.pm:75> INFO - Globbing data source '../ref/ref.bib'
+[470] Utils.pm:91> INFO - Globbed data source '../ref/ref.bib' to ../ref/ref.bib
+[494] Biber.pm:4455> INFO - Looking for bibtex format file '../ref/ref.bib' for section 0
+[496] bibtex.pm:1653> INFO - LaTeX decoding ...
+[532] bibtex.pm:1471> INFO - Found BibTeX data source '../ref/ref.bib'
+[587] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[587] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[587] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[587] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[599] bbl.pm:652> INFO - Writing 'OPE.bbl' with encoding 'UTF-8'
+[601] bbl.pm:755> INFO - Output to OPE.bbl

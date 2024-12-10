@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{14.1 Quantum Hall fluids on a torus}{6}{0}{1}
+\beamer@sectionintoc {2}{14.2 Hydrodynamic theory}{21}{0}{2}
+\beamer@sectionintoc {3}{14.3 Hierarchical state}{24}{0}{3}
+\beamer@sectionintoc {4}{14.4 Multi-component abelian fluids}{30}{0}{4}
+\beamer@sectionintoc {5}{14.6 Non-abelian quantum Hall states}{34}{0}{5}
+\beamer@sectionintoc {6}{14. 7 The spin-singlet Halperin states}{52}{0}{6}
+\beamer@sectionintoc {7}{14.8 Moore-Read states and their generalizations}{55}{0}{7}
