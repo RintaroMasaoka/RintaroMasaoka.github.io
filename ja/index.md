@@ -33,5 +33,3 @@ masaokarintaro2115[at]g.ecc.u-tokyo.ac.jp
 
 ## 奨学金
 2024年10月 -- : 変革を駆動する先端物理・数学プログラム 卓越RA
-
-[Repository](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io)
