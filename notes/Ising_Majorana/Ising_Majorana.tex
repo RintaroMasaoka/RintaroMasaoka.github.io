@@ -1,0 +1,60 @@
+\documentclass[12pt]{ltjsarticle}
+\usepackage{amsmath,ascmac,amssymb,mathtools,siunitx,diffcoeff,inputenc}
+\usepackage{mygraphics}
+\graphicspath{{../images/}}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../ref/ref.bib}
+\usepackage[oldfont,exchangeupit]{unicommand}
+\usepackage{subfiles}
+
+%% options %%
+\renewcommand{\headfont}{\bfseries}
+% \numberwithin{equation}{section}
+% \renewcommand*\abstractname{}
+% \setlength{\parindent}{0pt}
+\begin{document}
+\title{Majoranaフェルミオンによる2次元Ising模型の厳密解}
+\author{政岡凜太郎}
+\maketitle
+
+\section{転送行列}
+
+\begin{align}
+    Z = \Tr(T^L)
+\end{align}
+\begin{align}
+    T = V₁^{1/2}V₂V₁^{1/2}
+\end{align}
+\begin{align}&
+    ⟨\{σ\}|V₁|\{σ'\}⟩ = ∏_i δ_{σ_iσ'_i} ∏_i ℯ^{βσ_iσ_{i+1}} \\
+    &
+    ⟨\{σ\}|V₂|\{σ'\}⟩ = ∏_i ℯ^{βσ_iσ'_i}
+\end{align}
+\begin{align}&
+    V₁ = ∏_i ℯ^{βZ_iZ_{i+1}} = ∏_i(\cosh β + \sinh β Z_iZ_{i+1} ) \\
+    &
+    V₂^{1/2} = ∏_i (ℯ^{β/2} + ℯ^{-β/2} X_i)
+\end{align}
+% \begin{align}
+%     ∑_{q ∈ 2𝜋ℤ_L/L} ε_q ∑_{q ∈ 2𝜋(ℤ_L+÷1{2})/L} ε_q
+% \end{align}
+% \begin{align}
+%     ∑_q ε_q = ∑_{q ∈ ÷{2𝜋}{L}ℤ_L} ∑_{x ∈ ℤ} c_x ℯ^{¡qx}
+% \end{align}
+% \begin{align}
+%     ∑_q ε_q = ∑_{q ∈ ÷{2𝜋}{L}(ℤ_L+÷1{2})} ∑_{x ∈ ℤ} c_x ℯ^{¡qx}
+%     = ∑_{q ∈ ÷{2𝜋}{L}ℤ_L} ∑_{x ∈ ℤ} c_x ℯ^{¡𝜋x/L} ℯ^{¡qx}
+% \end{align}
+% \begin{align}
+%     L ∑_{n ∈ ℤ} (1-(-1)^n) c_{Ln}
+%     = 2L ∑_{n ∈ 2ℤ+1} c_{Ln}
+% \end{align}
+% \begin{align}
+%     ÷1{2}（ε（q+÷1{2}δq） + ε（q-÷1{2}δq）） - ε(q)
+%     = ÷1{8}ε''(q)δq² + O(δq⁴)
+% \end{align}
+% \begin{align}
+%     ∑_q ε''(q)δq² = O(δq²)
+% \end{align}
+
+\end{document}
