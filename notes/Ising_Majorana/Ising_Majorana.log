@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  11 DEC 2024 20:03
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  12 DEC 2024 13:29
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/Ising_Majorana/Ising_Majorana
@@ -1495,7 +1495,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 11.09657pt on input line 20.
 (load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc) [1
 
-] [2] (./Ising_Majorana.aux)
+] (./Ising_Majorana.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1508,19 +1508,19 @@ Package logreq Info: Writing requests to 'Ising_Majorana.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 47021 strings out of 476447
+ 47014 strings out of 476447
  125244,2373549 words of node,token memory allocated
  1211 words of node memory still in use:
    11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 227 attribute, 72 glue_spec, 33 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:11,2:9345,3:204,4:589,5:363,6:16,7:2096,8:55,9:1345,10:19,11:6
+   avail lists: 1:11,2:6136,3:152,4:413,5:207,6:15,7:1342,8:35,9:792,10:19,11:6
  68145 multiletter control sequences out of 65536+600000
- 84 fonts using 68856991 bytes
- 125i,11n,141p,2002b,851s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Ising_Majorana.pdf (2 pages, 35349 bytes).
+ 84 fonts using 68857079 bytes
+ 125i,9n,141p,2002b,851s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf>
+Output written on Ising_Majorana.pdf (1 page, 28142 bytes).
 
-PDF statistics: 97 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 131072)
+PDF statistics: 83 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 131072)
  24 words of extra memory for PDF output out of 10000 (max. 100000000)
 
