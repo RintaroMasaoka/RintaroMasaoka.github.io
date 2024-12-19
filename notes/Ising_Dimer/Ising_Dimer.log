@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  11 DEC 2024 17:55
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  19 DEC 2024 15:24
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/Ising_Dimer/Ising_Dimer
@@ -1220,94 +1220,115 @@ Package unicode-math Warning: I'm going to overwrite the following commands
 
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 15.97902pt on input line 18.
+(Font)              scaled to size 15.97902pt on input line 19.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 15.97902pt on input line 18.
+(Font)              scaled to size 15.97902pt on input line 19.
 (load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 18.
+(Font)              scaled to size 11.09656pt on input line 19.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 18.
-LaTeX Font Info:    Calculating math sizes for size <14.39996> on input line 18.
+(Font)              scaled to size 11.09656pt on input line 19.
+LaTeX Font Info:    Calculating math sizes for size <14.39996> on input line 19.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.76755pt on input line 18.
+(Font)              scaled to size 7.76755pt on input line 19.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 18.
+(Font)              scaled to size 5.54828pt on input line 19.
 (load cache: extra_lmroman12-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 24.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24715pt on input line 24.
+(Font)              scaled to size 9.24715pt on input line 25.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 24.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24715pt on input line 24.
+(Font)              scaled to size 9.24715pt on input line 25.
 (load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 114.
+(Font)              scaled to size 6.47299pt on input line 115.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 114.
+(Font)              scaled to size 4.62357pt on input line 115.
 [1
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <9.59998> on input line 123.
+LaTeX Font Info:    Calculating math sizes for size <9.59998> on input line 124.
 (load cache: extra_lmroman6-regular.luc)
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.17834pt on input line 123.
+(Font)              scaled to size 5.17834pt on input line 124.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 3.69885pt on input line 123.
+(Font)              scaled to size 3.69885pt on input line 124.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.17834pt on input line 123.
+(Font)              scaled to size 5.17834pt on input line 124.
 
 warning  (file ./images/../images/lattice_modification.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<./images/../images/lattice_modification.pdf, id=23, 1064.97874pt x 441.65pt>
+<./images/../images/lattice_modification.pdf, id=22, 1064.97874pt x 441.65pt>
 File: ./images/../images/lattice_modification.pdf Graphic file (type pdf)
 <use ./images/../images/lattice_modification.pdf>
-Package luatex.def Info: ./images/../images/lattice_modification.pdf  used on input line 152.
+Package luatex.def Info: ./images/../images/lattice_modification.pdf  used on input line 153.
 (luatex.def)             Requested size: 310.7014pt x 128.84346pt.
-[2]
+
 warning  (file ./images/../images/vertex.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<./images/../images/vertex.pdf, id=34, 284.28682pt x 180.675pt>
+<./images/../images/vertex.pdf, id=23, 284.28682pt x 180.675pt>
 File: ./images/../images/vertex.pdf Graphic file (type pdf)
 <use ./images/../images/vertex.pdf>
-Package luatex.def Info: ./images/../images/vertex.pdf  used on input line 157.
+Package luatex.def Info: ./images/../images/vertex.pdf  used on input line 158.
 (luatex.def)             Requested size: 177.54172pt x 112.83612pt.
-[3<./images/../images/lattice_modification.pdf><./images/../images/vertex.pdf>]
+[2<./images/../images/lattice_modification.pdf>]
 warning  (file ./images/../images/3vertices.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<./images/../images/3vertices.pdf, id=45, 369.38pt x 98.69171pt>
+<./images/../images/3vertices.pdf, id=35, 369.38pt x 98.69171pt>
 File: ./images/../images/3vertices.pdf Graphic file (type pdf)
 <use ./images/../images/3vertices.pdf>
-Package luatex.def Info: ./images/../images/3vertices.pdf  used on input line 205.
+Package luatex.def Info: ./images/../images/3vertices.pdf  used on input line 206.
 (luatex.def)             Requested size: 221.93054pt x 59.29527pt.
-[4<./images/../images/3vertices.pdf>]
+[3<./images/../images/vertex.pdf>]
 warning  (file ./images/../images/standard_covering.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<./images/../images/standard_covering.pdf, id=53, 353.32pt x 353.32pt>
+<./images/../images/standard_covering.pdf, id=45, 353.32pt x 353.32pt>
 File: ./images/../images/standard_covering.pdf Graphic file (type pdf)
 <use ./images/../images/standard_covering.pdf>
-Package luatex.def Info: ./images/../images/standard_covering.pdf  used on input line 249.
+Package luatex.def Info: ./images/../images/standard_covering.pdf  used on input line 250.
 (luatex.def)             Requested size: 110.96527pt x 110.96213pt.
-
+[4<./images/../images/3vertices.pdf>]
 warning  (file ./images/../images/loop.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <./images/../images/loop.pdf, id=55, 923.45pt x 222.8325pt>
 File: ./images/../images/loop.pdf Graphic file (type pdf)
 <use ./images/../images/loop.pdf>
-Package luatex.def Info: ./images/../images/loop.pdf  used on input line 260.
+Package luatex.def Info: ./images/../images/loop.pdf  used on input line 261.
 (luatex.def)             Requested size: 221.93054pt x 53.55229pt.
-[5<./images/../images/standard_covering.pdf><./images/../images/loop.pdf>]
+
 warning  (file ./images/../images/parts.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<./images/../images/parts.pdf, id=66, 1074.39014pt x 944.52875pt>
+<./images/../images/parts.pdf, id=56, 1074.39014pt x 944.52875pt>
 File: ./images/../images/parts.pdf Graphic file (type pdf)
 <use ./images/../images/parts.pdf>
-Package luatex.def Info: ./images/../images/parts.pdf  used on input line 287.
+Package luatex.def Info: ./images/../images/parts.pdf  used on input line 288.
 (luatex.def)             Requested size: 310.7014pt x 273.14247pt.
-
+[5<./images/../images/standard_covering.pdf><./images/../images/loop.pdf>]
 warning  (file ./images/../images/sign.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
-<./images/../images/sign.pdf, id=67, 750.805pt x 247.23666pt>
+<./images/../images/sign.pdf, id=66, 750.805pt x 247.23666pt>
 File: ./images/../images/sign.pdf Graphic file (type pdf)
 <use ./images/../images/sign.pdf>
-Package luatex.def Info: ./images/../images/sign.pdf  used on input line 302.
-(luatex.def)             Requested size: 177.54172pt x 58.46278pt.
-[6<./images/../images/parts.pdf><./images/../images/sign.pdf>] [7] [8] (./Ising_Dimer.aux)
+Package luatex.def Info: ./images/../images/sign.pdf  used on input line 303.
+(luatex.def)             Requested size: 221.93054pt x 73.0813pt.
+
+warning  (file ./images/nontrivial_cycles.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
+<./images/nontrivial_cycles.pdf, id=67, 646.415pt x 205.76875pt>
+File: ./images/nontrivial_cycles.pdf Graphic file (type pdf)
+<use ./images/nontrivial_cycles.pdf>
+Package luatex.def Info: ./images/nontrivial_cycles.pdf  used on input line 321.
+(luatex.def)             Requested size: 177.54172pt x 56.51593pt.
+[6<./images/../images/parts.pdf><./images/../images/sign.pdf>]
+warning  (file ./images/unit_cocycle.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
+<./images/unit_cocycle.pdf, id=75, 557.13504pt x 163.13823pt>
+File: ./images/unit_cocycle.pdf Graphic file (type pdf)
+<use ./images/unit_cocycle.pdf>
+Package luatex.def Info: ./images/unit_cocycle.pdf  used on input line 341.
+(luatex.def)             Requested size: 133.15967pt x 38.98967pt.
+
+warning  (file ./images/cocycle.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
+<./images/cocycle.pdf, id=76, 301.125pt x 301.125pt>
+File: ./images/cocycle.pdf Graphic file (type pdf)
+<use ./images/cocycle.pdf>
+Package luatex.def Info: ./images/cocycle.pdf  used on input line 348.
+(luatex.def)             Requested size: 88.77086pt x 88.77136pt.
+[7<./images/nontrivial_cycles.pdf><./images/unit_cocycle.pdf>] [8<./images/cocycle.pdf>] [9] [10] (./Ising_Dimer.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1317,19 +1338,19 @@ Package rerunfilecheck Info: File `Ising_Dimer.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 40170 strings out of 476447
+ 40222 strings out of 476447
  125244,1977958 words of node,token memory allocated
  1223 words of node memory still in use:
    11 hlist, 2 vlist, 5 rule, 4 glue, 4 kern, 1 glyph, 249 attribute, 62 glue_spec, 35 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:12,2:30237,3:252,4:333,5:227,6:32,7:3480,8:73,9:1560,10:20,11:32
- 61331 multiletter control sequences out of 65536+600000
- 109 fonts using 80491171 bytes
- 125i,15n,141p,1996b,880s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Ising_Dimer.pdf (8 pages, 303862 bytes).
+   avail lists: 1:17,2:33008,3:269,4:404,5:278,6:33,7:4340,8:73,9:1889,10:20,11:36
+ 61362 multiletter control sequences out of 65536+600000
+ 109 fonts using 80491295 bytes
+ 125i,15n,141p,1996b,833s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Ising_Dimer.pdf (10 pages, 335130 bytes).
 
-PDF statistics: 161 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 131072)
+PDF statistics: 181 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
