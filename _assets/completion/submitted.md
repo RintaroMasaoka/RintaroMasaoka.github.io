@@ -1,1 +1,1 @@
-- ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems", [arxiv:2406.06415](https://arxiv.org/abs/2406.06415)
+- ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems", [arxiv:2406.06415](https://arxiv.org/abs/2406.06415) [.](/ja/stories/RigorousBound)
