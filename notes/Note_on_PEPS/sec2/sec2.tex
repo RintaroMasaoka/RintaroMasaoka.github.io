@@ -10,7 +10,7 @@
     $𝒱$をvirtual space, $ℋ$をphysical spaceまたはlocal Hilbert spaceと呼ぶことにする。
     テンソル$A ∈  \L(𝒱) ⊗ ℋ$を以下のように定義する。
     \begin{align}
-        A = ∑_{i,j,s} A^s_{ij} |i⟩⟨j|_{𝒱} |s⟩_{ℋ} = \A
+        A = ∑_{i,j,s} A^s_{ij} |i⟩⟨j|_{𝒱} |s⟩_{ℋ} = \mfig{A}
     \end{align}
     % このとき以下の状態$|ψ⟩ ∈ ℋ^{⊗L}$を$A$から定まるOBC-MPSと呼ぶ。
     % \begin{align}
@@ -81,8 +81,8 @@
     である。これらは擬逆行列の定義から直交射影となる。
     これらの射影の像を考えよう。
     $\im (𝒫(A)𝒫(A)⁺) = \im 𝒫(A) ⊊ ℋ$の場合はlocal Hilbert spaceをとり直すことで常に$\im 𝒫(A) = ℋ$とできる。
-    次に$\im (𝒫(A)𝒫(A)⁺) ⊂ 𝒱' ⊗ 𝒱' ⊊ 𝒱 ⊗ 𝒱$の場合、virtual spaceを$𝒱'$に取り直す。
-    しかし、それでも$\im (𝒫(A)𝒫(A)⁺) ⊊ 𝒱' ⊗ 𝒱'$となり得る。
+    次に$\im (𝒫(A)⁺𝒫(A)) ⊂ 𝒱' ⊗ 𝒱' ⊊ 𝒱 ⊗ 𝒱$の場合、virtual spaceを$𝒱'$に取り直す。
+    しかし、それでも$\im (𝒫(A)⁺𝒫(A)) ⊊ 𝒱' ⊗ 𝒱'$となり得る。
     この空間をMPSおよびPEPSの特徴づけとして利用するのがinjectivityの考え方である。
     さらに$\im(𝒫(A)⁺𝒫(A))$は
     \begin{align}&
@@ -100,7 +100,7 @@
         \item $𝒫(A)⁺𝒫(A) = 𝟙.$
         これは以下のように図示される。
         \begin{align}
-            \AinvA ~=~\idid
+            \mfig{AinvA} ~=~\mfig{idid}
         \end{align}
     \end{enumerate}
 \end{lemma}
@@ -118,9 +118,6 @@
 \end{lemma}
 \begin{proof}
     $\Span\{A^sB^t\}_{s,t} = \L(𝒱)\L(𝒱) = \L(𝒱).$
-    % \begin{align}
-    %     \AinvA\BinvB = \idid\idid ∝ \idid.
-    % \end{align}
 \end{proof}
 
 \begin{remark}
@@ -135,14 +132,14 @@
 \begin{theorem}[Intersection property] \label{Intersection property}
     $A, B ∈ \L(𝒱) ⊗ ℋ$をinjectiveなテンソルとする。このとき、
     \begin{align}
-        ｛\ABM\Mid M｝ ∩ ｛\NBC\Mid N｝ = ｛\ABCX\Mid X｝
+        ｛\mfig{ABM}\Mid M｝ ∩ ｛\mfig{NBC}\Mid N｝ = ｛\mfig{ABCX}\Mid X｝
     \end{align}
 \end{theorem}
 \begin{proof}
 右辺$⊂$左辺は明らかなので左辺$⊂$右辺を示す。
 左辺の元に対して、テンソル$X$が存在して
 \begin{align}
-    \N ∝ \AX
+    \mfig{N} ∝ \mfig{AX}
 \end{align}
 と書けるならば、右辺にも属することが示される。
 このような$X$は具体的に以下のように構成される。
@@ -157,7 +154,7 @@
 \begin{theorem}[Closure property]\label{Closure property}
     $A, B ∈ \L(𝒱) ⊗ ℋ$をinjectiveなテンソルとする。このとき
     \begin{align}
-        ｛\AMB\Mid M｝ ∩ ｛\ANB\Mid N｝ = ｛λ\AB\Mid λ ∈ ℂ｝
+        ｛\mfig{AMB}\Mid M｝ ∩ ｛\mfig{ANB}\Mid N｝ = ｛λ\mfig{AB}\Mid λ ∈ ℂ｝
     \end{align}
 \end{theorem}
 \begin{proof}
