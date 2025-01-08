@@ -36,13 +36,13 @@
         \end{align}
         これは以下のように図示される。
         \begin{align}
-           \AinvA = ÷1{|G|}∑_{g ∈ G}\mfig{gginv} ≕ \mfig{pi}
+           \mfig{AinvA} = ÷1{|G|}∑_{g ∈ G}\mfig{gginv} ≕ \mfig{pi}
         \end{align}
         ただし図式では$U_g$の代わりに$g$と書いた。
     \end{enumerate}
 \end{lemma}
 
-$Π ≔ 𝒫(A)^{-1}𝒫(A)$が射影演算子であることは以下のように示される。
+$Π ≔ 𝒫(A)⁺𝒫(A)$が射影演算子であることは以下のように示される。
 \begin{align}
     Π²(X) = ÷1{|G|²}∑_{g,h ∈ G}U_{gh}XU_{gh}^† = ÷1{|G|}∑_{g ∈ G}U_g X U_g^† = Π(X).
 \end{align}
@@ -58,7 +58,7 @@ $Π ≔ 𝒫(A)^{-1}𝒫(A)$が射影演算子であることは以下のよう�
 %     % よって$𝒫(A)^{-1}𝒫(A) = Π$のとき、$\Span\{⟨s|A\}_s = \Hom_G(𝒱,𝒱)$である。また$\Span\{⟨s|A\}_s = \Hom_G(𝒱,𝒱)$ならば
 %     % $𝒫(A)^{-1}𝒫(A) = Π$のとき、任意の$X ∈ \Hom_G(𝒱,𝒱)$に対して
 %     % \begin{align}
-%     %     \X = \mfig{XAinvA}
+%     %     \mfig{X} = \mfig{XAinvA}
 %     % \end{align}
 %     % であるから、$\Hom_G(𝒱,𝒱) ⊂ \im 𝒫(A)^𝑇$である。また
 %     % \begin{align}
@@ -146,14 +146,14 @@ $Π ≔ 𝒫(A)^{-1}𝒫(A)$が射影演算子であることは以下のよう�
 \begin{theorem}[Intersection property] \label{G-Intersection property}
     $A, B ∈ \L(𝒱) ⊗ ℋ$を\hyperref[def: G-injectivity]{$G$-injective}なテンソルとする。このとき、
     \begin{align}
-        ｛\ABM\Mid M｝ ∩ ｛\NBC\Mid N｝ = ｛\ABCX\Mid X｝
+        ｛\mfig{ABM}\Mid M｝ ∩ ｛\mfig{NBC}\Mid N｝ = ｛\mfig{ABCX}\Mid X｝
     \end{align}
 \end{theorem}
 \begin{proof}
     右辺$⊂$左辺は明らかなので左辺$⊂$右辺を示す。
     左辺の元に対し、$B, C$が\hyperref[def: G-injectivity]{$G$-injective}なことから
     \begin{align}
-       \NBC = \mfig{NgginvBC}
+       \mfig{NBC} = \mfig{NgginvBC}
        \label{insertion of gginv to NBC}
     \end{align}
     である。ここで
@@ -172,7 +172,7 @@ $Π ≔ 𝒫(A)^{-1}𝒫(A)$が射影演算子であることは以下のよう�
 \begin{theorem}[Closure property]\label{G-Closure property}
     $A, B ∈ \L(𝒱) ⊗ ℋ$を\hyperref[def: G-injectivity]{$G$-injective}なテンソルとする。
     \begin{align}
-        ｛\AMB\Mid M｝ ∩ ｛\ANB\Mid N｝ = ｛∑_{g ∈ G} λ_g\gAB\Mid λ_g｝
+        ｛\mfig{AMB}\Mid M｝ ∩ ｛\mfig{ANB}\Mid N｝ = ｛∑_{g ∈ G} λ_g\mfig{gAB}\Mid λ_g｝
     \end{align}
 \end{theorem}
 \begin{proof}
