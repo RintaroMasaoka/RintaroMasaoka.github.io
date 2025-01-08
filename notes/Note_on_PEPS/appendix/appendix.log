@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  4 SEP 2024 18:44
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  8 JAN 2025 17:11
  restricted system commands enabled.
  file:line:error style messages enabled.
-**"/Users/rintaromasaoka/Desktop/Study/Uncle Hamiltonian/Note_on_PEPS/appendix/appendix"
-("/Users/rintaromasaoka/Desktop/Study/Uncle Hamiltonian/Note_on_PEPS/appendix/appendix.tex"
+**/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/Note_on_PEPS/appendix/appendix
+(/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/Note_on_PEPS/appendix/appendix.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -1021,59 +1021,60 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \c@tcb@cnt@lemma=\count366
 \c@tcb@cnt@corollary=\count367
 \c@tcb@cnt@remark=\count368
+\c@tcb@cnt@observation=\count369
  (/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count369
+\lrq@indent=\count370
  (/usr/local/texlive/2024/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count370
-\c@listtotal=\count371
-\c@listcount=\count372
-\c@liststart=\count373
-\c@liststop=\count374
-\c@citecount=\count375
-\c@citetotal=\count376
-\c@multicitecount=\count377
-\c@multicitetotal=\count378
-\c@instcount=\count379
-\c@maxnames=\count380
-\c@minnames=\count381
-\c@maxitems=\count382
-\c@minitems=\count383
-\c@citecounter=\count384
-\c@maxcitecounter=\count385
-\c@savedcitecounter=\count386
-\c@uniquelist=\count387
-\c@uniquename=\count388
-\c@refsection=\count389
-\c@refsegment=\count390
-\c@maxextratitle=\count391
-\c@maxextratitleyear=\count392
-\c@maxextraname=\count393
-\c@maxextradate=\count394
-\c@maxextraalpha=\count395
-\c@abbrvpenalty=\count396
-\c@highnamepenalty=\count397
-\c@lownamepenalty=\count398
-\c@maxparens=\count399
-\c@parenlevel=\count400
-\blx@tempcnta=\count401
-\blx@tempcntb=\count402
-\blx@tempcntc=\count403
-\c@blx@maxsection=\count404
-\blx@maxsegment@0=\count405
-\blx@notetype=\count406
-\blx@parenlevel@text=\count407
-\blx@parenlevel@foot=\count408
-\blx@sectionciteorder@0=\count409
-\blx@sectionciteorderinternal@0=\count410
-\blx@entrysetcounter=\count411
-\blx@biblioinstance=\count412
+\c@tabx@nest=\count371
+\c@listtotal=\count372
+\c@listcount=\count373
+\c@liststart=\count374
+\c@liststop=\count375
+\c@citecount=\count376
+\c@citetotal=\count377
+\c@multicitecount=\count378
+\c@multicitetotal=\count379
+\c@instcount=\count380
+\c@maxnames=\count381
+\c@minnames=\count382
+\c@maxitems=\count383
+\c@minitems=\count384
+\c@citecounter=\count385
+\c@maxcitecounter=\count386
+\c@savedcitecounter=\count387
+\c@uniquelist=\count388
+\c@uniquename=\count389
+\c@refsection=\count390
+\c@refsegment=\count391
+\c@maxextratitle=\count392
+\c@maxextratitleyear=\count393
+\c@maxextraname=\count394
+\c@maxextradate=\count395
+\c@maxextraalpha=\count396
+\c@abbrvpenalty=\count397
+\c@highnamepenalty=\count398
+\c@lownamepenalty=\count399
+\c@maxparens=\count400
+\c@parenlevel=\count401
+\blx@tempcnta=\count402
+\blx@tempcntb=\count403
+\blx@tempcntc=\count404
+\c@blx@maxsection=\count405
+\blx@maxsegment@0=\count406
+\blx@notetype=\count407
+\blx@parenlevel@text=\count408
+\blx@parenlevel@foot=\count409
+\blx@sectionciteorder@0=\count410
+\blx@sectionciteorderinternal@0=\count411
+\blx@entrysetcounter=\count412
+\blx@biblioinstance=\count413
 \labelnumberwidth=\skip71
 \labelalphawidth=\skip72
 \biblabelsep=\skip73
@@ -1085,9 +1086,9 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \blx@bcfin=\read4
 \blx@bcfout=\write4
 \blx@langwohyphens=\language3
-\c@mincomprange=\count413
-\c@maxcomprange=\count414
-\c@mincompwidth=\count415
+\c@mincomprange=\count414
+\c@maxcomprange=\count415
+\c@mincompwidth=\count416
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/blx-dm.def
@@ -1095,74 +1096,74 @@ File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count416
-\c@savedafterword=\count417
-\c@annotator=\count418
-\c@savedannotator=\count419
-\c@author=\count420
-\c@savedauthor=\count421
-\c@bookauthor=\count422
-\c@savedbookauthor=\count423
-\c@commentator=\count424
-\c@savedcommentator=\count425
-\c@editor=\count426
-\c@savededitor=\count427
-\c@editora=\count428
-\c@savededitora=\count429
-\c@editorb=\count430
-\c@savededitorb=\count431
-\c@editorc=\count432
-\c@savededitorc=\count433
-\c@foreword=\count434
-\c@savedforeword=\count435
-\c@holder=\count436
-\c@savedholder=\count437
-\c@introduction=\count438
-\c@savedintroduction=\count439
-\c@namea=\count440
-\c@savednamea=\count441
-\c@nameb=\count442
-\c@savednameb=\count443
-\c@namec=\count444
-\c@savednamec=\count445
-\c@translator=\count446
-\c@savedtranslator=\count447
-\c@shortauthor=\count448
-\c@savedshortauthor=\count449
-\c@shorteditor=\count450
-\c@savedshorteditor=\count451
-\c@labelname=\count452
-\c@savedlabelname=\count453
-\c@institution=\count454
-\c@savedinstitution=\count455
-\c@lista=\count456
-\c@savedlista=\count457
-\c@listb=\count458
-\c@savedlistb=\count459
-\c@listc=\count460
-\c@savedlistc=\count461
-\c@listd=\count462
-\c@savedlistd=\count463
-\c@liste=\count464
-\c@savedliste=\count465
-\c@listf=\count466
-\c@savedlistf=\count467
-\c@location=\count468
-\c@savedlocation=\count469
-\c@organization=\count470
-\c@savedorganization=\count471
-\c@origlocation=\count472
-\c@savedoriglocation=\count473
-\c@origpublisher=\count474
-\c@savedorigpublisher=\count475
-\c@publisher=\count476
-\c@savedpublisher=\count477
-\c@language=\count478
-\c@savedlanguage=\count479
-\c@origlanguage=\count480
-\c@savedoriglanguage=\count481
-\c@pageref=\count482
-\c@savedpageref=\count483
+\c@afterword=\count417
+\c@savedafterword=\count418
+\c@annotator=\count419
+\c@savedannotator=\count420
+\c@author=\count421
+\c@savedauthor=\count422
+\c@bookauthor=\count423
+\c@savedbookauthor=\count424
+\c@commentator=\count425
+\c@savedcommentator=\count426
+\c@editor=\count427
+\c@savededitor=\count428
+\c@editora=\count429
+\c@savededitora=\count430
+\c@editorb=\count431
+\c@savededitorb=\count432
+\c@editorc=\count433
+\c@savededitorc=\count434
+\c@foreword=\count435
+\c@savedforeword=\count436
+\c@holder=\count437
+\c@savedholder=\count438
+\c@introduction=\count439
+\c@savedintroduction=\count440
+\c@namea=\count441
+\c@savednamea=\count442
+\c@nameb=\count443
+\c@savednameb=\count444
+\c@namec=\count445
+\c@savednamec=\count446
+\c@translator=\count447
+\c@savedtranslator=\count448
+\c@shortauthor=\count449
+\c@savedshortauthor=\count450
+\c@shorteditor=\count451
+\c@savedshorteditor=\count452
+\c@labelname=\count453
+\c@savedlabelname=\count454
+\c@institution=\count455
+\c@savedinstitution=\count456
+\c@lista=\count457
+\c@savedlista=\count458
+\c@listb=\count459
+\c@savedlistb=\count460
+\c@listc=\count461
+\c@savedlistc=\count462
+\c@listd=\count463
+\c@savedlistd=\count464
+\c@liste=\count465
+\c@savedliste=\count466
+\c@listf=\count467
+\c@savedlistf=\count468
+\c@location=\count469
+\c@savedlocation=\count470
+\c@organization=\count471
+\c@savedorganization=\count472
+\c@origlocation=\count473
+\c@savedoriglocation=\count474
+\c@origpublisher=\count475
+\c@savedorigpublisher=\count476
+\c@publisher=\count477
+\c@savedpublisher=\count478
+\c@language=\count479
+\c@savedlanguage=\count480
+\c@origlanguage=\count481
+\c@savedoriglanguage=\count482
+\c@pageref=\count483
+\c@savedpageref=\count484
 \shorthandwidth=\skip79
 \shortjournalwidth=\skip80
 \shortserieswidth=\skip81
@@ -1189,19 +1190,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count484
-\c@textcitetotal=\count485
-\c@textcitemaxnames=\count486
-\c@biburlbigbreakpenalty=\count487
-\c@biburlbreakpenalty=\count488
-\c@biburlnumpenalty=\count489
-\c@biburlucpenalty=\count490
-\c@biburllcpenalty=\count491
+\c@textcitecount=\count485
+\c@textcitetotal=\count486
+\c@textcitemaxnames=\count487
+\c@biburlbigbreakpenalty=\count488
+\c@biburlbreakpenalty=\count489
+\c@biburlnumpenalty=\count490
+\c@biburlucpenalty=\count491
+\c@biburllcpenalty=\count492
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count492
+\c@smartand=\count493
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -1211,8 +1212,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count493
-\c@bbx:relatedtotal=\count494
+\c@bbx:relatedcount=\count494
+\c@bbx:relatedtotal=\count495
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -1252,6 +1253,8 @@ Package: mathcommand 2021/06/07 v1.04
 Package: l3keys2e 2024-02-18 LaTeX2e option processing using LaTeX3 keys
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/carlisle/slashed.sty
+Package: slashed 1997/01/16 v0.01 Feynman Slashed Character Notation (DPC)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math-luatex.sty
@@ -1260,17 +1263,17 @@ Package: unicode-math-luatex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLa
 Package: fontspec 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
 Lua module: fontspec 2024/02/13 2.9a Font selection for XeLaTeX and LuaLaTeX (/usr/local/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
 Package: fontspec-luatex 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count495
-\l__fontspec_language_int=\count496
-\l__fontspec_strnum_int=\count497
-\l__fontspec_tmp_int=\count498
-\l__fontspec_tmpa_int=\count499
-\l__fontspec_tmpb_int=\count500
-\l__fontspec_tmpc_int=\count501
-\l__fontspec_em_int=\count502
-\l__fontspec_emdef_int=\count503
-\l__fontspec_strong_int=\count504
-\l__fontspec_strongdef_int=\count505
+\l__fontspec_script_int=\count496
+\l__fontspec_language_int=\count497
+\l__fontspec_strnum_int=\count498
+\l__fontspec_tmp_int=\count499
+\l__fontspec_tmpa_int=\count500
+\l__fontspec_tmpb_int=\count501
+\l__fontspec_tmpc_int=\count502
+\l__fontspec_em_int=\count503
+\l__fontspec_emdef_int=\count504
+\l__fontspec_strong_int=\count505
+\l__fontspec_strongdef_int=\count506
 \l__fontspec_tmpa_dim=\dimen323
 \l__fontspec_tmpb_dim=\dimen324
 \l__fontspec_tmpc_dim=\dimen325
@@ -1293,9 +1296,9 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 )) (/usr/local/texlive/2024/texmf-dist/tex/lualatex/lualatex-math/lualatex-math.sty
 Package: lualatex-math 2022/01/01 v1.12 Patches for mathematics typesetting with LuaLaTeX
 Lua module: lualatex-math 2013/08/03 1.3 Patches for mathematics typesetting with LuaLaTeX)
-\g__um_fam_int=\count506
-\g__um_fonts_used_int=\count507
-\l__um_primecount_int=\count508
+\g__um_fam_int=\count507
+\g__um_fonts_used_int=\count508
+\l__um_primecount_int=\count509
 \g__um_primekern_muskip=\muskip23
  (/usr/local/texlive/2024/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (/usr/local/texlive/2024/texmf-dist/tex/luatex/luatexja/patches/lltjp-unicode-math.sty)) (/usr/local/texlive/2024/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
@@ -1307,8 +1310,8 @@ warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 4.
-\@quotelevel=\count509
-\@quotereset=\count510
+\@quotelevel=\count510
+\@quotereset=\count511
  (./appendix.aux)
 \openout1 = appendix.aux
 
@@ -1342,16 +1345,16 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 4.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count511
+\scratchcounter=\count512
 \scratchdimen=\dimen326
 \scratchbox=\box125
-\nofMPsegments=\count512
-\nofMParguments=\count513
+\nofMPsegments=\count513
+\nofMParguments=\count514
 \everyMPshowfont=\toks59
-\MPscratchCnt=\count514
+\MPscratchCnt=\count515
 \MPscratchDim=\dimen327
-\MPnumerator=\count515
-\makeMPintoPDFobject=\count516
+\MPnumerator=\count516
+\makeMPintoPDFobject=\count517
 \everyMPtoPDFconversion=\toks60
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1516,48 +1519,48 @@ Package unicode-math Warning: I'm going to overwrite the following commands
 
 (load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 6.
+(Font)              scaled to size 13.31586pt on input line 5.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 6.
+(Font)              scaled to size 13.31586pt on input line 5.
 (load cache: extra_lmsans12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 6.
+(Font)              scaled to size 13.31586pt on input line 5.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 6.
+(Font)              scaled to size 13.31586pt on input line 5.
 (load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <14.4> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 6.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09657pt on input line 6.
+(Font)              scaled to size 11.09657pt on input line 5.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <14.4> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 6.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09657pt on input line 6.
+(Font)              scaled to size 11.09657pt on input line 5.
 
 warning  (file ../images/AstarA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../images/AstarA.pdf, id=11, 361.35pt x 481.8pt>
 File: ../images/AstarA.pdf Graphic file (type pdf)
 <use ../images/AstarA.pdf>
-Package luatex.def Info: ../images/AstarA.pdf  used on input line 11.
+Package luatex.def Info: ../images/AstarA.pdf  used on input line 10.
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
 File: ../images/AstarA.pdf Graphic file (type pdf)
 <use ../images/AstarA.pdf>
-Package luatex.def Info: ../images/AstarA.pdf  used on input line 11.
+Package luatex.def Info: ../images/AstarA.pdf  used on input line 10.
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
 (load cache: extra_lmroman10-italic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 37.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 37.
+(Font)              scaled to size 7.70596pt on input line 36.
 LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 37.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 37.
-(load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc) [1
+(Font)              scaled to size 7.70596pt on input line 36.
+[1
 
-<../images/AstarA.pdf>] [2] [3]
+<../images/AstarA.pdf>](load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc) [2] [3]
 
-LaTeX Warning: Hyper reference `def: injective' on page 4 undefined on input line 170.
+LaTeX Warning: Hyper reference `def: injective' on page 4 undefined on input line 169.
 
 [4] [5] (./appendix.aux)
  ***********
@@ -1576,19 +1579,19 @@ Package logreq Info: Writing requests to 'appendix.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48023 strings out of 476447
+ 48113 strings out of 476447
  125244,2373549 words of node,token memory allocated
- 1216 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 227 attribute, 73 glue_spec, 33 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:46,2:37316,3:1362,4:815,5:274,6:61,7:3534,8:43,9:1486,10:9,11:54
- 69079 multiletter control sequences out of 65536+600000
+ 1240 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 238 attribute, 73 glue_spec, 34 attribute_list, 2 write, 14 user_defined nodes
+   avail lists: 1:5,2:29555,3:1342,4:810,5:267,6:59,7:3318,8:43,9:1398,10:7,11:54
+ 69164 multiletter control sequences out of 65536+600000
  64 fonts using 46301843 bytes
- 145i,15n,144p,2056b,1010s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 145i,15n,144p,2061b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on appendix.pdf (5 pages, 118055 bytes).
+Output written on appendix.pdf (5 pages, 114776 bytes).
 
-PDF statistics: 154 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+PDF statistics: 153 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
  42 named destinations out of 1000 (max. 131072)
  24 words of extra memory for PDF output out of 10000 (max. 100000000)
 

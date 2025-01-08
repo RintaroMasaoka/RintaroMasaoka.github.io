@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  12 DEC 2024 20:20
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  8 JAN 2025 17:11
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/Note_on_PEPS/main/main
@@ -1306,40 +1306,40 @@ warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 ) (/usr/local/texlive/2024/texmf-dist/tex/luatex/luatexja/patches/lltjp-array.sty
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 172.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 149.
 \@quotelevel=\count510
 \@quotereset=\count511
  (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 172.
-LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 172.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 149.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count512
@@ -1362,7 +1362,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 172.
+Package hyperref Info: Link coloring ON on input line 149.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 
@@ -1381,23 +1381,23 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 172.
-Package biblatex Info: Reference segment=0 on input line 172.
+Package biblatex Info: Reference section=0 on input line 149.
+Package biblatex Info: Reference segment=0 on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 172.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 172.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 172.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 172.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 172.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 172.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 172.
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 172.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 149.
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 149.
 (load cache: extra_latinmodernmath-regular.luc)
 
 Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
@@ -1430,13 +1430,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 172.
+(Font)              `operators' in the math version `normal' on input line 149.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 172.
+(Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 149.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 172.
+(Font)              `operators' in the math version `bold' on input line 149.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 172.
+(Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 149.
 
 Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             'latinmodern-math.otf' with options
@@ -1453,13 +1453,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 172.
+(Font)              `symbols' in the math version `normal' on input line 149.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 172.
+(Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 149.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 172.
+(Font)              `symbols' in the math version `bold' on input line 149.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 172.
+(Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 149.
 
 Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             'latinmodern-math.otf' with options
@@ -1476,22 +1476,22 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 172.
+(Font)              `largesymbols' in the math version `normal' on input line 149.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 172.
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 149.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 172.
+(Font)              `largesymbols' in the math version `bold' on input line 149.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 172.
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 149.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 172.
+(Font)              scaled to size 6.47299pt on input line 149.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 172.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 172.
+(Font)              scaled to size 4.62357pt on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 149.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 172.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 149.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1515,37 +1515,37 @@ Package unicode-math Warning: I'm going to overwrite the following commands
 
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 15.97902pt on input line 176.
+(Font)              scaled to size 15.97902pt on input line 154.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 15.97902pt on input line 176.
+(Font)              scaled to size 15.97902pt on input line 154.
 (load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 176.
+(Font)              scaled to size 11.09656pt on input line 154.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 176.
-LaTeX Font Info:    Calculating math sizes for size <14.39996> on input line 176.
+(Font)              scaled to size 11.09656pt on input line 154.
+LaTeX Font Info:    Calculating math sizes for size <14.39996> on input line 154.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.76755pt on input line 176.
+(Font)              scaled to size 7.76755pt on input line 154.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 176.
+(Font)              scaled to size 5.54828pt on input line 154.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 177.
+(Font)              scaled to size 13.31586pt on input line 155.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 177.
+(Font)              scaled to size 13.31586pt on input line 155.
 (load cache: extra_lmsans12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 177.
+(Font)              scaled to size 13.31586pt on input line 155.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 177.
+(Font)              scaled to size 13.31586pt on input line 155.
 (load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <14.4> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 177.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 155.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09657pt on input line 177.
+(Font)              scaled to size 11.09657pt on input line 155.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <14.4> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 177.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 155.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09657pt on input line 177.
+(Font)              scaled to size 11.09657pt on input line 155.
 (./main.toc)
 \tf@toc=\write6
 
@@ -1665,36 +1665,36 @@ warning  (file ../sec2/../images/ABM.pdf) (pdf inclusion): PDF inclusion: found 
 <../sec2/../images/ABM.pdf, id=126, 664.4825pt x 481.8pt>
 File: ../sec2/../images/ABM.pdf Graphic file (type pdf)
 <use ../sec2/../images/ABM.pdf>
-Package luatex.def Info: ../sec2/../images/ABM.pdf  used on input line 139.
+Package luatex.def Info: ../sec2/../images/ABM.pdf  used on input line 136.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 
 warning  (file ../sec2/../images/NBC.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/NBC.pdf, id=127, 664.4825pt x 481.8pt>
 File: ../sec2/../images/NBC.pdf Graphic file (type pdf)
 <use ../sec2/../images/NBC.pdf>
-Package luatex.def Info: ../sec2/../images/NBC.pdf  used on input line 139.
+Package luatex.def Info: ../sec2/../images/NBC.pdf  used on input line 136.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 
 warning  (file ../sec2/../images/ABCX.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/ABCX.pdf, id=128, 726.715pt x 481.8pt>
 File: ../sec2/../images/ABCX.pdf Graphic file (type pdf)
 <use ../sec2/../images/ABCX.pdf>
-Package luatex.def Info: ../sec2/../images/ABCX.pdf  used on input line 139.
+Package luatex.def Info: ../sec2/../images/ABCX.pdf  used on input line 136.
 (luatex.def)             Requested size: 79.93889pt x 52.99815pt.
 File: ../sec2/../images/ABM.pdf Graphic file (type pdf)
 <use ../sec2/../images/ABM.pdf>
-Package luatex.def Info: ../sec2/../images/ABM.pdf  used on input line 139.
+Package luatex.def Info: ../sec2/../images/ABM.pdf  used on input line 136.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 File: ../sec2/../images/NBC.pdf Graphic file (type pdf)
 <use ../sec2/../images/NBC.pdf>
-Package luatex.def Info: ../sec2/../images/NBC.pdf  used on input line 139.
+Package luatex.def Info: ../sec2/../images/NBC.pdf  used on input line 136.
 (luatex.def)             Requested size: 73.09329pt x 52.99815pt.
 File: ../sec2/../images/ABCX.pdf Graphic file (type pdf)
 <use ../sec2/../images/ABCX.pdf>
-Package luatex.def Info: ../sec2/../images/ABCX.pdf  used on input line 139.
+Package luatex.def Info: ../sec2/../images/ABCX.pdf  used on input line 136.
 (luatex.def)             Requested size: 79.93889pt x 52.99815pt.
 
-Overfull \hbox (2.13246pt too wide) detected at line 139
+Overfull \hbox (2.13246pt too wide) detected at line 136
 [][]
  []
 
@@ -1703,154 +1703,154 @@ warning  (file ../sec2/../images/N.pdf) (pdf inclusion): PDF inclusion: found PD
 <../sec2/../images/N.pdf, id=142, 240.9pt x 481.8pt>
 File: ../sec2/../images/N.pdf Graphic file (type pdf)
 <use ../sec2/../images/N.pdf>
-Package luatex.def Info: ../sec2/../images/N.pdf  used on input line 146.
+Package luatex.def Info: ../sec2/../images/N.pdf  used on input line 143.
 (luatex.def)             Requested size: 26.49907pt x 52.99815pt.
 
 warning  (file ../sec2/../images/AX.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/AX.pdf, id=143, 301.125pt x 481.8pt>
 File: ../sec2/../images/AX.pdf Graphic file (type pdf)
 <use ../sec2/../images/AX.pdf>
-Package luatex.def Info: ../sec2/../images/AX.pdf  used on input line 146.
+Package luatex.def Info: ../sec2/../images/AX.pdf  used on input line 143.
 (luatex.def)             Requested size: 33.12384pt x 52.99815pt.
 File: ../sec2/../images/N.pdf Graphic file (type pdf)
 <use ../sec2/../images/N.pdf>
-Package luatex.def Info: ../sec2/../images/N.pdf  used on input line 146.
+Package luatex.def Info: ../sec2/../images/N.pdf  used on input line 143.
 (luatex.def)             Requested size: 26.49907pt x 52.99815pt.
 File: ../sec2/../images/AX.pdf Graphic file (type pdf)
 <use ../sec2/../images/AX.pdf>
-Package luatex.def Info: ../sec2/../images/AX.pdf  used on input line 146.
+Package luatex.def Info: ../sec2/../images/AX.pdf  used on input line 143.
 (luatex.def)             Requested size: 33.12384pt x 52.99815pt.
 
 warning  (file ../sec2/../images/Intersection1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Intersection1.pdf, id=144, 544.0325pt x 722.7pt>
 File: ../sec2/../images/Intersection1.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection1.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection1.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection1.pdf  used on input line 151.
 (luatex.def)             Requested size: 59.84375pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Intersection2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Intersection2.pdf, id=145, 664.4825pt x 722.7pt>
 File: ../sec2/../images/Intersection2.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection2.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection2.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection2.pdf  used on input line 151.
 (luatex.def)             Requested size: 73.09329pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Intersection3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Intersection3.pdf, id=146, 726.715pt x 722.7pt>
 File: ../sec2/../images/Intersection3.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection3.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection3.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection3.pdf  used on input line 151.
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Intersection4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Intersection4.pdf, id=147, 726.715pt x 722.7pt>
 File: ../sec2/../images/Intersection4.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection4.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection4.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection4.pdf  used on input line 151.
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 File: ../sec2/../images/Intersection1.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection1.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection1.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection1.pdf  used on input line 151.
 (luatex.def)             Requested size: 59.84375pt x 79.49724pt.
 File: ../sec2/../images/Intersection2.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection2.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection2.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection2.pdf  used on input line 151.
 (luatex.def)             Requested size: 73.09329pt x 79.49724pt.
 File: ../sec2/../images/Intersection3.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection3.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection3.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection3.pdf  used on input line 151.
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 File: ../sec2/../images/Intersection4.pdf Graphic file (type pdf)
 <use ../sec2/../images/Intersection4.pdf>
-Package luatex.def Info: ../sec2/../images/Intersection4.pdf  used on input line 154.
+Package luatex.def Info: ../sec2/../images/Intersection4.pdf  used on input line 151.
 (luatex.def)             Requested size: 79.93889pt x 79.49724pt.
 
 warning  (file ../sec2/../images/AMB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/AMB.pdf, id=148, 485.815pt x 481.8pt>
 File: ../sec2/../images/AMB.pdf Graphic file (type pdf)
 <use ../sec2/../images/AMB.pdf>
-Package luatex.def Info: ../sec2/../images/AMB.pdf  used on input line 161.
+Package luatex.def Info: ../sec2/../images/AMB.pdf  used on input line 158.
 (luatex.def)             Requested size: 53.4398pt x 52.99815pt.
 
 warning  (file ../sec2/../images/ANB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/ANB.pdf, id=149, 485.815pt x 483.8075pt>
 File: ../sec2/../images/ANB.pdf Graphic file (type pdf)
 <use ../sec2/../images/ANB.pdf>
-Package luatex.def Info: ../sec2/../images/ANB.pdf  used on input line 161.
+Package luatex.def Info: ../sec2/../images/ANB.pdf  used on input line 158.
 (luatex.def)             Requested size: 53.4398pt x 53.21898pt.
 
 warning  (file ../sec2/../images/AB.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/AB.pdf, id=150, 485.815pt x 303.1325pt>
 File: ../sec2/../images/AB.pdf Graphic file (type pdf)
 <use ../sec2/../images/AB.pdf>
-Package luatex.def Info: ../sec2/../images/AB.pdf  used on input line 161.
+Package luatex.def Info: ../sec2/../images/AB.pdf  used on input line 158.
 (luatex.def)             Requested size: 53.4398pt x 33.34467pt.
 File: ../sec2/../images/AMB.pdf Graphic file (type pdf)
 <use ../sec2/../images/AMB.pdf>
-Package luatex.def Info: ../sec2/../images/AMB.pdf  used on input line 161.
+Package luatex.def Info: ../sec2/../images/AMB.pdf  used on input line 158.
 (luatex.def)             Requested size: 53.4398pt x 52.99815pt.
 File: ../sec2/../images/ANB.pdf Graphic file (type pdf)
 <use ../sec2/../images/ANB.pdf>
-Package luatex.def Info: ../sec2/../images/ANB.pdf  used on input line 161.
+Package luatex.def Info: ../sec2/../images/ANB.pdf  used on input line 158.
 (luatex.def)             Requested size: 53.4398pt x 53.21898pt.
 File: ../sec2/../images/AB.pdf Graphic file (type pdf)
 <use ../sec2/../images/AB.pdf>
-Package luatex.def Info: ../sec2/../images/AB.pdf  used on input line 161.
+Package luatex.def Info: ../sec2/../images/AB.pdf  used on input line 158.
 (luatex.def)             Requested size: 53.4398pt x 33.34467pt.
 
 warning  (file ../sec2/../images/Closure1.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Closure1.pdf, id=151, 485.815pt x 722.7pt>
 File: ../sec2/../images/Closure1.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure1.pdf>
-Package luatex.def Info: ../sec2/../images/Closure1.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure1.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Closure2.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Closure2.pdf, id=152, 485.815pt x 722.7pt>
 File: ../sec2/../images/Closure2.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure2.pdf>
-Package luatex.def Info: ../sec2/../images/Closure2.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure2.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.49724pt.
 
 warning  (file ../sec2/../images/Closure3.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Closure3.pdf, id=153, 485.815pt x 724.7075pt>
 File: ../sec2/../images/Closure3.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure3.pdf>
-Package luatex.def Info: ../sec2/../images/Closure3.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure3.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.71806pt.
 
 warning  (file ../sec2/../images/Closure4.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/Closure4.pdf, id=154, 485.815pt x 724.7075pt>
 File: ../sec2/../images/Closure4.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure4.pdf>
-Package luatex.def Info: ../sec2/../images/Closure4.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure4.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.71806pt.
 File: ../sec2/../images/Closure1.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure1.pdf>
-Package luatex.def Info: ../sec2/../images/Closure1.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure1.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.49724pt.
 File: ../sec2/../images/Closure2.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure2.pdf>
-Package luatex.def Info: ../sec2/../images/Closure2.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure2.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.49724pt.
 File: ../sec2/../images/Closure3.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure3.pdf>
-Package luatex.def Info: ../sec2/../images/Closure3.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure3.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.71806pt.
 File: ../sec2/../images/Closure4.pdf Graphic file (type pdf)
 <use ../sec2/../images/Closure4.pdf>
-Package luatex.def Info: ../sec2/../images/Closure4.pdf  used on input line 170.
+Package luatex.def Info: ../sec2/../images/Closure4.pdf  used on input line 167.
 (luatex.def)             Requested size: 53.4398pt x 79.71806pt.
 [6<../sec2/../images/ABM.pdf><../sec2/../images/NBC.pdf><../sec2/../images/ABCX.pdf><../sec2/../images/N.pdf><../sec2/../images/AX.pdf><../sec2/../images/Intersection1.pdf><../sec2/../images/Intersection2.pdf><../sec2/../images/Intersection3.pdf><../sec2/../images/Intersection4.pdf><../sec2/../images/AMB.pdf><../sec2/../images/ANB.pdf><../sec2/../images/AB.pdf>]
 warning  (file ../sec2/../images/AMA.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.7', but at most version '1.5' allowed
 <../sec2/../images/AMA.pdf, id=166, 485.815pt x 481.8pt>
 File: ../sec2/../images/AMA.pdf Graphic file (type pdf)
 <use ../sec2/../images/AMA.pdf>
-Package luatex.def Info: ../sec2/../images/AMA.pdf  used on input line 182.
+Package luatex.def Info: ../sec2/../images/AMA.pdf  used on input line 179.
 (luatex.def)             Requested size: 53.4398pt x 52.99815pt.
 File: ../sec2/../images/AMA.pdf Graphic file (type pdf)
 <use ../sec2/../images/AMA.pdf>
-Package luatex.def Info: ../sec2/../images/AMA.pdf  used on input line 182.
+Package luatex.def Info: ../sec2/../images/AMA.pdf  used on input line 179.
 (luatex.def)             Requested size: 53.4398pt x 52.99815pt.
 [7<../sec2/../images/Closure1.pdf><../sec2/../images/Closure2.pdf><../sec2/../images/Closure3.pdf><../sec2/../images/Closure4.pdf><../sec2/../images/AMA.pdf>]) [8] (../sec3/../sec3/sec3.tex
 LaTeX Font Info:    Calculating math sizes for size <17.27994> on input line 6.
@@ -3627,28 +3627,28 @@ Package luatex.def Info: ../appendix/../images/AstarA.pdf  used on input line 10
 (luatex.def)             Requested size: 39.74861pt x 52.99815pt.
 [39<../appendix/../images/AstarA.pdf>] [40] [41] [42]) [43]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 193.
+(Font)              scaled to size 9.24713pt on input line 171.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 193.
+(Font)              scaled to size 9.24713pt on input line 171.
 LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 193.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 171.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 193.
+(Font)              scaled to size 7.70596pt on input line 171.
 LaTeX Font Info:    Font shape `JY3/gt/m/it' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 193.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 171.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 193.
+(Font)              scaled to size 7.70596pt on input line 171.
 (load cache: extra_lmromancaps10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/sc' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 193.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 171.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 193.
+(Font)              scaled to size 7.70596pt on input line 171.
 LaTeX Font Info:    Font shape `JY3/mc/m/sc' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 193.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 171.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 193.
+(Font)              scaled to size 7.70596pt on input line 171.
 (load cache: extra_lmmono10-regular.luc)
-Overfull \hbox (64.3969pt too wide) in paragraph at lines 194--194
+Overfull \hbox (64.3969pt too wide) in paragraph at lines 172--172
 []\TU/lmr/m/n/11.99997 A. Yu Ki-taev. \TU/lmr/m/it/11.99997 Fault-Tolerant Quan-tum Com-pu-ta-tion by Anyons\TU/lmr/m/n/11.99997 . https://arxiv.org/abs/quant-
  []
 
@@ -3665,19 +3665,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 52706 strings out of 476447
+ 52710 strings out of 476447
  125244,2373549 words of node,token memory allocated
  1573 words of node memory still in use:
    11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 381 attribute, 76 glue_spec, 47 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
-   avail lists: 1:6,2:34323,3:898,4:667,5:251,6:61,7:3322,8:60,9:1439,10:35,11:158,12:3
- 71185 multiletter control sequences out of 65536+600000
- 117 fonts using 88843387 bytes
+   avail lists: 1:7,2:34323,3:898,4:667,5:251,6:61,7:3322,8:60,9:1439,10:35,11:158,12:3
+ 71189 multiletter control sequences out of 65536+600000
+ 117 fonts using 88842891 bytes
  125i,16n,128p,2002b,1346s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmromancaps10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (44 pages, 1069163 bytes).
+Output written on main.pdf (44 pages, 1068245 bytes).
 
-PDF statistics: 902 PDF objects out of 1000 (max. 8388607)
- 636 compressed objects within 7 object streams
+PDF statistics: 901 PDF objects out of 1000 (max. 8388607)
+ 635 compressed objects within 7 object streams
  294 named destinations out of 1000 (max. 131072)
  104 words of extra memory for PDF output out of 10000 (max. 100000000)
 
