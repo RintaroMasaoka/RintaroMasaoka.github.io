@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  19 DEC 2024 11:21
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.4.10)  8 JAN 2025 17:39
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"/Users/rintaromasaoka/Desktop/RintaroMasaoka.github.io/notes/XY model/XY"
@@ -1495,16 +1495,16 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 11.09657pt on input line 70.
 [1
 
-](load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc) [2](load cache: extra_lmroman12-bold.luc)
+](load cache: extra_lmroman7-regular.luc)(load cache: extra_lmroman5-regular.luc)(load cache: extra_lmroman12-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 164.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 166.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24715pt on input line 164.
+(Font)              scaled to size 9.24715pt on input line 166.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 164.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 166.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24715pt on input line 164.
- [3] [4] [5] [6] [7] [8] [9] [10] [11]
+(Font)              scaled to size 9.24715pt on input line 166.
+ [2] [3] [4] [5] [6] [7] [8] [9] [10]
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 6.47299pt on input line 629.
 LaTeX Font Info:    Calculating math sizes for size <9.59998> on input line 631.
@@ -1515,7 +1515,7 @@ LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 3.69885pt on input line 631.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 5.17834pt on input line 631.
- [12] [13] [14] [15] (./XY.aux)
+ [11] [12] [13] [14] (./XY.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1528,19 +1528,19 @@ Package logreq Info: Writing requests to 'XY.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 47158 strings out of 476447
+ 47155 strings out of 476447
  156557,2373549 words of node,token memory allocated
  1290 words of node memory still in use:
    11 hlist, 2 vlist, 5 rule, 3 glue, 4 kern, 1 glyph, 260 attribute, 72 glue_spec, 36 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:54,2:35857,3:275,4:401,5:327,6:24,7:4727,8:67,9:2115,10:33,11:32
- 68194 multiletter control sequences out of 65536+600000
- 114 fonts using 88453515 bytes
+   avail lists: 1:54,2:37648,3:275,4:401,5:327,6:23,7:4727,8:67,9:2115,10:28,11:27
+ 68196 multiletter control sequences out of 65536+600000
+ 114 fonts using 88453887 bytes
  125i,14n,141p,1986b,851s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on XY.pdf (15 pages, 227495 bytes).
+Output written on XY.pdf (14 pages, 225093 bytes).
 
-PDF statistics: 273 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 104 named destinations out of 1000 (max. 131072)
+PDF statistics: 265 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 99 named destinations out of 1000 (max. 131072)
  40 words of extra memory for PDF output out of 10000 (max. 100000000)
 
