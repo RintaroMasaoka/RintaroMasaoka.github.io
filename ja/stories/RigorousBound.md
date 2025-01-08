@@ -56,19 +56,19 @@ lang_ja = true
 
 # Quantum dimer model
 同期とやっているFradkinを読むゼミがあるのだが、このゼミの9章 "Gauge theory, dimer models, and topological phases" の担当になったこともかなり研究の役に立った。
-9章の担当になった理由は単に(古典)ダイマー模型が好きだから量子もやりたい、という理由だったと思うが、quantum dimer modelのRokhsar-Kivelson pointがgapless frustration-free系の重要な例であることは全く認識していなかった。
+9章の担当になったのは全くの偶然で、quantum dimer modelのRokhsar-Kivelson pointがgapless frustration-free系の重要な例であることは全く認識していなかった。
 それでRK pointを扱っているうちに、前Ising模型で考えていたことと同じだと気付いた。
 
 # Rokhsar-Kivelson Hamiltonian
 
 そこから数ヶ月経って、quantum dimer modelに関連した論文で引用の連鎖を辿っているときに[Isakov et al.(2011)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.83.125114)を発見したことが研究の転機となった。
-この論文ではkinetic Ising modelやRK pointの際の模型の構成のアイディアがRokhsar-Kivelson Hamiltonianとして一般的に展開されていた。
-さらにMarkov連鎖とRK Hamiltonianの関係が具体的に説明されており、そこでこの系の重要性を認識することができた。
-Gosset-Huangの論文を副島さんから紹介してもらって既に知っていたので、
+この論文ではkinetic Ising modelやRK pointの際の模型の構成のアイディアがgeneralized RK Hamiltonianとして一般的に展開されていた。
+さらにMarkov連鎖とRK Hamiltonianの関係が具体的に説明されており、この構成の重要性を認識することができた。
+[Gosset, Huang (2016)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.097202)を副島さんから紹介してもらって既に知っていたので、
 その結果を使ってMCMCの動的臨界指数に対する下限が導けることを思いついた。
 ということで割とトントン拍子で論文を書こうという話になった。
 ボトルネックが論文を見つけるところだったが、この論文の意義は文脈の違う論文を取り合わせたところにあるので、妥当な気がする。
 
-# 総括
+# 振り返って
 理論演習と自主ゼミの内容が自分の中でつながって論文が書けたという成功体験を得たので、
 これからもランダムな勉強を大切にしていきたい。
