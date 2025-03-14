@@ -1,1 +1,3 @@
 - ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems", [arxiv:2406.06415](https://arxiv.org/abs/2406.06415) [*](/ja/stories/RigorousBound)
+
+- ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, "Rigorous lower bound of the dynamical critical exponent of the Ising model", [arxiv:2502.09908](https://arxiv.org/abs/2502.09908)
