@@ -10,3 +10,7 @@ notes = true
 利用は自己責任でお願いします。
 
 \textinput{/assets/completion/notelist.md}
+
+その他のノート
+
+\textinput{/assets/completion/tips.md}

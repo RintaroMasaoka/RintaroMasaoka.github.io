@@ -8,4 +8,4 @@
 - [ダイマー模型とゲージ理論 (Fradkin 9章)](/notes/Fradkin_chap9/main/fradkin_chap9_v3.pdf)
 - [スピン波 (Feynman統計力学 7章)](/notes/feynmanstat_7/ファインマン統計_7章.pdf)
 
-[TeX sources](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io/tree/main/notes)
+- [TeX sources](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io/tree/main/notes)
