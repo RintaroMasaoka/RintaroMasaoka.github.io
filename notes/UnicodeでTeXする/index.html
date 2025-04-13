@@ -1,0 +1,992 @@
+<!doctype html> <html lang=en > <link rel=stylesheet  href="/css/style.css"> <link rel=preconnect  href="https://fonts.googleapis.com"> <link rel=preconnect  href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel=stylesheet > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/libs/highlight/styles/github.min.css"> <link rel=stylesheet  href="/css/franklin.css"> <link rel=stylesheet  href="/css/pure.css"> <link rel=stylesheet  href="/css/side-menu.css"> <style> .franklin-content{padding-left:10%;} @media (min-width: 940px) { .franklin-content {width: 640px; margin-left: 0px; padding-left: 80px;} .header {width: 700px;} } </style> <link rel=icon  href="/assets/RintaroMasaoka.jpeg"> <title>UnicodeでTeXする</title> <div id=layout > <a href="#menu" id=menuLink  class=menu-link ><span></span></a> <div id=menu > <div class=pure-menu > <a class=pure-menu-heading  href="/">R. Masaoka</a> <ul class=pure-menu-list > <li class="pure-menu-item "><a href="/ja/" class=pure-menu-link >ホーム</a> <li class="pure-menu-item "><a href="/ja/Publications/" class=pure-menu-link >論文</a> <li class="pure-menu-item "><a href="/ja/Presentations/" class=pure-menu-link >研究発表</a> <li class="pure-menu-item "><a href="/ja/Notes/" class=pure-menu-link >ノート</a> </ul> </div> </div> <div id=main > <div class=header > <h1>UnicodeでTeXする</h1> </div> <div class=franklin-content > <pre><code class=language-sty >&#37; By Rintaro Masaoka
+&#37; updated: Apr 12, 2025
+
+\RequirePackage&#123;
+   amsmath,
+   amssymb,
+   mathtools,
+   xparse,
+   mathcommand,
+   newunicodechar,
+   diffcoeff,
+   slashed
+&#125;
+\DeclareMathAlphabet&#123;\oldmathbb&#125;&#123;U&#125;&#123;msb&#125;&#123;m&#125;&#123;n&#125;
+\DeclareMathAlphabet&#123;\oldmathcal&#125;&#123;OMS&#125;&#123;cmsy&#125;&#123;m&#125;&#123;n&#125;
+\let\oldbecause\because
+\let\oldtherefore\therefore
+\let\oldhbar\hbar
+\usepackage&#91;bold-style&#61;ISO&#93;&#123;unicode-math&#125;
+\DeclareOption&#123;uprightconst&#125;&#123;\let\conststyle\symup&#125; 
+\DeclareOption&#123;italicconst&#125;&#123;\let\conststyle\symit&#125;
+\DeclareOption&#123;oldfont&#125;&#123;
+   \newunicodechar&#123;𝔸&#125;&#123;\oldmathbb&#123;A&#125;&#125;
+   \newunicodechar&#123;𝔹&#125;&#123;\oldmathbb&#123;B&#125;&#125;
+   \newunicodechar&#123;ℂ&#125;&#123;\oldmathbb&#123;C&#125;&#125;
+   \newunicodechar&#123;𝔻&#125;&#123;\oldmathbb&#123;D&#125;&#125;
+   \newunicodechar&#123;𝔼&#125;&#123;\oldmathbb&#123;E&#125;&#125;
+   \newunicodechar&#123;𝔽&#125;&#123;\oldmathbb&#123;F&#125;&#125;
+   \newunicodechar&#123;𝔾&#125;&#123;\oldmathbb&#123;G&#125;&#125;
+   \newunicodechar&#123;ℍ&#125;&#123;\oldmathbb&#123;H&#125;&#125;
+   \newunicodechar&#123;𝕀&#125;&#123;\oldmathbb&#123;I&#125;&#125;
+   \newunicodechar&#123;𝕁&#125;&#123;\oldmathbb&#123;J&#125;&#125;
+   \newunicodechar&#123;𝕂&#125;&#123;\oldmathbb&#123;K&#125;&#125;
+   \newunicodechar&#123;𝕃&#125;&#123;\oldmathbb&#123;L&#125;&#125;
+   \newunicodechar&#123;𝕄&#125;&#123;\oldmathbb&#123;M&#125;&#125;
+   \newunicodechar&#123;ℕ&#125;&#123;\oldmathbb&#123;N&#125;&#125;
+   \newunicodechar&#123;𝕆&#125;&#123;\oldmathbb&#123;O&#125;&#125;
+   \newunicodechar&#123;ℙ&#125;&#123;\oldmathbb&#123;P&#125;&#125;
+   \newunicodechar&#123;ℚ&#125;&#123;\oldmathbb&#123;Q&#125;&#125;
+   \newunicodechar&#123;ℝ&#125;&#123;\oldmathbb&#123;R&#125;&#125;
+   \newunicodechar&#123;𝕊&#125;&#123;\oldmathbb&#123;S&#125;&#125;
+   \newunicodechar&#123;𝕋&#125;&#123;\oldmathbb&#123;T&#125;&#125;
+   \newunicodechar&#123;𝕌&#125;&#123;\oldmathbb&#123;U&#125;&#125;
+   \newunicodechar&#123;𝕍&#125;&#123;\oldmathbb&#123;V&#125;&#125;
+   \newunicodechar&#123;𝕎&#125;&#123;\oldmathbb&#123;W&#125;&#125;
+   \newunicodechar&#123;𝕏&#125;&#123;\oldmathbb&#123;X&#125;&#125;
+   \newunicodechar&#123;𝕐&#125;&#123;\oldmathbb&#123;Y&#125;&#125;
+   \newunicodechar&#123;ℤ&#125;&#123;\oldmathbb&#123;Z&#125;&#125;
+   \newunicodechar&#123;𝒜&#125;&#123;\oldmathcal&#123;A&#125;&#125;
+   \newunicodechar&#123;ℬ&#125;&#123;\oldmathcal&#123;B&#125;&#125;
+   \newunicodechar&#123;𝒞&#125;&#123;\oldmathcal&#123;C&#125;&#125;
+   \newunicodechar&#123;𝒟&#125;&#123;\oldmathcal&#123;D&#125;&#125;
+   \newunicodechar&#123;ℰ&#125;&#123;\oldmathcal&#123;E&#125;&#125;
+   \newunicodechar&#123;ℱ&#125;&#123;\oldmathcal&#123;F&#125;&#125;
+   \newunicodechar&#123;𝒢&#125;&#123;\oldmathcal&#123;G&#125;&#125;
+   \newunicodechar&#123;ℋ&#125;&#123;\oldmathcal&#123;H&#125;&#125;
+   \newunicodechar&#123;ℐ&#125;&#123;\oldmathcal&#123;I&#125;&#125;
+   \newunicodechar&#123;𝒥&#125;&#123;\oldmathcal&#123;J&#125;&#125;
+   \newunicodechar&#123;𝒦&#125;&#123;\oldmathcal&#123;K&#125;&#125;
+   \newunicodechar&#123;ℒ&#125;&#123;\oldmathcal&#123;L&#125;&#125;
+   \newunicodechar&#123;ℳ&#125;&#123;\oldmathcal&#123;M&#125;&#125;
+   \newunicodechar&#123;𝒩&#125;&#123;\oldmathcal&#123;N&#125;&#125;
+   \newunicodechar&#123;𝒪&#125;&#123;\oldmathcal&#123;O&#125;&#125;
+   \newunicodechar&#123;𝒫&#125;&#123;\oldmathcal&#123;P&#125;&#125;
+   \newunicodechar&#123;𝒬&#125;&#123;\oldmathcal&#123;Q&#125;&#125;
+   \newunicodechar&#123;ℛ&#125;&#123;\oldmathcal&#123;R&#125;&#125;
+   \newunicodechar&#123;𝒮&#125;&#123;\oldmathcal&#123;S&#125;&#125;
+   \newunicodechar&#123;𝒯&#125;&#123;\oldmathcal&#123;T&#125;&#125;
+   \newunicodechar&#123;𝒰&#125;&#123;\oldmathcal&#123;U&#125;&#125;
+   \newunicodechar&#123;𝒱&#125;&#123;\oldmathcal&#123;V&#125;&#125;
+   \newunicodechar&#123;𝒲&#125;&#123;\oldmathcal&#123;W&#125;&#125;
+   \newunicodechar&#123;𝒳&#125;&#123;\oldmathcal&#123;X&#125;&#125;
+   \newunicodechar&#123;𝒴&#125;&#123;\oldmathcal&#123;Y&#125;&#125;
+   \newunicodechar&#123;𝒵&#125;&#123;\oldmathcal&#123;Z&#125;&#125;
+   \newunicodechar&#123;∵&#125;&#123;\oldbecause&#125;
+   \newunicodechar&#123;∴&#125;&#123;\oldtherefore&#125;
+   \newunicodechar&#123;ħ&#125;&#123;\oldhbar&#125;
+&#125;
+\DeclareOption&#123;exchangeupit&#125;&#123;
+   \newunicodechar&#123;𝑎&#125;&#123;&#123;\symup&#123;a&#125;&#125;&#125;
+   \newunicodechar&#123;𝑏&#125;&#123;&#123;\symup&#123;b&#125;&#125;&#125;
+   \newunicodechar&#123;𝑐&#125;&#123;&#123;\symup&#123;c&#125;&#125;&#125;
+   \newunicodechar&#123;𝑑&#125;&#123;&#123;\symup&#123;d&#125;&#125;&#125;
+   \newunicodechar&#123;𝑒&#125;&#123;&#123;\symup&#123;e&#125;&#125;&#125;
+   \newunicodechar&#123;𝑓&#125;&#123;&#123;\symup&#123;f&#125;&#125;&#125;
+   \newunicodechar&#123;𝑔&#125;&#123;&#123;\symup&#123;g&#125;&#125;&#125;
+   \newunicodechar&#123;ℎ&#125;&#123;&#123;\symup&#123;h&#125;&#125;&#125;
+   \newunicodechar&#123;𝑖&#125;&#123;&#123;\symup&#123;i&#125;&#125;&#125;
+   \newunicodechar&#123;𝑗&#125;&#123;&#123;\symup&#123;j&#125;&#125;&#125;
+   \newunicodechar&#123;𝑘&#125;&#123;&#123;\symup&#123;k&#125;&#125;&#125;
+   \newunicodechar&#123;𝑙&#125;&#123;&#123;\symup&#123;l&#125;&#125;&#125;
+   \newunicodechar&#123;𝑚&#125;&#123;&#123;\symup&#123;m&#125;&#125;&#125;
+   \newunicodechar&#123;𝑛&#125;&#123;&#123;\symup&#123;n&#125;&#125;&#125;
+   \newunicodechar&#123;𝑜&#125;&#123;&#123;\symup&#123;o&#125;&#125;&#125;
+   \newunicodechar&#123;𝑝&#125;&#123;&#123;\symup&#123;p&#125;&#125;&#125;
+   \newunicodechar&#123;𝑞&#125;&#123;&#123;\symup&#123;q&#125;&#125;&#125;
+   \newunicodechar&#123;𝑟&#125;&#123;&#123;\symup&#123;r&#125;&#125;&#125;
+   \newunicodechar&#123;𝑠&#125;&#123;&#123;\symup&#123;s&#125;&#125;&#125;
+   \newunicodechar&#123;𝑡&#125;&#123;&#123;\symup&#123;t&#125;&#125;&#125;
+   \newunicodechar&#123;𝑢&#125;&#123;&#123;\symup&#123;u&#125;&#125;&#125;
+   \newunicodechar&#123;𝑣&#125;&#123;&#123;\symup&#123;v&#125;&#125;&#125;
+   \newunicodechar&#123;𝑤&#125;&#123;&#123;\symup&#123;w&#125;&#125;&#125;
+   \newunicodechar&#123;𝑥&#125;&#123;&#123;\symup&#123;x&#125;&#125;&#125;
+   \newunicodechar&#123;𝑦&#125;&#123;&#123;\symup&#123;y&#125;&#125;&#125;
+   \newunicodechar&#123;𝑧&#125;&#123;&#123;\symup&#123;z&#125;&#125;&#125;
+   
+   \newunicodechar&#123;𝐴&#125;&#123;&#123;\symup&#123;A&#125;&#125;&#125;
+   \newunicodechar&#123;𝐵&#125;&#123;&#123;\symup&#123;B&#125;&#125;&#125;
+   \newunicodechar&#123;𝐶&#125;&#123;&#123;\symup&#123;C&#125;&#125;&#125;
+   \newunicodechar&#123;𝐷&#125;&#123;&#123;\symup&#123;D&#125;&#125;&#125;
+   \newunicodechar&#123;𝐸&#125;&#123;&#123;\symup&#123;E&#125;&#125;&#125;
+   \newunicodechar&#123;𝐹&#125;&#123;&#123;\symup&#123;F&#125;&#125;&#125;
+   \newunicodechar&#123;𝐺&#125;&#123;&#123;\symup&#123;G&#125;&#125;&#125;
+   \newunicodechar&#123;𝐻&#125;&#123;&#123;\symup&#123;H&#125;&#125;&#125;
+   \newunicodechar&#123;𝐼&#125;&#123;&#123;\symup&#123;I&#125;&#125;&#125;
+   \newunicodechar&#123;𝐽&#125;&#123;&#123;\symup&#123;J&#125;&#125;&#125;
+   \newunicodechar&#123;𝐾&#125;&#123;&#123;\symup&#123;K&#125;&#125;&#125;
+   \newunicodechar&#123;𝐿&#125;&#123;&#123;\symup&#123;L&#125;&#125;&#125;
+   \newunicodechar&#123;𝑀&#125;&#123;&#123;\symup&#123;M&#125;&#125;&#125;
+   \newunicodechar&#123;𝑁&#125;&#123;&#123;\symup&#123;N&#125;&#125;&#125;
+   \newunicodechar&#123;𝑂&#125;&#123;&#123;\symup&#123;O&#125;&#125;&#125;
+   \newunicodechar&#123;𝑃&#125;&#123;&#123;\symup&#123;P&#125;&#125;&#125;
+   \newunicodechar&#123;𝑄&#125;&#123;&#123;\symup&#123;Q&#125;&#125;&#125;
+   \newunicodechar&#123;𝑅&#125;&#123;&#123;\symup&#123;R&#125;&#125;&#125;
+   \newunicodechar&#123;𝑆&#125;&#123;&#123;\symup&#123;S&#125;&#125;&#125;
+   \newunicodechar&#123;𝑇&#125;&#123;&#123;\symup&#123;T&#125;&#125;&#125;
+   \newunicodechar&#123;𝑈&#125;&#123;&#123;\symup&#123;U&#125;&#125;&#125;
+   \newunicodechar&#123;𝑉&#125;&#123;&#123;\symup&#123;V&#125;&#125;&#125;
+   \newunicodechar&#123;𝑊&#125;&#123;&#123;\symup&#123;W&#125;&#125;&#125;
+   \newunicodechar&#123;𝑋&#125;&#123;&#123;\symup&#123;X&#125;&#125;&#125;
+   \newunicodechar&#123;𝑌&#125;&#123;&#123;\symup&#123;Y&#125;&#125;&#125;
+   \newunicodechar&#123;𝑍&#125;&#123;&#123;\symup&#123;Z&#125;&#125;&#125;
+
+   \newunicodechar&#123;𝛼&#125;&#123;\symup&#123;\alpha     &#125;&#125;
+   \newunicodechar&#123;𝛽&#125;&#123;\symup&#123;\beta      &#125;&#125;
+   \newunicodechar&#123;𝛾&#125;&#123;\symup&#123;\gamma     &#125;&#125;
+   \newunicodechar&#123;𝛿&#125;&#123;\symup&#123;\delta     &#125;&#125;
+   \newunicodechar&#123;ϵ&#125;&#123;\symup&#123;\epsilon   &#125;&#125;
+   \newunicodechar&#123;𝜁&#125;&#123;\symup&#123;\zeta      &#125;&#125;
+   \newunicodechar&#123;𝜂&#125;&#123;\symup&#123;\eta       &#125;&#125;
+   \newunicodechar&#123;𝜃&#125;&#123;\symup&#123;\theta     &#125;&#125;
+   \newunicodechar&#123;𝜄&#125;&#123;\symup&#123;\iota      &#125;&#125;
+   \newunicodechar&#123;𝜅&#125;&#123;\symup&#123;\kappa     &#125;&#125;
+   \newunicodechar&#123;𝜆&#125;&#123;\symup&#123;\lambda    &#125;&#125;
+   \newunicodechar&#123;𝜇&#125;&#123;\symup&#123;\mu        &#125;&#125;
+   \newunicodechar&#123;𝜈&#125;&#123;\symup&#123;\nu        &#125;&#125;
+   \newunicodechar&#123;𝜉&#125;&#123;\symup&#123;\xi        &#125;&#125;
+   \newunicodechar&#123;𝜋&#125;&#123;\symup&#123;\pi        &#125;&#125;
+   \newunicodechar&#123;𝜌&#125;&#123;\symup&#123;\rho       &#125;&#125;
+   \newunicodechar&#123;𝜎&#125;&#123;\symup&#123;\sigma     &#125;&#125;
+   \newunicodechar&#123;𝜏&#125;&#123;\symup&#123;\tau       &#125;&#125;
+   \newunicodechar&#123;𝜐&#125;&#123;\symup&#123;\upsilon   &#125;&#125;
+   \newunicodechar&#123;𝜙&#125;&#123;\symup&#123;\phi       &#125;&#125;
+   \newunicodechar&#123;𝜒&#125;&#123;\symup&#123;\chi       &#125;&#125;
+   \newunicodechar&#123;𝜔&#125;&#123;\symup&#123;\omega     &#125;&#125;
+   \newunicodechar&#123;𝜓&#125;&#123;\symup&#123;\varpsi    &#125;&#125;
+   \newunicodechar&#123;𝜀&#125;&#123;\symup&#123;\varepsilon&#125;&#125;
+   \newunicodechar&#123;𝜗&#125;&#123;\symup&#123;\vartheta  &#125;&#125;
+   \newunicodechar&#123;𝜚&#125;&#123;\symup&#123;\varrho    &#125;&#125;
+   \newunicodechar&#123;𝜍&#125;&#123;\symup&#123;\varsigma  &#125;&#125;
+   \newunicodechar&#123;𝜛&#125;&#123;\symup&#123;\varomega  &#125;&#125;
+   \newunicodechar&#123;𝜑&#125;&#123;\symup&#123;\varphi    &#125;&#125;
+   \newunicodechar&#123;𝛤&#125;&#123;\symup&#123;\Gamma     &#125;&#125;
+   \newunicodechar&#123;𝛥&#125;&#123;\symup&#123;\Delta     &#125;&#125;
+   \newunicodechar&#123;𝛩&#125;&#123;\symup&#123;\Theta     &#125;&#125;
+   \newunicodechar&#123;𝛬&#125;&#123;\symup&#123;\Lambda    &#125;&#125;
+   \newunicodechar&#123;𝛯&#125;&#123;\symup&#123;\Xi        &#125;&#125;
+   \newunicodechar&#123;𝛱&#125;&#123;\symup&#123;\Pi        &#125;&#125;
+   \newunicodechar&#123;𝛴&#125;&#123;\symup&#123;\Sigma     &#125;&#125;
+   \newunicodechar&#123;𝛶&#125;&#123;\symup&#123;\Upsilon   &#125;&#125;
+   \newunicodechar&#123;𝛷&#125;&#123;\symup&#123;\Phi       &#125;&#125;
+   \newunicodechar&#123;𝛹&#125;&#123;\symup&#123;\Psi       &#125;&#125;
+   \newunicodechar&#123;𝛺&#125;&#123;\symup&#123;\Omega     &#125;&#125;
+&#125;
+\ExecuteOptions&#123;uprightconst&#125;
+\ProcessOptions\relax
+
+
+&#37; Math accents
+\newcommand&#123;\∼&#125;&#123;\tilde&#125;
+\newcommand&#123;\＾&#125;&#123;\hat&#125;
+\newcommand&#123;\＿&#125;&#123;\bar&#125;
+\newcommand&#123;\’&#125;&#123;\dot&#125;
+\newcommand&#123;\”&#125;&#123;\ddot&#125;
+\newcommand&#123;\／&#125;&#123;\slashed&#125;
+\newcommand&#123;\∨&#125;&#123;\check&#125;
+\newcommand&#123;\∪&#125;&#123;\breve&#125;
+\newcommand&#123;\→&#125;&#123;\vec&#125;
+\newcommand&#123;\←&#125;&#91;1&#93;&#123;
+   \mathrlap&#123;\reflectbox&#123;\ensuremath&#123;\vec&#123;\phantom&#123;#1&#125;&#125;&#125;&#125;&#125;#1
+&#125;
+\newcommand&#123;\↔&#125;&#91;1&#93;&#123;
+   \mathrlap&#123;\reflectbox&#123;\ensuremath&#123;\vec&#123;\phantom&#123;#1&#125;&#125;&#125;&#125;&#125;\vec&#123;#1&#125;
+&#125;
+&#37; Old math accents
+\renewmathcommand&#123;\~&#125;&#123;\tilde&#125;
+\renewmathcommand&#123;\&#39;&#125;&#123;\dot&#125;
+\renewmathcommand&#123;\&quot;&#125;&#123;\ddot&#125;
+\renewmathcommand&#123;\^&#125;&#123;\hat&#125;
+\renewmathcommand&#123;\_&#125;&#123;\bar&#125;
+\renewmathcommand&#123;\v&#125;&#123;\check&#125;
+\renewmathcommand&#123;\u&#125;&#123;\breve&#125;
+\renewmathcommand&#123;\&#39;&#125;&#123;\acute&#125;
+\renewmathcommand&#123;\&#96;&#125;&#123;\grave&#125;
+
+&#37; constants
+\newunicodechar&#123;ℯ&#125;&#123;\conststyle&#123;e&#125;&#125;
+\newunicodechar&#123;¡&#125;&#123;\conststyle&#123;i&#125;&#125;
+\newunicodechar&#123;𝘬&#125;&#123;k_&#123;\symup&#123;B&#125;&#125;&#125;
+
+&#37; differential
+\NewDocumentCommand&#123;\𝚍&#125;&#123;s e&#123;^&#125; t_ m&#125;&#123;
+   \IfBooleanTF&#123;#1&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\diff&#91;#2&#93;&#123;&#125;/&#123;#4&#125;&#125;&#123;\diff&#91;#2&#93;&#123;#4&#125;/&#125;&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\diff&#91;#2&#93;&#123;&#125;&#123;#4&#125;&#125;&#123;\diff&#91;#2&#93;&#123;#4&#125;&#125;&#125;
+&#125;
+\NewDocumentCommand&#123;\∂&#125;&#123;s e&#123;^&#125; t_ m&#125;&#123;
+   \IfBooleanTF&#123;#1&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\diffp&#91;#2&#93;&#123;&#125;/&#123;#4&#125;&#125;&#123;\diffp&#91;#2&#93;&#123;#4&#125;/&#125;&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\diffp&#91;#2&#93;&#123;&#125;&#123;#4&#125;&#125;&#123;\diffp&#91;#2&#93;&#123;#4&#125;&#125;&#125;
+&#125;
+\NewDocumentCommand&#123;\δ&#125;&#123;s e&#123;^&#125; t_ m&#125;&#123;
+   \IfBooleanTF&#123;#1&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\diffd&#91;#2&#93;&#123;&#125;/&#123;#4&#125;&#125;&#123;\diffd&#91;#2&#93;&#123;#4&#125;/&#125;&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\diffd&#91;#2&#93;&#123;&#125;&#123;#4&#125;&#125;&#123;\diffd&#91;#2&#93;&#123;#4&#125;&#125;&#125;
+&#125; 
+\NewDocumentCommand&#123;\Δ&#125;&#123;s e&#123;^&#125; t_ m&#125;&#123;
+   \IfBooleanTF&#123;#1&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\Diffd&#91;#2&#93;&#123;&#125;/&#123;#4&#125;&#125;&#123;\Diffd&#91;#2&#93;&#123;#4&#125;/&#125;&#125;
+   &#123;\IfBooleanTF&#123;#3&#125;&#123;\Diffd&#91;#2&#93;&#123;&#125;&#123;#4&#125;&#125;&#123;\Diffd&#91;#2&#93;&#123;#4&#125;&#125;&#125;
+&#125;
+\NewDocumentCommand&#123;\𝑑&#125;&#123;e&#123;^&#125; m&#125;&#123;
+   \IfNoValueTF&#123;#1&#125;
+   &#123;\mathinner&#123;\symup&#123;d&#125;#2&#125;&#125;
+   &#123;\mathinner&#123;\symup&#123;d&#125;^&#123;#1&#125;#2&#125;&#125;
+&#125;
+\newcommand&#123;\𝒟&#125;&#91;1&#93;&#123;\mathinner&#123;𝒟#1&#125;&#125;
+\newcommand&#123;\𝛥&#125;&#91;1&#93;&#123;\mathinner&#123;Δ#1&#125;&#125;
+\newcommand&#123;\𝛿&#125;&#91;1&#93;&#123;\mathinner&#123;δ#1&#125;&#125;
+
+&#37; brakets
+\newcommand&#123;\⟨&#125;&#123;\left\langle&#125;
+\newcommand&#123;\⟩&#125;&#123;\right\rangle&#125;
+\newcommand&#123;\∣&#125;&#123;~\middle|~&#125;
+\newcommand&#123;\Mid&#125;&#123;~\middle|~&#125;
+\newcommand&#123;\（&#125;&#123;\left\lparen\begin&#123;matrix&#125;&#125;
+\newcommand&#123;\）&#125;&#123;\end&#123;matrix&#125;\right\rparen&#125;
+\newcommand&#123;\［&#125;&#123;\left\lbrack\begin&#123;matrix&#125;&#125;
+\newcommand&#123;\］&#125;&#123;\end&#123;matrix&#125;\right\rbrack&#125;
+\newcommand&#123;\｛&#125;&#123;\left\lbrace\begin&#123;matrix&#125;&#125;
+\newcommand&#123;\｝&#125;&#123;\end&#123;matrix&#125;\right\rbrace&#125;
+\newunicodechar&#123;（&#125;&#123;\left\lparen&#125;
+\newunicodechar&#123;）&#125;&#123;\right\rparen&#125;
+\newunicodechar&#123;［&#125;&#123;\left\lbrack&#125;
+\newunicodechar&#123;］&#125;&#123;\right\rbrack&#125;
+\newunicodechar&#123;｛&#125;&#123;\left\lbrace&#125;
+\newunicodechar&#123;｝&#125;&#123;\right\rbrace&#125;
+\newunicodechar&#123;｟&#125;&#123;\left\lparen\begin&#123;matrix&#125;&#125;
+\newunicodechar&#123;｠&#125;&#123;\end&#123;matrix&#125;\right\rparen&#125;
+\newunicodechar&#123;〚&#125;&#123;\left\lbrack\begin&#123;matrix&#125;&#125;
+\newunicodechar&#123;〛&#125;&#123;\end&#123;matrix&#125;\right\rbrack&#125;
+\newunicodechar&#123;｜&#125;&#123;\Big|&#125;
+
+&#37; other commands
+\newcommand&#123;\√&#125;&#91;1&#93;&#123;\sqrt&#123;#1&#125;\,&#125;
+\newunicodechar&#123;√&#125;&#123;\√&#125;
+\NewDocumentCommand&#123;\myfrac&#125;&#123;s&#125;&#123;\IfBooleanTF&#123;#1&#125;&#123;\dfrac&#125;&#123;\frac&#125;&#125;
+\newunicodechar&#123;÷&#125;&#123;\myfrac&#125;
+\newcommand&#123;\÷&#125;&#123;\div&#125;
+\newunicodechar&#123;⨸&#125;&#123;\dfrac&#125;
+\newunicodechar&#123;␣&#125;&#123;\quad&#125;
+\newunicodechar&#123;＿&#125;&#123;_\mathup&#125;
+\newunicodechar&#123;＾&#125;&#123;^\mathup&#125;
+\newcommand&#123;\␣&#125;&#123;\qquad&#125;
+\newcommand&#123;\∅&#125;&#123;\nonumber \\&#125;
+\newcommand&#123;\𝚛&#125;&#123;\right&#125;
+\newcommand&#123;\𝚕&#125;&#123;\left&#125;
+\newcommand&#123;\𝚖&#125;&#123;\middle&#125;
+\newcommand&#123;\𝚝&#125;&#123;\text&#125;
+\newcommand&#123;\𝚞&#125;&#123;\mathup&#125;
+\NewDocumentCommand&#123;\𝚚&#125;&#123;s m&#125;&#123;
+   \IfBooleanTF&#123;#1&#125;&#123;&#125;&#123;\quad&#125;\text&#123;#2&#125;\quad
+&#125;
+\newcommand&#123;\𝙴&#125;&#123;\left.\vphantom&#123;\int&#125;\right\rvert&#125;
+\newcommand&#123;\𝙼&#125;&#91;1&#93;&#123;\begin&#123;matrix&#125;#1\end&#123;matrix&#125;&#125;
+
+&#37; redefinition of unicode characters
+\newunicodechar&#123;★&#125;&#123;\star&#125;
+\newunicodechar&#123;∅&#125;&#123;\emptyset&#125;
+\newunicodechar&#123;⋯&#125;&#123;\mathinner&#123;\cdots&#125;&#125;
+\newunicodechar&#123;…&#125;&#123;\mathinner&#123;\ldots&#125;&#125;
+\newunicodechar&#123;≟&#125;&#123;\overset&#123;?&#125;&#123;&#61;&#125;&#125;
+\newunicodechar&#123;∣&#125;&#123;\mid&#125;
+
+\AtBeginDocument&#123;
+    \let\Re\relax \DeclareMathOperator\Re&#123;\mathrm&#123;Re&#125;&#125;&#37;
+    \let\Im\relax \DeclareMathOperator\Im&#123;\mathrm&#123;Im&#125;&#125;&#37;
+&#125;</code></pre> <pre><code class=language-jl ># Juliaでの.texファイル形式変換スクリプト &#40;Unicode ⟷ Plain&#41;
+preamble &#61; &#91;
+    &quot;\\usepackage&#91;oldfont,exchangeupit&#93;&#123;unicommand&#125;&quot; &quot;&#37;\\usepackage&#91;oldfont,exchangeupit&#93;&#123;unicommand&#125;&quot;
+    &quot;\\usepackage&#123;unicommand&#125;&quot; &quot;&#37;\\usepackage&#123;unicommand&#125;&quot;
+    &quot;\\usepackage&#91;oldfont&#93;&#123;unicommand&#125;&quot; &quot;&#37;\\usepackage&#91;oldfont&#93;&#123;unicommand&#125;&quot;
+    &quot;\\usepackage&#91;exchangeupit&#93;&#123;unicommand&#125;&quot; &quot;&#37;\\usepackage&#91;exchangeupit&#93;&#123;unicommand&#125;&quot;
+&#93;
+command_spacing &#61; &#91;
+    &quot;\\⟨&quot; &quot;\\left\\langle&quot;
+    &quot;\\⟩&quot; &quot;\\right\\rangle&quot;
+    &quot;\\∼&quot; &quot;\\tilde&quot;
+    &quot;\\＿&quot; &quot;\\bar&quot;
+    &quot;\\＾&quot; &quot;\\hat&quot;
+    &quot;\\⋅&quot; &quot;\\dot&quot;
+    &quot;\\”&quot; &quot;\\ddot&quot;
+    &quot;\\／&quot; &quot;\\not&quot;
+    &quot;\\→&quot; &quot;\\vec&quot;
+    &quot;\\~&quot; &quot;\\tilde&quot;
+    &quot;\\&#61;&quot; &quot;\\bar&quot;
+    &quot;\\^&quot; &quot;\\hat&quot;
+    &quot;\\.&quot; &quot;\\dot&quot;
+    &quot;\\\&quot;&quot; &quot;\\ddot&quot;
+&#93;
+command_not_spacing &#61; &#91;
+    &quot;\\∅&quot; &quot;\\nonumber\\\\&quot;
+    &quot;\\（&quot; &quot;\\left&#40;\\begin&#123;matrix&#125;&quot;
+    &quot;\\）&quot; &quot;\\end&#123;matrix&#125;\\right&#41;&quot;
+    &quot;\\［&quot; &quot;\\left&#91;\\begin&#123;matrix&#125;&quot;
+    &quot;\\］&quot; &quot;\\end&#123;matrix&#125;\\right&#93;&quot;
+    &quot;\\｛&quot; &quot;\\left\\&#123;\\begin&#123;matrix&#125;&quot;
+    &quot;\\｝&quot; &quot;\\end&#123;matrix&#125;\\right\\&#125;&quot;
+    &quot;\\∣&quot; &quot;\\middle|&quot;
+    &quot;（&quot; &quot;\\left&#40;&quot;
+    &quot;）&quot; &quot;\\right&#41;&quot;
+    &quot;［&quot; &quot;\\left&#91;&quot;
+    &quot;］&quot; &quot;\\right&#93;&quot;
+    &quot;｛&quot; &quot;\\left\\&#123;&quot;
+    &quot;｝&quot; &quot;\\right\\&#125;&quot;
+&#93;
+non_standard_writing_plain &#61; &#91;
+    &quot;\\（&quot; &quot;\\left\\lparen\\begin&#123;matrix&#125;&quot;
+    &quot;\\）&quot; &quot;\\end&#123;matrix&#125;\\right\\rparen&quot;
+    &quot;\\［&quot; &quot;\\left\\lbrack\\begin&#123;matrix&#125;&quot;
+    &quot;\\］&quot; &quot;\\end&#123;matrix&#125;\\right\\rblack&quot;
+    &quot;\\｛&quot; &quot;\\left\\lbrace\\begin&#123;matrix&#125;&quot;
+    &quot;\\｝&quot; &quot;\\end&#123;matrix&#125;\\right\\rbrace&quot;
+    &quot;\\∣&quot; &quot;\\middle|&quot;
+    &quot;（&quot; &quot;\\left\\lparen&quot;
+    &quot;）&quot; &quot;\\right\\rparen&quot;
+    &quot;［&quot; &quot;\\left\\lblack&quot;
+    &quot;］&quot; &quot;\\right\\rblack&quot;
+    &quot;｛&quot; &quot;\\left\\lbrace&quot;
+    &quot;｝&quot; &quot;\\right\\rbrace&quot;
+&#93;
+char_spacing &#61; &#91;
+#
+    &quot;α&quot; &quot;\\alpha&quot;
+    &quot;β&quot; &quot;\\beta&quot;
+    &quot;γ&quot; &quot;\\gamma&quot;
+    &quot;δ&quot; &quot;\\delta&quot;
+    &quot;ε&quot; &quot;\\varepsilon&quot;
+    &quot;ϵ&quot; &quot;\\epsilon&quot;
+    &quot;ζ&quot; &quot;\\zeta&quot;
+    &quot;η&quot; &quot;\\eta&quot;
+    &quot;θ&quot; &quot;\\theta&quot;
+    &quot;ϑ&quot; &quot;\\vartheta&quot;
+    &quot;ι&quot; &quot;\\iota&quot;
+    &quot;κ&quot; &quot;\\kappa&quot;
+    &quot;λ&quot; &quot;\\lambda&quot;
+    &quot;μ&quot; &quot;\\mu&quot;
+    &quot;ν&quot; &quot;\\nu&quot;
+    &quot;ξ&quot; &quot;\\xi&quot;
+    &quot;π&quot; &quot;\\pi&quot;
+    &quot;ϖ&quot; &quot;\\varpi&quot;
+    &quot;ρ&quot; &quot;\\rho&quot;
+    &quot;ϱ&quot; &quot;\\varrho&quot;
+    &quot;σ&quot; &quot;\\sigma&quot;
+    &quot;ς&quot; &quot;\\varsigma&quot;
+    &quot;τ&quot; &quot;\\tau&quot;
+    &quot;υ&quot; &quot;\\upsilon&quot;
+    &quot;ϕ&quot; &quot;\\phi&quot;
+    &quot;φ&quot; &quot;\\varphi&quot;
+    &quot;χ&quot; &quot;\\chi&quot;
+    &quot;ψ&quot; &quot;\\psi&quot;
+    &quot;ω&quot; &quot;\\omega&quot;
+    &quot;Γ&quot; &quot;\\Gamma&quot;
+    &quot;Δ&quot; &quot;\\Delta&quot;
+    &quot;Θ&quot; &quot;\\Theta&quot;
+    &quot;Λ&quot; &quot;\\Lambda&quot;
+    &quot;Ξ&quot; &quot;\\Xi&quot;
+    &quot;Π&quot; &quot;\\Pi&quot;
+    &quot;Σ&quot; &quot;\\Sigma&quot;
+    &quot;𝛶&quot; &quot;\\Upsilon&quot;
+    &quot;Φ&quot; &quot;\\Phi&quot;
+    &quot;Ψ&quot; &quot;\\Psi&quot;
+    &quot;Ω&quot; &quot;\\Omega&quot;
+    # 
+    &quot;→&quot; &quot;\\to&quot;
+    &quot;←&quot; &quot;\\leftarrow&quot;
+    &quot;↑&quot; &quot;\\uparrow&quot;
+    &quot;↓&quot; &quot;\\downarrow&quot;
+    &quot;↔&quot; &quot;\\leftrightarrow&quot;
+    &quot;⇐&quot; &quot;\\Leftarrow&quot;
+    &quot;⇒&quot; &quot;\\Rightarrow&quot;
+    &quot;⇔&quot; &quot;\\Leftrightarrow&quot;
+    &quot;±&quot; &quot;\\pm&quot;
+    &quot;∓&quot; &quot;\\mp&quot;
+    &quot;‖&quot; &quot;\\|&quot;
+    &quot;∑&quot; &quot;\\sum&quot;
+    &quot;∏&quot; &quot;\\prod&quot;
+    &quot;∫&quot; &quot;\\int&quot;
+    &quot;ħ&quot; &quot;\\hbar&quot;
+    &quot;∞&quot; &quot;\\infty&quot;
+    &quot;∂&quot; &quot;\\partial&quot;
+    &quot;∇&quot; &quot;\\nabla&quot;
+    &quot;★&quot; &quot;\\star&quot;
+    &quot;△&quot; &quot;\\triangle&quot;
+    &quot;□&quot; &quot;\\square&quot;
+    &quot;✓&quot; &quot;\\checkmark&quot;
+    &quot;∃&quot; &quot;\\exists&quot;
+    &quot;∀&quot; &quot;\\forall&quot;
+    &quot;⟨&quot; &quot;\\langle&quot;
+    &quot;⟩&quot; &quot;\\rangle&quot;
+    &quot;×&quot; &quot;\\times&quot;
+    &quot;⋅&quot; &quot;\\cdot&quot;
+    &quot;†&quot; &quot;\\dagger&quot;
+    &quot;⊕&quot; &quot;\\oplus&quot;
+    &quot;⊗&quot; &quot;\\otimes&quot;
+    &quot;⨁&quot; &quot;\\bigoplus&quot;
+    &quot;⨂&quot; &quot;\\bigotimes&quot;
+    &quot;≔&quot; &quot;\\coloneqq&quot;
+    &quot;≕&quot; &quot;\\eqcolon&quot;
+    &quot;≠&quot; &quot;\\ne&quot;
+    &quot;≡&quot; &quot;\\equiv&quot;
+    &quot;≈&quot; &quot;\\approx&quot;
+    &quot;≊&quot; &quot;\\approxeq&quot;
+    &quot;∼&quot; &quot;\\sim&quot;
+    &quot;≃&quot; &quot;\\simeq&quot;
+    &quot;≅&quot; &quot;\\cong&quot;
+    &quot;∝&quot; &quot;\\propto&quot;
+    &quot;∈&quot; &quot;\\in&quot;
+    &quot;∉&quot; &quot;\\notin&quot;
+    &quot;⊂&quot; &quot;\\subset&quot;
+    &quot;⊆&quot; &quot;\\subseteq&quot;
+    &quot;⊊&quot; &quot;\\subsetneq&quot;
+    &quot;⊃&quot; &quot;\\supset&quot;
+    &quot;⊇&quot; &quot;\\supseteq&quot;
+    &quot;⊋&quot; &quot;\\supsetneq&quot;
+    &quot;∩&quot; &quot;\\cap&quot;
+    &quot;∪&quot; &quot;\\cup&quot;
+    &quot;∅&quot; &quot;\\emptyset&quot;
+    &quot;≤&quot; &quot;\\leq&quot;
+    &quot;≲&quot; &quot;\\lesssim&quot;
+    &quot;≦&quot; &quot;\\leqq&quot;
+    &quot;≪&quot; &quot;\\ll&quot;
+    &quot;≥&quot; &quot;\\geq&quot;
+    &quot;≳&quot; &quot;\\gtrsim&quot;
+    &quot;≧&quot; &quot;\\geqq&quot;
+    &quot;≫&quot; &quot;\\gg&quot;
+    &quot;⪯&quot; &quot;\\preceq&quot;
+    &quot;⪰&quot; &quot;\\succeq&quot;
+    &quot;⊥&quot; &quot;\\perp&quot;
+    &quot;‖&quot; &quot;\\parallel&quot;
+    &quot;∋&quot; &quot;\\ni&quot;
+    &quot;⌈&quot; &quot;\\lceil&quot;
+    &quot;⌉&quot; &quot;\\rceil&quot;
+    &quot;⌊&quot; &quot;\\lfloor&quot;
+    &quot;⌋&quot; &quot;\\rfloor&quot;
+    #
+    &quot;⋯&quot; &quot;\\cdots&quot;
+    &quot;…&quot; &quot;\\ldots&quot;
+    &quot;⋱&quot; &quot;\\ddots&quot;
+    &quot;⋮&quot; &quot;\\vdots&quot;
+    &quot;÷&quot; &quot;\\frac&quot;
+    &quot;√&quot; &quot;\\sqrt&quot;
+    &quot;␣&quot; &quot;\\quad&quot;
+    &quot;＿&quot; &quot;_\\mathrm&quot;
+    &quot;＾&quot; &quot;^\\mathrm&quot;
+    &#93;
+small_numbers &#61; &#91;
+    &quot;⁰&quot; &quot;^0&quot;
+    &quot;¹&quot; &quot;^1&quot;
+    &quot;²&quot; &quot;^2&quot;
+    &quot;³&quot; &quot;^3&quot;
+    &quot;⁴&quot; &quot;^4&quot;
+    &quot;⁵&quot; &quot;^5&quot;
+    &quot;⁶&quot; &quot;^6&quot;
+    &quot;⁷&quot; &quot;^7&quot;
+    &quot;⁸&quot; &quot;^8&quot;
+    &quot;⁹&quot; &quot;^9&quot;
+    &quot;⁺&quot; &quot;^&#43;&quot;
+    &quot;⁻&quot; &quot;^-&quot;
+    &quot;₀&quot; &quot;_0&quot;
+    &quot;₁&quot; &quot;_1&quot;
+    &quot;₂&quot; &quot;_2&quot;
+    &quot;₃&quot; &quot;_3&quot;
+    &quot;₄&quot; &quot;_4&quot;
+    &quot;₅&quot; &quot;_5&quot;
+    &quot;₆&quot; &quot;_6&quot;
+    &quot;₇&quot; &quot;_7&quot;
+    &quot;₈&quot; &quot;_8&quot;
+    &quot;₉&quot; &quot;_9&quot;
+    &quot;₊&quot; &quot;_&#43;&quot;
+    &quot;₋&quot; &quot;_-&quot;
+&#93;
+char_not_spacing &#61; &#91;
+    &quot;ℯ&quot; &quot;&#123;&#123;e&#125;&#125;&quot;
+    &quot;¡&quot; &quot;&#123;&#123;i&#125;&#125;&quot;
+    &quot;｜&quot; &quot;\\Big|&quot;
+    &quot;≟&quot; &quot;\\overset&#123;?&#125;&#123;&#61;&#125;&quot;
+    #
+    &quot;𝒂&quot; &quot;\\bm&#123;a&#125;&quot;
+    &quot;𝒃&quot; &quot;\\bm&#123;b&#125;&quot;
+    &quot;𝒄&quot; &quot;\\bm&#123;c&#125;&quot;
+    &quot;𝒅&quot; &quot;\\bm&#123;d&#125;&quot;
+    &quot;𝒆&quot; &quot;\\bm&#123;e&#125;&quot;
+    &quot;𝒇&quot; &quot;\\bm&#123;f&#125;&quot;
+    &quot;𝒈&quot; &quot;\\bm&#123;g&#125;&quot;
+    &quot;𝒉&quot; &quot;\\bm&#123;h&#125;&quot;
+    &quot;𝒊&quot; &quot;\\bm&#123;i&#125;&quot;
+    &quot;𝒋&quot; &quot;\\bm&#123;j&#125;&quot;
+    &quot;𝒌&quot; &quot;\\bm&#123;k&#125;&quot;
+    &quot;𝒍&quot; &quot;\\bm&#123;l&#125;&quot;
+    &quot;𝒎&quot; &quot;\\bm&#123;m&#125;&quot;
+    &quot;𝒏&quot; &quot;\\bm&#123;n&#125;&quot;
+    &quot;𝒐&quot; &quot;\\bm&#123;o&#125;&quot;
+    &quot;𝒑&quot; &quot;\\bm&#123;p&#125;&quot;
+    &quot;𝒒&quot; &quot;\\bm&#123;q&#125;&quot;
+    &quot;𝒓&quot; &quot;\\bm&#123;r&#125;&quot;
+    &quot;𝒔&quot; &quot;\\bm&#123;s&#125;&quot;
+    &quot;𝒕&quot; &quot;\\bm&#123;t&#125;&quot;
+    &quot;𝒖&quot; &quot;\\bm&#123;u&#125;&quot;
+    &quot;𝒗&quot; &quot;\\bm&#123;v&#125;&quot;
+    &quot;𝒘&quot; &quot;\\bm&#123;w&#125;&quot;
+    &quot;𝒙&quot; &quot;\\bm&#123;x&#125;&quot;
+    &quot;𝒚&quot; &quot;\\bm&#123;y&#125;&quot;
+    &quot;𝒛&quot; &quot;\\bm&#123;z&#125;&quot;
+    &quot;𝑨&quot; &quot;\\bm&#123;A&#125;&quot;
+    &quot;𝑩&quot; &quot;\\bm&#123;B&#125;&quot;
+    &quot;𝑪&quot; &quot;\\bm&#123;C&#125;&quot;
+    &quot;𝑫&quot; &quot;\\bm&#123;D&#125;&quot;
+    &quot;𝑬&quot; &quot;\\bm&#123;E&#125;&quot;
+    &quot;𝑭&quot; &quot;\\bm&#123;F&#125;&quot;
+    &quot;𝑮&quot; &quot;\\bm&#123;G&#125;&quot;
+    &quot;𝑯&quot; &quot;\\bm&#123;H&#125;&quot;
+    &quot;𝑰&quot; &quot;\\bm&#123;I&#125;&quot;
+    &quot;𝑱&quot; &quot;\\bm&#123;J&#125;&quot;
+    &quot;𝑲&quot; &quot;\\bm&#123;K&#125;&quot;
+    &quot;𝑳&quot; &quot;\\bm&#123;L&#125;&quot;
+    &quot;𝑴&quot; &quot;\\bm&#123;M&#125;&quot;
+    &quot;𝑵&quot; &quot;\\bm&#123;N&#125;&quot;
+    &quot;𝑶&quot; &quot;\\bm&#123;O&#125;&quot;
+    &quot;𝑷&quot; &quot;\\bm&#123;P&#125;&quot;
+    &quot;𝑸&quot; &quot;\\bm&#123;Q&#125;&quot;
+    &quot;𝑹&quot; &quot;\\bm&#123;R&#125;&quot;
+    &quot;𝑺&quot; &quot;\\bm&#123;S&#125;&quot;
+    &quot;𝑻&quot; &quot;\\bm&#123;T&#125;&quot;
+    &quot;𝑼&quot; &quot;\\bm&#123;U&#125;&quot;
+    &quot;𝑽&quot; &quot;\\bm&#123;V&#125;&quot;
+    &quot;𝑾&quot; &quot;\\bm&#123;W&#125;&quot;
+    &quot;𝑿&quot; &quot;\\bm&#123;X&#125;&quot;
+    &quot;𝒀&quot; &quot;\\bm&#123;Y&#125;&quot;
+    &quot;𝒁&quot; &quot;\\bm&#123;Z&#125;&quot;
+    &quot;𝟎&quot; &quot;\\bm&#123;0&#125;&quot;
+    # 
+    &quot;𝔸&quot; &quot;\\mathbb&#123;A&#125;&quot;
+    &quot;𝔹&quot; &quot;\\mathbb&#123;B&#125;&quot;
+    &quot;ℂ&quot; &quot;\\mathbb&#123;C&#125;&quot;
+    &quot;𝔻&quot; &quot;\\mathbb&#123;D&#125;&quot;
+    &quot;𝔼&quot; &quot;\\mathbb&#123;E&#125;&quot;
+    &quot;𝔽&quot; &quot;\\mathbb&#123;F&#125;&quot;
+    &quot;𝔾&quot; &quot;\\mathbb&#123;G&#125;&quot;
+    &quot;ℍ&quot; &quot;\\mathbb&#123;H&#125;&quot;
+    &quot;𝕀&quot; &quot;\\mathbb&#123;I&#125;&quot;
+    &quot;𝕁&quot; &quot;\\mathbb&#123;J&#125;&quot;
+    &quot;𝕂&quot; &quot;\\mathbb&#123;K&#125;&quot;
+    &quot;𝕃&quot; &quot;\\mathbb&#123;L&#125;&quot;
+    &quot;𝕄&quot; &quot;\\mathbb&#123;M&#125;&quot;
+    &quot;ℕ&quot; &quot;\\mathbb&#123;N&#125;&quot;
+    &quot;𝕆&quot; &quot;\\mathbb&#123;O&#125;&quot;
+    &quot;ℙ&quot; &quot;\\mathbb&#123;P&#125;&quot;
+    &quot;ℚ&quot; &quot;\\mathbb&#123;Q&#125;&quot;
+    &quot;ℝ&quot; &quot;\\mathbb&#123;R&#125;&quot;
+    &quot;𝕊&quot; &quot;\\mathbb&#123;S&#125;&quot;
+    &quot;𝕋&quot; &quot;\\mathbb&#123;T&#125;&quot;
+    &quot;𝕌&quot; &quot;\\mathbb&#123;U&#125;&quot;
+    &quot;𝕍&quot; &quot;\\mathbb&#123;V&#125;&quot;
+    &quot;𝕎&quot; &quot;\\mathbb&#123;W&#125;&quot;
+    &quot;𝕏&quot; &quot;\\mathbb&#123;X&#125;&quot;
+    &quot;𝕐&quot; &quot;\\mathbb&#123;Y&#125;&quot;
+    &quot;ℤ&quot; &quot;\\mathbb&#123;Z&#125;&quot;
+    &quot;𝟙&quot; &quot;\\mathbbm&#123;1&#125;&quot;
+    # 
+    &quot;𝒜&quot; &quot;\\mathcal&#123;A&#125;&quot;
+    &quot;ℬ&quot; &quot;\\mathcal&#123;B&#125;&quot;
+    &quot;𝒞&quot; &quot;\\mathcal&#123;C&#125;&quot;
+    &quot;𝒟&quot; &quot;\\mathcal&#123;D&#125;&quot;
+    &quot;ℰ&quot; &quot;\\mathcal&#123;E&#125;&quot;
+    &quot;ℱ&quot; &quot;\\mathcal&#123;F&#125;&quot;
+    &quot;𝒢&quot; &quot;\\mathcal&#123;G&#125;&quot;
+    &quot;ℋ&quot; &quot;\\mathcal&#123;H&#125;&quot;
+    &quot;ℐ&quot; &quot;\\mathcal&#123;I&#125;&quot;
+    &quot;𝒥&quot; &quot;\\mathcal&#123;J&#125;&quot;
+    &quot;𝒦&quot; &quot;\\mathcal&#123;K&#125;&quot;
+    &quot;ℒ&quot; &quot;\\mathcal&#123;L&#125;&quot;
+    &quot;ℳ&quot; &quot;\\mathcal&#123;M&#125;&quot;
+    &quot;𝒩&quot; &quot;\\mathcal&#123;N&#125;&quot;
+    &quot;𝒪&quot; &quot;\\mathcal&#123;O&#125;&quot;
+    &quot;𝒫&quot; &quot;\\mathcal&#123;P&#125;&quot;
+    &quot;𝒬&quot; &quot;\\mathcal&#123;Q&#125;&quot;
+    &quot;ℛ&quot; &quot;\\mathcal&#123;R&#125;&quot;
+    &quot;𝒮&quot; &quot;\\mathcal&#123;S&#125;&quot;
+    &quot;𝒯&quot; &quot;\\mathcal&#123;T&#125;&quot;
+    &quot;𝒰&quot; &quot;\\mathcal&#123;U&#125;&quot;
+    &quot;𝒱&quot; &quot;\\mathcal&#123;V&#125;&quot;
+    &quot;𝒲&quot; &quot;\\mathcal&#123;W&#125;&quot;
+    &quot;𝒳&quot; &quot;\\mathcal&#123;X&#125;&quot;
+    &quot;𝒴&quot; &quot;\\mathcal&#123;Y&#125;&quot;
+    &quot;𝒵&quot; &quot;\\mathcal&#123;Z&#125;&quot;
+    #
+    &quot;𝑎&quot; &quot;\\mathrm&#123;a&#125;&quot;
+    &quot;𝑏&quot; &quot;\\mathrm&#123;b&#125;&quot;
+    &quot;𝑐&quot; &quot;\\mathrm&#123;c&#125;&quot;
+    &quot;𝑑&quot; &quot;\\mathrm&#123;d&#125;&quot;
+    &quot;𝑒&quot; &quot;\\mathrm&#123;e&#125;&quot;
+    &quot;𝑓&quot; &quot;\\mathrm&#123;f&#125;&quot;
+    &quot;𝑔&quot; &quot;\\mathrm&#123;g&#125;&quot;
+    &quot;ℎ&quot; &quot;\\mathrm&#123;h&#125;&quot;
+    &quot;𝑖&quot; &quot;\\mathrm&#123;i&#125;&quot;
+    &quot;𝑗&quot; &quot;\\mathrm&#123;j&#125;&quot;
+    &quot;𝑘&quot; &quot;\\mathrm&#123;k&#125;&quot;
+    &quot;𝑙&quot; &quot;\\mathrm&#123;l&#125;&quot;
+    &quot;𝑚&quot; &quot;\\mathrm&#123;m&#125;&quot;
+    &quot;𝑛&quot; &quot;\\mathrm&#123;n&#125;&quot;
+    &quot;𝑜&quot; &quot;\\mathrm&#123;o&#125;&quot;
+    &quot;𝑝&quot; &quot;\\mathrm&#123;p&#125;&quot;
+    &quot;𝑞&quot; &quot;\\mathrm&#123;q&#125;&quot;
+    &quot;𝑟&quot; &quot;\\mathrm&#123;r&#125;&quot;
+    &quot;𝑠&quot; &quot;\\mathrm&#123;s&#125;&quot;
+    &quot;𝑡&quot; &quot;\\mathrm&#123;t&#125;&quot;
+    &quot;𝑢&quot; &quot;\\mathrm&#123;u&#125;&quot;
+    &quot;𝑣&quot; &quot;\\mathrm&#123;v&#125;&quot;
+    &quot;𝑤&quot; &quot;\\mathrm&#123;w&#125;&quot;
+    &quot;𝑥&quot; &quot;\\mathrm&#123;x&#125;&quot;
+    &quot;𝑦&quot; &quot;\\mathrm&#123;y&#125;&quot;
+    &quot;𝑧&quot; &quot;\\mathrm&#123;z&#125;&quot;
+    &quot;𝐴&quot; &quot;\\mathrm&#123;A&#125;&quot;
+    &quot;𝐵&quot; &quot;\\mathrm&#123;B&#125;&quot;
+    &quot;𝐶&quot; &quot;\\mathrm&#123;C&#125;&quot;
+    &quot;𝐷&quot; &quot;\\mathrm&#123;D&#125;&quot;
+    &quot;𝐸&quot; &quot;\\mathrm&#123;E&#125;&quot;
+    &quot;𝐹&quot; &quot;\\mathrm&#123;F&#125;&quot;
+    &quot;𝐺&quot; &quot;\\mathrm&#123;G&#125;&quot;
+    &quot;𝐻&quot; &quot;\\mathrm&#123;H&#125;&quot;
+    &quot;𝐼&quot; &quot;\\mathrm&#123;I&#125;&quot;
+    &quot;𝐽&quot; &quot;\\mathrm&#123;J&#125;&quot;
+    &quot;𝐾&quot; &quot;\\mathrm&#123;K&#125;&quot;
+    &quot;𝐿&quot; &quot;\\mathrm&#123;L&#125;&quot;
+    &quot;𝑀&quot; &quot;\\mathrm&#123;M&#125;&quot;
+    &quot;𝑁&quot; &quot;\\mathrm&#123;N&#125;&quot;
+    &quot;𝑂&quot; &quot;\\mathrm&#123;O&#125;&quot;
+    &quot;𝑃&quot; &quot;\\mathrm&#123;P&#125;&quot;
+    &quot;𝑄&quot; &quot;\\mathrm&#123;Q&#125;&quot;
+    &quot;𝑅&quot; &quot;\\mathrm&#123;R&#125;&quot;
+    &quot;𝑆&quot; &quot;\\mathrm&#123;S&#125;&quot;
+    &quot;𝑇&quot; &quot;\\mathrm&#123;T&#125;&quot;
+    &quot;𝑈&quot; &quot;\\mathrm&#123;U&#125;&quot;
+    &quot;𝑉&quot; &quot;\\mathrm&#123;V&#125;&quot;
+    &quot;𝑊&quot; &quot;\\mathrm&#123;W&#125;&quot;
+    &quot;𝑋&quot; &quot;\\mathrm&#123;X&#125;&quot;
+    &quot;𝑌&quot; &quot;\\mathrm&#123;Y&#125;&quot;
+    &quot;𝑍&quot; &quot;\\mathrm&#123;Z&#125;&quot;
+&#93;
+
+function translator&#40;txt&#41;
+    for dict in eachrow&#40;preamble&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;&#61;&gt;dict&#91;2&#93;&#41;
+    end
+    for dict in eachrow&#40;command_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;*r&quot;&#40;?&#61;&#91;a-zA-Z&#93;&#41;&quot;&#61;&gt;dict&#91;2&#93;*&quot; &quot;&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;&#61;&gt;dict&#91;2&#93;&#41;
+    end
+    for dict in eachrow&#40;command_not_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;&#61;&gt;dict&#91;2&#93;&#41;
+    end
+    for dict in eachrow&#40;char_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;*r&quot;&#40;?&#61;&#91;a-zA-Z&#93;&#41;&quot;&#61;&gt;dict&#91;2&#93;*&quot; &quot;&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;&#61;&gt;dict&#91;2&#93;&#41;
+    end
+    for dict in eachrow&#40;char_not_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;&#61;&gt;dict&#91;2&#93;&#41;
+    end
+    for dict in eachrow&#40;small_numbers&#41;
+        txt &#61; replace&#40;txt,dict&#91;1&#93;&#61;&gt;dict&#91;2&#93;&#41;
+    end
+    return txt
+end
+
+function unicode_to_plain&#40;inputfile,outputfile&#41;
+    f &#61; open&#40;inputfile, &quot;r&quot;&#41;
+    list &#61; readlines&#40;f&#41;
+    for i in 1:lastindex&#40;list&#41;
+        list&#91;i&#93; &#61; translator&#40;list&#91;i&#93;&#41;
+    end
+    close&#40;f&#41;
+    open&#40;outputfile,&quot;w&quot;&#41; do out
+        println&#40;out,join&#40;list,&quot;\n&quot;&#41;&#41;
+    end
+    println&#40;&quot;translated unicode tex to plain&quot;&#41;
+end
+
+function inverse_translator&#40;txt&#41;
+    for dict in eachrow&#40;preamble&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;&#61;&gt;dict&#91;1&#93;&#41;
+    end
+    for dict in eachrow&#40;command_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;*r&quot;&#40;?&#61;&#91;^a-zA-Z&#93;&#41;&quot;&#61;&gt;dict&#91;1&#93;&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;*r&quot;&#36;&quot;&#61;&gt;dict&#91;1&#93;&#41;
+    end
+    for dict in eachrow&#40;command_not_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;&#61;&gt;dict&#91;1&#93;&#41;
+    end
+    for dict in eachrow&#40;non_standard_writing_plain&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;&#61;&gt;dict&#91;1&#93;&#41;
+    end
+    for dict in eachrow&#40;char_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;*r&quot;&#40;?&#61;&#91;^a-zA-Z&#93;&#41;&quot;&#61;&gt;dict&#91;1&#93;&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;*r&quot;&#36;&quot;&#61;&gt;dict&#91;1&#93;&#41;
+    end
+    for dict in eachrow&#40;char_not_spacing&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;&#61;&gt;dict&#91;1&#93;&#41;
+    end
+    for dict in eachrow&#40;small_numbers&#41;
+        txt &#61; replace&#40;txt,dict&#91;2&#93;*r&quot;&#40;?&#61;&#91;^0-9&#93;&#41;&quot;&#61;&gt;dict&#91;1&#93;&#41;
+    end
+    return txt
+end
+
+function plain_to_unicode&#40;inputfile,outputfile&#41;
+    f &#61; open&#40;inputfile, &quot;r&quot;&#41;
+    list &#61; readlines&#40;f&#41;
+    for i in 1:lastindex&#40;list&#41;
+        list&#91;i&#93; &#61; inverse_translator&#40;list&#91;i&#93;&#41;
+    end
+    close&#40;f&#41;
+    open&#40;outputfile,&quot;w&quot;&#41; do out
+        println&#40;out,join&#40;list,&quot;\n&quot;&#41;&#41;
+    end
+    println&#40;&quot;translated plain tex to unicode&quot;&#41;
+end
+
+&quot;&quot;&quot;
+現在のディレクトリとそのサブディレクトリから.texファイルを検索して表示します
+&quot;&quot;&quot;
+function list_tex_files&#40;&#41;
+    # 現在のディレクトリを取得
+    current_dir &#61; pwd&#40;&#41;
+    println&#40;&quot;Current directory: &#36;current_dir&quot;&#41;
+    
+    # .texファイルのリストを初期化
+    tex_files &#61; String&#91;&#93;
+    
+    # 現在のディレクトリとサブディレクトリを検索
+    println&#40;&quot;Searching for files...&quot;&#41;
+    
+    # readdir再帰で検索
+    function search_dir&#40;dir&#41;
+        try
+            for item in readdir&#40;dir, join&#61;true&#41;
+                if isfile&#40;item&#41; &amp;&amp; endswith&#40;lowercase&#40;item&#41;, &quot;.tex&quot;&#41;
+                    push&#33;&#40;tex_files, item&#41;
+                elseif isdir&#40;item&#41;
+                    search_dir&#40;item&#41;
+                end
+            end
+        catch e
+            println&#40;&quot;Warning: Error reading directory &#36;dir: &#36;e&quot;&#41;
+        end
+    end
+    
+    # 検索実行
+    search_dir&#40;current_dir&#41;
+    
+    # 結果を表示
+    if isempty&#40;tex_files&#41;
+        println&#40;&quot;No .tex files found in the current directory&quot;&#41;
+        return nothing
+    end
+    
+    println&#40;&quot;\nFound .tex files &#40;total: &#36;&#40;length&#40;tex_files&#41;&#41;&#41;:&quot;&#41;
+    for &#40;i, file&#41; in enumerate&#40;tex_files&#41;
+        println&#40;&quot;&#36;i. &#36;file&quot;&#41;
+    end
+    
+    return tex_files
+end
+
+# Unicodeファイルを判別するための識別子リスト
+unicode_indicator_list &#61; &#91;&quot;&#40;unicode&#41;&quot;, &quot;&#40;uni&#41;&quot;, &quot;&#40;u&#41;&quot;&#93;
+
+&quot;&quot;&quot;
+選択されたファイルの形式を検出します
+ファイル名にunicode_indicator_listのいずれかの文字列が含まれていればUnicode形式、
+それ以外はPlain形式と判定します
+&quot;&quot;&quot;
+function detect_format&#40;file_path&#41;
+    try
+        # ファイル名を取得
+        filename &#61; basename&#40;file_path&#41;
+        
+        # ファイル名にunicode_indicator_listのいずれかが含まれるか確認
+        for indicator in unicode_indicator_list
+            if occursin&#40;lowercase&#40;indicator&#41;, lowercase&#40;filename&#41;&#41;
+                return &quot;Unicode&quot;
+            end
+        end
+        
+        # どの識別子も含まれていない場合はPlain形式
+        return &quot;Plain&quot;
+    catch e
+        println&#40;&quot;Error processing filename: &#36;e&quot;&#41;
+        println&#40;e&#41;
+        return &quot;Error&quot;
+    end
+end
+
+&quot;&quot;&quot;
+ファイルを指定された形式に変換します
+Unicode形式: ファイル名にunicode_indicator_listのいずれかを含む
+Plain形式: ファイル名にUnicode形式の特徴を含まない
+&quot;&quot;&quot;
+function convert_format&#40;input_file, target_format&#41;
+    if &#33;isfile&#40;input_file&#41;
+        println&#40;&quot;Error: File &#39;&#36;input_file&#39; not found&quot;&#41;
+        return false
+    end
+    
+    # ファイル名と拡張子を取得
+    dir_name &#61; dirname&#40;input_file&#41;
+    file_name &#61; basename&#40;input_file&#41;
+    base_name, extension &#61; splitext&#40;file_name&#41;
+    
+    # 現在の形式を検出
+    current_format &#61; detect_format&#40;input_file&#41;
+    println&#40;&quot;Current format: &#36;current_format&quot;&#41;
+    
+    # 新しいファイル名を準備
+    new_file_name &#61; &quot;&quot;
+    output_file &#61; &quot;&quot;
+    
+    # 変換処理
+    if target_format &#61;&#61; &quot;Unicode&quot; &amp;&amp; current_format &#61;&#61; &quot;Plain&quot;
+        # Plain→Unicode変換
+        # ファイル名に&quot;&#40;unicode&#41;&quot;を追加
+        new_base_name &#61; &quot;&#36;&#40;base_name&#41;&#40;unicode&#41;&quot;
+        new_file_name &#61; &quot;&#36;&#40;new_base_name&#41;&#36;&#40;extension&#41;&quot;
+        output_file &#61; joinpath&#40;dir_name, new_file_name&#41;
+        
+        println&#40;&quot;Converting from Plain to Unicode format&quot;&#41;
+        println&#40;&quot;&#39;&#36;&#40;file_name&#41;&#39; → &#39;&#36;&#40;new_file_name&#41;&#39;&quot;&#41;
+        
+        # 実際の変換処理を呼び出す
+        try
+            # 既存の変換関数を呼び出し
+            plain_to_unicode&#40;input_file, output_file&#41;
+            println&#40;&quot;Conversion completed&#33;&quot;&#41;
+            return true
+        catch e
+            println&#40;&quot;Error during conversion: &#36;e&quot;&#41;
+            return false
+        end
+        
+    elseif target_format &#61;&#61; &quot;Plain&quot; &amp;&amp; current_format &#61;&#61; &quot;Unicode&quot;
+        # Unicode→Plain変換
+        # ファイル名から識別子を削除
+        new_base_name &#61; base_name
+        for indicator in unicode_indicator_list
+            new_base_name &#61; replace&#40;new_base_name, lowercase&#40;indicator&#41; &#61;&gt; &quot;&quot;&#41;
+            new_base_name &#61; replace&#40;new_base_name, indicator &#61;&gt; &quot;&quot;&#41;
+        end
+        
+        # 連続する括弧や空白を整理
+        new_base_name &#61; replace&#40;new_base_name, r&quot;\&#40;\s*\&#41;&quot; &#61;&gt; &quot;&quot;&#41;
+        new_base_name &#61; replace&#40;new_base_name, r&quot;\s&#43;&quot; &#61;&gt; &quot; &quot;&#41;
+        new_base_name &#61; strip&#40;new_base_name&#41;
+        
+        new_file_name &#61; &quot;&#36;&#40;new_base_name&#41;&#36;&#40;extension&#41;&quot;
+        output_file &#61; joinpath&#40;dir_name, new_file_name&#41;
+        
+        println&#40;&quot;Converting from Unicode to Plain format&quot;&#41;
+        println&#40;&quot;&#39;&#36;&#40;file_name&#41;&#39; → &#39;&#36;&#40;new_file_name&#41;&#39;&quot;&#41;
+        
+        # 実際の変換処理を呼び出す
+        try
+            # 既存の変換関数を呼び出し
+            unicode_to_plain&#40;input_file, output_file&#41;
+            println&#40;&quot;Conversion completed&#33;&quot;&#41;
+            return true
+        catch e
+            println&#40;&quot;Error during conversion: &#36;e&quot;&#41;
+            return false
+        end
+        
+    elseif target_format &#61;&#61; current_format
+        println&#40;&quot;File is already in &#36;target_format format. No conversion needed.&quot;&#41;
+        return false
+    else
+        println&#40;&quot;Unsupported conversion: &#36;current_format to &#36;target_format&quot;&#41;
+        return false
+    end
+end
+
+function convert_tex&#40;&#41;
+    println&#40;&quot;&#61;&#61;&#61; TeX Format Converter &#40;Unicode ⟷ Plain&#41; &#61;&#61;&#61;&quot;&#41;
+    
+    # ステップ1: ファイルの検索
+    files &#61; list_tex_files&#40;&#41;
+    if files &#61;&#61;&#61; nothing || isempty&#40;files&#41;
+        println&#40;&quot;No .tex files found. Exiting.&quot;&#41;
+        return
+    end
+    
+    # ステップ2: ファイルの選択 - 修正された入力処理
+    choice_num &#61; 0
+    valid_choice &#61; false
+    
+    while &#33;valid_choice
+        println&#40;&quot;\nEnter the number of the file to convert: &quot;&#41;
+        try
+            # 標準入力から直接読み込み、空白を削除
+            choice_str &#61; strip&#40;readline&#40;&#41;&#41;
+            
+            # 入力が空でないことを確認
+            if isempty&#40;choice_str&#41;
+                println&#40;&quot;Empty input received. Please enter a number.&quot;&#41;
+                continue
+            end
+            
+            # 文字列を整数に変換
+            choice_num &#61; parse&#40;Int, choice_str&#41;
+            
+            # 有効な範囲内か確認
+            if choice_num &lt; 1 || choice_num &gt; length&#40;files&#41;
+                println&#40;&quot;Invalid selection. Please enter a number between 1 and &#36;&#40;length&#40;files&#41;&#41;.&quot;&#41;
+                continue
+            end
+            
+            valid_choice &#61; true
+        catch e
+            println&#40;&quot;Invalid input. Please enter a number: &#36;&#40;e&#41;&quot;&#41;
+        end
+    end
+    
+    # 有効な選択を取得した後の処理
+    selected_file &#61; files&#91;choice_num&#93;
+    println&#40;&quot;Selected file: &#36;selected_file&quot;&#41;
+    
+    # ステップ3: 形式の検出
+    current_format &#61; detect_format&#40;selected_file&#41;
+    
+    if current_format &#61;&#61; &quot;Error&quot;
+        println&#40;&quot;An error occurred while processing the file.&quot;&#41;
+        return
+    else
+        println&#40;&quot;Detected format: &#36;current_format&quot;&#41;
+        # 対象形式（現在の形式の反対）を決定
+        target_format &#61; current_format &#61;&#61; &quot;Unicode&quot; ? &quot;Plain&quot; : &quot;Unicode&quot;
+        println&#40;&quot;Will convert to: &#36;target_format&quot;&#41;
+    end
+    
+    # ステップ4: 確認
+    confirm &#61; &quot;&quot;
+    while &#33;&#40;confirm in &#91;&quot;y&quot;, &quot;n&quot;&#93;&#41;
+        print&#40;&quot;Continue? &#40;y/n&#41;: &quot;&#41;
+        confirm &#61; lowercase&#40;strip&#40;readline&#40;&#41;&#41;&#41;
+        if isempty&#40;confirm&#41;
+            println&#40;&quot;Empty input received. Please enter &#39;y&#39; or &#39;n&#39;.&quot;&#41;
+        end
+    end
+    
+    if confirm &#33;&#61; &quot;y&quot;
+        println&#40;&quot;Conversion cancelled.&quot;&#41;
+        return
+    end
+    
+    # ステップ5: 変換実行
+    success &#61; convert_format&#40;selected_file, target_format&#41;
+    if success
+        println&#40;&quot;Conversion completed successfully.&quot;&#41;
+    else
+        println&#40;&quot;Conversion could not be completed.&quot;&#41;
+    end
+end
+
+convert_tex&#40;&#41;</code></pre> <div class=page-foot > © Rintaro Masaoka. Last modified: April 13, 2025. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>. </div> </div> </div> </div> <script src="/libs/pure/ui.min.js"></script> <script src="/libs/highlight/highlight.min.js"></script> <script>hljs.highlightAll();hljs.configure({tabReplace: ' '});</script>
