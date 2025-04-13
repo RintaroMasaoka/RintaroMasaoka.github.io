@@ -1,8 +1,12 @@
 +++
-title = "Rintaro Masaoka"
+title = "Rintaro Masaoka's site"
 lang_ja = false
 home = true
 +++
+
+~~~
+<img src="/assets/images/RM.jpeg" alt="me" class="index-profile-picture">
+~~~
 
 ## About me
 I am Rintaro Masaoka, a master's student in condensed matter theory and statistical physics.

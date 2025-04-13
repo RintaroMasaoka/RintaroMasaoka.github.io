@@ -334,3 +334,16 @@ code {
   border-radius: 0 10px 10px 0;
   border-left: 5px solid #4c9cf1;
 }
+
+.index-profile-picture {
+  /* --- 大きさの指定 --- */
+  max-width: 250px;
+  height: auto;
+
+  /* --- 位置や他の装飾 (必要に応じて設定) --- */
+  display: block; /* 中央寄せのためにブロック要素にする */
+  margin-left: auto;
+  margin-right: auto; /* 左右のマージンをautoにして中央寄せ */
+  margin-top: 25px;    /* 上の余白 */
+  margin-bottom: 25px; /* 下の余白 */
+}

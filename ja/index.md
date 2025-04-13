@@ -1,8 +1,12 @@
 +++
-title = "政岡凜太郎"
+title = "政岡凜太郎のサイト"
 lang_ja = true
 home = true
 +++
+
+~~~
+<img src="/assets/images/RM.jpeg" alt="me" class="index-profile-picture">
+~~~
 
 ## 自己紹介
 物性理論および統計力学を研究している大学院生(M2)です。

@@ -4,7 +4,7 @@ lang_ja = false
 notes = true
 +++
 
-Japanese notes I made during independent seminars
+Notes I made during independent seminars (in Japanese)
 
 \textinput{/assets/completion/notelist.md}
 
