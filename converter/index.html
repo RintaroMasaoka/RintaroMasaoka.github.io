@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html lang=ja > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1.0"> <title>LaTeX Unicode ⇌ Normal Converter</title> <link rel=stylesheet  href=style.css > <div class=container > <h1>LaTeX Unicode ⇌ Normal Converter (試作)</h1> <div class=converter-area > <div class=textarea-container > <div class=textarea-wrapper > <label for=input-textarea  id=input-label >入力 (Unicode)</label> <textarea id=input-textarea  placeholder="ここにLaTeXコードを貼り付け..."></textarea>
+<!DOCTYPE html> <html lang=ja > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1.0"> <title>LaTeX Unicode ⇌ Normal Converter</title> <link rel=stylesheet  href=style.css > <div class=container > <h1>LaTeX Unicode ⇌ Normal Converter</h1> <div class=converter-area > <div class=textarea-container > <div class=textarea-wrapper > <label for=input-textarea  id=input-label >入力 (Unicode)</label> <textarea id=input-textarea  placeholder="ここにLaTeXコードを貼り付け..."></textarea>
                 </div>
                 <div class=textarea-wrapper >
                     <label for=output-textarea  id=output-label >出力 (Normal)</label>
@@ -16,9 +16,10 @@
             <p>
                 下のテキストエリアで変換ルールをJSON形式で編集できます。<br>
                 ルールを編集したら「ルールを保存＆適用」ボタンを押してください。<br>
-                <code>correspondence</code>: 基本的なUnicodeとNormalの対応<br>
-                <code>other_normal</code>: Normal形式の別表記 (Normal → Unicode変換時に使用)<br>
-                <code>other_unicode</code>: Unicode形式の別表記 (Unicode → Normal変換時に使用)<br>
+                ローカルストレージに保存され、次回アクセス時も利用できます。<br>
+                <code>correspondence</code>: 基本的なUnicodeとNormalの対応 (両方向)<br>
+                <code>other_normal</code>: Normal形式の別表記 (Normal → Unicode変換時にのみ使用)<br>
+                <code>other_unicode</code>: Unicode形式の別表記 (Unicode → Normal変換時にのみ使用)<br>
                 各エントリは <code>{"unicode": "...", "normal": "..."}</code> の形式です。
             </p>
             <textarea id=rules-textarea  rows=15  spellcheck=false ></textarea>
