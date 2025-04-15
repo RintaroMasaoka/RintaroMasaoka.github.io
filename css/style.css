@@ -1,1 +1,1 @@
-@charset "utf-8";:root{--franklin-font-family:"Inter","Noto Sans JP",sans-serif}html,body{font-family:"Inter","Noto Sans JP",sans-serif !important}h1,h2,h3,h4,h5,h6{font-family:"Montserrat","Noto Sans JP",sans-serif !important}
+@charset "utf-8";@import url(https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;900&display=swap);:root{--franklin-font-family:"Montserrat","Noto Sans JP","Inter",sans-serif}html,body{font-family:"Noto Sans JP","Inter",sans-serif !important}h1,h2,h3,h4,h5,h6{font-family:"Montserrat","Noto Sans JP",sans-serif}
