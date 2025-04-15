@@ -571,7 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {"unicode": "𝛶", "normal": "\\Upsilon"},
             {"unicode": "𝛷", "normal": "\\Phi"},
             {"unicode": "𝛹", "normal": "\\Psi"},
-            {"unicode": "𝛺", "normal": "\\Omega"}≅
+            {"unicode": "𝛺", "normal": "\\Omega"}
         ]
     };
 
