@@ -47,8 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
             {"unicode": "⊤", "normal": "\\top"},
             {"unicode": "☡", "normal": "\\danger"},
             {"unicode": "¬", "normal": "\\neg"},
-            {"unicode": "′", "normal": "\\prime"},
-            {"unicode": "‵", "normal": "\\backprime"},
             {"unicode": "ℵ", "normal": "\\aleph"},
             {"unicode": "ℶ", "normal": "\\beth"},
             {"unicode": "ℷ", "normal": "\\gimel"},
