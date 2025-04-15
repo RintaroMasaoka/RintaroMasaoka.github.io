@@ -8,6 +8,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://rintaromasaoka.github.io/ja/Tools/index.html</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://rintaromasaoka.github.io/Notes/index.html</loc>
     <lastmod>2025-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -51,6 +57,12 @@
 </url>
 <url>
     <loc>https://rintaromasaoka.github.io/ja/Publications/index.html</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://rintaromasaoka.github.io/Tools/index.html</loc>
     <lastmod>2025-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputLabel = document.getElementById('input-label');
     const outputLabel = document.getElementById('output-label');
 
-    // --- デフォルト変換ルール ---
+    // --- Default Conversion Rules ---
     const defaultRules = {
         "correspondence": [
             // big operators
@@ -602,7 +602,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
-
     let currentRules = {};
     let conversionDirection = 'unicodeToNormal';
     let processedRules = {
@@ -626,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return { unicodeToNormalMap, normalToUnicodeMap };
     }
 
-    // --- Textarea Formatter ---
+    // --- Textarea Formatter (Unchanged) ---
     function formatRulesForTextarea(rules) {
         try {
             rules = rules || {}; rules.correspondence = Array.isArray(rules.correspondence) ? rules.correspondence : []; rules.other_unicode = Array.isArray(rules.other_unicode) ? rules.other_unicode : []; rules.other_normal = Array.isArray(rules.other_normal) ? rules.other_normal : [];
@@ -648,8 +647,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) { console.error("Error formatting rules:", error); return JSON.stringify(rules, null, 2); }
      }
 
-    // --- Translation Functions ---
-    function translateBlockUnicodeToNormal(block, rulesMap) { 
+    // --- Translation Functions (Unchanged) ---
+    function translateBlockUnicodeToNormal(block, rulesMap) {
         let result = block;
         rulesMap.forEach(rule => {
             const escapedFrom = escapeRegExp(rule.from); let regex;
@@ -661,7 +660,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else { regex = new RegExp(escapedFrom, 'g'); result = result.replace(regex, rule.to); }
         }); return result;
     }
-    function translateBlockNormalToUnicode(block, rulesMap) { 
+    function translateBlockNormalToUnicode(block, rulesMap) {
         let result = block;
         rulesMap.forEach(rule => {
             const escapedFrom = escapeRegExp(rule.from); let regex;
@@ -677,41 +676,44 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!processedRules || !processedRules.unicodeToNormalMap || !processedRules.normalToUnicodeMap || processedRules.unicodeToNormalMap.length === 0 || processedRules.normalToUnicodeMap.length === 0) {
                 console.warn("Rules not processed. Trying to process current rules."); if (Object.keys(currentRules).length === 0) { currentRules = JSON.parse(JSON.stringify(defaultRules)); }
                  try { processedRules = processRules(currentRules); if (ruleStatus.classList.contains('error')) { ruleStatus.textContent = ''; ruleStatus.className = ''; } }
-                 catch (ruleProcessingError) { console.error("Error processing rules:", ruleProcessingError); console.warn("Falling back to default rules."); ruleStatus.textContent = `ルール処理エラー: ${ruleProcessingError.message}。デフォルトルールで試行します。`; ruleStatus.className = 'error'; try { processedRules = processRules(JSON.parse(JSON.stringify(defaultRules))); } catch (defaultProcessingError) { console.error("FATAL: Error processing default rules:", defaultProcessingError); outputTextArea.value = "ルール処理エラーのため変換できません。"; return; } }
-                 if (!processedRules || !processedRules.unicodeToNormalMap || !processedRules.normalToUnicodeMap || processedRules.unicodeToNormalMap.length === 0 || processedRules.normalToUnicodeMap.length === 0){ throw new Error("ルールマップ生成失敗。"); }
+                 catch (ruleProcessingError) { console.error("Error processing rules:", ruleProcessingError); console.warn("Falling back to default rules."); ruleStatus.textContent = `Error processing rules: ${ruleProcessingError.message}. Attempting with default rules.`; ruleStatus.className = 'error'; try { processedRules = processRules(JSON.parse(JSON.stringify(defaultRules))); } catch (defaultProcessingError) { console.error("FATAL: Error processing default rules:", defaultProcessingError); outputTextArea.value = "Cannot convert due to rule processing error."; return; } }
+                 if (!processedRules || !processedRules.unicodeToNormalMap || !processedRules.normalToUnicodeMap || processedRules.unicodeToNormalMap.length === 0 || processedRules.normalToUnicodeMap.length === 0){ throw new Error("Failed to generate rule map."); }
             }
             const blocks = inputText.split('\\\\'); let convertedBlocks;
             if (conversionDirection === 'unicodeToNormal') { convertedBlocks = blocks.map(block => translateBlockUnicodeToNormal(block, processedRules.unicodeToNormalMap)); } else { convertedBlocks = blocks.map(block => translateBlockNormalToUnicode(block, processedRules.normalToUnicodeMap)); }
             outputText = convertedBlocks.join('\\\\'); outputTextArea.value = outputText;
-            if (!ruleStatus.textContent.startsWith('ルール処理エラー')) { ruleStatus.textContent = ''; ruleStatus.className = ''; }
-        } catch (error) { console.error("Conversion error:", error); outputTextArea.value = `変換エラー:\n${error.message}`; ruleStatus.textContent = `変換エラー: ${error.message}`; ruleStatus.className = 'error'; }
+            if (!ruleStatus.textContent.startsWith('Error processing rules') && !ruleStatus.textContent.startsWith('Conversion error')) { ruleStatus.textContent = ''; ruleStatus.className = ''; } // Avoid clearing rule processing errors
+        } catch (error) { console.error("Conversion error:", error); outputTextArea.value = `Conversion error:\n${error.message}`; ruleStatus.textContent = `Conversion error: ${error.message}`; ruleStatus.className = 'error'; }
     }
 
     // --- Update UI ---
     function updateUIForDirection() {
         if (conversionDirection === 'unicodeToNormal') {
-            inputLabel.textContent = '入力 (Unicode)';
-            outputLabel.textContent = '出力 (Normal)';
-            toggleDirectionButton.textContent = 'Normal → Unicode に切り替え'; 
-            inputTextArea.placeholder = 'Unicode LaTeX コード (例: α → β)';
-            outputTextArea.placeholder = '変換結果 (例: \\alpha \\to \\beta)';
+            inputLabel.textContent = 'Input (Unicode)';
+            outputLabel.textContent = 'Output (Normal)';
+            toggleDirectionButton.textContent = 'Switch to Normal → Unicode';
+            inputTextArea.placeholder = 'Unicode LaTeX code (e.g., α → β)';
+            outputTextArea.placeholder = 'Conversion result (e.g., \\alpha \\to \\beta)';
         } else {
-            inputLabel.textContent = '入力 (Normal)';
-            outputLabel.textContent = '出力 (Unicode)';
-            toggleDirectionButton.textContent = 'Unicode → Normal に切り替え'; 
-            inputTextArea.placeholder = 'Normal LaTeX コード (例: \\alpha \\to \\beta)';
-            outputTextArea.placeholder = '変換結果 (例: α → β)';
+            inputLabel.textContent = 'Input (Normal)';
+            outputLabel.textContent = 'Output (Unicode)';
+            toggleDirectionButton.textContent = 'Switch to Unicode → Normal';
+            inputTextArea.placeholder = 'Normal LaTeX code (e.g., \\alpha \\to \\beta)';
+            outputTextArea.placeholder = 'Conversion result (e.g., α → β)';
         }
-        // すでに convert() が呼ばれているので、ここでは不要
-        // convert();
+        // Swap content if user toggles direction
+        const currentInput = inputTextArea.value;
+        inputTextArea.value = outputTextArea.value;
+        outputTextArea.value = currentInput;
+        convert(); // Convert after updating UI and potentially swapping content
     }
 
-    // --- Load/Save Rules (Unchanged) ---
+    // --- Load/Save Rules ---
     function loadRules() {
         try {
-            const storedRules = localStorage.getItem('latexConverterRules'); if (storedRules) { const parsedRules = JSON.parse(storedRules); if (typeof parsedRules === 'object' && parsedRules !== null && Array.isArray(parsedRules.correspondence)) { currentRules = parsedRules; if (!currentRules.other_normal) currentRules.other_normal = []; if (!currentRules.other_unicode) currentRules.other_unicode = []; rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = '保存されたカスタムルールを読み込みました'; ruleStatus.className = ''; } else { console.warn("..."); currentRules = JSON.parse(JSON.stringify(defaultRules)); rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'カスタムルールが無効なため、デフォルトルールを使用します'; ruleStatus.className = 'error'; } } else { currentRules = JSON.parse(JSON.stringify(defaultRules)); rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'デフォルトルールを使用中'; ruleStatus.className = ''; }
+            const storedRules = localStorage.getItem('latexConverterRules'); if (storedRules) { const parsedRules = JSON.parse(storedRules); if (typeof parsedRules === 'object' && parsedRules !== null && Array.isArray(parsedRules.correspondence)) { currentRules = parsedRules; if (!currentRules.other_normal) currentRules.other_normal = []; if (!currentRules.other_unicode) currentRules.other_unicode = []; rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'Loaded saved custom rules'; ruleStatus.className = ''; } else { console.warn("Invalid format in stored rules."); currentRules = JSON.parse(JSON.stringify(defaultRules)); rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'Invalid custom rules found, using default rules'; ruleStatus.className = 'error'; } } else { currentRules = JSON.parse(JSON.stringify(defaultRules)); rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'Using default rules'; ruleStatus.className = ''; }
             processedRules = processRules(currentRules);
-        } catch (error) { console.error("Error applying rules:", error); currentRules = JSON.parse(JSON.stringify(defaultRules)); rulesTextArea.value = formatRulesForTextarea(currentRules); try { processedRules = processRules(currentRules); ruleStatus.textContent = `ルール適用エラー (${error.message})。デフォルトルールを使用します。`; ruleStatus.className = 'error'; } catch (processingError) { console.error("FATAL:", processingError); processedRules = { unicodeToNormalMap: [], normalToUnicodeMap: [] }; currentRules = { correspondence: [], other_normal: [], other_unicode: [] }; rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = '致命的エラー: ルールの処理に失敗しました。'; ruleStatus.className = 'error'; } }
+        } catch (error) { console.error("Error applying rules:", error); currentRules = JSON.parse(JSON.stringify(defaultRules)); rulesTextArea.value = formatRulesForTextarea(currentRules); try { processedRules = processRules(currentRules); ruleStatus.textContent = `Rule application error (${error.message}). Using default rules.`; ruleStatus.className = 'error'; } catch (processingError) { console.error("FATAL:", processingError); processedRules = { unicodeToNormalMap: [], normalToUnicodeMap: [] }; currentRules = { correspondence: [], other_normal: [], other_unicode: [] }; rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'Fatal error: Failed to process rules.'; ruleStatus.className = 'error'; } }
     }
 
     // --- Event Listeners ---
@@ -719,25 +721,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggleDirectionButton.addEventListener('click', () => {
         conversionDirection = (conversionDirection === 'unicodeToNormal') ? 'normalToUnicode' : 'unicodeToNormal';
-        // UI更新関数を呼ぶだけで、テキスト更新と変換が実行される
-        updateUIForDirection(); // ★★★ UI更新関数を呼ぶ ★★★
-        // 変換は updateUIForDirection 内で呼ばれるため、ここでは不要
-        // convert();
+        updateUIForDirection(); // This now handles UI text update, content swap, and conversion
     });
 
-    copyOutputButton.addEventListener('click', () => { if (outputTextArea.value) { navigator.clipboard.writeText(outputTextArea.value).then(() => { /*...*/ }).catch(err => { /*...*/ }); } else { /*...*/ } });
+    copyOutputButton.addEventListener('click', () => {
+        const originalText = copyOutputButton.textContent;
+        if (outputTextArea.value) {
+            navigator.clipboard.writeText(outputTextArea.value).then(() => {
+                 copyOutputButton.textContent = 'Copied!';
+                 setTimeout(() => { copyOutputButton.textContent = originalText; }, 1500);
+            }).catch(err => {
+                console.error('Copy failed', err);
+                alert('Failed to copy text.'); // User feedback for copy failure
+            });
+        } else {
+            alert('Nothing to copy.'); // User feedback if output is empty
+        }
+    });
 
     saveRulesButton.addEventListener('click', () => {
-        try { const newRulesRaw = rulesTextArea.value; if (!newRulesRaw.trim()) { throw new Error("..."); } const newRules = JSON.parse(newRulesRaw); /* Validation ... */ if (typeof newRules !== 'object' || newRules === null) throw new Error("..."); if (!Array.isArray(newRules.correspondence)) throw new Error("..."); if (newRules.hasOwnProperty('other_normal') && !Array.isArray(newRules.other_normal)) throw new Error("..."); if (newRules.hasOwnProperty('other_unicode') && !Array.isArray(newRules.other_unicode)) throw new Error("..."); if (!newRules.other_normal) newRules.other_normal = []; if (!newRules.other_unicode) newRules.other_unicode = []; const tempProcessed = processRules(newRules); currentRules = newRules; processedRules = tempProcessed; localStorage.setItem('latexConverterRules', JSON.stringify(currentRules)); rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'ルールが正常に保存・適用されました'; ruleStatus.className = ''; convert(); } catch (error) { console.error("Error saving rules:", error); ruleStatus.textContent = `ルール保存/処理エラー: ${error.message}`; ruleStatus.className = 'error'; }
+        try {
+            const newRulesRaw = rulesTextArea.value;
+            if (!newRulesRaw.trim()) { throw new Error("Rules cannot be empty."); }
+            const newRules = JSON.parse(newRulesRaw);
+            // Basic Validation
+            if (typeof newRules !== 'object' || newRules === null) throw new Error("Rules must be a JSON object.");
+            if (!Array.isArray(newRules.correspondence)) throw new Error("'correspondence' must be an array.");
+            if (newRules.hasOwnProperty('other_normal') && !Array.isArray(newRules.other_normal)) throw new Error("'other_normal' must be an array if present.");
+            if (newRules.hasOwnProperty('other_unicode') && !Array.isArray(newRules.other_unicode)) throw new Error("'other_unicode' must be an array if present.");
+            // Ensure arrays exist even if empty in the input JSON
+             if (!newRules.other_normal) newRules.other_normal = [];
+             if (!newRules.other_unicode) newRules.other_unicode = [];
+
+            const tempProcessed = processRules(newRules); // Test processing before saving
+            currentRules = newRules;
+            processedRules = tempProcessed;
+            localStorage.setItem('latexConverterRules', JSON.stringify(currentRules));
+            rulesTextArea.value = formatRulesForTextarea(currentRules); // Reformat for consistency
+            ruleStatus.textContent = 'Rules saved and applied successfully';
+            ruleStatus.className = '';
+            convert(); // Re-run conversion with new rules
+        } catch (error) {
+            console.error("Error saving rules:", error);
+            ruleStatus.textContent = `Error saving/processing rules: ${error.message}`;
+            ruleStatus.className = 'error';
+        }
     });
 
     resetRulesButton.addEventListener('click', () => {
-        if (confirm('...')) { try { currentRules = JSON.parse(JSON.stringify(defaultRules)); processedRules = processRules(currentRules); localStorage.removeItem('latexConverterRules'); rulesTextArea.value = formatRulesForTextarea(currentRules); ruleStatus.textContent = 'デフォルトルールにリセットしました'; ruleStatus.className = ''; convert(); } catch (error) { console.error("Error resetting:", error); ruleStatus.textContent = `リセットエラー: ${error.message}`; ruleStatus.className = 'error'; try { rulesTextArea.value = formatRulesForTextarea(defaultRules); } catch { rulesTextArea.value = "{}"; } processedRules = { unicodeToNormalMap: [], normalToUnicodeMap: [] }; } }
+        if (confirm('Are you sure you want to reset to default rules? This will remove your custom rules.')) {
+            try {
+                currentRules = JSON.parse(JSON.stringify(defaultRules));
+                processedRules = processRules(currentRules);
+                localStorage.removeItem('latexConverterRules');
+                rulesTextArea.value = formatRulesForTextarea(currentRules);
+                ruleStatus.textContent = 'Reset to default rules';
+                ruleStatus.className = '';
+                convert(); // Re-run conversion with default rules
+            } catch (error) {
+                console.error("Error resetting rules:", error);
+                ruleStatus.textContent = `Reset error: ${error.message}`;
+                ruleStatus.className = 'error';
+                // Attempt to at least display default rules structure on error
+                try { rulesTextArea.value = formatRulesForTextarea(defaultRules); } catch { rulesTextArea.value = "{}"; }
+                processedRules = { unicodeToNormalMap: [], normalToUnicodeMap: [] }; // Clear processed rules on error
+            }
+        }
     });
 
     // --- Initial Load ---
     loadRules();
-    // 初回ロード時にUIのテキストを正しく設定し、変換を実行
-    updateUIForDirection(); // ★★★ 初期化時にも呼ぶ ★★★
+    // Initialize UI text and run initial conversion if needed (loadRules handles processing)
+    updateUIForDirection(); // Call this AFTER loadRules to set initial text correctly and run conversion
 
 }); // End DOMContentLoaded
