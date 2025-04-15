@@ -9,15 +9,18 @@
           <li class="pure-menu-item {{ispage /ja/index.html}}pure-menu-selected{{end}}"><a href="/ja/" class="pure-menu-link">ホーム</a></li>
           <li class="pure-menu-item {{ispage /ja/Publications/*}}pure-menu-selected{{end}}"><a href="/ja/Publications/" class="pure-menu-link">論文</a></li>
           <li class="pure-menu-item {{ispage /ja/Presentations/*}}pure-menu-selected{{end}}"><a href="/ja/Presentations/" class="pure-menu-link">研究発表</a></li>
+          <li class="pure-menu-item {{ispage /ja/Tools/*}}pure-menu-selected{{end}}"><a href="/ja/Tools/" class="pure-menu-link">ツール</a></li>
           <li class="pure-menu-item {{ispage /ja/Notes/*}}pure-menu-selected{{end}}"><a href="/ja/Notes/" class="pure-menu-link">ノート</a></li>
           {{if home}}
           <li class="pure-menu-item"><a href="/" class="pure-menu-link">English</a></li>
           {{elseif publications}}
-          <li class="pure-menu-item"><a href="/Publications/" class="pure-menu-link">English</a></li>
+          <li class="pure-menu-item"><a href="/Publications" class="pure-menu-link">English</a></li>
           {{elseif presentations}}
           <li class="pure-menu-item"><a href="/Presentations" class="pure-menu-link">English</a></li>
+          {{elseif tools}}
+          <li class="pure-menu-item"><a href="/Tools" class="pure-menu-link">English</a></li>
           {{elseif notes}}
-          <li class="pure-menu-item"><a href="/Notes/" class="pure-menu-link">English</a></li>
+          <li class="pure-menu-item"><a href="/Notes" class="pure-menu-link">English</a></li>
           {{end}}
         </ul>
         {{else}}
@@ -25,13 +28,16 @@
           <li class="pure-menu-item {{ispage index.html}}pure-menu-selected{{end}}"><a href="/" class="pure-menu-link">Home</a></li>
           <li class="pure-menu-item {{ispage Publications/*}}pure-menu-selected{{end}}"><a href="/Publications/" class="pure-menu-link">Publications</a></li>
           <li class="pure-menu-item {{ispage Presentations/*}}pure-menu-selected{{end}}"><a href="/Presentations/" class="pure-menu-link">Presentations</a></li>
-          <li class="pure-menu-item {{ispage /ja/Notes/*}}pure-menu-selected{{end}}"><a href="/Notes/" class="pure-menu-link">Notes (JP)</a></li>
+          <li class="pure-menu-item {{ispage /Tools/*}}pure-menu-selected{{end}}"><a href="/Tools/" class="pure-menu-link">Tools</a></li>
+          <li class="pure-menu-item {{ispage /Notes/*}}pure-menu-selected{{end}}"><a href="/Notes/" class="pure-menu-link">Notes (JP)</a></li>
           {{if home}}
           <li class="pure-menu-item"><a href="/ja/" class="pure-menu-link">日本語</a></li>
           {{elseif publications}}
           <li class="pure-menu-item"><a href="/ja/Publications/" class="pure-menu-link">日本語</a></li>
           {{elseif presentations}}
           <li class="pure-menu-item"><a href="/ja/Presentations/" class="pure-menu-link">日本語</a></li>
+          {{elseif tools}}
+          <li class="pure-menu-item"><a href="/ja/Tools/" class="pure-menu-link">日本語</a></li>
           {{elseif notes}}
           <li class="pure-menu-item"><a href="/ja/Notes/" class="pure-menu-link">日本語</a></li>
           {{end}}

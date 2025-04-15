@@ -14,6 +14,7 @@ home = false
 publications = false
 presentations = false
 notes = false
+tools = false
 +++
 
 <!--
