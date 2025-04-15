@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,35 +13,35 @@
         <div class="converter-area">
             <div class="textarea-container">
                 <div class="textarea-wrapper">
-                    <label for="input-textarea" id="input-label">入力 (Unicode)</label>
-                    <textarea id="input-textarea" placeholder="ここにLaTeXコードを貼り付け..."></textarea>
+                    <label for="input-textarea" id="input-label">Input (Unicode)</label>
+                    <textarea id="input-textarea" placeholder="Paste LaTeX code here..."></textarea>
                 </div>
                 <div class="textarea-wrapper">
-                    <label for="output-textarea" id="output-label">出力 (Normal)</label>
-                    <textarea id="output-textarea" readonly placeholder="変換結果..."></textarea>
+                    <label for="output-textarea" id="output-label">Output (Normal)</label>
+                    <textarea id="output-textarea" readonly placeholder="Conversion result..."></textarea>
                 </div>
             </div>
             <div class="controls">
-                <button id="toggle-direction-button">Normal → Unicode に切り替え</button>
-                <button id="copy-output-button">出力をコピー</button>
+                <button id="toggle-direction-button">Switch to Normal → Unicode</button>
+                <button id="copy-output-button">Copy Output</button>
             </div>
         </div>
 
         <div class="customization">
-            <h2>変換ルールカスタマイズ</h2>
+            <h2>Customize Conversion Rules</h2>
             <p>
-                下のテキストエリアで変換ルールをJSON形式で編集できます。<br>
-                ルールを編集したら「ルールを保存＆適用」ボタンを押してください。<br>
-                ローカルストレージに保存され、次回アクセス時も利用できます。<br>
-                <code>correspondence</code>: 基本的なUnicodeとNormalの対応 (両方向)<br>
-                <code>other_normal</code>: Normal形式の別表記 (Normal → Unicode変換時にのみ使用)<br>
-                <code>other_unicode</code>: Unicode形式の別表記 (Unicode → Normal変換時にのみ使用)<br>
-                各エントリは <code>{"unicode": "...", "normal": "..."}</code> の形式です。
+                You can edit the conversion rules in JSON format in the text area below.<br>
+                After editing the rules, press the 'Save & Apply Rules' button.<br>
+                They will be saved in local storage and available on your next visit.<br><br>
+                <code>correspondence</code>: Basic Unicode and Normal mapping (bi-directional)<br>
+                <code>other_normal</code>: Alternative Normal forms (used only for Normal → Unicode conversion)<br>
+                <code>other_unicode</code>: Alternative Unicode forms (used only for Unicode → Normal conversion)<br><br>
+                Each entry is in the format <code>{"unicode": "...", "normal": "..."}</code>.
             </p>
             <textarea id="rules-textarea" rows="15" spellcheck="false"></textarea>
             <div class="rule-buttons">
-                <button id="save-rules-button">ルールを保存＆適用</button>
-                <button id="reset-rules-button">デフォルトルールに戻す</button>
+                <button id="save-rules-button">Save & Apply Rules</button>
+                <button id="reset-rules-button">Reset to Default Rules</button>
             </div>
             <p id="rule-status"></p>
         </div>
