@@ -5,12 +5,13 @@ lang_ja = true
 notes = true
 +++
 
+## 勉強ノート
 主に自主ゼミの際に作った雑多なノートを寝かしておくのがもったいないので公開しておきます。
 自己完結していない記述が多いです。
 利用は自己責任でお願いします。
 
 \textinput{/assets/completion/notelist.md}
 
-その他のノート
+## その他のノート
 
 \textinput{/assets/completion/tips.md}
