@@ -23,6 +23,7 @@ home = true
 ## リンク
 [Google Scholar](https://scholar.google.com/citations?user=qoSWWasAAAAJ&hl=en), 
 [arXiv](https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Rintaro+Masaoka&terms-0-field=author&classification-physics=y&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=100&order=-announced_date_first)
+[ORCiD](https://orcid.org/0009-0002-4280-9783)
 
 ## 連絡先
 masaokarintaro2115[at]g.ecc.u-tokyo.ac.jp
