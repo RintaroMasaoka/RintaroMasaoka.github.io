@@ -1,15 +1,15 @@
 +++
-title = "Rintaro Masaoka's website"
+title = "Rintaro Masaoka's site"
 lang_ja = false
 home = true
 +++
 
 ~~~
-<img src="/assets/images/RM.jpeg" alt="me" class="index-profile-picture">
+<img src="/assets/images/RM.jpeg" alt="Rintaro Masaoka(政岡凜太郎)" class="index-profile-picture">
 ~~~
 
 ## About me
-I am Rintaro Masaoka, a master's student in condensed matter theory and statistical physics.
+I am Rintaro Masaoka (政岡凜太郎), a master's student in condensed matter theory and statistical physics.
 My research focuses on quantum phase transitions, with a particular interest in quantum critical phenomena characterized by frustration-freeness and nontrivial dynamical exponents.
 
 ## Affiliation
