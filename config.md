@@ -2,9 +2,9 @@
 Add here global page variables to use throughout your website.
 -->
 +++
-website_title = "Rintaro Masaoka (政岡凜太郎)"
+website_title = "Rintaro Masaoka | 政岡凜太郎"
 website_url = "https://rintaromasaoka.github.io/"
-website_description = "Personal homepage of Rintaro Masaoka"
+website_description = "Personal homepage of Rintaro Masaoka (政岡凜太郎), a graduate student in condensed matter theory and statistical physics"
 author = "Rintaro Masaoka"
 mintoclevel = 2
 ignore = ["node_modules/"]
@@ -15,6 +15,7 @@ publications = false
 presentations = false
 notes = false
 tools = false
+keywords = "Rintaro Masaoka, 政岡凜太郎, masaoka rintaro, 政岡, 凜太郎"
 +++
 
 <!--
