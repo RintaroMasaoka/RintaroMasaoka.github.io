@@ -170,10 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
             {"unicode": "⟦", "normal": "\\llbracket"},
             {"unicode": "⟧", "normal": "\\rrbracket"},
             {"unicode": "‖", "normal": "\\|"},
-            // special notation
-            {"unicode": "÷", "normal": "\\frac"},
-            {"unicode": "√", "normal": "\\sqrt"},
-            {"unicode": "␣", "normal": "\\quad"},
             // bold font
             {"unicode": "𝒂", "normal": "\\bm{a}"},
             {"unicode": "𝒃", "normal": "\\bm{b}"},
