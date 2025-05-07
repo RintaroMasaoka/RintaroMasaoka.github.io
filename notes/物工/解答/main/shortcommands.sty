@@ -1,0 +1,241 @@
+% by Rintaro Masaoka
+% lastly updated: Feb 28, 2024
+
+\RequirePackage{
+   amsmath,
+   mathtools,
+   xparse,
+   mathcommand,
+   newunicodechar,
+   unicode-math,
+   diffcoeff
+}
+\DeclareOption{uprightconst}{\let\conststyle\symup} 
+\DeclareOption{italicconst}{\let\conststyle\symit}
+\ExecuteOptions{uprightconst}
+\ProcessOptions\relax
+
+
+% Math accents
+\newcommand{\∼}{\tilde}
+\newcommand{\＾}{\hat}
+\newcommand{\＿}{\bar}
+\newcommand{\⋅}{\dot}
+\newcommand{\”}{\ddot}
+\newcommand{\／}{\not}
+\newcommand{\∨}{\check}
+\newcommand{\∪}{\breve}
+\newcommand{\→}{\vec}
+\newcommand{\←}[1]{
+   \mathrlap{\reflectbox{\ensuremath{\vec{\phantom{#1}}}}}#1
+}
+\newcommand{\↔}[1]{
+   \mathrlap{\reflectbox{\ensuremath{\vec{\phantom{#1}}}}}\vec{#1}
+}
+\newcommand{\⋯}{\dddot}
+
+% constants
+\newunicodechar{ℯ}{\conststyle{e}}
+\newunicodechar{¡}{\conststyle{i}}
+\newunicodechar{𝘬}{k_{\symup{B}}}
+\newunicodechar{ħ}{\hbar}
+
+% Short commands
+\newcommand{\√}[1]{\mathinner{\sqrt{#1}}}
+\newunicodechar{√}{\√}
+\newunicodechar{÷}{\frac}
+\newcommand{\÷}{\div}
+\newunicodechar{⨸}{\dfrac}
+\newunicodechar{␣}{\quad}
+\newunicodechar{＿}{_\mathup}
+\newunicodechar{＾}{^\mathup}
+\newcommand{\␣}{\qquad}
+\newcommand{\∅}{\nonumber \\}
+
+% differential
+\NewDocumentCommand{\𝚍}{s e{^} t_ m}{
+   \IfBooleanTF{#1}
+   {\IfBooleanTF{#3}{\diff[#2]{}/{#4}}{\diff[#2]{#4}/}}
+   {\IfBooleanTF{#3}{\diff[#2]{}{#4}}{\diff[#2]{#4}}}
+}
+\NewDocumentCommand{\∂}{s e{^} t_ m}{
+   \IfBooleanTF{#1}
+   {\IfBooleanTF{#3}{\diffp[#2]{}/{#4}}{\diffp[#2]{#4}/}}
+   {\IfBooleanTF{#3}{\diffp[#2]{}{#4}}{\diffp[#2]{#4}}}
+}
+\NewDocumentCommand{\δ}{s e{^} t_ m}{
+   \IfBooleanTF{#1}
+   {\IfBooleanTF{#3}{\diffd[#2]{}/{#4}}{\diffd[#2]{#4}/}}
+   {\IfBooleanTF{#3}{\diffd[#2]{}{#4}}{\diffd[#2]{#4}}}
+} 
+\NewDocumentCommand{\Δ}{s e{^} t_ m}{
+   \IfBooleanTF{#1}
+   {\IfBooleanTF{#3}{\Diffd[#2]{}/{#4}}{\Diffd[#2]{#4}/}}
+   {\IfBooleanTF{#3}{\Diffd[#2]{}{#4}}{\Diffd[#2]{#4}}}
+}
+\NewDocumentCommand{\𝑑}{e{^} m}{
+   \IfNoValueTF{#1}
+   {\mathinner{\symup{d}#2}}
+   {\mathinner{\symup{d}^{#1}#2}}
+}
+\newcommand{\𝒟}[1]{\mathinner{𝒟#1}}
+\newcommand{\𝛥}[1]{\mathinner{Δ#1}}
+\newcommand{\𝛿}[1]{\mathinner{δ#1}}
+
+% brakets
+\newcommand{\⟨}{\left\langle}
+\newcommand{\⟩}{\right\rangle}
+\newcommand{\∣}{~\middle|~}
+\newcommand{\（}{\left\lparen\begin{matrix}}
+\newcommand{\）}{\end{matrix}\right\rparen}
+\newcommand{\［}{\left\lbrack\begin{matrix}}
+\newcommand{\］}{\end{matrix}\right\rbrack}
+\newcommand{\｛}{\left\lbrace\begin{matrix}}
+\newcommand{\｝}{\end{matrix}\right\rbrace}
+\newunicodechar{（}{\left\lparen}
+\newunicodechar{）}{\right\rparen}
+\newunicodechar{［}{\left\lbrack}
+\newunicodechar{］}{\right\rbrack}
+\newunicodechar{｛}{\left\lbrace}
+\newunicodechar{｝}{\right\rbrace}
+\newunicodechar{｟}{\left\lparen\begin{matrix}}
+\newunicodechar{｠}{\end{matrix}\right\rparen}
+\newunicodechar{〚}{\left\lbrack\begin{matrix}}
+\newunicodechar{〛}{\end{matrix}\right\rbrack}
+\newunicodechar{｜}{\Big|}
+
+% other commands
+\newcommand{\𝚛}{\right}
+\newcommand{\𝚕}{\left}
+\newcommand{\𝚖}{\middle}
+\newcommand{\𝚝}{\text}
+\newcommand{\𝚞}{\mathup}
+\NewDocumentCommand{\𝚚}{s m}{
+   \IfBooleanTF{#1}{}{\quad}\text{#2}\quad
+}
+\newcommand{\𝙴}{\left.\vphantom{\int}\right\rvert}
+\newcommand{\𝙼}[1]{\begin{matrix}#1\end{matrix}}
+
+% Math operators
+\let\abs\relax
+\DeclareMathOperator{\abs}{abs}
+\let\tr\relax
+\DeclareMathOperator{\tr}{tr}
+\let\Tr\relax
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\pf}{pf}
+\DeclareMathOperator{\haf}{haf}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\coim}{coim}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\id}{\mathup{id}}
+\newcommand{\Phys}{\mathup{Phys}}
+\newcommand{\gnd}{\mathup{gnd}}
+\newcommand{\Gnd}{\mathup{Gnd}}
+\newcommand{\reg}{\mathup{reg.}}
+\newcommand{\hc}{\mathup{h.c.}}
+\newcommand{\cc}{\mathup{c.c.}}
+\newcommand{\const}{\mathup{const.}}
+\newcommand{\SO}{\mathup{SO}}
+\newcommand{\SU}{\mathup{SU}}
+\newcommand{\GL}{\mathup{GL}}
+\newcommand{\SL}{\mathup{SL}}
+\newcommand{\so}{\mathfrak{so}}
+\newcommand{\su}{\mathfrak{su}}
+\newcommand{\gl}{\mathfrak{gl}}
+\renewcommand{\sl}{\mathfrak{sl}}
+\newcommand{\Spin}{\mathup{Spin}}
+\def\O{\symup{O}}
+\def\U{\symup{U}}
+\AtBeginDocument{
+    \let\Re\relax \DeclareMathOperator\Re{\mathrm{Re}}%
+    \let\Im\relax \DeclareMathOperator\Im{\mathrm{Im}}%
+}
+
+% redefinition of some unicode characters
+\newunicodechar{★}{\star}
+\newunicodechar{∅}{\emptyset}
+\newunicodechar{⋯}{\mathinner{\cdots}}
+\newunicodechar{…}{\mathinner{\ldots}}
+\newunicodechar{≟}{\overset{?}{=}}
+\newunicodechar{∣}{\mid}
+% \newunicodechar{↑}{{\uparrow}}
+% \newunicodechar{↓}{{\downarrow}}
+
+\newunicodechar{𝑎}{{\symup{a}}}
+\newunicodechar{𝑏}{{\symup{b}}}
+\newunicodechar{𝑐}{{\symup{c}}}
+\newunicodechar{𝑑}{{\symup{d}}}
+\newunicodechar{𝑒}{{\symup{e}}}
+\newunicodechar{𝑓}{{\symup{f}}}
+\newunicodechar{𝑔}{{\symup{g}}}
+\newunicodechar{ℎ}{{\symup{h}}}
+\newunicodechar{𝑖}{{\symup{i}}}
+\newunicodechar{𝑗}{{\symup{j}}}
+\newunicodechar{𝑘}{{\symup{k}}}
+\newunicodechar{𝑙}{{\symup{l}}}
+\newunicodechar{𝑚}{{\symup{m}}}
+\newunicodechar{𝑛}{{\symup{n}}}
+\newunicodechar{𝑜}{{\symup{o}}}
+\newunicodechar{𝑝}{{\symup{p}}}
+\newunicodechar{𝑞}{{\symup{q}}}
+\newunicodechar{𝑟}{{\symup{r}}}
+\newunicodechar{𝑠}{{\symup{s}}}
+\newunicodechar{𝑡}{{\symup{t}}}
+\newunicodechar{𝑢}{{\symup{u}}}
+\newunicodechar{𝑣}{{\symup{v}}}
+\newunicodechar{𝑤}{{\symup{w}}}
+\newunicodechar{𝑥}{{\symup{x}}}
+\newunicodechar{𝑦}{{\symup{y}}}
+\newunicodechar{𝑧}{{\symup{z}}}
+
+\newunicodechar{𝐴}{{\symup{A}}}
+\newunicodechar{𝐵}{{\symup{B}}}
+\newunicodechar{𝐶}{{\symup{C}}}
+\newunicodechar{𝐷}{{\symup{D}}}
+\newunicodechar{𝐸}{{\symup{E}}}
+\newunicodechar{𝐹}{{\symup{F}}}
+\newunicodechar{𝐺}{{\symup{G}}}
+\newunicodechar{𝐻}{{\symup{H}}}
+\newunicodechar{𝐼}{{\symup{I}}}
+\newunicodechar{𝐽}{{\symup{J}}}
+\newunicodechar{𝐾}{{\symup{K}}}
+\newunicodechar{𝐿}{{\symup{L}}}
+\newunicodechar{𝑀}{{\symup{M}}}
+\newunicodechar{𝑁}{{\symup{N}}}
+\newunicodechar{𝑂}{{\symup{O}}}
+\newunicodechar{𝑃}{{\symup{P}}}
+\newunicodechar{𝑄}{{\symup{Q}}}
+\newunicodechar{𝑅}{{\symup{R}}}
+\newunicodechar{𝑆}{{\symup{S}}}
+\newunicodechar{𝑇}{{\symup{T}}}
+\newunicodechar{𝑈}{{\symup{U}}}
+\newunicodechar{𝑉}{{\symup{V}}}
+\newunicodechar{𝑊}{{\symup{W}}}
+\newunicodechar{𝑋}{{\symup{X}}}
+\newunicodechar{𝑌}{{\symup{Y}}}
+\newunicodechar{𝑍}{{\symup{Z}}}
+
+\newunicodechar{𝛼}{{\symup{\alpha}}}
+\newunicodechar{𝛽}{{\symup{\beta}}}
+\newunicodechar{𝛾}{{\symup{\gamma}}}
+\newunicodechar{𝛿}{\symup{\delta}}
+\newunicodechar{𝜖}{{\symup{\epsilon}}}
+\newunicodechar{𝜂}{{\symup{\eta}}}
+\newunicodechar{𝜋}{{\symup{\pi}}}
+\newunicodechar{𝜉}{{\symup{\xi}}}
+\newunicodechar{𝜈}{\symup{\nu}}
+\newunicodechar{𝜀}{{\symup{\varepsilon}}}
+\newunicodechar{𝛥}{\symup{\Delta}}
