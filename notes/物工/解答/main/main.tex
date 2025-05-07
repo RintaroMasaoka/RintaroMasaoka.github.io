@@ -1,0 +1,58 @@
+\documentclass[12pt,titlepage]{ltjsarticle}
+\usepackage{amsmath,ascmac,amssymb,mathtools,siunitx,physics,inputenc}
+\usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+
+\usepackage{mygraphics}
+\renewcommand{\mysectioncolor}{DarkCyan!70}
+\renewcommand{\mylinkcolor}{DarkCyan!70}
+
+\graphicspath{{../images/}}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../ref/ref.bib}
+
+\usepackage{shortcommands}
+\usepackage{subfiles}
+
+%% options %%
+\renewcommand{\headfont}{\bfseries}
+\numberwithin{equation}{section}
+% \renewcommand*\abstractname{}
+% \setlength{\parindent}{0pt}
+\begin{document}
+\title{物理工学専攻 院試解答}
+\author{政岡凜太郎}
+\maketitle
+
+\section*{
+    はじめに
+}
+\begin{itemize}
+    \item 解答の正しさは保証しません。
+    \item 図示する問題は図を作るのが面倒なので省略しています。
+    \item 試験が行われた年でラベル付けしています。年度とずれているので注意。
+    \item 院試勉強、頑張ってください。
+\end{itemize}
+
+% \section*{
+%     院試勉強へのアドバイス
+% }
+% 理物の人を想定して書きますが、
+% 物理学演習のその場演習を詰まることなく解ければ十分だと思います。
+% 持ち帰り問題も解ければ怖いものはないです。
+% 物工については慣性モーメントや剛体の力学も出るので不慣れな人は勉強しておくといいと思います。
+% 院試勉強、頑張ってください。
+
+\tableofcontents
+\subfile{../2023/2023.tex}
+\subfile{../2022/2022.tex}
+\subfile{../2021/2021.tex}
+\subfile{../2020/2020.tex}
+\subfile{../2019/2019.tex}
+\subfile{../H29/H29.tex}
+\subfile{../H28/H28.tex}
+\subfile{../H27/H27.tex}
+\subfile{../H26/H26.tex}
+\subfile{../H25/H25.tex}
+\subfile{../H24/H24.tex}
+\subfile{../H23/H23.tex}
+\end{document}
