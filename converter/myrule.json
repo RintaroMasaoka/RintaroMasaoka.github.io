@@ -522,6 +522,11 @@
       {"unicode": "₋" , "normal": "_-"}
     ],
     "other_unicode": [
+      {"unicode": "\\~", "normal": "\\tilde"},
+      {"unicode": "\\_", "normal": "\\bar"},
+      {"unicode": "\\^", "normal": "\\hat"},
+      {"unicode": "\\'", "normal": "\\dot"},
+      {"unicode": "\\\"", "normal": "\\ddot"},
       {"unicode": "𝛼", "normal": "\\alpha"},
       {"unicode": "𝛽", "normal": "\\beta"},
       {"unicode": "𝛾", "normal": "\\gamma"},
