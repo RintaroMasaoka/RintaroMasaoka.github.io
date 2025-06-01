@@ -40,3 +40,8 @@ Excellent Presenter, Parallel Session (Statistical Physics Section), 69th Conden
 ## Grant
 
 Oct. 2024 - : Research Assistantship, The Forefront Physics and Mathematics Program to Drive Transformation (FoPM)
+
+## Reserch topic
+~~~
+<img src="/assets/images/kinetic_Ising_fractal.gif" alt="2+1D kinetic Ising model" class="index-profile-picture">
+~~~

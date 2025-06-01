@@ -83,7 +83,7 @@ html {
   position: relative;
   padding-left: 12.5%;
   padding-right: 12.5%;
-  line-height: 1.35em;
+  line-height: 1.6em;
 }
 
 /* On wide screens, fix content width to a max value. */
@@ -180,6 +180,11 @@ td {
 /* ==================================================================
     GENERAL FORMATTING
 ================================================================== */
+
+/* Paragraph styling for better readability */
+.franklin-content p {
+  margin: 1.2em 0;
+}
 
 /* Spacing between bullet points. */
 .franklin-content li p {
