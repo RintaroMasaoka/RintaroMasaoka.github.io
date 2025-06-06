@@ -2,6 +2,4 @@
 
 - Seishiro Ono, ~~~<u>Rintaro Masaoka</u>~~~, Haruki Watanabe, Hoi Chun Po, "Frustration-free free fermions", [arxiv:2503.14312](https://arxiv.org/abs/2503.14312)
 
-- ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, "Rigorous lower bound of the dynamical critical exponent of the Ising model", [arxiv:2502.09908](https://arxiv.org/abs/2502.09908)
-
 - ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems", [arxiv:2406.06415](https://arxiv.org/abs/2406.06415) [*](/ja/stories/RigorousBound)
