@@ -9,4 +9,4 @@
 - [ダイマー模型による2次元Ising模型の厳密解](/notes/Ising_Dimer/Ising_Dimer.pdf)
 - [ダイマー模型とゲージ理論 (Fradkin 9章)](/notes/Fradkin/chap9/main/fradkin_chap9_v3.pdf)
 - [物理工学専攻院試解答](/notes/物工/解答/main/main.pdf)
-- [TeX sources](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io/tree/main/notes)
+- [Sources](https://github.com/RintaroMasaoka/RintaroMasaoka.github.io/tree/main/notes)
