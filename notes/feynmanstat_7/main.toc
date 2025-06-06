@@ -1,5 +1,0 @@
-\beamer@sectionintoc {1}{導入}{3}{0}{1}
-\beamer@sectionintoc {2}{スピン波}{10}{0}{2}
-\beamer@sectionintoc {3}{演算子法}{24}{0}{3}
-\beamer@sectionintoc {4}{Bethe仮設}{38}{0}{4}
-\beamer@sectionintoc {5}{代数的Bethe仮設}{56}{0}{5}
