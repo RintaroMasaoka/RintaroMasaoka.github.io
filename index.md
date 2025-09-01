@@ -10,7 +10,7 @@ home = true
 
 ## About me
 I am Rintaro Masaoka (政岡凜太郎), a master's student in condensed matter theory and statistical physics.
-My research focuses on quantum phase transitions, with a particular interest in quantum critical phenomena characterized by frustration-freeness and nontrivial dynamical exponents.
+My research focuses on quantum phase transitions, with a particular interest in quantum critical phenomena characterized by nontrivial dynamical exponents.
 
 ## Affiliation
 
@@ -42,6 +42,18 @@ Excellent Presenter, Parallel Session (Statistical Physics Section), 69th Conden
 Oct. 2024 - : Research Assistantship, The Forefront Physics and Mathematics Program to Drive Transformation (FoPM)
 
 ## Reserch topic
+
+### Non relativistic critical points
+Conformal field theory is a successful framework for critical phenomena.
+However, it is limited to Lorentz invariant (d+1)-dimensional systems, or isotropic d-dimensional systems.
+I'm interested in non-relativistic (or anisotropic) critical phenomena, which satisfy Lifshitz scale invariance:
+$$
+𝒙 ↦ λ𝒙,\quad t ↦ λ^z,
+$$
+where $z$ is called dynamical exponent.
+
+Kinetice Ising model $(z ≈ 2.167)$:
 ~~~
 <img src="/assets/images/kinetic_Ising_fractal.gif" alt="2+1D kinetic Ising model" class="index-profile-picture">
 ~~~
+
