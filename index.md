@@ -44,16 +44,16 @@ Oct. 2024 - : Research Assistantship, The Forefront Physics and Mathematics Prog
 ## Reserch topic
 
 ### Non relativistic critical points
-Conformal field theory is a successful framework for critical phenomena.
-However, it is limited to Lorentz invariant (d+1)-dimensional systems, or isotropic d-dimensional systems.
+Conformal field theory (CFT) has been successful in describing universal aspects of critical phenomena. 
+However, its applicability is largely restricted to Lorentz-invariant systems in $(d+1)$ dimensions or isotropic critical points in $d$-dimensional statistical models.
+
 I'm interested in non-relativistic (or anisotropic) critical phenomena, which satisfy Lifshitz scale invariance:
 $$
 𝒙 ↦ λ𝒙,\quad t ↦ λ^z,
 $$
 where $z$ is called dynamical exponent.
 
-Kinetice Ising model $(z ≈ 2.167)$:
+(2+1)D Kinetice Ising model $(z ≈ 2.167)$:
 ~~~
 <img src="/assets/images/kinetic_Ising_fractal.gif" alt="2+1D kinetic Ising model" class="index-profile-picture">
 ~~~
-
