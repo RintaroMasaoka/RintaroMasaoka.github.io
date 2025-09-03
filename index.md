@@ -53,7 +53,7 @@ $$
 $$
 where $z$ is called dynamical exponent.
 
-(2+1)D Kinetice Ising model $(z ≈ 2.167)$:
+(2+1)D kinetic Ising model $(z ≈ 2.167)$:
 ~~~
 <img src="/assets/images/kinetic_Ising_fractal.gif" alt="2+1D kinetic Ising model" class="index-profile-picture">
 ~~~
