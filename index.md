@@ -29,7 +29,7 @@ My research focuses on quantum phase transitions, with a particular interest in 
 
 masaokarintaro2115[at]g.ecc.u-tokyo.ac.jp
 
-## CV
+## Education
 
 Apr. 2020 - Mar. 2024: B.S. in Physics, University of Tokyo
 
