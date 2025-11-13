@@ -5,7 +5,7 @@ home = true
 +++
 
 ~~~
-<img src="/assets/images/RM.jpeg" alt="Rintaro Masaoka(政岡凜太郎)" class="index-profile-picture">
+<img src="/assets/images/RM_kyoto.png" alt="Rintaro Masaoka(政岡凜太郎)" class="index-profile-picture">
 ~~~
 
 ## About me
@@ -31,7 +31,7 @@ masaokarintaro2115[at]g.ecc.u-tokyo.ac.jp
 
 ## Education
 
-Apr. 2020 - Mar. 2024: B.S. in Physics, University of Tokyo
+Mar. 2024, Bachelor of Physics, Department of Physics, Faculty of Science, University of Tokyo
 
 ## Award
 
@@ -39,7 +39,7 @@ Excellent Presenter, Parallel Session (Statistical Physics Section), 69th Conden
 
 ## Grant
 
-Oct. 2024 - : Research Assistantship, The Forefront Physics and Mathematics Program to Drive Transformation (FoPM)
+Oct. 2024- Research Assistantship, The Forefront Physics and Mathematics Program to Drive Transformation (FoPM)
 
 ## Reserch topic
 
@@ -52,8 +52,8 @@ $$
 𝒙 ↦ λ𝒙,\quad t ↦ λ^z,
 $$
 where $z$ is called dynamical exponent.
-
+<!-- 
 (2+1)D kinetic Ising model $(z ≈ 2.167)$:
 ~~~
 <img src="/assets/images/kinetic_Ising_fractal.gif" alt="2+1D kinetic Ising model" class="index-profile-picture">
-~~~
+~~~ -->
