@@ -4,9 +4,7 @@ lang_ja = false
 home = true
 +++
 
-~~~
-<img src="/assets/images/RM_kyoto.png" alt="Rintaro Masaoka(政岡凜太郎)" class="index-profile-picture">
-~~~
+\textinput{/assets/completion/photo.md}
 
 ## About me
 I am Rintaro Masaoka (政岡凜太郎), a master's student in condensed matter theory and statistical physics.
