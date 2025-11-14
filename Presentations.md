@@ -3,15 +3,17 @@ title = "Presentations"
 lang_ja = false
 presentations = true
 +++
+## Talks
+\textinput{/assets/completion/talk.md}
 
 ## Oral presentations
-
-\textinput{/assets/completion/oral.md}
+### In English
+\textinput{/assets/completion/oral_en.md}
+### In Japanese
+\textinput{/assets/completion/oral_jp.md}
 
 ## Poster presentations
-
-\textinput{/assets/completion/poster.md}
-
-## Talks
-
-\textinput{/assets/completion/talk.md}
+### In English
+\textinput{/assets/completion/poster_en.md}
+### In Japanese
+\textinput{/assets/completion/poster_jp.md}

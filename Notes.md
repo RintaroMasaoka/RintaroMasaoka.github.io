@@ -5,7 +5,7 @@ notes = true
 +++
 
 ## Study notes
-Notes I made during independent seminars (in Japanese)
+Notes I made mainly during independent seminars (in Japanese)
 
 \textinput{/assets/completion/notelist.md}
 
