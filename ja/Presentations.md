@@ -7,14 +7,14 @@ presentations = true
 ## 講演
 \textinput{/assets/completion/talk.md}
 
-## 口頭発表
-### 英語
-\textinput{/assets/completion/oral_en.md}
-### 日本語
-\textinput{/assets/completion/oral_jp.md}
-
 ## ポスター発表
 ### 英語
 \textinput{/assets/completion/poster_en.md}
 ### 日本語
 \textinput{/assets/completion/poster_jp.md}
+
+## 口頭発表
+### 英語
+\textinput{/assets/completion/oral_en.md}
+### 日本語
+\textinput{/assets/completion/oral_jp.md}
