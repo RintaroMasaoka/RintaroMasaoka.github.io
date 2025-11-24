@@ -1,1 +1,1 @@
-- ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, [「Rigorous lower bound of dynamic critical exponents in critical frustration-free systems」](/resources/2025/APS2025.pdf)，APS joint march meeting (Mar.16 - 21, 2025).
+- ~~~<u>Rintaro Masaoka</u>~~~, Tomohiro Soejima, Haruki Watanabe, ["Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"](/resources/2025/APS2025.pdf)，APS joint march meeting (Mar.16 - 21, 2025).
