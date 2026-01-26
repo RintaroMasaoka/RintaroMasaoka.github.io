@@ -1,1 +1,0 @@
-- [LaTeX Unicode ⇌ Normal Converter](/converter/index.html)

@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations, localize } from '../../i18n/utils';
+import { cv, profile } from '../../utils/data';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={t('page.cv.title')} lang={lang}>
+  <div class="mb-8 flex items-center justify-between">
+    <div>
+      <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">
+        {t('page.cv.title')}
+      </h1>
+      <p class="text-primary-500 dark:text-primary-400">{localize(profile.name, 'ja')} · {localize(profile.name, 'en')}</p>
+    </div>
+    <!-- PDF ダウンロードボタン -->
+    <a
+      href="/cv.pdf"
+      class="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-primary-800 border border-primary-200 dark:border-primary-600 rounded-lg text-primary-700 dark:text-primary-200 hover:border-accent dark:hover:border-accent-light hover:text-accent dark:hover:text-accent-light transition-colors text-sm"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+      {t('ui.downloadPDF')}
+    </a>
+  </div>
+
+  <div class="space-y-12">
+    <!-- Positions -->
+    <section>
+      <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+        <span class="w-6 h-1 bg-accent rounded-full"></span>
+        {t('section.positions')}
+      </h2>
+      <div class="space-y-4">
+        {cv.positions.map((pos: any) => (
+          <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-600 hover:border-accent dark:hover:border-accent-light transition-colors">
+            <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-accent"></div>
+            <p class="text-sm text-primary-400 dark:text-primary-500 mb-1">{localize(pos.period, lang)}</p>
+            <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(pos.title, lang)}</h3>
+            <p class="text-primary-600 dark:text-primary-300">{localize(pos.institution, lang)}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+        <span class="w-6 h-1 bg-accent rounded-full"></span>
+        {t('section.education')}
+      </h2>
+      <div class="space-y-4">
+        {cv.education.map((edu: any) => (
+          <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-600 hover:border-accent dark:hover:border-accent-light transition-colors">
+            <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-accent"></div>
+            <p class="text-sm text-primary-400 dark:text-primary-500 mb-1">{edu.year}</p>
+            <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(edu.degree, lang)}</h3>
+            <p class="text-primary-600 dark:text-primary-300">{localize(edu.institution, lang)}</p>
+            {edu.thesis && (
+              <p class="text-sm text-primary-500 mt-1 italic">
+                Thesis: "{localize(edu.thesis, lang)}"
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Awards -->
+    {cv.awards && cv.awards.length > 0 && (
+      <section>
+        <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+          <span class="w-6 h-1 bg-accent rounded-full"></span>
+          {t('section.awards')}
+        </h2>
+        <div class="grid gap-3">
+          {cv.awards.map((award: any) => (
+            <div class="flex items-start gap-4 p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700 hover:border-accent/30 transition-colors">
+              <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-primary-400">{award.year}</p>
+                <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(award.name, lang)}</h3>
+                {award.description && (
+                  <p class="text-sm text-primary-600">{localize(award.description, lang)}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Grants -->
+    {cv.grants && cv.grants.length > 0 && (
+      <section>
+        <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+          <span class="w-6 h-1 bg-accent rounded-full"></span>
+          {t('section.grants')}
+        </h2>
+        <div class="space-y-3">
+          {cv.grants.map((grant: any) => (
+            <div class="p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700 hover:border-accent/30 transition-colors">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(grant.title, lang)}</h3>
+                  <p class="text-sm text-primary-500">{localize(grant.institution, lang)}</p>
+                </div>
+                {grant.amount && <p class="text-sm font-medium text-accent">{grant.amount}</p>}
+              </div>
+              <p class="text-sm text-primary-400 mt-1">{localize(grant.period, lang)}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Skills -->
+    {cv.skills && (
+      <section>
+        <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+          <span class="w-6 h-1 bg-accent rounded-full"></span>
+          {t('section.skills')}
+        </h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          {cv.skills.programming && (
+            <div class="p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700">
+              <h3 class="text-sm font-medium text-primary-500 dark:text-primary-400 uppercase tracking-wider mb-3">{t('skills.programming')}</h3>
+              <div class="flex flex-wrap gap-2">
+                {cv.skills.programming.map((skill: string) => (
+                  <span class="px-3 py-1 bg-primary-100 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-full text-sm font-mono">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {cv.skills.tools && (
+            <div class="p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700">
+              <h3 class="text-sm font-medium text-primary-500 dark:text-primary-400 uppercase tracking-wider mb-3">{t('skills.tools')}</h3>
+              <div class="flex flex-wrap gap-2">
+                {cv.skills.tools.map((skill: string) => (
+                  <span class="px-3 py-1 bg-primary-100 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-full text-sm">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {cv.skills.languages && (
+            <div class="p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700">
+              <h3 class="text-sm font-medium text-primary-500 dark:text-primary-400 uppercase tracking-wider mb-3">{t('skills.languages')}</h3>
+              <div class="flex flex-wrap gap-2">
+                {cv.skills.languages.map((skill: string) => (
+                  <span class="px-3 py-1 bg-primary-100 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-full text-sm">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

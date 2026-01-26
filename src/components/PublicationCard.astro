@@ -1,0 +1,87 @@
+---
+interface Link {
+  label: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  authors: string[];
+  year: number;
+  venue: string;
+  links?: Link[];
+  abstract?: string;
+}
+
+const { title, authors, year, venue, links = [], abstract } = Astro.props;
+---
+
+<article class="group relative bg-white dark:bg-primary-800 rounded-xl p-6 shadow-sm dark:hover:shadow-md transition-all duration-300 border border-primary-100 dark:border-primary-700 dark:hover:border-accent/30">
+  <!-- 年のバッジ -->
+  <div class="absolute -top-3 -right-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+    {year}
+  </div>
+  
+  <!-- タイトル -->
+  <h3 class="font-serif text-lg font-semibold text-primary-900 dark:text-primary-50 leading-snug mb-2 pr-8">
+    {title}
+  </h3>
+  
+  <!-- 著者 -->
+  <p class="text-sm text-primary-600 dark:text-primary-300 mb-2">
+    {authors.map((author, i) => (
+      <span>
+        <span class={author.includes('山田') ? 'font-semibold text-accent-dark' : ''}>
+          {author}
+        </span>
+        {i < authors.length - 1 && ', '}
+      </span>
+    ))}
+  </p>
+  
+  <!-- 掲載誌 -->
+  <p class="text-sm text-primary-500 dark:text-primary-400 italic mb-4">
+    {venue}
+  </p>
+  
+  <!-- リンク -->
+  {links.length > 0 && (
+    <div class="flex flex-wrap gap-2 mb-4">
+      {links.map((link) => (
+        <a 
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 bg-primary-100 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-full hover:bg-accent dark:hover:bg-accent-light hover:text-white dark:hover:text-primary-900 transition-colors"
+        >
+          {link.label === 'PDF' && (
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+            </svg>
+          )}
+          {link.label === 'arXiv' && (
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+            </svg>
+          )}
+          {link.label}
+        </a>
+      ))}
+    </div>
+  )}
+  
+  <!-- アブストラクト（折りたたみ） -->
+  {abstract && (
+    <details class="group/details">
+      <summary class="cursor-pointer text-sm text-accent dark:text-accent-light hover:text-accent-dark dark:hover:text-accent transition-colors list-none flex items-center gap-1">
+        <svg class="w-4 h-4 transition-transform group-open/details:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        Abstract
+      </summary>
+      <p class="mt-3 text-sm text-primary-600 dark:text-primary-300 leading-relaxed pl-5 border-l-2 border-accent/30">
+        {abstract}
+      </p>
+    </details>
+  )}
+</article>

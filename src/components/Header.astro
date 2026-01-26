@@ -1,0 +1,109 @@
+---
+import { getLocalizedPath, type Lang } from '../i18n/utils';
+import { profile } from '../utils/data';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const alternateLang: Lang = lang === 'en' ? 'ja' : 'en';
+
+const navigation = profile.navigation[lang];
+const currentPath = Astro.url.pathname;
+const alternateUrl = getLocalizedPath(currentPath, alternateLang);
+---
+
+<header class="sticky top-0 z-50 bg-primary-50/80 dark:bg-primary-900/80 backdrop-blur-md border-b border-primary-200 dark:border-primary-700 transition-colors">
+  <nav class="max-w-4xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- ロゴ / 名前 -->
+      <a href={`/${lang}/`} class="group">
+        <span class="font-serif text-xl font-semibold text-primary-900 dark:text-primary-50 group-hover:text-accent dark:group-hover:text-accent-light transition-colors">
+          {profile.name[lang]}
+        </span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <!-- デスクトップナビゲーション -->
+        <ul class="hidden md:flex items-center gap-8">
+          {navigation.map((item: any) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light transition-colors text-sm font-medium tracking-wide uppercase"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <!-- テーマ切替ボタン -->
+        <button
+          id="theme-toggle"
+          class="p-2 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light transition-colors"
+          aria-label={lang === 'en' ? 'Toggle theme' : 'テーマを切り替え'}
+          type="button"
+        >
+          <!-- 太陽アイコン（ダークモード時に表示） -->
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- 月アイコン（ライトモード時に表示） -->
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- 言語切替ボタン -->
+        <a
+          href={alternateUrl}
+          class="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light border border-primary-200 dark:border-primary-600 rounded-full hover:border-accent dark:hover:border-accent-light transition-colors"
+          aria-label={lang === 'en' ? 'Switch to Japanese' : 'Switch to English'}
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+          </svg>
+          {alternateLang === 'en' ? 'EN' : '日本語'}
+        </a>
+
+        <!-- モバイルメニューボタン -->
+        <button
+          id="menu-toggle"
+          class="md:hidden p-2 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light transition-colors"
+          aria-label={lang === 'en' ? 'Open menu' : 'メニューを開く'}
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- モバイルドロップダウンメニュー -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+      <ul class="flex flex-col gap-2">
+        {navigation.map((item: any) => (
+          <li>
+            <a
+              href={item.href}
+              class="block py-2 px-4 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-all text-sm font-medium"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <!-- モバイル用言語切替 -->
+        <li class="border-t border-primary-100 dark:border-primary-700 pt-2 mt-2">
+          <a
+            href={alternateUrl}
+            class="block py-2 px-4 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-all text-sm font-medium"
+          >
+            {alternateLang === 'en' ? 'English' : '日本語'}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

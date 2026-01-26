@@ -1,0 +1,24 @@
+---
+// Redirect to English version by default
+// Checks localStorage for saved preference via client-side script
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    // Check saved preference or browser language
+    const savedLang = localStorage.getItem('preferredLang');
+    const browserLang = navigator.language.startsWith('ja') ? 'ja' : 'en';
+    const targetLang = savedLang || browserLang;
+    window.location.replace('/' + targetLang + '/');
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/en/" />
+  </noscript>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

@@ -1,0 +1,59 @@
+# ===================================
+# プロフィール情報 / Profile Information
+# ===================================
+
+name:
+  en: Rintaro Masaoka
+  ja: 政岡 凜太郎
+
+title:
+  en: Master's Student
+  ja: 修士課程
+
+affiliation:
+  en: Watanabe Group, Department of Applied Physics, University of Tokyo
+  ja: 東京大学 工学系研究科 物理工学専攻 渡辺悠樹研究室
+
+# プロフィール写真（public/に配置）
+photo: /profile.png
+
+# 短い自己紹介
+bio:
+  en: |
+    I am a second year master's student specializing in condensed matter theory and statistical physics.
+    I am interested in quantum phase transitions, particularly quantum critical phenomena characterized by non-trivial dynamic critical exponents.
+  ja: |
+    物性理論・統計物理学を専攻する修士課程の学生です。
+    量子相転移、特に非自明な動的臨界指数で特徴づけられる量子臨界現象に興味があります。
+
+# 連絡先
+contact:
+  email: masaokarintaro2115[at]g.ecc.u-tokyo.ac.jp
+  google_scholar: https://scholar.google.com/citations?user=qoSWWasAAAAJ&hl=en
+  arxiv: https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Rintaro+Masaoka&terms-0-field=author&classification-physics=y&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=100&order=-announced_date_first
+  orcid: 0009-0002-4280-9783
+
+# ナビゲーションメニュー（言語別）
+navigation:
+  en:
+    - label: Home
+      href: /en/
+    - label: CV
+      href: /en/cv
+    - label: Publications
+      href: /en/publications
+    - label: Presentations
+      href: /en/presentations
+    - label: Notes
+      href: /en/notes
+  ja:
+    - label: ホーム
+      href: /ja/
+    - label: 履歴書
+      href: /ja/cv
+    - label: 論文
+      href: /ja/publications
+    - label: 発表
+      href: /ja/presentations
+    - label: ノート
+      href: /ja/notes

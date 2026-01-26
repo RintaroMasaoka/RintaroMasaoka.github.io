@@ -1,0 +1,57 @@
+# ===================================
+# CV / 経歴情報
+# ===================================
+
+education:
+  - degree:
+      en: Bachelor of Science
+      ja: 学士（理学）
+    field:
+      en: Physics
+      ja: 物理学
+    institution:
+      en: Department of Physics, Faculty of Science, University of Tokyo
+      ja: 東京大学 理学部 物理学科
+    year: 2024
+
+positions:
+  - title:
+      en: Master's Student
+      ja: 修士課程
+    institution:
+      en: Watanabe Group, Department of Applied Physics, University of Tokyo
+      ja: 東京大学 工学系研究科 物理工学専攻 渡辺悠樹研究室
+    period:
+      en: April 2024 - Present
+      ja: 2024年4月 - 現在
+
+awards:
+  - name:
+      en: Outstanding Presentation Award (Parallel Session, Statistics)
+      ja: 優秀発表者賞（パラレルセッション 統計班）
+    year: 2024
+    description:
+      en: 69th Condensed Matter Physics Summer School
+      ja: 第69回物性若手夏の学校
+
+grants:
+  - title:
+      en: Research Assistantship
+      ja: Research Assistantship
+    institution:
+      en: WINGS-FMSP Program "Forefront Physics and Mathematics Program to Drive Transformation" (FoPM)
+      ja: 卓越大学院プログラム「変革を駆動する先端物理・数学プログラム」(FoPM)
+    period:
+      en: October 2024 - Present
+      ja: 2024年10月 - 現在
+
+research_interests:
+  - title:
+      en: Conformal Field Theory
+      ja: 共形場理論
+  - title:
+      en: Non-relativistic Critical Phenomena
+      ja: 非相対論的臨界現象
+  - title:
+      en: Quantum Entanglement
+      ja: 量子エンタングルメント
