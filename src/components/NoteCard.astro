@@ -1,0 +1,71 @@
+---
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  filename?: string;
+  url?: string;
+  description: string;
+  tags?: string[];
+  lang?: Lang;
+}
+
+const { title, filename, url, description, tags = [], lang = 'en' } = Astro.props;
+
+const href = url || `/notes/${filename}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group block bg-white dark:bg-primary-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-primary-100 dark:border-primary-700 hover:border-accent/30 hover:-translate-y-1"
+>
+  <div class="flex items-start gap-4">
+    <!-- PDFアイコン -->
+    <div class="flex-shrink-0 w-12 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+      <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+      </svg>
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <!-- タイトル -->
+      <h3 class="font-serif text-lg font-semibold text-primary-900 dark:text-primary-50 group-hover:text-accent dark:group-hover:text-accent-light transition-colors mb-1">
+        {title}
+      </h3>
+
+      <!-- 説明 -->
+      <p class="text-sm text-primary-600 dark:text-primary-300 leading-relaxed mb-3 line-clamp-2">
+        {description}
+      </p>
+
+      <!-- タグ -->
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-1.5">
+          {tags.map((tag) => (
+            <span class="text-xs px-2 py-0.5 bg-primary-100 dark:bg-primary-700 text-primary-600 dark:text-primary-300 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- 矢印アイコン -->
+    <div class="flex-shrink-0 text-primary-300 dark:text-primary-500 group-hover:text-accent dark:group-hover:text-accent-light transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { title, description = "Academic Website", lang = 'en' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- KaTeX CSS（数式用） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+
+  <!-- テーマ初期化（FLASHを防ぐためにhead内で即時実行） -->
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+
+    // テーマ切り替え・モバイルメニュー用のイベントリスナー
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // theme-toggleボタンまたはその子要素をクリックした場合
+      while (target && target !== document) {
+        if (target.id === 'theme-toggle') {
+          document.documentElement.classList.toggle('dark');
+          var isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          return;
+        }
+        if (target.id === 'menu-toggle') {
+          var mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu) mobileMenu.classList.toggle('hidden');
+          return;
+        }
+        target = target.parentElement;
+      }
+    });
+  </script>
+</head>
+<body class="min-h-screen bg-primary-50 dark:bg-primary-900 text-primary-800 dark:text-primary-100 font-sans transition-colors duration-300">
+  <!-- 背景のサブトルなパターン -->
+  <div class="fixed inset-0 -z-10 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');" />
+
+  <Header lang={lang} />
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+    <slot />
+  </main>
+
+  <Footer lang={lang} />
+</body>
+</html>
+
+<style is:global>
+  /* スムーズスクロール */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 選択時のカラー */
+  ::selection {
+    background-color: theme('colors.accent.light');
+    color: theme('colors.accent.dark');
+  }
+
+  /* KaTeX数式のスタイル調整 */
+  .katex {
+    font-size: 1.1em;
+  }
+</style>
+
+<script>
+  // Save language preference when page loads
+  const currentLang = document.documentElement.lang;
+  localStorage.setItem('preferredLang', currentLang);
+</script>
