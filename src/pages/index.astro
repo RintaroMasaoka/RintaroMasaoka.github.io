@@ -1,24 +1,27 @@
 ---
-// Redirect to English version by default
-// Checks localStorage for saved preference via client-side script
+// Redirect to preferred language (default: English)
+// Uses instant meta refresh + JS for language preference
 ---
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
+  <meta id="redirect" http-equiv="refresh" content="0; url=/en/" />
   <title>Redirecting...</title>
   <script>
-    // Check saved preference or browser language
-    const savedLang = localStorage.getItem('preferredLang');
-    const browserLang = navigator.language.startsWith('ja') ? 'ja' : 'en';
-    const targetLang = savedLang || browserLang;
-    window.location.replace('/' + targetLang + '/');
+    // Immediately check preference and redirect before meta refresh kicks in
+    (function() {
+      var savedLang = localStorage.getItem('preferredLang');
+      var lang = savedLang || (navigator.language.startsWith('ja') ? 'ja' : 'en');
+      if (lang !== 'en' || savedLang) {
+        // Remove meta refresh to prevent double redirect
+        var meta = document.getElementById('redirect');
+        if (meta) meta.remove();
+        window.location.replace('/' + lang + '/');
+      }
+      // If lang is 'en' and no saved preference, let meta refresh handle it (faster)
+    })();
   </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=/en/" />
-  </noscript>
 </head>
-<body>
-  <p>Redirecting...</p>
-</body>
+<body></body>
 </html>
