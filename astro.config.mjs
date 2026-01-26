@@ -4,7 +4,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
-  site: 'https://yourusername.github.io',
+  site: 'https://rintaromasaoka.github.io',
   // base: '/your-repo-name', // GitHub Pagesにデプロイする際はコメントを外して実際のリポジトリ名に変更
   integrations: [tailwind()],
   i18n: {
