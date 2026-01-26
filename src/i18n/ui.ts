@@ -38,6 +38,8 @@ export const ui = {
     // UI elements
     'ui.viewAll': 'View all',
     'ui.contact': 'Contact',
+    'ui.affiliation': 'Affiliation',
+    'ui.email': 'Email',
     'ui.viewCV': 'View CV',
     'ui.downloadPDF': 'Download PDF',
     'ui.topics': 'Topics',
@@ -82,6 +84,8 @@ export const ui = {
     // UI elements
     'ui.viewAll': 'すべて見る',
     'ui.contact': 'お問い合わせ',
+    'ui.affiliation': '所属',
+    'ui.email': 'メール',
     'ui.viewCV': 'CVを見る',
     'ui.downloadPDF': 'PDFをダウンロード',
     'ui.topics': 'トピック',
