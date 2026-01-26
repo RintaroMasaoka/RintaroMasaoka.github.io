@@ -49,6 +49,11 @@ export const ui = {
     'ui.mathDemo.block': 'Block math:',
     'ui.mathDemo.note': '* The above is code display. See actual rendering in Markdown pages.',
 
+    // Tools section
+    'section.tools': 'Tools',
+    'tools.converter.title': 'Unicode ⇌ LaTeX Converter',
+    'tools.converter.description': 'A tool to convert between Unicode characters and LaTeX commands.',
+
     // Skills
     'skills.programming': 'Programming',
     'skills.tools': 'Tools',
@@ -94,6 +99,11 @@ export const ui = {
     'ui.mathDemo.inline': 'インライン数式:',
     'ui.mathDemo.block': 'ブロック数式:',
     'ui.mathDemo.note': '※ 上記はコード表示です。実際のレンダリングは Markdown ページで確認できます。',
+
+    // Tools section
+    'section.tools': 'ツール',
+    'tools.converter.title': 'Unicode ⇌ LaTeX 変換ツール',
+    'tools.converter.description': 'Unicode文字とLaTeXコマンドを相互変換するツールです。',
 
     // Skills
     'skills.programming': 'プログラミング',

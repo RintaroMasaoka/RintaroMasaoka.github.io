@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode ⇌ LaTeX Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unicode ⇌ LaTeX Converter</h1>
+
+        <div class="converter-area">
+            <div class="textarea-container">
+                <div class="textarea-wrapper">
+                    <label for="input-textarea" id="input-label">Input (Unicode)</label>
+                    <textarea id="input-textarea" placeholder="Paste LaTeX code here..."></textarea>
+                </div>
+                <div class="textarea-wrapper">
+                    <label for="output-textarea" id="output-label">Output (LaTeX)</label>
+                    <textarea id="output-textarea" readonly placeholder="Conversion result..."></textarea>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="toggle-direction-button">Switch to LaTeX → Unicode</button>
+                <button id="copy-output-button">Copy Output</button>
+            </div>
+        </div>
+
+        <div class="customization">
+            <div class="customization-header">
+                <h2>Customize Conversion Rules</h2>
+                <div class="view-toggle">
+                    <button id="ui-view-button" class="view-button active">UI</button>
+                    <button id="json-view-button" class="view-button">JSON</button>
+                </div>
+            </div>
+
+            <!-- UI View -->
+            <div id="ui-view" class="rule-view">
+                <p class="view-description">
+                    Add or edit conversion rules using the forms below. Rules are saved automatically to local storage.
+                </p>
+
+                <!-- Add New Rule Form -->
+                <div class="add-rule-section">
+                    <h3>Add New Rule</h3>
+                    <div class="add-rule-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="new-unicode">Unicode</label>
+                                <input type="text" id="new-unicode" placeholder="e.g., α">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-latex">LaTeX</label>
+                                <input type="text" id="new-latex" placeholder="e.g., \alpha">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-rule-type">Type</label>
+                                <select id="new-rule-type">
+                                    <option value="bidirectional">Bi-directional</option>
+                                    <option value="unicode_to_latex">Unicode→LaTeX</option>
+                                    <option value="latex_to_unicode">LaTeX→Unicode</option>
+                                </select>
+                            </div>
+                            <button id="add-rule-button" class="add-button">Add Rule</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filter -->
+                <div class="search-filter-section">
+                    <div class="search-box">
+                        <input type="text" id="rule-search" placeholder="Search rules...">
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-button active" data-filter="all">All</button>
+                        <button class="filter-button" data-filter="bidirectional">Bi-directional</button>
+                        <button class="filter-button" data-filter="unicode_to_latex">Unicode→LaTeX</button>
+                        <button class="filter-button" data-filter="latex_to_unicode">LaTeX→Unicode</button>
+                    </div>
+                </div>
+
+                <!-- Rules List -->
+                <div class="rules-list-container">
+                    <div class="rules-list-header">
+                        <span class="col-unicode">Unicode</span>
+                        <span class="col-latex">LaTeX</span>
+                        <span class="col-type">Type</span>
+                        <span class="col-actions">Actions</span>
+                    </div>
+                    <div id="rules-list" class="rules-list">
+                        <!-- Rules will be populated here by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="rule-buttons">
+                    <button id="save-ui-rules-button">Save Rules</button>
+                    <button id="reset-rules-button-ui">Reset to Default Rules</button>
+                </div>
+            </div>
+
+            <!-- JSON View -->
+            <div id="json-view" class="rule-view hidden">
+                <p class="view-description">
+                    Edit the conversion rules in JSON format directly.<br>
+                    <code>bidirectional</code>: Basic Unicode and LaTeX mapping (bi-directional)<br>
+                    <code>unicode_to_latex</code>: Alternative Unicode forms (used only for Unicode → LaTeX conversion)<br>
+                    <code>latex_to_unicode</code>: Alternative LaTeX forms (used only for LaTeX → Unicode conversion)<br>
+                    Each entry is in the format <code>{"unicode": "...", "latex": "..."}</code>.
+                </p>
+                <textarea id="rules-textarea" rows="20" spellcheck="false"></textarea>
+                <div class="rule-buttons">
+                    <button id="save-rules-button">Save & Apply Rules</button>
+                    <button id="reset-rules-button">Reset to Default Rules</button>
+                </div>
+            </div>
+
+            <p id="rule-status"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
