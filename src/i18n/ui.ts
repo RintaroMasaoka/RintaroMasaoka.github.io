@@ -65,7 +65,7 @@ export const ui = {
     'nav.home': 'ホーム',
     'nav.publications': '論文',
     'nav.presentations': '発表',
-    'nav.resources': 'リソース',
+    'nav.resources': '資料',
     'nav.cv': '履歴書',
 
     // Page titles and descriptions
@@ -74,8 +74,8 @@ export const ui = {
     'page.publications.description': '研究論文の一覧です。',
     'page.presentations.title': '発表一覧',
     'page.presentations.description': '学会発表・講演の一覧です。',
-    'page.resources.title': 'リソース',
-    'page.resources.description': 'ノート、ツール、その他のリソースを公開しています。',
+    'page.resources.title': '資料',
+    'page.resources.description': 'ノート、ツール、その他の資料を公開しています。',
     'section.notes': 'ノート',
     'page.cv.title': '履歴書',
 
