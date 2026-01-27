@@ -12,26 +12,6 @@ categories:
     label:
       en: Journal Articles
       ja: 学術論文
-  - id: talk
-    label:
-      en: Invited Talks
-      ja: 招待講演
-  - id: oral_en
-    label:
-      en: Oral Presentations (International)
-      ja: 口頭発表（国際）
-  - id: oral_jp
-    label:
-      en: Oral Presentations (Domestic)
-      ja: 口頭発表（国内）
-  - id: poster_en
-    label:
-      en: Poster Presentations (International)
-      ja: ポスター発表（国際）
-  - id: poster_jp
-    label:
-      en: Poster Presentations (Domestic)
-      ja: ポスター発表（国内）
 
 # 業績リスト（新しい順）
 publications:
@@ -84,6 +64,8 @@ publications:
     links:
       - label: Journal
         url: https://doi.org/10.1103/d4c4-5p2r
+      - label: arXiv
+        url: https://arxiv.org/abs/2406.06415
 
   - title: "Rigorous Lower Bound of the Dynamical Critical Exponent of the Ising Model"
     authors:
@@ -96,6 +78,8 @@ publications:
     links:
       - label: Journal
         url: https://doi.org/10.1007/s10955-025-03456-3
+      - label: arXiv
+        url: https://arxiv.org/abs/2502.09908
 
   - title: "Quadratic dispersion relations in gapless frustration-free systems"
     authors:
@@ -108,144 +92,5 @@ publications:
     links:
       - label: Journal
         url: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.110.195140
-
-  # === Invited Talks ===
-  - title: "Several aspects of frustration-free quantum systems"
-    authors:
-      - Rintaro Masaoka
-    year: 2026
-    category: talk
-    venue: Fundamental Physics Seminar, Department of Physics, University of Tokyo (Jan. 19, 2026)
-    links:
-      - label: Slides
-        url: /resources/2026/seminar_260119.pdf
-
-  - title: "c=-2 conformal field theory in quadratic band touching"
-    authors:
-      - Rintaro Masaoka
-    year: 2025
-    category: talk
-    venue: Joint seminar, Department of Applied Physics, University of Tokyo (Nov. 14, 2025)
-    links:
-      - label: Slides
-        url: /resources/2025/fCQCP_joint.pdf
-
-  - title: "On dynamic critical exponents of gapless frustration-free systems"
-    authors:
-      - Rintaro Masaoka
-    year: 2024
-    category: talk
-    venue: Talk in ISSP (Dec. 20, 2024)
-    links:
-      - label: Slides
-        url: /resources/2024/Talk_ISSP.pdf
-      - label: Info
-        url: https://www.issp.u-tokyo.ac.jp/maincontents/seminar/all2_en.html?pid=25487
-
-  - title: "Rigorous lower bounds of dynamic critical exponents for critical frustration-free systems"
-    authors:
-      - Rintaro Masaoka
-    year: 2024
-    category: talk
-    venue: MS seminar, Kavli IPMU (Oct. 29, 2024)
-    links:
-      - label: Slides
-        url: /resources/2024/Seminar_IPMU.pdf
-      - label: Info
-        url: https://db.ipmu.jp/seminar/?seminar_id=3254
-
-  - title: "Rigorous lower bounds of dynamic critical exponents for critical frustration-free systems"
-    authors:
-      - Rintaro Masaoka
-    year: 2024
-    category: talk
-    venue: Shiraishi group seminar, University of Tokyo (Oct. 28, 2024)
-    links:
-      - label: Slides
-        url: /resources/2024/Talk_Komaba.pdf
-
-  # === Oral Presentations (International) ===
-  - title: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
-    authors:
-      - Rintaro Masaoka
-      - Tomohiro Soejima
-      - Haruki Watanabe
-    year: 2025
-    category: oral_en
-    venue: APS Joint March Meeting (Mar. 16-21, 2025)
-    links:
-      - label: Slides
-        url: /resources/2025/APS2025.pdf
-
-  # === Oral Presentations (Domestic) ===
-  - title: "Ising模型の動的臨界指数に対する厳密な下限"
-    authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
-    year: 2025
-    category: oral_jp
-    venue: 日本物理学会2025年年次大会，広島大学 (Sep. 16-19, 2025)
-    links:
-      - label: Slides
-        url: /resources/2025/JPS_slide.pdf
-
-  - title: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
-    authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
-    year: 2024
-    category: oral_jp
-    venue: 日本物理学会2024年年次大会，北海道大学 (Sep. 16-19, 2024)
-    links:
-      - label: Slides
-        url: /resources/2024/slides_JPS.pdf
-
-  - title: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
-    authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
-    year: 2024
-    category: oral_jp
-    venue: 第69回物性若手夏の学校，西浦温泉ホテル龍城 (Aug. 2-6, 2024)
-    links:
-      - label: Slides
-        url: /resources/2024/slides_cmpss.pdf
-
-  # === Poster Presentations (International) ===
-  - title: "Logarithmic conformal field theory in singular band touching system"
-    authors:
-      - Rintaro Masaoka
-    year: 2025
-    category: poster_en
-    venue: 熱場の量子論とその応用 (Thermal Quantum Field Theory and Its Applications), ISSP (Sep. 3-5, 2025)
-    links:
-      - label: Poster
-        url: /resources/2025/poster_fCQCP.pdf
-
-  - title: "Rigorous lower bound on dynamical exponents of critical frustration-free systems"
-    authors:
-      - Rintaro Masaoka
-      - Tomohiro Soejima
-      - Haruki Watanabe
-    year: 2025
-    category: poster_en
-    venue: FoPM International Symposium (Feb. 18, 2025)
-    links:
-      - label: Poster
-        url: /resources/2025/foPM_poster.pdf
-
-  # === Poster Presentations (Domestic) ===
-  - title: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
-    authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
-    year: 2024
-    category: poster_jp
-    venue: 第69回物性若手夏の学校，西浦温泉ホテル龍城 (Aug. 2-6, 2024)
-    links:
-      - label: Poster
-        url: /resources/2024/poster_cmpss.pdf
+      - label: arXiv
+        url: https://arxiv.org/abs/2406.06414

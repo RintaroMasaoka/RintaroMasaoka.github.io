@@ -1,0 +1,259 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { title, description = "", lang = 'ja' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- KaTeX CSS（数式用） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+
+  <!-- テーマ初期化（FLASHを防ぐためにhead内で即時実行） -->
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+
+    // テーマ切り替え・モバイルメニュー用のイベントリスナー
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      while (target && target !== document) {
+        if (target.id === 'theme-toggle') {
+          document.documentElement.classList.toggle('dark');
+          var isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          return;
+        }
+        if (target.id === 'menu-toggle') {
+          var mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu) mobileMenu.classList.toggle('hidden');
+          return;
+        }
+        target = target.parentElement;
+      }
+    });
+  </script>
+</head>
+<body class="min-h-screen bg-primary-50 dark:bg-primary-900 text-primary-800 dark:text-primary-100 font-sans transition-colors duration-300">
+  <!-- 背景のサブトルなパターン -->
+  <div class="fixed inset-0 -z-10 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');" />
+
+  <Header lang={lang} />
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+    <!-- 戻るリンク -->
+    <a 
+      href={lang === 'ja' ? '/ja' : '/en'}
+      class="inline-flex items-center gap-2 text-sm text-primary-500 dark:text-primary-400 hover:text-accent dark:hover:text-accent-light transition-colors mb-8"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      {lang === 'ja' ? 'ホームに戻る' : 'Back to Home'}
+    </a>
+
+    <!-- タイトル -->
+    <header class="mb-10">
+      <h1 class="font-serif text-3xl md:text-4xl font-bold text-primary-900 dark:text-primary-50 mb-4">
+        {title}
+      </h1>
+      {description && (
+        <p class="text-lg text-primary-600 dark:text-primary-300">
+          {description}
+        </p>
+      )}
+    </header>
+
+    <!-- 本文コンテンツ -->
+    <article class="prose-note">
+      <slot />
+    </article>
+  </main>
+
+  <Footer lang={lang} />
+</body>
+</html>
+
+<style is:global>
+  /* スムーズスクロール */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 選択時のカラー */
+  ::selection {
+    background-color: theme('colors.accent.light');
+    color: theme('colors.accent.dark');
+  }
+
+  /* ===== Markdownノート用スタイル ===== */
+  .prose-note {
+    @apply text-primary-800 dark:text-primary-100 leading-relaxed;
+  }
+
+  /* 見出し */
+  .prose-note h1 {
+    @apply font-serif text-2xl md:text-3xl font-bold text-primary-900 dark:text-primary-50 mt-12 mb-6 pb-3 border-b border-primary-200 dark:border-primary-700;
+  }
+
+  .prose-note h2 {
+    @apply font-serif text-xl md:text-2xl font-semibold text-primary-900 dark:text-primary-50 mt-10 mb-4;
+  }
+
+  .prose-note h3 {
+    @apply font-serif text-lg md:text-xl font-semibold text-primary-900 dark:text-primary-50 mt-8 mb-3;
+  }
+
+  .prose-note h4 {
+    @apply font-serif text-base md:text-lg font-semibold text-primary-900 dark:text-primary-50 mt-6 mb-2;
+  }
+
+  /* 段落 */
+  .prose-note p {
+    @apply my-4 text-base leading-7;
+  }
+
+  /* リンク */
+  .prose-note a {
+    @apply text-accent dark:text-accent-light hover:underline;
+  }
+
+  /* リスト */
+  .prose-note ul {
+    @apply my-4 pl-6 list-disc;
+  }
+
+  .prose-note ol {
+    @apply my-4 pl-6 list-decimal;
+  }
+
+  .prose-note li {
+    @apply my-1;
+  }
+
+  /* コードブロック */
+  .prose-note pre {
+    @apply my-6 p-4 bg-primary-100 dark:bg-primary-800 rounded-lg overflow-x-auto;
+  }
+
+  .prose-note code {
+    @apply font-mono text-sm;
+  }
+
+  .prose-note :not(pre) > code {
+    @apply px-1.5 py-0.5 bg-primary-100 dark:bg-primary-800 rounded text-accent-dark dark:text-accent-light;
+  }
+
+  /* 引用 */
+  .prose-note blockquote {
+    @apply my-6 pl-4 border-l-4 border-accent/50 dark:border-accent-light/50 italic text-primary-600 dark:text-primary-300;
+  }
+
+  /* 画像 */
+  .prose-note img {
+    @apply my-6 max-w-full h-auto rounded-lg mx-auto;
+  }
+
+  /* 水平線 */
+  .prose-note hr {
+    @apply my-8 border-primary-200 dark:border-primary-700;
+  }
+
+  /* テーブル */
+  .prose-note table {
+    @apply my-6 w-full border-collapse;
+  }
+
+  .prose-note th {
+    @apply px-4 py-2 bg-primary-100 dark:bg-primary-800 border border-primary-200 dark:border-primary-700 font-semibold text-left;
+  }
+
+  .prose-note td {
+    @apply px-4 py-2 border border-primary-200 dark:border-primary-700;
+  }
+
+  /* 脚注 */
+  .prose-note .footnotes {
+    @apply mt-12 pt-6 border-t border-primary-200 dark:border-primary-700 text-sm text-primary-600 dark:text-primary-400;
+  }
+
+  /* ===== KaTeX 数式スタイル ===== */
+  .prose-note .katex {
+    font-size: 1.1em;
+  }
+
+  /* インライン数式 */
+  .prose-note .math-inline {
+    @apply mx-0.5;
+  }
+
+  /* ディスプレイ数式（中央揃え、スクロール可能） */
+  .prose-note .math-display {
+    @apply my-6 overflow-x-auto py-2;
+  }
+
+  .prose-note .math-display > .katex-display {
+    @apply m-0;
+  }
+
+  /* 数式のダークモード対応 */
+  .dark .prose-note .katex {
+    color: theme('colors.primary.100');
+  }
+</style>
+
+<script>
+  // 脚注リンクを瞬時にジャンプさせる（スムーズスクロールを無効化）
+  document.addEventListener('click', (e) => {
+    const link = (e.target as HTMLElement).closest('a');
+    if (!link) return;
+    
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    
+    // 脚注リンク（fn-* または fnref-*）かどうかをチェック
+    if (href.includes('-fn-') || href.includes('-fnref-')) {
+      e.preventDefault();
+      const targetId = href.slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        // scroll-behavior: auto で瞬時ジャンプ
+        const htmlEl = document.documentElement;
+        const originalBehavior = htmlEl.style.scrollBehavior;
+        htmlEl.style.scrollBehavior = 'auto';
+        target.scrollIntoView();
+        htmlEl.style.scrollBehavior = originalBehavior;
+        // URLハッシュを更新
+        history.pushState(null, '', href);
+      }
+    }
+  });
+</script>
