@@ -7,6 +7,7 @@ import { notes as notesData, tools as toolsData } from '../../utils/data';
 
 const lang = 'ja';
 const t = useTranslations(lang);
+const pageData = notesData.page;
 
 // ノート一覧
 const notes = notesData.notes;
@@ -21,10 +22,10 @@ const sections = [
 ];
 ---
 
-<BaseLayout title={t('page.resources.title')} lang={lang}>
+<BaseLayout title={pageData.title[lang]} lang={lang}>
   <div class="mb-8">
-    <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">{t('page.resources.title')}</h1>
-    <p class="text-primary-500 dark:text-primary-400">{t('page.resources.description')}</p>
+    <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">{pageData.title[lang]}</h1>
+    <p class="text-primary-500 dark:text-primary-400">{pageData.description[lang]}</p>
   </div>
 
   <!-- セクションナビゲーション -->

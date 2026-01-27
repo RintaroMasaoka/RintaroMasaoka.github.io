@@ -2,6 +2,15 @@
 # 業績リスト / Publications
 # ===================================
 
+# ページメタデータ
+page:
+  title:
+    en: Publications
+    ja: 論文一覧
+  description:
+    en: List of research publications.
+    ja: 研究論文の一覧です。
+
 # カテゴリの定義（多言語対応）
 categories:
   - id: preprint

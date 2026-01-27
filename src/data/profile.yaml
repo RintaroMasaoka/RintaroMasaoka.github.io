@@ -2,6 +2,12 @@
 # プロフィール情報 / Profile Information
 # ===================================
 
+# ホームページメタデータ
+page:
+  title:
+    en: Academic Website
+    ja: アカデミックサイト
+
 name:
   en: Rintaro Masaoka
   ja: 政岡 凜太郎
@@ -32,28 +38,3 @@ contact:
   google_scholar: https://scholar.google.com/citations?user=qoSWWasAAAAJ&hl=en
   arxiv: https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Rintaro+Masaoka&terms-0-field=author&classification-physics=y&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=100&order=-announced_date_first
   orcid: 0009-0002-4280-9783
-
-# ナビゲーションメニュー（言語別）
-navigation:
-  en:
-    - label: Home
-      href: /en/
-    - label: CV
-      href: /en/cv
-    - label: Publications
-      href: /en/publications
-    - label: Presentations
-      href: /en/presentations
-    - label: Resources
-      href: /en/resources
-  ja:
-    - label: ホーム
-      href: /ja/
-    - label: 履歴書
-      href: /ja/cv
-    - label: 論文
-      href: /ja/publications
-    - label: 発表
-      href: /ja/presentations
-    - label: 資料
-      href: /ja/resources

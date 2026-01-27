@@ -2,6 +2,12 @@
 # CV / 経歴情報
 # ===================================
 
+# ページメタデータ
+page:
+  title:
+    en: Curriculum Vitae
+    ja: 履歴書
+
 education:
   - degree:
       en: Bachelor of Science
