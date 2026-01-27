@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Möbius Transform - 3点指定</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .formula-main {
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        .canvas-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .canvas-container {
+            flex: 1;
+            background: #0f0f23;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .canvas-container h2 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+
+        .canvas-container h2 .label {
+            color: #00d4ff;
+        }
+
+        canvas {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            background: #000;
+            cursor: grab;
+            display: block;
+        }
+
+        canvas:active {
+            cursor: grabbing;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-section {
+            flex: 1;
+            min-width: 280px;
+            background: #0f0f23;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-section h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .point-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: #1a1a2e;
+            border-radius: 8px;
+        }
+
+        .point-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .point-label {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            min-width: 30px;
+        }
+
+        .point-coords {
+            font-family: monospace;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .arrow {
+            color: #666;
+        }
+
+        .display-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .checkbox-item input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .color-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+        }
+
+        .color-item input[type="color"] {
+            width: 30px;
+            height: 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .description {
+            padding: 15px;
+            background: #1a1a2e;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #bbb;
+        }
+
+        .hint {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .hint strong {
+            color: #00d4ff;
+        }
+
+        @media (max-width: 800px) {
+            .canvas-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Möbius Transformation</h1>
+        <p class="subtitle">メビウス変換 — 3点の対応をドラッグで指定</p>
+        <div class="formula-main">w = (az + b) / (cz + d)</div>
+        
+        <div class="canvas-row">
+            <div class="canvas-container">
+                <h2><span class="label">z-plane</span> (元の複素平面)</h2>
+                <canvas id="canvas-z"></canvas>
+            </div>
+            <div class="canvas-container">
+                <h2><span class="label">w-plane</span> (変換後の複素平面)</h2>
+                <canvas id="canvas-w"></canvas>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-section">
+                <h3>📍 3点の対応</h3>
+                <div class="point-list">
+                    <div class="point-item">
+                        <span class="point-marker" style="background: #ff6b6b;"></span>
+                        <span class="point-label">z₁</span>
+                        <span class="point-coords" id="z1-coords">(0.00, 0.00)</span>
+                        <span class="arrow">→</span>
+                        <span class="point-label">w₁</span>
+                        <span class="point-coords" id="w1-coords">(0.00, 0.00)</span>
+                    </div>
+                    <div class="point-item">
+                        <span class="point-marker" style="background: #4ecdc4;"></span>
+                        <span class="point-label">z₂</span>
+                        <span class="point-coords" id="z2-coords">(0.00, 0.00)</span>
+                        <span class="arrow">→</span>
+                        <span class="point-label">w₂</span>
+                        <span class="point-coords" id="w2-coords">(0.00, 0.00)</span>
+                    </div>
+                    <div class="point-item">
+                        <span class="point-marker" style="background: #ffe66d;"></span>
+                        <span class="point-label">z₃</span>
+                        <span class="point-coords" id="z3-coords">(0.00, 0.00)</span>
+                        <span class="arrow">→</span>
+                        <span class="point-label">w₃</span>
+                        <span class="point-coords" id="w3-coords">(0.00, 0.00)</span>
+                    </div>
+                </div>
+                <div class="hint">
+                    <strong>💡 操作方法:</strong> 左の平面でz点を、右の平面でw点をドラッグして移動させてください。
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>🎨 表示オプション</h3>
+                <div class="display-options">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="show-horizontal" checked>
+                        水平線
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="show-vertical" checked>
+                        垂直線
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="show-circles">
+                        同心円
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="show-radial">
+                        放射線
+                    </label>
+                </div>
+                <div class="color-row">
+                    <div class="color-item">
+                        <label>水平:</label>
+                        <input type="color" id="color-h" value="#ff6b6b">
+                    </div>
+                    <div class="color-item">
+                        <label>垂直:</label>
+                        <input type="color" id="color-v" value="#4ecdc4">
+                    </div>
+                    <div class="color-item">
+                        <label>円:</label>
+                        <input type="color" id="color-c" value="#ffe66d">
+                    </div>
+                    <div class="color-item">
+                        <label>放射:</label>
+                        <input type="color" id="color-r" value="#a855f7">
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="description">
+                    <strong>メビウス変換</strong>は、3点の行き先を指定することで一意に定まる共形写像です。
+                    円と直線を円と直線に写し、角度を保存します。
+                    複素射影直線 CP¹ の自己同型群 PSL(2,ℂ) の元として理解できます。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============ Setup ============
+        const canvasZ = document.getElementById('canvas-z');
+        const canvasW = document.getElementById('canvas-w');
+        const ctxZ = canvasZ.getContext('2d');
+        const ctxW = canvasW.getContext('2d');
+
+        const gridRange = 3;
+        const gridStep = 0.5;
+        const pointsPerLine = 400;
+        const dpr = window.devicePixelRatio || 1;
+
+        // 3 control points: z-plane and w-plane
+        const points = {
+            z: [
+                { re: -1, im: 0 },
+                { re: 0, im: 1 },
+                { re: 1, im: 0 }
+            ],
+            w: [
+                { re: -1, im: 0 },
+                { re: 0, im: 1 },
+                { re: 1, im: 0 }
+            ]
+        };
+
+        const pointColors = ['#ff6b6b', '#4ecdc4', '#ffe66d'];
+
+        let dragging = null; // { plane: 'z' | 'w', index: 0|1|2 }
+
+        // ============ Complex Math ============
+        function cAdd(a, b) { return { re: a.re + b.re, im: a.im + b.im }; }
+        function cSub(a, b) { return { re: a.re - b.re, im: a.im - b.im }; }
+        function cMul(a, b) { return { re: a.re * b.re - a.im * b.im, im: a.re * b.im + a.im * b.re }; }
+        function cDiv(a, b) {
+            const d = b.re * b.re + b.im * b.im;
+            if (d < 1e-14) return null;
+            return { re: (a.re * b.re + a.im * b.im) / d, im: (a.im * b.re - a.re * b.im) / d };
+        }
+
+        // ============ Möbius Transform ============
+        // Given z1->w1, z2->w2, z3->w3, compute w for any z
+        // Using cross-ratio preservation:
+        // (w - w1)(w2 - w3) / ((w - w3)(w2 - w1)) = (z - z1)(z2 - z3) / ((z - z3)(z2 - z1))
+        
+        function mobiusTransform(z) {
+            const [z1, z2, z3] = points.z;
+            const [w1, w2, w3] = points.w;
+
+            // Compute cross-ratio on z-side: ζ = (z - z1)(z2 - z3) / ((z - z3)(z2 - z1))
+            const num_z = cMul(cSub(z, z1), cSub(z2, z3));
+            const den_z = cMul(cSub(z, z3), cSub(z2, z1));
+            const zeta = cDiv(num_z, den_z);
+            
+            if (!zeta) return null;
+
+            // Now solve for w:
+            // ζ = (w - w1)(w2 - w3) / ((w - w3)(w2 - w1))
+            // ζ(w - w3)(w2 - w1) = (w - w1)(w2 - w3)
+            // ζ(w2 - w1)w - ζ(w2 - w1)w3 = (w2 - w3)w - (w2 - w3)w1
+            // w[ζ(w2 - w1) - (w2 - w3)] = ζ(w2 - w1)w3 - (w2 - w3)w1
+            // w = [ζ(w2 - w1)w3 - (w2 - w3)w1] / [ζ(w2 - w1) - (w2 - w3)]
+
+            const w21 = cSub(w2, w1);
+            const w23 = cSub(w2, w3);
+
+            const num_w = cSub(cMul(cMul(zeta, w21), w3), cMul(w23, w1));
+            const den_w = cSub(cMul(zeta, w21), w23);
+
+            return cDiv(num_w, den_w);
+        }
+
+        // ============ Canvas Utilities ============
+        function getScale(canvas) {
+            return canvas.width / dpr / (2 * gridRange + 1);
+        }
+
+        function setupCanvas(canvas, size) {
+            canvas.width = size * dpr;
+            canvas.height = size * dpr;
+            canvas.style.width = size + 'px';
+            canvas.style.height = size + 'px';
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr);
+            return ctx;
+        }
+
+        function toCanvas(canvas, z) {
+            const scale = getScale(canvas);
+            const logicalSize = canvas.width / dpr;
+            return {
+                x: logicalSize / 2 + z.re * scale,
+                y: logicalSize / 2 - z.im * scale
+            };
+        }
+
+        function fromCanvas(canvas, p) {
+            const scale = getScale(canvas);
+            const logicalSize = canvas.width / dpr;
+            return {
+                re: (p.x - logicalSize / 2) / scale,
+                im: (logicalSize / 2 - p.y) / scale
+            };
+        }
+
+        function getMousePos(canvas, e) {
+            const rect = canvas.getBoundingClientRect();
+            // Return logical coordinates (not physical pixels)
+            return {
+                x: (e.clientX - rect.left) * (canvas.width / dpr) / rect.width,
+                y: (e.clientY - rect.top) * (canvas.height / dpr) / rect.height
+            };
+        }
+
+        // ============ Drawing ============
+        function drawAxes(ctx) {
+            const logicalSize = ctx.canvas.width / dpr;
+            const w = logicalSize;
+            const h = logicalSize;
+            const cx = w / 2, cy = h / 2;
+            const scale = getScale(ctx.canvas);
+
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, cy);
+            ctx.lineTo(w, cy);
+            ctx.moveTo(cx, 0);
+            ctx.lineTo(cx, h);
+            ctx.stroke();
+
+            // Tick marks
+            ctx.fillStyle = '#555';
+            ctx.font = '11px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            for (let i = -gridRange; i <= gridRange; i++) {
+                if (i === 0) continue;
+                const x = cx + i * scale;
+                ctx.fillText(i.toString(), x, cy + 4);
+            }
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'middle';
+            for (let i = -gridRange; i <= gridRange; i++) {
+                if (i === 0) continue;
+                const y = cy - i * scale;
+                ctx.fillText(i.toString(), cx - 6, y);
+            }
+        }
+
+        function drawCurve(ctx, pts, color) {
+            const logicalSize = ctx.canvas.width / dpr;
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+
+            let started = false;
+            let prev = null;
+
+            for (const z of pts) {
+                if (!z || !isFinite(z.re) || !isFinite(z.im) || Math.abs(z.re) > 100 || Math.abs(z.im) > 100) {
+                    started = false;
+                    prev = null;
+                    continue;
+                }
+
+                const p = toCanvas(ctx.canvas, z);
+
+                // Detect discontinuity
+                if (prev) {
+                    const dist = Math.sqrt((p.x - prev.x) ** 2 + (p.y - prev.y) ** 2);
+                    if (dist > logicalSize * 0.3) {
+                        started = false;
+                    }
+                }
+
+                if (!started) {
+                    ctx.moveTo(p.x, p.y);
+                    started = true;
+                } else {
+                    ctx.lineTo(p.x, p.y);
+                }
+                prev = p;
+            }
+            ctx.stroke();
+        }
+
+        function drawPoint(ctx, z, color, radius = 12) {
+            const p = toCanvas(ctx.canvas, z);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2.5;
+            ctx.stroke();
+        }
+
+        function generateLines(type) {
+            const lines = [];
+            if (type === 'horizontal') {
+                for (let y = -gridRange; y <= gridRange; y += gridStep) {
+                    const line = [];
+                    for (let i = 0; i <= pointsPerLine; i++) {
+                        const x = -gridRange + (2 * gridRange * i) / pointsPerLine;
+                        line.push({ re: x, im: y });
+                    }
+                    lines.push(line);
+                }
+            } else if (type === 'vertical') {
+                for (let x = -gridRange; x <= gridRange; x += gridStep) {
+                    const line = [];
+                    for (let i = 0; i <= pointsPerLine; i++) {
+                        const y = -gridRange + (2 * gridRange * i) / pointsPerLine;
+                        line.push({ re: x, im: y });
+                    }
+                    lines.push(line);
+                }
+            } else if (type === 'circles') {
+                for (let r = gridStep; r <= gridRange; r += gridStep) {
+                    const circle = [];
+                    for (let i = 0; i <= pointsPerLine; i++) {
+                        const theta = (2 * Math.PI * i) / pointsPerLine;
+                        circle.push({ re: r * Math.cos(theta), im: r * Math.sin(theta) });
+                    }
+                    lines.push(circle);
+                }
+            } else if (type === 'radial') {
+                for (let k = 0; k < 12; k++) {
+                    const theta = (2 * Math.PI * k) / 12;
+                    const line = [];
+                    for (let i = 0; i <= pointsPerLine; i++) {
+                        const r = (gridRange * i) / pointsPerLine;
+                        line.push({ re: r * Math.cos(theta), im: r * Math.sin(theta) });
+                    }
+                    lines.push(line);
+                }
+            }
+            return lines;
+        }
+
+        function draw() {
+            // Resize if needed
+            const containerZ = canvasZ.parentElement;
+            const containerW = canvasW.parentElement;
+            const sizeZ = Math.min(600, containerZ.clientWidth - 30);
+            const sizeW = Math.min(600, containerW.clientWidth - 30);
+            const size = Math.min(sizeZ, sizeW);
+            const logicalSize = size;
+            
+            // Setup high-DPI canvas
+            if (canvasZ.width !== size * dpr) {
+                setupCanvas(canvasZ, size);
+            }
+            if (canvasW.width !== size * dpr) {
+                setupCanvas(canvasW, size);
+            }
+
+            // Clear (use logical size after scale)
+            ctxZ.fillStyle = '#000';
+            ctxZ.fillRect(0, 0, logicalSize, logicalSize);
+            ctxW.fillStyle = '#000';
+            ctxW.fillRect(0, 0, logicalSize, logicalSize);
+
+            // Axes
+            drawAxes(ctxZ);
+            drawAxes(ctxW);
+
+            // Get options
+            const showH = document.getElementById('show-horizontal').checked;
+            const showV = document.getElementById('show-vertical').checked;
+            const showC = document.getElementById('show-circles').checked;
+            const showR = document.getElementById('show-radial').checked;
+
+            const colorH = document.getElementById('color-h').value;
+            const colorV = document.getElementById('color-v').value;
+            const colorC = document.getElementById('color-c').value;
+            const colorR = document.getElementById('color-r').value;
+
+            // Draw grid lines
+            const types = [];
+            if (showH) types.push({ type: 'horizontal', color: colorH });
+            if (showV) types.push({ type: 'vertical', color: colorV });
+            if (showC) types.push({ type: 'circles', color: colorC });
+            if (showR) types.push({ type: 'radial', color: colorR });
+
+            for (const { type, color } of types) {
+                const lines = generateLines(type);
+                for (const line of lines) {
+                    // Draw original
+                    drawCurve(ctxZ, line, color);
+                    // Draw transformed
+                    const transformed = line.map(z => mobiusTransform(z));
+                    drawCurve(ctxW, transformed, color);
+                }
+            }
+
+            // Draw control points
+            for (let i = 0; i < 3; i++) {
+                drawPoint(ctxZ, points.z[i], pointColors[i]);
+                drawPoint(ctxW, points.w[i], pointColors[i]);
+            }
+
+            // Update coordinate display
+            updateCoordDisplay();
+        }
+
+        function updateCoordDisplay() {
+            const fmt = (z) => `(${z.re.toFixed(2)}, ${z.im.toFixed(2)})`;
+            document.getElementById('z1-coords').textContent = fmt(points.z[0]);
+            document.getElementById('z2-coords').textContent = fmt(points.z[1]);
+            document.getElementById('z3-coords').textContent = fmt(points.z[2]);
+            document.getElementById('w1-coords').textContent = fmt(points.w[0]);
+            document.getElementById('w2-coords').textContent = fmt(points.w[1]);
+            document.getElementById('w3-coords').textContent = fmt(points.w[2]);
+        }
+
+        // ============ Mouse/Touch Handling ============
+        function findNearestPoint(canvas, mousePos, plane) {
+            const pts = points[plane];
+            const threshold = 25; // pixels
+            
+            for (let i = 0; i < pts.length; i++) {
+                const p = toCanvas(canvas, pts[i]);
+                const dist = Math.sqrt((mousePos.x - p.x) ** 2 + (mousePos.y - p.y) ** 2);
+                if (dist < threshold) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        function clamp(val, min, max) {
+            return Math.max(min, Math.min(max, val));
+        }
+
+        // Mouse events for z-plane
+        canvasZ.addEventListener('mousedown', (e) => {
+            const pos = getMousePos(canvasZ, e);
+            const idx = findNearestPoint(canvasZ, pos, 'z');
+            if (idx >= 0) {
+                dragging = { plane: 'z', index: idx };
+                canvasZ.style.cursor = 'grabbing';
+            }
+        });
+
+        canvasZ.addEventListener('mousemove', (e) => {
+            if (dragging && dragging.plane === 'z') {
+                const pos = getMousePos(canvasZ, e);
+                const z = fromCanvas(canvasZ, pos);
+                z.re = clamp(z.re, -gridRange, gridRange);
+                z.im = clamp(z.im, -gridRange, gridRange);
+                points.z[dragging.index] = z;
+                draw();
+            }
+        });
+
+        canvasZ.addEventListener('mouseup', () => {
+            if (dragging) {
+                dragging = null;
+                canvasZ.style.cursor = 'grab';
+            }
+        });
+
+        canvasZ.addEventListener('mouseleave', () => {
+            if (dragging && dragging.plane === 'z') {
+                dragging = null;
+                canvasZ.style.cursor = 'grab';
+            }
+        });
+
+        // Mouse events for w-plane
+        canvasW.addEventListener('mousedown', (e) => {
+            const pos = getMousePos(canvasW, e);
+            const idx = findNearestPoint(canvasW, pos, 'w');
+            if (idx >= 0) {
+                dragging = { plane: 'w', index: idx };
+                canvasW.style.cursor = 'grabbing';
+            }
+        });
+
+        canvasW.addEventListener('mousemove', (e) => {
+            if (dragging && dragging.plane === 'w') {
+                const pos = getMousePos(canvasW, e);
+                const w = fromCanvas(canvasW, pos);
+                w.re = clamp(w.re, -gridRange, gridRange);
+                w.im = clamp(w.im, -gridRange, gridRange);
+                points.w[dragging.index] = w;
+                draw();
+            }
+        });
+
+        canvasW.addEventListener('mouseup', () => {
+            if (dragging) {
+                dragging = null;
+                canvasW.style.cursor = 'grab';
+            }
+        });
+
+        canvasW.addEventListener('mouseleave', () => {
+            if (dragging && dragging.plane === 'w') {
+                dragging = null;
+                canvasW.style.cursor = 'grab';
+            }
+        });
+
+        // Touch events
+        function getTouchPos(canvas, touch) {
+            const rect = canvas.getBoundingClientRect();
+            // Return logical coordinates (not physical pixels)
+            return {
+                x: (touch.clientX - rect.left) * (canvas.width / dpr) / rect.width,
+                y: (touch.clientY - rect.top) * (canvas.height / dpr) / rect.height
+            };
+        }
+
+        canvasZ.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const pos = getTouchPos(canvasZ, e.touches[0]);
+            const idx = findNearestPoint(canvasZ, pos, 'z');
+            if (idx >= 0) {
+                dragging = { plane: 'z', index: idx };
+            }
+        }, { passive: false });
+
+        canvasZ.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (dragging && dragging.plane === 'z') {
+                const pos = getTouchPos(canvasZ, e.touches[0]);
+                const z = fromCanvas(canvasZ, pos);
+                z.re = clamp(z.re, -gridRange, gridRange);
+                z.im = clamp(z.im, -gridRange, gridRange);
+                points.z[dragging.index] = z;
+                draw();
+            }
+        }, { passive: false });
+
+        canvasZ.addEventListener('touchend', () => {
+            dragging = null;
+        });
+
+        canvasW.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const pos = getTouchPos(canvasW, e.touches[0]);
+            const idx = findNearestPoint(canvasW, pos, 'w');
+            if (idx >= 0) {
+                dragging = { plane: 'w', index: idx };
+            }
+        }, { passive: false });
+
+        canvasW.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (dragging && dragging.plane === 'w') {
+                const pos = getTouchPos(canvasW, e.touches[0]);
+                const w = fromCanvas(canvasW, pos);
+                w.re = clamp(w.re, -gridRange, gridRange);
+                w.im = clamp(w.im, -gridRange, gridRange);
+                points.w[dragging.index] = w;
+                draw();
+            }
+        }, { passive: false });
+
+        canvasW.addEventListener('touchend', () => {
+            dragging = null;
+        });
+
+        // Checkbox/color events
+        document.querySelectorAll('input[type="checkbox"], input[type="color"]').forEach(el => {
+            el.addEventListener('input', draw);
+        });
+
+        // Resize
+        window.addEventListener('resize', draw);
+
+        // Initial draw
+        draw();
+    </script>
+</body>
+</html>
