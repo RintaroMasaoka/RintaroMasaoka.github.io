@@ -5,9 +5,10 @@ import { localize } from '../../i18n/utils';
 import { profile } from '../../utils/data';
 
 const lang = 'ja';
+const pageData = profile.page;
 ---
 
-<BaseLayout title={`${localize(profile.name, lang)} - アカデミックサイト`} lang={lang}>
+<BaseLayout title={`${localize(profile.name, lang)} - ${pageData.title[lang]}`} lang={lang}>
   <HomeContent lang={lang} />
 </BaseLayout>
 

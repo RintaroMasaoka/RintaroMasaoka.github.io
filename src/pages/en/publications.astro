@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PublicationCard from '../../components/PublicationCard.astro';
-import { useTranslations, localize } from '../../i18n/utils';
+import { localize } from '../../i18n/utils';
 import { publications as pubsData } from '../../utils/data';
 
 const lang = 'en';
-const t = useTranslations(lang);
+const pageData = pubsData.page;
 
 const categories = pubsData.categories;
 const publications = pubsData.publications;
@@ -17,10 +17,10 @@ const groupedPubs = categories.map((cat: any) => ({
 })).filter((cat: any) => cat.items.length > 0);
 ---
 
-<BaseLayout title={t('page.publications.title')} lang={lang}>
+<BaseLayout title={pageData.title[lang]} lang={lang}>
   <div class="mb-8">
-    <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">{t('page.publications.title')}</h1>
-    <p class="text-primary-500 dark:text-primary-400">{t('page.publications.description')}</p>
+    <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">{pageData.title[lang]}</h1>
+    <p class="text-primary-500 dark:text-primary-400">{pageData.description[lang]}</p>
   </div>
 
   <!-- カテゴリナビゲーション -->

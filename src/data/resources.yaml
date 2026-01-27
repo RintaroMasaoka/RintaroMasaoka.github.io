@@ -1,0 +1,137 @@
+# ===================================
+# リソース一覧 / Resources
+# 研究ノートとツールのメタ情報
+# ===================================
+
+# ページメタデータ
+page:
+  title:
+    en: Resources
+    ja: 資料
+  description:
+    en: Notes (in Japanese), tools, and other resources.
+    ja: ノートやツールを公開しています。ノートに関しては書きかけのものも多いです。
+
+# -----------------------------------
+# 研究ノート / Research Notes
+# PDFはpublic/notes/に配置し、ここにメタ情報を記載
+# -----------------------------------
+
+notes:
+  - title:
+      en: Graduate Entrance Exam Solutions (Applied Physics)
+      ja: 物理工学専攻院試解答
+    filename: 物工/解答/main/main.pdf
+    description:
+      en: Solutions to graduate entrance exam for Applied Physics department
+      ja: 物理工学専攻の大学院入試の解答
+
+  - title:
+      en: Introduction to Conformal Bootstrap
+      ja: 共形ブートストラップ入門
+    filename: conformal_bootstrap/統計班_政岡凜太郎.pdf
+    description:
+      en: An introductory note on conformal bootstrap
+      ja: 共形ブートストラップの入門ノート
+
+  - title:
+      en: Construction of Anyons using PEPS
+      ja: PEPSによるエニオンの構成
+    filename: Note_on_PEPS/main/main.pdf
+    description:
+      en: A note on the construction of anyons using PEPS
+      ja: PEPSを用いたエニオンの構成に関するノート
+
+  - title:
+      en: Six-vertex Model and Yang-Baxter Equation
+      ja: 6頂点模型とYang-Baxter方程式
+    url: /notes/aba/
+    description:
+      en: A note on the six-vertex model and Yang-Baxter equation
+      ja: 6頂点模型とYang-Baxter方程式に関するノート
+
+  - title:
+      en: Supersymmetric Quantum Mechanics
+      ja: 超対称量子力学
+    filename: SUSYQM/SUSY_index.pdf
+    description:
+      en: An introductory note on supersymmetric quantum mechanics
+      ja: 超対称量子力学の入門ノート
+
+  - title:
+      en: XY Model and Renormalization Group
+      ja: XY模型とくりこみ群
+    filename: XY model/XY.pdf
+    description:
+      en: A note on the XY model and renormalization group
+      ja: XY模型とくりこみ群に関するノート
+
+  - title:
+      en: KdV Equation
+      ja: KdV方程式
+    filename: KdV/source/数理班_政岡凜太郎.pdf
+    description:
+      en: A note on the KdV equation
+      ja: KdV方程式に関するノート
+
+  - title:
+      en: c-theorem and g-theorem
+      ja: c定理とg定理
+    url: /notes/c-theorem/
+    description:
+      en: A note on c-theorem and g-theorem
+      ja: c定理とg定理に関するノート
+
+  - title:
+      en: Tomonaga-Luttinger Liquid
+      ja: 朝永-Luttinger液体
+    filename: Tomonaga-Luttinger liquid/TL_liquid.pdf
+    description:
+      en: A note on Tomonaga-Luttinger liquid
+      ja: 朝永-Luttinger液体に関するノート
+
+  - title:
+      en: Exact Solution of 2D Ising Model via Dimer Model
+      ja: ダイマー模型による2次元Ising模型の厳密解
+    filename: Ising_Dimer/Ising_Dimer.pdf
+    description:
+      en: Exact solution of 2D Ising model using dimer model
+      ja: ダイマー模型を用いた2次元Ising模型の厳密解
+
+  - title:
+      en: Dimer Model and Gauge Theory (Fradkin Ch.9)
+      ja: ダイマー模型とゲージ理論 (Fradkin 9章)
+    filename: Fradkin/chap9/main/fradkin_chap9_v3.pdf
+    description:
+      en: Notes on Chapter 9 of Fradkin's textbook
+      ja: Fradkinの教科書9章のノート
+
+source_url: https://github.com/RintaroMasaoka/RintaroMasaoka.github.io/tree/main/notes
+
+# -----------------------------------
+# ツール / Tools
+# public/tools/に配置されたツールのメタ情報
+# -----------------------------------
+
+tools:
+  - id: converter
+    title:
+      en: Unicode ⇌ LaTeX Converter
+      ja: Unicode ⇌ LaTeX 変換ツール
+    url: /tools/converter/index.html
+    description:
+      en: A tool to convert between Unicode characters and LaTeX commands.
+      ja: Unicode文字とLaTeXコマンドを相互変換するツールです。
+    icon: gear  # gear, calculator, chart, code, etc.
+    color: teal  # teal, blue, purple, etc.
+
+  - id: conformal
+    title:
+      en: Möbius Transform Visualizer
+      ja: メビウス変換ビジュアライザ
+    url: /tools/conformal/index.html
+    description:
+      en: Visualize Möbius transformations by dragging 3 points on the complex plane.
+      ja: 3点をドラッグしてメビウス変換をリアルタイムで可視化するツールです。
+    icon: gear
+    color: teal

@@ -5,13 +5,14 @@ import { cv, profile } from '../../utils/data';
 
 const lang = 'ja';
 const t = useTranslations(lang);
+const pageData = cv.page;
 ---
 
-<BaseLayout title={t('page.cv.title')} lang={lang}>
+<BaseLayout title={pageData.title[lang]} lang={lang}>
   <div class="mb-8 flex items-center justify-between">
     <div>
       <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">
-        {t('page.cv.title')}
+        {pageData.title[lang]}
       </h1>
       <p class="text-primary-500 dark:text-primary-400">{localize(profile.name, 'ja')} · {localize(profile.name, 'en')}</p>
     </div>
@@ -61,7 +62,7 @@ const t = useTranslations(lang);
             <p class="text-primary-600 dark:text-primary-300">{localize(edu.institution, lang)}</p>
             {edu.thesis && (
               <p class="text-sm text-primary-500 mt-1 italic">
-                論文: "{localize(edu.thesis, lang)}"
+                {t('cv.thesis')}: "{localize(edu.thesis, lang)}"
               </p>
             )}
           </div>

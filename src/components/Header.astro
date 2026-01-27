@@ -1,6 +1,6 @@
 ---
 import { getLocalizedPath, type Lang } from '../i18n/utils';
-import { profile } from '../utils/data';
+import { profile, navigation as navData } from '../utils/data';
 
 interface Props {
   lang?: Lang;
@@ -9,7 +9,7 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const alternateLang: Lang = lang === 'en' ? 'ja' : 'en';
 
-const navigation = profile.navigation[lang];
+const navigation = navData[lang];
 const currentPath = Astro.url.pathname;
 const alternateUrl = getLocalizedPath(currentPath, alternateLang);
 ---

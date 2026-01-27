@@ -1,0 +1,27 @@
+# ===================================
+# ナビゲーションメニュー / Navigation Menu
+# ===================================
+
+en:
+  - label: Home
+    href: /en/
+  - label: CV
+    href: /en/cv
+  - label: Publications
+    href: /en/publications
+  - label: Presentations
+    href: /en/presentations
+  - label: Resources
+    href: /en/resources
+
+ja:
+  - label: ホーム
+    href: /ja/
+  - label: 履歴書
+    href: /ja/cv
+  - label: 論文
+    href: /ja/publications
+  - label: 発表
+    href: /ja/presentations
+  - label: 資料
+    href: /ja/resources
