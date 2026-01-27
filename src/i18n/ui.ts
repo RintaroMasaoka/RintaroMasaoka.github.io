@@ -13,7 +13,7 @@ export const ui = {
     'nav.home': 'Home',
     'nav.publications': 'Publications',
     'nav.presentations': 'Presentations',
-    'nav.notes': 'Notes',
+    'nav.resources': 'Resources',
     'nav.cv': 'CV',
 
     // Page titles and descriptions
@@ -22,8 +22,9 @@ export const ui = {
     'page.publications.description': 'List of research publications.',
     'page.presentations.title': 'Presentations',
     'page.presentations.description': 'List of presentations and talks.',
-    'page.notes.title': 'Notes',
-    'page.notes.description': 'Notes and memos are published here.',
+    'page.resources.title': 'Resources',
+    'page.resources.description': 'Notes, tools, and other resources.',
+    'section.notes': 'Notes',
     'page.cv.title': 'Curriculum Vitae',
 
     // Section headings
@@ -64,7 +65,7 @@ export const ui = {
     'nav.home': 'ホーム',
     'nav.publications': '論文',
     'nav.presentations': '発表',
-    'nav.notes': 'ノート',
+    'nav.resources': 'リソース',
     'nav.cv': '履歴書',
 
     // Page titles and descriptions
@@ -73,8 +74,9 @@ export const ui = {
     'page.publications.description': '研究論文の一覧です。',
     'page.presentations.title': '発表一覧',
     'page.presentations.description': '学会発表・講演の一覧です。',
-    'page.notes.title': 'ノート',
-    'page.notes.description': 'ノートやメモを公開しています。',
+    'page.resources.title': 'リソース',
+    'page.resources.description': 'ノート、ツール、その他のリソースを公開しています。',
+    'section.notes': 'ノート',
     'page.cv.title': '履歴書',
 
     // Section headings

@@ -14,46 +14,51 @@ const notes = notesData.notes;
 const allTags = [...new Set(notes.flatMap((n: any) => localize(n.tags, lang) || []))];
 ---
 
-<BaseLayout title={t('page.notes.title')} lang={lang}>
+<BaseLayout title={t('page.resources.title')} lang={lang}>
   <div class="mb-8">
-    <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">{t('page.notes.title')}</h1>
-    <p class="text-primary-500 dark:text-primary-400">{t('page.notes.description')}</p>
+    <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">{t('page.resources.title')}</h1>
+    <p class="text-primary-500 dark:text-primary-400">{t('page.resources.description')}</p>
   </div>
 
-  <!-- タグフィルター -->
-  <div class="mb-8 p-4 bg-white dark:bg-primary-800 rounded-xl border border-primary-100 dark:border-primary-700">
-    <p class="text-xs text-primary-400 dark:text-primary-500 uppercase tracking-wider mb-2">{t('ui.topics')}</p>
-    <div class="flex flex-wrap gap-2">
-      {allTags.map((tag) => (
-        <span class="text-sm px-3 py-1 bg-primary-100 dark:bg-primary-700 text-primary-600 dark:text-primary-300 rounded-full">
-          {tag}
-        </span>
+  <!-- ノートセクション -->
+  <section class="mb-12">
+    <h2 class="font-serif text-2xl font-bold text-primary-900 dark:text-primary-50 mb-4">{t('section.notes')}</h2>
+    
+    <!-- タグフィルター -->
+    <div class="mb-6 p-4 bg-white dark:bg-primary-800 rounded-xl border border-primary-100 dark:border-primary-700">
+      <p class="text-xs text-primary-400 dark:text-primary-500 uppercase tracking-wider mb-2">{t('ui.topics')}</p>
+      <div class="flex flex-wrap gap-2">
+        {allTags.map((tag) => (
+          <span class="text-sm px-3 py-1 bg-primary-100 dark:bg-primary-700 text-primary-600 dark:text-primary-300 rounded-full">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- ノート一覧 -->
+    <div class="grid gap-4">
+      {notes.map((note: any) => (
+        <NoteCard
+          title={localize(note.title, lang)}
+          filename={note.filename}
+          url={note.url}
+          description={localize(note.description, lang)}
+          tags={localize(note.tags, lang)}
+          lang={lang}
+        />
       ))}
     </div>
-  </div>
-
-  <!-- ノート一覧 -->
-  <div class="grid gap-4">
-    {notes.map((note: any) => (
-      <NoteCard
-        title={localize(note.title, lang)}
-        filename={note.filename}
-        url={note.url}
-        description={localize(note.description, lang)}
-        tags={localize(note.tags, lang)}
-        lang={lang}
-      />
-    ))}
-  </div>
+  </section>
 
   <!-- ツールセクション -->
-  <div class="mt-12 mb-8">
+  <section>
     <h2 class="font-serif text-2xl font-bold text-primary-900 dark:text-primary-50 mb-4">{t('section.tools')}</h2>
     <div class="grid gap-4">
       <a href="/converter/index.html" target="_blank" rel="noopener noreferrer" class="group block bg-white dark:bg-primary-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-primary-100 dark:border-primary-700 hover:border-accent/30 hover:-translate-y-1">
         <div class="flex items-start gap-4">
           <!-- ツールアイコン -->
-          <div class="flex-shrink-0 w-12 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+          <div class="flex-shrink-0 w-12 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -67,8 +72,14 @@ const allTags = [...new Set(notes.flatMap((n: any) => localize(n.tags, lang) || 
               {t('tools.converter.description')}
             </p>
           </div>
+          <!-- リンクアイコン -->
+          <div class="flex-shrink-0 text-primary-300 dark:text-primary-500 group-hover:text-accent dark:group-hover:text-accent-light transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
         </div>
       </a>
     </div>
-  </div>
+  </section>
 </BaseLayout>
