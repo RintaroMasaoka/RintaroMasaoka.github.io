@@ -44,8 +44,8 @@ navigation:
       href: /en/publications
     - label: Presentations
       href: /en/presentations
-    - label: Notes
-      href: /en/notes
+    - label: Resources
+      href: /en/resources
   ja:
     - label: ホーム
       href: /ja/
@@ -55,5 +55,5 @@ navigation:
       href: /ja/publications
     - label: 発表
       href: /ja/presentations
-    - label: ノート
-      href: /ja/notes
+    - label: リソース
+      href: /ja/resources
