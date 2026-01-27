@@ -14,8 +14,11 @@ const notes = notesData.notes;
 // Tools list
 const tools = toolsData.tools;
 
-// Extract all tags (localized)
-const allTags = [...new Set(notes.flatMap((n: any) => localize(n.tags, lang) || []))];
+// Section definitions
+const sections = [
+  { id: 'notes', label: t('section.notes'), count: notes.length },
+  { id: 'tools', label: t('section.tools'), count: tools.length },
+];
 ---
 
 <BaseLayout title={t('page.resources.title')} lang={lang}>
@@ -24,21 +27,29 @@ const allTags = [...new Set(notes.flatMap((n: any) => localize(n.tags, lang) || 
     <p class="text-primary-500 dark:text-primary-400">{t('page.resources.description')}</p>
   </div>
 
+  <!-- Section Navigation -->
+  <nav class="mb-8 sticky top-16 bg-primary-50/80 dark:bg-primary-900/80 backdrop-blur-sm py-3 -mx-6 px-6 border-b border-primary-100 dark:border-primary-700">
+    <ul class="flex flex-wrap gap-2">
+      {sections.map((sec) => (
+        <li>
+          <a
+            href={`#${sec.id}`}
+            class="inline-block px-4 py-1.5 text-sm font-medium text-primary-600 dark:text-primary-300 bg-white dark:bg-primary-800 border border-primary-200 dark:border-primary-600 rounded-full hover:border-accent dark:hover:border-accent-light hover:text-accent dark:hover:text-accent-light transition-colors"
+          >
+            {sec.label}
+            <span class="ml-1 text-xs text-primary-400 dark:text-primary-500">({sec.count})</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
   <!-- Notes Section -->
-  <section class="mb-12">
-    <h2 class="font-serif text-2xl font-bold text-primary-900 dark:text-primary-50 mb-4">{t('section.notes')}</h2>
-    
-    <!-- Tag Filter -->
-    <div class="mb-6 p-4 bg-white dark:bg-primary-800 rounded-xl border border-primary-100 dark:border-primary-700">
-      <p class="text-xs text-primary-400 dark:text-primary-500 uppercase tracking-wider mb-2">{t('ui.topics')}</p>
-      <div class="flex flex-wrap gap-2">
-        {allTags.map((tag) => (
-          <span class="text-sm px-3 py-1 bg-primary-100 dark:bg-primary-700 text-primary-600 dark:text-primary-300 rounded-full">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
+  <section id="notes" class="mb-12">
+    <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+      <span class="w-6 h-1 bg-accent rounded-full"></span>
+      {t('section.notes')}
+    </h2>
 
     <!-- Notes List -->
     <div class="grid gap-4">
@@ -56,8 +67,11 @@ const allTags = [...new Set(notes.flatMap((n: any) => localize(n.tags, lang) || 
   </section>
 
   <!-- Tools Section -->
-  <section>
-    <h2 class="font-serif text-2xl font-bold text-primary-900 dark:text-primary-50 mb-4">{t('section.tools')}</h2>
+  <section id="tools">
+    <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+      <span class="w-6 h-1 bg-accent rounded-full"></span>
+      {t('section.tools')}
+    </h2>
     <div class="grid gap-4">
       {tools.map((tool: any) => (
         <ToolCard

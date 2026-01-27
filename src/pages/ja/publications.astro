@@ -7,9 +7,7 @@ import { publications as pubsData } from '../../utils/data';
 const lang = 'ja';
 const t = useTranslations(lang);
 
-// Publication categories only (preprint and journal)
-const publicationCategoryIds = ['preprint', 'journal'];
-const categories = pubsData.categories.filter((cat: any) => publicationCategoryIds.includes(cat.id));
+const categories = pubsData.categories;
 const publications = pubsData.publications;
 
 const groupedPubs = categories.map((cat: any) => ({

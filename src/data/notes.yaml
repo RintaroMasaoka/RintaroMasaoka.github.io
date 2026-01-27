@@ -5,17 +5,20 @@
 
 notes:
   - title:
+      en: Graduate Entrance Exam Solutions (Applied Physics)
+      ja: 物理工学専攻院試解答
+    filename: 物工/解答/main/main.pdf
+    description:
+      en: Solutions to graduate entrance exam for Applied Physics department
+      ja: 物理工学専攻の大学院入試の解答
+
+  - title:
       en: Introduction to Conformal Bootstrap
       ja: 共形ブートストラップ入門
     filename: conformal_bootstrap/統計班_政岡凜太郎.pdf
     description:
       en: An introductory note on conformal bootstrap
       ja: 共形ブートストラップの入門ノート
-    tags:
-      en:
-        - Conformal Field Theory
-      ja:
-        - 共形場理論
 
   - title:
       en: Construction of Anyons using PEPS
@@ -24,28 +27,14 @@ notes:
     description:
       en: A note on the construction of anyons using PEPS
       ja: PEPSを用いたエニオンの構成に関するノート
-    tags:
-      en:
-        - Tensor Networks
-        - Topological Order
-      ja:
-        - テンソルネットワーク
-        - トポロジカル秩序
 
   - title:
       en: Six-vertex Model and Yang-Baxter Equation
       ja: 6頂点模型とYang-Baxter方程式
-    url: /notes/ABA
+    url: /notes/aba/
     description:
       en: A note on the six-vertex model and Yang-Baxter equation
       ja: 6頂点模型とYang-Baxter方程式に関するノート
-    tags:
-      en:
-        - Integrable Systems
-        - Statistical Mechanics
-      ja:
-        - 可積分系
-        - 統計力学
 
   - title:
       en: Supersymmetric Quantum Mechanics
@@ -54,13 +43,6 @@ notes:
     description:
       en: An introductory note on supersymmetric quantum mechanics
       ja: 超対称量子力学の入門ノート
-    tags:
-      en:
-        - Supersymmetry
-        - Quantum Mechanics
-      ja:
-        - 超対称性
-        - 量子力学
 
   - title:
       en: XY Model and Renormalization Group
@@ -69,13 +51,6 @@ notes:
     description:
       en: A note on the XY model and renormalization group
       ja: XY模型とくりこみ群に関するノート
-    tags:
-      en:
-        - Statistical Mechanics
-        - Renormalization Group
-      ja:
-        - 統計力学
-        - くりこみ群
 
   - title:
       en: KdV Equation
@@ -84,24 +59,14 @@ notes:
     description:
       en: A note on the KdV equation
       ja: KdV方程式に関するノート
-    tags:
-      en:
-        - Integrable Systems
-      ja:
-        - 可積分系
 
   - title:
       en: c-theorem and g-theorem
       ja: c定理とg定理
-    url: /notes/c-theo
+    url: /notes/c-theorem/
     description:
       en: A note on c-theorem and g-theorem
       ja: c定理とg定理に関するノート
-    tags:
-      en:
-        - Conformal Field Theory
-      ja:
-        - 共形場理論
 
   - title:
       en: Tomonaga-Luttinger Liquid
@@ -110,13 +75,6 @@ notes:
     description:
       en: A note on Tomonaga-Luttinger liquid
       ja: 朝永-Luttinger液体に関するノート
-    tags:
-      en:
-        - Condensed Matter Theory
-        - Bosonization
-      ja:
-        - 物性理論
-        - ボゾン化
 
   - title:
       en: Exact Solution of 2D Ising Model via Dimer Model
@@ -125,13 +83,6 @@ notes:
     description:
       en: Exact solution of 2D Ising model using dimer model
       ja: ダイマー模型を用いた2次元Ising模型の厳密解
-    tags:
-      en:
-        - Statistical Mechanics
-        - Exact Solutions
-      ja:
-        - 統計力学
-        - 厳密解
 
   - title:
       en: Dimer Model and Gauge Theory (Fradkin Ch.9)
@@ -140,25 +91,5 @@ notes:
     description:
       en: Notes on Chapter 9 of Fradkin's textbook
       ja: Fradkinの教科書9章のノート
-    tags:
-      en:
-        - Gauge Theory
-        - Dimer Model
-      ja:
-        - ゲージ理論
-        - ダイマー模型
-
-  - title:
-      en: Graduate Entrance Exam Solutions (Applied Physics)
-      ja: 物理工学専攻院試解答
-    filename: 物工/解答/main/main.pdf
-    description:
-      en: Solutions to graduate entrance exam for Applied Physics department
-      ja: 物理工学専攻の大学院入試の解答
-    tags:
-      en:
-        - Entrance Exam
-      ja:
-        - 院試
 
 source_url: https://github.com/RintaroMasaoka/RintaroMasaoka.github.io/tree/main/notes

@@ -2,20 +2,18 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PublicationCard from '../../components/PublicationCard.astro';
 import { useTranslations, localize } from '../../i18n/utils';
-import { publications as pubsData } from '../../utils/data';
+import { presentations as presData } from '../../utils/data';
 
 const lang = 'en';
 const t = useTranslations(lang);
 
-// Presentation categories only (talk, oral_en, oral_jp, poster_en, poster_jp)
-const presentationCategoryIds = ['talk', 'oral_en', 'oral_jp', 'poster_en', 'poster_jp'];
-const categories = pubsData.categories.filter((cat: any) => presentationCategoryIds.includes(cat.id));
-const publications = pubsData.publications;
+const categories = presData.categories;
+const presentations = presData.presentations;
 
 const groupedPresentations = categories.map((cat: any) => ({
   ...cat,
   label: localize(cat.label, lang),
-  items: publications.filter((pub: any) => pub.category === cat.id)
+  items: presentations.filter((pres: any) => pres.category === cat.id)
 })).filter((cat: any) => cat.items.length > 0);
 ---
 
@@ -59,6 +57,7 @@ const groupedPresentations = categories.map((cat: any) => ({
               venue={pub.venue}
               links={pub.links}
               abstract={pub.abstract}
+              icon={cat.id === 'talk' ? 'talk' : cat.id.startsWith('oral') ? 'oral' : cat.id.startsWith('poster') ? 'poster' : undefined}
             />
           ))}
         </div>
