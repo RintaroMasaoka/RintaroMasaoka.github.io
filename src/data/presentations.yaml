@@ -12,57 +12,125 @@ page:
     ja: 学会発表・講演の一覧です。
 
 # カテゴリの定義（多言語対応）
+# icon: talk, oral, poster などを指定
 categories:
+  - id: master_thesis
+    label:
+      en: Master's Thesis Presentation
+      ja: 修論発表
+    icon: academic
+  - id: press
+    label:
+      en: Press Releases
+      ja: プレスリリース
+    icon: press
   - id: talk
     label:
       en: Invited Talks
       ja: 招待講演
+    icon: talk
   - id: oral_en
     label:
       en: Oral Presentations (International)
       ja: 口頭発表（国際）
+    icon: oral
   - id: oral_jp
     label:
       en: Oral Presentations (Domestic)
       ja: 口頭発表（国内）
+    icon: oral
   - id: poster_en
     label:
       en: Poster Presentations (International)
       ja: ポスター発表（国際）
+    icon: poster
   - id: poster_jp
     label:
       en: Poster Presentations (Domestic)
       ja: ポスター発表（国内）
+    icon: poster
 
 # 発表リスト（新しい順）
-presentations:
+# title, authors, venue は多言語対応可能
+# { en: '...', ja: '...' } 形式で指定するか、単一文字列（両言語共通）
+items:
+  # === Master's Thesis ===
+  - title:
+      en: "On universal properties of gapless frustration-free quantum systems"
+      ja: "ギャップレスフラストレーションフリー量子系の普遍的性質の探求"
+    authors:
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
+    year: 2026
+    category: master_thesis
+    venue:
+      en: "Master's Thesis Defense, Department of Applied Physics, University of Tokyo (Jan. 27, 2026)"
+      ja: "修論発表，東京大学工学系研究科物理工学専攻 (2026年1月27日)"
+    links:
+      - label: Slides
+        url: /resources/2026/Master Thesis.pdf
+  # === Press ===
+  - title:
+      en: "A Rigorous Lower Bound on the Dynamical Critical Exponent of the Ising Model"
+      ja: "イジング模型の動的臨界指数の下限z ≥ 2を厳密に証明 ―100年来の未解決問題に対しての理論的進展―"
+    year: 2025
+    category: press
+    authors:
+      en:
+        - Rintaro Masaoka
+        - Tomohiro Soejima
+        - Haruki Watanabe
+      ja:
+        - 政岡凜太郎
+        - 副島智大
+        - 渡辺悠樹
+    links: 
+      - label: Link
+        url: https://www.t.u-tokyo.ac.jp/press/pr2025-05-28-001
   # === Invited Talks ===
   - title: "Several aspects of frustration-free quantum systems"
     authors:
-      - Rintaro Masaoka
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
     year: 2026
     category: talk
-    venue: Fundamental Physics Seminar, Department of Physics, University of Tokyo (Jan. 19, 2026)
+    venue:
+      en: "Fundamental Physics Seminar, Department of Physics, University of Tokyo (Jan. 19, 2026)"
+      ja: "基礎物理セミナー，東京大学理学系研究科物理学専攻 (2026年1月19日)"
     links:
       - label: Slides
         url: /resources/2026/seminar_260119.pdf
 
   - title: "c=-2 conformal field theory in quadratic band touching"
     authors:
-      - Rintaro Masaoka
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
     year: 2025
     category: talk
-    venue: Joint seminar, Department of Applied Physics, University of Tokyo (Nov. 14, 2025)
+    venue:
+      en: "Joint seminar, Department of Applied Physics, University of Tokyo (Nov. 14, 2025)"
+      ja: "物工ジョイントセミナー，東京大学工学系研究科物理工学専攻 (2025年11月14日)"
     links:
       - label: Slides
         url: /resources/2025/fCQCP_joint.pdf
 
   - title: "On dynamic critical exponents of gapless frustration-free systems"
     authors:
-      - Rintaro Masaoka
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
     year: 2024
     category: talk
-    venue: Talk in ISSP (Dec. 20, 2024)
+    venue:
+      en: "Talk at ISSP, University of Tokyo (Dec. 20, 2024)"
+      ja: "東京大学物性研究所理論セミナー (2024年12月20日)"
     links:
       - label: Slides
         url: /resources/2024/Talk_ISSP.pdf
@@ -71,22 +139,34 @@ presentations:
 
   - title: "Rigorous lower bounds of dynamic critical exponents for critical frustration-free systems"
     authors:
-      - Rintaro Masaoka
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
     year: 2024
     category: talk
-    venue: MS seminar, Kavli IPMU (Oct. 29, 2024)
+    venue:
+      en: "MS seminar, Kavli IPMU (Oct. 29, 2024)"
+      ja: "MSセミナー，Kavli IPMU (2024年10月29日)"
     links:
       - label: Slides
         url: /resources/2024/Seminar_IPMU.pdf
       - label: Info
         url: https://db.ipmu.jp/seminar/?seminar_id=3254
 
-  - title: "Rigorous lower bounds of dynamic critical exponents for critical frustration-free systems"
+  - title:
+      en: "Rigorous lower bounds of dynamic critical exponents for critical frustration-free systems"
+      ja: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
     authors:
-      - Rintaro Masaoka
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
     year: 2024
     category: talk
-    venue: Shiraishi group seminar, University of Tokyo (Oct. 28, 2024)
+    venue:
+      en: "Shiraishi group seminar, University of Tokyo (Oct. 28, 2024)"
+      ja: "白石研セミナー，東京大学 (2024年10月28日)"
     links:
       - label: Slides
         url: /resources/2024/Talk_Komaba.pdf
@@ -94,85 +174,135 @@ presentations:
   # === Oral Presentations (International) ===
   - title: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
     authors:
-      - Rintaro Masaoka
-      - Tomohiro Soejima
-      - Haruki Watanabe
+      en:
+        - Rintaro Masaoka
+        - Tomohiro Soejima
+        - Haruki Watanabe
+      ja:
+        - 政岡凜太郎
+        - 副島智大
+        - 渡辺悠樹
     year: 2025
     category: oral_en
-    venue: APS Joint March Meeting (Mar. 16-21, 2025)
+    venue: "APS Joint March Meeting (Mar. 16-21, 2025)"
     links:
       - label: Slides
         url: /resources/2025/APS2025.pdf
 
   # === Oral Presentations (Domestic) ===
-  - title: "Ising模型の動的臨界指数に対する厳密な下限"
+  - title:
+      en: "Rigorous lower bound of dynamic critical exponents of Ising model"
+      ja: "Ising模型の動的臨界指数に対する厳密な下限"
     authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
+      en:
+        - Rintaro Masaoka
+        - Tomohiro Soejima
+        - Haruki Watanabe
+      ja:
+        - 政岡凜太郎
+        - 副島智大
+        - 渡辺悠樹
     year: 2025
     category: oral_jp
-    venue: 日本物理学会2025年年次大会，広島大学 (Sep. 16-19, 2025)
+    venue:
+      en: "JPS 2025 Annual Meeting, Hiroshima University (Sep. 16-19, 2025)"
+      ja: "日本物理学会2025年年次大会，広島大学 (2025年9月16-19日)"
     links:
       - label: Slides
         url: /resources/2025/JPS_slide.pdf
 
-  - title: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
+  - title:
+      en: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
+      ja: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
     authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
+      en:
+        - Rintaro Masaoka
+        - Tomohiro Soejima
+        - Haruki Watanabe
+      ja:
+        - 政岡凜太郎
+        - 副島智大
+        - 渡辺悠樹
     year: 2024
     category: oral_jp
-    venue: 日本物理学会2024年年次大会，北海道大学 (Sep. 16-19, 2024)
+    venue:
+      en: "JPS 2024 Annual Meeting, Hokkaido University (Sep. 16-19, 2024)"
+      ja: "日本物理学会2024年年次大会，北海道大学 (2024年9月16-19日)"
     links:
       - label: Slides
         url: /resources/2024/slides_JPS.pdf
 
-  - title: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
+  - title:
+      en: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
+      ja: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
     authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
+      en:
+        - Rintaro Masaoka
+        - Tomohiro Soejima
+        - Haruki Watanabe
+      ja:
+        - 政岡凜太郎
+        - 副島智大
+        - 渡辺悠樹
     year: 2024
     category: oral_jp
-    venue: 第69回物性若手夏の学校，西浦温泉ホテル龍城 (Aug. 2-6, 2024)
+    venue:
+      en: "69th Condensed Matter Physics Summer School, Nishiura Onsen Hotel Ryujo (Aug. 2-6, 2024)"
+      ja: "第69回物性若手夏の学校，西浦温泉ホテル龍城 (2024年8月2-6日)"
     links:
       - label: Slides
         url: /resources/2024/slides_cmpss.pdf
 
   # === Poster Presentations (International) ===
-  - title: "Logarithmic conformal field theory in singular band touching system"
-    authors:
-      - Rintaro Masaoka
-    year: 2025
-    category: poster_en
-    venue: 熱場の量子論とその応用 (Thermal Quantum Field Theory and Its Applications), ISSP (Sep. 3-5, 2025)
-    links:
-      - label: Poster
-        url: /resources/2025/poster_fCQCP.pdf
-
   - title: "Rigorous lower bound on dynamical exponents of critical frustration-free systems"
     authors:
-      - Rintaro Masaoka
-      - Tomohiro Soejima
-      - Haruki Watanabe
+      en:
+        - Rintaro Masaoka
+        - Tomohiro Soejima
+        - Haruki Watanabe
+      ja:
+        - 政岡凜太郎
+        - 副島智大
+        - 渡辺悠樹
     year: 2025
     category: poster_en
-    venue: FoPM International Symposium (Feb. 18, 2025)
+    venue: "FoPM International Symposium (Feb. 18, 2025)"
     links:
       - label: Poster
         url: /resources/2025/foPM_poster.pdf
 
   # === Poster Presentations (Domestic) ===
-  - title: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
+  - title: "Logarithmic conformal field theory in singular band touching system"
     authors:
-      - 政岡凜太郎
-      - 副島智大
-      - 渡辺悠樹
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
+    year: 2025
+    category: poster_jp
+    venue:
+      en: "Thermal Quantum Field Theory and Its Applications, ISSP (Sep. 3-5, 2025)"
+      ja: "熱場の量子論とその応用，物性研 (2025年9月3-5日)"
+    links:
+      - label: Poster
+        url: /resources/2025/poster_fCQCP.pdf
+  - title:
+      en: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
+      ja: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
+    authors:
+      en:
+        - Rintaro Masaoka
+        - Tomohiro Soejima
+        - Haruki Watanabe
+      ja:
+        - 政岡凜太郎
+        - 副島智大
+        - 渡辺悠樹
     year: 2024
     category: poster_jp
-    venue: 第69回物性若手夏の学校，西浦温泉ホテル龍城 (Aug. 2-6, 2024)
+    venue:
+      en: "69th Condensed Matter Physics Summer School, Nishiura Onsen Hotel Ryujo (Aug. 2-6, 2024)"
+      ja: "第69回物性若手夏の学校，西浦温泉ホテル龍城 (2024年8月2-6日)"
     links:
       - label: Poster
         url: /resources/2024/poster_cmpss.pdf

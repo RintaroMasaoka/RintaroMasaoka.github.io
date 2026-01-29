@@ -19,6 +19,8 @@ export const ui = {
     'section.awards': 'Awards & Honors',
     'section.grants': 'Grants & Funding',
     'section.skills': 'Skills',
+    'section.researchInterests': 'Research Interests',
+    'section.recentPublications': 'Recent Publications',
 
     // UI elements
     'ui.viewAll': 'View all',
@@ -45,6 +47,8 @@ export const ui = {
     'section.awards': '受賞歴',
     'section.grants': '研究費',
     'section.skills': 'スキル',
+    'section.researchInterests': '研究分野',
+    'section.recentPublications': '最近の論文',
 
     // UI elements
     'ui.viewAll': 'すべて見る',
