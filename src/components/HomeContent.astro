@@ -2,7 +2,8 @@
 import { Image } from 'astro:assets';
 import ContentCard from './ContentCard.astro';
 import { useTranslations, localize, getLocalizedPath } from '../i18n/utils';
-import { profile, publications as pubsData, cv } from '../utils/data';
+import { profile, publications as pubsData } from '../utils/data';
+import { getIconPath } from '../utils/icons';
 import profileImage from '../images/profile.png';
 
 interface Props {
@@ -14,7 +15,7 @@ const t = useTranslations(lang);
 
 // 最新3件の業績
 const recentPubs = pubsData.items.slice(0, 3);
-const researchInterests = cv.research_interests || [];
+const researchInterests = profile.research_interests || [];
 ---
 
 <!-- ヒーローセクション -->
@@ -110,9 +111,11 @@ const researchInterests = cv.research_interests || [];
     <!-- Affiliation -->
     <div class="bg-white dark:bg-primary-800 p-5 rounded-xl border border-primary-100 dark:border-primary-700">
       <div class="flex items-start gap-3">
-        <svg class="w-5 h-5 text-accent mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
+        <div class="flex-shrink-0 w-7 h-7 bg-teal-100 dark:bg-teal-900/30 rounded-md flex items-center justify-center mt-0.5">
+          <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath('affiliation')} />
+          </svg>
+        </div>
         <div>
           <p class="text-sm text-primary-500 dark:text-primary-400">{t('ui.affiliation')}</p>
           <p class="text-primary-700 dark:text-primary-200">{localize(profile.affiliation, lang)}</p>
@@ -122,9 +125,11 @@ const researchInterests = cv.research_interests || [];
     <!-- Contact -->
     <div class="bg-white dark:bg-primary-800 p-5 rounded-xl border border-primary-100 dark:border-primary-700">
       <div class="flex items-start gap-3">
-        <svg class="w-5 h-5 text-accent mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
+        <div class="flex-shrink-0 w-7 h-7 bg-teal-100 dark:bg-teal-900/30 rounded-md flex items-center justify-center mt-0.5">
+          <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath('email')} />
+          </svg>
+        </div>
         <div>
           <p class="text-sm text-primary-500 dark:text-primary-400">{t('ui.email')}</p>
           <p class="text-primary-700 dark:text-primary-200">{profile.contact.email}</p>
@@ -140,19 +145,13 @@ const researchInterests = cv.research_interests || [];
     <span class="w-8 h-1 bg-accent rounded-full"></span>
     {t('section.researchInterests')}
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div class="grid gap-4">
     {researchInterests.map((interest: any) => (
-      <div class="bg-white dark:bg-primary-800 p-5 rounded-xl border border-primary-100 dark:border-primary-700 hover:border-accent/30 dark:hover:border-accent/30 hover:shadow-sm transition-all">
-        <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mb-3">
-          <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-          </svg>
-        </div>
-        <h3 class="font-semibold text-primary-900 dark:text-primary-50 mb-1">{localize(interest.title, lang)}</h3>
-        {interest.description && (
-          <p class="text-sm text-primary-500 dark:text-primary-400">{localize(interest.description, lang)}</p>
-        )}
-      </div>
+      <ContentCard
+        title={localize(interest.title, lang)}
+        icon={interest.icon || 'lightbulb'}
+        description={interest.description ? localize(interest.description, lang) : undefined}
+      />
     ))}
   </div>
 </section>
@@ -167,7 +166,7 @@ const researchInterests = cv.research_interests || [];
     <a href={getLocalizedPath('/publications', lang)} class="text-sm text-accent hover:text-accent-dark dark:hover:text-accent-dark transition-colors flex items-center gap-1">
       {t('ui.viewAll')}
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath('chevronRight')} />
       </svg>
     </a>
   </div>

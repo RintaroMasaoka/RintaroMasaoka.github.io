@@ -35,7 +35,7 @@ items:
     venue: arXiv:2511.16496
     links:
       - label: arXiv
-        url: https://www.alphaxiv.org/abs/2511.16496
+        url: https://arxiv.org/abs/2511.16496
 
   - title: "Frustration-free free fermions and beyond"
     authors:

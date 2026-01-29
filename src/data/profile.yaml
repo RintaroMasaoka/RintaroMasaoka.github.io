@@ -5,8 +5,8 @@
 # ホームページメタデータ
 page:
   title:
-    en: Academic Website
-    ja: アカデミックサイト
+    en: Rintaro Masaoka's Site
+    ja: 政岡凜太郎のサイト
 
 name:
   en: Rintaro Masaoka
@@ -38,3 +38,25 @@ contact:
   google_scholar: https://scholar.google.com/citations?user=qoSWWasAAAAJ&hl=en
   arxiv: https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Rintaro+Masaoka&terms-0-field=author&classification-physics=y&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=100&order=-announced_date_first
   orcid: 0009-0002-4280-9783
+
+# 研究分野
+research_interests:
+  - title:
+      en: Conformal Field Theory
+      ja: 共形場理論
+    description:
+      en: My fascination with CFT lies in the profound universality where microscopic details are washed away, leaving behind a rigid mathematical structure governed by symmetry. In low dimensions, this symmetry becomes infinite-dimensional, allowing us to determine correlation functions and spectra exactly, bridging the gap between rigorous mathematics and observable physical phenomena.
+      ja: くりこみ群によって微視的な詳細を捨象したときに現れる、対称性に支配された普遍的な数理構造の美しさが共形場理論の魅力です。低次元系ではこの対称性が無限次元代数へと拡張されるため、相関関数やスペクトルを厳密に決定することが可能となり、数理的な厳密性と物理的実在とを繋ぐ興味深い舞台となっています。
+  - title:
+      en: Non-relativistic Critical Phenomena
+      ja: 非相対論的臨界現象
+    description:
+      en: While Lorentz symmetry is a cornerstone of high-energy physics, condensed matter systems offer a broader playground where this constraint is naturally relaxed. I am interested in the rich variety of universality classes that emerge when space and time scale anisotropically, such as in Lifshitz critical points. Exploring these non-relativistic physics reveals novel scaling laws and entanglement structures that are forbidden in the relativistic framework, expanding our understanding of quantum criticality.
+      ja: 素粒子物理学の大前提であるローレンツ対称性も、凝縮系という舞台では絶対的な制約ではありません。私は、Lifshitz臨界点のように空間と時間が異なるスケーリング則に従う系で現れる、多様な普遍性クラスに興味を持っています。
+
+  # - title:
+  #     en: Quantum Entanglement
+  #     ja: 量子エンタングルメント
+  #   description:
+  #     en: Quantum entanglement provides a fundamental framework to extract the non-local structure of many-body states. I am interested in these quantities characterizing quantum critical phenomena, where universal scaling laws encode essential data of quantum field theory.
+  #     ja: 量子エンタングルメントは、多体状態の持つ非局所的な構造を抽出し、普遍性クラスの特徴づけを与える強力な枠組みです。 高次元の共形場理論におけるエンタングルメントのスケーリングや、近年の多体間のエントロピーの発展にも注目しています。
