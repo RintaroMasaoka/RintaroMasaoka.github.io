@@ -4,15 +4,15 @@
 
 en:
   - label: Home
-    href: /en/
+    href: /
   - label: CV
-    href: /en/cv
+    href: /cv
   - label: Publications
-    href: /en/publications
+    href: /publications
   - label: Presentations
-    href: /en/presentations
+    href: /presentations
   - label: Resources
-    href: /en/resources
+    href: /resources
 
 ja:
   - label: ホーム

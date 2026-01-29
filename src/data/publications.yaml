@@ -17,13 +17,15 @@ categories:
     label:
       en: Preprints
       ja: プレプリント
+    icon: pencil
   - id: journal
     label:
       en: Journal Articles
       ja: 学術論文
+    icon: journal
 
 # 業績リスト（新しい順）
-publications:
+items:
   # === Preprints ===
   - title: "c = -2 conformal field theory in quadratic band touching"
     authors:

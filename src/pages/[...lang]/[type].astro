@@ -1,20 +1,30 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PublicationCard from '../../components/PublicationCard.astro';
-import { localize } from '../../i18n/utils';
-import { presentations as presData } from '../../utils/data';
+import ContentCard from '../../components/ContentCard.astro';
+import { localize, type Lang } from '../../i18n/utils';
+import { getPageData } from '../../utils/data';
+import type { PageType } from '../../types/content';
 
-const lang = 'ja';
-const pageData = presData.page;
+export function getStaticPaths() {
+  const types: PageType[] = ['publications', 'presentations', 'resources'];
+  return types.flatMap((type) => [
+    { params: { lang: undefined, type } },
+    { params: { lang: 'ja', type } },
+  ]);
+}
 
-const categories = presData.categories;
-const presentations = presData.presentations;
+const lang: Lang = (Astro.params.lang as Lang) || 'en';
+const type = Astro.params.type as PageType;
+const data = getPageData(type);
+const pageData = data.page;
 
-const groupedPresentations = categories.map((cat: any) => ({
+// カテゴリでグループ化
+const grouped = data.categories.map((cat: any) => ({
   ...cat,
   label: localize(cat.label, lang),
-  items: presentations.filter((pres: any) => pres.category === cat.id)
+  items: data.items.filter((item: any) => item.category === cat.id),
 })).filter((cat: any) => cat.items.length > 0);
+
 ---
 
 <BaseLayout title={pageData.title[lang]} lang={lang}>
@@ -23,10 +33,9 @@ const groupedPresentations = categories.map((cat: any) => ({
     <p class="text-primary-500 dark:text-primary-400">{pageData.description[lang]}</p>
   </div>
 
-  <!-- カテゴリナビゲーション -->
   <nav class="mb-8 sticky top-16 bg-primary-50/80 dark:bg-primary-900/80 backdrop-blur-sm py-3 -mx-6 px-6 border-b border-primary-100 dark:border-primary-700">
     <ul class="flex flex-wrap gap-2">
-      {groupedPresentations.map((cat: any) => (
+      {grouped.map((cat: any) => (
         <li>
           <a
             href={`#${cat.id}`}
@@ -40,24 +49,27 @@ const groupedPresentations = categories.map((cat: any) => ({
     </ul>
   </nav>
 
-  <!-- 発表リスト -->
   <div class="space-y-12">
-    {groupedPresentations.map((cat: any) => (
+    {grouped.map((cat: any) => (
       <section id={cat.id}>
         <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
           <span class="w-6 h-1 bg-accent rounded-full"></span>
           {cat.label}
         </h2>
         <div class="grid gap-4">
-          {cat.items.map((pub: any) => (
-            <PublicationCard
-              title={pub.title}
-              authors={pub.authors}
-              year={pub.year}
-              venue={pub.venue}
-              links={pub.links}
-              abstract={pub.abstract}
-              icon={cat.id === 'talk' ? 'talk' : cat.id.startsWith('oral') ? 'oral' : cat.id.startsWith('poster') ? 'poster' : undefined}
+          {cat.items.map((item: any) => (
+            <ContentCard
+              title={localize(item.title, lang)}
+              year={item.year}
+              authors={item.authors ? localize(item.authors, lang) : undefined}
+              venue={item.venue ? localize(item.venue, lang) : undefined}
+              links={item.links}
+              abstract={item.abstract ? localize(item.abstract, lang) : undefined}
+              description={item.description ? localize(item.description, lang) : undefined}
+              filename={item.filename}
+              url={item.url}
+              icon={item.icon || cat.icon}
+              tags={item.tags ? localize(item.tags, lang) : undefined}
             />
           ))}
         </div>

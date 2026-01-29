@@ -1,4 +1,5 @@
 import yaml from 'js-yaml';
+import type { PageType } from '../types/content';
 
 // Import YAML files as raw strings using Vite's ?raw suffix
 import profileRaw from '../data/profile.yaml?raw';
@@ -13,6 +14,21 @@ export const navigation = yaml.load(navigationRaw) as any;
 export const cv = yaml.load(cvRaw) as any;
 export const publications = yaml.load(publicationsRaw) as any;
 export const presentations = yaml.load(presentationsRaw) as any;
-const resources = yaml.load(resourcesRaw) as any;
-export const notes = resources;
-export const tools = resources;
+export const resources = yaml.load(resourcesRaw) as any;
+
+// データソースマップ
+const dataSources: Record<PageType, any> = {
+  publications,
+  presentations,
+  resources,
+};
+
+// 統一インターフェースでページデータを取得
+export function getPageData(type: PageType) {
+  const data = dataSources[type];
+  return {
+    page: data.page,
+    categories: data.categories,
+    items: data.items,
+  };
+}

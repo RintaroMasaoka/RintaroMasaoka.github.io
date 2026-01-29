@@ -1,0 +1,242 @@
+---
+import { getIconPath, compoundIcons } from '../utils/icons';
+
+interface Link {
+  label: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  icon?: string;
+  year?: number;
+  authors?: string[];
+  venue?: string;
+  description?: string;
+  abstract?: string;
+  tags?: string[];
+  // リンク指定方法（どちらか一方を使用）
+  // links: 個別リンクボタンを表示
+  // filename/url: カード全体がリンクになる
+  links?: Link[];
+  filename?: string;
+  url?: string;
+}
+
+const {
+  title,
+  icon,
+  year,
+  authors,
+  venue,
+  links = [],
+  abstract,
+  description,
+  filename,
+  url: itemUrl,
+  tags = [],
+} = Astro.props;
+
+const iconPath = getIconPath(icon);
+const isCompound = icon && compoundIcons[icon];
+
+// カード全体がリンクになるかどうか
+// filename/url があり、links 配列がない（または空）場合は全体リンク
+const isLinkCard = (filename || itemUrl) && links.length === 0;
+const href = isLinkCard ? (itemUrl || `/notes/${filename}`) : undefined;
+---
+
+{isLinkCard ? (
+  <!-- 全体リンクカード（filename/url指定時） -->
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group relative block bg-white dark:bg-primary-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-primary-100 dark:border-primary-700 hover:border-accent/30 hover:-translate-y-1"
+  >
+    <!-- 年のバッジ -->
+    {year && (
+      <div class="absolute -top-3 -right-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+        {year}
+      </div>
+    )}
+
+    <div class="flex items-start gap-4">
+      <!-- アイコン -->
+      <div class="flex-shrink-0 w-8 h-8 bg-teal-100 dark:bg-teal-900/30 rounded-md flex items-center justify-center">
+        {isCompound ? (
+          <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {compoundIcons[icon!].map((d) => (
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
+            ))}
+          </svg>
+        ) : (
+          <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPath} />
+          </svg>
+        )}
+      </div>
+
+      <div class="flex-1 min-w-0">
+        <!-- タイトル -->
+        <h3 class="font-serif text-lg font-semibold text-primary-900 dark:text-primary-50 group-hover:text-accent dark:group-hover:text-accent-light transition-colors mb-1">
+          {title}
+        </h3>
+
+        <!-- 著者 -->
+        {authors && authors.length > 0 && (
+          <p class="text-sm text-primary-600 dark:text-primary-300 mb-1">
+            {authors.map((author, i) => (
+              <span>
+                <span class={author.includes('政岡') || author.includes('Masaoka') ? 'font-semibold text-accent-dark' : ''}>
+                  {author}
+                </span>
+                {i < authors.length - 1 && ', '}
+              </span>
+            ))}
+          </p>
+        )}
+
+        <!-- 掲載誌/発表場所 -->
+        {venue && (
+          <p class="text-sm text-primary-500 dark:text-primary-400 italic mb-2">
+            {venue}
+          </p>
+        )}
+
+        <!-- 説明 -->
+        {description && (
+          <p class="text-sm text-primary-600 dark:text-primary-300 leading-relaxed mb-3 line-clamp-2">
+            {description}
+          </p>
+        )}
+
+        <!-- タグ -->
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-1.5">
+            {tags.map((tag) => (
+              <span class="text-xs px-2 py-0.5 bg-primary-100 dark:bg-primary-700 text-primary-600 dark:text-primary-300 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- 矢印アイコン -->
+      <div class="flex-shrink-0 text-primary-300 dark:text-primary-500 group-hover:text-accent dark:group-hover:text-accent-light transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </div>
+    </div>
+  </a>
+) : (
+  <!-- 詳細カード（links配列指定時） -->
+  <article class="group relative bg-white dark:bg-primary-800 rounded-xl p-6 shadow-sm dark:hover:shadow-md transition-all duration-300 border border-primary-100 dark:border-primary-700 dark:hover:border-accent/30">
+    <!-- 年のバッジ -->
+    {year && (
+      <div class="absolute -top-3 -right-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+        {year}
+      </div>
+    )}
+
+    <!-- タイトル（アイコン付き） -->
+    <div class="flex items-start gap-3 mb-2 pr-8">
+      <div class="flex-shrink-0 w-7 h-7 bg-teal-100 dark:bg-teal-900/30 rounded-md flex items-center justify-center mt-0.5">
+        {isCompound ? (
+          <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {compoundIcons[icon!].map((d) => (
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
+            ))}
+          </svg>
+        ) : (
+          <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPath} />
+          </svg>
+        )}
+      </div>
+      <h3 class="font-serif text-lg font-semibold text-primary-900 dark:text-primary-50 leading-snug">
+        {title}
+      </h3>
+    </div>
+
+    <!-- 著者 -->
+    {authors && authors.length > 0 && (
+      <p class="text-sm text-primary-600 dark:text-primary-300 mb-2">
+        {authors.map((author, i) => (
+          <span>
+            <span class={author.includes('政岡') || author.includes('Masaoka') ? 'font-semibold text-accent-dark' : ''}>
+              {author}
+            </span>
+            {i < authors.length - 1 && ', '}
+          </span>
+        ))}
+      </p>
+    )}
+
+    <!-- 掲載誌/発表場所 -->
+    {venue && (
+      <p class="text-sm text-primary-500 dark:text-primary-400 italic mb-4">
+        {venue}
+      </p>
+    )}
+
+    <!-- 説明（学術系でも使用可能） -->
+    {description && (
+      <p class="text-sm text-primary-600 dark:text-primary-300 mb-4">
+        {description}
+      </p>
+    )}
+
+    <!-- リンク -->
+    {links.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {links.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 bg-primary-100 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-full hover:bg-accent dark:hover:bg-accent-light hover:text-white dark:hover:text-primary-900 transition-colors"
+          >
+            {link.label === 'PDF' && (
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+              </svg>
+            )}
+            {link.label === 'arXiv' && (
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z" />
+              </svg>
+            )}
+            {link.label}
+          </a>
+        ))}
+      </div>
+    )}
+
+    <!-- アブストラクト（折りたたみ） -->
+    {abstract && (
+      <details class="group/details">
+        <summary class="cursor-pointer text-sm text-accent dark:text-accent-light hover:text-accent-dark dark:hover:text-accent transition-colors list-none flex items-center gap-1">
+          <svg class="w-4 h-4 transition-transform group-open/details:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          Abstract
+        </summary>
+        <p class="mt-3 text-sm text-primary-600 dark:text-primary-300 leading-relaxed pl-5 border-l-2 border-accent/30">
+          {abstract}
+        </p>
+      </details>
+    )}
+  </article>
+)}
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -20,8 +20,14 @@ export function useTranslations(lang: Lang) {
 export function getLocalizedPath(currentPath: string, targetLang: Lang): string {
   // Remove existing language prefix if present
   const pathWithoutLang = currentPath.replace(/^\/(en|ja)/, '');
-  // Add target language prefix
-  return `/${targetLang}${pathWithoutLang || '/'}`;
+  const cleanPath = pathWithoutLang || '/';
+
+  // English has no prefix (prefixDefaultLocale: false)
+  if (targetLang === 'en') {
+    return cleanPath;
+  }
+  // Other languages get prefix
+  return `/${targetLang}${cleanPath === '/' ? '' : cleanPath}`;
 }
 
 // Helper to get localized value from bilingual data

@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import PublicationCard from './PublicationCard.astro';
-import { useTranslations, localize } from '../i18n/utils';
+import ContentCard from './ContentCard.astro';
+import { useTranslations, localize, getLocalizedPath } from '../i18n/utils';
 import { profile, publications as pubsData, cv } from '../utils/data';
 import profileImage from '../images/profile.png';
 
@@ -13,7 +13,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 // 最新3件の業績
-const recentPubs = pubsData.publications.slice(0, 3);
+const recentPubs = pubsData.items.slice(0, 3);
 const researchInterests = cv.research_interests || [];
 ---
 
@@ -164,7 +164,7 @@ const researchInterests = cv.research_interests || [];
       <span class="w-8 h-1 bg-accent rounded-full"></span>
       {t('section.recentPublications')}
     </h2>
-    <a href={`/${lang}/publications`} class="text-sm text-accent hover:text-accent-dark dark:hover:text-accent-dark transition-colors flex items-center gap-1">
+    <a href={getLocalizedPath('/publications', lang)} class="text-sm text-accent hover:text-accent-dark dark:hover:text-accent-dark transition-colors flex items-center gap-1">
       {t('ui.viewAll')}
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -174,7 +174,7 @@ const researchInterests = cv.research_interests || [];
 
   <div class="grid gap-4">
     {recentPubs.map((pub: any) => (
-      <PublicationCard
+      <ContentCard
         title={pub.title}
         authors={pub.authors}
         year={pub.year}
