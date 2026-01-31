@@ -1,0 +1,81 @@
+---
+import { getIconPath, compoundIcons } from '../utils/icons';
+
+interface Props {
+  title: string;
+  url?: string;
+  filename?: string;
+  description: string;
+  icon?: string;  // YAMLで定義された任意のアイコンID（src/utils/icons.tsで管理）
+  tags?: string[];
+}
+
+const { title, url, filename, description, icon = 'pdf', tags = [] } = Astro.props;
+const iconPath = getIconPath(icon);
+const isCompound = icon && compoundIcons[icon];
+
+const href = url || `/notes/${filename}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group block bg-white dark:bg-primary-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-primary-100 dark:border-primary-700 hover:border-accent/30 hover:-translate-y-1"
+>
+  <div class="flex items-start gap-4">
+    <!-- アイコン -->
+    <div class="flex-shrink-0 w-8 h-8 bg-teal-100 dark:bg-teal-900/30 rounded-md flex items-center justify-center">
+      {isCompound ? (
+        <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {compoundIcons[icon!].map((d) => (
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
+          ))}
+        </svg>
+      ) : (
+        <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPath} />
+        </svg>
+      )}
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <!-- タイトル -->
+      <h3 class="font-serif text-lg font-semibold text-primary-900 dark:text-primary-50 group-hover:text-accent dark:group-hover:text-accent-light transition-colors mb-1">
+        {title}
+      </h3>
+
+      <!-- 説明 -->
+      <p class="text-sm text-primary-600 dark:text-primary-300 leading-relaxed mb-3 line-clamp-2">
+        {description}
+      </p>
+
+      <!-- タグ -->
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-1.5">
+          {tags.map((tag) => (
+            <span class="text-xs px-2 py-0.5 bg-primary-100 dark:bg-primary-700 text-primary-600 dark:text-primary-300 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- 矢印アイコン -->
+    <div class="flex-shrink-0 text-primary-300 dark:text-primary-500 group-hover:text-accent dark:group-hover:text-accent-light transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
