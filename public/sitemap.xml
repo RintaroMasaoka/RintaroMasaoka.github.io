@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage (English - default) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rintaromasaoka.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Homepage (Japanese) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rintaromasaoka.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- CV (English) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/cv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/cv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/cv/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CV (Japanese) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/ja/cv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/cv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/cv/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Publications (English) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/publications/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/publications/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/publications/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Publications (Japanese) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/ja/publications/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/publications/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/publications/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Presentations (English) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/presentations/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/presentations/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/presentations/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Presentations (Japanese) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/ja/presentations/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/presentations/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/presentations/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Resources (English) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/resources/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/resources/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/resources/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Resources (Japanese) -->
+  <url>
+    <loc>https://rintaromasaoka.github.io/ja/resources/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rintaromasaoka.github.io/resources/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rintaromasaoka.github.io/ja/resources/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

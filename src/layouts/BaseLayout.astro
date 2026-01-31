@@ -7,9 +7,42 @@ interface Props {
   title: string;
   description?: string;
   lang?: Lang;
+  image?: string;
 }
 
-const { title, description = "Academic Website", lang = 'en' } = Astro.props;
+const { title, description, lang = 'en', image } = Astro.props;
+
+// 言語別のデフォルト説明文
+const defaultDescription = lang === 'ja'
+  ? '政岡凜太郎のウェブサイト。物性理論・統計物理学を専攻する東京大学の大学院生です。量子相転移と共形場理論を研究しています。'
+  : 'Rintaro Masaoka\'s website. A graduate student at the University of Tokyo specializing in condensed matter theory and statistical physics, researching quantum phase transitions and conformal field theory.';
+
+const siteUrl = 'https://rintaromasaoka.github.io';
+const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = image ? new URL(image, siteUrl).href : `${siteUrl}/profile.png`;
+const metaDescription = description || defaultDescription;
+
+// 構造化データ（JSON-LD）
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": lang === 'ja' ? "政岡 凜太郎" : "Rintaro Masaoka",
+  "url": siteUrl,
+  "image": `${siteUrl}/profile.png`,
+  "jobTitle": lang === 'ja' ? "修士課程" : "Master's Student",
+  "worksFor": {
+    "@type": "Organization",
+    "name": lang === 'ja' ? "東京大学" : "University of Tokyo"
+  },
+  "alumniOf": {
+    "@type": "Organization",
+    "name": lang === 'ja' ? "東京大学" : "University of Tokyo"
+  },
+  "sameAs": [
+    "https://scholar.google.com/citations?user=qoSWWasAAAAJ",
+    "https://orcid.org/0009-0002-4280-9783"
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -17,8 +50,34 @@ const { title, description = "Academic Website", lang = 'en' } = Astro.props;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription} />
   <title>{title}</title>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={currentUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content={lang === 'ja' ? 'ja_JP' : 'en_US'} />
+  <meta property="og:site_name" content={lang === 'ja' ? '政岡凜太郎のサイト' : "Rintaro Masaoka's Site"} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={metaDescription} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- 構造化データ (JSON-LD) -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={currentUrl} />
+
+  <!-- 言語alternateリンク -->
+  <link rel="alternate" hreflang="en" href={`${siteUrl}${Astro.url.pathname.replace('/ja/', '/').replace('/ja', '/')}`} />
+  <link rel="alternate" hreflang="ja" href={`${siteUrl}/ja${Astro.url.pathname.replace('/ja/', '/').replace('/ja', '')}`} />
+  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${Astro.url.pathname.replace('/ja/', '/').replace('/ja', '/')}`} />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

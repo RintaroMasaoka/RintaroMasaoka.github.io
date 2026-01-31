@@ -1,0 +1,7 @@
+# Robots.txt for rintaromasaoka.github.io
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rintaromasaoka.github.io/sitemap.xml
