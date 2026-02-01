@@ -36,22 +36,24 @@ const pageData = cv.page;
 
   <div class="space-y-12">
     <!-- Positions -->
-    <section>
-      <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
-        <span class="w-6 h-1 bg-accent rounded-full"></span>
-        {t('section.positions')}
-      </h2>
-      <div class="space-y-4">
-        {cv.positions.map((pos: any) => (
-          <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-600 hover:border-accent dark:hover:border-accent-light transition-colors">
-            <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-accent"></div>
-            <p class="text-sm text-primary-400 dark:text-primary-500 mb-1">{localize(pos.period, lang)}</p>
-            <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(pos.title, lang)}</h3>
-            <p class="text-primary-600 dark:text-primary-300">{localize(pos.institution, lang)}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    {cv.positions && cv.positions.length > 0 && (
+      <section>
+        <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6 flex items-center gap-3">
+          <span class="w-6 h-1 bg-accent rounded-full"></span>
+          {t('section.positions')}
+        </h2>
+        <div class="space-y-4">
+          {cv.positions.map((pos: any) => (
+            <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-600 hover:border-accent dark:hover:border-accent-light transition-colors">
+              <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-accent"></div>
+              <p class="text-sm text-primary-400 dark:text-primary-500 mb-1">{localize(pos.period, lang)}</p>
+              <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(pos.title, lang)}</h3>
+              <p class="text-primary-600 dark:text-primary-300">{localize(pos.institution, lang)}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Education -->
     <section>
@@ -63,7 +65,7 @@ const pageData = cv.page;
         {cv.education.map((edu: any) => (
           <div class="relative pl-6 border-l-2 border-primary-200 dark:border-primary-600 hover:border-accent dark:hover:border-accent-light transition-colors">
             <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-accent"></div>
-            <p class="text-sm text-primary-400 dark:text-primary-500 mb-1">{edu.year}</p>
+            <p class="text-sm text-primary-400 dark:text-primary-500 mb-1">{edu.year || localize(edu.period, lang)}</p>
             <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(edu.degree, lang)}</h3>
             <p class="text-primary-600 dark:text-primary-300">{localize(edu.institution, lang)}</p>
             {edu.thesis && (

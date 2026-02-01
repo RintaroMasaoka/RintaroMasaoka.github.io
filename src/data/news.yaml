@@ -1,0 +1,11 @@
+# News data
+# Add news items in reverse chronological order (newest first)
+
+items:
+  - date: "2026-01-28"
+    title:
+      en: "Renewal of Website"
+      ja: "ウェブサイトをリニューアル"
+    content:
+      en: "I and Claude Opus 4.5 upgraded the design of my website."
+      ja: "Claude Opus 4.5の力を借りて、個人ホームページのデザインを変えました"

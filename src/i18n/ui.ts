@@ -21,6 +21,7 @@ export const ui = {
     'section.skills': 'Skills',
     'section.researchInterests': 'Research Interests',
     'section.recentPublications': 'Recent Publications',
+    'section.recentNews': 'News',
 
     // UI elements
     'ui.viewAll': 'View all',
@@ -49,6 +50,7 @@ export const ui = {
     'section.skills': 'スキル',
     'section.researchInterests': '研究分野',
     'section.recentPublications': '最近の論文',
+    'section.recentNews': '最近のニュース',
 
     // UI elements
     'ui.viewAll': 'すべて見る',
