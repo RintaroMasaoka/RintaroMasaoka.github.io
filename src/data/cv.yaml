@@ -10,6 +10,18 @@ page:
 
 education:
   - degree:
+      en: Master of Engineering (Expected)
+      ja: 修士課程（在学中）
+    field:
+      en: Applied Physics
+      ja: 物理工学
+    institution:
+      en: Watanabe Group, Department of Applied Physics, University of Tokyo
+      ja: 東京大学 工学系研究科 物理工学専攻 渡辺悠樹研究室
+    period:
+      en: April 2024 - Present
+      ja: 2024年4月 - 現在
+  - degree:
       en: Bachelor of Science
       ja: 学士（理学）
     field:
@@ -19,17 +31,6 @@ education:
       en: Department of Physics, Faculty of Science, University of Tokyo
       ja: 東京大学 理学部 物理学科
     year: 2024
-
-positions:
-  - title:
-      en: Master's Student
-      ja: 修士課程
-    institution:
-      en: Watanabe Group, Department of Applied Physics, University of Tokyo
-      ja: 東京大学 工学系研究科 物理工学専攻 渡辺悠樹研究室
-    period:
-      en: April 2024 - Present
-      ja: 2024年4月 - 現在
 
 awards:
   - name:
