@@ -1,0 +1,204 @@
+\RequirePackage{amsmath,unicode-math,physics,xparse,mathcommand,newunicodechar}
+\DeclareOption{uprightconst}{\let\conststyle\symup} 
+\DeclareOption{italicconst}{\let\conststyle\symit}
+\DeclareOption{uprightdiff}{\let\diffstyle\symup} 
+\DeclareOption{italicdiff}{\let\diffstyle\symit}
+\ExecuteOptions{uprightconst,uprightdiff}
+\ProcessOptions\relax
+
+% Math accents
+\renewmathcommand{\~}{\tilde}
+\renewmathcommand{\.}{\dot}
+\renewmathcommand{\"}{\ddot}
+\renewmathcommand{\^}{\hat}
+\renewmathcommand{\=}{\bar}
+\renewmathcommand{\'}{\acute}
+\renewmathcommand{\`}{\grave}
+\newcommand{\∨}{\check}
+\newcommand{\∪}{\breve}
+\newcommand{\→}{\overrightarrow}
+\newcommand{\←}{\overleftarrow}
+\newcommand{\↔}{\overleftrightarrow}
+\newcommand{\⋯}{\dddot}
+\newcommand{\∘}{\overcircle}
+\newcommand{\?}{\overhook}
+
+% Constants
+\newcommand{\e}{\conststyle{e}}
+\newunicodechar{ℯ}{\conststyle{e}}
+\renewmathcommand{\i}{\conststyle{i}}
+\newcommand{\¡}{\conststyle{i}}
+\newcommand{\π}{\conststyle{π}}
+\newcommand{\kB}{k_{\symup{B}}}
+
+% Short commands
+\DeclareDocumentCommand{\shortdifferential}{e{^} m}{
+    \IfNoValueTF{#1}{\mathinner{\diffstyle{d}#2}}
+    {\mathinner{\diffstyle{d}^{#1}#2}}
+}
+\renewmathcommand{\d}{\shortdifferential}
+\newcommand{\␣}{\quad}
+\newcommand{\∅}{\nonumber \\}
+\newcommand{\÷}{\frac}
+\newcommand{\√}[1]{\mathinner{\sqrt{#1}}}
+\renewcommand{\r}{\right}
+\renewcommand{\l}{\left}
+\newcommand{\m}{\middle}
+\renewmathcommand{\t}{\text}
+\newcommand{\R}{\mathrm}
+\newcommand{\𝒟}[1]{\mathinner{𝒟#1}}
+\newcommand{\𝑑}[1]{\mathinner{𝑑#1}}
+
+% Dirac braket and matrix
+\newcommand{\⟨}{\left\langle}
+\newcommand{\⟩}{\right\rangle}
+\newcommand{\∣}{\middle|}
+\newcommand{\⎛}{\left(\begin{matrix}}
+\newcommand{\⎠}{\end{matrix}\right)}
+\newcommand{\⎞}{\\}
+\newcommand{\⎝}{}
+\newcommand{\⌈}{\left[\begin{matrix}}
+\newcommand{\⌋}{\end{matrix}\right]}
+\newcommand{\⌉}{\\}
+\newcommand{\⌊}{}
+
+% Shorthands of commands from physics
+\newcommand{\Q}{\quantity}
+\DeclareDocumentCommand{\P}{r()}{\left(#1\right)}
+\DeclareDocumentCommand{\B}{r[]}{\left[#1\right]}
+\DeclareDocumentCommand{\V}{r||}{\left|#1\right|}
+\newcommand{\M}{\mqty}
+\newcommand{\E}{\eval}\newcommand{\F}{\fdv}
+
+\NewDocumentCommand{\∂}{s e{^} t_ m}{
+   \IfBooleanTF{#1}
+   {\IfBooleanTF{#3}{\diffp[#2]{}/{#4}}{\diffp[#2]{#4}/}}
+   {\IfBooleanTF{#3}{\diffp[#2]{}{#4}}{\diffp[#2]{#4}}}
+}
+\NewDocumentCommand{\δ}{s e{^} t_ m}{
+   \IfBooleanTF{#1}
+   {\IfBooleanTF{#3}{\diff.d.[#2]{}/{#4}}{\diff.d.[#2]{#4}/}}
+   {\IfBooleanTF{#3}{\diff.d.[#2]{}{#4}}{\diff.d.[#2]{#4}}}
+} 
+\NewDocumentCommand{\Δ}{s e{^} t_ m}{
+   \IfBooleanTF{#1}
+   {\IfBooleanTF{#3}{\Diffd[#2]{}/{#4}}{\Diffd[#2]{#4}/}}
+   {\IfBooleanTF{#3}{\Diffd[#2]{}{#4}}{\Diffd[#2]{#4}}}
+}
+
+% tt commands
+\DeclareDocumentCommand{\𝚀}{m}{\left\{#1\right\}}
+\DeclareDocumentCommand{\𝙿}{r()}{\left(#1\right)}
+\DeclareDocumentCommand{\𝙱}{r[]}{\left[#1\right]}
+\DeclareDocumentCommand{\𝚅}{r||}{\left|#1\right|}
+\newcommand{\𝙼}{\mqty}
+\newcommand{\𝙴}{\eval}
+\newcommand{\𝚍}{\dv}
+\newcommand{\𝙵}{\fdv}
+\newcommand{\𝚛}{\right}
+\newcommand{\𝚕}{\left}
+\newcommand{\𝚖}{\middle}
+\newcommand{\𝚝}{\text}
+\newcommand{\𝚁}{\mathrm}
+
+% Math operators
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\im}{im}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\Spin}{\mathrm{Spin}}
+\AtBeginDocument{
+    \let\Re\relax \DeclareMathOperator\Re{\mathrm{Re}}%
+    \let\Im\relax \DeclareMathOperator\Im{\mathrm{Im}}%
+}
+
+% Redifinition of old commands
+\def\rm{\mathrm}
+\def\tt{\mathtt}
+\def\it{\mathit}
+\def\bf{\mathbf}
+\def\sf{\mathsf}
+
+% unicode character redefine
+\newunicodechar{★}{\star}
+\newunicodechar{⋯}{\mathinner{\cdots}}
+\newunicodechar{…}{\mathinner{\ldots}}
+\newunicodechar{↑}{{\uparrow}}
+\newunicodechar{↓}{{\downarrow}}
+\newunicodechar{ħ}{\hbar}
+\newunicodechar{÷}{\frac}
+
+
+\newunicodechar{𝑎}{\symup{a}}
+\newunicodechar{𝑏}{\symup{b}}
+\newunicodechar{𝑐}{\symup{c}}
+\newunicodechar{𝑑}{\symup{d}}
+\newunicodechar{𝑒}{\symup{e}}
+\newunicodechar{𝑓}{\symup{f}}
+\newunicodechar{𝑔}{\symup{g}}
+\newunicodechar{ℎ}{\symup{h}}
+\newunicodechar{𝑖}{\symup{i}}
+\newunicodechar{𝑗}{\symup{j}}
+\newunicodechar{𝑘}{\symup{k}}
+\newunicodechar{𝑙}{\symup{l}}
+\newunicodechar{𝑚}{\symup{m}}
+\newunicodechar{𝑛}{\symup{n}}
+\newunicodechar{𝑜}{\symup{o}}
+\newunicodechar{𝑝}{\symup{p}}
+\newunicodechar{𝑞}{\symup{q}}
+\newunicodechar{𝑟}{\symup{r}}
+\newunicodechar{𝑠}{\symup{s}}
+\newunicodechar{𝑡}{\symup{t}}
+\newunicodechar{𝑢}{\symup{u}}
+\newunicodechar{𝑣}{\symup{v}}
+\newunicodechar{𝑤}{\symup{w}}
+\newunicodechar{𝑥}{\symup{x}}
+\newunicodechar{𝑦}{\symup{y}}
+\newunicodechar{𝑧}{\symup{z}}
+
+\newunicodechar{𝐴}{\symup{A}}
+\newunicodechar{𝐵}{\symup{B}}
+\newunicodechar{𝐶}{\symup{C}}
+\newunicodechar{𝐷}{\symup{D}}
+\newunicodechar{𝐸}{\symup{E}}
+\newunicodechar{𝐹}{\symup{F}}
+\newunicodechar{𝐺}{\symup{G}}
+\newunicodechar{𝐻}{\symup{F}}
+\newunicodechar{𝐼}{\symup{I}}
+\newunicodechar{𝐽}{\symup{J}}
+\newunicodechar{𝐾}{\symup{K}}
+\newunicodechar{𝐿}{\symup{L}}
+\newunicodechar{𝑀}{\symup{M}}
+\newunicodechar{𝑁}{\symup{N}}
+\newunicodechar{𝑂}{\symup{O}}
+\newunicodechar{𝑃}{\symup{P}}
+\newunicodechar{𝑄}{\symup{Q}}
+\newunicodechar{𝑅}{\symup{R}}
+\newunicodechar{𝑆}{\symup{S}}
+\newunicodechar{𝑇}{\symup{T}}
+\newunicodechar{𝑈}{\symup{U}}
+\newunicodechar{𝑉}{\symup{V}}
+\newunicodechar{𝑊}{\symup{W}}
+\newunicodechar{𝑋}{\symup{X}}
+\newunicodechar{𝑌}{\symup{Y}}
+\newunicodechar{𝑍}{\symup{Z}}
+
+\newunicodechar{𝛼}{\symup{\alpha}}
+\newunicodechar{𝛽}{\symup{\beta}}
+\newunicodechar{𝛾}{\symup{\gamma}}
+\newunicodechar{𝛿}{\symup{\delta}}
+\newunicodechar{𝜖}{\symup{\epsilon}}
+\newunicodechar{𝜂}{\symup{\eta}}
+\newunicodechar{𝜋}{\symup{\pi}}
+\newunicodechar{𝜉}{\symup{\xi}}
+\newunicodechar{𝜀}{\symup{\varepsilon}}
