@@ -15,6 +15,6 @@ const lang: Lang = (Astro.params.lang as Lang) || 'en';
 const pageData = profile.page;
 ---
 
-<BaseLayout title={`${localize(profile.name, lang)} - ${pageData.title[lang]}`} lang={lang}>
+<BaseLayout title={`${localize(profile.name, lang)} | ${pageData.title[lang]}`} lang={lang}>
   <HomeContent lang={lang} />
 </BaseLayout>
