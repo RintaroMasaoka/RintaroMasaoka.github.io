@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { useTranslations, localize, type Lang } from '../../i18n/utils';
 import { cv, profile } from '../../utils/data';
+import { getIconPath } from '../../utils/icons';
 
 export function getStaticPaths() {
   return [
@@ -88,16 +89,16 @@ const pageData = cv.page;
         <div class="grid gap-3">
           {cv.awards.map((award: any) => (
             <div class="flex items-start gap-4 p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700 hover:border-accent/30 transition-colors">
-              <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+              <div class="flex-shrink-0 w-8 h-8 bg-teal-100 dark:bg-teal-900/30 rounded-md flex items-center justify-center">
+                <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath('award')} />
                 </svg>
               </div>
               <div>
                 <p class="text-sm text-primary-400">{award.year}</p>
                 <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(award.name, lang)}</h3>
                 {award.description && (
-                  <p class="text-sm text-primary-600">{localize(award.description, lang)}</p>
+                  <p class="text-sm text-primary-600 dark:text-primary-300">{localize(award.description, lang)}</p>
                 )}
               </div>
             </div>
@@ -115,15 +116,22 @@ const pageData = cv.page;
         </h2>
         <div class="space-y-3">
           {cv.grants.map((grant: any) => (
-            <div class="p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700 hover:border-accent/30 transition-colors">
-              <div class="flex items-start justify-between">
-                <div>
-                  <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(grant.title, lang)}</h3>
-                  <p class="text-sm text-primary-500">{localize(grant.institution, lang)}</p>
-                </div>
-                {grant.amount && <p class="text-sm font-medium text-accent">{grant.amount}</p>}
+            <div class="flex items-start gap-4 p-4 bg-white dark:bg-primary-800 rounded-lg border border-primary-100 dark:border-primary-700 hover:border-accent/30 transition-colors">
+              <div class="flex-shrink-0 w-8 h-8 bg-teal-100 dark:bg-teal-900/30 rounded-md flex items-center justify-center">
+                <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath('grant')} />
+                </svg>
               </div>
-              <p class="text-sm text-primary-400 mt-1">{localize(grant.period, lang)}</p>
+              <div class="flex-1">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-semibold text-primary-900 dark:text-primary-50">{localize(grant.title, lang)}</h3>
+                    <p class="text-sm text-primary-500 dark:text-primary-400">{localize(grant.institution, lang)}</p>
+                  </div>
+                  {grant.amount && <p class="text-sm font-medium text-accent">{grant.amount}</p>}
+                </div>
+                <p class="text-sm text-primary-400 mt-1">{localize(grant.period, lang)}</p>
+              </div>
             </div>
           ))}
         </div>

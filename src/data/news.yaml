@@ -2,10 +2,11 @@
 # Add news items in reverse chronological order (newest first)
 
 items:
-  - date: "2026-01-28"
-    title:
-      en: "Renewal of Website"
-      ja: "ウェブサイトをリニューアル"
+  - date: "2026-01-30"
     content:
-      en: "I and Claude Opus 4.5 upgraded the design of my website."
+      en: "Received Shoji Tanaka Award (Outstanding Master's Thesis in Applied Physics)"
+      ja: "田中昭二賞(物理工学専攻優秀修士論文賞)を受賞"
+  - date: "2026-01-28"
+    content:
+      en: "Renewed my website design with the help of Claude Opus 4.5"
       ja: "Claude Opus 4.5の力を借りて、個人ホームページのデザインを変えました"

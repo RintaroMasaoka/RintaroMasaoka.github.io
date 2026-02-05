@@ -165,22 +165,17 @@ const allNews = newsData.items || [];
       <span class="w-8 h-1 bg-accent rounded-full"></span>
       {t('section.recentNews')}
     </h2>
-    <div class="bg-white dark:bg-primary-800 rounded-xl border border-primary-100 dark:border-primary-700 max-h-64 overflow-y-auto">
+    <div class="bg-white dark:bg-primary-800 rounded-xl border border-primary-100 dark:border-primary-700">
       <div class="divide-y divide-primary-100 dark:divide-primary-700">
         {allNews.map((item: any) => (
-          <div class="p-4 hover:bg-primary-50 dark:hover:bg-primary-700/50 transition-colors">
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 text-sm text-primary-500 dark:text-primary-400 whitespace-nowrap">
+          <div class="px-5 py-4 hover:bg-primary-50 dark:hover:bg-primary-700/50 transition-colors">
+            <div class="flex items-baseline gap-4">
+              <div class="flex-shrink-0 text-sm text-primary-400 dark:text-primary-500 tabular-nums">
                 {item.date}
               </div>
-              <div>
-                <h3 class="font-medium text-primary-800 dark:text-primary-100 mb-1">
-                  {localize(item.title, lang)}
-                </h3>
-                <p class="text-sm text-primary-600 dark:text-primary-300">
-                  {localize(item.content, lang)}
-                </p>
-              </div>
+              <p class="text-primary-700 dark:text-primary-200">
+                {localize(item.content, lang)}
+              </p>
             </div>
           </div>
         ))}
