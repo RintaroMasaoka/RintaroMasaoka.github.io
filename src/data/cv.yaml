@@ -34,13 +34,20 @@ education:
 
 awards:
   - name:
+      en: Shoji Tanaka Award (Outstanding Master's Thesis)
+      ja: 田中昭二賞(物理工学優秀修士論文賞)
+    year: 2025
+    description:
+      en: Department of Applied Physics, University of Tokyo
+      ja: 東京大学工学系研究科物理工学専攻
+
+  - name:
       en: Outstanding Presentation Award (Parallel Session, Statistical mechanics)
       ja: 優秀発表者賞（パラレルセッション 統計物理）
     year: 2024
     description:
       en: 69th Condensed Matter Physics Summer School
       ja: 第69回物性若手夏の学校
-
 grants:
   - title:
       en: Research Assistantship
