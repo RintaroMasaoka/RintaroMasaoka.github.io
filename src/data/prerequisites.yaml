@@ -1,0 +1,25 @@
+# ===================================
+# Prerequisites for Today's arXiv
+# arXiv論文を理解するためのレビューノート
+# ===================================
+
+page:
+  title:
+    en: Prerequisites for Today's arXiv
+    ja: 今日のarXivを読むための前提知識
+  description:
+    en: Review notes generated with AI assistance for understanding recent papers
+    ja: 最新論文を理解するためのAI支援レビューノート
+
+items:
+  - title:
+      en: "Review: Holographic Entanglement and EWCS"
+      ja: "レビュー：ホログラフィック・エンタングルメントとEWCS"
+    url: /prerequisites_for_todays_arxiv/Review_EWCS_Holography.html
+    description:
+      en: Entanglement Wedge Cross Section (EWCS) and its holographic applications
+      ja: EWCSの定義とホログラフィック双対への応用
+    tags:
+      - Holography
+      - Entanglement
+    date: 2025-02-01

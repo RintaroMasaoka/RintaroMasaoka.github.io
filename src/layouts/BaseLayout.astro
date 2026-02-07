@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import type { Lang } from '../i18n/utils';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -137,23 +138,6 @@ const jsonLd = {
 </body>
 </html>
 
-<style is:global>
-  /* スムーズスクロール */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* 選択時のカラー */
-  ::selection {
-    background-color: rgba(13, 148, 136, 0.3);
-    color: inherit;
-  }
-
-  /* KaTeX数式のスタイル調整 */
-  .katex {
-    font-size: 1.1em;
-  }
-</style>
 
 <script>
   // Save language preference when page loads

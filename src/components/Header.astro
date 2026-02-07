@@ -28,13 +28,39 @@ const alternateUrl = getLocalizedPath(currentPath, alternateLang);
         <!-- デスクトップナビゲーション -->
         <ul class="hidden md:flex items-center gap-8">
           {navigation.map((item: any) => (
-            <li>
-              <a
-                href={item.href}
-                class="text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light transition-colors text-sm font-medium tracking-wide uppercase"
-              >
-                {item.label}
-              </a>
+            <li class="relative group">
+              {item.submenu ? (
+                <>
+                  <button
+                    type="button"
+                    class="flex items-center gap-1 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light transition-colors text-sm font-medium tracking-wide uppercase"
+                  >
+                    {item.label}
+                    <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <ul class="absolute top-full left-0 mt-2 py-2 bg-white dark:bg-primary-800 border border-primary-200 dark:border-primary-600 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all min-w-max">
+                    {item.submenu.map((subitem: any) => (
+                      <li>
+                        <a
+                          href={subitem.href}
+                          class="block px-4 py-2 text-sm text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light hover:bg-primary-50 dark:hover:bg-primary-700 transition-colors whitespace-nowrap"
+                        >
+                          {subitem.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <a
+                  href={item.href}
+                  class="text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light transition-colors text-sm font-medium tracking-wide uppercase"
+                >
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -85,14 +111,42 @@ const alternateUrl = getLocalizedPath(currentPath, alternateLang);
     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
       <ul class="flex flex-col gap-2">
         {navigation.map((item: any) => (
-          <li>
-            <a
-              href={item.href}
-              class="block py-2 px-4 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-all text-sm font-medium"
-            >
-              {item.label}
-            </a>
-          </li>
+          <>
+            {item.submenu ? (
+              <li>
+                <button
+                  type="button"
+                  class="mobile-submenu-toggle w-full flex items-center justify-between py-2 px-4 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-all text-sm font-medium"
+                >
+                  {item.label}
+                  <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <ul class="mobile-submenu hidden pl-4 mt-1 space-y-1">
+                  {item.submenu.map((subitem: any) => (
+                    <li>
+                      <a
+                        href={subitem.href}
+                        class="block py-2 px-4 text-primary-500 dark:text-primary-400 hover:text-accent dark:hover:text-accent-light hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-all text-sm"
+                      >
+                        {subitem.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              <li>
+                <a
+                  href={item.href}
+                  class="block py-2 px-4 text-primary-600 dark:text-primary-300 hover:text-accent dark:hover:text-accent-light hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-all text-sm font-medium"
+                >
+                  {item.label}
+                </a>
+              </li>
+            )}
+          </>
         ))}
         <!-- モバイル用言語切替 -->
         <li class="border-t border-primary-100 dark:border-primary-700 pt-2 mt-2">
@@ -107,3 +161,17 @@ const alternateUrl = getLocalizedPath(currentPath, alternateLang);
     </div>
   </nav>
 </header>
+
+<script>
+  // モバイルサブメニューの開閉処理
+  document.querySelectorAll('.mobile-submenu-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const submenu = toggle.nextElementSibling;
+      const icon = toggle.querySelector('svg');
+      if (submenu && icon) {
+        submenu.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      }
+    });
+  });
+</script>

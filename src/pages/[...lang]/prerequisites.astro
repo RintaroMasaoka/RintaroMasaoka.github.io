@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { type Lang } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: undefined } },
+    { params: { lang: 'ja' } },
+  ];
+}
+
+const lang: Lang = (Astro.params.lang as Lang) || 'en';
+
+const items = await getCollection('prerequisites');
+const sortedItems = items.sort((a, b) => {
+  const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;
+  const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+  return dateB - dateA;
+});
+
+const pageTitle = lang === 'ja' ? '今日のarXivを読むための前提知識' : 'Prerequisites for Today\'s arXiv';
+const pageDescription = lang === 'ja'
+  ? '最新論文を理解するためのAI支援レビューノート'
+  : 'Review notes generated with AI assistance for understanding recent papers';
+---
+
+<BaseLayout title={pageTitle} lang={lang}>
+  <div class="mb-8">
+    <h1 class="font-serif text-4xl font-bold text-primary-900 dark:text-primary-50 mb-2">
+      {pageTitle}
+    </h1>
+    <p class="text-primary-500 dark:text-primary-400">
+      {pageDescription}
+    </p>
+  </div>
+
+  {sortedItems.length === 0 ? (
+    <p class="text-primary-500 dark:text-primary-400">
+      {lang === 'ja' ? 'まだレビューがありません。' : 'No reviews yet.'}
+    </p>
+  ) : (
+    <div class="grid gap-4">
+      {sortedItems.map((item) => (
+        <ContentCard
+          title={item.data.title}
+          url={`/prerequisites/${item.slug}`}
+          icon="document"
+          description={`arXiv:${item.data.arxiv}`}
+        />
+      ))}
+    </div>
+  )}
+</BaseLayout>

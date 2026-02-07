@@ -28,6 +28,7 @@ export default {
           DEFAULT: '#0d9488', // Teal - 研究者らしい落ち着いた色
           light: '#0d9488',
           dark: '#0d9488',
+          chocolate: '#d2691e',
         },
       },
     },

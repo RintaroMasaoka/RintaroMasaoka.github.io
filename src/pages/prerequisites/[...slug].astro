@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import NoteLayout from '../../layouts/NoteLayout.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('prerequisites');
+  return items.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await item.render();
+
+const lang = 'ja';
+const arxivUrl = `https://arxiv.org/abs/${item.data.arxiv}`;
+---
+
+<NoteLayout
+  title={item.data.title}
+  description={item.data.description}
+  lang={lang}
+>
+  <div class="mb-8 p-4 bg-primary-100 dark:bg-primary-800 rounded-lg">
+    <p class="text-sm text-primary-600 dark:text-primary-300">
+      <span class="font-semibold">対象論文:</span>
+      <a href={arxivUrl} target="_blank" rel="noopener noreferrer" class="text-accent dark:text-accent-light hover:underline">
+        arXiv:{item.data.arxiv}
+      </a>
+    </p>
+    {item.data.date && (
+      <p class="text-sm text-primary-500 dark:text-primary-400 mt-1">
+        作成日: {item.data.date}
+      </p>
+    )}
+    {item.data.tags && item.data.tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mt-2">
+        {item.data.tags.map((tag: string) => (
+          <span class="text-xs px-2 py-1 bg-primary-200 dark:bg-primary-700 rounded">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+  <Content />
+</NoteLayout>

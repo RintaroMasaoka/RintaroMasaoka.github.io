@@ -6,7 +6,7 @@ import { getPageData } from '../../utils/data';
 import type { PageType } from '../../types/content';
 
 export function getStaticPaths() {
-  const types: PageType[] = ['publications', 'presentations', 'resources'];
+  const types: PageType[] = ['publications', 'presentations', 'resources', 'tools', 'notes'];
   return types.flatMap((type) => [
     { params: { lang: undefined, type } },
     { params: { lang: 'ja', type } },
