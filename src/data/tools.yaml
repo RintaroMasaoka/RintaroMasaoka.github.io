@@ -1,0 +1,44 @@
+# ===================================
+# ツール一覧 / Tools
+# ===================================
+
+# ページメタデータ
+page:
+  title:
+    en: Tools
+    ja: ツール
+  description:
+    en: Interactive tools for physics and mathematics.
+    ja: 物理や数学のためのインタラクティブなツールです。Claudeさんが作ってます。
+
+# カテゴリの定義
+categories:
+  - id: tools
+    label:
+      en: Tools
+      ja: ツール
+    icon: gear
+
+# アイテムリスト
+items:
+  - title:
+      en: Unicode ⇌ LaTeX Converter
+      ja: Unicode ⇌ LaTeX 変換ツール
+    category: tools
+    url: /tools/converter/index.html
+    description:
+      en: A tool to convert between Unicode characters and LaTeX commands.
+      ja: Unicode文字とLaTeXコマンドを相互変換するツールです。
+    icon: gear
+    color: teal
+
+  - title:
+      en: Möbius Transform Visualizer
+      ja: メビウス変換ビジュアライザ
+    category: tools
+    url: /tools/conformal/index.html
+    description:
+      en: Visualize Möbius transformations by dragging 3 points on the complex plane.
+      ja: 3点をドラッグしてメビウス変換をリアルタイムで可視化するツールです。
+    icon: gear
+    color: teal

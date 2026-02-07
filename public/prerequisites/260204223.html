@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review of Method of Images in AdS/BCFT (arxiv:2602.04223)</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a2a6c;
+            --secondary-color: #b21f1f;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2a4858);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.0rem;
+            font-weight: 700;
+        }
+        .meta-info {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .arxiv-tag {
+            background-color: rgba(255,255,255,0.2);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+            font-size: 1.2rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        .math-block {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        .figure-box {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .note {
+            font-size: 0.9rem;
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+            margin-top: 20px;
+        }
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>AdS/BCFTにおける像法と相関関数の構造</h1>
+        <div class="meta-info">
+            Target Paper: <span class="arxiv-tag">arXiv:2602.04223</span><br>
+            Review Topic: <strong>Method of Images in Holographic BCFT</strong>
+        </div>
+    </header>
+
+    <section>
+        <h2>1. はじめに：なぜ「一歩手前」に戻るのか</h2>
+        <p>
+            今回レビューする論文 <em>"Boundary conformal field theory, holography and bulk locality" (Banerjee et al., 2026)</em> は、ホログラフィックな境界付き共形場理論（BCFT）において、<strong>1ループ（量子補正）レベルでのバルク局所性とBCFTの整合性</strong>を議論しています。
+            この論文の計算結果（整合性の破れ）のインパクトを理解するためには、そもそも「ツリーレベル（古典レベル）ではどのように整合していたのか？」というメカニズムを知る必要があります。
+        </p>
+        <p>
+            その中心となる技術が、AdS/BCFT対応における<strong>「像法（Method of Images）」</strong>です。これは電磁気学で馴染み深いテクニックですが、曲がったAdS時空におけるEOWブレーン（End-of-the-World brane）に対しても強力な威力を発揮します。本稿では、学部レベルの場の理論を前提とし、大学院生がAdS/BCFTの研究に入るために必須となる「2点相関関数のホログラフィックな導出」の基礎を解説します。
+        </p>
+    </section>
+
+    <section>
+        <h2>2. BCFTにおける2点関数の運動学</h2>
+        <p>
+            通常のCFT（境界なし）では、スカラー演算子の2点関数は並進対称性と共形対称性によって、距離のべき乗の形に一意に定まります。しかし、境界が存在する場合（BCFT）、並進対称性が境界に垂直な方向で破れるため、相関関数の自由度が増します。
+        </p>
+        
+        <h3>2.1 クロスレシオと一般形</h3>
+        <p>
+            境界を \(x^\perp = 0\) とし、理論が定義される領域を \(x^\perp \ge 0\) とします。2つの点 \(x_1 = (\vec{x}_1, x_1^\perp)\) と \(x_2 = (\vec{x}_2, x_2^\perp)\) の間の相関関数を考えます。BCFTでは、以下の<strong>共形不変なクロスレシオ \(\xi\)</strong> を構成できます。
+        </p>
+        <div class="math-block">
+            $$ \xi = \frac{(\vec{x}_1 - \vec{x}_2)^2 + (x_1^\perp - x_2^\perp)^2}{4 x_1^\perp x_2^\perp} $$
+        </div>
+        <p>
+            これは直感的には、「2点間の距離の二乗」を「それぞれの境界からの距離の積」で割ったものです。スカラー演算子 \(\phi\)（スケーリング次元 \(\Delta_\phi\)）の2点関数は、一般に以下の形を取ります。
+        </p>
+        <div class="math-block">
+            $$ \langle \phi(x_1) \phi(x_2) \rangle = \frac{1}{(4 x_1^\perp x_2^\perp)^{\Delta_\phi}} F(\xi) $$
+        </div>
+        <p>
+            ここで \(F(\xi)\) は<strong>任意の関数</strong>であり、通常のCFTのように定数ではありません。この \(F(\xi)\) の具体的な形こそが、BCFTのダイナミクス（境界条件や相互作用）を特徴づけます。ターゲット論文では、バルク理論から計算した \(F(\xi)\) が、BCFTとして許される解析的構造を持っているかが争点となります。
+        </p>
+    </section>
+
+    <section>
+        <h2>3. ホログラフィックなセットアップ：AdS/BCFTと像法</h2>
+        <p>
+            AdS/CFT対応をBCFTに拡張するTakayanagiらの提案（AdS/BCFT）では、バルクのAdS空間が無限に続くのではなく、<strong>EOWブレーン（End-of-the-World brane）</strong>によって切断されていると考えます。
+        </p>
+
+        <h3>3.1 座標系と境界</h3>
+        <p>
+            \(d+1\)次元AdS空間のポアンカレ座標を以下のように取ります。
+        </p>
+        <div class="math-block">
+            $$ ds^2 = \frac{dy^2 + (dx^\perp)^2 + d\vec{x}^2}{y^2} $$
+        </div>
+        <p>
+            ここで、\(y > 0\) はAdSの動径方向、\(x^\perp\) はBCFTの境界に垂直な方向、\(\vec{x}\) は境界に平行な方向です。
+            最も単純なセットアップでは、EOWブレーンは \(x^\perp = 0\)（バルク内へ拡張された面）に配置されます。
+        </p>
+
+        <div class="figure-box">
+            <svg width="500" height="300" viewBox="0 0 500 300">
+                <!-- Background -->
+                <rect x="0" y="0" width="500" height="300" fill="#f8f9fa"/>
+                
+                <!-- AdS Boundary (y=0) -->
+                <line x1="50" y1="50" x2="450" y2="50" stroke="#333" stroke-width="2"/>
+                <text x="460" y="55" font-size="14">AdS Boundary (y=0)</text>
+                
+                <!-- EOW Brane (x_perp=0) -->
+                <line x1="250" y1="50" x2="250" y2="250" stroke="#b21f1f" stroke-width="3" stroke-dasharray="5,5"/>
+                <text x="260" y="270" fill="#b21f1f" font-weight="bold">EOW Brane (x^perp=0)</text>
+                
+                <!-- Points -->
+                <circle cx="150" cy="150" r="5" fill="#1a2a6c"/>
+                <text x="140" y="140" fill="#1a2a6c" font-weight="bold">X (Bulk Point)</text>
+                
+                <circle cx="350" cy="150" r="5" fill="#1a2a6c" opacity="0.5"/>
+                <text x="360" y="140" fill="#1a2a6c" font-style="italic">X_r (Image Point)</text>
+                
+                <!-- Arrow -->
+                <path d="M 160 150 L 340 150" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+                <text x="240" y="140" font-size="12">Reflection</text>
+                
+                <!-- BCFT Region -->
+                <text x="100" y="80" font-size="16" fill="#333">Physical Bulk Region</text>
+            </svg>
+            <div class="caption">図1: AdS/BCFTにおける像法の概念図。物理的なバルク領域（左側）にある点 \(X\) に対し、EOWブレーンを挟んで反対側に「像」の点 \(X_r\) を考える。</div>
+        </div>
+
+        <h3>3.2 像法によるプロパゲータの構成</h3>
+        <p>
+            EOWブレーン上で場 \(\Phi\) がノイマン境界条件（\(\partial_{x^\perp} \Phi = 0\)）またはディリクレ境界条件（\(\Phi = 0\)）を満たすとします。
+            通常のAdS空間におけるバルク・バルク・プロパゲータを \(G_{AdS}(X_1, X_2)\) とすると、ブレーンが存在する場合のプロパゲータ \(G_{BCFT}\) は、<strong>像法</strong>を用いて以下のように構成できます。
+        </p>
+        <div class="math-block">
+            $$ G_{BCFT}^\nu(X_1, X_2) = G_{AdS}(X_1, X_2) + \nu G_{AdS}(X_1, X_{2r}) $$
+        </div>
+        <p>
+            ここで、
+        </p>
+        <ul>
+            <li>\(X_{2r}\) は \(X_2\) の座標 \((y, x^\perp, \vec{x})\) において \(x^\perp \to -x^\perp\) と反転させた<strong>像（Image）</strong>の点です。</li>
+            <li>\(\nu = +1\) はノイマン境界条件、\(\nu = -1\) はディリクレ境界条件に対応します。</li>
+        </ul>
+        <p>
+            この単純な和（または差）によって、ブレーン上の境界条件が自動的に満たされます。これがターゲット論文でWittenダイアグラムを計算する際の基礎となる式(3.9)-(3.10)です。
+        </p>
+    </section>
+
+    <section>
+        <h2>4. ツリーレベルでの整合性とループでの問題</h2>
+        <p>
+            このプロパゲータを用いて、境界極限（\(y \to 0\)）を取ることでBCFTの2点関数を計算できます（Wittenダイアグラムの計算）。
+        </p>
+
+        <h3>4.1 自由場（ツリーレベル）の結果</h3>
+        <p>
+            相互作用がない場合（またはツリーレベル）、2点関数は単純にバルク・境界プロパゲータの極限として得られます。像法の結果を代入すると、2点関数は以下の形になります（定数係数は省略）。
+        </p>
+        <div class="math-block">
+            $$ \langle \phi(x_1) \phi(x_2) \rangle \propto \frac{1}{|x_1 - x_2|^{2\Delta}} + \nu \frac{1}{|x_1 - x_{2r}|^{2\Delta}} $$
+        </div>
+        <p>
+            これをクロスレシオ \(\xi\) を用いて書き直すと、
+        </p>
+        <div class="math-block">
+            $$ F(\xi) = 1 + \nu \left( \frac{\xi}{1+\xi} \right)^{-\Delta} $$
+        </div>
+        <p>
+            のような形になります（正確な係数は正規化に依存）。重要なのは、<strong>この形はBCFTの共形ブロック展開（OPE展開）と完全に整合する</strong>という事実です。つまり、ツリーレベルでは「バルクの局所性（像法による単純な構成）」と「境界の共形対称性」は仲良く共存しています。
+        </p>
+
+        <h3>4.2 ターゲット論文の核心：ループでの破綻</h3>
+        <p>
+            Banerjeeらの論文（arXiv:2602.04223）は、この話を<strong>1ループ</strong>に進めたものです。具体的には、バルク内で \(\phi^3\) や \(\phi^4\) の相互作用がある場合の補正を計算しました。
+        </p>
+        <p class="note">
+            <strong>ここがポイント：</strong> <br>
+            彼らは、バルクの相互作用頂点に対しても、単純な局所的なラグランジアンと像法によるプロパゲータを用いました。その結果得られた相関関数の解析構造（特に \(\log \xi\) の項や不連続性）が、BCFTの一般論から要請される構造（共形ブロックの和）と<strong>一致しない</strong>ことを発見しました。
+        </p>
+        <p>
+            これは、「バルクが単純な局所理論である」という仮定と、「境界理論が健全なBCFTである」という事実が、量子補正のレベルで衝突することを示唆しています。この「一歩手前」の像法の成功体験があるからこそ、ループレベルでの失敗が物理的に重要な意味を持つのです。
+        </p>
+    </section>
+
+    <section>
+        <h2>5. まとめ</h2>
+        <p>
+            本稿では、arXiv:2602.04223を理解するための基礎として、AdS/BCFTにおける像法を用いたプロパゲータの構成と、それによる2点関数の導出を概観しました。
+        </p>
+        <ul>
+            <li>BCFTの2点関数はクロスレシオ \(\xi\) の関数 \(F(\xi)\) で記述される。</li>
+            <li>ホログラフィーでは、EOWブレーンに対する像（Image）の寄与を加えることでプロパゲータを構成する。</li>
+            <li>ツリーレベルではこの方法はうまくいくが、ターゲット論文では1ループでその整合性が問われている。</li>
+        </ul>
+        <p>
+            読者の皆様は、この「像法」を頭に入れた上で論文の Section 3 を読むことで、筆者たちがどのような計算を行い、何に驚いているのかをクリアに理解できるはずです。
+        </p>
+    </section>
+</div>
+
+</body>
+</html>

@@ -11,8 +11,14 @@ en:
     href: /publications
   - label: Presentations
     href: /presentations
-  - label: Resources
-    href: /resources
+  - label: Others
+    submenu:
+      - label: Tools
+        href: /tools
+      - label: Notes
+        href: /notes
+      - label: Prerequisites for today's arXiv
+        href: /prerequisites
 
 ja:
   - label: ホーム
@@ -23,5 +29,11 @@ ja:
     href: /ja/publications
   - label: 発表
     href: /ja/presentations
-  - label: 資料
-    href: /ja/resources
+  - label: その他
+    submenu:
+      - label: ツール
+        href: /ja/tools
+      - label: ノート
+        href: /ja/notes
+      - label: 今日のarXivを読むための前提知識
+        href: /ja/prerequisites

@@ -1,0 +1,17 @@
+/* ===== グローバルスタイル ===== */
+
+/* スムーズスクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 選択時のカラー */
+::selection {
+  background-color: rgba(13, 148, 136, 0.3);
+  color: inherit;
+}
+
+/* KaTeX数式のスタイル調整 */
+.katex {
+  font-size: 1.1em;
+}
