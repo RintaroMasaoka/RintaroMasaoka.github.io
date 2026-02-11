@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import ContentCard from './ContentCard.astro';
 import { useTranslations, localize, getLocalizedPath } from '../i18n/utils';
-import { profile, publications as pubsData, news as newsData } from '../utils/data';
+import { profile, news as newsData, getPageData } from '../utils/data';
 import { getIconPath } from '../utils/icons';
 import profileImage from '../images/profile.png';
 
@@ -14,6 +14,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 // 最新3件の業績
+const pubsData = await getPageData('publications');
 const recentPubs = pubsData.items.slice(0, 3);
 const researchInterests = profile.research_interests || [];
 // 全ニュース

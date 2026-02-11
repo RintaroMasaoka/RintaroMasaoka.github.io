@@ -1,6 +1,3 @@
-// ページタイプ
-export type PageType = 'publications' | 'presentations' | 'resources' | 'tools' | 'notes';
-
 // バイリンガルテキスト
 export interface BilingualText {
   en: string;

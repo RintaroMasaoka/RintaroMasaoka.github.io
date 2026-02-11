@@ -17,7 +17,7 @@ en:
         href: /tools
       - label: Notes
         href: /notes
-      - label: Prerequisites for today's arXiv
+      - label: AI-generated Articles
         href: /prerequisites
 
 ja:
@@ -35,5 +35,5 @@ ja:
         href: /ja/tools
       - label: ノート
         href: /ja/notes
-      - label: 今日のarXivを読むための前提知識
+      - label: AI生成記事
         href: /ja/prerequisites
