@@ -1,42 +1,71 @@
 import yaml from 'js-yaml';
-import type { PageType } from '../types/content';
+import { getCollection } from 'astro:content';
 
 // Import YAML files as raw strings using Vite's ?raw suffix
 import profileRaw from '../data/profile.yaml?raw';
 import navigationRaw from '../data/navigation.yaml?raw';
 import cvRaw from '../data/cv.yaml?raw';
-import publicationsRaw from '../data/publications.yaml?raw';
-import presentationsRaw from '../data/presentations.yaml?raw';
-import resourcesRaw from '../data/resources.yaml?raw';
-import toolsRaw from '../data/tools.yaml?raw';
-import notesRaw from '../data/notes.yaml?raw';
 import newsRaw from '../data/news.yaml?raw';
 
 export const profile = yaml.load(profileRaw) as any;
 export const navigation = yaml.load(navigationRaw) as any;
 export const cv = yaml.load(cvRaw) as any;
-export const publications = yaml.load(publicationsRaw) as any;
-export const presentations = yaml.load(presentationsRaw) as any;
-export const resources = yaml.load(resourcesRaw) as any;
-export const tools = yaml.load(toolsRaw) as any;
-export const notes = yaml.load(notesRaw) as any;
 export const news = yaml.load(newsRaw) as any;
 
-// データソースマップ
-const dataSources: Record<PageType, any> = {
-  publications,
-  presentations,
-  resources,
-  tools,
-  notes,
-};
+// ページ用YAMLを動的に読み込み
+// src/data/pages/ にYAMLを追加するだけで自動的にページとして認識される
+const pageModules = import.meta.glob('../data/pages/*.yaml', { query: '?raw', eager: true, import: 'default' });
+
+// ページデータを動的に構築
+const dataSources: Record<string, any> = {};
+const pageTypes: string[] = [];
+
+for (const path in pageModules) {
+  const fileName = path.split('/').pop()?.replace('.yaml', '') || '';
+  const content = yaml.load(pageModules[path] as string) as any;
+  dataSources[fileName] = content;
+  pageTypes.push(fileName);
+}
+
+// 利用可能なページタイプを取得
+export function getPageTypes(): string[] {
+  return pageTypes;
+}
 
 // 統一インターフェースでページデータを取得
-export function getPageData(type: PageType) {
+// collection フィールドがある場合は Content Collections から自動取得
+export async function getPageData(type: string) {
   const data = dataSources[type];
+  if (!data) {
+    throw new Error(`Unknown page type: ${type}`);
+  }
+
+  let items = data.items || [];
+
+  // Content Collections から自動取得
+  if (data.collection) {
+    const collectionItems = await getCollection(data.collection);
+    const sortedItems = collectionItems.sort((a, b) => {
+      const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;
+      const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+      return dateB - dateA;
+    });
+
+    // Content Collections のアイテムを統一フォーマットに変換
+    const collectionFormatted = sortedItems.map((item) => ({
+      title: item.data.title,
+      category: data.categories?.[0]?.id || 'default',
+      url: `/${data.collection}/${item.slug}`,
+      description: item.data.description || `arXiv:${item.data.arxiv || ''}`,
+      tags: item.data.tags,
+    }));
+
+    items = [...items, ...collectionFormatted];
+  }
+
   return {
     page: data.page,
     categories: data.categories,
-    items: data.items,
+    items,
   };
 }

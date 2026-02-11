@@ -2,11 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentCard from '../../components/ContentCard.astro';
 import { localize, type Lang } from '../../i18n/utils';
-import { getPageData } from '../../utils/data';
-import type { PageType } from '../../types/content';
+import { getPageData, getPageTypes } from '../../utils/data';
 
 export function getStaticPaths() {
-  const types: PageType[] = ['publications', 'presentations', 'resources', 'tools', 'notes'];
+  const types = getPageTypes();
   return types.flatMap((type) => [
     { params: { lang: undefined, type } },
     { params: { lang: 'ja', type } },
@@ -14,8 +13,8 @@ export function getStaticPaths() {
 }
 
 const lang: Lang = (Astro.params.lang as Lang) || 'en';
-const type = Astro.params.type as PageType;
-const data = getPageData(type);
+const type = Astro.params.type as string;
+const data = await getPageData(type);
 const pageData = data.page;
 
 // カテゴリでグループ化
