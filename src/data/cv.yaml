@@ -34,6 +34,14 @@ education:
 
 awards:
   - name:
+      en: Dean's Award, Faculty of Engineering, University of Tokyo
+      ja: 東京大学工学系研究科長賞
+    year: 2025
+    description:
+      en: Department of Applied Physics, University of Tokyo
+      ja: 東京大学工学系研究科
+  
+  - name:
       en: Shoji Tanaka Award (Outstanding Master's Thesis in the Department of Applied Physics)
       ja: 田中昭二賞（物理工学専攻優秀修士論文賞）
     year: 2025

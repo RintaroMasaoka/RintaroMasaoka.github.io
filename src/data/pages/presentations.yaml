@@ -172,6 +172,19 @@ items:
         url: /resources/2024/Talk_Komaba.pdf
 
   # === Oral Presentations (International) ===
+  - title: "c = -2 conformal field theory in quadratic band touching"
+    authors:
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
+    year: 2026
+    category: oral_en
+    venue: "APS March Meeting (Mar. 16, 2026)"
+    links:
+      - label: Slides
+        url: /resources/2026/slides_APS2026.pdf
+
   - title: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
     authors:
       en:

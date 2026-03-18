@@ -2,6 +2,14 @@
 # Add news items in reverse chronological order (newest first)
 
 items:
+  - date: "2026-03-24"
+    content:
+      en: "Received the Dean's Award from the Graduate School of Engineering"
+      ja: "工学系研究科研究科長賞を受賞"
+  - date: "2026-03-01"
+    content:
+      en: "Temporarily joined Motome group"
+      ja: "求研究室に一時所属開始"
   - date: "2026-01-30"
     content:
       en: "Received Shoji Tanaka Award (Outstanding Master's Thesis in Applied Physics)"
