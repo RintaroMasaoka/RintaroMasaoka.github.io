@@ -2,10 +2,18 @@
 # Add news items in reverse chronological order (newest first)
 
 items:
+  - date: "2026-04-01"
+    content:
+      en: "Joined Watanabe group at HKUST"
+      ja: "香港科技大学渡辺悠樹研究室に所属開始"
   - date: "2026-03-24"
     content:
       en: "Received the Dean's Award from the Graduate School of Engineering"
       ja: "工学系研究科研究科長賞を受賞"
+  - date: "2026-03-24"
+    content:
+      en: "Received the Master of Engineering degree from the University of Tokyo"
+      ja: "東京大学で工学修士の学位を取得"
   - date: "2026-03-01"
     content:
       en: "Temporarily joined Motome group"
