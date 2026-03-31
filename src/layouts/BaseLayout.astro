@@ -89,25 +89,57 @@ const jsonLd = {
   <!-- KaTeX CSS（数式用） -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 
-  <!-- テーマ初期化（FLASHを防ぐためにhead内で即時実行） -->
+  <!-- テーマ初期化・言語自動検出（FLASHを防ぐためにhead内で即時実行） -->
   <script is:inline>
     (function() {
-      const theme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // テーマ初期化
+      var theme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
       if (theme === 'dark' || (!theme && prefersDark)) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
       }
+
+      // 言語の自動検出とリダイレクト
+      var currentLang = document.documentElement.lang || 'en';
+      var preferredLang = localStorage.getItem('preferredLang');
+      var targetLang;
+
+      if (preferredLang === 'en' || preferredLang === 'ja') {
+        targetLang = preferredLang;
+      } else {
+        var browserLang = navigator.language || '';
+        targetLang = browserLang.startsWith('ja') ? 'ja' : 'en';
+      }
+
+      if (targetLang !== currentLang) {
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(en|ja)/, '') || '/';
+        var newPath;
+
+        if (targetLang === 'en') {
+          newPath = cleanPath;
+        } else {
+          newPath = '/' + targetLang + (cleanPath === '/' ? '' : cleanPath);
+        }
+
+        if (newPath !== path) {
+          window.location.replace(newPath + window.location.search + window.location.hash);
+        }
+      }
     })();
 
-    // テーマ切り替え・モバイルメニュー用のイベントリスナー
+    // テーマ切り替え・モバイルメニュー・言語切替用のイベントリスナー
     document.addEventListener('click', function(e) {
       var target = e.target;
-      
-      // theme-toggleボタンまたはその子要素をクリックした場合
+
       while (target && target !== document) {
+        // 言語切替リンク：preferredLangを保存（リンク遷移はそのまま実行）
+        if (target.dataset && target.dataset.langSwitch) {
+          localStorage.setItem('preferredLang', target.dataset.langSwitch);
+        }
         if (target.id === 'theme-toggle') {
           document.documentElement.classList.toggle('dark');
           var isDark = document.documentElement.classList.contains('dark');
@@ -139,8 +171,3 @@ const jsonLd = {
 </html>
 
 
-<script>
-  // Save language preference when page loads
-  const currentLang = document.documentElement.lang;
-  localStorage.setItem('preferredLang', currentLang);
-</script>
