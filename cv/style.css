@@ -1,0 +1,39 @@
+body {
+  font-family: "Times New Roman", "Noto Serif", serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #000;
+}
+
+h1 {
+  font-size: 24pt;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #000;
+}
+
+h2 {
+  font-size: 13pt;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+p {
+  margin: 4px 0;
+}
+
+ul {
+  margin: 4px 0;
+  padding-left: 24px;
+}
+
+li {
+  margin: 4px 0;
+}
+
+a {
+  color: #000;
+}

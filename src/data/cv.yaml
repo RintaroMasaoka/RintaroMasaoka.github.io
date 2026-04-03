@@ -8,10 +8,34 @@ page:
     en: Curriculum Vitae
     ja: 履歴書
 
+# CV PDF 用の研究概要
+research_interests:
+  en: |
+    I am interested in exploring universal properties of quantum phases of matter and quantum phase transitions. My current research focuses on frustration-free quantum systems, which exhibit distinctive properties in both gapped and gapless phases. Main research directions include:
+
+    - Proof of universal inequality on dynamical exponents for frustration-free quantum critical points.
+    - Formulating and characterizing frustration-free free-fermion systems.
+  ja: |
+    量子物質の相と量子相転移の普遍的性質の解明に興味があります。現在の研究では、ギャップのある相とギャップレスの相の双方で特徴的な性質を示すフラストレーションフリー量子系に焦点を当てています。主な研究の方向性は以下の通りです。
+
+    - フラストレーションフリー量子臨界点における動的指数の普遍的不等式の証明。
+    - フラストレーションフリー自由フェルミオン系の定式化と特徴づけ。
+
+positions:
+  - title:
+      en: Research Assistant
+      ja: Research Assistant
+    institution:
+      en: Watanabe Group, Department of Physics, Hong Kong University of Science and Technology
+      ja: 香港科技大学 物理学科 渡辺悠樹研究室
+    period:
+      en: April 2026 - Present
+      ja: 2026年4月 - 現在
+
 education:
   - degree:
-      en: Master of Engineering (Expected)
-      ja: 修士課程（在学中）
+      en: Master of Engineering
+      ja: 修士（工学）
     field:
       en: Applied Physics
       ja: 物理工学
@@ -19,8 +43,8 @@ education:
       en: Watanabe Group, Department of Applied Physics, University of Tokyo
       ja: 東京大学 工学系研究科 物理工学専攻 渡辺悠樹研究室
     period:
-      en: April 2024 - Present
-      ja: 2024年4月 - 現在
+      en: April 2024 - March 2026
+      ja: 2024年4月 - 2026年3月
   - degree:
       en: Bachelor of Science
       ja: 学士（理学）
