@@ -21,11 +21,24 @@ npm install    # 依存関係インストール
 npm run dev    # 開発サーバー起動 (localhost:4321)
 npm run build  # 本番ビルド (./dist に出力)
 npm run preview # ビルド結果プレビュー
+npm run cv     # CV PDF 生成 (英語・日本語)
 ```
+
+## CV PDF Generation
+
+`cv/generate.mjs` が `src/data/cv.yaml` + `src/data/profile.yaml` から CV PDF を自動生成する。
+
+- `npm run cv` → `public/cv.pdf`（英語）+ `public/cv_ja.pdf`（日本語）を生成
+- CV の内容更新は YAML を編集するだけでよい（PDF を直接編集しない）
+- PDF 変換に `md-to-pdf` を使用（システムの Chrome を利用）
+- スタイルは `cv/style.css` で定義
 
 ## Project Structure
 
 ```
+cv/
+├── generate.mjs  # YAML → Markdown → PDF 生成スクリプト
+└── style.css     # CV PDF 用スタイル
 src/
 ├── components/     # Astro コンポーネント (Header, Footer, PublicationCard 等)
 ├── content/        # Astro Content Collections 設定
