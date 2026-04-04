@@ -4,7 +4,9 @@ import ContentCard from './ContentCard.astro';
 import { useTranslations, localize, getLocalizedPath } from '../i18n/utils';
 import { profile, news as newsData, getPageData } from '../utils/data';
 import { getIconPath } from '../utils/icons';
-import profileImage from '../images/profile.png';
+const profileImages = Object.values(
+  import.meta.glob<{ default: ImageMetadata }>('../images/profiles/*.{png,jpg,jpeg,webp}', { eager: true })
+).map((mod) => mod.default);
 
 interface Props {
   lang: 'en' | 'ja';
@@ -26,14 +28,18 @@ const allNews = newsData.items || [];
   <div class="flex flex-col md:flex-row gap-8 items-start">
     <!-- プロフィール写真 -->
     <div class="flex-shrink-0">
-      <Image
-        src={profileImage}
-        alt={localize(profile.name, lang)}
-        class="w-32 h-32 rounded-2xl shadow-lg object-cover"
-        width={256}
-        height={256}
-        quality={100}
-      />
+      {profileImages.map((img, i) => (
+        <Image
+          src={img}
+          alt={localize(profile.name, lang)}
+          class="w-32 h-32 rounded-2xl shadow-lg object-cover profile-photo"
+          width={256}
+          height={256}
+          quality={100}
+          style="display: none;"
+          data-profile-index={i}
+        />
+      ))}
       <!-- ソーシャルリンクアイコン -->
       <div class="flex items-center justify-center gap-2 mt-3">
         {profile.contact.github && (
@@ -213,3 +219,11 @@ const allNews = newsData.items || [];
     ))}
   </div>
 </section>
+
+<script>
+  const photos = document.querySelectorAll('.profile-photo');
+  if (photos.length > 0) {
+    const idx = Math.floor(Math.random() * photos.length);
+    (photos[idx] as HTMLElement).style.display = '';
+  }
+</script>
