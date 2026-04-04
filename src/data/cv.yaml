@@ -54,7 +54,9 @@ education:
     institution:
       en: Department of Physics, Faculty of Science, University of Tokyo
       ja: 東京大学 理学部 物理学科
-    year: 2024
+    period:
+      en: April 2020 - March 2024
+      ja: 2020年4月 - 2024年3月
 
 awards:
   - name:
