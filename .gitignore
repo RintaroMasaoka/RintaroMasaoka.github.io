@@ -3,3 +3,26 @@ __site/
 node_modules/
 dist/
 .astro/
+
+# LaTeX build artifacts (sources like .tex/.bib/.sty are kept; only build byproducts are ignored)
+*.aux
+*.log
+*.synctex.gz
+*.synctex(busy)
+*.bcf
+*.run.xml
+*.out
+*.fls
+*.fdb_latexmk
+*.toc
+*.blg
+*.bbl
+*.nav
+*.snm
+*.vrb
+*-SAVE-ERROR
+*.bib_
+
+# Python
+__pycache__/
+*.pyc

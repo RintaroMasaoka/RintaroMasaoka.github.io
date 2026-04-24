@@ -11,7 +11,7 @@ const notesCollection = defineCollection({
   }),
 });
 
-const prerequisitesCollection = defineCollection({
+const aiGenArticlesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -24,5 +24,5 @@ const prerequisitesCollection = defineCollection({
 
 export const collections = {
   notes: notesCollection,
-  prerequisites: prerequisitesCollection,
+  'ai-gen-articles': aiGenArticlesCollection,
 };
