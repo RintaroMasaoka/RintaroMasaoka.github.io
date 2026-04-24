@@ -1,0 +1,26 @@
+# ===================================
+# AI-generated Articles
+# arXiv論文を理解するためのAI支援レビューノート
+# ===================================
+
+page:
+  title:
+    en: AI-generated Articles
+    ja: AI生成記事
+  description:
+    en: Review notes generated with AI assistance for understanding recent papers
+    ja: 最新論文を理解するためのAI支援レビューノート
+
+# Content Collectionsからアイテムを自動取得
+collection: ai-gen-articles
+
+# カテゴリの定義
+categories:
+  - id: reviews
+    label:
+      en: Reviews
+      ja: レビュー
+    icon: document
+
+# items は Content Collections から自動生成されるため空
+items: []

@@ -70,7 +70,7 @@ items:
       ja: "修論発表，東京大学工学系研究科物理工学専攻 (2026年1月27日)"
     links:
       - label: Slides
-        url: /resources/2026/Master Thesis.pdf
+        url: /presentations/2026/Master Thesis.pdf
   # === Press ===
   - title:
       en: "A Rigorous Lower Bound on the Dynamical Critical Exponent of the Ising Model"
@@ -103,7 +103,7 @@ items:
       ja: "基礎物理セミナー，東京大学理学系研究科物理学専攻 (2026年1月19日)"
     links:
       - label: Slides
-        url: /resources/2026/seminar_260119.pdf
+        url: /presentations/2026/seminar_260119.pdf
 
   - title: "c=-2 conformal field theory in quadratic band touching"
     authors:
@@ -118,7 +118,7 @@ items:
       ja: "物工ジョイントセミナー，東京大学工学系研究科物理工学専攻 (2025年11月14日)"
     links:
       - label: Slides
-        url: /resources/2025/fCQCP_joint.pdf
+        url: /presentations/2025/fCQCP_joint.pdf
 
   - title: "On dynamic critical exponents of gapless frustration-free systems"
     authors:
@@ -133,7 +133,7 @@ items:
       ja: "東京大学物性研究所理論セミナー (2024年12月20日)"
     links:
       - label: Slides
-        url: /resources/2024/Talk_ISSP.pdf
+        url: /presentations/2024/Talk_ISSP.pdf
       - label: Info
         url: https://www.issp.u-tokyo.ac.jp/maincontents/seminar/all2_en.html?pid=25487
 
@@ -150,7 +150,7 @@ items:
       ja: "MSセミナー，Kavli IPMU (2024年10月29日)"
     links:
       - label: Slides
-        url: /resources/2024/Seminar_IPMU.pdf
+        url: /presentations/2024/Seminar_IPMU.pdf
       - label: Info
         url: https://db.ipmu.jp/seminar/?seminar_id=3254
 
@@ -169,7 +169,7 @@ items:
       ja: "白石研セミナー，東京大学 (2024年10月28日)"
     links:
       - label: Slides
-        url: /resources/2024/Talk_Komaba.pdf
+        url: /presentations/2024/Talk_Komaba.pdf
 
   # === Oral Presentations (International) ===
   - title: "c = -2 conformal field theory in quadratic band touching"
@@ -183,7 +183,7 @@ items:
     venue: "APS March Meeting (Mar. 16, 2026)"
     links:
       - label: Slides
-        url: /resources/2026/slides_APS2026.pdf
+        url: /presentations/2026/slides_APS2026.pdf
 
   - title: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
     authors:
@@ -200,7 +200,7 @@ items:
     venue: "APS Joint March Meeting (Mar. 16-21, 2025)"
     links:
       - label: Slides
-        url: /resources/2025/APS2025.pdf
+        url: /presentations/2025/APS2025.pdf
 
   # === Oral Presentations (Domestic) ===
   - title:
@@ -222,7 +222,7 @@ items:
       ja: "日本物理学会2025年年次大会，広島大学 (2025年9月16-19日)"
     links:
       - label: Slides
-        url: /resources/2025/JPS_slide.pdf
+        url: /presentations/2025/JPS_slide.pdf
 
   - title:
       en: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
@@ -243,7 +243,7 @@ items:
       ja: "日本物理学会2024年年次大会，北海道大学 (2024年9月16-19日)"
     links:
       - label: Slides
-        url: /resources/2024/slides_JPS.pdf
+        url: /presentations/2024/slides_JPS.pdf
 
   - title:
       en: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
@@ -264,7 +264,7 @@ items:
       ja: "第69回物性若手夏の学校，西浦温泉ホテル龍城 (2024年8月2-6日)"
     links:
       - label: Slides
-        url: /resources/2024/slides_cmpss.pdf
+        url: /presentations/2024/slides_cmpss.pdf
 
   # === Poster Presentations (International) ===
   - title: "Rigorous lower bound on dynamical exponents of critical frustration-free systems"
@@ -282,7 +282,7 @@ items:
     venue: "FoPM International Symposium (Feb. 18, 2025)"
     links:
       - label: Poster
-        url: /resources/2025/foPM_poster.pdf
+        url: /presentations/2025/foPM_poster.pdf
 
   # === Poster Presentations (Domestic) ===
   - title: "Logarithmic conformal field theory in singular band touching system"
@@ -298,7 +298,7 @@ items:
       ja: "熱場の量子論とその応用，物性研 (2025年9月3-5日)"
     links:
       - label: Poster
-        url: /resources/2025/poster_fCQCP.pdf
+        url: /presentations/2025/poster_fCQCP.pdf
   - title:
       en: "Rigorous lower bound of dynamic critical exponents in critical frustration-free systems"
       ja: "臨界的なフラストレーションフリー系における動的臨界指数の厳密な下限"
@@ -318,4 +318,4 @@ items:
       ja: "第69回物性若手夏の学校，西浦温泉ホテル龍城 (2024年8月2-6日)"
     links:
       - label: Poster
-        url: /resources/2024/poster_cmpss.pdf
+        url: /presentations/2024/poster_cmpss.pdf

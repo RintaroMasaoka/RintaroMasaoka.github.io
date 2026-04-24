@@ -49,14 +49,34 @@ src/
 ├── pages/
 │   ├── [...lang]/  # 動的言語ルーティング (index, cv, [type])
 │   ├── notes/      # Markdown ノートページ
-│   └── prerequisites/ # 前提知識ページ
+│   └── ai-gen-articles/ # AI生成記事ページ
 ├── styles/         # グローバルスタイル
 ├── types/          # TypeScript 型定義 (content.ts)
-└── utils/          # ユーティリティ (data.ts, icons.ts, prerequisites.ts)
+└── utils/          # ユーティリティ (data.ts, icons.ts)
 public/
-├── notes/          # PDF ファイル置き場
+├── notes/          # PDF ノート（LaTeX ソース同梱）
+├── presentations/  # 発表スライド・ポスター（年別）
 └── tools/          # ツール (HTML)
 ```
+
+## 公開素材の配置ルール
+
+**基本原則**: ページ名（= URL の第一セグメント）= 物理ディレクトリ名。`public/` サブディレクトリと `src/data/pages/*.yaml` の命名はページ名に一致させる。
+
+| ページ | URL 空間 | Markdown ソース | 静的ファイル（PDF等） | メタデータ |
+|---|---|---|---|---|
+| Notes | `/notes/**` | `src/content/notes/<slug>.md` | `public/notes/<name>/**` | `src/data/pages/notes.yaml` |
+| Tools | `/tools/**` | — | `public/tools/<name>/**` | `src/data/pages/tools.yaml` |
+| Presentations | `/presentations/**` | — | `public/presentations/<year>/*.pdf` | `src/data/pages/presentations.yaml` |
+| Publications | `/publications` | — | — | `src/data/pages/publications.yaml` |
+| AI-gen Articles | `/ai-gen-articles/**` | `src/content/ai-gen-articles/<slug>.md` | — | `src/data/pages/ai-gen-articles.yaml` |
+
+**重要**: Markdown と静的ファイルは **Astro の制約で物理パスが分かれる**（Content Collection は `src/content/` 必須、静的ファイルは `public/` 必須）。ただし **URL 空間では同一 `/notes/` 配下に統合される** ため、論理的には 1 ページ = 1 ノートカテゴリ。
+
+- PDF ノートの参照は yaml の `filename` フィールド（例: `filename: XY model/XY.pdf` → `/notes/XY model/XY.pdf`）
+- Markdown ノートの参照は yaml の `url` フィールド（例: `url: /notes/aba/`）
+- 同じ yaml 内で両方混在してよい（表示側で区別しない）
+- LaTeX ソース (`.tex`, `.bib`, 図, `.sty` 等) は `public/notes/<name>/` に同梱公開。ビルド副産物は `.gitignore` で除外済み
 
 ## Key Architecture
 
