@@ -2,19 +2,24 @@ import yaml from 'js-yaml';
 import { getCollection } from 'astro:content';
 
 // Import YAML files as raw strings using Vite's ?raw suffix
-import profileRaw from '../data/profile.yaml?raw';
-import navigationRaw from '../data/navigation.yaml?raw';
+import profileRaw from '../data/site/profile.yaml?raw';
+import navigationRaw from '../data/site/navigation.yaml?raw';
+import homeIntroRaw from '../data/home/intro.yaml?raw';
+import newsRaw from '../data/home/news.yaml?raw';
 import cvRaw from '../data/cv.yaml?raw';
-import newsRaw from '../data/news.yaml?raw';
 
 export const profile = yaml.load(profileRaw) as any;
 export const navigation = yaml.load(navigationRaw) as any;
-export const cv = yaml.load(cvRaw) as any;
+export const home = yaml.load(homeIntroRaw) as any;
 export const news = yaml.load(newsRaw) as any;
+export const cv = yaml.load(cvRaw) as any;
 
-// ページ用YAMLを動的に読み込み
-// src/data/pages/ にYAMLを追加するだけで自動的にページとして認識される
-const pageModules = import.meta.glob('../data/pages/*.yaml', { query: '?raw', eager: true, import: 'default' });
+// リストページ用YAMLを動的に読み込み
+// - 直下: publications.yaml, presentations.yaml（トップナビ直下ページ）
+// - others/: notes.yaml, tools.yaml, ai-gen-articles.yaml（Others サブメニュー）
+const topLevelPageModules = import.meta.glob('../data/{publications,presentations}.yaml', { query: '?raw', eager: true, import: 'default' });
+const othersPageModules = import.meta.glob('../data/others/*.yaml', { query: '?raw', eager: true, import: 'default' });
+const pageModules = { ...topLevelPageModules, ...othersPageModules };
 
 // ページデータを動的に構築
 const dataSources: Record<string, any> = {};
