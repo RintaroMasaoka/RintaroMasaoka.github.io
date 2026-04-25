@@ -42,7 +42,13 @@ cv/
 src/
 ├── components/     # Astro コンポーネント (Header, Footer, PublicationCard 等)
 ├── content/        # Astro Content Collections 設定
-├── data/           # YAML コンテンツファイル (profile, cv, navigation, news)
+├── data/           # YAML コンテンツファイル（ナビ階層に対応して分類）
+│   ├── site/       #   サイト共通: profile (identity), navigation
+│   ├── home/       #   Home ページ: intro (bio, research_interests), news
+│   ├── cv.yaml     #   CV ページ
+│   ├── publications.yaml    # ナビ直下ページ
+│   ├── presentations.yaml   # ナビ直下ページ
+│   └── others/     #   ナビ Others サブメニュー: notes, tools, ai-gen-articles
 ├── i18n/           # 多言語ユーティリティ (ui.ts, utils.ts)
 ├── images/         # 画像 (Astro 最適化対象)
 ├── layouts/        # ページレイアウト (BaseLayout, NoteLayout)
@@ -61,15 +67,23 @@ public/
 
 ## 公開素材の配置ルール
 
-**基本原則**: ページ名（= URL の第一セグメント）= 物理ディレクトリ名。`public/` サブディレクトリと `src/data/pages/*.yaml` の命名はページ名に一致させる。
+**基本原則**: ページ名（= URL の第一セグメント）= 物理ディレクトリ名。`public/` サブディレクトリと `src/data/` 配下の yaml 配置はナビゲーション階層に対応させる。
 
 | ページ | URL 空間 | Markdown ソース | 静的ファイル（PDF等） | メタデータ |
 |---|---|---|---|---|
-| Notes | `/notes/**` | `src/content/notes/<slug>.md` | `public/notes/<name>/**` | `src/data/pages/notes.yaml` |
-| Tools | `/tools/**` | — | `public/tools/<name>/**` | `src/data/pages/tools.yaml` |
-| Presentations | `/presentations/**` | — | `public/presentations/<year>/*.pdf` | `src/data/pages/presentations.yaml` |
-| Publications | `/publications` | — | — | `src/data/pages/publications.yaml` |
-| AI-gen Articles | `/ai-gen-articles/**` | `src/content/ai-gen-articles/<slug>.md` | — | `src/data/pages/ai-gen-articles.yaml` |
+| Home | `/`, `/ja/` | — | — | `src/data/home/intro.yaml`, `src/data/home/news.yaml` |
+| CV | `/cv`, `/ja/cv` | — | `public/cv.pdf`, `public/cv_ja.pdf` | `src/data/cv.yaml` |
+| Publications | `/publications` | — | — | `src/data/publications.yaml` |
+| Presentations | `/presentations/**` | — | `public/presentations/<year>/*.pdf` | `src/data/presentations.yaml` |
+| Notes | `/notes/**` | `src/content/notes/<slug>.md` | `public/notes/<name>/**` | `src/data/others/notes.yaml` |
+| Tools | `/tools/**` | — | `public/tools/<name>/**` | `src/data/others/tools.yaml` |
+| AI-gen Articles | `/ai-gen-articles/**` | `src/content/ai-gen-articles/<slug>.md` | — | `src/data/others/ai-gen-articles.yaml` |
+
+**`src/data/` 配下の分類基準**:
+- `site/` — サイト共通（Header/Footer など全ページで参照）: `profile.yaml` (name, title, affiliation, photo, contact), `navigation.yaml`
+- `home/` — Home ページ固有: `intro.yaml` (bio, research_interests, ページメタ), `news.yaml`
+- 直下 — トップナビ直下のリストページ: `cv.yaml`, `publications.yaml`, `presentations.yaml`
+- `others/` — ナビ "Others" サブメニュー: `notes.yaml`, `tools.yaml`, `ai-gen-articles.yaml`
 
 **重要**: Markdown と静的ファイルは **Astro の制約で物理パスが分かれる**（Content Collection は `src/content/` 必須、静的ファイルは `public/` 必須）。ただし **URL 空間では同一 `/notes/` 配下に統合される** ため、論理的には 1 ページ = 1 ノートカテゴリ。
 

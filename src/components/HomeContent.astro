@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import ContentCard from './ContentCard.astro';
 import { useTranslations, localize, getLocalizedPath } from '../i18n/utils';
-import { profile, news as newsData, getPageData } from '../utils/data';
+import { profile, home, news as newsData, getPageData } from '../utils/data';
 import { getIconPath } from '../utils/icons';
 const profileImages = Object.values(
   import.meta.glob<{ default: ImageMetadata }>('../images/profiles/*.{png,jpg,jpeg,webp}', { eager: true })
@@ -18,7 +18,7 @@ const t = useTranslations(lang);
 // 最新3件の業績
 const pubsData = await getPageData('publications');
 const recentPubs = pubsData.items.slice(0, 3);
-const researchInterests = profile.research_interests || [];
+const researchInterests = home.research_interests || [];
 // 全ニュース
 const allNews = newsData.items || [];
 ---
@@ -107,7 +107,7 @@ const allNews = newsData.items || [];
       </p>
       <div class="prose prose-primary max-w-none">
         <p class="text-primary-600 dark:text-primary-300 leading-relaxed">
-          {localize(profile.bio, lang)}
+          {localize(home.bio, lang)}
         </p>
       </div>
     </div>

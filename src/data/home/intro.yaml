@@ -1,27 +1,13 @@
 # ===================================
-# プロフィール情報 / Profile Information
+# Home ページ本文 / Home Page Content
+# 自己紹介と研究分野（/ と /ja/ で表示される）
 # ===================================
 
-# ホームページメタデータ
+# ページメタデータ
 page:
   title:
     en: 政岡 凜太郎
     ja: Rintaro Masaoka
-
-name:
-  en: Rintaro Masaoka
-  ja: 政岡 凜太郎
-
-title:
-  en: Research Assistant
-  ja: Research Assistant
-
-affiliation:
-  en: Watanabe Group, Department of Physics, Hong Kong University of Science and Technology
-  ja: 香港科技大学 渡辺悠樹研究室
-
-# プロフィール写真（public/に配置）
-photo: /profile.png
 
 # 短い自己紹介
 bio:
@@ -31,14 +17,6 @@ bio:
   ja: |
     物性理論・統計物理学を専攻する博士課程の学生(現在はResearch Assistant)です。
     量子相転移、特に非自明な動的臨界指数で特徴づけられる量子臨界現象に興味があります。
-
-# 連絡先
-contact:
-  email: rmasaoka2[at]gmail.com
-  github: RintaroMasaoka
-  google_scholar: https://scholar.google.com/citations?view_op=list_works&hl=en&user=v_nG4PUAAAAJ&gmla=AEk_c1uCwAT7M4_Eo-TG0TEopVuzCiWaGCRi2ILe6-HdvpPffcCJrXYHjuJZf-CbjqFWyMvryXYkv1STqpMYp9e08Wc-LRbbtHI_
-  arxiv: https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Rintaro+Masaoka&terms-0-field=author&classification-physics=y&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=100&order=-announced_date_first
-  orcid: 0009-0002-4280-9783
 
 # 研究分野
 research_interests:

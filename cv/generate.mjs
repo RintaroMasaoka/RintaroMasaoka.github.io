@@ -8,7 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 
 const profile = yaml.load(
-  readFileSync(resolve(root, "src/data/profile.yaml"), "utf-8")
+  readFileSync(resolve(root, "src/data/site/profile.yaml"), "utf-8")
 );
 const cv = yaml.load(
   readFileSync(resolve(root, "src/data/cv.yaml"), "utf-8")
