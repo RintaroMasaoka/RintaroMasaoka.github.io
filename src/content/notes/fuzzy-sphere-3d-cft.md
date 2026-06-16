@@ -1,7 +1,7 @@
 ---
 title: "Fuzzy sphere regularization 入門"
 lang: ja
-description: "Fuzzy sphere regularization を使って 3d CFT の spectrum, OPE data, correlator, defect data を読むためのノート"
+description: "球面上の lowest Landau level から 3d CFT の conformal data へ至る構成を追う"
 tags: ["CFT", "fuzzy sphere", "3d Ising", "conformal data"]
 ---
 
