@@ -5,162 +5,11 @@ description: "Fuzzy sphere regularization を使って 3d CFT の spectrum, OPE 
 tags: ["CFT", "fuzzy sphere", "3d Ising", "conformal data"]
 ---
 
-Fuzzy sphere regularization は、3d CFT を $S^2\times\mathbb{R}$ 上の有限サイズ量子多体系として調べる方法である。このノートの目的は、finite-size Hamiltonian の spectrum、matrix element、correlator を、CFT の conformal data として読むための辞書を一つの流れで整理することである。
+Fuzzy sphere regularization は、3d CFT を $S^2\times\mathbb{R}$ 上の有限サイズ量子多体系として調べる方法である。このノートの目的は、finite-size Hamiltonian の spectrum、matrix element、correlator を、CFT の conformal data として読むための判定規則を一つの流れで整理することである。
 
-以下では、まず CFT 側で読もうとしている data を固定し、次に spherical Landau level がなぜ $SO(3)$ を保つ cutoff になるのかを計算で見る。その後、LLL orbital 上の Hamiltonian construction、3d Ising CFT の spectrum、OPE coefficients、four-point correlator、defect CFT へ進む。
+以下では、まず spherical Landau level がなぜ $SO(3)$ を保つ cutoff になるのかを計算で見る。その後、LLL orbital 上の Hamiltonian construction、3d Ising CFT の spectrum、OPE coefficients、four-point correlator、defect CFT へ進む。
 
-## 1. 3d CFT の辞書
-
-### 位置づけ
-
-fuzzy sphere の論文で出てくる spectrum、matrix element、correlator は、有限サイズ Hamiltonian の出力そのものではなく、3d CFT の conformal data として読むために作られている。このレビューの目的は、CFT の一般論を広げることではなく、Zhu et al. の spectrum paper と Hu, He, Zhu の OPE paper を読むときに必要な最小辞書を固定することである。
-
-このノートで使う CFT 側の基本語彙は、local operator、scaling dimension、spin、primary / descendant、OPE coefficient、correlator である。fuzzy sphere 側では、それぞれが finite-size eigenstate、energy gap、$SO(3)$ angular momentum、multiplet pattern、operator matrix element、sphere 上の probe measurement と対応する。
-
-### CFT data
-
-local CFT は、局所演算子の集合と、それらの相関関数で特徴づけられる。実用上は、primary operators の scaling dimensions と spin、そして OPE coefficients が基本データになる。
-
-scaling dimension $\Delta$ は、operator が scale transformation でどう変わるかを表す量である。spin $\ell$ は、3d Euclidean rotations の下でどの $SO(3)$ 表現に属するかを表す。3d Ising CFT ではさらに $\mathbb{Z}_2$ parity があり、order parameter $\sigma$ は odd、energy operator $\epsilon$ や stress tensor $T_{\mu\nu}$ は even である。
-
-ここで最初に必要なのは、「CFT とは何か」を全体的に定義することではなく、finite-size spectrum の表に現れる次の読み替えである。
-
-| CFT 側 | fuzzy sphere 側 |
-|---|---|
-| primary operator $O$ | low-energy eigenstate candidate $\lvert O\rangle$ |
-| scaling dimension $\Delta_O$ | rescaled energy gap |
-| spin $\ell$ | total angular momentum $L$ |
-| internal symmetry sector | $\mathbb{Z}_2$、flavor、charge などの Hilbert-space sector |
-| descendant | primary candidate から integer gap 上に現れる multiplet |
-| OPE coefficient | normalized matrix element / ratio |
-
-この表は同一視ではなく、IR limit での辞書である。有限サイズでは irrelevant operators、operator mixing、normalization convention、state identification error が入る。
-
-### State-operator correspondence
-
-radial quantization では、平坦空間の原点に局所演算子 $O(0)$ を挿入することと、$S^2$ 上の状態 $\lvert O\rangle$ を作ることが対応する。radial direction の対数を時間 $\tau$ と見ると、理論は $S^2\times\mathbb{R}$ 上の量子力学になる。
-
-このとき radial time translation の generator は dilatation operator $D$ であり、
-
-$$
-D|O\rangle=\Delta_O |O\rangle
-$$
-
-と読める。したがって球面上の Hamiltonian の energy gap は、適切な単位で scaling dimension に対応する。
-
-$$
-E_O-E_0 \propto \frac{\Delta_O}{R}
-$$
-
-fuzzy sphere の Hamiltonian では比例係数が microscopic normalization に依存するため、論文では stress tensor などの既知 dimension を使って全体の energy scale を固定する。Zhu et al. では、$\Delta_T=3$ を持つ conserved spin-2 operator $T_{\mu\nu}$ が重要な calibration point になる。
-
-ここで注意すべきことは、energy が近いだけでは operator identification にならないという点である。CFT operator は $\Delta$、spin、$\mathbb{Z}_2$、parity、descendant structure をまとめて持つ。finite-size state を primary と読むには、これらが一貫しているかを確認する必要がある。
-
-### Primary と descendant
-
-primary operator は、conformal transformations の中で一番下にある operator である。descendant は primary に derivative を作用させて作る。
-
-scalar primary $O$ なら、schematic には
-
-$$
-O,\qquad
-\partial_\mu O,\qquad
-\partial_{\mu_1}\partial_{\mu_2}O,\qquad
-\square O,\ldots
-$$
-
-という tower ができる。derivative は dimension を 1 上げ、spin-1 の index を持つので、descendant は primary から決まった $\Delta$ shift と spin pattern を持つ。
-
-fuzzy sphere spectrum で primary / descendant を見分けるときは、次の順番で読む。
-
-1. 低い energy の state を primary candidate として見る。
-2. その candidate の $L$、$\mathbb{Z}_2$、parity から、CFT representation theory が予測する descendant pattern を出す。
-3. 予測された integer-spaced tower が finite-size spectrum に現れるかを見る。
-4. その multiplet を取り除き、残った低い state を次の primary candidate として読む。
-
-stress tensor $T_{\mu\nu}$ は conserved operator なので特別である。保存則
-
-$$
-\partial_\mu T_{\mu\nu}=0
-$$
-
-により、generic な spin-2 primary より descendant が少ない short multiplet になる。この short multiplet structure は、$T_{\mu\nu}$ を energy-scale calibration に使うときの追加 check になる。
-
-### OPE coefficients
-
-OPE は、二つの local operators を近づけたときに、別の local operators の和として展開できるという主張である。scalar primary については、schematic に
-
-$$
-\phi_\alpha(x)\phi_\beta(0)
-\sim
-\sum_\gamma
-f_{\alpha\beta\gamma}
-|x|^{\Delta_\gamma-\Delta_\alpha-\Delta_\beta}
-\phi_\gamma(0)
-\;+\;\text{descendants}
-$$
-
-と書ける。この係数 $f_{\alpha\beta\gamma}$ が OPE coefficient であり、二点関数 normalization を固定した後の三点関数係数と同じ情報を持つ。
-
-radial quantization では、三点関数の情報は sphere 上の matrix element に変換できる。
-
-$$
-\langle \phi_\alpha|\phi_\beta(\Omega)|\phi_\gamma\rangle
-\quad\leftrightarrow\quad
-f_{\alpha\beta\gamma}
-$$
-
-fuzzy sphere で直接挿入できるのは CFT operator $\phi_\beta$ そのものではなく、microscopic probe $\mathcal{O}(\Omega)$ である。例えば $n^z(\Omega)$ は Ising odd scalar の probe であり、IR では
-
-$$
-\mathcal{O}(\Omega)
-=
-\frac{c_\sigma}{R^{\Delta_\sigma}}\sigma(\Omega)
-+
-\frac{c_{\sigma'}}{R^{\Delta_{\sigma'}}}\sigma'(\Omega)
-+
-\cdots
-$$
-
-のように、同じ量子数を持つ CFT operators の混合として読む。large-$R$ limit では一番小さい $\Delta$ を持つ term が支配的になる。
-
-したがって OPE extraction では、raw matrix element をそのまま universal number と読まない。probe normalization $c_\sigma$ などを消すために ratio を取る。典型例は
-
-$$
-\frac{\langle \sigma|n^z(\Omega)|\epsilon\rangle}
-{\langle \sigma|n^z(\Omega)|0\rangle}
-\to
-f_{\sigma\sigma\epsilon}
-$$
-
-という読み方である。これは、state identification、probe selection、finite-size extrapolation がすべて揃って初めて CFT data になる。
-
-### Correlators and defects
-
-four-point correlator は、spectrum と OPE coefficients から作られる関数的な object である。fuzzy sphere の four-point paper を読むときは、まったく新しい種類の bulk conformal data を測っているというより、有限サイズ Hilbert space で得た operator probes と state sums から、cross-ratio-dependent correlator を再構成していると読む。
-
-defect CFT では、bulk CFT の中に line や surface などの defect を入れる。すると、bulk local operator の spectrum だけでは理論を指定できなくなる。defect-local operators、bulk one-point coefficients、bulk-defect OPE coefficients が追加 data になる。fuzzy sphere では defect term を Hamiltonian に加えるため、defect spectrum は元の bulk Hamiltonian の追加 observable ではなく、defect 背景での別の state-operator correspondence として読む必要がある。
-
-この違いは後で分けて扱う。bulk four-point correlator では複数の local operator insertion を組み合わせ、defect-local data では line defect によって残る対称性と defect operator を読む。
-
-### Reading checklist
-
-1. どの microscopic Hilbert space sector を CFT のどの symmetry sector と読んでいるか。
-2. energy gap を $\Delta$ に直す scale を何で固定しているか。
-3. primary identification が単一の energy level だけでなく descendant pattern に支えられているか。
-4. local probe がどの CFT operator を leading component として含むか。
-5. matrix element から universal coefficient を出すとき、どの ratio で非普遍的 normalization を消しているか。
-6. finite-size correction を $R$、$N$、irrelevant operator、operator mixing のどれとして扱っているか。
-
-### 未解決点
-
-- $T_{\mu\nu}$ calibration は、finite-size spectrum のどの range で安定に働くのか。
-- parity $P$ と microscopic particle-hole symmetry の対応は、Zhu et al. の convention をもう一度確認する必要がある。
-- OPE extraction で使う tensor / spinning operator の angular factor は、scalar ratio の直感からどこで外れるか。
-- conformal-generator papers では、primary 判定が multiplet pattern から $K_\mu|O\rangle\approx0$ の直接 check へどの程度移るのか。
-
-
-## 2. Spherical Landau Levels
+## 1. Spherical Landau Levels
 
 ### 位置づけ
 
@@ -515,7 +364,7 @@ $$
 
 を tune し、IR data が同じ CFT に近づくかを見る、という理解が近い。同じ理論かどうかは、microscopic interaction が文字通り同じかではなく、scaling dimensions や OPE data などの universal quantities が同じ極限に向かうかで判断する。
 
-### 辞書
+### 用語
 
 | Term | Meaning |
 |---|---|
@@ -530,8 +379,7 @@ $$
 | LLL projection | 高い Landau level を捨て、有限次元 Hilbert space に制限する操作。 |
 | fuzzy | LLL 射影後に座標が非可換な有限次元行列になること。 |
 
-
-## 3. LLL Hamiltonian
+## 2. LLL Hamiltonian
 
 ### 位置づけ
 
@@ -790,21 +638,7 @@ $$
 
 第三に、どの interaction parameters を tune するか。CFT 側では relevant operator による perturbation を調整して critical point に行く。fuzzy sphere 側では、microscopic interaction の係数を調整して、低エネルギー spectrum が CFT data に合う点を探す。
 
-### 未解決点
-
-このノートで整理したのは一般原理であり、具体的な Ising fuzzy sphere Hamiltonian の詳細はまだ読んでいない。
-
-次に確認すべきことは、
-
-- Zhu et al. (2023) が実際にどの species / filling / interaction を使うか。
-- その Hamiltonian が number-density operator で書かれているのか、pseudopotential で書かれているのか。
-- tuning parameter が何で、critical point をどう同定するか。
-- FuzzifiED.jl では同じ Hamiltonian をどの API で作るか。
-- 小さい $s$ で、$s\otimes s$ の channel decomposition を実際に計算できるか。
-
-である。
-
-### 辞書
+### 用語
 
 | Term | Meaning |
 |---|---|
@@ -817,8 +651,7 @@ $$
 | number-density operator $n_{\ell q}$ | 粒子数密度の spherical harmonic component を LLL に射影した operator。 |
 | tuning parameter | microscopic Hamiltonian の係数。critical point へ近づけるために調整する。 |
 
-
-## 4. 3d Ising spectrum
+## 3. 3d Ising spectrum
 
 ### 位置づけ
 
@@ -1029,7 +862,7 @@ Zhu et al. (2023) では、この scale を energy-momentum tensor $T_{\mu\nu}$ 
 
 表にはさらに高い primary や、parity-odd primary の $\epsilon^{P-}$、$\sigma^{P-}$ も載っている。ただし、最初に読むべきなのは、低い primary とその conformal multiplet の対応である。
 
-この対応は、あとで OPE coefficients を読むときの入力にもなる。例えば $\langle\sigma|n^z|\epsilon\rangle$ のような matrix element は、finite-size spectrum のどの状態を $\lvert \sigma\rangle$、$\lvert \epsilon\rangle$ と読むかに依存する。ただし、このノートで先に固定したいのは個別 operator の対応表ではなく、energy gap、$L$、$\mathbb{Z}_2$、$P$、stress-tensor calibration、descendant pattern が、どの仮定と check によって CFT data として読まれているかである。
+この対応は、あとで OPE coefficients を読むときの入力にもなる。例えば $\langle\sigma|n^z|\epsilon\rangle$ のような matrix element は、finite-size spectrum のどの状態を $\lvert \sigma\rangle$、$\lvert \epsilon\rangle$ と読むかに依存する。ただし、このノートで先に固定したいのは個別 operator の同定リストではなく、energy gap、$L$、$\mathbb{Z}_2$、$P$、stress-tensor calibration、descendant pattern が、どの仮定と check によって CFT data として読まれているかである。
 
 ### Primary 判定
 
@@ -1196,16 +1029,7 @@ $$
 
 この意味で、$\sigma$ と $\epsilon$ は同定しやすい。odd / even sector の最も低い scalar primary であり、descendant tower も単純だからである。高い operator では、単一の energy level が bootstrap 値に近いことだけでは不十分で、multiplet 全体の pattern が合っているかを見る必要がある。
 
-### 未解決点
-
-- stress-tensor calibration は、spectrum normalization の選択、$T_{\mu\nu}$ の同定、finite-size consistency check のどこまでを担っているのか。
-- primary / descendant pattern は、読者にどこまで representation theory として説明し、どこから Zhu et al. の spectrum table の経験的照合として扱うべきか。
-- spacetime parity $P$ は、この読解ノートではどの程度まで microscopic symmetry として説明する必要があるか。particle-hole symmetry との関係は、本文に入れるべきか、下流の詳細確認に回すべきか。
-- FuzzifiED または小さい ED 例で、$N$、sector、$L^2$、energy、parity labels が実際にどう出力され、このノートの語彙とどう対応するか。
-- full primary table の再現や、各 primary の descendant match の clean / noisy 判定は、このノートの橋が固まった後の下流検証として扱う。
-
-
-## 5. OPE data
+## 4. OPE data
 
 ### 位置づけ
 
@@ -1578,17 +1402,7 @@ $$
 
 多くの混乱は、一層目と三層目を混ぜるところから来る。例えば、$n^z$ は CFT operator $\sigma$ そのものではない。$\sigma$ を IR 展開に含む microscopic probe である。同様に、OPE coefficient は raw matrix element ではない。normalization cancellation と finite-size extrapolation の後に残る universal intercept である。
 
-### 未解決点
-
-- In the paper's supplemental material, what exactly fixes the improvement choice $O_\epsilon(\Omega)=H(\Omega)+2h n^x(\Omega)$?
-- Which finite-size correction powers are predicted by descendants, and which are empirical fit choices?
-- How are signs of OPE coefficients fixed in the fuzzy sphere convention? In particular, what phase conventions are used for states like $\lvert \sigma'\rangle$?
-- For $T_{\mu\nu}$, how does the normalization convention compare with conformal bootstrap conventions?
-- Can a small FuzzifiED example compute the spherical harmonic components $n^a_{\ell q}$ and a simple matrix element, even if system sizes are too small for a serious extrapolation?
-- How does the later conformal-generator paper improve primary-state identification before OPE extraction?
-
-
-## 6. Bulk correlators
+## 5. Bulk correlators
 
 ### 位置づけ
 
@@ -1626,15 +1440,7 @@ Han, Hu, Zhu, He はこの方法で次の correlator を扱う。
 - $\langle \sigma\sigma\epsilon\epsilon\rangle$
 - $\langle \sigma\sigma T_{\mu\nu}T_{\rho\eta}\rangle$
 
-### 未解決点
-
-- finite-size fuzzy sphere data から $g(u,v)$ をどう正規化しているのか。
-- 直接測った four-point function と conformal block reconstruction はどこまで比較されているのか。
-- crossing symmetry は finite-size extrapolation 後に見るのか、有限 $N$ の consistency check として見るのか。
-- $\sigma$、$\epsilon$、$T_{\mu\nu}$ を probe する microscopic operators は何か。
-
-
-## 7. Defect CFT
+## 6. Defect CFT
 
 ### 位置づけ
 
@@ -1856,17 +1662,6 @@ fuzzy sphere での対応は、bulk probe と defect-sector state の matrix ele
 7. bulk-defect two-point function / bulk-defect OPE coefficient の normalization。
 
 特に、defect spectrum を bulk spectrum table の延長として読まないことが重要である。defect term を入れた時点で、読んでいる Hilbert space と operator dictionary が変わっている。
-
-### 未解決点
-
-- pole-localized density $n^z(\theta=0,\varphi=0)$ と $n^z(\theta=\pi,\varphi=0)$ は、large $h_d$ limit では $m=\pm s$ orbital pinning に落ちる。有限 $h_d$ で同じ fixed point に流れる根拠は、$h_d$ 依存性の解析と $h_d=\infty$ spectrum の比較でどう示されているのか。
-- $h_d$ の sign と normalization は、defect fixed point の同定にどう影響するのか。
-- defect spectrum の energy scale は、論文本文では bulk CFT の velocity を使う。supplement にある displacement calibration との一致は、どの範囲の operators で確認されているのか。
-- defect primaries と descendants の integer spacing は、有限 size data からどの程度 clean に読めるのか。
-- displacement operator の同定は、$\Delta_D=2$ への接近だけでなく、$L_z=\pm1$ quantum number や descendant pattern でも確認されているのか。
-- one-point coefficient と bulk-defect OPE coefficient の normalization は、bulk OPE coefficient extraction とどこまで同型なのか。
-- reported defect data は、Monte Carlo、epsilon expansion、bootstrap など既存手法とどこで比較されているのか。
-
 
 ## References
 
