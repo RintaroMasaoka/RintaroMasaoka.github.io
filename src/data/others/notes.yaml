@@ -85,13 +85,13 @@ items:
       ja: KdV方程式に関するノート
 
   - title:
-      en: Fuzzy Sphere Regularization for 3d CFT
-      ja: 3d CFT のための fuzzy sphere regularization
+      en: "Introduction to Fuzzy Sphere Regularization"
+      ja: "Fuzzy sphere regularization 入門"
     category: notes
     url: /notes/fuzzy-sphere-3d-cft/
     description:
-      en: A note on fuzzy sphere regularization as a way to extract conformal data of 3d CFTs
-      ja: Fuzzy sphere regularization を 3d CFT の conformal data を読む方法として整理するノート
+      en: A note on reading spectra, OPE data, correlators, and defects of 3d CFTs through fuzzy sphere regularization
+      ja: Fuzzy sphere regularization を使って 3d CFT の spectrum, OPE data, correlator, defect data を読むためのノート
 
   - title:
       en: c-theorem and g-theorem
