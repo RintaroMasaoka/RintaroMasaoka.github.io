@@ -7,7 +7,9 @@ tags: ["CFT", "fuzzy sphere", "3d Ising", "conformal data"]
 
 Fuzzy sphere regularization は、3d CFT を $S^2\times\mathbb{R}$ 上の有限サイズ量子多体系として調べる方法である。Radial quantization では 3d CFT の局所演算子が $S^2$ 上の状態に対応するので、有限サイズ Hamiltonian の spectrum、matrix element、correlator から conformal data を抽出できる。
 
-問題は、$S^2$ 上で自由度を有限個に減らしながら回転対称性を壊さない cutoff をどう作るかである。Spherical lowest Landau level はそのための一粒子空間を与える。この空間の上に many-body Hamiltonian を置くと、3d Ising CFT の spectrum、OPE coefficients、four-point correlator、defect CFT data を同じ幾何で調べられる。
+問題は、$S^2$ 上で自由度を有限個に減らしながら回転対称性を壊さない cutoff をどう作るかである。Spherical lowest Landau level はそのための一粒子空間を与える。この空間の上に対称性を保つ many-body Hamiltonian を置き、critical point に tune すると、対応する 3d CFT の spectrum や matrix element を調べられる。
+
+以下では、まずこの一般的な構成を説明し、その後は 3d Ising CFT を具体例に固定する。Ising の fuzzy-sphere Hamiltonian で spectrum を同定し、その同じ有限サイズ Hilbert space から OPE coefficients、four-point correlator、defect CFT data へ進む。
 
 ## 1. Spherical Landau Levels
 
@@ -420,7 +422,7 @@ $$
 
 の形を取る。一般には三体以上の項もありうる。
 
-したがって、二体相互作用までを扱う段階での Hamiltonian construction の問題は、
+したがって、Hamiltonian を二体相互作用までで作る段階の問題は、
 
 $$
 h_{mm'},\qquad V_{m_1m_2m_3m_4}
@@ -616,7 +618,7 @@ $$
 
 ### Ising への接続
 
-Hamiltonian construction の最初の具体例が 3d Ising fuzzy sphere である。目的は microscopic Hamiltonian そのものではなく、対称性を持つ有限サイズ Hamiltonian の列
+Hamiltonian の構成で最初に扱う具体例は 3d Ising fuzzy sphere である。目的は microscopic Hamiltonian そのものではなく、対称性を持つ有限サイズ Hamiltonian の列
 
 $$
 H_s(g_1,g_2,\ldots)
@@ -624,11 +626,11 @@ $$
 
 を作り、パラメータを tune した先の低エネルギー spectrum が 3d Ising CFT の conformal spectrum に近づくかである。
 
-そのため、Hamiltonian construction で確認すべき点は次の三つである。
+そのため、Hamiltonian を構成するときに確認すべき点は次の三つである。
 
 第一に、どの自由度を使うか。つまり orbital 数 $N_m=2s+1$、particle number、flavor、fermion/boson の区別である。
 
-第二に、どの対称性を保つか。少なくとも fuzzy sphere の利点である $SO(3)$ は保つ。Ising を狙うなら、CFT の基本対称性である $\mathbb{Z}_2$ が microscopic Hamiltonian でどう実現されているかも確認する。その他の model-specific な対称性は、具体的な Ising Hamiltonian のところで扱う。
+第二に、どの対称性を保つか。少なくとも fuzzy sphere の利点である $SO(3)$ は保つ。3d Ising CFT を目標にする場合は、CFT の基本対称性である $\mathbb{Z}_2$ が microscopic Hamiltonian でどう実現されているかも確認する。その他の model-specific な対称性は、具体的な Ising Hamiltonian のところで扱う。
 
 第三に、どの interaction parameters を tune するか。CFT では relevant operator による perturbation を調整して critical point に行く。fuzzy sphere では、microscopic interaction の係数を調整して、低エネルギー spectrum が CFT data に合う点を探す。
 
@@ -646,6 +648,8 @@ $$
 | tuning parameter | microscopic Hamiltonian の係数。critical point へ近づけるために調整する。 |
 
 ## 3. 3d Ising spectrum
+
+ここからは、一般的な cutoff の話を離れ、Zhu et al. (2023) の 3d Ising 実装に話を絞る。
 
 Zhu et al. (2023) は、連続回転対称性を保った有限サイズの量子多体系から 3d Ising CFT の operator spectrum を抽出する。
 
@@ -823,7 +827,7 @@ $$
 
 ### Spectrum
 
-Hamiltonian construction が分かっても、それだけでは fuzzy sphere から 3d Ising CFT のデータを得たことにはならない。次の段階は、有限サイズ spectrum の各状態を、$\sigma,\epsilon,T,\epsilon',T'$ などの CFT operator とその descendants に対応づけることである。
+Hamiltonian の構成が分かっても、それだけでは fuzzy sphere から 3d Ising CFT のデータを得たことにはならない。次の段階は、有限サイズ spectrum の各状態を、$\sigma,\epsilon,T,\epsilon',T'$ などの CFT operator とその descendants に対応づけることである。
 
 critical point 近くで exact diagonalization した低エネルギー状態は、$SO(3)$ spin $L$、Ising $\mathbb{Z}_2$、parity $P$ で分類される。ここで $P$ は空間反転に対する偶奇であり、CFT operator の parity と対応する。したがって有限サイズ spectrum のラベル $(L,\mathbb{Z}_2,P)$ は、CFT operator の spin $\ell$、$\mathbb{Z}_2$ parity、spacetime parity を同定するための最初の手がかりになる。
 
