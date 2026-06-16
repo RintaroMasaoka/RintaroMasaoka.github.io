@@ -90,8 +90,8 @@ items:
     category: notes
     url: /notes/fuzzy-sphere-3d-cft/
     description:
-      en: A note on reading spectra, OPE data, correlators, and defects of 3d CFTs through fuzzy sphere regularization
-      ja: Fuzzy sphere regularization を使って 3d CFT の spectrum, OPE data, correlator, defect data を読むためのノート
+      en: From spherical lowest Landau levels to conformal data in 3d CFT
+      ja: 球面上の lowest Landau level から 3d CFT の conformal data へ至る構成を追う
 
   - title:
       en: c-theorem and g-theorem
