@@ -21,17 +21,11 @@ bio:
 # 研究分野
 research_interests:
   - title:
-      en: Conformal Field Theory
-      ja: 共形場理論
-    description:
-      en: My fascination with CFT lies in the profound universality where microscopic details are washed away, leaving behind a rigid mathematical structure governed by symmetry. In low dimensions, this symmetry becomes infinite-dimensional, allowing us to determine correlation functions and spectra exactly, bridging the gap between rigorous mathematics and observable physical phenomena.
-      ja: くりこみ群によって微視的な詳細を捨象したときに現れる、対称性に支配された普遍的な数理構造の美しさが共形場理論の魅力です。低次元系ではこの対称性が無限次元代数へと拡張されるため、相関関数やスペクトルを厳密に決定することが可能となり、数理的な厳密性と物理的実在とを繋ぐ興味深い舞台となっています。
-  - title:
       en: Non-relativistic Critical Phenomena
       ja: 非相対論的臨界現象
     description:
-      en: While Lorentz symmetry is a cornerstone of high-energy physics, condensed matter systems offer a broader playground where this constraint is naturally relaxed. I am interested in the rich variety of universality classes that emerge when space and time scale anisotropically, such as in Lifshitz critical points. Exploring these non-relativistic physics reveals novel scaling laws and entanglement structures that are forbidden in the relativistic framework, expanding our understanding of quantum criticality.
-      ja: 素粒子物理学の大前提であるローレンツ対称性も、凝縮系という舞台では絶対的な制約ではありません。私は、Lifshitz臨界点のように空間と時間が異なるスケーリング則に従う系で現れる、多様な普遍性クラスに興味を持っています。
+      en: At a quantum critical point, space and time need not scale in the same way. I am interested in quantum critical phenomena with anisotropic space-time scaling, including Lifshitz critical points. In particular, I study how the dynamical critical exponent is constrained and how it is reflected in low-energy excitations and correlations.
+      ja: 量子臨界点では、空間と時間が同じようにスケールするとは限りません。私は、Lifshitz臨界点をはじめ、空間と時間が異なる尺度で変換される量子臨界現象に関心があります。特に、動的臨界指数がどのような条件で制約され、それが低エネルギー励起や相関にどう現れるかを研究しています。
 
   # - title:
   #     en: Quantum Entanglement
