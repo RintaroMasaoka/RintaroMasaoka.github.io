@@ -4,6 +4,9 @@ node_modules/
 dist/
 .astro/
 
+# Local-only directories excluded from iCloud Drive sync
+*.nosync/
+
 # LaTeX build artifacts (sources like .tex/.bib/.sty are kept; only build byproducts are ignored)
 *.aux
 *.log
