@@ -14,10 +14,9 @@ export const ui = {
     'section.tools': 'Tools',
 
     // Section headings
-    'section.positions': 'Positions',
-    'section.education': 'Education',
+    'section.career': 'Education and Positions',
     'section.awards': 'Awards & Honors',
-    'section.grants': 'Grants & Funding',
+    'section.grants': 'Fellowships and Funding',
     'section.skills': 'Skills',
     'section.researchInterests': 'Research Interests',
     'section.recentPublications': 'Recent Publications',
@@ -43,10 +42,9 @@ export const ui = {
     'section.tools': 'ツール',
 
     // Section headings
-    'section.positions': '職歴',
-    'section.education': '学歴',
+    'section.career': '学歴・職歴',
     'section.awards': '受賞歴',
-    'section.grants': '研究費',
+    'section.grants': 'フェローシップ・研究支援',
     'section.skills': 'スキル',
     'section.researchInterests': '研究分野',
     'section.recentPublications': '最近の論文',

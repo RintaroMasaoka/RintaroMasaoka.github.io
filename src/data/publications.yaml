@@ -21,7 +21,7 @@ categories:
   - id: journal
     label:
       en: Journal Articles
-      ja: 学術論文
+      ja: 査読付き論文
     icon: journal
 
 # 業績リスト（新しい順）
@@ -37,16 +37,18 @@ items:
       - label: arXiv
         url: https://arxiv.org/abs/2511.16496
 
-  - title: "Frustration-free free fermions and beyond"
+  - title: "Frustration-free fermionic systems: Finite-size scaling and band topology"
     authors:
       - Rintaro Masaoka
       - Seishiro Ono
       - Hoi Chun Po
       - Haruki Watanabe
-    year: 2025
-    category: preprint
-    venue: arXiv:2503.12879
+    year: 2026
+    category: journal
+    venue: Phys. Rev. B 113, 195120 (2026)
     links:
+      - label: Journal
+        url: https://doi.org/10.1103/qv6d-dk21
       - label: arXiv
         url: https://www.arxiv.org/abs/2503.12879
 
@@ -56,10 +58,12 @@ items:
       - Rintaro Masaoka
       - Haruki Watanabe
       - Hoi Chun Po
-    year: 2025
-    category: preprint
-    venue: arXiv:2503.14312
+    year: 2026
+    category: journal
+    venue: Phys. Rev. Research 8, 023171 (2026)
     links:
+      - label: Journal
+        url: https://doi.org/10.1103/9mt9-9fjr
       - label: arXiv
         url: https://www.arxiv.org/abs/2503.14312
 
@@ -85,7 +89,7 @@ items:
       - Haruki Watanabe
     year: 2025
     category: journal
-    venue: J Stat Phys 192, 76 (2025)
+    venue: J. Stat. Phys. 192, 76 (2025)
     links:
       - label: Journal
         url: https://doi.org/10.1007/s10955-025-03456-3
