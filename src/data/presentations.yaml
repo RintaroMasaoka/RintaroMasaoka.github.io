@@ -203,6 +203,21 @@ items:
         url: /presentations/2025/APS2025.pdf
 
   # === Oral Presentations (Domestic) ===
+  - title: "c = -2 conformal field theory in quadratic band touching"
+    authors:
+      en:
+        - Rintaro Masaoka
+      ja:
+        - 政岡凜太郎
+    year: 2026
+    category: oral_jp
+    venue:
+      en: "JPS 2026 Annual Meeting, Hong Kong University of Science and Technology (Sep. 17, 2026)"
+      ja: "日本物理学会2026年年次大会，Hong Kong University of Science and Technology (2026年9月17日)"
+    links:
+      - label: Slides
+        url: /presentations/2026/slides_JPS2026.pdf
+
   - title:
       en: "Rigorous lower bound of dynamic critical exponents of Ising model"
       ja: "Ising模型の動的臨界指数に対する厳密な下限"

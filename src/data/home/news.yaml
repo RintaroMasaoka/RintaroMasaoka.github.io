@@ -2,6 +2,10 @@
 # Add news items in reverse chronological order (newest first)
 
 items:
+  - date: "2026-09-17"
+    content:
+      en: "Gave a presentation at the JPS 2026 Annual Meeting"
+      ja: "日本物理学会2026年年次大会で発表"
   - date: "2026-04-01"
     content:
       en: "Joined Watanabe group at HKUST"
