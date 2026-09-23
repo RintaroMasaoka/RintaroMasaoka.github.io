@@ -1,13 +1,13 @@
 {
   "name": "research-workflow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run a structured theoretical-physics research cycle with scoped investigation, independent checks, and durable research memory.",
   "author": { "name": "Rintaro Masaoka" },
   "skills": "./skills/",
   "interface": {
     "displayName": "Research Workflow",
     "shortDescription": "Coordinate and verify theoretical-physics research.",
-    "longDescription": "A research lead with bounded specialist roles, shared evidence rules, and a project adapter for reproducible session handoff.",
+    "longDescription": "A research lead with bounded specialist roles, shared evidence rules, and automatic initialization of research memory in a writable project.",
     "developerName": "Rintaro Masaoka",
     "category": "Productivity",
     "capabilities": [],

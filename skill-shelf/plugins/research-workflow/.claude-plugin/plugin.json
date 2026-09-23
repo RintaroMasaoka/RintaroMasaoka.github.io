@@ -1,6 +1,6 @@
 {
   "name": "research-workflow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run a structured theoretical-physics research cycle with scoped investigation, independent checks, and durable research memory.",
   "author": { "name": "Rintaro Masaoka" }
 }

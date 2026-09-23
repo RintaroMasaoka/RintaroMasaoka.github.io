@@ -7,7 +7,9 @@ description: "理論物理研究を adaptive research lead として自律的に
 
 main agent が research lead として科学的方向、通常の調査・推論、provisional integration、session handoff を担う。subagent は既定の工程ではなく、明確な追加価値を持つ bounded instrument として使う。
 
-この package 内の役割を dispatch するときは必ず `research-workflow:<skill-name>` を使う。`research/focus.md` の Agent field も同じ qualified identity とする。package の `README.md` に記した project requirements を満たさない場合は実行を始めず、不足を報告する。
+この package 内の役割を dispatch するときは必ず `research-workflow:<skill-name>` を使う。`research/focus.md` の Agent field も同じ qualified identity とする。初回利用時に雛形コピーや事前設定をユーザーへ要求しない。書き込み可能な研究フォルダでは package 内の `../../scripts/session.py` を使い、不足している研究記録だけを初期化する。既存ファイルは上書きしない。適切なフォルダがなければ会話内で調査を進め、永続記録がないことを報告する。
+
+永続記録を置けない場合は、project tree に書き込む補助roleを dispatch せず、main agent の direct work と明示的な未検証事項の報告に留める。
 
 ## 読み込み
 
@@ -25,11 +27,11 @@ main agent が research lead として科学的方向、通常の調査・推論
 
 ## 引数
 
-正の整数を MAX_CYCLES とする。省略時5、不正値は5。resume beacon が有効なら保存値を使う。
+正の整数を MAX_CYCLES とする。省略時5、不正値は5。中断からの再開では current focus と直近の session log から残作業を再構成する。
 
 ## Adaptive loop
 
-1. Session Start と beacon validation。
+1. Session Start。質問と既存の研究記録を確認し、書き込み可能な研究フォルダでは不足分を自動初期化する。
 2. current focus と必要な node context を読み、main agent が live question と判別手段を選ぶ。
 3. stagnation、contradiction、major closure、pivot risk がある場合だけ `research-workflow:direction-challenger` を使う。
 4. main agent が通常の検索、読解、導出、局所計算、draft synthesis を直接行う。
@@ -60,6 +62,5 @@ main agentが同じtoolとcontextで完了できるcontext収集、単純検索�
 - user-facing message は原則 Session End の最終報告一回だけ。
 - sleep や filesystem polling で agent を待たない。runtime の agent wait を使う。
 - subagent call数や役割網羅をprogressとして数えない。research decisionを変えないcallは行わない。
-- session-owned manifest だけを commit 対象にし、既存 user edit を混ぜない。
-- push 前に project remote を確認する。framework remote へ project state を push しない。
+- この skill は commit や push を自動で行わない。既存 user edit を混ぜず、研究の session 記録だけを保存する。
 - 文献本文を使うときは出典を追跡する。論文執筆はこの package の責務ではない。

@@ -69,7 +69,7 @@ cursorは一cycleで高々一edge移動する。Lead Workは必須。Worker Disp
     Presentation boundary: true|false
     Session-end sweep: true|false
 
-## Close-session packet
+## Session packet
 
     ## Focus
     {next focus.md body}
@@ -92,8 +92,6 @@ cursorは一cycleで高々一edge移動する。Lead Workは必須。Worker Disp
     ## Agenda
     - {meeting item}
 
-    ## Commit
-    message: {Japanese commit message}
 
 ## Return tokens
 

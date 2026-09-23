@@ -37,7 +37,7 @@
       "name": "research-workflow",
       "source": "./plugins/research-workflow",
       "description": "Coordinate theoretical-physics research with bounded roles, independent checks, and durable handoff.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": { "name": "Rintaro Masaoka" }
     }
   ]

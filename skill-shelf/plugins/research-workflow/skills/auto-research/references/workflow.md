@@ -4,15 +4,11 @@
 
 ## Session Start
 
-1. project root、AGENTS.md、必要 script、git repository を確認。
-2. .logs/.auto-research-active があれば schema と repository identity を検証し、resume か stale blocker を機械的に決める。
-3. research/state.md がなければ package の project-template を案内して停止。研究対象の基本概念を確認し、beacon が gitignore 対象であることを確認。
-4. focus.md がなければ root cursor で初期化する。
-5. focus、`.logs/last_research_draft.md`、cursor ancestor、cursor state/findings/map/plan/guide、必要な直下child summaryを読み、cycle count、session-owned paths、evidence、review verdict、open tree transactionをmemoryに保持する。全treeやraw logsは無差別に読まない。
+1. ユーザーの研究質問と、現在の作業フォルダがその研究の保存先として適切かを確認する。project instructions があれば読むが、`AGENTS.md`、Git、既存の `.scripts/` は必須ではない。
+2. 書き込み可能な研究フォルダでは、この skill の `SKILL.md` から `../../scripts/session.py` を解決し、`python3 <resolved-path> --project-root <project-root> init --question <question>` を実行する。これは欠けた `research/state.md` と `research/focus.md` だけを作る。既存の研究内容は変更しない。適切な保存先がなければ初期化せず会話内で作業する。
+3. 既存の focus、直近の `.logs/*_auto-research-session.md` があればその最新一件、cursor ancestor、必要な state/findings/map/plan/guide を読む。全treeやraw logsは無差別に読まない。中断からの再開もこの記録と現在の依頼から判断し、未知の過去状態を推測で埋めない。
 
 ## Direction
-
-各cycleの先頭で `.logs/.auto-research-active` を `kind: auto-research`、`phase: cycle`、`remaining`、`max_cycles`、`repository_root`を持つJSONへ上書きする。`repository_root`はSession Startで確定したproject rootのcanonical absolute pathとする。compaction/reconnect後はschemaとrepository identityが一致する場合だけ未完cycleを再開し、未知field valueやidentity mismatchは実行せずblockerとして扱う。
 
 main agentはcurrent local board、recent evidence、review flags、literature statusから、次のresearch decisionを最も判別する問いを一つ選び、research/focus.mdを更新する。
 
@@ -50,9 +46,7 @@ substantive durable surface の review request が返ったら critic を dispat
 2. open semantic transaction、未吸収のreviewed evidence、durable promotion/retraction、cross-node route debtがある場合だけcuratorをdispatchする。局所的なprovisional workだけならmain agentがcloseする。
 3. Research Draftまたはdurable surfaceが依存するpending Durable Reviewだけをdrainする。
 4. changed evidenceに対するhuman reading routeが欠けるnodeだけguide-writerへ渡す。
-5. main agentがbash .scripts/log-path.sh close-session-packetでpathを取得し、next focus、last-session handoff、Research Draft、session log、backlog、agenda、commit messageを含むpacketを書く。
-6. beaconを`kind: auto-research`、`phase: session-end`、`remaining: 0`、`max_cycles`、`repository_root`へ書き換える。
-7. bash .scripts/log-path.sh close-session-manifest で session-owned path list を作り、node .scripts/close-session.mjs --packet {packet} --kind auto-research --stage-manifest {manifest} を実行。
-8. cycle 数、主要結果、node change、deliverable、agenda、commit/push を簡潔に user へ返す。
+5. 書き込み可能な研究フォルダでは focus を更新し、package-local `session.py path --kind log --label auto-research-session` で取得した path に、next focus、handoff、Research Draft、session log、backlog、agenda を含む packet を保存する。適切な保存先がなければ同じ内容を最終報告に含める。
+6. cycle 数、主要結果、node change、deliverable、未解決の verification debt と次の問いを簡潔に user へ返す。commit と push は行わない。
 
-packet作成に失敗した場合、current focusと既知session-end noteから最小packetを作る。commit/push failureはresearch resultを消さずfinal metadataに残す。
+packet保存に失敗した場合、研究結果は消さず、最終報告に handoff と未保存の状態を明記する。
