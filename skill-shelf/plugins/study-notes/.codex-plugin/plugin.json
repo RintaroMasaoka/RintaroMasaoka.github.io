@@ -1,0 +1,16 @@
+{
+  "name": "study-notes",
+  "version": "0.1.0",
+  "description": "Create and revise scholarly study notes, with an optional Markdown-to-HTML authoring specification.",
+  "author": { "name": "Rintaro Masaoka" },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Study Notes",
+    "shortDescription": "Write and review scholarly study notes.",
+    "longDescription": "Study-note authoring, explanatory-prose review, reader-state checks, and a documented HTML manuscript format. A renderer is not included.",
+    "developerName": "Rintaro Masaoka",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use study-notes:study-note to create or revise this study note for its intended reader."
+  }
+}

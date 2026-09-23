@@ -260,6 +260,12 @@ p {
   font-size: clamp(1.05rem, 1.5vw, 1.32rem);
 }
 
+.book--study {
+  --book-color: #686d62;
+  width: clamp(63px, 6.7vw, 84px);
+  height: 318px;
+}
+
 .book-meta {
   position: relative;
   z-index: 1;
@@ -497,13 +503,19 @@ footer {
     min-height: 330px;
     gap: 5px;
     padding-inline: 2px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
   }
 
   .book,
   .book--academic,
   .book--nogap,
-  .book--manim {
+  .book--manim,
+  .book--research,
+  .book--study {
     min-width: 0;
+    flex-shrink: 0;
     height: 288px;
     padding: 14px 8px 12px;
   }
@@ -512,6 +524,8 @@ footer {
   .book--academic { width: clamp(64px, 12.5vw, 88px); height: 310px; }
   .book--nogap { width: clamp(52px, 10vw, 70px); height: 268px; }
   .book--manim { width: clamp(52px, 10vw, 70px); height: 298px; }
+  .book--research { width: clamp(62px, 12vw, 82px); height: 286px; }
+  .book--study { width: clamp(56px, 11vw, 74px); height: 280px; }
 
   .book-title,
   .book--academic .book-title {

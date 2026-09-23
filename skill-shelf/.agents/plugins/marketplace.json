@@ -33,6 +33,12 @@
       "source": { "source": "local", "path": "./plugins/research-workflow" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Productivity"
+    },
+    {
+      "name": "study-notes",
+      "source": { "source": "local", "path": "./plugins/study-notes" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
     }
   ]
 }

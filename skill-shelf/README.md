@@ -15,6 +15,7 @@ of the author's everyday development environment.
 | Nogap | 0.1.0 |
 | Manim | 0.1.0+codex.20260820030822 |
 | Research Workflow | 0.1.1 |
+| Study Notes | 0.1.0 |
 
 Update these files only through a reviewed promotion with a package version
 change. The private working stock remains the authority for ongoing development.

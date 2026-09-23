@@ -34,6 +34,13 @@ const packages = {
     description: "A structured theoretical-physics research cycle with bounded investigation, independent checks, and research memory initialized as needed.",
     skills: ["auto-research", "research-planner", "direction-challenger", "researcher", "critic", "curator", "guide-writer"],
   },
+  "study-notes": {
+    version: "0.1.0",
+    title: "Study Notes",
+    license: "MIT License",
+    description: "Create and revise scholarly study notes. Includes an optional HTML manuscript specification; a renderer is not bundled.",
+    skills: ["study-note"],
+  },
 };
 
 const dialog = document.querySelector("#package-dialog");
