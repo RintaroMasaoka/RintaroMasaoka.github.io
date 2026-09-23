@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Reusable AI skill packages by Rintaro Masaoka. Browse the shelf and download the collection."
+    />
+    <title>Skill Shelf — Rintaro Masaoka</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121f33'/%3E%3Cpath d='M8 8h4v16H8zm6-2h4v18h-4zm6 5h4v13h-4z' fill='%23f4f7fb'/%3E%3Cpath d='M6 24h20v2H6z' fill='%23ff5a3d'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Skill Shelf home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Skill Shelf</span>
+      </a>
+      <p class="publisher">A collection by <strong>Rintaro Masaoka</strong></p>
+    </header>
+
+    <main id="top">
+      <section class="shelf" aria-labelledby="shelf-title">
+        <div class="section-heading">
+          <h2 id="shelf-title">Packages</h2>
+          <span>4 packages</span>
+        </div>
+
+        <div class="shelf-case">
+          <div class="books" aria-label="Available packages">
+            <button class="book book--paper package-open" data-package="physics-paper" aria-label="Open Physics Paper package">
+              <span class="book-title">Physics Paper</span>
+              <span class="book-meta"><b>v0.1.5</b><i>1 skill</i></span>
+            </button>
+
+            <button class="book book--academic package-open" data-package="academic-writing" aria-label="Open Academic Writing package">
+              <span class="book-title">Academic Writing</span>
+              <span class="book-meta"><b>v0.2.2</b><i>9 skills</i></span>
+            </button>
+
+            <button class="book book--nogap package-open" data-package="nogap" aria-label="Open Nogap package">
+              <span class="book-title">Nogap</span>
+              <span class="book-meta"><b>v0.1.0</b><i>5 skills</i></span>
+            </button>
+
+            <button class="book book--manim package-open" data-package="manim" aria-label="Open Manim package">
+              <span class="book-title">Manim</span>
+              <span class="book-meta"><b>v0.1.0+</b><i>13 skills</i></span>
+            </button>
+
+            <div class="shelf-card" aria-hidden="true">
+              <span>Research tools</span>
+              <strong>Take one<br />off the shelf.</strong>
+              <i>Click a spine to open</i>
+            </div>
+          </div>
+          <div class="shelf-board"><span>SKILL SHELF · 001—004</span></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <span>Skill Shelf</span>
+      <span>Rintaro Masaoka</span>
+    </footer>
+
+    <dialog class="package-dialog" id="package-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" aria-label="Close package details">×</button>
+      <div class="dialog-header">
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-description"></p>
+      </div>
+
+      <div class="dialog-section">
+        <h3>Included skills</h3>
+        <ul class="skill-list" id="dialog-skills"></ul>
+      </div>
+
+      <div class="dialog-section package-facts">
+        <span id="package-version"></span>
+        <span id="license-label"></span>
+      </div>
+
+      <div class="dialog-section download-section">
+        <div>
+          <h3>Download</h3>
+          <strong>skill-shelf.zip</strong>
+          <p>Includes all four packages and their source files.</p>
+        </div>
+        <a class="download-button" href="./downloads/skill-shelf.zip" download>
+          <span>Download .zip</span><span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

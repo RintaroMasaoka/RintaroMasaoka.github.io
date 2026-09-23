@@ -22,6 +22,17 @@ categories:
 # アイテムリスト
 items:
   - title:
+      en: Skill Shelf
+      ja: Skill Shelf
+    category: tools
+    url: /tools/skill-shelf/
+    description:
+      en: AI skill packages for research, writing, and mathematical animation. Browse and download the collection.
+      ja: 研究・執筆・数理アニメーション向けのAI skill集。内容を見て、まとめてダウンロードできます。
+    icon: book
+    color: teal
+
+  - title:
       en: Unicode ⇌ LaTeX Converter
       ja: Unicode ⇌ LaTeX 変換ツール
     category: tools

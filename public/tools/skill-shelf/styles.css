@@ -1,0 +1,589 @@
+:root {
+  color-scheme: light;
+  --ink: #1f292a;
+  --muted: #66645e;
+  --paper: #eee7dc;
+  --white: #f8f3ea;
+  --line: #c9bdab;
+  --blue: #765038;
+  --red: #ff5a3d;
+  --yellow: #f3b61f;
+  --cyan: #16a6ad;
+  --wood: #684936;
+  --wood-dark: #2f2119;
+  --wood-light: #8b674e;
+  --shadow: 0 18px 45px rgba(18, 31, 51, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #e9e1d3;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+.site-header {
+  width: 100%;
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-inline: max(20px, calc((100% - 1180px) / 2));
+  border-bottom: 8px solid #211711;
+  background-color: var(--wood-dark);
+  background-image: url("./assets/walnut-texture.png");
+  background-position: center 18%;
+  background-size: 720px auto;
+  box-shadow: inset 0 -10px 20px rgba(18, 10, 6, 0.3);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #f0e4d1;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  padding: 7px 6px;
+  border: 1px solid #d7c39c;
+  border-radius: 2px;
+  background: #d7c39c;
+}
+
+.brand-mark i {
+  display: block;
+  width: 5px;
+  background: var(--wood-dark);
+}
+
+.brand-mark i:nth-child(1) { height: 17px; }
+.brand-mark i:nth-child(2) { height: 21px; }
+.brand-mark i:nth-child(3) { height: 14px; }
+
+.publisher {
+  margin: 0;
+  color: #d7cbb9;
+  font-size: 0.875rem;
+}
+
+.publisher strong {
+  color: #f4eadb;
+  font-weight: 650;
+}
+
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+.shelf {
+  padding-top: 28px;
+  background-color: #4c3a2e;
+  background-image: url("./assets/walnut-texture.png");
+  background-position: center 40%;
+  background-size: 760px auto;
+  box-shadow:
+    inset 0 22px 30px rgba(20, 13, 9, 0.42),
+    inset 0 -18px 24px rgba(20, 13, 9, 0.28);
+}
+
+.section-heading {
+  width: min(1180px, calc(100% - 40px));
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 auto 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(229, 211, 174, 0.5);
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #f1e5d2;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.75rem;
+}
+
+.section-heading span {
+  color: #cdbd9f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shelf-case {
+  position: relative;
+  padding-top: 0;
+}
+
+.books {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 390px;
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(5px, 0.8vw, 10px);
+  margin-inline: auto;
+  padding: 22px 20px 0;
+}
+
+.book {
+  --book-color: #425a72;
+  position: relative;
+  width: clamp(58px, 6.4vw, 82px);
+  height: 330px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 12px;
+  padding: 18px 10px 14px;
+  overflow: hidden;
+  border: 1px solid rgba(18, 31, 51, 0.8);
+  border-radius: 3px 5px 1px 1px;
+  background: var(--book-color);
+  color: #f3eee4;
+  box-shadow:
+    inset 4px 0 rgba(255, 255, 255, 0.055),
+    inset -3px 0 rgba(0, 0, 0, 0.17),
+    3px 4px 0 rgba(18, 31, 51, 0.22);
+  cursor: pointer;
+  text-align: left;
+  transform-origin: bottom center;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.book::before,
+.book::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  height: 4px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.book::before {
+  top: 20px;
+}
+
+.book::after {
+  bottom: 49px;
+}
+
+.book:hover,
+.book:focus-visible {
+  z-index: 2;
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+  box-shadow:
+    inset 4px 0 rgba(255, 255, 255, 0.07),
+    inset -3px 0 rgba(0, 0, 0, 0.17),
+    6px 9px 0 rgba(18, 31, 51, 0.2);
+  transform: translateY(-10px);
+}
+
+.book--academic {
+  --book-color: #87564b;
+  width: clamp(70px, 7.6vw, 96px);
+  height: 356px;
+}
+
+.book--nogap {
+  --book-color: #9a7a43;
+  height: 306px;
+  color: #1d2633;
+}
+
+.book--manim {
+  --book-color: #527574;
+  height: 342px;
+}
+
+.book-meta {
+  position: relative;
+  z-index: 1;
+  grid-row: 2;
+  align-self: end;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.book-title {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 50%;
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(1.12rem, 1.75vw, 1.48rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.book--academic .book-title {
+  font-size: clamp(1.08rem, 1.55vw, 1.36rem);
+}
+
+.book-meta {
+  display: flex;
+  flex-direction: column;
+  padding-top: 9px;
+}
+
+.book-meta b,
+.book-meta i {
+  font-style: normal;
+}
+
+.book-meta i {
+  opacity: 0.72;
+}
+
+.shelf-card {
+  align-self: center;
+  min-width: 180px;
+  margin-left: auto;
+  padding: 19px 20px;
+  border: 1px solid #39281d;
+  background: #e6ddcf;
+  box-shadow: 4px 5px 0 rgba(20, 13, 9, 0.35);
+}
+
+.shelf-card span,
+.shelf-card i {
+  display: block;
+  color: var(--muted);
+  font-size: 0.67rem;
+  font-style: normal;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shelf-card strong {
+  display: block;
+  margin: 24px 0 28px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1.05;
+}
+
+.shelf-board {
+  position: relative;
+  height: 52px;
+  margin: 0;
+  border-top: 9px solid var(--wood-light);
+  border-bottom: 14px solid var(--wood-dark);
+  background-color: var(--wood);
+  background-image: url("./assets/walnut-texture.png");
+  background-position: center 72%;
+  background-size: 520px auto;
+  box-shadow: 0 9px 0 #251a14, 0 17px 20px rgba(18, 31, 51, 0.2);
+}
+
+.shelf-board span {
+  position: absolute;
+  right: max(20px, calc((100vw - 1180px) / 2 + 20px));
+  top: 7px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px max(20px, calc((100% - 1180px) / 2)) 32px;
+  border-top: 8px solid #211711;
+  background-color: var(--wood-dark);
+  background-image: url("./assets/walnut-texture.png");
+  background-position: center 24%;
+  background-size: 720px auto;
+  color: #d7cbb9;
+  font-size: 0.8rem;
+}
+
+.package-dialog {
+  width: min(720px, calc(100% - 32px));
+  max-height: min(820px, calc(100vh - 32px));
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--ink);
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.package-dialog::backdrop {
+  background: rgba(18, 31, 51, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-close {
+  position: sticky;
+  z-index: 2;
+  top: 16px;
+  float: right;
+  width: 42px;
+  height: 42px;
+  margin: 16px 16px 0 0;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.dialog-close:hover,
+.dialog-close:focus-visible {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.dialog-header {
+  padding: 46px 64px 34px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dialog-header h2 {
+  margin: 0 0 12px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.dialog-header > p:last-child {
+  max-width: 540px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.dialog-section {
+  padding: 28px 64px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dialog-section:last-child {
+  border-bottom: 0;
+}
+
+.dialog-section h3 {
+  margin: 0 0 16px;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+.package-facts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #eee7dc;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.download-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #f6f2eb;
+}
+
+.download-section h3,
+.download-section p {
+  margin: 0;
+}
+
+.download-section strong {
+  display: block;
+  margin-top: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+}
+
+.download-section p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.download-button {
+  min-width: 172px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 15px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.download-button:hover,
+.download-button:focus-visible {
+  background: var(--blue);
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    min-height: 72px;
+    padding-inline: 14px;
+  }
+
+  .publisher {
+    display: none;
+  }
+
+  .shelf-case {
+    padding-top: 0;
+  }
+
+  .books {
+    width: min(100% - 28px, 1180px);
+    min-height: 330px;
+    gap: 5px;
+    padding-inline: 2px;
+  }
+
+  .book,
+  .book--academic,
+  .book--nogap,
+  .book--manim {
+    min-width: 0;
+    height: 288px;
+    padding: 14px 8px 12px;
+  }
+
+  .book { width: clamp(52px, 10vw, 70px); }
+  .book--academic { width: clamp(64px, 12.5vw, 88px); height: 310px; }
+  .book--nogap { width: clamp(52px, 10vw, 70px); height: 268px; }
+  .book--manim { width: clamp(52px, 10vw, 70px); height: 298px; }
+
+  .book-title,
+  .book--academic .book-title {
+    font-size: clamp(1rem, 2.8vw, 1.22rem);
+  }
+
+  .book-meta {
+    font-size: 0.54rem;
+  }
+
+  .shelf-card {
+    display: none;
+  }
+
+  .shelf-board {
+    margin-inline: 0;
+  }
+
+  .section-heading {
+    width: min(100% - 28px, 1180px);
+  }
+
+  footer {
+    padding-inline: 14px;
+  }
+
+  .dialog-header,
+  .dialog-section {
+    padding-inline: 24px;
+  }
+
+  .dialog-header {
+    padding-top: 56px;
+  }
+
+  .package-facts {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .download-section {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .download-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
