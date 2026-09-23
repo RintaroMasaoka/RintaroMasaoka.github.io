@@ -279,35 +279,6 @@ p {
   opacity: 0.72;
 }
 
-.shelf-card {
-  align-self: center;
-  min-width: 180px;
-  margin-left: auto;
-  padding: 19px 20px;
-  border: 1px solid #39281d;
-  background: #e6ddcf;
-  box-shadow: 4px 5px 0 rgba(20, 13, 9, 0.35);
-}
-
-.shelf-card span,
-.shelf-card i {
-  display: block;
-  color: var(--muted);
-  font-size: 0.67rem;
-  font-style: normal;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.shelf-card strong {
-  display: block;
-  margin: 24px 0 28px;
-  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  font-size: 1.5rem;
-  line-height: 1.05;
-}
-
 .shelf-board {
   position: relative;
   height: 52px;
@@ -537,10 +508,6 @@ footer {
 
   .book-meta {
     font-size: 0.54rem;
-  }
-
-  .shelf-card {
-    display: none;
   }
 
   .shelf-board {
