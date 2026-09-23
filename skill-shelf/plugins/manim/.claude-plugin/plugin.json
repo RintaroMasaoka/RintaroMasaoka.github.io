@@ -1,0 +1,8 @@
+{
+  "name": "manim",
+  "version": "0.1.0+codex.20260820030822",
+  "description": "AI-first Manim authoring skills with semantic planning, deterministic layout, rendering, and visual review.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  }
+}

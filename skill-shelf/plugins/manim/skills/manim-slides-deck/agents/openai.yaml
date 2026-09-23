@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Slides Deck"
+  short_description: "Build and verify reusable checkpointed Manim Slides decks"
+  default_prompt: "Use $manim:manim-slides-deck to build or repair this Manim Slides presentation with semantic checkpoints, reusable gates, a page preview, and project-adapter integration when configured."

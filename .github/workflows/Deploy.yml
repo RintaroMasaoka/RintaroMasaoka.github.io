@@ -29,6 +29,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify Skill Shelf download
+        run: python3 skill-shelf/scripts/build_download.py --check
+
       - name: Build with Astro
         run: npm run build
 

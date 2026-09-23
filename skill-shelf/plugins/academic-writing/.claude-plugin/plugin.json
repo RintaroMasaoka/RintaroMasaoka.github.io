@@ -1,0 +1,8 @@
+{
+  "name": "academic-writing",
+  "version": "0.2.2",
+  "description": "Compose and review scholarly abstracts, expository introductions, explanations, figures, prose, terminology, notation, evidence, and sentence-level revisions.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  }
+}

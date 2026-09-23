@@ -1,0 +1,8 @@
+{
+  "name": "physics-paper",
+  "version": "0.1.5",
+  "description": "Draft, revise, and audit physics research-paper introductions against the manuscript, literature, intended readership, and target venue.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  }
+}

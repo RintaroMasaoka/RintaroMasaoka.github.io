@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Clip Verifier"
+  short_description: "Verify rendered Manim argument clips"
+  default_prompt: "Use $manim:manim-clip-verifier to verify this Manim argument clip and report issues."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Clip Implementer"
+  short_description: "Implement argument clips in Manim"
+  default_prompt: "Use $manim:manim-clip-implementer to implement this work order as a Manim scene."

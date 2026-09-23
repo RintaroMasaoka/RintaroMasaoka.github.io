@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Visual Planner"
+  short_description: "Plan diagrams, visuals, and layouts"
+  default_prompt: "Use $manim:manim-visual-planner to design a faithful visual plan for this Manim clip."

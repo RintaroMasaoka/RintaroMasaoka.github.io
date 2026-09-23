@@ -1,0 +1,32 @@
+{
+  "name": "skill-shelf",
+  "interface": {
+    "displayName": "Skill Shelf"
+  },
+  "plugins": [
+    {
+      "name": "academic-writing",
+      "source": { "source": "local", "path": "./plugins/academic-writing" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    },
+    {
+      "name": "physics-paper",
+      "source": { "source": "local", "path": "./plugins/physics-paper" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    },
+    {
+      "name": "nogap",
+      "source": { "source": "local", "path": "./plugins/nogap" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    },
+    {
+      "name": "manim",
+      "source": { "source": "local", "path": "./plugins/manim" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

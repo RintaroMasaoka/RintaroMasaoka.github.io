@@ -1,0 +1,22 @@
+{
+  "name": "physics-paper",
+  "version": "0.1.5",
+  "description": "Draft, revise, and audit physics research-paper introductions against the manuscript, literature, intended readership, and target venue.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Physics Paper",
+    "shortDescription": "Write physics-paper introductions for their actual readers.",
+    "longDescription": "Physics research-paper introduction authoring and review grounded in the manuscript, literature, article type, and venue readership, with optional venue profiles for journals such as PRB and PRL.",
+    "developerName": "Rintaro Masaoka",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Review",
+      "Revise"
+    ],
+    "defaultPrompt": "Draft or revise this physics research-paper introduction for its target venue by comparing plausible entry trajectories, fixing the reader line, and grounding every claim about the field and contribution in the manuscript and literature."
+  }
+}

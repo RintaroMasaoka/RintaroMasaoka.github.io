@@ -1,0 +1,4 @@
+interface:
+  display_name: "Argument Clip Orchestrator"
+  short_description: "Coordinate argument-to-Manim clip work"
+  default_prompt: "Use $manim:argument-clip-orchestrator to turn this argument into a Manim clip workflow."

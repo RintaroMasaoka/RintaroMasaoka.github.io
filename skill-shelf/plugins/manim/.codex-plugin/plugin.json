@@ -1,0 +1,27 @@
+{
+  "name": "manim",
+  "version": "0.1.0+codex.20260820030822",
+  "description": "AI-first Manim authoring skills with semantic planning, deterministic layout, rendering, and visual review.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Manim",
+    "shortDescription": "Author Manim clips through semantic intent and deterministic feedback.",
+    "longDescription": "Manim packages an AI-first workflow for source-grounded mathematical clips: semantic requirements, visual planning, deterministic layout, reusable assets, implementation, rendering, and independent verification.",
+    "developerName": "Rintaro Masaoka",
+    "category": "Productivity",
+    "capabilities": [
+      "pedagogical-narrative-design",
+      "argument-clip-requirements",
+      "source-grounded-visual-planning",
+      "deterministic-semantic-layout",
+      "manim-implementation",
+      "reusable-asset-implementation",
+      "reusable-visual-assets",
+      "clip-verification"
+    ],
+    "defaultPrompt": "Turn this source argument into a clear Manim clip: first establish the viewer, motivating question, and visual plan; then implement and verify it."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "skill-shelf",
+  "owner": {
+    "name": "Rintaro Masaoka"
+  },
+  "description": "Stable, locally installable research, writing, explanation, and mathematical visualization skills.",
+  "plugins": [
+    {
+      "name": "academic-writing",
+      "source": "./plugins/academic-writing",
+      "description": "Compose and review scholarly abstracts, expository introductions, explanations, figures, prose, terminology, notation, evidence, and sentence-level revisions.",
+      "version": "0.2.2",
+      "author": { "name": "Rintaro Masaoka" }
+    },
+    {
+      "name": "physics-paper",
+      "source": "./plugins/physics-paper",
+      "description": "Draft, revise, and audit physics research-paper introductions against the manuscript, literature, intended readership, and target venue.",
+      "version": "0.1.5",
+      "author": { "name": "Rintaro Masaoka" }
+    },
+    {
+      "name": "nogap",
+      "source": "./plugins/nogap",
+      "description": "Detect, repair, and verify reader-facing gaps in rigorous explanations.",
+      "version": "0.1.0",
+      "author": { "name": "Rintaro Masaoka" }
+    },
+    {
+      "name": "manim",
+      "source": "./plugins/manim",
+      "description": "Create and verify source-grounded mathematical animations with Manim.",
+      "version": "0.1.0+codex.20260820030822",
+      "author": { "name": "Rintaro Masaoka" }
+    }
+  ]
+}
