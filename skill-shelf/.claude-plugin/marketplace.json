@@ -32,6 +32,13 @@
       "description": "Create and verify source-grounded mathematical animations with Manim.",
       "version": "0.1.0+codex.20260820030822",
       "author": { "name": "Rintaro Masaoka" }
+    },
+    {
+      "name": "research-workflow",
+      "source": "./plugins/research-workflow",
+      "description": "Coordinate theoretical-physics research with bounded roles, independent checks, and durable handoff.",
+      "version": "0.1.0",
+      "author": { "name": "Rintaro Masaoka" }
     }
   ]
 }
