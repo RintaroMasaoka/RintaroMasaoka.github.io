@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Math Derivation"
+  short_description: "Check and animate equation derivations"
+  default_prompt: "Use $manim:manim-math-derivation to verify and plan these equation transformations for Manim."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Argument Clip Requirements"
+  short_description: "Define work orders for Manim clips"
+  default_prompt: "Use $manim:argument-clip-requirements to write a work order for this Manim argument clip."

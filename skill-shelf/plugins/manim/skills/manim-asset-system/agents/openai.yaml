@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Asset System"
+  short_description: "Enforce reusable Manim assets and visual conventions"
+  default_prompt: "Use $manim:manim-asset-system to audit and design the reusable asset and visual-convention structure for this Manim work."

@@ -1,0 +1,8 @@
+{
+  "name": "nogap",
+  "version": "0.1.0",
+  "description": "Local skills for detecting, repairing, verifying, and coordinating reader-facing gaps in rigorous explanations.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  }
+}

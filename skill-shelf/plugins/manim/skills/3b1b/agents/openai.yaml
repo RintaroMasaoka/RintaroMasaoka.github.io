@@ -1,0 +1,4 @@
+interface:
+  display_name: "3b1b"
+  short_description: "Apply 3Blue1Brown's narrative/pedagogical philosophy"
+  default_prompt: "Use $manim:3b1b to check or shape this clip's narrative and pedagogical arc against Grant Sanderson's exposition philosophy."

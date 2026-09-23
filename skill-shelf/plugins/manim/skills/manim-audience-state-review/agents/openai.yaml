@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Audience State Review"
+  short_description: "Audit audience assumptions across Manim checkpoints"
+  default_prompt: "Use $manim:manim-audience-state-review to run a blind sequential audience-state audit of these rendered checkpoints."

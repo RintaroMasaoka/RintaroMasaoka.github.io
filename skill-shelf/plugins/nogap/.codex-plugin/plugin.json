@@ -1,0 +1,25 @@
+{
+  "name": "nogap",
+  "version": "0.1.0",
+  "description": "Local skills for detecting, repairing, verifying, and coordinating reader-facing gaps in rigorous explanations.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Nogap",
+    "shortDescription": "Find and repair reasoning gaps and reader-friction in rigorous explanations.",
+    "longDescription": "Nogap packages separate skills for scanning explanatory artifacts, filling substantial reasoning gaps, detecting Japanese prose friction, verifying repairs, and coordinating multi-artifact repair work.",
+    "developerName": "Rintaro Masaoka",
+    "category": "Productivity",
+    "capabilities": [
+      "gap-detection",
+      "proof-and-derivation-repair",
+      "technical-explanation-review",
+      "japanese-prose-friction-detection",
+      "repair-verification",
+      "multi-artifact-coordination"
+    ],
+    "defaultPrompt": "Review this artifact for reasoning gaps and reader-friction, then repair the ones that matter."
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Asset Implementer"
+  short_description: "Build executable reusable Manim asset bundles"
+  default_prompt: "Use $manim:manim-asset-implementer to implement and preview this reusable Manim asset."

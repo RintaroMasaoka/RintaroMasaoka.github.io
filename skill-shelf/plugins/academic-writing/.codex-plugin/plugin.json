@@ -1,0 +1,18 @@
+{
+  "name": "academic-writing",
+  "version": "0.2.2",
+  "description": "Compose and review scholarly abstracts, expository introductions, explanations, figures, prose, terminology, notation, evidence, and sentence-level revisions.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Academic Writing",
+    "shortDescription": "Write, explain, and audit scholarly work.",
+    "longDescription": "Nine scoped scholarly authoring and review capabilities with shared evidence and reader conventions. Select only the workflow required by the task.",
+    "developerName": "Rintaro Masaoka",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use the narrowest applicable academic-writing skill for this scholarly writing or revision task."
+  }
+}
