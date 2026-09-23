@@ -26,6 +26,10 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   background: #e9e1d3;
   color: var(--ink);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -40,6 +44,12 @@ a {
 
 button {
   font: inherit;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .site-header {
@@ -109,6 +119,9 @@ p {
 }
 
 .shelf {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding-top: 28px;
   background-color: #4c3a2e;
   background-image: url("./assets/walnut-texture.png");
@@ -146,12 +159,16 @@ p {
 
 .shelf-case {
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding-top: 0;
 }
 
 .books {
   width: min(1180px, calc(100% - 40px));
   min-height: 390px;
+  flex: 1;
   display: flex;
   align-items: flex-end;
   gap: clamp(5px, 0.8vw, 10px);
@@ -262,21 +279,6 @@ p {
 
 .book--academic .book-title {
   font-size: clamp(1.08rem, 1.55vw, 1.36rem);
-}
-
-.book-meta {
-  display: flex;
-  flex-direction: column;
-  padding-top: 9px;
-}
-
-.book-meta b,
-.book-meta i {
-  font-style: normal;
-}
-
-.book-meta i {
-  opacity: 0.72;
 }
 
 .shelf-board {
