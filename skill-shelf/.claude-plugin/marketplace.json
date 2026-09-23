@@ -39,6 +39,13 @@
       "description": "Coordinate theoretical-physics research with bounded roles, independent checks, and durable handoff.",
       "version": "0.1.1",
       "author": { "name": "Rintaro Masaoka" }
+    },
+    {
+      "name": "study-notes",
+      "source": "./plugins/study-notes",
+      "description": "Create and revise scholarly study notes with optional HTML manuscript conventions.",
+      "version": "0.1.0",
+      "author": { "name": "Rintaro Masaoka" }
     }
   ]
 }
