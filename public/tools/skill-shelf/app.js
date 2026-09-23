@@ -28,10 +28,10 @@ const packages = {
     skills: ["3b1b", "argument-clip-orchestrator", "argument-clip-requirements", "manim-asset-implementer", "manim-asset-system", "manim-audience-state-review", "manim-clip-implementer", "manim-clip-verifier", "manim-math-derivation", "manim-slides-deck", "manim-static-figures", "manim-visual-planner", "manim-visual-review"],
   },
   "research-workflow": {
-    version: "0.1.0",
+    version: "0.1.1",
     title: "Research Workflow",
     license: "MIT License",
-    description: "A structured theoretical-physics research cycle with bounded investigation, independent checks, and durable memory. Includes a project starter.",
+    description: "A structured theoretical-physics research cycle with bounded investigation, independent checks, and research memory initialized as needed.",
     skills: ["auto-research", "research-planner", "direction-challenger", "researcher", "critic", "curator", "guide-writer"],
   },
 };

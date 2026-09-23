@@ -32,7 +32,7 @@ review 対象の worker は次へ書く。
 - raw process trace: .logs/{timestamp}_{agent}_{slug}.md
 - 任意の workflow feedback: feedback/{timestamp}_{agent}_{slug}.md
 
-raw log path は bash .scripts/log-path.sh {agent} {slug}、feedback path は bash .scripts/feedback-path.sh {agent} {slug} で取得し、timestamp を手作りしない。
+raw log と feedback の path は、この reference から `../scripts/session.py` にある package-local script を解決し、`python3 <resolved-path> --project-root <project-root> path --kind log|feedback --label <agent-or-slug>` で取得する。project-local な補助 script を前提にせず、timestamp を手作りしない。
 
 worker.md の先頭は次の review contract を使う。
 

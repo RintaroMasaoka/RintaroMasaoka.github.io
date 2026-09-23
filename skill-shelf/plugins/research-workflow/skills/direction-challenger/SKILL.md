@@ -30,7 +30,7 @@ description: "research-planner の前に現在方向の慣性・前提・価値�
 
 ## Output
 
-bash .scripts/log-path.sh direction-challenge で得た .logs path に Direction Challenge を書く。
+package の `scripts/session.py path --kind log --label direction-challenge` で得た `.logs` path に Direction Challenge を書く。
 
 - Challenges: premise と、誤っていた場合の帰結
 - Questions for research-planner: 次の方向判断を変え得る問い
