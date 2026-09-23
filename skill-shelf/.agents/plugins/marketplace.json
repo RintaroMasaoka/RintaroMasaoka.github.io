@@ -27,6 +27,12 @@
       "source": { "source": "local", "path": "./plugins/manim" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Productivity"
+    },
+    {
+      "name": "research-workflow",
+      "source": { "source": "local", "path": "./plugins/research-workflow" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
     }
   ]
 }

@@ -250,6 +250,16 @@ p {
   height: 342px;
 }
 
+.book--research {
+  --book-color: #626079;
+  width: clamp(69px, 7vw, 88px);
+  height: 324px;
+}
+
+.book--research .book-title {
+  font-size: clamp(1.05rem, 1.5vw, 1.32rem);
+}
+
 .book-meta {
   position: relative;
   z-index: 1;
