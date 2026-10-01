@@ -41,6 +41,13 @@ const packages = {
     description: "Create and revise scholarly study notes. Includes an optional HTML manuscript specification; a renderer is not bundled.",
     skills: ["study-note"],
   },
+  "ai-bias": {
+    version: "0.1.0",
+    title: "AI Bias",
+    license: "MIT License",
+    description: "Recognize and correct recurring biases in AI reasoning, writing, and revision. Includes 19 patterns across five categories, with explanations, practical checks, and remedies. English instructions; responses follow your requested language.",
+    skills: ["ai-bias-check"],
+  },
 };
 
 const dialog = document.querySelector("#package-dialog");

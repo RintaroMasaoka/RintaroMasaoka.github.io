@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Bias Check"
+  short_description: "Find and correct recurring biases in AI work"
+  default_prompt: "Use $ai-bias:ai-bias-check to review this work and repair biased judgments within the authorized scope."

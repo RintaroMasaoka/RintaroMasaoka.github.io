@@ -39,6 +39,12 @@
       "source": { "source": "local", "path": "./plugins/study-notes" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Productivity"
+    },
+    {
+      "name": "ai-bias",
+      "source": { "source": "local", "path": "./plugins/ai-bias" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
     }
   ]
 }
