@@ -17,8 +17,6 @@ en:
         href: /tools
       - label: Notes
         href: /notes
-      - label: AI-generated Articles
-        href: /ai-gen-articles
 
 ja:
   - label: ホーム
@@ -35,5 +33,3 @@ ja:
         href: /ja/tools
       - label: ノート
         href: /ja/notes
-      - label: AI生成記事
-        href: /ja/ai-gen-articles

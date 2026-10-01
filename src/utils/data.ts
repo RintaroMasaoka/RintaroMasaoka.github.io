@@ -16,7 +16,7 @@ export const cv = yaml.load(cvRaw) as any;
 
 // リストページ用YAMLを動的に読み込み
 // - 直下: publications.yaml, presentations.yaml（トップナビ直下ページ）
-// - others/: notes.yaml, tools.yaml, ai-gen-articles.yaml（Others サブメニュー）
+// - others/: notes.yaml, tools.yaml（Others サブメニュー）
 const topLevelPageModules = import.meta.glob('../data/{publications,presentations}.yaml', { query: '?raw', eager: true, import: 'default' });
 const othersPageModules = import.meta.glob('../data/others/*.yaml', { query: '?raw', eager: true, import: 'default' });
 const pageModules = { ...topLevelPageModules, ...othersPageModules };
