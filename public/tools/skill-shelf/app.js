@@ -50,95 +50,183 @@ const packages = {
   },
 };
 
-const dialog = document.querySelector("#package-dialog");
-const title = document.querySelector("#dialog-title");
-const description = document.querySelector("#dialog-description");
-const skillList = document.querySelector("#dialog-skills");
-const packageVersion = document.querySelector("#package-version");
-const licenseLabel = document.querySelector("#license-label");
+const dialog = document.querySelector('#package-dialog');
+const title = document.querySelector('#dialog-title');
+const description = document.querySelector('#dialog-description');
+const skillList = document.querySelector('#dialog-skills');
+const packageVersion = document.querySelector('#package-version');
+const licenseLabel = document.querySelector('#license-label');
+const chapterBody = document.querySelector('#chapter-body');
+const previous = document.querySelector('#previous-chapter');
+const next = document.querySelector('#next-chapter');
+const backToSkill = document.querySelector('#back-to-skill');
+const source = document.querySelector('#chapter-source');
 
 let currentPackage;
 let chapterIndex = 0;
 let requestId = 0;
 let readerPromise;
-const chapterBody = document.querySelector('#chapter-body');
-const previous = document.querySelector('#previous-chapter');
-const next = document.querySelector('#next-chapter');
+let chapters = [];
 
-async function openChapter(index, documentPath) {
+function loadReader() {
+  readerPromise ??= fetch('./reader.json').then(response => {
+    if (!response.ok) throw new Error('Could not load chapters');
+    return response.json();
+  }).catch(error => { readerPromise = undefined; throw error; });
+  return readerPromise;
+}
+
+function skillPath(packageName, skill) {
+  return `${packageName}/skills/${skill}/SKILL.md`;
+}
+
+function openChapter(index, fragment = '', moveToText = false) {
+  const chapter = chapters[index];
+  if (!chapter) return;
   chapterIndex = index;
-  const data = packages[currentPackage];
-  const identity = documentPath || `${currentPackage}:${data.skills[index]}`;
-  document.querySelector("#back-to-skill").hidden = !documentPath;
-  const request = ++requestId;
-  document.querySelector('#chapter-label').textContent = documentPath ? documentPath.split('/').at(-1).replace(/\.md$/, '') : identity;
-  document.querySelector('#page-number').textContent = `${index + 1} / ${data.skills.length}`;
+  const parent = chapter.skill && skillPath(currentPackage, chapter.skill);
+  backToSkill.hidden = !parent || parent === chapter.path;
+  backToSkill.dataset.document = parent || '';
+  document.querySelector('#chapter-label').textContent = chapter.title;
+  document.querySelector('#page-number').textContent = `${index + 1} / ${chapters.length}`;
   previous.disabled = index === 0;
-  next.disabled = index === data.skills.length - 1;
-  skillList.querySelectorAll('button').forEach((button, i) => {
-    if (i === index) button.setAttribute('aria-current', 'page');
+  next.disabled = index === chapters.length - 1;
+  skillList.querySelectorAll('button[data-document]').forEach(button => {
+    if (button.dataset.document === chapter.path) button.setAttribute('aria-current', 'page');
     else button.removeAttribute('aria-current');
   });
-  chapterBody.textContent = 'Opening chapter…';
-  const source = document.querySelector('#chapter-source');
-  source.hidden = true;
-  try {
-    readerPromise ??= fetch('./reader.json').then((response) => {
-      if (!response.ok) throw new Error('Could not load chapters');
-      return response.json();
-    }).catch((error) => { readerPromise = undefined; throw error; });
-    const chapters = await readerPromise;
-    if (request !== requestId) return;
-    if (!chapters[identity]) throw new Error('Chapter missing');
-    chapterBody.innerHTML = chapters[identity].html;
-    source.href = chapters[identity].source;
-    source.hidden = false;
-    chapterBody.scrollTop = 0;
-    document.querySelector('.reading-page').scrollTop = 0;
-  } catch (error) {
-    if (request !== requestId) return;
-    chapterBody.textContent = 'This chapter could not be opened. ';
-    const retry = document.createElement('button');
-    retry.textContent = 'Try again';
-    retry.addEventListener('click', () => openChapter(index));
-    chapterBody.append(retry);
+  chapterBody.innerHTML = chapter.html;
+  source.href = chapter.source;
+  source.hidden = false;
+  document.querySelector('.reading-page').scrollTop = 0;
+  if (moveToText && window.matchMedia('(max-width: 760px)').matches) {
+    document.querySelector('.reading-page').scrollIntoView({block: 'start'});
+  }
+  if (fragment) {
+    let id = fragment;
+    try { id = decodeURIComponent(fragment); } catch { /* Retain a literal fragment. */ }
+    const target = Array.from(chapterBody.querySelectorAll('[id]')).find(node => node.id === id);
+    target?.scrollIntoView({block: 'start'});
+  }
+  if (moveToText) chapterBody.focus({preventScroll: true});
+}
+
+function appendDocument(list, chapter, label = chapter.title) {
+  const item = document.createElement('li');
+  const button = document.createElement('button');
+  button.textContent = label;
+  button.dataset.document = chapter.path;
+  button.title = chapter.path.split('/').slice(1).join('/');
+  item.append(button);
+  list.append(item);
+  chapters.push(chapter);
+  return item;
+}
+
+function buildContents(reader, packageName) {
+  chapters = [];
+  skillList.replaceChildren();
+  // Canonical file keys exclude the skill aliases in reader.json.
+  const documents = Object.entries(reader)
+    .filter(([key, doc]) => key === doc.path && doc.package === packageName)
+    .map(([, doc]) => doc)
+    .sort((a, b) => a.title.localeCompare(b.title, 'en', {numeric: true}) || a.path.localeCompare(b.path));
+  const included = new Set();
+  for (const skill of packages[packageName].skills) {
+    const main = documents.find(doc => doc.path === skillPath(packageName, skill));
+    if (!main) throw new Error(`Missing skill: ${skill}`);
+    const item = appendDocument(skillList, main, skill);
+    included.add(main.path);
+    const references = documents.filter(doc => doc.skill === skill && doc.path !== main.path);
+    if (references.length) {
+      const label = document.createElement('span');
+      label.className = 'reference-label';
+      label.textContent = 'Supporting documents';
+      const list = document.createElement('ul');
+      list.className = 'reference-list';
+      item.append(label, list);
+      for (const doc of references) {
+        appendDocument(list, doc);
+        included.add(doc.path);
+      }
+    }
+  }
+  const shared = documents.filter(doc => !included.has(doc.path));
+  if (shared.length) {
+    const group = document.createElement('li');
+    group.className = 'contents-group';
+    const heading = document.createElement('h4');
+    heading.textContent = 'Package references & guides';
+    const list = document.createElement('ul');
+    list.className = 'reference-list shared-references';
+    group.append(heading, list);
+    skillList.append(group);
+    shared.forEach(doc => appendDocument(list, doc));
   }
 }
 
-function openPackage(packageName) {
+async function openPackage(packageName, documentPath, fragment = '', moveToText = false) {
   const data = packages[packageName];
   if (!data) return;
+  const request = ++requestId;
   currentPackage = packageName;
+  chapters = [];
   title.textContent = data.title;
   description.textContent = data.description;
   packageVersion.textContent = `Version ${data.version}`;
   licenseLabel.textContent = `License: ${data.license}`;
-  skillList.replaceChildren(...data.skills.map((skill, index) => {
-    const item = document.createElement('li');
-    const button = document.createElement('button');
-    button.textContent = skill;
-    button.addEventListener('click', () => openChapter(index));
-    item.append(button);
-    return item;
-  }));
-  dialog.showModal();
-  openChapter(0);
+  skillList.replaceChildren();
+  chapterBody.textContent = 'Opening chapters…';
+  document.querySelector('#chapter-label').textContent = '';
+  document.querySelector('#page-number').textContent = '';
+  previous.disabled = next.disabled = true;
+  backToSkill.hidden = source.hidden = true;
+  if (!dialog.open) dialog.showModal();
+  document.querySelector('.contents-page').scrollTop = 0;
+  dialog.scrollTop = 0;
+  try {
+    const reader = await loadReader();
+    if (request !== requestId) return;
+    buildContents(reader, packageName);
+    const index = documentPath ? chapters.findIndex(doc => doc.path === documentPath) : 0;
+    if (index < 0) throw new Error('Document missing');
+    openChapter(index, fragment, moveToText);
+  } catch {
+    if (request !== requestId) return;
+    chapters = [];
+    skillList.replaceChildren();
+    chapterBody.textContent = 'This package could not be opened. ';
+    const retry = document.createElement('button');
+    retry.textContent = 'Try again';
+    retry.addEventListener('click', () => openPackage(packageName, documentPath, fragment, moveToText));
+    chapterBody.append(retry);
+  }
 }
 
-previous.addEventListener('click', () => openChapter(chapterIndex - 1));
-next.addEventListener('click', () => openChapter(chapterIndex + 1));
-document.querySelectorAll('.package-open').forEach((button) => {
+function openDocument(path, fragment = '') {
+  const index = chapters.findIndex(doc => doc.path === path);
+  if (index >= 0) openChapter(index, fragment, true);
+  else openPackage(path.split('/')[0], path, fragment, true);
+}
+
+previous.addEventListener('click', () => openChapter(chapterIndex - 1, '', true));
+next.addEventListener('click', () => openChapter(chapterIndex + 1, '', true));
+skillList.addEventListener('click', event => {
+  const button = event.target.closest('button[data-document]');
+  if (button) openDocument(button.dataset.document);
+});
+document.querySelectorAll('.package-open').forEach(button => {
   button.addEventListener('click', () => openPackage(button.dataset.package));
 });
 document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', (event) => {
+dialog.addEventListener('click', event => {
   if (event.target === dialog) dialog.close();
 });
-
-chapterBody.addEventListener('click', (event) => {
+dialog.addEventListener('close', () => { ++requestId; });
+chapterBody.addEventListener('click', event => {
   const link = event.target.closest('a[data-document]');
   if (!link) return;
   event.preventDefault();
-  openChapter(chapterIndex, link.dataset.document);
+  openDocument(link.dataset.document, link.dataset.fragment);
 });
-document.querySelector('#back-to-skill').addEventListener('click', () => openChapter(chapterIndex));
+backToSkill.addEventListener('click', () => openDocument(backToSkill.dataset.document));
