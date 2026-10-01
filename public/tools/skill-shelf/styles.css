@@ -586,3 +586,53 @@ footer {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* An opened volume: contents on the verso, the skill on the recto. */
+.package-dialog { width: min(1240px, calc(100% - 40px)); max-height: calc(100svh - 40px); overflow: hidden; border: 8px solid #574235; border-radius: 5px 12px 12px 5px; background: #f8f3ea; box-shadow: 0 30px 90px #0008, 4px 4px 0 #cfc2ae, 7px 7px 0 #574235; }
+.dialog-close { position: absolute; right: 12px; top: 12px; margin: 0; width: 32px; height: 32px; background: #f8f3ea; border-color: #c9bdab; }
+.open-book { display: grid; grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.65fr); height: min(860px, calc(100svh - 56px)); }
+.book-page { min-width: 0; overflow-y: auto; scrollbar-width: thin; }
+.contents-page { background: linear-gradient(90deg, #f8f3ea 90%, #e0d6c5); border-right: 1px solid #b9ab95; }
+.reading-page { display: flex; flex-direction: column; background: linear-gradient(90deg, #e8dece, #fbf7ef 4%, #fbf7ef 96%, #efe6d7); padding: 32px clamp(24px, 4vw, 56px) 24px; }
+.dialog-header { padding: 40px 32px 24px; }
+.dialog-header h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.03em; }
+.dialog-header > p:last-child { font-size: .85rem; }
+.book-eyebrow { font-size: .65rem; letter-spacing: .2em; color: #866c4f; margin: 0 0 24px; }
+.dialog-section { padding: 24px 32px; }
+.skill-list { display: block; counter-reset: chapter; }
+.skill-list li { padding: 0; border: 0; border-radius: 0; background: none; }
+.skill-list button { width: 100%; display: flex; gap: 12px; padding: 10px 4px; border: 0; border-bottom: 1px dotted #c9bdab; background: transparent; color: #564333; cursor: pointer; text-align: left; overflow-wrap: anywhere; }
+.skill-list button::before { counter-increment: chapter; content: counter(chapter, decimal-leading-zero); color: #967f65; }
+.skill-list button:hover, .skill-list button[aria-current] { background: #e6d9c3; color: #241d17; }
+.package-facts { flex-direction: column; align-items: flex-start; gap: 8px; background: transparent; font-size: .68rem; overflow-wrap: anywhere; }
+.download-button { min-width: 0; font-size: .75rem; background: #574235; }
+.running-header { display: flex; justify-content: space-between; gap: 18px; padding-right: 24px; padding-bottom: 14px; border-bottom: 1px solid #c9bdab; color: #866c4f; font-size: .65rem; letter-spacing: .04em; overflow-wrap: anywhere; }
+.running-header a { flex-shrink: 0; color: inherit; }
+.chapter-body { flex: 1; font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; line-height: 1.75; overflow-wrap: anywhere; }
+.chapter-body h1 { font-size: 2rem; line-height: 1.2; margin: 32px 0 24px; font-weight: 500; }
+.chapter-body h2 { font-size: 1.4rem; line-height: 1.35; margin-top: 32px; }
+.chapter-body h3 { font-size: 1.1rem; }
+.chapter-body a { color: #775137; text-underline-offset: 3px; }
+.chapter-body pre { padding: 16px; overflow-x: auto; background: #ece5d8; font-size: .78rem; line-height: 1.6; }
+.chapter-body code { font-family: ui-monospace, monospace; font-size: .82em; }
+.chapter-body blockquote { margin-inline: 0; padding-left: 20px; border-left: 2px solid #ae9876; color: #6c5a46; }
+.chapter-body table { display: block; overflow-x: auto; border-collapse: collapse; font-size: .85rem; }
+.chapter-body th, .chapter-body td { padding: 8px; border: 1px solid #c9bdab; }
+.page-turns { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #c9bdab; padding-top: 18px; margin-top: 32px; font-size: .75rem; color: #866c4f; }
+.page-turns button { border: 0; padding: 8px 0; background: none; color: #574235; cursor: pointer; }
+.page-turns button:disabled { opacity: .35; cursor: default; }
+button:focus-visible, a:focus-visible { outline: 2px solid #765038; outline-offset: 3px; }
+@media (max-width: 760px) {
+  .package-dialog { width: calc(100% - 16px); max-height: calc(100svh - 16px); border-width: 4px; overflow: auto; }
+  .open-book { display: block; height: auto; }
+  .contents-page { overflow: visible; background: #f2eadc; border-right: 0; }
+  .reading-page { overflow: visible; padding: 28px 24px; }
+  .dialog-header { padding: 32px 24px 20px; }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .skill-list button { font-size: .72rem; }
+  .dialog-section { padding: 16px 24px; }
+  .chapter-body h1 { font-size: 1.7rem; }
+}
+
+.running-header button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; font-size: inherit; flex-shrink: 0; }
+@media (max-width: 760px) { .running-header { flex-wrap: wrap; } }

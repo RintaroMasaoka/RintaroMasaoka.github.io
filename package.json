@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node skill-shelf/scripts/build_reader.mjs && astro build",
     "preview": "astro preview",
     "cv": "node cv/generate.mjs en && node cv/generate.mjs ja"
   },
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "md-to-pdf": "^5.2.5",
-    "semver": "^7.7.4"
+    "semver": "^7.7.4",
+    "marked": "^4.3.0"
   }
 }
