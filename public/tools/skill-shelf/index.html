@@ -82,30 +82,34 @@
 
     <dialog class="package-dialog" id="package-dialog" aria-labelledby="dialog-title">
       <button class="dialog-close" aria-label="Close package details">×</button>
-      <div class="dialog-header">
-        <h2 id="dialog-title"></h2>
-        <p id="dialog-description"></p>
-      </div>
-
-      <div class="dialog-section">
-        <h3>Included skills</h3>
-        <ul class="skill-list" id="dialog-skills"></ul>
-      </div>
-
-      <div class="dialog-section package-facts">
-        <span id="package-version"></span>
-        <span id="license-label"></span>
-      </div>
-
-      <div class="dialog-section download-section">
-        <div>
-          <h3>Download</h3>
-          <strong>skill-shelf.zip</strong>
-          <p>Includes all seven packages and their source files.</p>
-        </div>
-        <a class="download-button" href="./downloads/skill-shelf.zip" download>
-          <span>Download .zip</span><span aria-hidden="true">↓</span>
-        </a>
+      <div class="open-book">
+        <aside class="book-page contents-page">
+          <div class="dialog-header">
+            <p class="book-eyebrow">SKILL SHELF</p>
+            <h2 id="dialog-title"></h2>
+            <p id="dialog-description"></p>
+          </div>
+          <nav class="dialog-section" aria-label="Table of contents">
+            <h3>Contents</h3>
+            <ol class="skill-list" id="dialog-skills"></ol>
+          </nav>
+          <div class="dialog-section package-facts">
+            <span id="package-version"></span>
+            <span id="license-label"></span>
+          </div>
+          <div class="dialog-section">
+            <a class="download-button" href="./downloads/skill-shelf.zip" download>Download collection ↓</a>
+          </div>
+        </aside>
+        <section class="book-page reading-page" aria-label="Skill chapter">
+          <header class="running-header"><button id="back-to-skill" hidden>← Back to skill</button><span id="chapter-label">Select a chapter</span><a id="chapter-source" target="_blank" rel="noopener">Source ↗</a></header>
+          <article id="chapter-body" class="chapter-body" tabindex="0" aria-live="polite"></article>
+          <nav class="page-turns" aria-label="Chapter navigation">
+            <button id="previous-chapter">← Previous</button>
+            <span id="page-number"></span>
+            <button id="next-chapter">Next →</button>
+          </nav>
+        </section>
       </div>
     </dialog>
 

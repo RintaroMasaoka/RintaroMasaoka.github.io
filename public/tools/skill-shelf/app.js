@@ -57,29 +57,88 @@ const skillList = document.querySelector("#dialog-skills");
 const packageVersion = document.querySelector("#package-version");
 const licenseLabel = document.querySelector("#license-label");
 
+let currentPackage;
+let chapterIndex = 0;
+let requestId = 0;
+let readerPromise;
+const chapterBody = document.querySelector('#chapter-body');
+const previous = document.querySelector('#previous-chapter');
+const next = document.querySelector('#next-chapter');
+
+async function openChapter(index, documentPath) {
+  chapterIndex = index;
+  const data = packages[currentPackage];
+  const identity = documentPath || `${currentPackage}:${data.skills[index]}`;
+  document.querySelector("#back-to-skill").hidden = !documentPath;
+  const request = ++requestId;
+  document.querySelector('#chapter-label').textContent = documentPath ? documentPath.split('/').at(-1).replace(/\.md$/, '') : identity;
+  document.querySelector('#page-number').textContent = `${index + 1} / ${data.skills.length}`;
+  previous.disabled = index === 0;
+  next.disabled = index === data.skills.length - 1;
+  skillList.querySelectorAll('button').forEach((button, i) => {
+    if (i === index) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
+  chapterBody.textContent = 'Opening chapter…';
+  const source = document.querySelector('#chapter-source');
+  source.hidden = true;
+  try {
+    readerPromise ??= fetch('./reader.json').then((response) => {
+      if (!response.ok) throw new Error('Could not load chapters');
+      return response.json();
+    }).catch((error) => { readerPromise = undefined; throw error; });
+    const chapters = await readerPromise;
+    if (request !== requestId) return;
+    if (!chapters[identity]) throw new Error('Chapter missing');
+    chapterBody.innerHTML = chapters[identity].html;
+    source.href = chapters[identity].source;
+    source.hidden = false;
+    chapterBody.scrollTop = 0;
+    document.querySelector('.reading-page').scrollTop = 0;
+  } catch (error) {
+    if (request !== requestId) return;
+    chapterBody.textContent = 'This chapter could not be opened. ';
+    const retry = document.createElement('button');
+    retry.textContent = 'Try again';
+    retry.addEventListener('click', () => openChapter(index));
+    chapterBody.append(retry);
+  }
+}
+
 function openPackage(packageName) {
   const data = packages[packageName];
   if (!data) return;
-
+  currentPackage = packageName;
   title.textContent = data.title;
   description.textContent = data.description;
   packageVersion.textContent = `Version ${data.version}`;
   licenseLabel.textContent = `License: ${data.license}`;
-  skillList.replaceChildren(...data.skills.map((skill) => {
-    const item = document.createElement("li");
-    item.textContent = `${packageName}:${skill}`;
+  skillList.replaceChildren(...data.skills.map((skill, index) => {
+    const item = document.createElement('li');
+    const button = document.createElement('button');
+    button.textContent = skill;
+    button.addEventListener('click', () => openChapter(index));
+    item.append(button);
     return item;
   }));
-
   dialog.showModal();
+  openChapter(0);
 }
 
-document.querySelectorAll(".package-open").forEach((button) => {
-  button.addEventListener("click", () => openPackage(button.dataset.package));
+previous.addEventListener('click', () => openChapter(chapterIndex - 1));
+next.addEventListener('click', () => openChapter(chapterIndex + 1));
+document.querySelectorAll('.package-open').forEach((button) => {
+  button.addEventListener('click', () => openPackage(button.dataset.package));
 });
-
-document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
-
-dialog.addEventListener("click", (event) => {
+document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', (event) => {
   if (event.target === dialog) dialog.close();
 });
+
+chapterBody.addEventListener('click', (event) => {
+  const link = event.target.closest('a[data-document]');
+  if (!link) return;
+  event.preventDefault();
+  openChapter(chapterIndex, link.dataset.document);
+});
+document.querySelector('#back-to-skill').addEventListener('click', () => openChapter(chapterIndex));
