@@ -602,7 +602,12 @@ footer {
 .skill-list { display: block; counter-reset: chapter; }
 .skill-list li { padding: 0; border: 0; border-radius: 0; background: none; }
 .skill-list button { width: 100%; display: flex; gap: 12px; padding: 10px 4px; border: 0; border-bottom: 1px dotted #c9bdab; background: transparent; color: #564333; cursor: pointer; text-align: left; overflow-wrap: anywhere; }
-.skill-list button::before { counter-increment: chapter; content: counter(chapter, decimal-leading-zero); color: #967f65; }
+.skill-list > li > button::before { counter-increment: chapter; content: counter(chapter, decimal-leading-zero); color: #967f65; }
+.reference-label { display: block; margin: 12px 0 4px 30px; color: #866c4f; font-size: .66rem; }
+.reference-list { list-style: none; margin: 0 0 18px 30px; padding: 0 0 0 12px; border-left: 1px solid #c9bdab; }
+.reference-list button { font-family: inherit; font-size: .78rem; line-height: 1.45; }
+.contents-group h4 { margin: 24px 0 12px; font-size: .75rem; color: #866c4f; font-weight: 500; }
+.shared-references { margin-left: 0; }
 .skill-list button:hover, .skill-list button[aria-current] { background: #e6d9c3; color: #241d17; }
 .package-facts { flex-direction: column; align-items: flex-start; gap: 8px; background: transparent; font-size: .68rem; overflow-wrap: anywhere; }
 .download-button { min-width: 0; font-size: .75rem; background: #574235; }
@@ -628,7 +633,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #765038; outline-offs
   .contents-page { overflow: visible; background: #f2eadc; border-right: 0; }
   .reading-page { overflow: visible; padding: 28px 24px; }
   .dialog-header { padding: 32px 24px 20px; }
-  .skill-list { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .skill-list { display: block; max-height: 42svh; overflow-y: auto; }
   .skill-list button { font-size: .72rem; }
   .dialog-section { padding: 16px 24px; }
   .chapter-body h1 { font-size: 1.7rem; }
