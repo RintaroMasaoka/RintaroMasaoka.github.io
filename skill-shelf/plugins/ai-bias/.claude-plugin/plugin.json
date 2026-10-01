@@ -1,0 +1,8 @@
+{
+  "name": "ai-bias",
+  "version": "0.1.0",
+  "description": "Recognize and correct recurring biases in AI reasoning, evidence use, writing, and revision.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  }
+}

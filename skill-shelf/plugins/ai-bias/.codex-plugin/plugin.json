@@ -1,0 +1,22 @@
+{
+  "name": "ai-bias",
+  "version": "0.1.0",
+  "description": "Recognize and correct recurring biases in AI reasoning, evidence use, writing, and revision.",
+  "author": {
+    "name": "Rintaro Masaoka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI Bias",
+    "shortDescription": "Check AI judgments and repair recurring work biases.",
+    "longDescription": "A self-contained catalogue and selective checking workflow covering goals, evidence, search, inference, and communication. Explanatory models support flexible tests and repairs.",
+    "developerName": "Rintaro Masaoka",
+    "category": "Productivity",
+    "capabilities": [
+      "Review",
+      "Research",
+      "Write"
+    ],
+    "defaultPrompt": "Use $ai-bias:ai-bias-check to review this work and identify the judgments that need correction."
+  }
+}

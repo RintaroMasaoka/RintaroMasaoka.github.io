@@ -46,6 +46,13 @@
       "description": "Create and revise scholarly study notes with optional HTML manuscript conventions.",
       "version": "0.1.0",
       "author": { "name": "Rintaro Masaoka" }
+    },
+    {
+      "name": "ai-bias",
+      "source": "./plugins/ai-bias",
+      "description": "Recognize and correct recurring biases in AI reasoning, evidence use, writing, and revision.",
+      "version": "0.1.0",
+      "author": { "name": "Rintaro Masaoka" }
     }
   ]
 }
