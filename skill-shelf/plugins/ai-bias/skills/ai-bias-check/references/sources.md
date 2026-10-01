@@ -12,6 +12,12 @@ them, not the whole entry, its proposed remedy, or a universal claim about every
 model. No evidence ranking is needed to use the catalogue. A label does not prove
 the cause of an observed incident.
 
+The working hypothesis that language for deliberation becomes mixed with
+language for communicating a deliverable was proposed by the user during the
+catalogue's development. It provides a unifying explanation for several wording
+failures, not an empirically verified account of a model's hidden chain of thought.
+Its operational tests use the artifact and any available work history.
+
 ## Research map
 
 | Entries | Source | Relevant scope |
@@ -28,6 +34,17 @@ the cause of an observed incident.
 | 07 | [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664) | Analysis of uncertainty and incentives to guess rather than abstain. |
 | 13 | [Content effects in language-model reasoning](https://arxiv.org/abs/2207.07051) | Reasoning performance can vary with semantic content as well as logical form. |
 | 14 | [Language Models Don't Always Say What They Think](https://arxiv.org/abs/2305.04388) | Explanations can omit influences that changed a model's answer. |
+| 18–19, 21 | [Do LLMs write like humans? Variation in grammatical and rhetorical styles](https://arxiv.org/abs/2410.16107) (Reinhart et al., PNAS 2025) | Parallel corpora show grammatical and rhetorical differences across humans and the tested models, with larger deviations for instruction-tuned variants. This supports inspecting genre defaults, not condemning a construction. |
+| 21 | [AI, write an essay for me](https://arxiv.org/abs/2304.14276) (Herbold et al., 2023) | The studied ChatGPT essays used more nominalizations and greater lexical diversity, and received higher quality ratings. A distributional difference is not automatically a defect. |
+| 19, 21–22 | [What Are LLMs Doing to Scientific Communication?](https://aclanthology.org/2026.lrec-1.142/) (Miletić and Falk, 2026) | NLP papers and paired revisions show changes in syntax and vocabulary, including lower lexical diversity in LLM-modified passages; a small expert study also found perceived benefits. This differs from the essay study: no universal direction of lexical diversity is assumed. |
+| 23 | [Can Large Language Models Faithfully Express Their Intrinsic Uncertainty in Words?](https://aclanthology.org/2024.emnlp-main.443/) (Yona et al., 2024) | On knowledge-intensive question answering, verbal uncertainty did not reliably track model-internal confidence. The metric considers both excessive and insufficient hedging; internal confidence is not the same as external evidential support. |
+
+The wording checks also synthesize stock experience and semantic analysis.
+These papers do not establish the prevalence or training cause of every local
+pattern, notably unmarked coined terms, drafting-history contrasts, or unstable
+technical synonyms. Their checks stand on the observable defect in the artifact;
+the proposed mechanisms help transfer the checks to other cases. No new entry
+requires its own empirical paper before it can be useful.
 
 ## Stock provenance
 
@@ -46,6 +63,7 @@ does not import the source workflows or require their project infrastructure.
 | 16 | `study-skills:continuation-bias-filter`, `study-skills:internal-language-filter`, `standalone:lint-correction-residue` | Separate reader-facing language from instructions and correction history. |
 | 07, 17–18 | `study-skills:reader-state-check`, `study-skills:ask-user-premise`, `spec-artifacts:reader-impression-audit` | Distinguish personal premises, delivered information, and implied meaning. |
 | 11, 19 | `study-skills:artifact-preservation-check`, `spec-artifacts:reader-impression-audit`, `standalone:reaction-calibration` | Content must earn its role and attention; deletion and consolidation are repair options. |
+| 16, 18, 20–23 | `standalone:academic-writing` (audit-term-status, reader-vocabulary, sentence-clarity, audit-japanese-rendering, audit-negated-contrast references) | Term status, recoverable semantic roles, stable technical identity, field-aware translation, and the local license for a contrast. These are synthesized principles, not imported workflows. |
 
 ## Updating the catalogue
 

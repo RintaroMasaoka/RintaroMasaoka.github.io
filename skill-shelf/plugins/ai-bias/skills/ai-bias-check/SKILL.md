@@ -1,6 +1,6 @@
 ---
 name: ai-bias-check
-description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, unsupported assumptions, fixation, circular validation, and unnecessary additions. Use for an explicit bias review or when a concrete decision shows one of these patterns."
+description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, unsupported assumptions, fixation, circular validation, unnecessary additions, invented terminology, and misleading phrasing. Use for an explicit bias review or when a concrete decision shows one of these patterns."
 ---
 
 # AI Bias Check
@@ -46,11 +46,17 @@ do not load the whole catalogue or run every check by default.
 | B. Premises and evidence | Would the belief survive removing approval, prestige, presentation cues, and unverified assumptions? | [03 Agreement; 04 Authority; 05 Presentation; 06 Prior output; 07 Assumptions; 08 Selective evidence](references/evidence.md) |
 | C. Search and revision choices | Were meaningful alternatives considered, including changing the existing structure and deleting content? | [09 Early closure; 10 Preservation; 11 Addition preference](references/search-and-revision.md) |
 | D. Inference and validation | Do the conditions support this conclusion, and could the check detect an error in the original interpretation? | [12 Overgeneralization; 13 Familiar patterns; 14 Rationalization; 15 Shared-premise validation](references/inference.md) |
-| E. Information selection and communication | Can the reader infer the intended meaning from the available information, and does every detail earn its attention? | [16 Context leakage; 17 Reader information; 18 Implied meaning; 19 Unnecessary information](references/communication.md) |
+| E. Information selection and communication | Does the artifact convey supported meaning in its own vocabulary, with appropriate emphasis and detail? | [16 Context leakage; 17 Reader information; 18 Implied meaning; 19 Unnecessary information](references/communication.md); [20 Unmarked coinages; 21 Missing relations; 22 Unstable terms; 23 Claim strength](references/wording.md) |
 
 For “says unnecessary things” or “dwells on trivialities,” start with 19.
 For “keeps adding instead of removing,” start with 11. These concern different
 decisions: selecting information versus selecting an editing operation.
+
+For invented compounds, noun-heavy prose, shifting terminology, or ungrounded
+certainty and hedging, read [wording](references/wording.md). For “not A, but B,”
+first check whether A comes from discarded work history (16); use 18 for an
+unsupported subject-matter contrast. Do not turn style inspection into an AI
+authorship detector or a blacklist of phrases.
 
 ## Test and repair
 

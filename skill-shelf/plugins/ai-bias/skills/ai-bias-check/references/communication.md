@@ -3,6 +3,33 @@
 Judgment: what to convey and how wording, sequence, emphasis, and amount affect
 the reader. Review the artifact using its agreed audience and purpose.
 
+## Working explanation: language for thinking enters language for communicating
+
+A central explanatory hypothesis for this part of the catalogue is a failure to
+keep the language used while working something out separate from the language
+used to communicate the result to another person. Deliberation, including a
+model's chain of thought, can use provisional labels, compressed relations,
+rejected alternatives, self-instructions, and reminders. These can help a thinker
+proceed without being appropriate content for the eventual reader. When their
+roles become mixed, private shorthand can appear as public terminology, a
+correction to an earlier draft can appear as a subject-matter contrast, and a
+reminder to explain something can replace the explanation itself.
+
+This hypothesis connects 16, 17, and 20–21 without making them one failed
+judgment: source-role separation, information availability, term status, and
+semantic completeness still need different tests. Human writers also leave
+drafting residue. For AI, one useful proposed mechanism is that intermediate
+representations and final prose are both made of readily reusable language;
+fluent continuation need not perform a separate check of what belongs in the
+deliverable. This is an explanatory model, not a claim that hidden chain of
+thought was inspected or that every model uses the same internal process.
+
+Test the artifact and the available work history: what would have to be
+translated, unpacked, or removed for the agreed reader who was absent from the
+work? Do not request hidden reasoning or invent a drafting history. Apply the
+relevant entry to the visible defect. In a requested process record, retain the
+reasoning and history that serve its audience, expressed for that audience.
+
 ## 16. Leak conversation or instruction language into the artifact
 
 **Failure.** Import wording from requests, critiques, internal plans, or revision
@@ -13,17 +40,37 @@ need.
 vocabulary and phrasing can shape the continuation alongside content. Humans
 also imitate language. AI work often places instructions, old drafts, criticism,
 and reader-facing prose together, making their different roles easy to blur.
+Under the working hypothesis above, language addressed to the thinker or editor
+is reused without being converted into language addressed to the final reader.
 
 **Examples.** Turn “be more concrete” into a sentence announcing that concreteness
 is important; use an internal workflow name as a reader-facing heading; retain
 “unlike the old approach” after the rejected approach has become irrelevant.
 
+**Small-scale pattern: negate a discarded draft inside the final artifact.**
+In “not A, but B,” A may come from an earlier draft, a rejected interpretation,
+or a user's correction rather than the subject being explained. For example,
+after a drafting discussion changes a section from describing a procedure to
+explaining a result, “This is not a procedural checklist, but an explanation of
+the result” carries that discussion into a text whose readers never needed it.
+The model's continuation can remain anchored to what was just corrected, so it
+performs the correction again for the reader. Human revisers also leave traces
+of their own drafting debate.
+
 **Check.** Would a reader who never saw the conversation need this wording or
 contrast? Would it appear if the artifact had been written correctly initially?
+For a corrective contrast, trace A to its source: a live subject-matter alternative
+or the work history? The mere fact that A occurred in the conversation does not
+give it a role in the deliverable. Do not infer that history from wording alone
+when the history is unavailable; assess whether the contrast has a local role.
 
 **Repair and boundary.** Extract the intended content and express it in the
 artifact's own vocabulary and structure. Keep historical comparison when it is
 the purpose, as in change logs, meeting records, or explanations of misconceptions.
+When A only records a discarded drafting choice, remove that branch and express
+the supported B directly. Also remove orphaned “instead,” “now,” or “correctly”
+that still presupposes the discarded version. Do not erase a genuine limitation,
+negative result, or comparison requested as part of the artifact.
 
 ## 17. Treat the writer's knowledge as already supplied
 
@@ -60,6 +107,17 @@ suggest a relationship the evidence does not support.
 **Examples.** Emphasize a testing condition until it looks necessary for validity;
 juxtapose facts so that readers infer an unsupported cause; move an exception
 until a conditional claim reads as unconditional.
+
+**Small-scale variants:**
+
+| Pattern | Why it can happen | Discriminating test and repair |
+|---|---|---|
+| Stage an irrelevant alternative: “not just A, but B.” | Corrective rhetoric supplies an easy shape for an apparently deeper explanation. | What made A a live subject-matter alternative, and what establishes the distinction? Remove an invented opposition and state the supported claim. If A came from drafting history, start with 16. Preserve real contrasts, nonexistence results, and scope limits. |
+| Add a logical relation through “therefore,” “however,” or a trailing “thereby demonstrating…” clause. | Familiar transitions can connect fluent sentences before their logical relation has been checked. | State the actual inference, contrast, or mechanism. If it is unsupported, remove the connector or repair the argument; replacing it with another connector is insufficient. Keep transitions that express a real relation. |
+| Force parallel headings, a three-part list, or “both sides” into apparent equivalence. | Symmetric forms supply easy continuations and resemble completeness. | Are these items comparable at the same level, with the implied evidential weight and coverage? Regroup, qualify, or remove filler items. Keep useful parallel structure; three items alone prove nothing. |
+
+These are explanatory models for the patterns, not a claim that a connector or
+list format itself identifies a bias.
 
 **Check.** What would the position and emphasis lead a reader to consider central,
 necessary, causal, or general? What evidence supports that reading?
@@ -99,6 +157,15 @@ detail, and stop when the requested purpose is served. Retain conditions that
 prevent misuse, warnings that change action, requested background, and explicitly
 requested inventories. Do not optimize for shortness itself. Length alone does
 not establish this bias.
+
+**Small-scale variants:**
+
+| Pattern | Why it can happen | Discriminating test and repair |
+|---|---|---|
+| Preface an answer with “It is important to note,” announce the coming explanation, or repeat it under “In conclusion.” | Familiar exposition supplies an opening and closing even when the answer is already complete. | Does the frame orient the reader or change interpretation? Remove it when it only announces or repeats the content. Preserve navigation for a genuinely long or complex artifact. |
+| Add interchangeable praise, reassurance, apologies, or offers of more help. | A generic helpful persona can supply social language independent of the particular exchange. | Does it answer a real interpersonal need, acknowledge an actual error, or enable a relevant next action? Keep that function; remove automatic padding. Warmth and genuine apology are not defects. |
+| Add generic significance, benefits, or future possibilities after the concrete result. | Associative continuation makes broadly applicable endings easy to generate. | Would the same sentence fit many unrelated subjects? Identify its specific contribution or delete it. If its evaluation overstates support, also test 23 in wording.md. |
+| Add a reflexive caveat or disclaimer with no bearing on this use. | A learned careful-sounding ending can be applied without checking the actual decision. | Which plausible misinterpretation or action does it prevent here? Retain relevant limits and required notices; remove irrelevant caution rather than weakening every claim. |
 
 ## Distinguish output from the chain that produced it
 
