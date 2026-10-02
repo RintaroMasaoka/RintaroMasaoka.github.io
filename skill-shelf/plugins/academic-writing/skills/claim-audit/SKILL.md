@@ -27,7 +27,7 @@ writing or logical-gap reviews can provide methods, but their verdicts are not
 premises for this audit. Read [the protocol](references/protocol.md) before
 creating the inventory or dispatching agents. It routes to the dimension-specific
 worker rules and ledger format. For the explanatory basis of these judgments,
-read [説明が理解を進める条件](references/understanding-and-evidence.md);
+read [When Explanations Advance Understanding](references/understanding-and-evidence.md);
 that essay is maintained guidance, not an additional per-leaf input.
 
 ## Work allocation

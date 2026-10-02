@@ -9,7 +9,7 @@
       "name": "academic-writing",
       "source": "./plugins/academic-writing",
       "description": "Compose and review scholarly abstracts, expository introductions, explanations, figures, prose, terminology, notation, evidence, and sentence-level revisions.",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "author": { "name": "Rintaro Masaoka" }
     },
     {
@@ -37,14 +37,14 @@
       "name": "research-workflow",
       "source": "./plugins/research-workflow",
       "description": "Coordinate theoretical-physics research with bounded roles, independent checks, and durable handoff.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": { "name": "Rintaro Masaoka" }
     },
     {
       "name": "study-notes",
       "source": "./plugins/study-notes",
       "description": "Create and revise scholarly study notes with optional HTML manuscript conventions.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": { "name": "Rintaro Masaoka" }
     },
     {

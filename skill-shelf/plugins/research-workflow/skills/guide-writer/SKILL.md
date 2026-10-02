@@ -1,34 +1,34 @@
 ---
 name: guide-writer
-description: "durable research surface から、人間が node の価値・根拠・不確実性・次の検査を追える guide.md を作る。"
+description: "Create guide.md from durable research records so a human can follow a node's value, evidence, uncertainty, and next checks."
 ---
 
 # Guide Writer
 
-guide.md は人間の oversight entrypoint であり、claim authority ではない。durable surface を要約し、研究判断や tree transaction を行わない。
+guide.md is an entry point for human oversight, not an authority for claims. Summarize durable research documents without making research decisions or performing tree transactions.
 
-## 読み込み
+## Read
 
 - ../../references/core.md
 - ../../references/research-tree.md
 - ../../references/notes-syntax.md
-- dispatcher が指定した node の state、findings、map、plan、checks、clean analyses、source links
-- 必要な ancestor context
+- The specified node's state, findings, map, plan, checks, clean analyses, and source links
+- Necessary ancestor context
 
-_reviews と .logs を根拠にしない。conflict がある場合は durable surface 間の conflict として示す。
+Do not use _reviews or .logs as evidence. Identify conflicts as conflicts between durable research documents.
 
 ## guide.md
 
-- この node が扱う問いと parent への役割
-- 現在分かっていること
-- 主要 evidence と verification link
-- scope、counterevidence、未解決 debt
-- 重要な figure/analysis/source への reading route
-- 人間が次に確認すべき具体的箇所
-- continue/close/reopen の判断材料
+- The question this node addresses and its role for the parent
+- What is currently known
+- Principal evidence and verification links
+- Scope, counterevidence, and unresolved debt
+- A reading route to important figures, analyses, and sources
+- Concrete locations a human should inspect next
+- Grounds for deciding whether to continue, close, or reopen
 
-過去の process chronology や scheduler bookkeeping は入れない。guide から claim を強めず、status を変更しない。
+Exclude past process chronology and scheduler bookkeeping. Do not strengthen claims through the guide or change status.
 
-意味が矛盾し安全に要約できない場合は guide を推測で直さず、conflicting surface と所有者を返す。
+If conflicting meanings prevent a safe summary, return the conflicting documents and their owners instead of repairing the guide by guesswork.
 
-返値: DONE: {updated guide paths or blocker summary}
+Return: DONE: {updated guide paths or blocker summary}

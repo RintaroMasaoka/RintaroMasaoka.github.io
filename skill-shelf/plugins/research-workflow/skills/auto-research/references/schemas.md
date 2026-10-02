@@ -43,7 +43,7 @@
     ## Blockers
     - {owner and missing condition}
 
-cursorは一cycleで高々一edge移動する。Lead Workは必須。Worker DispatchesはDelegation Gateを通るtaskがなければ空でよい。worker target、deliverable、success criteria、delegation reason、downstream decision、direct-work insufficiencyはagentが推測しなくてよい粒度で書く。Claim consequenceはreview dispatchを自動化せず、leadが独立reviewのinformation valueを判断する。
+The cursor moves at most one edge per cycle. Lead Work is required. Worker Dispatches may be empty when no task passes the Delegation Gate. Specify the worker target, deliverable, success criteria, delegation reason, downstream decision, and direct-work insufficiency precisely enough that the agent need not guess. Claim consequence does not trigger review dispatch automatically; the lead judges the information value of independent review.
 
 ## Curator dispatch
 

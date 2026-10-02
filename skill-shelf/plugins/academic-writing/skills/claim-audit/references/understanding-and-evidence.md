@@ -1,51 +1,51 @@
-# 説明が理解を進める条件
+# When Explanations Advance Understanding
 
-教えるための学術文書では、主張の正しさと、読者がその主張を理解できることを、それぞれ確かめる必要がある。さらに、その説明を今ここに置く理由も要る。証明が正しくても、その入口で使う対応をまだ学んでいなければ読者は進めない。読者がすでに使える関係を詳しく述べても、それだけでは理解の進展にならない。検査の単位は、文の存在や話題との関連にとどまらず、前提から結論へ進む具体的な操作と、その操作をこの読者が行える条件である。
+In scholarly teaching material, verify separately that a claim is correct and that readers can understand it. Also establish why the explanation belongs here. A correct proof will not let readers proceed if they have not yet learned the correspondence used at its entrance. Elaborating a relation readers can already use does not, by itself, advance understanding. Inspect the concrete operation that takes premises to a conclusion and the conditions that let this reader perform it, beyond checking that a sentence exists or relates to the topic.
 
-## 主張を確立する説明
+## Explanations that establish a claim
 
-ある主張の根拠を確認するときには、その主張とは別に使える前提を取り出し、何をすれば結論に至るかを確かめる。同じ内容が後の式や補足に書かれていることは、記述の所在を確認した証拠にはなる。成立を確認した証拠になるのは、そこで前提と結論の間が実際につながっている場合である。
+To check a claim's support, identify premises available independently of that claim and determine how the conclusion follows. Finding the same content in a later equation or supplement establishes where it is written. It establishes validity only if that passage actually connects the premises to the conclusion.
 
-とくに、二つの記述の対応づけは見落としやすい。同じ添字で分類され、次元や対称性が一致することは、有力な情報である。しかし、何がそこから従うかは場合によって異なる。抽象的な空間の同型が示せても、その写像が物理的な位置表示であることや、観測量を保存することまで従うとは限らない。対象の構成、写像の定義、使う定理の仮定を通して、主張した対応の範囲を確認する必要がある。
+Correspondences between two descriptions are particularly easy to overlook. Matching indices, dimensions, and symmetries provide useful information, but what follows from them depends on the case. Even an isomorphism between abstract spaces need not establish that its map is a physical position representation or preserves observables. Check the scope of the claimed correspondence through the construction of the objects, the definition of the map, and the assumptions of the theorem being used.
 
-検査のために提示された文章に含まれる式と、検査者が前提として採用してよい式も区別する。検査資料に載っているという理由だけで前提へ昇格させると、その資料が主張していることを、そのまま成立の根拠に使うことになる。前提の採用が曖昧なら、主張の正しさを考える前に、その関係を独立の前提として使えるかを確かめる。
+Distinguish equations appearing in material under review from equations the reviewer is entitled to adopt as premises. Promoting an equation to a premise merely because it appears in that material uses the material's own assertion as its support. If the admissibility of a premise is unclear, establish whether the relation can serve as an independent premise before assessing the claim.
 
-出発点の式を仮定すれば、その後の計算だけを正しく検証できる。この検証は有用だが、出発点のモデルを確立したことにはならない。一方、条件付きの計算として提示された箇所に、モデルの全基礎の導出まで要求する必要もない。記号の定義、明示された仮定、外部から採用する定理、この文書が説明するべき機構を区別すると、根拠の追跡をどこまで行うかが定まる。
+Assuming a starting equation can make it possible to verify the subsequent calculation correctly. That is useful but does not establish the starting model. Conversely, a passage explicitly presented as a conditional calculation need not derive all the model's foundations. Distinguish definitions, explicit assumptions, externally adopted theorems, and mechanisms the document is responsible for explaining to determine how far support must be traced.
 
-## 読者がその場で使える理解
+## Understanding available to the reader at this point
 
-読者の前提は、分野名や熟練度だけでは決まらない。線形代数を知っていても、ある理論の状態を関数として読む対応は未習かもしれない。必要なのは、その場で使う特定の関係が既知かどうかの判断である。記号が定義されていること、関係が文章に一度現れたこと、その関係を用いて次の操作ができることは、別々に確かめる。
+A reader's prerequisites are not determined by field or expertise level alone. Someone who knows linear algebra may not yet know the correspondence that represents states in a particular theory as functions. Determine whether the specific relation used here is known. Separately check that notation has been defined, that a relation has appeared once in prose, and that the reader can use it in the next operation.
 
-読者に利用可能なものは、現在の位置までの本文と、明示された既知事項から判断する。後の証明を知っている検査者は、その証明を無意識に現在の読者へ貸し出しやすい。補足に導出が存在するかの確認と、初出の場面で読者がそれを使えるかの確認を分けることで、この混同を避けられる。
+Judge availability from the text up to the current point and the explicitly agreed prior knowledge. A reviewer who knows a later proof can inadvertently lend that knowledge to the current reader. Separating the existence of a derivation in a supplement from its availability at first use avoids this confusion.
 
-これはすべての証明を結論の前に置く規則ではない。何を主張しているかが理解でき、これから確かめる内容として明示されていれば、定理を先に述べられる。問題になるのは、これから学ぶ関係を、すでに理解した前提として次の推論が消費するときである。
+This does not require every proof to precede its conclusion. A theorem may be stated first if its claim is intelligible and is identified as something to be established. The failure occurs when subsequent reasoning consumes a relation still to be learned as an already understood premise.
 
-## 説明の必要性と読者の変化
+## Necessity of an explanation and change in the reader
 
-説明が主題に関連することは、その説明を必要とする十分な理由ではない。読む前にできることと、読んだ後にできることを比べ、何が進むかを確かめる。新しい対応が分かる、条件を変えたときの違いを予測できる、以前の式を現在の記号へ移せる、といった具体的な変化がその証拠になる。
+Topical relevance is not sufficient reason to include an explanation. Compare what readers can do before and after it. Concrete gains include understanding a new correspondence, predicting how a changed condition affects the result, or translating an earlier equation into the current notation.
 
-既知事項の再掲にも役割はある。離れた場所の式を手元に戻したり、既知の一般論が今回の対象にどう当てはまるかを示したりすれば、次の推論の負担を減らせる。再掲を取り除いたときに何を回収し直す必要が生じるかを考えると、その役割を確かめやすい。ただし、削除できる文をすべて削ることを目標にはしない。読みのリズム、必要な比較、図と式の照合なども具体的な貢献になりうる。
+Restating known material can also serve a purpose. Bringing a distant equation back into view or showing how a general result applies to the current object can reduce the burden of the next inference. Consider what readers would have to retrieve again if the restatement were removed. Do not make deletion of every removable sentence the goal: reading rhythm, necessary comparisons, and matching a figure to an equation can make concrete contributions too.
 
-一つの段落に役割の異なる文がある場合には、段落全体を一括して必要と認定しない。最初の一文が新しい対象への接続を与えても、続く基礎概念の再説明まで必要になるとは限らない。読者が知っていると判断した内容を、説明の必要性を判定する段階で未習として扱い直してはならない。
+When sentences in a paragraph have different roles, do not approve the entire paragraph as necessary at once. An opening sentence that connects to a new object need not justify a following re-explanation of basic concepts. Content judged already known must not become supposedly unfamiliar again when assessing whether its explanation is necessary.
 
-学習者の経験によって有効な指導が変わりうることは、expertise reversal effectの研究が扱ってきた問題である。ただし、熟練者向けの文章では常に説明を減らせるという規則にはならない。どの関係を知っている読者に、どの援助が必要かを判定するための背景として使う。[Kalyuga, Ayres, Chandler & Sweller (2003), “The Expertise Reversal Effect,” Educational Psychologist, 38(1), 23–31](https://www.tandfonline.com/doi/abs/10.1207/S15326985EP3801_4)
+Research on the expertise reversal effect examines how useful instruction can vary with learner experience. It does not establish a rule that expert-facing texts always need fewer explanations. Use it as background for deciding which support is needed by readers who know particular relations. [Kalyuga, Ayres, Chandler & Sweller (2003), “The Expertise Reversal Effect,” Educational Psychologist, 38(1), 23–31](https://www.tandfonline.com/doi/abs/10.1207/S15326985EP3801_4)
 
-## 準備を理解の一部にする
+## Make preparation part of understanding
 
-準備の用途を書けば、読者がその用途を理解できるとは限らない。「後で射影を求めるため」と書いても、なぜ射影を求めたいのかがまだ分からなければ、その準備は保留された情報になる。必要なのは、準備が答える問いを、準備の専門用語に依存せず読者が捉えられることである。
+Stating a preparation's intended use does not ensure readers understand that use. “To find the projection later” still leaves information pending if readers do not yet know why they want the projection. Readers must be able to grasp the question the preparation answers without already knowing its specialized terminology.
 
-たとえば観測点に直線を当てはめる場面なら、まずどのずれを小さくしたいかを示せる。各点の予測値を一度に表したくなったところで行列を導入すれば、その定義を行う理由が分かる。全体の解法がまだ見えなくても、予測値をまとめて書けるようになったという局所的な進展がある。
+For example, when fitting a line to observations, first show which discrepancies should be reduced. Introduce a matrix when readers need to express all predicted values together; the reason for the definition then becomes apparent. Even before the full solution is visible, being able to express the predictions together is a local gain.
 
-部品を先に学ぶこと自体には価値がある。Mayerらの実験では、機械の動作を説明する動画の前に部品について学ぶ準備が、後の理解を助ける条件を調べている。この研究は、数学の記号を大量に先行定義すればよいという根拠ではない。準備によって何を認識できるようになり、それが全体の理解へどう寄与するかを区別する手掛かりになる。[Mayer, Mathias & Wetzell (2002), “Fostering understanding of multimedia messages through pre-training: Evidence for a two-stage theory of mental model construction”](https://pubmed.ncbi.nlm.nih.gov/12240927/)
+Learning components first can be valuable. Mayer and colleagues studied conditions under which learning about components before watching an explanation of a machine helped later understanding. This does not justify introducing large amounts of mathematical notation in advance. It helps distinguish what preparation enables readers to recognize from how that recognition contributes to understanding the whole. [Mayer, Mathias & Wetzell (2002), “Fostering understanding of multimedia messages through pre-training: Evidence for a two-stage theory of mental model construction”](https://pubmed.ncbi.nlm.nih.gov/12240927/)
 
-## 情報の保持と、読み方を管理する負担
+## Retaining information and managing the reading process
 
-読者が保持するのは、式や定義だけではない。「この量は何のためだったか」「どの問いを保留しているか」「この一致はもう説明されたのか」といった、議論の進行に関する情報も保持する。ここでは後者を、読み方を管理する負担と呼ぶ。これは文書を検査するための操作的な区別であり、独立した認知資源や固定容量の存在を主張するものではない。
+Readers retain more than equations and definitions. They also track what a quantity was for, which question remains pending, and whether a correspondence has already been explained. Here, this second burden is called managing the reading process. This is an operational distinction for inspecting documents, not a claim about a separate cognitive resource or fixed capacity.
 
-見通しのない準備は、内容とその用途を同時に保留させる。用途を知らせる案内を増やしても、その案内自体を追跡する必要が生じうる。説明の順序や記法を変え、途中で使える結果を得られるようにすると、長い案内を追加するより直接的に負担を減らせる場合がある。
+Preparation without a clear purpose leaves both content and its use pending. Adding more signposting about its purpose can itself create more information to track. Changing the order or notation to yield usable intermediate results can sometimes reduce that burden more directly than adding a long guide.
 
-動機づけは、この議論を続ける理由と、進める手掛かりを読者が見いだせることにも関わる。励ましの言葉や「後で分かる」という約束だけでは、その手掛かりにはならない。他方、難しい推論や未解決の問いがあること自体を欠陥とはしない。問う対象が分かり、次に試せる操作があり、中間結果を理解の進展として受け取れることが重要である。
+Motivation also involves finding a reason to continue the argument and a concrete way to proceed. Encouragement or promises that something will become clear later do not alone provide that way forward. Difficult reasoning and unresolved questions are not themselves defects. Readers should understand the question, have a next operation to try, and recognize intermediate results as progress in understanding.
 
-## 検査の限界
+## Limits of this review
 
-引用した学習研究は、この検査設計を考える背景であり、検査項目の有効性を直接実証したものではない。これらは文書中の証拠に基づく判定基準である。人が実際に理解したか、どれほど負担や意欲を感じたかを直接測定するものではない。検査では「難しそう」「必要そう」という印象を、その根拠となる関係へ戻す。どの前提から何が従うか、この読者は何を使えるか、この説明で何が進むかを別々に記録し、同じ読者前提の下で整合するかを最後に確認する。
+The cited learning research provides background for the review design; it does not directly validate these checks. The criteria use evidence in the document. They do not directly measure actual comprehension, perceived effort, or motivation. Convert impressions such as “seems difficult” or “seems necessary” into the relations that support them. Record separately what follows from which premises, what this reader can use, and what the explanation advances, then check their consistency under the same reader assumptions.

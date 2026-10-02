@@ -1,7 +1,7 @@
 # Durable Markdown
 
-- link は file からの相対 path を使う。空白を含む path は angle bracket で囲む。
-- concepts は reusable term の reader bridge、conventions は記号規約、findings/checks は claim authority。
-- durable research prose から .logs と _reviews へ link しない。必要な内容を吸収する。
-- bare path は code、frontmatter、machine command、dispatcher input に限る。prose の参照は Markdown link にする。
-- Obsidian の wiki link は使わない。
+- Use file-relative paths for links. Enclose paths containing spaces in angle brackets.
+- concepts explains reusable terms for readers; conventions defines notation; findings/checks provides claim authority.
+- Do not link durable research prose to .logs or _reviews. Integrate the necessary content instead.
+- Reserve bare paths for code, frontmatter, machine commands, and dispatcher inputs. Use Markdown links for references in prose.
+- Do not use Obsidian wiki links.

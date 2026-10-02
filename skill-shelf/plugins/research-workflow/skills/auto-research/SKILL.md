@@ -1,66 +1,66 @@
 ---
 name: auto-research
-description: "理論物理研究を adaptive research lead として自律的に進める。main agent が方向・通常作業・統合を担い、専門性、実効的な並列性、独立検証、semantic tree surgery が必要な場合だけ subagent を使う。引数は cycle 上限、既定5。"
+description: "Advance theoretical physics research autonomously as an adaptive research lead. The main agent owns direction, ordinary work, and integration, using subagents only for specialization, effective parallelism, independent verification, or semantic changes to the research tree. The argument is the cycle limit, default 5."
 ---
 
 # /auto-research
 
-main agent が research lead として科学的方向、通常の調査・推論、provisional integration、session handoff を担う。subagent は既定の工程ではなく、明確な追加価値を持つ bounded instrument として使う。
+The main agent acts as research lead, owning scientific direction, ordinary research and reasoning, provisional integration, and session handoff. Use subagents for bounded tasks with clear added value, rather than as mandatory stages.
 
-この package 内の役割を dispatch するときは必ず `research-workflow:<skill-name>` を使う。`research/focus.md` の Agent field も同じ qualified identity とする。初回利用時に雛形コピーや事前設定をユーザーへ要求しない。書き込み可能な研究フォルダでは package 内の `../../scripts/session.py` を使い、不足している研究記録だけを初期化する。既存ファイルは上書きしない。適切なフォルダがなければ会話内で調査を進め、永続記録がないことを報告する。
+Always dispatch roles in this package using `research-workflow:<skill-name>`. Use the same qualified identity in the Agent field of `research/focus.md`. Do not ask users to copy templates or perform setup before first use. In a writable research folder, use the package's `../../scripts/session.py` to initialize only missing research records. Do not overwrite existing files. If no suitable folder exists, work in the conversation and report that no durable record is being kept.
 
-永続記録を置けない場合は、project tree に書き込む補助roleを dispatch せず、main agent の direct work と明示的な未検証事項の報告に留める。
+If durable records cannot be stored, do not dispatch supporting roles that write to the project tree. Limit execution to direct work by the main agent and explicit reporting of unverified matters.
 
-## 読み込み
+## Read
 
-開始時に次を読む。
+At startup, read:
 
 - ../../references/core.md
 - references/workflow.md
 - references/schemas.md
 
-必要なrole skillはdispatch先自身が読む。main agentはcurrent decisionに必要なnodeだけを読み、全treeやraw logを工程上の安心のために走査しない。
+Dispatched roles read their own skill instructions. The main agent reads only nodes needed for the current decision, rather than scanning the entire tree or raw logs for procedural reassurance.
 
-## 目的
+## Objective
 
-指定 cycle 数を使い、現在の research board から最も情報価値の高い問いを選び、main agent 自身の作業を中心に前進させる。部分的結果、negative evidence、verification debt を正直に memory へ残す。独立 review の ACCEPT を最終真理や novelty 証明に変換しない。
+Within the specified cycle budget, choose the highest-information question from the current research board and advance it primarily through the main agent's own work. Honestly record partial results, negative evidence, and verification debt in memory. Do not turn an independent review's ACCEPT into final truth or proof of novelty.
 
-## 引数
+## Arguments
 
-正の整数を MAX_CYCLES とする。省略時5、不正値は5。中断からの再開では current focus と直近の session log から残作業を再構成する。
+Use a positive integer as MAX_CYCLES. Default to 5 when omitted or invalid. When resuming an interrupted session, reconstruct remaining work from the current focus and latest session log.
 
 ## Adaptive loop
 
-1. Session Start。質問と既存の研究記録を確認し、書き込み可能な研究フォルダでは不足分を自動初期化する。
-2. current focus と必要な node context を読み、main agent が live question と判別手段を選ぶ。
-3. stagnation、contradiction、major closure、pivot risk がある場合だけ `research-workflow:direction-challenger` を使う。
-4. main agent が通常の検索、読解、導出、局所計算、draft synthesis を直接行う。
-5. Delegation Gate を通る bounded task だけ worker に委譲する。複数 dispatch は互いに独立で、各出力が必要な場合だけ並列化する。
-6. Research Draft または durable memory が依存する consequential claim だけ `research-workflow:critic` に渡す。cheap mechanical repair は最大一回。
-7. semantic tree surgery、lifecycle変更、retraction、durable promotion、複雑なprovenance closure が必要な場合だけ `research-workflow:curator` を使う。
-8. changed evidence への human reading route が欠ける場合だけ `research-workflow:guide-writer` を使う。
-9. main agent が evidence、scope、verification debt、次の問いを統合し、focus と session handoff を更新する。
-10. MAX_CYCLES、user stop、unrecoverable failure のいずれかまで繰り返し、Session End transaction と簡潔な最終報告を行う。
+1. Session Start. Inspect the question and existing research records; automatically initialize missing records in a writable research folder.
+2. Read the current focus and necessary node context. The main agent selects a live question and a method that distinguishes the alternatives.
+3. Use `research-workflow:direction-challenger` only for stagnation, contradiction, major closure, or pivot risk.
+4. The main agent directly performs ordinary searches, reading, derivations, local calculations, and draft synthesis.
+5. Delegate only bounded tasks that pass the Delegation Gate. Parallelize multiple dispatches only when they are independent and every output is necessary.
+6. Send only consequential claims on which the Research Draft or durable memory depends to `research-workflow:critic`. Allow at most one cheap mechanical repair.
+7. Use `research-workflow:curator` only for semantic changes to the tree, lifecycle changes, retraction, durable promotion, or complex provenance closure.
+8. Use `research-workflow:guide-writer` only when a human reading route to changed evidence is missing.
+9. The main agent integrates evidence, scope, verification debt, and the next question, updating focus and session handoff.
+10. Repeat until MAX_CYCLES, a user stop, or an unrecoverable failure; then perform the Session End transaction and give a concise final report.
 
-focus の `session_complete` は研究状態であり、残りcycleを機械的にsubagent callで消費する理由ではない。新しい情報価値のある作業がなければmain agentがその判断を記録してSession Endへ進める。
+The focus field `session_complete` records research state. It is not a reason to mechanically spend remaining cycles on subagent calls. If no further work has information value, the main agent records that judgment and proceeds to Session End.
 
 ## Delegation Gate
 
-dispatch前に、そのagentの出力、それが変える下流判断、main agentのdirect workでは同等のconfidenceまたはcostで得られない理由を一文ずつ特定する。次の少なくとも一つが成立する場合だけ呼ぶ。
+Before dispatch, identify in one sentence each: the agent's output, the downstream decision it can change, and why the main agent cannot obtain the same result through direct work with comparable confidence or cost. Dispatch only if at least one condition holds:
 
-- role固有のsource audit、simulation、implementation、または明示された検査contractが必要。
-- 二つ以上のbounded taskが相互依存せず、並列化が実際にsession latencyを下げる。
-- claimのconsequenceが高く、main agentとcontextを分離した独立検証が必要。
-- nodeを跨ぐsemantic transactionやdurable authority操作が必要。
+- A role-specific source audit, simulation, implementation, or explicit inspection contract is needed.
+- Two or more bounded tasks are independent, and parallel execution actually reduces session latency.
+- A claim has high consequences and needs independent verification with context separated from the main agent.
+- A semantic transaction across nodes or an operation on durable authority is needed.
 
-main agentが同じtoolとcontextで完了できるcontext収集、単純検索、小さな導出、局所編集、要約、formattingは直接行う。別roleを工程表の空欄を埋めるために呼ばない。batchは必要最小限とし、既定は一つのbounded dispatchである。agent returnを受け取った後も、方向判断と採否はmain agentが行う。
+Directly perform context gathering, simple searches, small derivations, local edits, summaries, and formatting that the main agent can complete with the same tools and context. Do not call another role to fill a slot in a workflow. Keep batches minimal; default to one bounded dispatch. The main agent retains direction and adoption decisions after receiving agent results.
 
-## 実行規律
+## Execution discipline
 
-- active session 中に user input を求めない。
-- cycle 間で進捗文を返して turn を終えない。次の dispatch を行う。
-- user-facing message は原則 Session End の最終報告一回だけ。
-- sleep や filesystem polling で agent を待たない。runtime の agent wait を使う。
-- subagent call数や役割網羅をprogressとして数えない。research decisionを変えないcallは行わない。
-- この skill は commit や push を自動で行わない。既存 user edit を混ぜず、研究の session 記録だけを保存する。
-- 文献本文を使うときは出典を追跡する。論文執筆はこの package の責務ではない。
+- Do not request user input during an active session.
+- Do not end a turn with a progress message between cycles. Proceed to the next dispatch.
+- By default, send only one user-facing message: the final Session End report.
+- Use the runtime's agent wait mechanism, not sleep or filesystem polling, to wait for agents.
+- Do not count subagent calls or role coverage as progress. Avoid calls that cannot change a research decision.
+- This skill does not automatically commit or push. Preserve existing user edits separately and save only the research session records.
+- Track sources when using literature content. Paper writing is outside this package's responsibility.

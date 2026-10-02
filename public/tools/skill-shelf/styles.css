@@ -603,7 +603,7 @@ footer {
 .skill-list { display: block; counter-reset: chapter; }
 .skill-list li { padding: 0; border: 0; border-radius: 0; background: none; font-size: .95rem; }
 .skill-list button { width: 100%; display: flex; gap: 12px; padding: 10px 4px; border: 0; border-bottom: 1px dotted #c9bdab; background: transparent; color: #564333; cursor: pointer; text-align: left; overflow-wrap: anywhere; }
-.skill-list > li > button::before { counter-increment: chapter; content: counter(chapter, decimal-leading-zero); color: #967f65; }
+.skill-list > li > button::before { counter-increment: chapter; content: counter(chapter, decimal-leading-zero); color: #967f65; flex: 0 0 2ch; white-space: nowrap; overflow-wrap: normal; font-variant-numeric: tabular-nums; }
 .reference-label { display: block; margin: 12px 0 4px 30px; color: #866c4f; font-size: .66rem; }
 .reference-list { list-style: none; margin: 0 0 18px 30px; padding: 0 0 0 12px; border-left: 1px solid #c9bdab; }
 .reference-list button { font-family: inherit; font-size: .9rem; line-height: 1.45; }
