@@ -1,6 +1,6 @@
 ---
 name: ai-bias-check
-description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, proof requests derailed by objections or convenient assumptions, unsupported premises, fixation, circular validation, and misleading wording. Use for an explicit bias review or a concrete sign of these patterns during reasoning or revision; not for demographic fairness audits."
+description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, proof requests derailed by objections or convenient assumptions, unsupported premises, fixation, circular validation, misdirected reader attention, defensive overformalization, and misleading wording. Use for an explicit bias review or a concrete sign of these patterns during reasoning or revision; not for demographic fairness audits."
 ---
 
 # AI Bias Check
@@ -48,7 +48,12 @@ do not load the whole catalogue or run every check by default.
 | D. Inference and validation | Do the conditions support this conclusion, and could the check detect an error in the original interpretation? | [12 Overgeneralization; 13 Familiar patterns; 14 Rationalization; 15 Shared-premise validation](references/inference.md) |
 | E. Information selection and communication | Does the artifact convey supported meaning in its own vocabulary, with appropriate emphasis and detail? | [16 Context leakage; 17 Reader information; 18 Implied meaning; 19 Unnecessary information](references/communication.md); [20 Unmarked coinages; 21 Missing relations; 22 Unstable terms; 23 Claim strength](references/wording.md) |
 
-For “says unnecessary things” or “dwells on trivialities,” start with 19.
+For true details that make readers focus on the wrong issue, including defensive
+piles of assumptions and definitions, start with
+[18](references/communication.md#18-judge-the-whole-message-by-sentence-level-truth).
+Recover the intended message and check the attention, questions, and importance
+judgments the passage invites. For information with no useful role or excessive
+space, use 19; these tests can apply separately to the same passage.
 For “keeps adding instead of removing,” start with 11. These concern different
 decisions: selecting information versus selecting an editing operation.
 
