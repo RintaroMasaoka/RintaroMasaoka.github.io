@@ -42,7 +42,7 @@ const packages = {
     skills: ["study-note"],
   },
   "ai-bias": {
-    version: "0.2.0",
+    version: "0.3.0",
     title: "AI Bias",
     license: "MIT License",
     description: "Recognize and correct recurring biases in AI reasoning, writing, and revision. Includes 23 patterns across five categories, with explanations, checks, and remedies for reasoning and phrasing—including invented terms, drafting residue, and unsupported rhetorical contrasts. English instructions; responses follow your requested language.",

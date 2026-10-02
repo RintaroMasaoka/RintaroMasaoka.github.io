@@ -127,6 +127,13 @@ gaps directly rather than asking the reader to diagnose them. Do not stop at
 every omission. Unknown prior knowledge belongs here; mis-tracking what the
 document has supplied belongs in [17](communication.md#17-treat-the-writers-knowledge-as-already-supplied).
 
+In proof work, an added assumption also needs a separate check of its role:
+was an omitted convention clarified, a genuine restriction proposed, or the
+unproved conclusion put into the premises? See [proof tasks](proof-tasks.md).
+Use 07 when a consequential premise is treated as given without support. If the
+change is explicit but the revised theorem is passed off as the requested result,
+01 is the relevant failure even when the conditional proof is valid.
+
 ## 08. Select only evidence that fits the conclusion
 
 **Failure.** Choose search terms, sources, or tests that favor the desired answer,

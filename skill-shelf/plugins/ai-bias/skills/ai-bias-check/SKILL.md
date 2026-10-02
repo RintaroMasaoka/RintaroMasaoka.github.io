@@ -1,6 +1,6 @@
 ---
 name: ai-bias-check
-description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, unsupported assumptions, fixation, circular validation, unnecessary additions, invented terminology, and misleading phrasing. Use for an explicit bias review or when a concrete decision shows one of these patterns."
+description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, proof requests derailed by objections or convenient assumptions, unsupported premises, fixation, circular validation, and misleading wording. Use for an explicit bias review or a concrete sign of these patterns during reasoning or revision; not for demographic fairness audits."
 ---
 
 # AI Bias Check
@@ -51,6 +51,13 @@ do not load the whole catalogue or run every check by default.
 For “says unnecessary things” or “dwells on trivialities,” start with 19.
 For “keeps adding instead of removing,” start with 11. These concern different
 decisions: selecting information versus selecting an editing operation.
+
+For proof requests that stall at a counterexample or become easy only after
+changing the assumptions, start with 01 and read
+[proof tasks and changes to assumptions](references/proof-tasks.md). Judge the
+validity of the objection separately from whether it advances the requested
+work. Do not label a conditional proof invalid merely because the new assumption
+makes it easy; check what problem was actually solved.
 
 For invented compounds, noun-heavy prose, shifting terminology, or ungrounded
 certainty and hedging, read [wording](references/wording.md). For “not A, but B,”
