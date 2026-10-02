@@ -18,6 +18,15 @@ catalogue's development. It provides a unifying explanation for several wording
 failures, not an empirically verified account of a model's hidden chain of thought.
 Its operational tests use the artifact and any available work history.
 
+The paired proof-task failures—dwelling on a valid objection instead of
+addressing a repair, and obtaining an easy proof by changing the premises—come
+from a user-reported collaboration problem. They extend 01 rather than introduce
+a new primary category. Their proposed common mechanism is substitution of a
+locally defensible verdict for progress on the intended problem. This is an
+operational explanation, not evidence of adversarial intent or a finding from
+the papers listed below. The proof-task checks were developed from that report
+and analysis of premise changes, conditional claims, and proof obligations.
+
 ## Research map
 
 | Entries | Source | Relevant scope |

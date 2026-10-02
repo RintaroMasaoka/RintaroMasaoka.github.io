@@ -27,6 +27,8 @@ in training ([length and quality](https://arxiv.org/abs/2403.19159)).
 | Procedure replaces progress: plans, questions, or reviews count as the result. | Which concrete failure does each procedure prevent here? Does its result change the work? |
 | Naming replaces explanation: calling something a “structural problem” is treated as understanding it. | Without the name, explain which relationship is wrong and what that changes about the response. |
 | Appearance replaces quality: length, polish, or familiar style wins over correctness. | Remove author identity and nonessential decoration, then compare correctness and requirement satisfaction. |
+| A correct objection replaces constructive progress: a proof request ends with repeated attention to an omitted condition, although the intended setting supports a useful repair. | After the obstruction is established, what does another counterexample change? Has a justified repair or the actual obstruction to repair been addressed? |
+| An easy conditional proof replaces the requested theorem: add the conclusion, a near-equivalent condition, or the unresolved lemma as a hypothesis and report success on the original task. | Compare the original and revised claims. What independently justifies the added condition, how much of the intended scope survives, and where did the original proof obligation go? |
 
 LLM-judge research examines length and self-preference effects
 ([judge biases](https://arxiv.org/abs/2306.05685)). Familiarity is one proposed
@@ -43,6 +45,24 @@ success from that failure. Retain required formats, meaningful approvals,
 established terminology, and stylistic qualities that are themselves requested.
 Honor explicit changes to the goal. Do not fix procedural excess by dropping a
 check that prevents a relevant, consequential error.
+
+### Proof tasks: two ways to secure an easy verdict
+
+A refutation of the literal wording and a proof of a modified claim can both be
+correct while leaving the intended research question unresolved. The shared
+failure is accepting that local verdict as completion, not counterexample search
+or conditional reasoning itself. Read [proof tasks](proof-tasks.md) for the
+assumption checks, examples, and boundaries.
+
+**Explanatory model.** A crisp refutation or completed proof offers a readily
+assessable endpoint. Repairing a statement while preserving its research content
+requires a harder judgment about intent, scope, and remaining obligations.
+Humans can also retreat to defensible objections or move the goalposts. In AI
+work, familiar proof/refutation formats and pressure to produce a satisfactory
+answer may favor those endpoints. The result can function like gaming an
+evaluation without establishing that the agent intends to deceive or compete
+with the user. Test the change in success criteria, rather than attributing a
+motive from the tone of the answer.
 
 ## 02. Let available means determine the goal
 
