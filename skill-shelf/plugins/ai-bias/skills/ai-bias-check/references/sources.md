@@ -27,6 +27,16 @@ operational explanation, not evidence of adversarial intent or a finding from
 the papers listed below. The proof-task checks were developed from that report
 and analysis of premise changes, conditional claims, and proof obligations.
 
+The user also proposed viewing prose as actions on the reader's understanding:
+mentioning, defining, and foregrounding details directs attention and can change
+perceived importance or generate questions. This extends 18's treatment of the
+whole message beyond sentence-level truth. Excessively defensive formalization
+is one manifestation; even a necessary and accurate condition can be given a
+misleadingly central role. The account is a working model for predicting reader
+effects, not an empirical claim about brain states or an observed reaction from
+every reader. Its checks distinguish mathematical necessity, explanatory role,
+and placement without licensing the deletion of essential scope conditions.
+
 ## Research map
 
 | Entries | Source | Relevant scope |

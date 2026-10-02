@@ -3,6 +3,30 @@
 Judgment: what to convey and how wording, sequence, emphasis, and amount affect
 the reader. Review the artifact using its agreed audience and purpose.
 
+## Working explanation: prose directs the reader's attention
+
+Prose does more than store true propositions. Naming a condition asks the reader
+to attend to it; introducing a symbol asks them to track it; foregrounding a
+qualification can suggest that it explains the result or deserves investigation.
+A useful model is a sequence of actions on the reader's understanding: each
+choice can change what they consider important, what they expect next, what they
+hold in memory, and which questions they pursue. The user proposed this model
+as a way to explain failures of communication. It is not a literal claim that
+each word executes a fixed mental command or that actual brain states are known.
+
+Judge these effects against the understanding the passage is meant to produce.
+A mathematically necessary condition may have little explanatory importance in
+the present discussion. Giving it prominent treatment can invite the wrong
+question even when the condition must remain somewhere in the argument. The
+problem need not be falsehood, excessive length, or a defensive tone: a single
+accurate aside can redirect the reader away from the intended point.
+
+Use the intended audience and visible text to predict these effects; distinguish
+that prediction from observed reader responses. This model primarily informs
+18. Use 19 for inclusion and allocation of space, and 17 for information the
+reader actually needs. It complements the following hypothesis about where
+inappropriate wording can come from.
+
 ## Working explanation: language for thinking enters language for communicating
 
 A central explanatory hypothesis for this part of the catalogue is a failure to
@@ -127,6 +151,58 @@ preserving the claim's scope. Keep necessary qualifications. Distinguish predict
 reader impressions from measured reactions. All content may be necessary yet
 misleadingly arranged; that is this entry, while disproportionate information
 relative to its usefulness belongs in 19.
+
+### Defensive detail that misdirects attention
+
+**Failure.** Add or foreground definitions, assumptions, quantifiers, cases, or
+derivations to preempt objections, thereby inviting the reader to regard a
+secondary issue as central or to investigate a question that does not advance
+the intended understanding. The mathematics may be valid. The error is the
+importance or explanatory role suggested by presenting it this way.
+
+**Why it can happen.** Checking a possible objection is a concrete local task;
+judging how its mention changes a reader's understanding requires considering
+the whole passage. Humans also write defensively when anticipating criticism.
+In AI work, verification language and readily generated qualifications may enter
+the final prose without a separate judgment about their communicative effects.
+This is a working explanation, not evidence of the author's motives or unseen
+review history. Defensive writing is one possible source of the failure, not
+the defining condition for diagnosing it.
+
+**Check.** Recover the intended message, audience, and role of the passage. For
+each conspicuous detail, ask what it invites the reader to attend to, regard as
+important, retain for later, or ask next. Is that invitation useful here? Does a
+condition merely delimit validity, or explain why the result occurs? Does the
+placement make one look like the other? A detail can be necessary for correctness
+without deserving explanatory prominence. Do not add definitions merely because
+words can be defined; establish what ambiguity matters for this reader's next
+inference.
+
+**Repair.** Organize the passage around the intended relationship and the steps
+needed to understand it. Give necessary scope conditions proportionate, precise
+treatment where the claim needs them; place full formal assumptions and
+verification details in the relevant theorem, proof, methods section, or linked
+reference when that division serves the task. Remove irrelevant objections and
+redundant restatements. Check that the revised emphasis no longer presents a
+secondary condition as the subject or mechanism. Merely adding a summary to the
+same distracting prose does not repair the reader's route through it.
+
+**Example.** A derivation fixes a standard normalization so that the coefficient
+has an unambiguous value. Repeatedly highlighting this convention in a paragraph
+about the physical mechanism can make it seem like a special physical assumption
+responsible for the effect. State the convention where the formula needs it and
+explain the mechanism in its own terms. If normalization changes the question
+being answered, that distinction does deserve explicit attention.
+
+**Boundary.** Preserve assumptions that determine the claim's scope and steps the
+reader needs. Do not hide them behind vague “regularity conditions,” imply broader
+validity, or remove definitions from a requested complete proof. A theorem,
+formal specification, or foundational explanation may properly make conditions
+the central subject. Equations can be the clearest communication. Judge the
+invited understanding, not the amount of notation or technical difficulty.
+Use 19 for unnecessary inclusion or disproportionate space, 23 for unwarranted
+hedging or claim strength, and 01 only when resistance to objections has itself
+replaced communicative success. None of these causes follows from 18 alone.
 
 ## 19. Include information beyond its useful role
 
