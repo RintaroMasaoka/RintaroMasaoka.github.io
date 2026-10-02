@@ -1,64 +1,62 @@
-# 平方の展開
+# Expanding a Square
 
-$(x+1)^2$ を積として計算すると、一次の項が二つ現れる。それらをまとめて、同じ式を多項式の和として表す。
+Expanding $(x+1)^2$ as a product gives two linear terms. Combining them expresses the same quantity as a sum of polynomial terms.
 
-## 積を展開する
+## Expand the product
 
 <!-- reference: square-identity -->
 
-分配法則を二度使うと、平方は次のように展開できる。
+Applying the distributive law twice gives
 
 ```equation
 id: square
 (x+1)^2=x^2+2x+1
 ```
 
-二つの交差項 $x\cdot1$ と $1\cdot x$ の和が $2x$ になる。
+The two cross terms $x\cdot1$ and $1\cdot x$ sum to $2x$.
 
 <!-- /reference -->
 
 ```math-steps
 lhs: (x+1)^2
 part expanded: x^2+x+x+1
-note: 各括弧から一つずつ項を選んで掛け、すべて加える。
+note: Multiply each term in one factor by each term in the other, then add the products.
 popup-math: (x+1)(x+1)=x(x+1)+1(x+1)
 ---
 part collected: x^2+2x+1
-note: 二つの $x$ をまとめる。
+note: Combine the two copies of $x$.
 ```
 
-## 具体的な値を入れる
+## Substitute a value
 
-式 (square) の両辺に $x=2$ を代入すると、どちらも $9$ になる。
+Setting $x=2$ on both sides of equation (square) gives $9$ in each case.
 
 | $x$ | $(x+1)^2$ | $x^2+2x+1$ |
 | --- | --- | --- |
 | $0$ | $1$ | $1$ |
 | $2$ | $9$ | $9$ |
 
-値を入れる確認は計算ミスを見つける助けになる。任意の $x$ で成立する根拠は、[分配法則による導出](#ref-square-identity)である。
+Substitution can help catch calculation errors. Validity for every $x$ follows from the [derivation using the distributive law](#ref-square-identity).
 
-## 因数分解で戻す
+## Return by factoring
 
 $$
 x^2-1=(x-1)(x+1)
 $$
 
 ```math-hint
-右辺の交差項 $x$ と $-x$ が打ち消し合う。
+The cross terms $x$ and $-x$ on the right cancel.
 ```
 
-[展開を確認する](#note-difference-of-squares)。
+[Check the expansion](#note-difference-of-squares).
 
 <details id="note-difference-of-squares">
-<summary>$(x-1)(x+1)$ の計算</summary>
+<summary>Calculating $(x-1)(x+1)$</summary>
 
-分配法則から
+The distributive law gives
 
 $$
 (x-1)(x+1)=x^2+x-x-1=x^2-1
 $$
-
-となる。
 
 </details>

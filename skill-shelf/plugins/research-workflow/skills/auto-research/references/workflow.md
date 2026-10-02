@@ -1,52 +1,52 @@
 # /auto-research Workflow
 
-以下で役割を dispatch するときは、role label ではなく `research-workflow:<skill-name>` の identity を指定する。
+When dispatching a role below, specify its `research-workflow:<skill-name>` identity, not a bare role label.
 
 ## Session Start
 
-1. ユーザーの研究質問と、現在の作業フォルダがその研究の保存先として適切かを確認する。project instructions があれば読むが、`AGENTS.md`、Git、既存の `.scripts/` は必須ではない。
-2. 書き込み可能な研究フォルダでは、この skill の `SKILL.md` から `../../scripts/session.py` を解決し、`python3 <resolved-path> --project-root <project-root> init --question <question>` を実行する。これは欠けた `research/state.md` と `research/focus.md` だけを作る。既存の研究内容は変更しない。適切な保存先がなければ初期化せず会話内で作業する。
-3. 既存の focus、直近の `.logs/*_auto-research-session.md` があればその最新一件、cursor ancestor、必要な state/findings/map/plan/guide を読む。全treeやraw logsは無差別に読まない。中断からの再開もこの記録と現在の依頼から判断し、未知の過去状態を推測で埋めない。
+1. Check the user's research question and whether the current working folder is a suitable place to store that research. Read project instructions if present; `AGENTS.md`, Git, and existing `.scripts/` are not required.
+2. In a writable research folder, resolve `../../scripts/session.py` relative to this skill's `SKILL.md`, then run `python3 <resolved-path> --project-root <project-root> init --question <question>`. This creates only missing `research/state.md` and `research/focus.md`; it does not modify existing research content. If no suitable location exists, skip initialization and work in the conversation.
+3. Read the existing focus, the latest `.logs/*_auto-research-session.md` if present, cursor ancestors, and necessary state/findings/map/plan/guide files. Do not read the entire tree or raw logs indiscriminately. Use these records and the current request to resume an interrupted session; do not invent missing history.
 
 ## Direction
 
-main agentはcurrent local board、recent evidence、review flags、literature statusから、次のresearch decisionを最も判別する問いを一つ選び、research/focus.mdを更新する。
+From the current local board, recent evidence, review flags, and literature status, the main agent selects the question that best distinguishes the next research decision and updates research/focus.md.
 
-direction-challengerは、stagnation、contradiction、major closure、pivot、premise lock-inのriskが方向判断を左右する場合だけ狭いscopeでdispatchする。通常cycleの儀式として呼ばない。必要ならchallengeを読んだmain agentが採否を判断してfocusへ反映する。
+Dispatch direction-challenger with a narrow scope only when stagnation, contradiction, major closure, pivot risk, or premise lock-in affects the direction decision. Do not call it as a ritual in ordinary cycles. When needed, the main agent reads the challenge, decides what to adopt, and reflects that decision in focus.
 
 ## Boundary transaction
 
-- child から parent へ戻り、parent-level workがchildのdurable presentationに依存する場合だけ、worker前にcuratorがpresentationを閉じる。
-- Workerが読むrouteにsemantic repairが必要なPre-Worker Tree Directivesがある場合だけ、curatorがrouting repairを行い、Dispatch readiness: validまたはinvalidatedを返す。
-- invalidatedの場合、予定workerを発射せず、main agentが理由を次cycleのfocusへ引き継ぐ。
+- When returning from a child to its parent, the curator completes the child's presentation before worker execution only if parent-level work depends on that durable presentation.
+- Only when Pre-Worker Tree Directives identify a semantic repair to the route a worker will read, the curator repairs that route and returns Dispatch readiness: valid or invalidated.
+- If invalidated, do not launch the planned worker. The main agent carries the reason into the next cycle's focus.
 
-## Direct work、worker、review
+## Direct work, workers, and review
 
-各cycleはmain agentのdirect workから始める。local filesと利用可能toolで妥当に完了できる調査、導出、source triage、局所計算、synthesisはmain agentが行う。
+Start each cycle with direct work by the main agent. Perform research, derivations, source triage, local calculations, and synthesis directly when local files and available tools reasonably suffice.
 
-Delegation Gateを通った場合だけ、focusのWorker Dispatchesからagent、task、target、deliverable、success criteria、inputs、run/slug、delegation reason、downstream decision、direct-work insufficiencyを抽出する。複数workerはtaskが相互独立で、各deliverableが重複せず必要な場合だけ並列実行する。
+Only after the Delegation Gate passes, extract the agent, task, target, deliverable, success criteria, inputs, run/slug, delegation reason, downstream decision, and direct-work insufficiency from focus's Worker Dispatches. Run multiple workers in parallel only when their tasks are independent and every deliverable is necessary and nonduplicative.
 
-main agentはworker returnをprovisional evidenceとして読み、relevance、scope、採否を判断する。criticは自動付与しない。schemaのClaim consequenceは判断記録でありdispatch命令ではない。Research Draftまたはdurable memoryが依存するconsequential claimについて、独立reviewが不確実性を実質的に下げる場合だけclaim-centered packetを渡す。
+The main agent treats worker returns as provisional evidence and judges relevance, scope, and adoption. Do not automatically attach a critic. Claim consequence in the schema is a decision record, not a dispatch command. For consequential claims on which the Research Draft or durable memory depends, send a packet centered on the claim only when independent review can materially reduce uncertainty.
 
-- mathematical/mechanical claim: blind
-- source fidelity claim: source-audit
-- narrative/provenance依存claim: contextual
+- Mathematical/mechanical claim: blind
+- Source fidelity claim: source-audit
+- Claim dependent on narrative/provenance: contextual
 
-REVISE-BLOCKINGまたはOPAQUEで、criticがcheap bounded repairを特定した場合だけ一回repairする。
+Perform one repair only for REVISE-BLOCKING or OPAQUE when the critic identifies a cheap, bounded repair.
 
 ## Curator
 
-main agentはprovisional evidenceをResearch Draft、focus、session handoffへ統合し、graph meaningを変えないnode-localなworking evidenceを`state.md`、採用したlocal strategyを`plan.md`へ更新できる。unreviewed materialは明示し、status/kind、map、findings、checks、cross-node routeは直接編集しない。curatorはTree Directivesがnode placement、lifecycle、cross-node integration、retraction、archive、findings materialisation、checks/provenance closureを必要とする場合だけdispatchする。
+The main agent integrates provisional evidence into the Research Draft, focus, and session handoff. It may update node-local working evidence in `state.md` and adopted local strategy in `plan.md` without changing graph meaning. Mark unreviewed material explicitly; do not directly edit status/kind, maps, findings, checks, or cross-node routes. Dispatch the curator only when Tree Directives require node placement, lifecycle changes, cross-node integration, retraction, archiving, findings materialisation, or checks/provenance closure.
 
-substantive durable surface の review request が返ったら critic を dispatch し、curator に戻す。二 round で閉じなければ verification debt として記録する。
+When a request to review substantive durable content is returned, dispatch the critic and return the review to the curator. If unresolved after two rounds, record verification debt.
 
 ## Session End
 
-1. superseded script archive directive を処理。
-2. open semantic transaction、未吸収のreviewed evidence、durable promotion/retraction、cross-node route debtがある場合だけcuratorをdispatchする。局所的なprovisional workだけならmain agentがcloseする。
-3. Research Draftまたはdurable surfaceが依存するpending Durable Reviewだけをdrainする。
-4. changed evidenceに対するhuman reading routeが欠けるnodeだけguide-writerへ渡す。
-5. 書き込み可能な研究フォルダでは focus を更新し、package-local `session.py path --kind log --label auto-research-session` で取得した path に、next focus、handoff、Research Draft、session log、backlog、agenda を含む packet を保存する。適切な保存先がなければ同じ内容を最終報告に含める。
-6. cycle 数、主要結果、node change、deliverable、未解決の verification debt と次の問いを簡潔に user へ返す。commit と push は行わない。
+1. Process directives to archive superseded scripts.
+2. Dispatch the curator only for open semantic transactions, unintegrated reviewed evidence, durable promotion/retraction, or cross-node routing debt. The main agent closes sessions containing only local provisional work.
+3. Resolve only pending Durable Reviews on which the Research Draft or durable documents depend.
+4. Send only nodes lacking a human reading route to changed evidence to guide-writer.
+5. In a writable research folder, update focus and save a packet containing next focus, handoff, Research Draft, session log, backlog, and agenda to the path returned by the package-local `session.py path --kind log --label auto-research-session`. If no suitable location exists, include the same content in the final report.
+6. Briefly report the cycle count, principal results, node changes, deliverables, unresolved verification debt, and next question to the user. Do not commit or push.
 
-packet保存に失敗した場合、研究結果は消さず、最終報告に handoff と未保存の状態を明記する。
+If saving the packet fails, preserve the research results and explicitly include the handoff and unsaved status in the final report.

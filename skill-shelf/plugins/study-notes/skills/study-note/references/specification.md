@@ -1,101 +1,101 @@
 # Study Note HTML Specification 1.1.0
 
-## 1. 適用範囲と版
+## 1. Scope and versions
 
-本仕様は、Markdown原稿をHTML教材として表示・検証・公開する際の共通契約である。「必須」は適合条件、「推奨」は理由を記録すれば変更できる条件とする。
+This specification defines the common contract for displaying, validating, and publishing Markdown manuscripts as HTML learning material. Required provisions determine conformance; recommended provisions may be changed with a recorded reason.
 
-使用する表示実装の所在と採用リビジョンは、プロジェクトの実装対応文書またはアダプターに記録する。機能と見た目を再利用する際は、その版の表示コード・CSS・lockfileを起点にする。依存ライブラリの将来の版まで固定するものではない。依存更新後も本仕様の原稿が読めることを検証する。本仕様で「基準実装」と呼ぶものは、プロジェクトが指定した互換実装を指す。
+Record the location and adopted revision of the rendering implementation in the project's implementation mapping or adapter. To reuse behavior and appearance, start from that revision's rendering code, CSS, and lockfile. This does not prescribe future versions of dependencies. Verify that manuscripts conforming to this specification remain readable after dependency updates. “Reference implementation” below means the compatible implementation designated by the project.
 
-原稿記法、リンク、操作を破壊する変更はmajor、互換性を保つ機能追加はminor、説明訂正や互換性を保つ修正はpatchとして記録する。ノートごとに採用版を明記し、既存原稿の移行を伴う変更を黙って適用しない。
+Record changes that break manuscript syntax, links, or interactions as major; compatible feature additions as minor; and explanatory corrections or compatible fixes as patch. State the adopted version for each note. Do not silently apply changes requiring migration of existing manuscripts.
 
-## 2. 原稿と管理単位
+## 2. Manuscripts and management boundaries
 
-推奨構成:
+Recommended layout:
 
 ```text
 note-project/
   note.config.json
-  content/                 # 公開本文の唯一の正本
-  public/diagrams/          # 表示する図
-  figure-sources/          # 図のTeX・作図データ
-  sources/                 # 原典情報・転記・入手情報
-  reviews/                 # 検証結果・対象版・公開記録
-  app/ components/ lib/    # 表示・解析実装
-  scripts/ tests/           # 作図・検証・ビルド
+  content/                 # Sole canonical source of published prose
+  public/diagrams/          # Displayed figures
+  figure-sources/           # TeX and drawing sources
+  sources/                 # Source metadata, transcriptions, acquisition records
+  reviews/                 # Validation results, target revisions, publication records
+  app/ components/ lib/    # Rendering and parsing implementation
+  scripts/ tests/           # Drawing, validation, building
 ```
 
-- 原稿はUTF-8のMarkdown、数式はTeXで保存する。生成HTMLを直接修正して原稿との差分を作らない。
-- 1章または1ルートにつき1原稿を基本とする。本文、折りたたみ、数式補足、参照範囲をその原稿で管理する。
-- 図は表示ファイルと再生成に必要な元データを保存する。
-- 公開原稿の複製を別の編集正本として運用しない。旧稿を残す場合は所在と非同期であることを明示する。
-- 原稿、設定、表示実装、公開図、生成元、検証記録は同じGit管理単位に含めることを推奨する。原典PDFを含めない場合も所在・書誌情報・参照ページを記録する。
-- 生成物、依存キャッシュ、秘密情報は原稿管理から除外する。原典PDFやレビュー記録を公開用ディレクトリへ置かない。
-- Markdownを一般的なエディタで編集できることと、独自ブロックをそのエディタが表示できることは別の対応条件である。
+- Store manuscripts as UTF-8 Markdown and mathematics as TeX. Do not edit generated HTML independently of its source.
+- Use one manuscript per chapter or route by default. Manage its main text, collapsible material, mathematical supplements, and reference ranges together.
+- Preserve both displayed figures and the source data needed to regenerate them.
+- Do not maintain copies of published manuscripts as separate editing authorities. Identify retained older drafts and make clear that they are not synchronized.
+- Prefer managing manuscripts, configuration, rendering implementation, published figures, generation sources, and validation records in one Git unit. Even when source PDFs are excluded, record their locations, bibliographic data, and cited pages.
+- Exclude generated output, dependency caches, and secrets from manuscript management. Keep source PDFs and review records outside publicly served directories.
+- Editing Markdown in a general-purpose editor and rendering its custom blocks in that editor are separate compatibility requirements.
 
-## 3. 章メタデータ
+## 3. Chapter metadata
 
-新規ノートは `note.config.json` を章設定の正本として持つ。配列 `chapters` の順序を目次と前後移動の順序に使う。タイトルなどの同じ値を複数箇所で独立管理しない。
+New notes use `note.config.json` as their canonical chapter configuration. The order of the `chapters` array determines the contents list and previous/next navigation. Do not maintain the same values, such as titles, independently in multiple places.
 
-| フィールド | 型・条件 | 用途 |
+| Field | Type or condition | Purpose |
 |---|---|---|
-| `specVersion` | `"1.1.0"` | 採用仕様 |
-| `id` | 小文字英数字とハイフン、先頭英字 | ノート識別子、保存設定の名前空間 |
-| `title` | 非空文字列 | ノート名 |
-| `description` | 非空文字列 | ノート全体の説明 |
-| `language` | 言語タグ。既定 `ja` | HTMLの言語 |
-| `source` | `title`, `authors`, `locator` のオブジェクト | 原典の書誌情報と対象範囲 |
-| `chapters` | 1件以上の配列 | 章の順序 |
-| `chapters[].id` | `[a-z0-9]+(?:-[a-z0-9]+)*`、全章で一意 | `/<id>` のルート |
-| `chapters[].section` | 非空文字列 | 人が読む章番号 |
-| `chapters[].title` | 非空文字列、文中TeX可 | 画面上の章名 |
-| `chapters[].description` | 非空文字列、文中TeX可 | 画面上の章説明 |
-| `chapters[].plainTitle` | 非空の平文 | ブラウザのタブ・共有用章名 |
-| `chapters[].plainDescription` | 非空の平文 | 共有用説明 |
-| `chapters[].file` | `content/` 内の相対 `.md` パス | 原稿 |
-| `chapters[].readingTimeMinutes` | 任意の正整数 | 編集者が設定する目安。省略時は表示しない |
-| `publication.provider` | 未公開時 `null`、公開先が決まったらサービス名 | 公開サービス |
-| `publication.projectId` | 未登録時 `null`、登録後は実際のID | 公開対象の識別 |
-| `publication.url` | 未公開時 `null`、公開後は確認済みHTTPS URL | 公開先 |
-| `publication.visibility` | 既定 `private`、既存サイトは実際の設定 | 閲覧範囲 |
+| `specVersion` | `"1.1.0"` | Adopted specification |
+| `id` | Lowercase letters, digits, and hyphens; starts with a letter | Note identifier and namespace for saved preferences |
+| `title` | Nonempty string | Note title |
+| `description` | Nonempty string | Overall description |
+| `language` | Language tag; legacy default `ja`; the English example explicitly sets `en` | HTML language |
+| `source` | Object with `title`, `authors`, and `locator` | Source bibliography and covered range |
+| `chapters` | Array with at least one entry | Chapter order |
+| `chapters[].id` | `[a-z0-9]+(?:-[a-z0-9]+)*`; unique across chapters | Route `/<id>` |
+| `chapters[].section` | Nonempty string | Human-readable chapter number |
+| `chapters[].title` | Nonempty string; inline TeX allowed | Displayed chapter title |
+| `chapters[].description` | Nonempty string; inline TeX allowed | Displayed chapter description |
+| `chapters[].plainTitle` | Nonempty plain text | Browser-tab and sharing title |
+| `chapters[].plainDescription` | Nonempty plain text | Sharing description |
+| `chapters[].file` | Relative `.md` path inside `content/` | Manuscript |
+| `chapters[].readingTimeMinutes` | Optional positive integer | Editorial estimate; omit the display when absent |
+| `publication.provider` | `null` before publication; service name once chosen | Hosting service |
+| `publication.projectId` | `null` before registration; actual ID afterward | Publication target |
+| `publication.url` | `null` before publication; verified HTTPS URL afterward | Published location |
+| `publication.visibility` | Default `private`; actual setting for an existing site | Access scope |
 
-章IDと原稿ファイルは一対一にする。相対パスで作業ディレクトリ外へ出ない。ルート・ナビゲーション・公開メタデータはこの設定から導く。読了時間は自動計測や読書履歴を意味しない。
+Maintain a one-to-one mapping between chapter IDs and manuscript files. Relative paths must not escape the working directory. Derive routes, navigation, and publication metadata from this configuration. Reading time does not imply automatic measurement or reading-history tracking.
 
-既存サイトが章情報を別形式で管理する場合は対応表による互換運用を認める。JSONを追加しただけで既存の表示実装が自動的に読み込むと扱わない。
+Existing sites may retain other chapter formats through an explicit compatibility mapping. Adding JSON alone does not make an existing renderer consume it.
 
-## 4. 本文記法
+## 4. Main-text syntax
 
-- `#` は原稿タイトル、`##` と `###` は章内目次、`####` 以下は本文内の下位見出しに使う。
-- 段落、箇条書き、引用、表、リンク、画像、コードは通常のMarkdown/GFMで書く。
-- 文中数式は `$...$`、独立数式は改行で囲む `$$` を使う。
-- 数式は本文、見出し、表セル、リンク表示文、summary、ポップアップ本文で共通の組版処理を使う。
-- コード内のTeXは文字列として残す。画像alt、URL、タブ名などの属性文字列は数式組版の対象にしない。
-- 文章中の `--` と `---` は表示時にen dashとem dashへ変換される。数式とコードの内容は変換しない。
-- 任意の生HTML、JavaScript、MDX、YAML front matterは1.0の原稿契約に含めない。HTML風の記法は以下のdetailsとreferenceマーカーに限定する。
+- Use `#` for the manuscript title, `##` and `###` for the within-chapter contents list, and `####` or deeper for subordinate headings in the body.
+- Write paragraphs, lists, quotations, tables, links, images, and code in ordinary Markdown/GFM.
+- Use `$...$` for inline mathematics and `$$` on separate lines for display mathematics.
+- Use the same mathematical typesetting process in prose, headings, table cells, link labels, summaries, and popup bodies.
+- Keep TeX inside code as literal text. Do not typeset mathematics in attribute strings such as image alt text, URLs, or tab titles.
+- Convert prose `--` and `---` to en and em dashes at display time. Do not transform mathematics or code.
+- Arbitrary raw HTML, JavaScript, MDX, and YAML front matter are outside the version 1.0 manuscript contract. HTML-like syntax is limited to the details and reference markers below.
 
-## 5. 折りたたみ
+## 5. Collapsible material
 
 ```html
 <details id="note-example">
-<summary>補足の見出し $x$</summary>
+<summary>Supplement heading $x$</summary>
 
-補足本文。
+Supplementary text.
 
 </details>
 ```
 
-`id` はリンクされる場合に必須。先頭英字、続きは英数字・ハイフンを推奨し、原稿内で一意にする。入れ子、リスト内、引用内のdetailsを扱う。マーカーやブロックの前後には空行を入れる。
+An `id` is required when the block is linked. Prefer an initial letter followed by letters, digits, and hyphens; IDs must be unique within a manuscript. Support nested details and details within lists or quotations. Put blank lines around markers and blocks.
 
-通常は閉じて表示する。`open` の指定は可能だが、本文レビューでは指定の有無によらず閉じた状態を検査する。
+Display closed by default. The `open` attribute is allowed, but main-text review examines the block in its closed state regardless of that attribute.
 
-`[補足](#note-example)` から移動すると、対象とその祖先のdetailsを開いてスクロールする。同じリンクの再クリックとフラグメントURLへの直接アクセスでも機能する。
+Following `[Supplement](#note-example)` opens the target and its ancestor details and scrolls to it. Repeated clicks and direct access to a fragment URL must also work.
 
-主結論に必要な対象・記号・仮定・短い根拠は本文に置く。長い計算や参照用の完全な式を折りたたみに収められる。折りたたみのsummary自体は通常読者にも見える文章としてレビューする。
+Keep objects, notation, assumptions, and short justifications needed for the main conclusion in the main text. Collapsible sections may contain long calculations and complete formulas for reference. Review the summary itself as prose visible to ordinary readers.
 
-## 6. 数式補足と式変形
+## 6. Mathematical supplements and transformations
 
 ### `math-hint`
 
-独立数式の直後に置くコードブロック。内容はMarkdownで、文章と数式を含められる。
+A code block placed immediately after display mathematics. Its contents are Markdown and may include prose and mathematics.
 
 ````markdown
 $$
@@ -103,11 +103,11 @@ x^2-1=(x-1)(x+1)
 $$
 
 ```math-hint
-右辺を展開すると $x^2-1$ に戻る。
+Expanding the right-hand side gives $x^2-1$.
 ```
 ````
 
-前の独立数式に電球を添える。`equation` や通常段落の直後への添付は1.0では対応しない。
+Attach a lightbulb control to the preceding display. Version 1.0 does not support attachment directly after an `equation` block or an ordinary paragraph.
 
 ### `math-steps`
 
@@ -115,22 +115,22 @@ $$
 ```math-steps
 lhs: (x+1)^2
 part expanded: x^2+2x+1
-note: 積を展開する。
+note: Expand the product.
 popup-math: (x+1)(x+1)=x^2+x+x+1
 ---
 part regrouped: x(x+2)+1
-note: 最初の二項から $x$ をくくる。
+note: Factor $x$ out of the first two terms.
 ```
 ````
 
-- 冒頭の `lhs:` は必須。各段階に1件以上の `part <id>:` が必要。
-- `part` のIDは英数字・アンダースコア・ハイフン。TeXは記述順に連結する。IDは内部識別用で、色付けやアニメーションを意味しない。
-- 区切りは独立した行の `---`。各フィールドは1行で書き、各段階の `note:` と `popup-math:` はそれぞれ最大1件。
-- `note:` は補足Markdown、`popup-math:` はドル記号を付けないTeX。`step:` は `note:` の互換別名だが新規原稿は `note:` に統一する。
-- 等号を各行に表示し、左辺は最初の行に表示する。等式以外の推論・不等号・近似列には通常のTeX環境を使う。
-- 本文の式は常時表示し、補足の開閉で置換しない。
+- An initial `lhs:` is required. Each step needs at least one `part <id>:`.
+- Part IDs use letters, digits, underscores, or hyphens. Concatenate TeX in the written order. IDs are internal identifiers and imply neither coloring nor animation.
+- Separate steps with `---` on its own line. Each field occupies one line; each step has at most one `note:` and one `popup-math:`.
+- `note:` contains supplementary Markdown; `popup-math:` contains TeX without dollar delimiters. `step:` is a compatibility alias for `note:`; use `note:` in new manuscripts.
+- Display an equals sign on each line and the left-hand side on the first line. Use ordinary TeX environments for non-equational reasoning, inequalities, or approximation sequences.
+- Keep the main equation visible; opening a supplement must not replace it.
 
-## 7. 数式参照
+## 7. Equation references
 
 ````markdown
 ```equation
@@ -138,83 +138,83 @@ id: square
 (x+1)^2=x^2+2x+1
 ```
 
-式 (square) を用いる。
+Use equation (square).
 ````
 
-`equation` は先頭行 `id: <id>` と、後続の空でないTeXからなる。IDは `[a-zA-Z0-9_-]+`、全サイトで一意とする。表示番号が必要ならTeX側で明記する。IDのみから番号を表示しない。
+An `equation` block begins with `id: <id>`, followed by nonempty TeX. IDs use `[a-zA-Z0-9_-]+` and are unique across the site. Put any visible equation number in the TeX explicitly; do not display a number merely from its ID.
 
-通常の `$$` ブロックの `\tag{6.12}` も式キーとして収集される。同一キーの重複は認めない。複数文献で原著式番号が衝突する場合は、原著の表示番号を保ち、`equation` のIDを文献ごとに分ける。
+Also collect `\tag{6.12}` in ordinary `$$` blocks as an equation key. Duplicate keys are not allowed. If original equation numbers collide across sources, preserve their displayed numbers and use source-specific `equation` IDs.
 
-登録済みのキーに一致する本文の `(キー)` を数式プレビューに変換する。見出し、summary、数式、コード、既存リンク内は自動変換しない。明示リンク `#eq-キー` も利用できる。
+Convert prose `(key)` matching a registered key into an equation preview. Do not auto-convert inside headings, summaries, mathematics, code, or existing links. Explicit `#eq-key` links are also supported.
 
-数式参照はプレビュー操作である。基準実装では原式へ移動するリンクをポップアップ内に持たず、`\tag` 収集だけではDOM上のアンカーも作らない。恒久的な外部参照は次節の本文範囲リンクを使う。
+Equation references are preview interactions. The reference implementation's popup has no link to the original equation, and collecting a `\tag` alone does not create a DOM anchor. For permanent external references, use the text-range links in the next section.
 
-## 8. 本文参照と永続リンク
+## 8. Text references and permanent links
 
 ```markdown
 <!-- reference: square-identity -->
 
-ここに既存の説明と必要な数式を置く。
+Place the existing explanation and necessary mathematics here.
 
 <!-- /reference -->
 ```
 
-- IDは `[a-z0-9-]+`。原稿内で一意。別章では同じIDを使える。
-- マーカーは独立した行に置き、前後に空行を入れる。同じ親要素内で閉じ、範囲を入れ子にしない。
-- リンクは `[説明](/chapter-id#ref-square-identity)`。同じ章では `#ref-square-identity` も可。
-- 元の本文を表示し続け、その同じ範囲をプレビューへ使う。hover専用の定義を重複執筆しない。
-- リンク先の本文、数式、条件をまとめて確認でき、「参照先の本文へ」で原位置へ移動できる。
-- ポップアップ内のリンクは通常リンクとして扱い、多重にポップアップを開かない。
-- 導入語自身、見出し、summary、数式中には用語プレビューを入れない。
-- 永続リンクには章IDとreference ID、またはdetails IDを使う。公開後のID変更では旧リンクへの互換策を用意する。
-- 基準実装の通常見出しIDは行番号に依存する。章内目次用とし、長期引用用には使わない。
+- IDs use `[a-z0-9-]+` and are unique within a manuscript. Different chapters may reuse an ID.
+- Put markers on separate lines with blank lines around them. Close a range within the same parent element; do not nest ranges.
+- Use `[Explanation](/chapter-id#ref-square-identity)`; within the same chapter, `#ref-square-identity` also works.
+- Keep the original text displayed and reuse that same range for the preview. Do not author duplicate definitions only for hover previews.
+- Let readers inspect the target prose, mathematics, and conditions together and navigate to the original location through a “Go to referenced text” control.
+- Treat links inside popups as ordinary links; do not open nested popups.
+- Do not attach a term preview to its own introductory term, a heading, a summary, or text inside mathematics.
+- Permanent links use the chapter ID and a reference or details ID. Provide compatibility for old links when changing IDs after publication.
+- Ordinary heading IDs in the reference implementation depend on line numbers. Use them for within-chapter navigation, not long-term citations.
 
-## 9. 表示と操作
+## 9. Display and interaction
 
-標準表示は固定ヘッダー、章別サイドバー、単一本文カラム。現章の `##` と `###` を目次に出し、前後章へ移動できる。章ごとの直接URLを提供する。
+The standard display has a fixed header, a chapter sidebar, and a single text column. Include the current chapter's `##` and `###` headings in its contents list and support previous/next chapter navigation. Provide a direct URL for every chapter.
 
-- 明朝系本文とKaTeX数式、十分な行間、淡い罫線、緑系の参照色を基準実装から継承する。幅、余白、文字サイズ、明暗色は共通CSSで管理する。
-- 小画面では章一覧を開閉するメニューにする。本文ページ全体の意図しない横スクロールを避け、長い式・図を個別にスクロールさせる。
-- ポップアップはhoverで一時表示、クリック・タップで固定。外側クリックとEscapeで閉じられ、固定中はマウスが外れても閉じない。キーボードで操作でき、フォーカスが見えること。
-- プレビューは画面内に収め、長い本文は内部スクロールする。目安は本文参照最大640px、数式補足最大680px。
-- テーマはOS設定を初期値とし、明示選択をブラウザに保存する。新規ノートでは保存キーをノートIDで区別する。
-- 進捗バーは現在ページのスクロール比率。読了状態や閲覧位置の永続保存は1.0の機能に含めない。
-- 印刷ではヘッダー、目次、進捗バー、テーマ・電球ボタンを隠し、白背景にする。全章・全補足の自動展開や一括PDF出力は保証しない。印刷対象章とdetailsの状態を確認する。
+- Inherit serif body typography, KaTeX mathematics, generous line spacing, subtle rules, and green reference colors from the reference implementation. Manage widths, spacing, type sizes, and light/dark colors through shared CSS.
+- On small screens, make the chapter list a collapsible menu. Avoid unintended horizontal scrolling of the whole page; let long equations and figures scroll separately.
+- Show popups temporarily on hover and pin them on click or tap. Outside clicks and Escape close them. Pinned popups stay open when the pointer leaves. Support keyboard interaction with visible focus.
+- Keep previews within the viewport and scroll long content internally. Suggested maximum widths are 640px for text references and 680px for mathematical supplements.
+- Initially follow the OS theme and save explicit choices in the browser. For new notes, distinguish storage keys by note ID.
+- The progress bar represents the current page's scroll ratio. Persisted reading completion and position are outside version 1.0.
+- For printing, hide the header, contents list, progress bar, theme controls, and lightbulb buttons, and use a white background. Automatic expansion of all chapters and supplements or batch PDF export is not guaranteed. Check the chapter being printed and the state of details blocks.
 
-## 10. 図
+## 10. Figures
 
-図は `public/diagrams/<id>.svg` を基本とし、原稿から `![意味を説明するalt](/diagrams/<id>.svg)` で参照する。ラスター画像が適切ならPNG等を使える。
+Prefer `public/diagrams/<id>.svg` and reference it as `![Meaningful description](/diagrams/<id>.svg)`. Use PNG or another raster format when appropriate.
 
-- 図の役割、表す対象、対応関係を本文から理解できること。装飾目的の図を必須にしない。
-- 数学ラベルはTeXで組版し、作図元と再生成手順を保存する。
-- SVGは遅延読み込み、十分な最小表示幅、キーボードによる横スクロールを備える。
-- 明暗テーマで文字・線・対応色が読めることを確認する。基準実装のダーク用反転フィルターを使う場合も、各図で結果を確認する。
-- 図の元データ、出典、使用条件を追跡できる状態にする。
+- Make the figure's role, objects, and correspondences understandable from the prose. Do not require decorative figures.
+- Typeset mathematical labels with TeX and retain drawing sources and regeneration instructions.
+- Give SVGs lazy loading, an adequate minimum display width, and keyboard-accessible horizontal scrolling.
+- Check the readability of labels, lines, and corresponding colors in both themes. Inspect every figure even when using the reference implementation's dark-theme inversion filter.
+- Preserve traceable figure source data, attribution, and usage conditions.
 
-## 11. 検証と合格条件
+## 11. Validation and acceptance
 
-公開対象の原稿と実装の版を固定して検証する。必須項目:
+Pin the manuscript and implementation revisions to be published. Required checks:
 
-1. **原稿整合性**: 章ID・式キー・参照IDの一意性、ブロックの構文、参照先と図の存在、章設定とルートの一致を確認する。
-2. **数式表示**: 本文・見出し・表・リンク・summary・補足・導出を確認し、数式エラーを解消する。独自ブロックも通常数式とは別に確認する。
-3. **本文の論理**: details本文、math-hint、導出popupを除いた本文を、サイトと共通の解析処理で抽出する。表示されるsummary、式、表、リンク、図参照を残す。
-4. **独立レビュー**: 定義・導出・構成・本文と補足の配置を変えた場合は、執筆に参加していない担当が、抽出した本文単位を順に読んで判定する。その後に本文全体の整合性と補足を確認する。未読の後続や隠れた補足で先行本文の欠落を埋めない。
-5. **操作と画面**: デスクトップとモバイル幅、明暗テーマ、キー操作、hover・固定・解除、原位置への移動、折りたたみ内リンク、長い式・図を確認する。印刷に関する変更では印刷プレビューも確認する。
-6. **ビルド**: 公開用ビルドが成功し、公開する図と必要なファイルを含むことを確認する。
+1. **Manuscript consistency:** Verify uniqueness of chapter IDs, equation keys, and reference IDs; block syntax; existence of targets and figures; and correspondence between chapter configuration and routes.
+2. **Mathematics:** Inspect prose, headings, tables, links, summaries, supplements, and derivations, resolving rendering errors. Check custom blocks separately from ordinary mathematics.
+3. **Main-text reasoning:** Extract the main text using the same parsing process as the site, excluding details bodies, math-hints, and derivation popups. Retain visible summaries, equations, tables, links, and figure references.
+4. **Independent review:** After changes to definitions, derivations, structure, or the division between main text and supplements, a reviewer uninvolved in writing reads the extracted main-text units sequentially. Then check whole-text consistency and supplements. Do not fill earlier gaps with unread later text or hidden supplements.
+5. **Interaction and display:** Check desktop and mobile widths, both themes, keyboard operation, hover, pinning and closing, navigation to original locations, links inside collapsible material, and long equations and figures. For print-related changes, inspect print preview too.
+6. **Build:** Confirm that the publication build succeeds and includes the figures and necessary files.
 
-変更に関係する範囲を検査する。文章のみの変更で無関係なUI検査を毎回繰り返す必要はない。レンダラー変更時は共通記法の回帰を検査する。抽出成功やビルド成功だけで本文の論理を合格にしない。
+Check the scope relevant to the change. Prose-only changes do not require repeating unrelated UI checks each time. Renderer changes require regression checks of shared syntax. Successful extraction or building alone does not establish that the reasoning passes.
 
-レビュー記録には対象Git版またはファイルハッシュ、読者の前提、対象範囲、指摘と対応、未解消事項、実施した検証を残す。順読抽出の `body.md`、`units.json`、`manifest.json` は入力版との結びつきを保つ。
+Review records include the target Git revision or file hashes, reader prerequisites, scope, findings and resolutions, outstanding issues, and checks performed. Keep sequential-reading outputs `body.md`, `units.json`, and `manifest.json` tied to their input revision.
 
-基準実装の数式検査と抽出器は利用できるが、原稿整合性・独自ブロック表示・UI操作のすべてを自動検査するものではない。不足する確認は手動または追加検査で補う。未実施項目を合格と記録しない。
+The reference implementation's mathematical checks and extractor are available, but do not automatically test all manuscript consistency, custom-block rendering, or UI behavior. Supplement missing coverage manually or with additional checks. Do not record unperformed checks as passing.
 
-## 12. 公開と復元
+## 12. Publication and recovery
 
-1. 公開先ID、URL、閲覧範囲を確認する。既存サイトは既存の登録を引き継ぐ。別ノートへ基準実装の公開先IDをコピーしない。
-2. 検証済みの原稿と実装をGitに記録し、その同じ状態から公開用成果物を作る。
-3. 選んだホスティングサービスの手順で検証済み版を公開する。公開認証情報を原稿やGitへ保存しない。
-4. 公開処理の完了を確認し、代表章のURL、数式、参照、図の読み込みを確認する。結果が未確認なら公開成功と報告しない。
-5. `reviews/` に公開日時、ソース版、サービス側の版ID、URL、閲覧範囲、検証結果を記録する。
-6. 復元時はサービスの既知の正常版を使うか、対応するGit版を別作業ディレクトリに取り出して再ビルド・再公開する。現行の未保存原稿を消さない。
+1. Confirm the publication target ID, URL, and visibility. Retain existing registration for existing sites. Do not copy the reference implementation's target ID to another note.
+2. Record the verified manuscript and implementation in Git and build the publication artifacts from that same state.
+3. Publish the verified revision using the chosen hosting service's procedure. Keep publishing credentials out of manuscripts and Git.
+4. Confirm deployment completion and check representative chapter URLs, mathematics, references, and figure loading. Do not report publication success while its result remains unverified.
+5. Record the publication time, source revision, service revision ID, URL, visibility, and validation results under `reviews/`.
+6. Recover using a known-good service revision or check out the corresponding Git revision in another working directory and rebuild and republish it. Preserve current unsaved manuscripts.
 
-新規ノートはprivateを既定にする。外部公開や閲覧範囲の拡張は指定された範囲に従う。既存ノートの自動公開方針はノート単位の指示に記録する。原稿やテンプレートの作成だけでは公開を実行せず、サイト編集・公開依頼に適用する。
+New notes default to private. Follow the authorized scope for external publication or expanded visibility. Record any automatic publication policy in note-specific instructions. Creating a manuscript or template alone does not trigger publication; apply publication steps to site-editing and publishing requests.

@@ -1,8 +1,8 @@
 # Research Tree Contract
 
-active tree は研究判断のための圧縮 memory であり、完全な作業履歴ではない。履歴は .logs、provisional work は _reviews、再利用する現在理解は research tree に置く。
+The active tree is compressed memory for research decisions, not a complete work history. Store history in .logs, provisional work in _reviews, and reusable current understanding in the research tree.
 
-## 主要 surface
+## Main documents and directories
 
     research/
       focus.md
@@ -25,27 +25,27 @@ active tree は研究判断のための圧縮 memory であり、完全な作業
         _materials/{src,data,images,analyses}/
       archive/
 
-- focus.md: research leadのcurrent decision surface。cursor、lead work、selective dispatch、directive、blocker。
-- state.md: node の Current Board と吸収済み evidence。短く保つ。
-- map.md: parent から見た child の役割、状態、含意、reopen 条件。
-- plan.md: active decomposition、依存、research leadが採用しcuratorが記録した方法とsuccess criteria。
-- findings.md: admission 済みの再利用 claim と導出。principal claim ごとに checks link が必要。
-- guide.md: 人間が検査する入口。authority ではない。
-- sources.md: current direction が使う source route。
-- backlog.md: 現在の dispatch を妨げない将来 task。
-- asides.md: active thread 外だが忘れたくない item。fact authority はない。
-- dead_ends.md: 再利用可能な失敗条件と再開条件。
-- checks/: durable verification provenance。
-- _reviews/: worker/critic の provisional transaction。
-- _materials/: code、data、figure、clean analysis。存在だけでは fact authority を持たない。
+- focus.md: the research lead's current decisions: cursor, lead work, selective dispatches, directives, and blockers.
+- state.md: the node's Current Board and integrated evidence. Keep it short.
+- map.md: each child's role, status, implications, and reopening conditions from the parent's perspective.
+- plan.md: active decomposition, dependencies, and methods and success criteria adopted by the research lead and recorded by the curator.
+- findings.md: admitted, reusable claims and derivations. Each principal claim needs a checks link.
+- guide.md: an entry point for human inspection, without independent authority.
+- sources.md: routes to sources used by the current direction.
+- backlog.md: future tasks that do not obstruct the current dispatch.
+- asides.md: items outside the active thread worth retaining. No authority for facts.
+- dead_ends.md: reusable failure conditions and conditions for reopening.
+- checks/: durable verification provenance.
+- _reviews/: provisional worker/critic transactions.
+- _materials/: code, data, figures, and clean analyses. Their existence alone gives no authority for facts.
 
-## Node identity と lifecycle
+## Node identity and lifecycle
 
-各 node は一つの研究 object、question、construction、result、bridge、warning、gap のいずれかを担う。独立した問題や success criterion が混在したら split を検討する。process history だけになった node は再利用可能な residue を抽出して archive する。
+Each node represents one research object, question, construction, result, bridge, warning, or gap. Consider splitting when independent problems or success criteria are mixed. For a node containing only process history, extract reusable material before archiving it.
 
-state.md frontmatter の kind と status を使う。標準 status は active、blocked、stable、closed、archived。status変更、create、reparent、archiveはresearch lead directiveまたは既存evidenceが要求するtransactionとしてcuratorが閉じる。科学的優先順位をcuratorが発明しない。
+Use kind and status in state.md frontmatter. Standard statuses are active, blocked, stable, closed, and archived. The curator completes status changes, creation, reparenting, and archiving as transactions required by research lead directives or existing evidence. The curator must not invent scientific priorities.
 
-state.md の最小 shape:
+Minimal state.md shape:
 
     ---
     kind: question | construction | result | bridge | warning | other
@@ -57,63 +57,63 @@ state.md の最小 shape:
     ## Current Board
     ## Evidence
 
-Current Board は現在理解へ置換し、Evidence は吸収した candidate、scope、verdict、next implication を追記する。長い導出は findings または clean analysis、chronology は log へ分離する。
+Replace Current Board with current understanding. Append integrated candidates, scope, verdicts, and implications for the next decision to Evidence. Move long derivations to findings or clean analyses and chronology to logs.
 
-## 権限
+## Authority
 
-- research lead: focus.md、科学的directive、通常のresearch execution、Research Draft、close-session packet。graph meaningを変えないnode-localなstate working evidenceとplan strategyを更新できる。status/kind、map、findings、checks、cross-node routeは直接編集しない。
-- research-planner: 明示的に依頼されたbounded direction adviceだけ。focusとtreeへのwrite authorityは持たない。
-- curator: graph/lifecycle、cross-node state/plan integration、map、findings materialisation、checks routing、archive。
-- critic: _reviews 内の critic file と依頼された checks review。
-- worker: _reviews と明示された _materials。
-- guide-writer: guide.md。
-- project owner: story、論文執筆、人間承認を伴う narrative。この package はそれらを自動で代行しない。
+- Research lead: focus.md, scientific directives, ordinary research execution, Research Draft, and the session closing packet. May update node-local working evidence in state and strategy in plan without changing graph meaning. Must not directly edit status/kind, maps, findings, checks, or cross-node routes.
+- research-planner: explicitly requested, bounded advice on direction only. No authority to write focus or the tree.
+- curator: graph/lifecycle, cross-node state/plan integration, maps, findings materialisation, checks routing, and archiving.
+- critic: critic files in _reviews and requested checks reviews.
+- worker: _reviews and explicitly specified _materials.
+- guide-writer: guide.md.
+- Project owner: story, paper writing, and narratives requiring human approval. This package does not automatically perform those tasks.
 
 ## Provisional review
 
-一つの transaction directory に次を置く。
+Use a single transaction directory for:
 
     worker.md
     critic.md
     repair.md
     critic_rereview.md
 
-後半二つは最大一回の repair loop のときだけ使う。critic は worker file を直接編集しない。review mode は blind、source-audit、contextual。verdict は ACCEPT、REJECT、REVISE-NONBLOCKING、REVISE-BLOCKING、OPAQUE。
+The last two files are used only for the single permitted repair loop. The critic does not directly edit worker files. Review modes are blind, source-audit, and contextual. Verdicts are ACCEPT, REJECT, REVISE-NONBLOCKING, REVISE-BLOCKING, and OPAQUE.
 
-curatorはconsequential claimについてcritic review済みでblockingされていない内容だけをestablished supportとして吸収する。leadが採用したno-critic materialは`unreviewed`と明示したworking stateに限って吸収でき、findingsやconfirmed supportへ昇格させない。_reviewsや.logsへのdurable linkは残さない。
+For consequential claims, the curator integrates as established support only material reviewed by the critic and free of blocking defects. Lead-adopted material without a critic review may be integrated only into working state explicitly marked `unreviewed`; do not promote it to findings or confirmed support. Leave no durable links to _reviews or .logs.
 
-## Durable fact と provenance
+## Durable facts and provenance
 
-findings.md の principal claim には次が必要。
+Each principal claim in findings.md requires:
 
-1. claim と適用 scope
-2. 読者が追える導出または導出 skeleton
-3. limitations と source/project boundary
-4. checks/{slug}.md への Markdown link
+1. The claim and its scope of applicability
+2. A derivation or derivation outline the reader can follow
+3. Limitations and the boundary between source content and project inference
+4. A Markdown link to checks/{slug}.md
 
-check file の frontmatter:
+Check file frontmatter:
 
     confidence: confirmed | strong-conjecture | conjecture | open
     evidence: [proof | mechanical | numerical | literature]
     review: [critic-blind | critic-contextual]
-    scope: full または具体的制限
+    scope: full or specific limitations
     supports_project_central_claim: true | false
 
-confirmed には少なくとも一つの first-order evidence と full scope が必要。critic review は evidence の代替ではない。literature だけで confirmed にできるのは外部結果をそのまま引用し、project central claim を支持しない場合だけ。project central claim には local proof、mechanical、numerical のいずれかが必要。
+confirmed requires at least one form of first-order evidence and full scope. Critic review does not replace evidence. Literature alone can justify confirmed only for a direct citation of an external result that does not support the project's central claim. A central project claim requires local proof, mechanical evidence, or numerical evidence.
 
-Durable Surface Review file は record_kind: durable-surface-review、target、surface、review_mode、verdict、scope を持つ。これは review record であり、principal claim の terminal provenance endpoint ではない。curator が evidence と accepted review を record_kind: provenance の check record へ合成する。
+A Durable Surface Review file has record_kind: durable-surface-review, target, surface, review_mode, verdict, and scope. It is a review record, not the terminal provenance endpoint for a principal claim. The curator combines evidence and accepted review in a check record with record_kind: provenance.
 
-substantive findings または clean analysis を新規 materialise した場合、curator は Durable Surface Review を要求し、結果を checks と surface に反映する。
+When newly materialising substantive findings or a clean analysis, the curator requests a Durable Surface Review and reflects the result in checks and the reviewed document.
 
 ## Materials
 
-- src: 再現可能な code と短い companion description。共有範囲の lowest common ancestor に置く。
-- data: observable を所有する node。table は metadata header 付き TSV を標準とする。
-- images: 対応する data/analysis と同じ node。
-- analyses: review と curator placement を経た clean narrative。findings ではない。
+- src: reproducible code with a short companion description. Place it at the lowest common ancestor of the nodes that share it.
+- data: place it in the node that owns the observable. Use TSV tables with metadata headers by default.
+- images: use the same node as the corresponding data or analysis.
+- analyses: clean narratives that have passed review and curator placement. They are not findings.
 
-material を読む前に index や frontmatter で絞る。superseded artifact は削除せず archive へ移す。generated cache、bytecode、環境依存物は commit しない。
+Filter materials through indexes or frontmatter before reading them. Move superseded artifacts to the archive instead of deleting them. Do not commit generated caches, bytecode, or environment-specific files.
 
 ## Transaction close
 
-curator は touched durable prose の link、naming、notation、provenance、parent map、status を同じ transaction で整合させる。意味を変える選択が残る場合は修復せず、Admission blocked または所有者付き blocker として返す。
+The curator reconciles links, naming, notation, provenance, parent maps, and status for the durable prose touched by the transaction. If choices that change meaning remain unresolved, do not repair them unilaterally; return Admission blocked or a blocker with an owner.

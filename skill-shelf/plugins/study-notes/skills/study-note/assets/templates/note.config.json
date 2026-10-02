@@ -1,22 +1,22 @@
 {
   "specVersion": "1.1.0",
   "id": "example-note",
-  "title": "多項式の計算",
-  "description": "展開と因数分解の対応を確認するノート。",
-  "language": "ja",
+  "title": "Polynomial Calculations",
+  "description": "A note connecting expansion and factorization.",
+  "language": "en",
   "source": {
-    "title": "自作例題",
+    "title": "Original worked examples",
     "authors": [],
-    "locator": "第1章"
+    "locator": "Chapter 1"
   },
   "chapters": [
     {
       "id": "chapter-1",
       "section": "1",
-      "title": "平方の展開",
-      "description": "積から和へ",
-      "plainTitle": "平方の展開",
-      "plainDescription": "二項式の平方を展開し、同じ式へ戻す。",
+      "title": "Expanding a Square",
+      "description": "From a product to a sum",
+      "plainTitle": "Expanding a Square",
+      "plainDescription": "Expand the square of a binomial and return to the original expression.",
       "file": "content/chapter.md",
       "readingTimeMinutes": 3
     }
