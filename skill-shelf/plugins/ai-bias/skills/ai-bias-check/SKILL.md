@@ -1,6 +1,6 @@
 ---
 name: ai-bias-check
-description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, proof requests derailed by objections or convenient assumptions, unsupported premises, fixation, circular validation, misdirected reader attention, defensive overformalization, and misleading wording. Use for an explicit bias review or a concrete sign of these patterns during reasoning or revision; not for demographic fairness audits."
+description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, proof requests derailed by objections or convenient assumptions, unsupported premises, fixation, circular validation, misdirected reader attention, defensive overformalization, instruction-compliance signals in deliverables, and misleading wording. Use for an explicit bias review or a concrete sign of these patterns during reasoning or revision; not for demographic fairness audits."
 ---
 
 # AI Bias Check
@@ -63,6 +63,12 @@ changing the assumptions, start with 01 and read
 validity of the objection separately from whether it advances the requested
 work. Do not label a conditional proof invalid merely because the new assumption
 makes it easy; check what problem was actually solved.
+
+For an artifact that advertises following instructions through self-assessment,
+echoed quality labels, or conspicuous correction signals, start with
+[16](references/communication.md#16-leak-conversation-or-instruction-language-into-the-artifact).
+Keep the requested substance and reader-facing function; inspect the additional
+signal rather than treating all instruction-shaped content as contamination.
 
 For invented compounds, noun-heavy prose, shifting terminology, or ungrounded
 certainty and hedging, read [wording](references/wording.md). For “not A, but B,”
