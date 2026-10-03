@@ -1,4 +1,4 @@
-import{n as e,r as t,t as n}from"./rolldown-runtime-CSSSg6FL.js";import{i as r,n as i,r as a}from"./framework-ZegdmD18.js";import{t as o}from"./index-CDAJ53Ov.js";function s(e){let t=[],n=String(e||``),r=n.indexOf(`,`),i=0,a=!1;for(;!a;){r===-1&&(r=n.length,a=!0);let e=n.slice(i,r).trim();(e||!a)&&t.push(e),i=r+1,r=n.indexOf(`,`,i)}return t}function c(e,t){let n=t||{};return(e[e.length-1]===``?[...e,``]:e).join((n.padRight?` `:``)+`,`+(n.padLeft===!1?``:` `)).trim()}var l=/^[$_\p{ID_Start}][$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,u=/^[$_\p{ID_Start}][-$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,d={};function f(e,t){return((t||d).jsx?u:l).test(e)}var p=/[ \t\n\f\r]/g;function m(e){return typeof e==`object`?e.type===`text`?h(e.value):!1:h(e)}function h(e){return e.replace(p,``)===``}var g=class{constructor(e,t,n){this.normal=t,this.property=e,n&&(this.space=n)}};g.prototype.normal={},g.prototype.property={},g.prototype.space=void 0;function _(e,t){let n={},r={};for(let t of e)Object.assign(n,t.property),Object.assign(r,t.normal);return new g(n,r,t)}function v(e){return e.toLowerCase()}var y=class{constructor(e,t){this.attribute=t,this.property=e}};y.prototype.attribute=``,y.prototype.booleanish=!1,y.prototype.boolean=!1,y.prototype.commaOrSpaceSeparated=!1,y.prototype.commaSeparated=!1,y.prototype.defined=!1,y.prototype.mustUseProperty=!1,y.prototype.number=!1,y.prototype.overloadedBoolean=!1,y.prototype.property=``,y.prototype.spaceSeparated=!1,y.prototype.space=void 0;var b=e({boolean:()=>S,booleanish:()=>C,commaOrSpaceSeparated:()=>D,commaSeparated:()=>ee,number:()=>T,overloadedBoolean:()=>w,spaceSeparated:()=>E}),x=0,S=O(),C=O(),w=O(),T=O(),E=O(),ee=O(),D=O();function O(){return 2**++x}var k=Object.keys(b),te=class extends y{constructor(e,t,n,r){let i=-1;if(super(e,t),A(this,`space`,r),typeof n==`number`)for(;++i<k.length;){let e=k[i];A(this,k[i],(n&b[e])===b[e])}}};te.prototype.defined=!0;function A(e,t,n){n&&(e[t]=n)}function ne(e){let t={},n={};for(let[r,i]of Object.entries(e.properties)){let a=new te(r,e.transform(e.attributes||{},r),i,e.space);e.mustUseProperty&&e.mustUseProperty.includes(r)&&(a.mustUseProperty=!0),t[r]=a,n[v(r)]=r,n[v(a.attribute)]=r}return new g(t,n,e.space)}var re=ne({properties:{ariaActiveDescendant:null,ariaAtomic:C,ariaAutoComplete:null,ariaBusy:C,ariaChecked:C,ariaColCount:T,ariaColIndex:T,ariaColSpan:T,ariaControls:E,ariaCurrent:null,ariaDescribedBy:E,ariaDetails:null,ariaDisabled:C,ariaDropEffect:E,ariaErrorMessage:null,ariaExpanded:C,ariaFlowTo:E,ariaGrabbed:C,ariaHasPopup:null,ariaHidden:C,ariaInvalid:null,ariaKeyShortcuts:null,ariaLabel:null,ariaLabelledBy:E,ariaLevel:T,ariaLive:null,ariaModal:C,ariaMultiLine:C,ariaMultiSelectable:C,ariaOrientation:null,ariaOwns:E,ariaPlaceholder:null,ariaPosInSet:T,ariaPressed:C,ariaReadOnly:C,ariaRelevant:null,ariaRequired:C,ariaRoleDescription:E,ariaRowCount:T,ariaRowIndex:T,ariaRowSpan:T,ariaSelected:C,ariaSetSize:T,ariaSort:null,ariaValueMax:T,ariaValueMin:T,ariaValueNow:T,ariaValueText:null,role:null},transform(e,t){return t===`role`?t:`aria-`+t.slice(4).toLowerCase()}});function ie(e,t){return t in e?e[t]:t}function j(e,t){return ie(e,t.toLowerCase())}var ae=ne({attributes:{acceptcharset:`accept-charset`,classname:`class`,htmlfor:`for`,httpequiv:`http-equiv`},mustUseProperty:[`checked`,`multiple`,`muted`,`selected`],properties:{abbr:null,accept:ee,acceptCharset:E,accessKey:E,action:null,allow:null,allowFullScreen:S,allowPaymentRequest:S,allowUserMedia:S,alpha:S,alt:null,as:null,async:S,autoCapitalize:null,autoComplete:E,autoFocus:S,autoPlay:S,blocking:E,capture:null,charSet:null,checked:S,cite:null,className:E,closedBy:null,colorSpace:null,cols:T,colSpan:T,command:null,commandFor:null,content:null,contentEditable:C,controls:S,controlsList:E,coords:T|ee,crossOrigin:null,data:null,dateTime:null,decoding:null,default:S,defer:S,dir:null,dirName:null,disabled:S,download:w,draggable:C,encType:null,enterKeyHint:null,fetchPriority:null,form:null,formAction:null,formEncType:null,formMethod:null,formNoValidate:S,formTarget:null,headers:E,height:T,hidden:w,high:T,href:null,hrefLang:null,htmlFor:E,httpEquiv:E,id:null,imageSizes:null,imageSrcSet:null,inert:S,inputMode:null,integrity:null,is:null,isMap:S,itemId:null,itemProp:E,itemRef:E,itemScope:S,itemType:E,kind:null,label:null,lang:null,language:null,list:null,loading:null,loop:S,low:T,manifest:null,max:null,maxLength:T,media:null,method:null,min:null,minLength:T,multiple:S,muted:S,name:null,nonce:null,noModule:S,noValidate:S,onAbort:null,onAfterPrint:null,onAuxClick:null,onBeforeMatch:null,onBeforePrint:null,onBeforeToggle:null,onBeforeUnload:null,onBlur:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onContextLost:null,onContextMenu:null,onContextRestored:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnded:null,onError:null,onFocus:null,onFormData:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLanguageChange:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadEnd:null,onLoadStart:null,onMessage:null,onMessageError:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRejectionHandled:null,onReset:null,onResize:null,onScroll:null,onScrollEnd:null,onSecurityPolicyViolation:null,onSeeked:null,onSeeking:null,onSelect:null,onSlotChange:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnhandledRejection:null,onUnload:null,onVolumeChange:null,onWaiting:null,onWheel:null,open:S,optimum:T,pattern:null,ping:E,placeholder:null,playsInline:S,popover:null,popoverTarget:null,popoverTargetAction:null,poster:null,preload:null,readOnly:S,referrerPolicy:null,rel:E,required:S,reversed:S,rows:T,rowSpan:T,sandbox:E,scope:null,scoped:S,seamless:S,selected:S,shadowRootClonable:S,shadowRootCustomElementRegistry:S,shadowRootDelegatesFocus:S,shadowRootMode:null,shadowRootSerializable:S,shape:null,size:T,sizes:null,slot:null,span:T,spellCheck:C,src:null,srcDoc:null,srcLang:null,srcSet:null,start:T,step:null,style:null,tabIndex:T,target:null,title:null,translate:null,type:null,typeMustMatch:S,useMap:null,value:C,width:T,wrap:null,writingSuggestions:null,align:null,aLink:null,archive:E,axis:null,background:null,bgColor:null,border:T,borderColor:null,bottomMargin:T,cellPadding:null,cellSpacing:null,char:null,charOff:null,classId:null,clear:null,code:null,codeBase:null,codeType:null,color:null,compact:S,declare:S,event:null,face:null,frame:null,frameBorder:null,hSpace:T,leftMargin:T,link:null,longDesc:null,lowSrc:null,marginHeight:T,marginWidth:T,noResize:S,noHref:S,noShade:S,noWrap:S,object:null,profile:null,prompt:null,rev:null,rightMargin:T,rules:null,scheme:null,scrolling:C,standby:null,summary:null,text:null,topMargin:T,valueType:null,version:null,vAlign:null,vLink:null,vSpace:T,allowTransparency:null,autoCorrect:null,autoSave:null,credentialless:S,disablePictureInPicture:S,disableRemotePlayback:S,exportParts:ee,part:E,prefix:null,property:null,results:T,security:null,unselectable:null},space:`html`,transform:j}),oe=ne({attributes:{accentHeight:`accent-height`,alignmentBaseline:`alignment-baseline`,arabicForm:`arabic-form`,baselineShift:`baseline-shift`,capHeight:`cap-height`,className:`class`,clipPath:`clip-path`,clipRule:`clip-rule`,colorInterpolation:`color-interpolation`,colorInterpolationFilters:`color-interpolation-filters`,colorProfile:`color-profile`,colorRendering:`color-rendering`,crossOrigin:`crossorigin`,dataType:`datatype`,dominantBaseline:`dominant-baseline`,enableBackground:`enable-background`,fillOpacity:`fill-opacity`,fillRule:`fill-rule`,floodColor:`flood-color`,floodOpacity:`flood-opacity`,fontFamily:`font-family`,fontSize:`font-size`,fontSizeAdjust:`font-size-adjust`,fontStretch:`font-stretch`,fontStyle:`font-style`,fontVariant:`font-variant`,fontWeight:`font-weight`,glyphName:`glyph-name`,glyphOrientationHorizontal:`glyph-orientation-horizontal`,glyphOrientationVertical:`glyph-orientation-vertical`,hrefLang:`hreflang`,horizAdvX:`horiz-adv-x`,horizOriginX:`horiz-origin-x`,horizOriginY:`horiz-origin-y`,imageRendering:`image-rendering`,letterSpacing:`letter-spacing`,lightingColor:`lighting-color`,markerEnd:`marker-end`,markerMid:`marker-mid`,markerStart:`marker-start`,maskType:`mask-type`,navDown:`nav-down`,navDownLeft:`nav-down-left`,navDownRight:`nav-down-right`,navLeft:`nav-left`,navNext:`nav-next`,navPrev:`nav-prev`,navRight:`nav-right`,navUp:`nav-up`,navUpLeft:`nav-up-left`,navUpRight:`nav-up-right`,onAbort:`onabort`,onActivate:`onactivate`,onAfterPrint:`onafterprint`,onBeforePrint:`onbeforeprint`,onBegin:`onbegin`,onCancel:`oncancel`,onCanPlay:`oncanplay`,onCanPlayThrough:`oncanplaythrough`,onChange:`onchange`,onClick:`onclick`,onClose:`onclose`,onCopy:`oncopy`,onCueChange:`oncuechange`,onCut:`oncut`,onDblClick:`ondblclick`,onDrag:`ondrag`,onDragEnd:`ondragend`,onDragEnter:`ondragenter`,onDragExit:`ondragexit`,onDragLeave:`ondragleave`,onDragOver:`ondragover`,onDragStart:`ondragstart`,onDrop:`ondrop`,onDurationChange:`ondurationchange`,onEmptied:`onemptied`,onEnd:`onend`,onEnded:`onended`,onError:`onerror`,onFocus:`onfocus`,onFocusIn:`onfocusin`,onFocusOut:`onfocusout`,onHashChange:`onhashchange`,onInput:`oninput`,onInvalid:`oninvalid`,onKeyDown:`onkeydown`,onKeyPress:`onkeypress`,onKeyUp:`onkeyup`,onLoad:`onload`,onLoadedData:`onloadeddata`,onLoadedMetadata:`onloadedmetadata`,onLoadStart:`onloadstart`,onMessage:`onmessage`,onMouseDown:`onmousedown`,onMouseEnter:`onmouseenter`,onMouseLeave:`onmouseleave`,onMouseMove:`onmousemove`,onMouseOut:`onmouseout`,onMouseOver:`onmouseover`,onMouseUp:`onmouseup`,onMouseWheel:`onmousewheel`,onOffline:`onoffline`,onOnline:`ononline`,onPageHide:`onpagehide`,onPageShow:`onpageshow`,onPaste:`onpaste`,onPause:`onpause`,onPlay:`onplay`,onPlaying:`onplaying`,onPopState:`onpopstate`,onProgress:`onprogress`,onRateChange:`onratechange`,onRepeat:`onrepeat`,onReset:`onreset`,onResize:`onresize`,onScroll:`onscroll`,onSeeked:`onseeked`,onSeeking:`onseeking`,onSelect:`onselect`,onShow:`onshow`,onStalled:`onstalled`,onStorage:`onstorage`,onSubmit:`onsubmit`,onSuspend:`onsuspend`,onTimeUpdate:`ontimeupdate`,onToggle:`ontoggle`,onUnload:`onunload`,onVolumeChange:`onvolumechange`,onWaiting:`onwaiting`,onZoom:`onzoom`,overlinePosition:`overline-position`,overlineThickness:`overline-thickness`,paintOrder:`paint-order`,panose1:`panose-1`,pointerEvents:`pointer-events`,referrerPolicy:`referrerpolicy`,renderingIntent:`rendering-intent`,shapeRendering:`shape-rendering`,stopColor:`stop-color`,stopOpacity:`stop-opacity`,strikethroughPosition:`strikethrough-position`,strikethroughThickness:`strikethrough-thickness`,strokeDashArray:`stroke-dasharray`,strokeDashOffset:`stroke-dashoffset`,strokeLineCap:`stroke-linecap`,strokeLineJoin:`stroke-linejoin`,strokeMiterLimit:`stroke-miterlimit`,strokeOpacity:`stroke-opacity`,strokeWidth:`stroke-width`,tabIndex:`tabindex`,textAnchor:`text-anchor`,textDecoration:`text-decoration`,textRendering:`text-rendering`,transformOrigin:`transform-origin`,typeOf:`typeof`,underlinePosition:`underline-position`,underlineThickness:`underline-thickness`,unicodeBidi:`unicode-bidi`,unicodeRange:`unicode-range`,unitsPerEm:`units-per-em`,vAlphabetic:`v-alphabetic`,vHanging:`v-hanging`,vIdeographic:`v-ideographic`,vMathematical:`v-mathematical`,vectorEffect:`vector-effect`,vertAdvY:`vert-adv-y`,vertOriginX:`vert-origin-x`,vertOriginY:`vert-origin-y`,wordSpacing:`word-spacing`,writingMode:`writing-mode`,xHeight:`x-height`,playbackOrder:`playbackorder`,timelineBegin:`timelinebegin`},properties:{about:D,accentHeight:T,accumulate:null,additive:null,alignmentBaseline:null,alphabetic:T,amplitude:T,arabicForm:null,ascent:T,attributeName:null,attributeType:null,azimuth:T,bandwidth:null,baselineShift:null,baseFrequency:null,baseProfile:null,bbox:null,begin:null,bias:T,by:null,calcMode:null,capHeight:T,className:E,clip:null,clipPath:null,clipPathUnits:null,clipRule:null,color:null,colorInterpolation:null,colorInterpolationFilters:null,colorProfile:null,colorRendering:null,content:null,contentScriptType:null,contentStyleType:null,crossOrigin:null,cursor:null,cx:null,cy:null,d:null,dataType:null,defaultAction:null,descent:T,diffuseConstant:T,direction:null,display:null,dur:null,divisor:T,dominantBaseline:null,download:S,dx:null,dy:null,edgeMode:null,editable:null,elevation:T,enableBackground:null,end:null,event:null,exponent:T,externalResourcesRequired:null,fill:null,fillOpacity:T,fillRule:null,filter:null,filterRes:null,filterUnits:null,floodColor:null,floodOpacity:null,focusable:null,focusHighlight:null,fontFamily:null,fontSize:null,fontSizeAdjust:null,fontStretch:null,fontStyle:null,fontVariant:null,fontWeight:null,format:null,fr:null,from:null,fx:null,fy:null,g1:ee,g2:ee,glyphName:ee,glyphOrientationHorizontal:null,glyphOrientationVertical:null,glyphRef:null,gradientTransform:null,gradientUnits:null,handler:null,hanging:T,hatchContentUnits:null,hatchUnits:null,height:null,href:null,hrefLang:null,horizAdvX:T,horizOriginX:T,horizOriginY:T,id:null,ideographic:T,imageRendering:null,initialVisibility:null,in:null,in2:null,intercept:T,k:T,k1:T,k2:T,k3:T,k4:T,kernelMatrix:D,kernelUnitLength:null,keyPoints:null,keySplines:null,keyTimes:null,kerning:null,lang:null,lengthAdjust:null,letterSpacing:null,lightingColor:null,limitingConeAngle:T,local:null,markerEnd:null,markerMid:null,markerStart:null,markerHeight:null,markerUnits:null,markerWidth:null,mask:null,maskContentUnits:null,maskType:null,maskUnits:null,mathematical:null,max:null,media:null,mediaCharacterEncoding:null,mediaContentEncodings:null,mediaSize:T,mediaTime:null,method:null,min:null,mode:null,name:null,navDown:null,navDownLeft:null,navDownRight:null,navLeft:null,navNext:null,navPrev:null,navRight:null,navUp:null,navUpLeft:null,navUpRight:null,numOctaves:null,observer:null,offset:null,onAbort:null,onActivate:null,onAfterPrint:null,onBeforePrint:null,onBegin:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnd:null,onEnded:null,onError:null,onFocus:null,onFocusIn:null,onFocusOut:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadStart:null,onMessage:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onMouseWheel:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRepeat:null,onReset:null,onResize:null,onScroll:null,onSeeked:null,onSeeking:null,onSelect:null,onShow:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnload:null,onVolumeChange:null,onWaiting:null,onZoom:null,opacity:null,operator:null,order:null,orient:null,orientation:null,origin:null,overflow:null,overlay:null,overlinePosition:T,overlineThickness:T,paintOrder:null,panose1:null,path:null,pathLength:T,patternContentUnits:null,patternTransform:null,patternUnits:null,phase:null,ping:E,pitch:null,playbackOrder:null,pointerEvents:null,points:null,pointsAtX:T,pointsAtY:T,pointsAtZ:T,preserveAlpha:null,preserveAspectRatio:null,primitiveUnits:null,propagate:null,property:D,r:null,radius:null,referrerPolicy:null,refX:null,refY:null,rel:D,rev:D,renderingIntent:null,repeatCount:null,repeatDur:null,requiredExtensions:D,requiredFeatures:D,requiredFonts:D,requiredFormats:D,resource:null,restart:null,result:null,rotate:null,rx:null,ry:null,scale:null,seed:null,shapeRendering:null,side:null,slope:null,snapshotTime:null,specularConstant:T,specularExponent:T,spreadMethod:null,spacing:null,startOffset:null,stdDeviation:null,stemh:null,stemv:null,stitchTiles:null,stopColor:null,stopOpacity:null,strikethroughPosition:T,strikethroughThickness:T,string:null,stroke:null,strokeDashArray:D,strokeDashOffset:null,strokeLineCap:null,strokeLineJoin:null,strokeMiterLimit:T,strokeOpacity:T,strokeWidth:null,style:null,surfaceScale:T,syncBehavior:null,syncBehaviorDefault:null,syncMaster:null,syncTolerance:null,syncToleranceDefault:null,systemLanguage:D,tabIndex:T,tableValues:null,target:null,targetX:T,targetY:T,textAnchor:null,textDecoration:null,textRendering:null,textLength:null,timelineBegin:null,title:null,transformBehavior:null,type:null,typeOf:D,to:null,transform:null,transformOrigin:null,u1:null,u2:null,underlinePosition:T,underlineThickness:T,unicode:null,unicodeBidi:null,unicodeRange:null,unitsPerEm:T,values:null,vAlphabetic:T,vMathematical:T,vectorEffect:null,vHanging:T,vIdeographic:T,version:null,vertAdvY:T,vertOriginX:T,vertOriginY:T,viewBox:null,viewTarget:null,visibility:null,width:null,widths:null,wordSpacing:null,writingMode:null,x:null,x1:null,x2:null,xChannelSelector:null,xHeight:T,y:null,y1:null,y2:null,yChannelSelector:null,z:null,zoomAndPan:null},space:`svg`,transform:ie}),se=ne({properties:{xLinkActuate:null,xLinkArcRole:null,xLinkHref:null,xLinkRole:null,xLinkShow:null,xLinkTitle:null,xLinkType:null},space:`xlink`,transform(e,t){return`xlink:`+t.slice(5).toLowerCase()}}),ce=ne({attributes:{xmlnsxlink:`xmlns:xlink`},properties:{xmlnsXLink:null,xmlns:null},space:`xmlns`,transform:j}),le=ne({properties:{xmlBase:null,xmlLang:null,xmlSpace:null},space:`xml`,transform(e,t){return`xml:`+t.slice(3).toLowerCase()}}),ue={classId:`classID`,dataType:`datatype`,itemId:`itemID`,strokeDashArray:`strokeDasharray`,strokeDashOffset:`strokeDashoffset`,strokeLineCap:`strokeLinecap`,strokeLineJoin:`strokeLinejoin`,strokeMiterLimit:`strokeMiterlimit`,typeOf:`typeof`,xLinkActuate:`xlinkActuate`,xLinkArcRole:`xlinkArcrole`,xLinkHref:`xlinkHref`,xLinkRole:`xlinkRole`,xLinkShow:`xlinkShow`,xLinkTitle:`xlinkTitle`,xLinkType:`xlinkType`,xmlnsXLink:`xmlnsXlink`},de=/[A-Z]/g,fe=/-[a-z]/g,pe=/^data[-\w.:]+$/i;function me(e,t){let n=v(t),r=t,i=y;if(n in e.normal)return e.property[e.normal[n]];if(n.length>4&&n.slice(0,4)===`data`&&pe.test(t)){if(t.charAt(4)===`-`){let e=t.slice(5).replace(fe,ge);r=`data`+e.charAt(0).toUpperCase()+e.slice(1)}else{let e=t.slice(4);if(!fe.test(e)){let n=e.replace(de,he);n.charAt(0)!==`-`&&(n=`-`+n),t=`data`+n}}i=te}return new i(r,t)}function he(e){return`-`+e.toLowerCase()}function ge(e){return e.charAt(1).toUpperCase()}var _e=_([re,ae,se,ce,le],`html`),ve=_([re,oe,se,ce,le],`svg`);function ye(e){let t=String(e||``).trim();return t?t.split(/[ \t\n\r\f]+/g):[]}function be(e){return e.join(` `).trim()}var xe=n(((e,t)=>{var n=/\/\*[^*]*\*+([^/*][^*]*\*+)*\//g,r=/\n/g,i=/^\s*/,a=/^(\*?[-#/*\\\w]+(\[[0-9a-z_-]+\])?)\s*/,o=/^:\s*/,s=/^((?:'(?:\\'|.)*?'|"(?:\\"|.)*?"|\([^)]*?\)|[^};])+)/,c=/^[;\s]*/,l=/^\s+|\s+$/g,u=`
+import{n as e,r as t,t as n}from"./rolldown-runtime-CSSSg6FL.js";import{i as r,n as i,r as a}from"./framework-ZegdmD18.js";import{t as o}from"./index-BOWfyWE6.js";function s(e){let t=[],n=String(e||``),r=n.indexOf(`,`),i=0,a=!1;for(;!a;){r===-1&&(r=n.length,a=!0);let e=n.slice(i,r).trim();(e||!a)&&t.push(e),i=r+1,r=n.indexOf(`,`,i)}return t}function c(e,t){let n=t||{};return(e[e.length-1]===``?[...e,``]:e).join((n.padRight?` `:``)+`,`+(n.padLeft===!1?``:` `)).trim()}var l=/^[$_\p{ID_Start}][$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,u=/^[$_\p{ID_Start}][-$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,d={};function f(e,t){return((t||d).jsx?u:l).test(e)}var p=/[ \t\n\f\r]/g;function m(e){return typeof e==`object`?e.type===`text`?h(e.value):!1:h(e)}function h(e){return e.replace(p,``)===``}var g=class{constructor(e,t,n){this.normal=t,this.property=e,n&&(this.space=n)}};g.prototype.normal={},g.prototype.property={},g.prototype.space=void 0;function _(e,t){let n={},r={};for(let t of e)Object.assign(n,t.property),Object.assign(r,t.normal);return new g(n,r,t)}function v(e){return e.toLowerCase()}var y=class{constructor(e,t){this.attribute=t,this.property=e}};y.prototype.attribute=``,y.prototype.booleanish=!1,y.prototype.boolean=!1,y.prototype.commaOrSpaceSeparated=!1,y.prototype.commaSeparated=!1,y.prototype.defined=!1,y.prototype.mustUseProperty=!1,y.prototype.number=!1,y.prototype.overloadedBoolean=!1,y.prototype.property=``,y.prototype.spaceSeparated=!1,y.prototype.space=void 0;var b=e({boolean:()=>S,booleanish:()=>C,commaOrSpaceSeparated:()=>D,commaSeparated:()=>ee,number:()=>T,overloadedBoolean:()=>w,spaceSeparated:()=>E}),x=0,S=O(),C=O(),w=O(),T=O(),E=O(),ee=O(),D=O();function O(){return 2**++x}var k=Object.keys(b),te=class extends y{constructor(e,t,n,r){let i=-1;if(super(e,t),A(this,`space`,r),typeof n==`number`)for(;++i<k.length;){let e=k[i];A(this,k[i],(n&b[e])===b[e])}}};te.prototype.defined=!0;function A(e,t,n){n&&(e[t]=n)}function ne(e){let t={},n={};for(let[r,i]of Object.entries(e.properties)){let a=new te(r,e.transform(e.attributes||{},r),i,e.space);e.mustUseProperty&&e.mustUseProperty.includes(r)&&(a.mustUseProperty=!0),t[r]=a,n[v(r)]=r,n[v(a.attribute)]=r}return new g(t,n,e.space)}var re=ne({properties:{ariaActiveDescendant:null,ariaAtomic:C,ariaAutoComplete:null,ariaBusy:C,ariaChecked:C,ariaColCount:T,ariaColIndex:T,ariaColSpan:T,ariaControls:E,ariaCurrent:null,ariaDescribedBy:E,ariaDetails:null,ariaDisabled:C,ariaDropEffect:E,ariaErrorMessage:null,ariaExpanded:C,ariaFlowTo:E,ariaGrabbed:C,ariaHasPopup:null,ariaHidden:C,ariaInvalid:null,ariaKeyShortcuts:null,ariaLabel:null,ariaLabelledBy:E,ariaLevel:T,ariaLive:null,ariaModal:C,ariaMultiLine:C,ariaMultiSelectable:C,ariaOrientation:null,ariaOwns:E,ariaPlaceholder:null,ariaPosInSet:T,ariaPressed:C,ariaReadOnly:C,ariaRelevant:null,ariaRequired:C,ariaRoleDescription:E,ariaRowCount:T,ariaRowIndex:T,ariaRowSpan:T,ariaSelected:C,ariaSetSize:T,ariaSort:null,ariaValueMax:T,ariaValueMin:T,ariaValueNow:T,ariaValueText:null,role:null},transform(e,t){return t===`role`?t:`aria-`+t.slice(4).toLowerCase()}});function ie(e,t){return t in e?e[t]:t}function j(e,t){return ie(e,t.toLowerCase())}var ae=ne({attributes:{acceptcharset:`accept-charset`,classname:`class`,htmlfor:`for`,httpequiv:`http-equiv`},mustUseProperty:[`checked`,`multiple`,`muted`,`selected`],properties:{abbr:null,accept:ee,acceptCharset:E,accessKey:E,action:null,allow:null,allowFullScreen:S,allowPaymentRequest:S,allowUserMedia:S,alpha:S,alt:null,as:null,async:S,autoCapitalize:null,autoComplete:E,autoFocus:S,autoPlay:S,blocking:E,capture:null,charSet:null,checked:S,cite:null,className:E,closedBy:null,colorSpace:null,cols:T,colSpan:T,command:null,commandFor:null,content:null,contentEditable:C,controls:S,controlsList:E,coords:T|ee,crossOrigin:null,data:null,dateTime:null,decoding:null,default:S,defer:S,dir:null,dirName:null,disabled:S,download:w,draggable:C,encType:null,enterKeyHint:null,fetchPriority:null,form:null,formAction:null,formEncType:null,formMethod:null,formNoValidate:S,formTarget:null,headers:E,height:T,hidden:w,high:T,href:null,hrefLang:null,htmlFor:E,httpEquiv:E,id:null,imageSizes:null,imageSrcSet:null,inert:S,inputMode:null,integrity:null,is:null,isMap:S,itemId:null,itemProp:E,itemRef:E,itemScope:S,itemType:E,kind:null,label:null,lang:null,language:null,list:null,loading:null,loop:S,low:T,manifest:null,max:null,maxLength:T,media:null,method:null,min:null,minLength:T,multiple:S,muted:S,name:null,nonce:null,noModule:S,noValidate:S,onAbort:null,onAfterPrint:null,onAuxClick:null,onBeforeMatch:null,onBeforePrint:null,onBeforeToggle:null,onBeforeUnload:null,onBlur:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onContextLost:null,onContextMenu:null,onContextRestored:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnded:null,onError:null,onFocus:null,onFormData:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLanguageChange:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadEnd:null,onLoadStart:null,onMessage:null,onMessageError:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRejectionHandled:null,onReset:null,onResize:null,onScroll:null,onScrollEnd:null,onSecurityPolicyViolation:null,onSeeked:null,onSeeking:null,onSelect:null,onSlotChange:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnhandledRejection:null,onUnload:null,onVolumeChange:null,onWaiting:null,onWheel:null,open:S,optimum:T,pattern:null,ping:E,placeholder:null,playsInline:S,popover:null,popoverTarget:null,popoverTargetAction:null,poster:null,preload:null,readOnly:S,referrerPolicy:null,rel:E,required:S,reversed:S,rows:T,rowSpan:T,sandbox:E,scope:null,scoped:S,seamless:S,selected:S,shadowRootClonable:S,shadowRootCustomElementRegistry:S,shadowRootDelegatesFocus:S,shadowRootMode:null,shadowRootSerializable:S,shape:null,size:T,sizes:null,slot:null,span:T,spellCheck:C,src:null,srcDoc:null,srcLang:null,srcSet:null,start:T,step:null,style:null,tabIndex:T,target:null,title:null,translate:null,type:null,typeMustMatch:S,useMap:null,value:C,width:T,wrap:null,writingSuggestions:null,align:null,aLink:null,archive:E,axis:null,background:null,bgColor:null,border:T,borderColor:null,bottomMargin:T,cellPadding:null,cellSpacing:null,char:null,charOff:null,classId:null,clear:null,code:null,codeBase:null,codeType:null,color:null,compact:S,declare:S,event:null,face:null,frame:null,frameBorder:null,hSpace:T,leftMargin:T,link:null,longDesc:null,lowSrc:null,marginHeight:T,marginWidth:T,noResize:S,noHref:S,noShade:S,noWrap:S,object:null,profile:null,prompt:null,rev:null,rightMargin:T,rules:null,scheme:null,scrolling:C,standby:null,summary:null,text:null,topMargin:T,valueType:null,version:null,vAlign:null,vLink:null,vSpace:T,allowTransparency:null,autoCorrect:null,autoSave:null,credentialless:S,disablePictureInPicture:S,disableRemotePlayback:S,exportParts:ee,part:E,prefix:null,property:null,results:T,security:null,unselectable:null},space:`html`,transform:j}),oe=ne({attributes:{accentHeight:`accent-height`,alignmentBaseline:`alignment-baseline`,arabicForm:`arabic-form`,baselineShift:`baseline-shift`,capHeight:`cap-height`,className:`class`,clipPath:`clip-path`,clipRule:`clip-rule`,colorInterpolation:`color-interpolation`,colorInterpolationFilters:`color-interpolation-filters`,colorProfile:`color-profile`,colorRendering:`color-rendering`,crossOrigin:`crossorigin`,dataType:`datatype`,dominantBaseline:`dominant-baseline`,enableBackground:`enable-background`,fillOpacity:`fill-opacity`,fillRule:`fill-rule`,floodColor:`flood-color`,floodOpacity:`flood-opacity`,fontFamily:`font-family`,fontSize:`font-size`,fontSizeAdjust:`font-size-adjust`,fontStretch:`font-stretch`,fontStyle:`font-style`,fontVariant:`font-variant`,fontWeight:`font-weight`,glyphName:`glyph-name`,glyphOrientationHorizontal:`glyph-orientation-horizontal`,glyphOrientationVertical:`glyph-orientation-vertical`,hrefLang:`hreflang`,horizAdvX:`horiz-adv-x`,horizOriginX:`horiz-origin-x`,horizOriginY:`horiz-origin-y`,imageRendering:`image-rendering`,letterSpacing:`letter-spacing`,lightingColor:`lighting-color`,markerEnd:`marker-end`,markerMid:`marker-mid`,markerStart:`marker-start`,maskType:`mask-type`,navDown:`nav-down`,navDownLeft:`nav-down-left`,navDownRight:`nav-down-right`,navLeft:`nav-left`,navNext:`nav-next`,navPrev:`nav-prev`,navRight:`nav-right`,navUp:`nav-up`,navUpLeft:`nav-up-left`,navUpRight:`nav-up-right`,onAbort:`onabort`,onActivate:`onactivate`,onAfterPrint:`onafterprint`,onBeforePrint:`onbeforeprint`,onBegin:`onbegin`,onCancel:`oncancel`,onCanPlay:`oncanplay`,onCanPlayThrough:`oncanplaythrough`,onChange:`onchange`,onClick:`onclick`,onClose:`onclose`,onCopy:`oncopy`,onCueChange:`oncuechange`,onCut:`oncut`,onDblClick:`ondblclick`,onDrag:`ondrag`,onDragEnd:`ondragend`,onDragEnter:`ondragenter`,onDragExit:`ondragexit`,onDragLeave:`ondragleave`,onDragOver:`ondragover`,onDragStart:`ondragstart`,onDrop:`ondrop`,onDurationChange:`ondurationchange`,onEmptied:`onemptied`,onEnd:`onend`,onEnded:`onended`,onError:`onerror`,onFocus:`onfocus`,onFocusIn:`onfocusin`,onFocusOut:`onfocusout`,onHashChange:`onhashchange`,onInput:`oninput`,onInvalid:`oninvalid`,onKeyDown:`onkeydown`,onKeyPress:`onkeypress`,onKeyUp:`onkeyup`,onLoad:`onload`,onLoadedData:`onloadeddata`,onLoadedMetadata:`onloadedmetadata`,onLoadStart:`onloadstart`,onMessage:`onmessage`,onMouseDown:`onmousedown`,onMouseEnter:`onmouseenter`,onMouseLeave:`onmouseleave`,onMouseMove:`onmousemove`,onMouseOut:`onmouseout`,onMouseOver:`onmouseover`,onMouseUp:`onmouseup`,onMouseWheel:`onmousewheel`,onOffline:`onoffline`,onOnline:`ononline`,onPageHide:`onpagehide`,onPageShow:`onpageshow`,onPaste:`onpaste`,onPause:`onpause`,onPlay:`onplay`,onPlaying:`onplaying`,onPopState:`onpopstate`,onProgress:`onprogress`,onRateChange:`onratechange`,onRepeat:`onrepeat`,onReset:`onreset`,onResize:`onresize`,onScroll:`onscroll`,onSeeked:`onseeked`,onSeeking:`onseeking`,onSelect:`onselect`,onShow:`onshow`,onStalled:`onstalled`,onStorage:`onstorage`,onSubmit:`onsubmit`,onSuspend:`onsuspend`,onTimeUpdate:`ontimeupdate`,onToggle:`ontoggle`,onUnload:`onunload`,onVolumeChange:`onvolumechange`,onWaiting:`onwaiting`,onZoom:`onzoom`,overlinePosition:`overline-position`,overlineThickness:`overline-thickness`,paintOrder:`paint-order`,panose1:`panose-1`,pointerEvents:`pointer-events`,referrerPolicy:`referrerpolicy`,renderingIntent:`rendering-intent`,shapeRendering:`shape-rendering`,stopColor:`stop-color`,stopOpacity:`stop-opacity`,strikethroughPosition:`strikethrough-position`,strikethroughThickness:`strikethrough-thickness`,strokeDashArray:`stroke-dasharray`,strokeDashOffset:`stroke-dashoffset`,strokeLineCap:`stroke-linecap`,strokeLineJoin:`stroke-linejoin`,strokeMiterLimit:`stroke-miterlimit`,strokeOpacity:`stroke-opacity`,strokeWidth:`stroke-width`,tabIndex:`tabindex`,textAnchor:`text-anchor`,textDecoration:`text-decoration`,textRendering:`text-rendering`,transformOrigin:`transform-origin`,typeOf:`typeof`,underlinePosition:`underline-position`,underlineThickness:`underline-thickness`,unicodeBidi:`unicode-bidi`,unicodeRange:`unicode-range`,unitsPerEm:`units-per-em`,vAlphabetic:`v-alphabetic`,vHanging:`v-hanging`,vIdeographic:`v-ideographic`,vMathematical:`v-mathematical`,vectorEffect:`vector-effect`,vertAdvY:`vert-adv-y`,vertOriginX:`vert-origin-x`,vertOriginY:`vert-origin-y`,wordSpacing:`word-spacing`,writingMode:`writing-mode`,xHeight:`x-height`,playbackOrder:`playbackorder`,timelineBegin:`timelinebegin`},properties:{about:D,accentHeight:T,accumulate:null,additive:null,alignmentBaseline:null,alphabetic:T,amplitude:T,arabicForm:null,ascent:T,attributeName:null,attributeType:null,azimuth:T,bandwidth:null,baselineShift:null,baseFrequency:null,baseProfile:null,bbox:null,begin:null,bias:T,by:null,calcMode:null,capHeight:T,className:E,clip:null,clipPath:null,clipPathUnits:null,clipRule:null,color:null,colorInterpolation:null,colorInterpolationFilters:null,colorProfile:null,colorRendering:null,content:null,contentScriptType:null,contentStyleType:null,crossOrigin:null,cursor:null,cx:null,cy:null,d:null,dataType:null,defaultAction:null,descent:T,diffuseConstant:T,direction:null,display:null,dur:null,divisor:T,dominantBaseline:null,download:S,dx:null,dy:null,edgeMode:null,editable:null,elevation:T,enableBackground:null,end:null,event:null,exponent:T,externalResourcesRequired:null,fill:null,fillOpacity:T,fillRule:null,filter:null,filterRes:null,filterUnits:null,floodColor:null,floodOpacity:null,focusable:null,focusHighlight:null,fontFamily:null,fontSize:null,fontSizeAdjust:null,fontStretch:null,fontStyle:null,fontVariant:null,fontWeight:null,format:null,fr:null,from:null,fx:null,fy:null,g1:ee,g2:ee,glyphName:ee,glyphOrientationHorizontal:null,glyphOrientationVertical:null,glyphRef:null,gradientTransform:null,gradientUnits:null,handler:null,hanging:T,hatchContentUnits:null,hatchUnits:null,height:null,href:null,hrefLang:null,horizAdvX:T,horizOriginX:T,horizOriginY:T,id:null,ideographic:T,imageRendering:null,initialVisibility:null,in:null,in2:null,intercept:T,k:T,k1:T,k2:T,k3:T,k4:T,kernelMatrix:D,kernelUnitLength:null,keyPoints:null,keySplines:null,keyTimes:null,kerning:null,lang:null,lengthAdjust:null,letterSpacing:null,lightingColor:null,limitingConeAngle:T,local:null,markerEnd:null,markerMid:null,markerStart:null,markerHeight:null,markerUnits:null,markerWidth:null,mask:null,maskContentUnits:null,maskType:null,maskUnits:null,mathematical:null,max:null,media:null,mediaCharacterEncoding:null,mediaContentEncodings:null,mediaSize:T,mediaTime:null,method:null,min:null,mode:null,name:null,navDown:null,navDownLeft:null,navDownRight:null,navLeft:null,navNext:null,navPrev:null,navRight:null,navUp:null,navUpLeft:null,navUpRight:null,numOctaves:null,observer:null,offset:null,onAbort:null,onActivate:null,onAfterPrint:null,onBeforePrint:null,onBegin:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnd:null,onEnded:null,onError:null,onFocus:null,onFocusIn:null,onFocusOut:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadStart:null,onMessage:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onMouseWheel:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRepeat:null,onReset:null,onResize:null,onScroll:null,onSeeked:null,onSeeking:null,onSelect:null,onShow:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnload:null,onVolumeChange:null,onWaiting:null,onZoom:null,opacity:null,operator:null,order:null,orient:null,orientation:null,origin:null,overflow:null,overlay:null,overlinePosition:T,overlineThickness:T,paintOrder:null,panose1:null,path:null,pathLength:T,patternContentUnits:null,patternTransform:null,patternUnits:null,phase:null,ping:E,pitch:null,playbackOrder:null,pointerEvents:null,points:null,pointsAtX:T,pointsAtY:T,pointsAtZ:T,preserveAlpha:null,preserveAspectRatio:null,primitiveUnits:null,propagate:null,property:D,r:null,radius:null,referrerPolicy:null,refX:null,refY:null,rel:D,rev:D,renderingIntent:null,repeatCount:null,repeatDur:null,requiredExtensions:D,requiredFeatures:D,requiredFonts:D,requiredFormats:D,resource:null,restart:null,result:null,rotate:null,rx:null,ry:null,scale:null,seed:null,shapeRendering:null,side:null,slope:null,snapshotTime:null,specularConstant:T,specularExponent:T,spreadMethod:null,spacing:null,startOffset:null,stdDeviation:null,stemh:null,stemv:null,stitchTiles:null,stopColor:null,stopOpacity:null,strikethroughPosition:T,strikethroughThickness:T,string:null,stroke:null,strokeDashArray:D,strokeDashOffset:null,strokeLineCap:null,strokeLineJoin:null,strokeMiterLimit:T,strokeOpacity:T,strokeWidth:null,style:null,surfaceScale:T,syncBehavior:null,syncBehaviorDefault:null,syncMaster:null,syncTolerance:null,syncToleranceDefault:null,systemLanguage:D,tabIndex:T,tableValues:null,target:null,targetX:T,targetY:T,textAnchor:null,textDecoration:null,textRendering:null,textLength:null,timelineBegin:null,title:null,transformBehavior:null,type:null,typeOf:D,to:null,transform:null,transformOrigin:null,u1:null,u2:null,underlinePosition:T,underlineThickness:T,unicode:null,unicodeBidi:null,unicodeRange:null,unitsPerEm:T,values:null,vAlphabetic:T,vMathematical:T,vectorEffect:null,vHanging:T,vIdeographic:T,version:null,vertAdvY:T,vertOriginX:T,vertOriginY:T,viewBox:null,viewTarget:null,visibility:null,width:null,widths:null,wordSpacing:null,writingMode:null,x:null,x1:null,x2:null,xChannelSelector:null,xHeight:T,y:null,y1:null,y2:null,yChannelSelector:null,z:null,zoomAndPan:null},space:`svg`,transform:ie}),se=ne({properties:{xLinkActuate:null,xLinkArcRole:null,xLinkHref:null,xLinkRole:null,xLinkShow:null,xLinkTitle:null,xLinkType:null},space:`xlink`,transform(e,t){return`xlink:`+t.slice(5).toLowerCase()}}),ce=ne({attributes:{xmlnsxlink:`xmlns:xlink`},properties:{xmlnsXLink:null,xmlns:null},space:`xmlns`,transform:j}),le=ne({properties:{xmlBase:null,xmlLang:null,xmlSpace:null},space:`xml`,transform(e,t){return`xml:`+t.slice(3).toLowerCase()}}),ue={classId:`classID`,dataType:`datatype`,itemId:`itemID`,strokeDashArray:`strokeDasharray`,strokeDashOffset:`strokeDashoffset`,strokeLineCap:`strokeLinecap`,strokeLineJoin:`strokeLinejoin`,strokeMiterLimit:`strokeMiterlimit`,typeOf:`typeof`,xLinkActuate:`xlinkActuate`,xLinkArcRole:`xlinkArcrole`,xLinkHref:`xlinkHref`,xLinkRole:`xlinkRole`,xLinkShow:`xlinkShow`,xLinkTitle:`xlinkTitle`,xLinkType:`xlinkType`,xmlnsXLink:`xmlnsXlink`},de=/[A-Z]/g,fe=/-[a-z]/g,pe=/^data[-\w.:]+$/i;function me(e,t){let n=v(t),r=t,i=y;if(n in e.normal)return e.property[e.normal[n]];if(n.length>4&&n.slice(0,4)===`data`&&pe.test(t)){if(t.charAt(4)===`-`){let e=t.slice(5).replace(fe,ge);r=`data`+e.charAt(0).toUpperCase()+e.slice(1)}else{let e=t.slice(4);if(!fe.test(e)){let n=e.replace(de,he);n.charAt(0)!==`-`&&(n=`-`+n),t=`data`+n}}i=te}return new i(r,t)}function he(e){return`-`+e.toLowerCase()}function ge(e){return e.charAt(1).toUpperCase()}var _e=_([re,ae,se,ce,le],`html`),ve=_([re,oe,se,ce,le],`svg`);function ye(e){let t=String(e||``).trim();return t?t.split(/[ \t\n\r\f]+/g):[]}function be(e){return e.join(` `).trim()}var xe=n(((e,t)=>{var n=/\/\*[^*]*\*+([^/*][^*]*\*+)*\//g,r=/\n/g,i=/^\s*/,a=/^(\*?[-#/*\\\w]+(\[[0-9a-z_-]+\])?)\s*/,o=/^:\s*/,s=/^((?:'(?:\\'|.)*?'|"(?:\\"|.)*?"|\([^)]*?\)|[^};])+)/,c=/^[;\s]*/,l=/^\s+|\s+$/g,u=`
 `,d=`/`,f=`*`,p=``,m=`comment`,h=`declaration`;function g(e,t){if(typeof e!=`string`)throw TypeError(`First argument must be a string`);if(!e)return[];t||={};var l=1,g=1;function v(e){var t=e.match(r);t&&(l+=t.length);var n=e.lastIndexOf(u);g=~n?e.length-n:g+e.length}function y(){var e={line:l,column:g};return function(t){return t.position=new b(e),C(),t}}function b(e){this.start=e,this.end={line:l,column:g},this.source=t.source}b.prototype.content=e;function x(n){var r=Error(t.source+`:`+l+`:`+g+`: `+n);if(r.reason=n,r.filename=t.source,r.line=l,r.column=g,r.source=e,!t.silent)throw r}function S(t){var n=t.exec(e);if(n){var r=n[0];return v(r),e=e.slice(r.length),n}}function C(){S(i)}function w(e){var t;for(e||=[];t=T();)t!==!1&&e.push(t);return e}function T(){var t=y();if(!(d!=e.charAt(0)||f!=e.charAt(1))){for(var n=2;p!=e.charAt(n)&&(f!=e.charAt(n)||d!=e.charAt(n+1));)++n;if(n+=2,p===e.charAt(n-1))return x(`End of comment missing`);var r=e.slice(2,n-2);return g+=2,v(r),e=e.slice(n),g+=2,t({type:m,comment:r})}}function E(){var e=y(),t=S(a);if(t){if(T(),!S(o))return x(`property missing ':'`);var r=S(s),i=e({type:h,property:_(t[0].replace(n,p)),value:r?_(r[0].replace(n,p)):p});return S(c),i}}function ee(){var e=[];w(e);for(var t;t=E();)t!==!1&&(e.push(t),w(e));return e}return C(),ee()}function _(e){return e?e.replace(l,p):p}t.exports=g})),Se=n((e=>{var t=e&&e.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(e,`__esModule`,{value:!0}),e.default=r;var n=t(xe());function r(e,t){let r=null;if(!e||typeof e!=`string`)return r;let i=(0,n.default)(e),a=typeof t==`function`;return i.forEach(e=>{if(e.type!==`declaration`)return;let{property:n,value:i}=e;a?t(n,i,e):i&&(r||={},r[n]=i)}),r}})),Ce=n((e=>{Object.defineProperty(e,`__esModule`,{value:!0}),e.camelCase=void 0;var t=/^--[a-zA-Z0-9_-]+$/,n=/-([a-z])/g,r=/^[^-]+$/,i=/^-(webkit|moz|ms|o|khtml)-/,a=/^-(ms)-/,o=function(e){return!e||r.test(e)||t.test(e)},s=function(e,t){return t.toUpperCase()},c=function(e,t){return`${t}-`};e.camelCase=function(e,t){return t===void 0&&(t={}),o(e)?e:(e=e.toLowerCase(),e=t.reactCompat?e.replace(a,c):e.replace(i,c),e.replace(n,s))}})),we=n(((e,t)=>{var n=(e&&e.__importDefault||function(e){return e&&e.__esModule?e:{default:e}})(Se()),r=Ce();function i(e,t){var i={};return!e||typeof e!=`string`||(0,n.default)(e,function(e,n){e&&n&&(i[(0,r.camelCase)(e,t)]=n)}),i}i.default=i,t.exports=i})),Te=De(`end`),Ee=De(`start`);function De(e){return t;function t(t){let n=t&&t.position&&t.position[e]||{};if(typeof n.line==`number`&&n.line>0&&typeof n.column==`number`&&n.column>0)return{line:n.line,column:n.column,offset:typeof n.offset==`number`&&n.offset>-1?n.offset:void 0}}}function Oe(e){let t=Ee(e),n=Te(e);if(t&&n)return{start:t,end:n}}function ke(e){return!e||typeof e!=`object`?``:`position`in e||`type`in e?je(e.position):`start`in e||`end`in e?je(e):`line`in e||`column`in e?Ae(e):``}function Ae(e){return Me(e&&e.line)+`:`+Me(e&&e.column)}function je(e){return Ae(e&&e.start)+`-`+Ae(e&&e.end)}function Me(e){return e&&typeof e==`number`?e:1}var Ne=class extends Error{constructor(e,t,n){super(),typeof t==`string`&&(n=t,t=void 0);let r=``,i={},a=!1;if(t&&(i=`line`in t&&`column`in t||`start`in t&&`end`in t?{place:t}:`type`in t?{ancestors:[t],place:t.position}:{...t}),typeof e==`string`?r=e:!i.cause&&e&&(a=!0,r=e.message,i.cause=e),!i.ruleId&&!i.source&&typeof n==`string`){let e=n.indexOf(`:`);e===-1?i.ruleId=n:(i.source=n.slice(0,e),i.ruleId=n.slice(e+1))}if(!i.place&&i.ancestors&&i.ancestors){let e=i.ancestors[i.ancestors.length-1];e&&(i.place=e.position)}let o=i.place&&`start`in i.place?i.place.start:i.place;this.ancestors=i.ancestors||void 0,this.cause=i.cause||void 0,this.column=o?o.column:void 0,this.fatal=void 0,this.file=``,this.message=r,this.line=o?o.line:void 0,this.name=ke(i.place)||`1:1`,this.place=i.place||void 0,this.reason=this.message,this.ruleId=i.ruleId||void 0,this.source=i.source||void 0,this.stack=a&&i.cause&&typeof i.cause.stack==`string`?i.cause.stack:``,this.actual=void 0,this.expected=void 0,this.note=void 0,this.url=void 0}};Ne.prototype.file=``,Ne.prototype.name=``,Ne.prototype.reason=``,Ne.prototype.message=``,Ne.prototype.stack=``,Ne.prototype.column=void 0,Ne.prototype.line=void 0,Ne.prototype.ancestors=void 0,Ne.prototype.cause=void 0,Ne.prototype.fatal=void 0,Ne.prototype.place=void 0,Ne.prototype.ruleId=void 0,Ne.prototype.source=void 0;var Pe=t(we(),1),Fe={}.hasOwnProperty,Ie=new Map,Le=/[A-Z]/g,Re=new Set([`table`,`tbody`,`thead`,`tfoot`,`tr`]),ze=new Set([`td`,`th`]),Be=`https://github.com/syntax-tree/hast-util-to-jsx-runtime`;function Ve(e,t){if(!t||t.Fragment===void 0)throw TypeError("Expected `Fragment` in options");let n=t.filePath||void 0,r;if(t.development){if(typeof t.jsxDEV!=`function`)throw TypeError("Expected `jsxDEV` in options when `development: true`");r=Qe(n,t.jsxDEV)}else{if(typeof t.jsx!=`function`)throw TypeError("Expected `jsx` in production options");if(typeof t.jsxs!=`function`)throw TypeError("Expected `jsxs` in production options");r=Ze(n,t.jsx,t.jsxs)}let i={Fragment:t.Fragment,ancestors:[],components:t.components||{},create:r,elementAttributeNameCase:t.elementAttributeNameCase||`react`,evaluater:t.createEvaluater?t.createEvaluater():void 0,filePath:n,ignoreInvalidStyle:t.ignoreInvalidStyle||!1,passKeys:t.passKeys!==!1,passNode:t.passNode||!1,schema:t.space===`svg`?ve:_e,stylePropertyNameCase:t.stylePropertyNameCase||`dom`,tableCellAlignToStyle:t.tableCellAlignToStyle!==!1},a=He(i,e,void 0);return a&&typeof a!=`string`?a:i.create(e,i.Fragment,{children:a||void 0},void 0)}function He(e,t,n){if(t.type===`element`)return Ue(e,t,n);if(t.type===`mdxFlowExpression`||t.type===`mdxTextExpression`)return We(e,t);if(t.type===`mdxJsxFlowElement`||t.type===`mdxJsxTextElement`)return Ke(e,t,n);if(t.type===`mdxjsEsm`)return Ge(e,t);if(t.type===`root`)return qe(e,t,n);if(t.type===`text`)return Je(e,t)}function Ue(e,t,n){let r=e.schema,i=r;t.tagName.toLowerCase()===`svg`&&r.space===`html`&&(i=ve,e.schema=i),e.ancestors.push(t);let a=it(e,t.tagName,!1),o=$e(e,t),s=tt(e,t);return Re.has(t.tagName)&&(s=s.filter(function(e){return typeof e==`string`?!m(e):!0})),Ye(e,o,a,t),Xe(o,s),e.ancestors.pop(),e.schema=r,e.create(t,a,o,n)}function We(e,t){if(t.data&&t.data.estree&&e.evaluater){let n=t.data.estree.body[0];return n.type,e.evaluater.evaluateExpression(n.expression)}at(e,t.position)}function Ge(e,t){if(t.data&&t.data.estree&&e.evaluater)return e.evaluater.evaluateProgram(t.data.estree);at(e,t.position)}function Ke(e,t,n){let r=e.schema,i=r;t.name===`svg`&&r.space===`html`&&(i=ve,e.schema=i),e.ancestors.push(t);let a=t.name===null?e.Fragment:it(e,t.name,!0),o=et(e,t),s=tt(e,t);return Ye(e,o,a,t),Xe(o,s),e.ancestors.pop(),e.schema=r,e.create(t,a,o,n)}function qe(e,t,n){let r={};return Xe(r,tt(e,t)),e.create(t,e.Fragment,r,n)}function Je(e,t){return t.value}function Ye(e,t,n,r){typeof n!=`string`&&n!==e.Fragment&&e.passNode&&(t.node=r)}function Xe(e,t){if(t.length>0){let n=t.length>1?t:t[0];n&&(e.children=n)}}function Ze(e,t,n){return r;function r(e,r,i,a){let o=Array.isArray(i.children)?n:t;return a?o(r,i,a):o(r,i)}}function Qe(e,t){return n;function n(n,r,i,a){let o=Array.isArray(i.children),s=Ee(n);return t(r,i,a,o,{columnNumber:s?s.column-1:void 0,fileName:e,lineNumber:s?s.line:void 0},void 0)}}function $e(e,t){let n={},r,i;for(i in t.properties)if(i!==`children`&&Fe.call(t.properties,i)){let a=nt(e,i,t.properties[i]);if(a){let[i,o]=a;e.tableCellAlignToStyle&&i===`align`&&typeof o==`string`&&ze.has(t.tagName)?r=o:n[i]=o}}if(r){let t=n.style||={};t[e.stylePropertyNameCase===`css`?`text-align`:`textAlign`]=r}return n}function et(e,t){let n={};for(let r of t.attributes)if(r.type===`mdxJsxExpressionAttribute`)if(r.data&&r.data.estree&&e.evaluater){let t=r.data.estree.body[0];t.type;let i=t.expression;i.type;let a=i.properties[0];a.type,Object.assign(n,e.evaluater.evaluateExpression(a.argument))}else at(e,t.position);else{let i=r.name,a;if(r.value&&typeof r.value==`object`)if(r.value.data&&r.value.data.estree&&e.evaluater){let t=r.value.data.estree.body[0];t.type,a=e.evaluater.evaluateExpression(t.expression)}else at(e,t.position);else a=r.value===null?!0:r.value;n[i]=a}return n}function tt(e,t){let n=[],r=-1,i=e.passKeys?new Map:Ie;for(;++r<t.children.length;){let a=t.children[r],o;if(e.passKeys){let e=a.type===`element`?a.tagName:a.type===`mdxJsxFlowElement`||a.type===`mdxJsxTextElement`?a.name:void 0;if(e){let t=i.get(e)||0;o=e+`-`+t,i.set(e,t+1)}}let s=He(e,a,o);s!==void 0&&n.push(s)}return n}function nt(e,t,n){let r=me(e.schema,t);if(!(n==null||typeof n==`number`&&Number.isNaN(n))){if(Array.isArray(n)&&(n=r.commaSeparated?c(n):be(n)),r.property===`style`){let t=typeof n==`object`?n:rt(e,String(n));return e.stylePropertyNameCase===`css`&&(t=ot(t)),[`style`,t]}return[e.elementAttributeNameCase===`react`&&r.space?ue[r.property]||r.property:r.attribute,n]}}function rt(e,t){try{return(0,Pe.default)(t,{reactCompat:!0})}catch(t){if(e.ignoreInvalidStyle)return{};let n=t,r=new Ne("Cannot parse `style` attribute",{ancestors:e.ancestors,cause:n,ruleId:`style`,source:`hast-util-to-jsx-runtime`});throw r.file=e.filePath||void 0,r.url=Be+`#cannot-parse-style-attribute`,r}}function it(e,t,n){let r;if(!n)r={type:`Literal`,value:t};else if(t.includes(`.`)){let e=t.split(`.`),n=-1,i;for(;++n<e.length;){let t=f(e[n])?{type:`Identifier`,name:e[n]}:{type:`Literal`,value:e[n]};i=i?{type:`MemberExpression`,object:i,property:t,computed:!!(n&&t.type===`Literal`),optional:!1}:t}r=i}else r=f(t)&&!/^[a-z]/.test(t)?{type:`Identifier`,name:t}:{type:`Literal`,value:t};if(r.type===`Literal`){let t=r.value;return Fe.call(e.components,t)?e.components[t]:t}if(e.evaluater)return e.evaluater.evaluateExpression(r);at(e)}function at(e,t){let n=new Ne("Cannot handle MDX estrees without `createEvaluater`",{ancestors:e.ancestors,place:t,ruleId:`mdx-estree`,source:`hast-util-to-jsx-runtime`});throw n.file=e.filePath||void 0,n.url=Be+`#cannot-handle-mdx-estrees-without-createevaluater`,n}function ot(e){let t={},n;for(n in e)Fe.call(e,n)&&(t[st(n)]=e[n]);return t}function st(e){let t=e.replace(Le,ct);return t.slice(0,3)===`ms-`&&(t=`-`+t),t}function ct(e){return`-`+e.toLowerCase()}var lt={action:[`form`],cite:[`blockquote`,`del`,`ins`,`q`],data:[`object`],formAction:[`button`,`input`],href:[`a`,`area`,`base`,`link`],icon:[`menuitem`],itemId:null,manifest:[`html`],ping:[`a`,`area`],poster:[`video`],src:[`audio`,`embed`,`iframe`,`img`,`input`,`script`,`source`,`track`,`video`]},ut={};function dt(e,t){let n=t||ut;return ft(e,typeof n.includeImageAlt==`boolean`?n.includeImageAlt:!0,typeof n.includeHtml==`boolean`?n.includeHtml:!0)}function ft(e,t,n){if(mt(e)){if(`value`in e)return e.type===`html`&&!n?``:e.value;if(t&&`alt`in e&&e.alt)return e.alt;if(`children`in e)return pt(e.children,t,n)}return Array.isArray(e)?pt(e,t,n):``}function pt(e,t,n){let r=[],i=-1;for(;++i<e.length;)r[i]=ft(e[i],t,n);return r.join(``)}function mt(e){return!!(e&&typeof e==`object`)}var ht=document.createElement(`i`);function gt(e){let t=`&`+e+`;`;ht.innerHTML=t;let n=ht.textContent;return n.charCodeAt(n.length-1)===59&&e!==`semi`||n===t?!1:n}function _t(e,t,n,r){let i=e.length,a=0,o;if(t=t<0?-t>i?0:i+t:t>i?i:t,n=n>0?n:0,r.length<1e4)o=Array.from(r),o.unshift(t,n),e.splice(...o);else for(n&&e.splice(t,n);a<r.length;)o=r.slice(a,a+1e4),o.unshift(t,0),e.splice(...o),a+=1e4,t+=1e4}function vt(e,t){return e.length>0?(_t(e,e.length,0,t),e):t}var yt={}.hasOwnProperty;function bt(e){let t={},n=-1;for(;++n<e.length;)xt(t,e[n]);return t}function xt(e,t){let n;for(n in t){let r=(yt.call(e,n)?e[n]:void 0)||(e[n]={}),i=t[n],a;if(i)for(a in i){yt.call(r,a)||(r[a]=[]);let e=i[a];St(r[a],Array.isArray(e)?e:e?[e]:[])}}}function St(e,t){let n=-1,r=[];for(;++n<t.length;)(t[n].add===`after`?e:r).push(t[n]);_t(e,0,0,r)}function Ct(e,t){let n=Number.parseInt(e,t);return n<9||n===11||n>13&&n<32||n>126&&n<160||n>55295&&n<57344||n>64975&&n<65008||(n&65535)==65535||(n&65535)==65534||n>1114111?`�`:String.fromCodePoint(n)}function wt(e){return e.replace(/[\t\n\r ]+/g,` `).replace(/^ | $/g,``).toLowerCase().toUpperCase()}var Tt=It(/[A-Za-z]/),Et=It(/[\dA-Za-z]/),Dt=It(/[#-'*+\--9=?A-Z^-~]/);function Ot(e){return e!==null&&(e<32||e===127)}var kt=It(/\d/),At=It(/[\dA-Fa-f]/),jt=It(/[!-/:-@[-`{-~]/);function M(e){return e!==null&&e<-2}function Mt(e){return e!==null&&(e<0||e===32)}function Nt(e){return e===-2||e===-1||e===32}var Pt=It(/\p{P}|\p{S}/u),Ft=It(/\s/);function It(e){return t;function t(t){return t!==null&&t>-1&&e.test(String.fromCharCode(t))}}function Lt(e){let t=[],n=-1,r=0,i=0;for(;++n<e.length;){let a=e.charCodeAt(n),o=``;if(a===37&&Et(e.charCodeAt(n+1))&&Et(e.charCodeAt(n+2)))i=2;else if(a<128)/[!#$&-;=?-Z_a-z~]/.test(String.fromCharCode(a))||(o=String.fromCharCode(a));else if(a>55295&&a<57344){let t=e.charCodeAt(n+1);a<56320&&t>56319&&t<57344?(o=String.fromCharCode(a,t),i=1):o=`�`}else o=String.fromCharCode(a);o&&=(t.push(e.slice(r,n),encodeURIComponent(o)),r=n+i+1,``),i&&=(n+=i,0)}return t.join(``)+e.slice(r)}function Rt(e,t,n,r){let i=r?r-1:1/0,a=0;return o;function o(r){return Nt(r)?(e.enter(n),s(r)):t(r)}function s(r){return Nt(r)&&a++<i?(e.consume(r),s):(e.exit(n),t(r))}}var zt={tokenize:Bt};function Bt(e){let t=e.attempt(this.parser.constructs.contentInitial,r,i),n;return t;function r(n){if(n===null){e.consume(n);return}return e.enter(`lineEnding`),e.consume(n),e.exit(`lineEnding`),Rt(e,t,`linePrefix`)}function i(t){return e.enter(`paragraph`),a(t)}function a(t){let r=e.enter(`chunkText`,{contentType:`text`,previous:n});return n&&(n.next=r),n=r,o(t)}function o(t){if(t===null){e.exit(`chunkText`),e.exit(`paragraph`),e.consume(t);return}return M(t)?(e.consume(t),e.exit(`chunkText`),a):(e.consume(t),o)}}var Vt={tokenize:Ut},Ht={tokenize:Wt};function Ut(e){let t=this,n=[],r=0,i,a,o;return s;function s(i){if(r<n.length){let a=n[r];return t.containerState=a[1],e.attempt(a[0].continuation,c,l)(i)}return l(i)}function c(e){if(r++,t.containerState._closeFlow){t.containerState._closeFlow=void 0,i&&v();let n=t.events.length,a=n,o;for(;a--;)if(t.events[a][0]===`exit`&&t.events[a][1].type===`chunkFlow`){o=t.events[a][1].end;break}_(r);let s=n;for(;s<t.events.length;)t.events[s][1].end={...o},s++;return _t(t.events,a+1,0,t.events.slice(n)),t.events.length=s,l(e)}return s(e)}function l(a){if(r===n.length){if(!i)return f(a);if(i.currentConstruct&&i.currentConstruct.concrete)return m(a);t.interrupt=!!(i.currentConstruct&&!i._gfmTableDynamicInterruptHack)}return t.containerState={},e.check(Ht,u,d)(a)}function u(e){return i&&v(),_(r),f(e)}function d(e){return t.parser.lazy[t.now().line]=r!==n.length,o=t.now().offset,m(e)}function f(n){return t.containerState={},e.attempt(Ht,p,m)(n)}function p(e){return r++,n.push([t.currentConstruct,t.containerState]),f(e)}function m(n){if(n===null){i&&v(),_(0),e.consume(n);return}return i||=t.parser.flow(t.now()),e.enter(`chunkFlow`,{_tokenizer:i,contentType:`flow`,previous:a}),h(n)}function h(n){if(n===null){g(e.exit(`chunkFlow`),!0),_(0),e.consume(n);return}return M(n)?(e.consume(n),g(e.exit(`chunkFlow`)),r=0,t.interrupt=void 0,s):(e.consume(n),h)}function g(e,n){let s=t.sliceStream(e);if(n&&s.push(null),e.previous=a,a&&(a.next=e),a=e,i.defineSkip(e.start),i.write(s),t.parser.lazy[e.start.line]){let e=i.events.length;for(;e--;)if(i.events[e][1].start.offset<o&&(!i.events[e][1].end||i.events[e][1].end.offset>o))return;let n=t.events.length,a=n,s,c;for(;a--;)if(t.events[a][0]===`exit`&&t.events[a][1].type===`chunkFlow`){if(s){c=t.events[a][1].end;break}s=!0}for(_(r),e=n;e<t.events.length;)t.events[e][1].end={...c},e++;_t(t.events,a+1,0,t.events.slice(n)),t.events.length=e}}function _(r){let i=n.length;for(;i-- >r;){let r=n[i];t.containerState=r[1],r[0].exit.call(t,e)}n.length=r}function v(){i.write([null]),a=void 0,i=void 0,t.containerState._closeFlow=void 0}}function Wt(e,t,n){return Rt(e,e.attempt(this.parser.constructs.document,t,n),`linePrefix`,this.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)}function Gt(e){if(e===null||Mt(e)||Ft(e))return 1;if(Pt(e))return 2}function Kt(e,t,n){let r=[],i=-1;for(;++i<e.length;){let a=e[i].resolveAll;a&&!r.includes(a)&&(t=a(t,n),r.push(a))}return t}var qt={name:`attention`,resolveAll:Jt,tokenize:Yt};function Jt(e,t){let n=-1,r,i,a,o,s,c,l,u;for(;++n<e.length;)if(e[n][0]===`enter`&&e[n][1].type===`attentionSequence`&&e[n][1]._close){for(r=n;r--;)if(e[r][0]===`exit`&&e[r][1].type===`attentionSequence`&&e[r][1]._open&&t.sliceSerialize(e[r][1]).charCodeAt(0)===t.sliceSerialize(e[n][1]).charCodeAt(0)){if((e[r][1]._close||e[n][1]._open)&&(e[n][1].end.offset-e[n][1].start.offset)%3&&!((e[r][1].end.offset-e[r][1].start.offset+e[n][1].end.offset-e[n][1].start.offset)%3))continue;c=e[r][1].end.offset-e[r][1].start.offset>1&&e[n][1].end.offset-e[n][1].start.offset>1?2:1;let d={...e[r][1].end},f={...e[n][1].start};Xt(d,-c),Xt(f,c),o={type:c>1?`strongSequence`:`emphasisSequence`,start:d,end:{...e[r][1].end}},s={type:c>1?`strongSequence`:`emphasisSequence`,start:{...e[n][1].start},end:f},a={type:c>1?`strongText`:`emphasisText`,start:{...e[r][1].end},end:{...e[n][1].start}},i={type:c>1?`strong`:`emphasis`,start:{...o.start},end:{...s.end}},e[r][1].end={...o.start},e[n][1].start={...s.end},l=[],e[r][1].end.offset-e[r][1].start.offset&&(l=vt(l,[[`enter`,e[r][1],t],[`exit`,e[r][1],t]])),l=vt(l,[[`enter`,i,t],[`enter`,o,t],[`exit`,o,t],[`enter`,a,t]]),l=vt(l,Kt(t.parser.constructs.insideSpan.null,e.slice(r+1,n),t)),l=vt(l,[[`exit`,a,t],[`enter`,s,t],[`exit`,s,t],[`exit`,i,t]]),e[n][1].end.offset-e[n][1].start.offset?(u=2,l=vt(l,[[`enter`,e[n][1],t],[`exit`,e[n][1],t]])):u=0,_t(e,r-1,n-r+3,l),n=r+l.length-u-2;break}}for(n=-1;++n<e.length;)e[n][1].type===`attentionSequence`&&(e[n][1].type=`data`);return e}function Yt(e,t){let n=this.parser.constructs.attentionMarkers.null,r=this.previous,i=Gt(r),a;return o;function o(t){return a=t,e.enter(`attentionSequence`),s(t)}function s(o){if(o===a)return e.consume(o),s;let c=e.exit(`attentionSequence`),l=Gt(o),u=!l||l===2&&i||n.includes(o),d=!i||i===2&&l||n.includes(r);return c._open=!!(a===42?u:u&&(i||!d)),c._close=!!(a===42?d:d&&(l||!u)),t(o)}}function Xt(e,t){e.column+=t,e.offset+=t,e._bufferIndex+=t}var Zt={name:`autolink`,tokenize:Qt};function Qt(e,t,n){let r=0;return i;function i(t){return e.enter(`autolink`),e.enter(`autolinkMarker`),e.consume(t),e.exit(`autolinkMarker`),e.enter(`autolinkProtocol`),a}function a(t){return Tt(t)?(e.consume(t),o):t===64?n(t):l(t)}function o(e){return e===43||e===45||e===46||Et(e)?(r=1,s(e)):l(e)}function s(t){return t===58?(e.consume(t),r=0,c):(t===43||t===45||t===46||Et(t))&&r++<32?(e.consume(t),s):(r=0,l(t))}function c(r){return r===62?(e.exit(`autolinkProtocol`),e.enter(`autolinkMarker`),e.consume(r),e.exit(`autolinkMarker`),e.exit(`autolink`),t):r===null||r===32||r===60||Ot(r)?n(r):(e.consume(r),c)}function l(t){return t===64?(e.consume(t),u):Dt(t)?(e.consume(t),l):n(t)}function u(e){return Et(e)?d(e):n(e)}function d(n){return n===46?(e.consume(n),r=0,u):n===62?(e.exit(`autolinkProtocol`).type=`autolinkEmail`,e.enter(`autolinkMarker`),e.consume(n),e.exit(`autolinkMarker`),e.exit(`autolink`),t):f(n)}function f(t){if((t===45||Et(t))&&r++<63){let n=t===45?f:d;return e.consume(t),n}return n(t)}}var $t={partial:!0,tokenize:en};function en(e,t,n){return r;function r(t){return Nt(t)?Rt(e,i,`linePrefix`)(t):i(t)}function i(e){return e===null||M(e)?t(e):n(e)}}var tn={continuation:{tokenize:rn},exit:an,name:`blockQuote`,tokenize:nn};function nn(e,t,n){let r=this;return i;function i(t){if(t===62){let n=r.containerState;return n.open||=(e.enter(`blockQuote`,{_container:!0}),!0),e.enter(`blockQuotePrefix`),e.enter(`blockQuoteMarker`),e.consume(t),e.exit(`blockQuoteMarker`),a}return n(t)}function a(n){return Nt(n)?(e.enter(`blockQuotePrefixWhitespace`),e.consume(n),e.exit(`blockQuotePrefixWhitespace`),e.exit(`blockQuotePrefix`),t):(e.exit(`blockQuotePrefix`),t(n))}}function rn(e,t,n){let r=this;return i;function i(t){return Nt(t)?Rt(e,a,`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(t):a(t)}function a(r){return e.attempt(tn,t,n)(r)}}function an(e){e.exit(`blockQuote`)}var on={name:`characterEscape`,tokenize:sn};function sn(e,t,n){return r;function r(t){return e.enter(`characterEscape`),e.enter(`escapeMarker`),e.consume(t),e.exit(`escapeMarker`),i}function i(r){return jt(r)?(e.enter(`characterEscapeValue`),e.consume(r),e.exit(`characterEscapeValue`),e.exit(`characterEscape`),t):n(r)}}var cn={name:`characterReference`,tokenize:ln};function ln(e,t,n){let r=this,i=0,a,o;return s;function s(t){return e.enter(`characterReference`),e.enter(`characterReferenceMarker`),e.consume(t),e.exit(`characterReferenceMarker`),c}function c(t){return t===35?(e.enter(`characterReferenceMarkerNumeric`),e.consume(t),e.exit(`characterReferenceMarkerNumeric`),l):(e.enter(`characterReferenceValue`),a=31,o=Et,u(t))}function l(t){return t===88||t===120?(e.enter(`characterReferenceMarkerHexadecimal`),e.consume(t),e.exit(`characterReferenceMarkerHexadecimal`),e.enter(`characterReferenceValue`),a=6,o=At,u):(e.enter(`characterReferenceValue`),a=7,o=kt,u(t))}function u(s){if(s===59&&i){let i=e.exit(`characterReferenceValue`);return o===Et&&!gt(r.sliceSerialize(i))?n(s):(e.enter(`characterReferenceMarker`),e.consume(s),e.exit(`characterReferenceMarker`),e.exit(`characterReference`),t)}return o(s)&&i++<a?(e.consume(s),u):n(s)}}var un={partial:!0,tokenize:pn},dn={concrete:!0,name:`codeFenced`,tokenize:fn};function fn(e,t,n){let r=this,i={partial:!0,tokenize:x},a=0,o=0,s;return c;function c(e){return l(e)}function l(t){let n=r.events[r.events.length-1];return a=n&&n[1].type===`linePrefix`?n[2].sliceSerialize(n[1],!0).length:0,s=t,e.enter(`codeFenced`),e.enter(`codeFencedFence`),e.enter(`codeFencedFenceSequence`),u(t)}function u(t){return t===s?(o++,e.consume(t),u):o<3?n(t):(e.exit(`codeFencedFenceSequence`),Nt(t)?Rt(e,d,`whitespace`)(t):d(t))}function d(n){return n===null||M(n)?(e.exit(`codeFencedFence`),r.interrupt?t(n):e.check(un,h,b)(n)):(e.enter(`codeFencedFenceInfo`),e.enter(`chunkString`,{contentType:`string`}),f(n))}function f(t){return t===null||M(t)?(e.exit(`chunkString`),e.exit(`codeFencedFenceInfo`),d(t)):Nt(t)?(e.exit(`chunkString`),e.exit(`codeFencedFenceInfo`),Rt(e,p,`whitespace`)(t)):t===96&&t===s?n(t):(e.consume(t),f)}function p(t){return t===null||M(t)?d(t):(e.enter(`codeFencedFenceMeta`),e.enter(`chunkString`,{contentType:`string`}),m(t))}function m(t){return t===null||M(t)?(e.exit(`chunkString`),e.exit(`codeFencedFenceMeta`),d(t)):t===96&&t===s?n(t):(e.consume(t),m)}function h(t){return e.attempt(i,b,g)(t)}function g(t){return e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),_}function _(t){return a>0&&Nt(t)?Rt(e,v,`linePrefix`,a+1)(t):v(t)}function v(t){return t===null||M(t)?e.check(un,h,b)(t):(e.enter(`codeFlowValue`),y(t))}function y(t){return t===null||M(t)?(e.exit(`codeFlowValue`),v(t)):(e.consume(t),y)}function b(n){return e.exit(`codeFenced`),t(n)}function x(e,t,n){let i=0;return a;function a(t){return e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),c}function c(t){return e.enter(`codeFencedFence`),Nt(t)?Rt(e,l,`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(t):l(t)}function l(t){return t===s?(e.enter(`codeFencedFenceSequence`),u(t)):n(t)}function u(t){return t===s?(i++,e.consume(t),u):i>=o?(e.exit(`codeFencedFenceSequence`),Nt(t)?Rt(e,d,`whitespace`)(t):d(t)):n(t)}function d(r){return r===null||M(r)?(e.exit(`codeFencedFence`),t(r)):n(r)}}}function pn(e,t,n){let r=this;return i;function i(t){return t===null?n(t):(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),a)}function a(e){return r.parser.lazy[r.now().line]?n(e):t(e)}}var mn={name:`codeIndented`,tokenize:gn},hn={partial:!0,tokenize:_n};function gn(e,t,n){let r=this;return i;function i(t){return e.enter(`codeIndented`),Rt(e,a,`linePrefix`,5)(t)}function a(e){let t=r.events[r.events.length-1];return t&&t[1].type===`linePrefix`&&t[2].sliceSerialize(t[1],!0).length>=4?o(e):n(e)}function o(t){return t===null?c(t):M(t)?e.attempt(hn,o,c)(t):(e.enter(`codeFlowValue`),s(t))}function s(t){return t===null||M(t)?(e.exit(`codeFlowValue`),o(t)):(e.consume(t),s)}function c(n){return e.exit(`codeIndented`),t(n)}}function _n(e,t,n){let r=this;return i;function i(t){return r.parser.lazy[r.now().line]?n(t):M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),i):Rt(e,a,`linePrefix`,5)(t)}function a(e){let a=r.events[r.events.length-1];return a&&a[1].type===`linePrefix`&&a[2].sliceSerialize(a[1],!0).length>=4?t(e):M(e)?i(e):n(e)}}var vn={name:`codeText`,previous:bn,resolve:yn,tokenize:xn};function yn(e){let t=e.length-4,n=3,r,i;if((e[n][1].type===`lineEnding`||e[n][1].type===`space`)&&(e[t][1].type===`lineEnding`||e[t][1].type===`space`)){for(r=n;++r<t;)if(e[r][1].type===`codeTextData`){e[n][1].type=`codeTextPadding`,e[t][1].type=`codeTextPadding`,n+=2,t-=2;break}}for(r=n-1,t++;++r<=t;)i===void 0?r!==t&&e[r][1].type!==`lineEnding`&&(i=r):(r===t||e[r][1].type===`lineEnding`)&&(e[i][1].type=`codeTextData`,r!==i+2&&(e[i][1].end=e[r-1][1].end,e.splice(i+2,r-i-2),t-=r-i-2,r=i+2),i=void 0);return e}function bn(e){return e!==96||this.events[this.events.length-1][1].type===`characterEscape`}function xn(e,t,n){let r=0,i,a;return o;function o(t){return e.enter(`codeText`),e.enter(`codeTextSequence`),s(t)}function s(t){return t===96?(e.consume(t),r++,s):(e.exit(`codeTextSequence`),c(t))}function c(t){return t===null?n(t):t===32?(e.enter(`space`),e.consume(t),e.exit(`space`),c):t===96?(a=e.enter(`codeTextSequence`),i=0,u(t)):M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),c):(e.enter(`codeTextData`),l(t))}function l(t){return t===null||t===32||t===96||M(t)?(e.exit(`codeTextData`),c(t)):(e.consume(t),l)}function u(n){return n===96?(e.consume(n),i++,u):i===r?(e.exit(`codeTextSequence`),e.exit(`codeText`),t(n)):(a.type=`codeTextData`,l(n))}}var Sn=class{constructor(e){this.left=e?[...e]:[],this.right=[]}get(e){if(e<0||e>=this.left.length+this.right.length)throw RangeError("Cannot access index `"+e+"` in a splice buffer of size `"+(this.left.length+this.right.length)+"`");return e<this.left.length?this.left[e]:this.right[this.right.length-e+this.left.length-1]}get length(){return this.left.length+this.right.length}shift(){return this.setCursor(0),this.right.pop()}slice(e,t){let n=t??1/0;return n<this.left.length?this.left.slice(e,n):e>this.left.length?this.right.slice(this.right.length-n+this.left.length,this.right.length-e+this.left.length).reverse():this.left.slice(e).concat(this.right.slice(this.right.length-n+this.left.length).reverse())}splice(e,t,n){let r=t||0;this.setCursor(Math.trunc(e));let i=this.right.splice(this.right.length-r,1/0);return n&&Cn(this.left,n),i.reverse()}pop(){return this.setCursor(1/0),this.left.pop()}push(e){this.setCursor(1/0),this.left.push(e)}pushMany(e){this.setCursor(1/0),Cn(this.left,e)}unshift(e){this.setCursor(0),this.right.push(e)}unshiftMany(e){this.setCursor(0),Cn(this.right,e.reverse())}setCursor(e){if(!(e===this.left.length||e>this.left.length&&this.right.length===0||e<0&&this.left.length===0))if(e<this.left.length){let t=this.left.splice(e,1/0);Cn(this.right,t.reverse())}else{let t=this.right.splice(this.left.length+this.right.length-e,1/0);Cn(this.left,t.reverse())}}};function Cn(e,t){let n=0;if(t.length<1e4)e.push(...t);else for(;n<t.length;)e.push(...t.slice(n,n+1e4)),n+=1e4}function wn(e){let t={},n=-1,r,i,a,o,s,c,l,u=new Sn(e);for(;++n<u.length;){for(;n in t;)n=t[n];if(r=u.get(n),n&&r[1].type===`chunkFlow`&&u.get(n-1)[1].type===`listItemPrefix`&&(c=r[1]._tokenizer.events,a=0,a<c.length&&c[a][1].type===`lineEndingBlank`&&(a+=2),a<c.length&&c[a][1].type===`content`))for(;++a<c.length&&c[a][1].type!==`content`;)c[a][1].type===`chunkText`&&(c[a][1]._isInFirstContentOfListItem=!0,a++);if(r[0]===`enter`)r[1].contentType&&(Object.assign(t,Tn(u,n)),n=t[n],l=!0);else if(r[1]._container){for(a=n,i=void 0;a--;)if(o=u.get(a),o[1].type===`lineEnding`||o[1].type===`lineEndingBlank`)o[0]===`enter`&&(i&&(u.get(i)[1].type=`lineEndingBlank`),o[1].type=`lineEnding`,i=a);else if(!(o[1].type===`linePrefix`||o[1].type===`listItemIndent`))break;i&&(r[1].end={...u.get(i)[1].start},s=u.slice(i,n),s.unshift(r),u.splice(i,n-i+1,s))}}return _t(e,0,1/0,u.slice(0)),!l}function Tn(e,t){let n=e.get(t)[1],r=e.get(t)[2],i=t-1,a=[],o=n._tokenizer;o||(o=r.parser[n.contentType](n.start),n._contentTypeTextTrailing&&(o._contentTypeTextTrailing=!0));let s=o.events,c=[],l={},u,d,f=-1,p=n,m=0,h=0,g=[h];for(;p;){for(;e.get(++i)[1]!==p;);a.push(i),p._tokenizer||(u=r.sliceStream(p),p.next||u.push(null),d&&o.defineSkip(p.start),p._isInFirstContentOfListItem&&(o._gfmTasklistFirstContentOfListItem=!0),o.write(u),p._isInFirstContentOfListItem&&(o._gfmTasklistFirstContentOfListItem=void 0)),d=p,p=p.next}for(p=n;++f<s.length;)s[f][0]===`exit`&&s[f-1][0]===`enter`&&s[f][1].type===s[f-1][1].type&&s[f][1].start.line!==s[f][1].end.line&&(h=f+1,g.push(h),p._tokenizer=void 0,p.previous=void 0,p=p.next);for(o.events=[],p?(p._tokenizer=void 0,p.previous=void 0):g.pop(),f=g.length;f--;){let t=s.slice(g[f],g[f+1]),n=a.pop();c.push([n,n+t.length-1]),e.splice(n,2,t)}for(c.reverse(),f=-1;++f<c.length;)l[m+c[f][0]]=m+c[f][1],m+=c[f][1]-c[f][0]-1;return l}var En={resolve:On,tokenize:kn},Dn={partial:!0,tokenize:An};function On(e){return wn(e),e}function kn(e,t){let n;return r;function r(t){return e.enter(`content`),n=e.enter(`chunkContent`,{contentType:`content`}),i(t)}function i(t){return t===null?a(t):M(t)?e.check(Dn,o,a)(t):(e.consume(t),i)}function a(n){return e.exit(`chunkContent`),e.exit(`content`),t(n)}function o(t){return e.consume(t),e.exit(`chunkContent`),n.next=e.enter(`chunkContent`,{contentType:`content`,previous:n}),n=n.next,i}}function An(e,t,n){let r=this;return i;function i(t){return e.exit(`chunkContent`),e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),Rt(e,a,`linePrefix`)}function a(i){if(i===null||M(i))return n(i);let a=r.events[r.events.length-1];return!r.parser.constructs.disable.null.includes(`codeIndented`)&&a&&a[1].type===`linePrefix`&&a[2].sliceSerialize(a[1],!0).length>=4?t(i):e.interrupt(r.parser.constructs.flow,n,t)(i)}}function jn(e,t,n,r,i,a,o,s,c){let l=c||1/0,u=0;return d;function d(t){return t===60?(e.enter(r),e.enter(i),e.enter(a),e.consume(t),e.exit(a),f):t===null||t===32||t===41||Ot(t)?n(t):(e.enter(r),e.enter(o),e.enter(s),e.enter(`chunkString`,{contentType:`string`}),h(t))}function f(n){return n===62?(e.enter(a),e.consume(n),e.exit(a),e.exit(i),e.exit(r),t):(e.enter(s),e.enter(`chunkString`,{contentType:`string`}),p(n))}function p(t){return t===62?(e.exit(`chunkString`),e.exit(s),f(t)):t===null||t===60||M(t)?n(t):(e.consume(t),t===92?m:p)}function m(t){return t===60||t===62||t===92?(e.consume(t),p):p(t)}function h(i){return!u&&(i===null||i===41||Mt(i))?(e.exit(`chunkString`),e.exit(s),e.exit(o),e.exit(r),t(i)):u<l&&i===40?(e.consume(i),u++,h):i===41?(e.consume(i),u--,h):i===null||i===32||i===40||Ot(i)?n(i):(e.consume(i),i===92?g:h)}function g(t){return t===40||t===41||t===92?(e.consume(t),h):h(t)}}function Mn(e,t,n,r,i,a){let o=this,s=0,c;return l;function l(t){return e.enter(r),e.enter(i),e.consume(t),e.exit(i),e.enter(a),u}function u(l){return s>999||l===null||l===91||l===93&&!c||l===94&&!s&&`_hiddenFootnoteSupport`in o.parser.constructs?n(l):l===93?(e.exit(a),e.enter(i),e.consume(l),e.exit(i),e.exit(r),t):M(l)?(e.enter(`lineEnding`),e.consume(l),e.exit(`lineEnding`),u):(e.enter(`chunkString`,{contentType:`string`}),d(l))}function d(t){return t===null||t===91||t===93||M(t)||s++>999?(e.exit(`chunkString`),u(t)):(e.consume(t),c||=!Nt(t),t===92?f:d)}function f(t){return t===91||t===92||t===93?(e.consume(t),s++,d):d(t)}}function Nn(e,t,n,r,i,a){let o;return s;function s(t){return t===34||t===39||t===40?(e.enter(r),e.enter(i),e.consume(t),e.exit(i),o=t===40?41:t,c):n(t)}function c(n){return n===o?(e.enter(i),e.consume(n),e.exit(i),e.exit(r),t):(e.enter(a),l(n))}function l(t){return t===o?(e.exit(a),c(o)):t===null?n(t):M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),Rt(e,l,`linePrefix`)):(e.enter(`chunkString`,{contentType:`string`}),u(t))}function u(t){return t===o||t===null||M(t)?(e.exit(`chunkString`),l(t)):(e.consume(t),t===92?d:u)}function d(t){return t===o||t===92?(e.consume(t),u):u(t)}}function Pn(e,t){let n;return r;function r(i){return M(i)?(e.enter(`lineEnding`),e.consume(i),e.exit(`lineEnding`),n=!0,r):Nt(i)?Rt(e,r,n?`linePrefix`:`lineSuffix`)(i):t(i)}}var Fn={name:`definition`,tokenize:Ln},In={partial:!0,tokenize:Rn};function Ln(e,t,n){let r=this,i;return a;function a(t){return e.enter(`definition`),o(t)}function o(t){return Mn.call(r,e,s,n,`definitionLabel`,`definitionLabelMarker`,`definitionLabelString`)(t)}function s(t){return i=wt(r.sliceSerialize(r.events[r.events.length-1][1]).slice(1,-1)),t===58?(e.enter(`definitionMarker`),e.consume(t),e.exit(`definitionMarker`),c):n(t)}function c(t){return Mt(t)?Pn(e,l)(t):l(t)}function l(t){return jn(e,u,n,`definitionDestination`,`definitionDestinationLiteral`,`definitionDestinationLiteralMarker`,`definitionDestinationRaw`,`definitionDestinationString`)(t)}function u(t){return e.attempt(In,d,d)(t)}function d(t){return Nt(t)?Rt(e,f,`whitespace`)(t):f(t)}function f(a){return a===null||M(a)?(e.exit(`definition`),r.parser.defined.push(i),t(a)):n(a)}}function Rn(e,t,n){return r;function r(t){return Mt(t)?Pn(e,i)(t):n(t)}function i(t){return Nn(e,a,n,`definitionTitle`,`definitionTitleMarker`,`definitionTitleString`)(t)}function a(t){return Nt(t)?Rt(e,o,`whitespace`)(t):o(t)}function o(e){return e===null||M(e)?t(e):n(e)}}var zn={name:`hardBreakEscape`,tokenize:Bn};function Bn(e,t,n){return r;function r(t){return e.enter(`hardBreakEscape`),e.consume(t),i}function i(r){return M(r)?(e.exit(`hardBreakEscape`),t(r)):n(r)}}var Vn={name:`headingAtx`,resolve:Hn,tokenize:Un};function Hn(e,t){let n=e.length-2,r=3,i,a;return e[r][1].type===`whitespace`&&(r+=2),n-2>r&&e[n][1].type===`whitespace`&&(n-=2),e[n][1].type===`atxHeadingSequence`&&(r===n-1||n-4>r&&e[n-2][1].type===`whitespace`)&&(n-=r+1===n?2:4),n>r&&(i={type:`atxHeadingText`,start:e[r][1].start,end:e[n][1].end},a={type:`chunkText`,start:e[r][1].start,end:e[n][1].end,contentType:`text`},_t(e,r,n-r+1,[[`enter`,i,t],[`enter`,a,t],[`exit`,a,t],[`exit`,i,t]])),e}function Un(e,t,n){let r=0;return i;function i(t){return e.enter(`atxHeading`),a(t)}function a(t){return e.enter(`atxHeadingSequence`),o(t)}function o(t){return t===35&&r++<6?(e.consume(t),o):t===null||Mt(t)?(e.exit(`atxHeadingSequence`),s(t)):n(t)}function s(n){return n===35?(e.enter(`atxHeadingSequence`),c(n)):n===null||M(n)?(e.exit(`atxHeading`),t(n)):Nt(n)?Rt(e,s,`whitespace`)(n):(e.enter(`atxHeadingText`),l(n))}function c(t){return t===35?(e.consume(t),c):(e.exit(`atxHeadingSequence`),s(t))}function l(t){return t===null||t===35||Mt(t)?(e.exit(`atxHeadingText`),s(t)):(e.consume(t),l)}}var Wn=`address.article.aside.base.basefont.blockquote.body.caption.center.col.colgroup.dd.details.dialog.dir.div.dl.dt.fieldset.figcaption.figure.footer.form.frame.frameset.h1.h2.h3.h4.h5.h6.head.header.hr.html.iframe.legend.li.link.main.menu.menuitem.nav.noframes.ol.optgroup.option.p.param.search.section.summary.table.tbody.td.tfoot.th.thead.title.tr.track.ul`.split(`.`),Gn=[`pre`,`script`,`style`,`textarea`],Kn={concrete:!0,name:`htmlFlow`,resolveTo:Yn,tokenize:Xn},qn={partial:!0,tokenize:Qn},Jn={partial:!0,tokenize:Zn};function Yn(e){let t=e.length;for(;t--&&!(e[t][0]===`enter`&&e[t][1].type===`htmlFlow`););return t>1&&e[t-2][1].type===`linePrefix`&&(e[t][1].start=e[t-2][1].start,e[t+1][1].start=e[t-2][1].start,e.splice(t-2,2)),e}function Xn(e,t,n){let r=this,i,a,o,s,c;return l;function l(e){return u(e)}function u(t){return e.enter(`htmlFlow`),e.enter(`htmlFlowData`),e.consume(t),d}function d(s){return s===33?(e.consume(s),f):s===47?(e.consume(s),a=!0,h):s===63?(e.consume(s),i=3,r.interrupt?t:j):Tt(s)?(e.consume(s),o=String.fromCharCode(s),g):n(s)}function f(a){return a===45?(e.consume(a),i=2,p):a===91?(e.consume(a),i=5,s=0,m):Tt(a)?(e.consume(a),i=4,r.interrupt?t:j):n(a)}function p(i){return i===45?(e.consume(i),r.interrupt?t:j):n(i)}function m(i){return i===`CDATA[`.charCodeAt(s++)?(e.consume(i),s===6?r.interrupt?t:D:m):n(i)}function h(t){return Tt(t)?(e.consume(t),o=String.fromCharCode(t),g):n(t)}function g(s){if(s===null||s===47||s===62||Mt(s)){let c=s===47,l=o.toLowerCase();return!c&&!a&&Gn.includes(l)?(i=1,r.interrupt?t(s):D(s)):Wn.includes(o.toLowerCase())?(i=6,c?(e.consume(s),_):r.interrupt?t(s):D(s)):(i=7,r.interrupt&&!r.parser.lazy[r.now().line]?n(s):a?v(s):y(s))}return s===45||Et(s)?(e.consume(s),o+=String.fromCharCode(s),g):n(s)}function _(i){return i===62?(e.consume(i),r.interrupt?t:D):n(i)}function v(t){return Nt(t)?(e.consume(t),v):E(t)}function y(t){return t===47?(e.consume(t),E):t===58||t===95||Tt(t)?(e.consume(t),b):Nt(t)?(e.consume(t),y):E(t)}function b(t){return t===45||t===46||t===58||t===95||Et(t)?(e.consume(t),b):x(t)}function x(t){return t===61?(e.consume(t),S):Nt(t)?(e.consume(t),x):y(t)}function S(t){return t===null||t===60||t===61||t===62||t===96?n(t):t===34||t===39?(e.consume(t),c=t,C):Nt(t)?(e.consume(t),S):w(t)}function C(t){return t===c?(e.consume(t),c=null,T):t===null||M(t)?n(t):(e.consume(t),C)}function w(t){return t===null||t===34||t===39||t===47||t===60||t===61||t===62||t===96||Mt(t)?x(t):(e.consume(t),w)}function T(e){return e===47||e===62||Nt(e)?y(e):n(e)}function E(t){return t===62?(e.consume(t),ee):n(t)}function ee(t){return t===null||M(t)?D(t):Nt(t)?(e.consume(t),ee):n(t)}function D(t){return t===45&&i===2?(e.consume(t),A):t===60&&i===1?(e.consume(t),ne):t===62&&i===4?(e.consume(t),ae):t===63&&i===3?(e.consume(t),j):t===93&&i===5?(e.consume(t),ie):M(t)&&(i===6||i===7)?(e.exit(`htmlFlowData`),e.check(qn,oe,O)(t)):t===null||M(t)?(e.exit(`htmlFlowData`),O(t)):(e.consume(t),D)}function O(t){return e.check(Jn,k,oe)(t)}function k(t){return e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),te}function te(t){return t===null||M(t)?O(t):(e.enter(`htmlFlowData`),D(t))}function A(t){return t===45?(e.consume(t),j):D(t)}function ne(t){return t===47?(e.consume(t),o=``,re):D(t)}function re(t){if(t===62){let n=o.toLowerCase();return Gn.includes(n)?(e.consume(t),ae):D(t)}return Tt(t)&&o.length<8?(e.consume(t),o+=String.fromCharCode(t),re):D(t)}function ie(t){return t===93?(e.consume(t),j):D(t)}function j(t){return t===62?(e.consume(t),ae):t===45&&i===2?(e.consume(t),j):D(t)}function ae(t){return t===null||M(t)?(e.exit(`htmlFlowData`),oe(t)):(e.consume(t),ae)}function oe(n){return e.exit(`htmlFlow`),t(n)}}function Zn(e,t,n){let r=this;return i;function i(t){return M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),a):n(t)}function a(e){return r.parser.lazy[r.now().line]?n(e):t(e)}}function Qn(e,t,n){return r;function r(r){return e.enter(`lineEnding`),e.consume(r),e.exit(`lineEnding`),e.attempt($t,t,n)}}var $n={name:`htmlText`,tokenize:er};function er(e,t,n){let r=this,i,a,o;return s;function s(t){return e.enter(`htmlText`),e.enter(`htmlTextData`),e.consume(t),c}function c(t){return t===33?(e.consume(t),l):t===47?(e.consume(t),x):t===63?(e.consume(t),y):Tt(t)?(e.consume(t),w):n(t)}function l(t){return t===45?(e.consume(t),u):t===91?(e.consume(t),a=0,m):Tt(t)?(e.consume(t),v):n(t)}function u(t){return t===45?(e.consume(t),p):n(t)}function d(t){return t===null?n(t):t===45?(e.consume(t),f):M(t)?(o=d,ne(t)):(e.consume(t),d)}function f(t){return t===45?(e.consume(t),p):d(t)}function p(e){return e===62?A(e):e===45?f(e):d(e)}function m(t){return t===`CDATA[`.charCodeAt(a++)?(e.consume(t),a===6?h:m):n(t)}function h(t){return t===null?n(t):t===93?(e.consume(t),g):M(t)?(o=h,ne(t)):(e.consume(t),h)}function g(t){return t===93?(e.consume(t),_):h(t)}function _(t){return t===62?A(t):t===93?(e.consume(t),_):h(t)}function v(t){return t===null||t===62?A(t):M(t)?(o=v,ne(t)):(e.consume(t),v)}function y(t){return t===null?n(t):t===63?(e.consume(t),b):M(t)?(o=y,ne(t)):(e.consume(t),y)}function b(e){return e===62?A(e):y(e)}function x(t){return Tt(t)?(e.consume(t),S):n(t)}function S(t){return t===45||Et(t)?(e.consume(t),S):C(t)}function C(t){return M(t)?(o=C,ne(t)):Nt(t)?(e.consume(t),C):A(t)}function w(t){return t===45||Et(t)?(e.consume(t),w):t===47||t===62||Mt(t)?T(t):n(t)}function T(t){return t===47?(e.consume(t),A):t===58||t===95||Tt(t)?(e.consume(t),E):M(t)?(o=T,ne(t)):Nt(t)?(e.consume(t),T):A(t)}function E(t){return t===45||t===46||t===58||t===95||Et(t)?(e.consume(t),E):ee(t)}function ee(t){return t===61?(e.consume(t),D):M(t)?(o=ee,ne(t)):Nt(t)?(e.consume(t),ee):T(t)}function D(t){return t===null||t===60||t===61||t===62||t===96?n(t):t===34||t===39?(e.consume(t),i=t,O):M(t)?(o=D,ne(t)):Nt(t)?(e.consume(t),D):(e.consume(t),k)}function O(t){return t===i?(e.consume(t),i=void 0,te):t===null?n(t):M(t)?(o=O,ne(t)):(e.consume(t),O)}function k(t){return t===null||t===34||t===39||t===60||t===61||t===96?n(t):t===47||t===62||Mt(t)?T(t):(e.consume(t),k)}function te(e){return e===47||e===62||Mt(e)?T(e):n(e)}function A(r){return r===62?(e.consume(r),e.exit(`htmlTextData`),e.exit(`htmlText`),t):n(r)}function ne(t){return e.exit(`htmlTextData`),e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),re}function re(t){return Nt(t)?Rt(e,ie,`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(t):ie(t)}function ie(t){return e.enter(`htmlTextData`),o(t)}}var tr={name:`labelEnd`,resolveAll:ar,resolveTo:or,tokenize:sr},nr={tokenize:cr},rr={tokenize:lr},ir={tokenize:ur};function ar(e){let t=-1,n=[];for(;++t<e.length;){let r=e[t][1];if(n.push(e[t]),r.type===`labelImage`||r.type===`labelLink`||r.type===`labelEnd`){let e=r.type===`labelImage`?4:2;r.type=`data`,t+=e}}return e.length!==n.length&&_t(e,0,e.length,n),e}function or(e,t){let n=e.length,r=0,i,a,o,s;for(;n--;)if(i=e[n][1],a){if(i.type===`link`||i.type===`labelLink`&&i._inactive)break;e[n][0]===`enter`&&i.type===`labelLink`&&(i._inactive=!0)}else if(o){if(e[n][0]===`enter`&&(i.type===`labelImage`||i.type===`labelLink`)&&!i._balanced&&(a=n,i.type!==`labelLink`)){r=2;break}}else i.type===`labelEnd`&&(o=n);let c={type:e[a][1].type===`labelLink`?`link`:`image`,start:{...e[a][1].start},end:{...e[e.length-1][1].end}},l={type:`label`,start:{...e[a][1].start},end:{...e[o][1].end}},u={type:`labelText`,start:{...e[a+r+2][1].end},end:{...e[o-2][1].start}};return s=[[`enter`,c,t],[`enter`,l,t]],s=vt(s,e.slice(a+1,a+r+3)),s=vt(s,[[`enter`,u,t]]),s=vt(s,Kt(t.parser.constructs.insideSpan.null,e.slice(a+r+4,o-3),t)),s=vt(s,[[`exit`,u,t],e[o-2],e[o-1],[`exit`,l,t]]),s=vt(s,e.slice(o+1)),s=vt(s,[[`exit`,c,t]]),_t(e,a,e.length,s),e}function sr(e,t,n){let r=this,i=r.events.length,a,o;for(;i--;)if((r.events[i][1].type===`labelImage`||r.events[i][1].type===`labelLink`)&&!r.events[i][1]._balanced){a=r.events[i][1];break}return s;function s(t){return a?a._inactive?d(t):(o=r.parser.defined.includes(wt(r.sliceSerialize({start:a.end,end:r.now()}))),e.enter(`labelEnd`),e.enter(`labelMarker`),e.consume(t),e.exit(`labelMarker`),e.exit(`labelEnd`),c):n(t)}function c(t){return t===40?e.attempt(nr,u,o?u:d)(t):t===91?e.attempt(rr,u,o?l:d)(t):o?u(t):d(t)}function l(t){return e.attempt(ir,u,d)(t)}function u(e){return t(e)}function d(e){return a._balanced=!0,n(e)}}function cr(e,t,n){return r;function r(t){return e.enter(`resource`),e.enter(`resourceMarker`),e.consume(t),e.exit(`resourceMarker`),i}function i(t){return Mt(t)?Pn(e,a)(t):a(t)}function a(t){return t===41?u(t):jn(e,o,s,`resourceDestination`,`resourceDestinationLiteral`,`resourceDestinationLiteralMarker`,`resourceDestinationRaw`,`resourceDestinationString`,32)(t)}function o(t){return Mt(t)?Pn(e,c)(t):u(t)}function s(e){return n(e)}function c(t){return t===34||t===39||t===40?Nn(e,l,n,`resourceTitle`,`resourceTitleMarker`,`resourceTitleString`)(t):u(t)}function l(t){return Mt(t)?Pn(e,u)(t):u(t)}function u(r){return r===41?(e.enter(`resourceMarker`),e.consume(r),e.exit(`resourceMarker`),e.exit(`resource`),t):n(r)}}function lr(e,t,n){let r=this;return i;function i(t){return Mn.call(r,e,a,o,`reference`,`referenceMarker`,`referenceString`)(t)}function a(e){return r.parser.defined.includes(wt(r.sliceSerialize(r.events[r.events.length-1][1]).slice(1,-1)))?t(e):n(e)}function o(e){return n(e)}}function ur(e,t,n){return r;function r(t){return e.enter(`reference`),e.enter(`referenceMarker`),e.consume(t),e.exit(`referenceMarker`),i}function i(r){return r===93?(e.enter(`referenceMarker`),e.consume(r),e.exit(`referenceMarker`),e.exit(`reference`),t):n(r)}}var dr={name:`labelStartImage`,resolveAll:tr.resolveAll,tokenize:fr};function fr(e,t,n){let r=this;return i;function i(t){return e.enter(`labelImage`),e.enter(`labelImageMarker`),e.consume(t),e.exit(`labelImageMarker`),a}function a(t){return t===91?(e.enter(`labelMarker`),e.consume(t),e.exit(`labelMarker`),e.exit(`labelImage`),o):n(t)}function o(e){return e===94&&`_hiddenFootnoteSupport`in r.parser.constructs?n(e):t(e)}}var pr={name:`labelStartLink`,resolveAll:tr.resolveAll,tokenize:mr};function mr(e,t,n){let r=this;return i;function i(t){return e.enter(`labelLink`),e.enter(`labelMarker`),e.consume(t),e.exit(`labelMarker`),e.exit(`labelLink`),a}function a(e){return e===94&&`_hiddenFootnoteSupport`in r.parser.constructs?n(e):t(e)}}var hr={name:`lineEnding`,tokenize:gr};function gr(e,t){return n;function n(n){return e.enter(`lineEnding`),e.consume(n),e.exit(`lineEnding`),Rt(e,t,`linePrefix`)}}var _r={name:`thematicBreak`,tokenize:vr};function vr(e,t,n){let r=0,i;return a;function a(t){return e.enter(`thematicBreak`),o(t)}function o(e){return i=e,s(e)}function s(a){return a===i?(e.enter(`thematicBreakSequence`),c(a)):r>=3&&(a===null||M(a))?(e.exit(`thematicBreak`),t(a)):n(a)}function c(t){return t===i?(e.consume(t),r++,c):(e.exit(`thematicBreakSequence`),Nt(t)?Rt(e,s,`whitespace`)(t):s(t))}}var yr={continuation:{tokenize:Cr},exit:Tr,name:`list`,tokenize:Sr},br={partial:!0,tokenize:Er},xr={partial:!0,tokenize:wr};function Sr(e,t,n){let r=this,i=r.events[r.events.length-1],a=i&&i[1].type===`linePrefix`?i[2].sliceSerialize(i[1],!0).length:0,o=0;return s;function s(t){let i=r.containerState.type||(t===42||t===43||t===45?`listUnordered`:`listOrdered`);if(i===`listUnordered`?!r.containerState.marker||t===r.containerState.marker:kt(t)){if(r.containerState.type||(r.containerState.type=i,e.enter(i,{_container:!0})),i===`listUnordered`)return e.enter(`listItemPrefix`),t===42||t===45?e.check(_r,n,l)(t):l(t);if(!r.interrupt||t===49)return e.enter(`listItemPrefix`),e.enter(`listItemValue`),c(t)}return n(t)}function c(t){return kt(t)&&++o<10?(e.consume(t),c):(!r.interrupt||o<2)&&(r.containerState.marker?t===r.containerState.marker:t===41||t===46)?(e.exit(`listItemValue`),l(t)):n(t)}function l(t){return e.enter(`listItemMarker`),e.consume(t),e.exit(`listItemMarker`),r.containerState.marker=r.containerState.marker||t,e.check($t,r.interrupt?n:u,e.attempt(br,f,d))}function u(e){return r.containerState.initialBlankLine=!0,a++,f(e)}function d(t){return Nt(t)?(e.enter(`listItemPrefixWhitespace`),e.consume(t),e.exit(`listItemPrefixWhitespace`),f):n(t)}function f(n){return r.containerState.size=a+r.sliceSerialize(e.exit(`listItemPrefix`),!0).length,t(n)}}function Cr(e,t,n){let r=this;return r.containerState._closeFlow=void 0,e.check($t,i,a);function i(n){return r.containerState.furtherBlankLines=r.containerState.furtherBlankLines||r.containerState.initialBlankLine,Rt(e,t,`listItemIndent`,r.containerState.size+1)(n)}function a(n){return r.containerState.furtherBlankLines||!Nt(n)?(r.containerState.furtherBlankLines=void 0,r.containerState.initialBlankLine=void 0,o(n)):(r.containerState.furtherBlankLines=void 0,r.containerState.initialBlankLine=void 0,e.attempt(xr,t,o)(n))}function o(i){return r.containerState._closeFlow=!0,r.interrupt=void 0,Rt(e,e.attempt(yr,t,n),`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(i)}}function wr(e,t,n){let r=this;return Rt(e,i,`listItemIndent`,r.containerState.size+1);function i(e){let i=r.events[r.events.length-1];return i&&i[1].type===`listItemIndent`&&i[2].sliceSerialize(i[1],!0).length===r.containerState.size?t(e):n(e)}}function Tr(e){e.exit(this.containerState.type)}function Er(e,t,n){let r=this;return Rt(e,i,`listItemPrefixWhitespace`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:5);function i(e){let i=r.events[r.events.length-1];return!Nt(e)&&i&&i[1].type===`listItemPrefixWhitespace`?t(e):n(e)}}var Dr={name:`setextUnderline`,resolveTo:Or,tokenize:kr};function Or(e,t){let n=e.length,r,i,a;for(;n--;)if(e[n][0]===`enter`){if(e[n][1].type===`content`){r=n;break}e[n][1].type===`paragraph`&&(i=n)}else e[n][1].type===`content`&&e.splice(n,1),!a&&e[n][1].type===`definition`&&(a=n);let o={type:`setextHeading`,start:{...e[r][1].start},end:{...e[e.length-1][1].end}};return e[i][1].type=`setextHeadingText`,a?(e.splice(i,0,[`enter`,o,t]),e.splice(a+1,0,[`exit`,e[r][1],t]),e[r][1].end={...e[a][1].end}):e[r][1]=o,e.push([`exit`,o,t]),e}function kr(e,t,n){let r=this,i;return a;function a(t){let a=r.events.length,s;for(;a--;)if(r.events[a][1].type!==`lineEnding`&&r.events[a][1].type!==`linePrefix`&&r.events[a][1].type!==`content`){s=r.events[a][1].type===`paragraph`;break}return!r.parser.lazy[r.now().line]&&(r.interrupt||s)?(e.enter(`setextHeadingLine`),i=t,o(t)):n(t)}function o(t){return e.enter(`setextHeadingLineSequence`),s(t)}function s(t){return t===i?(e.consume(t),s):(e.exit(`setextHeadingLineSequence`),Nt(t)?Rt(e,c,`lineSuffix`)(t):c(t))}function c(r){return r===null||M(r)?(e.exit(`setextHeadingLine`),t(r)):n(r)}}var Ar={tokenize:jr};function jr(e){let t=this,n=e.attempt($t,r,e.attempt(this.parser.constructs.flowInitial,i,Rt(e,e.attempt(this.parser.constructs.flow,i,e.attempt(En,i)),`linePrefix`)));return n;function r(r){if(r===null){e.consume(r);return}return e.enter(`lineEndingBlank`),e.consume(r),e.exit(`lineEndingBlank`),t.currentConstruct=void 0,n}function i(r){if(r===null){e.consume(r);return}return e.enter(`lineEnding`),e.consume(r),e.exit(`lineEnding`),t.currentConstruct=void 0,n}}var Mr={resolveAll:Ir()},Nr=Fr(`string`),Pr=Fr(`text`);function Fr(e){return{resolveAll:Ir(e===`text`?Lr:void 0),tokenize:t};function t(t){let n=this,r=this.parser.constructs[e],i=t.attempt(r,a,o);return a;function a(e){return c(e)?i(e):o(e)}function o(e){if(e===null){t.consume(e);return}return t.enter(`data`),t.consume(e),s}function s(e){return c(e)?(t.exit(`data`),i(e)):(t.consume(e),s)}function c(e){if(e===null)return!0;let t=r[e],i=-1;if(t)for(;++i<t.length;){let e=t[i];if(!e.previous||e.previous.call(n,n.previous))return!0}return!1}}}function Ir(e){return t;function t(t,n){let r=-1,i;for(;++r<=t.length;)i===void 0?t[r]&&t[r][1].type===`data`&&(i=r,r++):(!t[r]||t[r][1].type!==`data`)&&(r!==i+2&&(t[i][1].end=t[r-1][1].end,t.splice(i+2,r-i-2),r=i+2),i=void 0);return e?e(t,n):t}}function Lr(e,t){let n=0;for(;++n<=e.length;)if((n===e.length||e[n][1].type===`lineEnding`)&&e[n-1][1].type===`data`){let r=e[n-1][1],i=t.sliceStream(r),a=i.length,o=-1,s=0,c;for(;a--;){let e=i[a];if(typeof e==`string`){for(o=e.length;e.charCodeAt(o-1)===32;)s++,o--;if(o)break;o=-1}else if(e===-2)c=!0,s++;else if(e!==-1){a++;break}}if(t._contentTypeTextTrailing&&n===e.length&&(s=0),s){let i={type:n===e.length||c||s<2?`lineSuffix`:`hardBreakTrailing`,start:{_bufferIndex:a?o:r.start._bufferIndex+o,_index:r.start._index+a,line:r.end.line,column:r.end.column-s,offset:r.end.offset-s},end:{...r.end}};r.end={...i.start},r.start.offset===r.end.offset?Object.assign(r,i):(e.splice(n,0,[`enter`,i,t],[`exit`,i,t]),n+=2)}n++}return e}var Rr=e({attentionMarkers:()=>Kr,contentInitial:()=>Br,disable:()=>qr,document:()=>zr,flow:()=>Hr,flowInitial:()=>Vr,insideSpan:()=>Gr,string:()=>Ur,text:()=>Wr}),zr={42:yr,43:yr,45:yr,48:yr,49:yr,50:yr,51:yr,52:yr,53:yr,54:yr,55:yr,56:yr,57:yr,62:tn},Br={91:Fn},Vr={[-2]:mn,[-1]:mn,32:mn},Hr={35:Vn,42:_r,45:[Dr,_r],60:Kn,61:Dr,95:_r,96:dn,126:dn},Ur={38:cn,92:on},Wr={[-5]:hr,[-4]:hr,[-3]:hr,33:dr,38:cn,42:qt,60:[Zt,$n],91:pr,92:[zn,on],93:tr,95:qt,96:vn},Gr={null:[qt,Mr]},Kr={null:[42,95]},qr={null:[]};function Jr(e,t,n){let r={_bufferIndex:-1,_index:0,line:n&&n.line||1,column:n&&n.column||1,offset:n&&n.offset||0},i={},a=[],o=[],s=[],c={attempt:C(x),check:C(S),consume:v,enter:y,exit:b,interrupt:C(S,{interrupt:!0})},l={code:null,containerState:{},defineSkip:h,events:[],now:m,parser:e,previous:null,sliceSerialize:f,sliceStream:p,write:d},u=t.tokenize.call(l,c);return t.resolveAll&&a.push(t),l;function d(e){return o=vt(o,e),g(),o[o.length-1]===null?(w(t,0),l.events=Kt(a,l.events,l),l.events):[]}function f(e,t){return Xr(p(e),t)}function p(e){return Yr(o,e)}function m(){let{_bufferIndex:e,_index:t,line:n,column:i,offset:a}=r;return{_bufferIndex:e,_index:t,line:n,column:i,offset:a}}function h(e){i[e.line]=e.column,E()}function g(){let e;for(;r._index<o.length;){let t=o[r._index];if(typeof t==`string`)for(e=r._index,r._bufferIndex<0&&(r._bufferIndex=0);r._index===e&&r._bufferIndex<t.length;)_(t.charCodeAt(r._bufferIndex));else _(t)}}function _(e){u=u(e)}function v(e){M(e)?(r.line++,r.column=1,r.offset+=e===-3?2:1,E()):e!==-1&&(r.column++,r.offset++),r._bufferIndex<0?r._index++:(r._bufferIndex++,r._bufferIndex===o[r._index].length&&(r._bufferIndex=-1,r._index++)),l.previous=e}function y(e,t){let n=t||{};return n.type=e,n.start=m(),l.events.push([`enter`,n,l]),s.push(n),n}function b(e){let t=s.pop();return t.end=m(),l.events.push([`exit`,t,l]),t}function x(e,t){w(e,t.from)}function S(e,t){t.restore()}function C(e,t){return n;function n(n,r,i){let a,o,s,u;return Array.isArray(n)?f(n):`tokenize`in n?f([n]):d(n);function d(e){return t;function t(t){let n=t!==null&&e[t],r=t!==null&&e.null;return f([...Array.isArray(n)?n:n?[n]:[],...Array.isArray(r)?r:r?[r]:[]])(t)}}function f(e){return a=e,o=0,e.length===0?i:p(e[o])}function p(e){return n;function n(n){return u=T(),s=e,e.partial||(l.currentConstruct=e),e.name&&l.parser.constructs.disable.null.includes(e.name)?h(n):e.tokenize.call(t?Object.assign(Object.create(l),t):l,c,m,h)(n)}}function m(t){return e(s,u),r}function h(e){return u.restore(),++o<a.length?p(a[o]):i}}}function w(e,t){e.resolveAll&&!a.includes(e)&&a.push(e),e.resolve&&_t(l.events,t,l.events.length-t,e.resolve(l.events.slice(t),l)),e.resolveTo&&(l.events=e.resolveTo(l.events,l))}function T(){let e=m(),t=l.previous,n=l.currentConstruct,i=l.events.length,a=Array.from(s);return{from:i,restore:o};function o(){r=e,l.previous=t,l.currentConstruct=n,l.events.length=i,s=a,E()}}function E(){r.line in i&&r.column<2&&(r.column=i[r.line],r.offset+=i[r.line]-1)}}function Yr(e,t){let n=t.start._index,r=t.start._bufferIndex,i=t.end._index,a=t.end._bufferIndex,o;if(n===i)o=[e[n].slice(r,a)];else{if(o=e.slice(n,i),r>-1){let e=o[0];typeof e==`string`?o[0]=e.slice(r):o.shift()}a>0&&o.push(e[i].slice(0,a))}return o}function Xr(e,t){let n=-1,r=[],i;for(;++n<e.length;){let a=e[n],o;if(typeof a==`string`)o=a;else switch(a){case-5:o=`\r`;break;case-4:o=`
 `;break;case-3:o=`\r
 `;break;case-2:o=t?` `:`	`;break;case-1:if(!t&&i)continue;o=` `;break;default:o=String.fromCharCode(a)}i=a===-2,r.push(o)}return r.join(``)}function Zr(e){let t={constructs:bt([Rr,...(e||{}).extensions||[]]),content:n(zt),defined:[],document:n(Vt),flow:n(Ar),lazy:{},string:n(Nr),text:n(Pr)};return t;function n(e){return n;function n(n){return Jr(t,e,n)}}}function Qr(e){for(;!wn(e););return e}var $r=/[\0\t\n\r]/g;function ei(){let e=1,t=``,n=!0,r;return i;function i(i,a,o){let s=[],c,l,u,d,f;for(i=t+(typeof i==`string`?i.toString():new TextDecoder(a||void 0).decode(i)),u=0,t=``,n&&=(i.charCodeAt(0)===65279&&u++,void 0);u<i.length;){if($r.lastIndex=u,c=$r.exec(i),d=c&&c.index!==void 0?c.index:i.length,f=i.charCodeAt(d),!c){t=i.slice(u);break}if(f===10&&u===d&&r)s.push(-3),r=void 0;else switch(r&&=(s.push(-5),void 0),u<d&&(s.push(i.slice(u,d)),e+=d-u),f){case 0:s.push(65533),e++;break;case 9:for(l=Math.ceil(e/4)*4,s.push(-2);e++<l;)s.push(-1);break;case 10:s.push(-4),e=1;break;default:r=!0,e=1}u=d+1}return o&&(r&&s.push(-5),t&&s.push(t),s.push(null)),s}}var ti=/\\([!-/:-@[-`{-~])|&(#(?:\d{1,7}|x[\da-f]{1,6})|[\da-z]{1,31});/gi;function ni(e){return e.replace(ti,ri)}function ri(e,t,n){if(t)return t;if(n.charCodeAt(0)===35){let e=n.charCodeAt(1),t=e===120||e===88;return Ct(n.slice(t?2:1),t?16:10)}return gt(n)||e}var ii={}.hasOwnProperty;function ai(e,t,n){return t&&typeof t==`object`&&(n=t,t=void 0),oi(n)(Qr(Zr(n).document().write(ei()(e,t,!0))))}function oi(e){let t={transforms:[],canContainEols:[`emphasis`,`fragment`,`heading`,`paragraph`,`strong`],enter:{autolink:a(Ce),autolinkProtocol:T,autolinkEmail:T,atxHeading:a(ye),blockQuote:a(me),characterEscape:T,characterReference:T,codeFenced:a(he),codeFencedFenceInfo:o,codeFencedFenceMeta:o,codeIndented:a(he,o),codeText:a(ge,o),codeTextData:T,data:T,codeFlowValue:T,definition:a(_e),definitionDestinationString:o,definitionLabelString:o,definitionTitleString:o,emphasis:a(ve),hardBreakEscape:a(be),hardBreakTrailing:a(be),htmlFlow:a(xe,o),htmlFlowData:T,htmlText:a(xe,o),htmlTextData:T,image:a(Se),label:o,link:a(Ce),listItem:a(Te),listItemValue:f,listOrdered:a(we,d),listUnordered:a(we),paragraph:a(Ee),reference:se,referenceString:o,resourceDestinationString:o,resourceTitleString:o,setextHeading:a(ye),strong:a(De),thematicBreak:a(Ae)},exit:{atxHeading:c(),atxHeadingSequence:x,autolink:c(),autolinkEmail:pe,autolinkProtocol:fe,blockQuote:c(),characterEscapeValue:E,characterReferenceMarkerHexadecimal:le,characterReferenceMarkerNumeric:le,characterReferenceValue:ue,characterReference:de,codeFenced:c(g),codeFencedFence:h,codeFencedFenceInfo:p,codeFencedFenceMeta:m,codeFlowValue:E,codeIndented:c(_),codeText:c(te),codeTextData:E,data:E,definition:c(),definitionDestinationString:b,definitionLabelString:v,definitionTitleString:y,emphasis:c(),hardBreakEscape:c(D),hardBreakTrailing:c(D),htmlFlow:c(O),htmlFlowData:E,htmlText:c(k),htmlTextData:E,image:c(ne),label:ie,labelText:re,lineEnding:ee,link:c(A),listItem:c(),listOrdered:c(),listUnordered:c(),paragraph:c(),referenceString:ce,resourceDestinationString:j,resourceTitleString:ae,resource:oe,setextHeading:c(w),setextHeadingLineSequence:C,setextHeadingText:S,strong:c(),thematicBreak:c()}};ci(t,(e||{}).mdastExtensions||[]);let n={};return r;function r(e){let r={type:`root`,children:[]},a={stack:[r],tokenStack:[],config:t,enter:s,exit:l,buffer:o,resume:u,data:n},c=[],d=-1;for(;++d<e.length;)(e[d][1].type===`listOrdered`||e[d][1].type===`listUnordered`)&&(e[d][0]===`enter`?c.push(d):d=i(e,c.pop(),d));for(d=-1;++d<e.length;){let n=t[e[d][0]];ii.call(n,e[d][1].type)&&n[e[d][1].type].call(Object.assign({sliceSerialize:e[d][2].sliceSerialize},a),e[d][1])}if(a.tokenStack.length>0){let e=a.tokenStack[a.tokenStack.length-1];(e[1]||ui).call(a,void 0,e[0])}for(r.position={start:si(e.length>0?e[0][1].start:{line:1,column:1,offset:0}),end:si(e.length>0?e[e.length-2][1].end:{line:1,column:1,offset:0})},d=-1;++d<t.transforms.length;)r=t.transforms[d](r)||r;return r}function i(e,t,n){let r=t-1,i=-1,a=!1,o,s,c,l;for(;++r<=n;){let t=e[r];switch(t[1].type){case`listUnordered`:case`listOrdered`:case`blockQuote`:t[0]===`enter`?i++:i--,l=void 0;break;case`lineEndingBlank`:t[0]===`enter`&&(o&&!l&&!i&&!c&&(c=r),l=void 0);break;case`linePrefix`:case`listItemValue`:case`listItemMarker`:case`listItemPrefix`:case`listItemPrefixWhitespace`:break;default:l=void 0}if(!i&&t[0]===`enter`&&t[1].type===`listItemPrefix`||i===-1&&t[0]===`exit`&&(t[1].type===`listUnordered`||t[1].type===`listOrdered`)){if(o){let i=r;for(s=void 0;i--;){let t=e[i];if(t[1].type===`lineEnding`||t[1].type===`lineEndingBlank`){if(t[0]===`exit`)continue;s&&(e[s][1].type=`lineEndingBlank`,a=!0),t[1].type=`lineEnding`,s=i}else if(!(t[1].type===`linePrefix`||t[1].type===`blockQuotePrefix`||t[1].type===`blockQuotePrefixWhitespace`||t[1].type===`blockQuoteMarker`||t[1].type===`listItemIndent`))break}c&&(!s||c<s)&&(o._spread=!0),o.end=Object.assign({},s?e[s][1].start:t[1].end),e.splice(s||r,0,[`exit`,o,t[2]]),r++,n++}if(t[1].type===`listItemPrefix`){let i={type:`listItem`,_spread:!1,start:Object.assign({},t[1].start),end:void 0};o=i,e.splice(r,0,[`enter`,i,t[2]]),r++,n++,c=void 0,l=!0}}}return e[t][1]._spread=a,n}function a(e,t){return n;function n(n){s.call(this,e(n),n),t&&t.call(this,n)}}function o(){this.stack.push({type:`fragment`,children:[]})}function s(e,t,n){this.stack[this.stack.length-1].children.push(e),this.stack.push(e),this.tokenStack.push([t,n||void 0]),e.position={start:si(t.start),end:void 0}}function c(e){return t;function t(t){e&&e.call(this,t),l.call(this,t)}}function l(e,t){let n=this.stack.pop(),r=this.tokenStack.pop();if(r)r[0].type!==e.type&&(t?t.call(this,e,r[0]):(r[1]||ui).call(this,e,r[0]));else throw Error("Cannot close `"+e.type+"` ("+ke({start:e.start,end:e.end})+`): it’s not open`);n.position.end=si(e.end)}function u(){return dt(this.stack.pop())}function d(){this.data.expectingFirstListItemValue=!0}function f(e){if(this.data.expectingFirstListItemValue){let t=this.stack[this.stack.length-2];t.start=Number.parseInt(this.sliceSerialize(e),10),this.data.expectingFirstListItemValue=void 0}}function p(){let e=this.resume(),t=this.stack[this.stack.length-1];t.lang=e}function m(){let e=this.resume(),t=this.stack[this.stack.length-1];t.meta=e}function h(){this.data.flowCodeInside||(this.buffer(),this.data.flowCodeInside=!0)}function g(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e.replace(/^(\r?\n|\r)|(\r?\n|\r)$/g,``),this.data.flowCodeInside=void 0}function _(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e.replace(/(\r?\n|\r)$/g,``)}function v(e){let t=this.resume(),n=this.stack[this.stack.length-1];n.label=t,n.identifier=wt(this.sliceSerialize(e)).toLowerCase()}function y(){let e=this.resume(),t=this.stack[this.stack.length-1];t.title=e}function b(){let e=this.resume(),t=this.stack[this.stack.length-1];t.url=e}function x(e){let t=this.stack[this.stack.length-1];t.depth||=this.sliceSerialize(e).length}function S(){this.data.setextHeadingSlurpLineEnding=!0}function C(e){let t=this.stack[this.stack.length-1];t.depth=this.sliceSerialize(e).codePointAt(0)===61?1:2}function w(){this.data.setextHeadingSlurpLineEnding=void 0}function T(e){let t=this.stack[this.stack.length-1].children,n=t[t.length-1];(!n||n.type!==`text`)&&(n=Oe(),n.position={start:si(e.start),end:void 0},t.push(n)),this.stack.push(n)}function E(e){let t=this.stack.pop();t.value+=this.sliceSerialize(e),t.position.end=si(e.end)}function ee(e){let n=this.stack[this.stack.length-1];if(this.data.atHardBreak){let t=n.children[n.children.length-1];t.position.end=si(e.end),this.data.atHardBreak=void 0;return}!this.data.setextHeadingSlurpLineEnding&&t.canContainEols.includes(n.type)&&(T.call(this,e),E.call(this,e))}function D(){this.data.atHardBreak=!0}function O(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e}function k(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e}function te(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e}function A(){let e=this.stack[this.stack.length-1];if(this.data.inReference){let t=this.data.referenceType||`shortcut`;e.type+=`Reference`,e.referenceType=t,delete e.url,delete e.title}else delete e.identifier,delete e.label;this.data.referenceType=void 0}function ne(){let e=this.stack[this.stack.length-1];if(this.data.inReference){let t=this.data.referenceType||`shortcut`;e.type+=`Reference`,e.referenceType=t,delete e.url,delete e.title}else delete e.identifier,delete e.label;this.data.referenceType=void 0}function re(e){let t=this.sliceSerialize(e),n=this.stack[this.stack.length-2];n.label=ni(t),n.identifier=wt(t).toLowerCase()}function ie(){let e=this.stack[this.stack.length-1],t=this.resume(),n=this.stack[this.stack.length-1];this.data.inReference=!0,n.type===`link`?n.children=e.children:n.alt=t}function j(){let e=this.resume(),t=this.stack[this.stack.length-1];t.url=e}function ae(){let e=this.resume(),t=this.stack[this.stack.length-1];t.title=e}function oe(){this.data.inReference=void 0}function se(){this.data.referenceType=`collapsed`}function ce(e){let t=this.resume(),n=this.stack[this.stack.length-1];n.label=t,n.identifier=wt(this.sliceSerialize(e)).toLowerCase(),this.data.referenceType=`full`}function le(e){this.data.characterReferenceType=e.type}function ue(e){let t=this.sliceSerialize(e),n=this.data.characterReferenceType,r;n?(r=Ct(t,n===`characterReferenceMarkerNumeric`?10:16),this.data.characterReferenceType=void 0):r=gt(t);let i=this.stack[this.stack.length-1];i.value+=r}function de(e){let t=this.stack.pop();t.position.end=si(e.end)}function fe(e){E.call(this,e);let t=this.stack[this.stack.length-1];t.url=this.sliceSerialize(e)}function pe(e){E.call(this,e);let t=this.stack[this.stack.length-1];t.url=`mailto:`+this.sliceSerialize(e)}function me(){return{type:`blockquote`,children:[]}}function he(){return{type:`code`,lang:null,meta:null,value:``}}function ge(){return{type:`inlineCode`,value:``}}function _e(){return{type:`definition`,identifier:``,label:null,title:null,url:``}}function ve(){return{type:`emphasis`,children:[]}}function ye(){return{type:`heading`,depth:0,children:[]}}function be(){return{type:`break`}}function xe(){return{type:`html`,value:``}}function Se(){return{type:`image`,title:null,url:``,alt:null}}function Ce(){return{type:`link`,title:null,url:``,children:[]}}function we(e){return{type:`list`,ordered:e.type===`listOrdered`,start:null,spread:e._spread,children:[]}}function Te(e){return{type:`listItem`,spread:e._spread,checked:null,children:[]}}function Ee(){return{type:`paragraph`,children:[]}}function De(){return{type:`strong`,children:[]}}function Oe(){return{type:`text`,value:``}}function Ae(){return{type:`thematicBreak`}}}function si(e){return{line:e.line,column:e.column,offset:e.offset}}function ci(e,t){let n=-1;for(;++n<t.length;){let r=t[n];Array.isArray(r)?ci(e,r):li(e,r)}}function li(e,t){let n;for(n in t)if(ii.call(t,n))switch(n){case`canContainEols`:{let r=t[n];r&&e[n].push(...r);break}case`transforms`:{let r=t[n];r&&e[n].push(...r);break}case`enter`:case`exit`:{let r=t[n];r&&Object.assign(e[n],r);break}}}function ui(e,t){throw Error(e?"Cannot close `"+e.type+"` ("+ke({start:e.start,end:e.end})+"): a different token (`"+t.type+"`, "+ke({start:t.start,end:t.end})+`) is open`:"Cannot close document, a token (`"+t.type+"`, "+ke({start:t.start,end:t.end})+`) is still open`)}function di(e){let t=this;t.parser=n;function n(n){return ai(n,{...t.data(`settings`),...e,extensions:t.data(`micromarkExtensions`)||[],mdastExtensions:t.data(`fromMarkdownExtensions`)||[]})}}function fi(e,t){let n={type:`element`,tagName:`blockquote`,properties:{},children:e.wrap(e.all(t),!0)};return e.patch(t,n),e.applyData(t,n)}function pi(e,t){let n={type:`element`,tagName:`br`,properties:{},children:[]};return e.patch(t,n),[e.applyData(t,n),{type:`text`,value:`
@@ -299,7 +299,7 @@ l0,-`+(t+144)+`c-2,-159.3,-10,-310.7,-24,-454c-53.3,-528,-210,-949.7,
 
 <!-- reference: wzw-model -->
 
-平坦な空間を動く弦では、振動を左向きと右向きに独立に分けられる。標的空間が曲がっていても、この扱いやすさを保つ理論は作れるだろうか。ここでは三次元球面 $S^3$ を群 $SU(2)$ として表し、弦の位置を群値の場 $g$ で記述する。通常の運動項だけでは左右の振動が結び付くが、背景の反対称テンソル場との結合を適切に加えると、左右それぞれの保存カレントが得られる。この作用を持つ理論がSU(2) Wess–Zumino–Witten模型である。
+平坦な空間の自由ボソンでは、運動方程式 $\\partial\\bar\\partial X=0$ から $\\bar\\partial(\\partial X)=0$ と $\\partial(\\bar\\partial X)=0$ が従う。左と右の振動を、それぞれ正則・反正則なカレントで記録できる。三次元球面 $S^3$ を動く弦でも同じ分離を得るには、曲がった空間の運動項に何を加えればよいか。SU(2) Wess–Zumino–Witten（WZW）模型は、その問いを解く作用を持つ。作用から得る無限個の保存量が、量子論では許される状態と場の結合を決める。
 
 <!-- /reference -->
 
@@ -311,7 +311,16 @@ l0,-`+(t+144)+`c-2,-159.3,-10,-310.7,-24,-454c-53.3,-528,-210,-949.7,
 
 ### 群値場と主カイラル模型
 
-世界面を複素座標 $(z,\\bar z)$ をもつ二次元面 $\\Sigma$ とする。向きは $dz\\wedge d\\bar z=i\\,d^2z$ に固定する。この規約を計量項とWess–Zumino項で共通に用いる。場を
+弦が世界面の各点でどこにいるかを、群値場 $g$ で表す。SU(2)の行列はPauli行列 $\\sigma_a$ を用いて
+
+$$
+g=y^0\\mathbf1+i\\sum_{a=1}^3y^a\\sigma_a,
+\\qquad (y^0)^2+\\sum_{a=1}^3(y^a)^2=1
+$$
+
+と一意に書ける。四つの実数 $y^0,y^1,y^2,y^3$ にこの制約を課した集合が単位三次元球面なので、$SU(2)\\simeq S^3$ である。これは点の対応であり、物理的な半径は作用の係数で定まる。
+
+世界面を複素座標 $(z,\\bar z)$ をもつ二次元面 $\\Sigma$ とする。以下はEuclid作用であり、向きは $dz\\wedge d\\bar z=i\\,d^2z$ に固定する。具体的には $z=\\sigma^1-i\\sigma^2$、$d^2z=2d\\sigma^1d\\sigma^2$ と取る。この規約を計量項とWess–Zumino項で共通に用いる。場を
 
 $$
 g:\\Sigma\\longrightarrow SU(2)
@@ -325,7 +334,7 @@ g(z,\\bar z)
 \\qquad a=1,2,3,
 $$
 
-と書ける。$X^a$ は標的空間の局所座標、$t_a$ はHermitianな生成子で、$it_a$ が $\\mathfrak{su}(2)$ の接ベクトルになる。$g$ の微分は点 $g$ における接ベクトルなので、左から $g^{-1}$ を掛けて単位元の接空間へ移すと、異なる点でも同じLie代数の基底で比較できる。
+と書ける。$X^a$ は標的空間の局所座標、$t_a=\\sigma_a/\\sqrt2$ はHermitianな生成子で、$it_a$ が $\\mathfrak{su}(2)$ の接ベクトルになる。$g$ の微分は点 $g$ における接ベクトルなので、左から $g^{-1}$ を掛けて単位元の接空間へ移すと、異なる点でも同じLie代数の基底で比較できる。
 
 <!-- reference: maurer-cartan -->
 
@@ -425,7 +434,7 @@ g^{-1}\\partial g\\,g^{-1}\\bar\\partial g
 \\tag{6.1}
 $$
 
-この作用は定数 $h\\in SU(2)$ による大域的な左移動・右移動の下で不変であり、
+左移動 $g\\mapsto hg$ では $A$ が変わらず、右移動 $g\\mapsto gh$ では $A\\mapsto h^{-1}Ah$ になる。トレースは共役変換で不変なので、この作用は定数 $h\\in SU(2)$ による左右移動の下で
 
 $$
 S_0[gh]=S_0[hg]=S_0[g]
@@ -433,11 +442,11 @@ $$
 
 を満たす。
 
-ここで $k$ は作用の強さを表す無次元係数であり、$\\operatorname{tr}$ は不変双線形形式を定める。以下では基本表現のトレース $\\operatorname{tr}=\\operatorname{Tr}_{\\mathbf2}$ に固定する。これは $\\operatorname{Tr}_{\\mathrm{ad}}/4$ と同じ不変双線形形式である。$k$ が標的空間の半径とカレント代数のレベルを同時に表すことは、後で導く。
+ここで $k>0$ は正の運動項を選ぶための無次元係数であり、$\\operatorname{tr}$ は不変双線形形式を定める。以下では基本表現のトレース $\\operatorname{tr}=\\operatorname{Tr}_{\\mathbf2}$ に固定する。これは $\\operatorname{Tr}_{\\mathrm{ad}}/4$ と同じ不変双線形形式である。$k$ が標的空間の半径とカレント代数のレベルを同時に表すことは、後で導く。
 
 
 
-単位元近傍では自由ボソンの運動項に近づくが、高次にはLie括弧を含む相互作用が残る。作用の係数 $k$ が標的空間の計量を拡大することは、後の「曲率とフラックス」で、曲率を評価する際に確認する。
+単位元近傍では $A_z=i t_a\\partial X^a+O(X^2)$、$A_{\\bar z}=i t_a\\bar\\partial X^a+O(X^2)$ なので、$i^2=-1$ が作用の負号を打ち消し、正の自由ボソン運動項になる。高次には行列の非可換性から相互作用が残る。
 
 <details>
 <summary>単位元の近くで、作用が自由ボソンの運動項になる理由</summary>
@@ -475,14 +484,21 @@ Hermitian基底ではこの二次形式を正定値に取る。anti-Hermitian基
 
 #### 運動方程式
 
-閉じた世界面、または境界で変分が消える場合を考える。$\\eta=g^{-1}\\delta g$ を任意に動かすと、作用 (6.1) の停留条件は
+閉じた世界面、または境界で変分が消える場合を考える。変分を同じLie代数へ移した量を $\\eta=g^{-1}\\delta g$ とする。逆行列の変分 $\\delta g^{-1}=-\\eta g^{-1}$ と積の法則から、$\\delta A_z=\\partial\\eta+[A_z,\\eta]$、$\\delta A_{\\bar z}=\\bar\\partial\\eta+[A_{\\bar z},\\eta]$ となる。作用の変分では交換子の二項がトレースの巡回性で相殺し、微分を部分積分すると
+
+$$
+\\delta S_0=\\frac{k}{4\\pi}\\int_\\Sigma d^2z\\,
+\\operatorname{tr}\\!\\left[\\eta(\\partial A_{\\bar z}+\\bar\\partial A_z)\\right]
+$$
+
+を得る。任意の $\\eta$ に対する停留条件は
 
 $$
 \\boxed{\\partial{A_{\\bar z}}+\\bar\\partial A_z=0}
 \\tag{PCM}
 $$
 
-となる。ここには正則成分と反正則成分の両方が現れる。
+となる。これは二成分の微分の和が零という条件であり、各微分が個別に零だとはまだいえない。
 
 <details>
 <summary>主カイラル模型の運動方程式を、作用の変分から求める</summary>
@@ -853,7 +869,13 @@ $$
 
 ここで $R_{ab}$ は計量 $G$ のRicci曲率、添字の上げ下げには $G$ を使う。半径 $R$ の丸い三次元球面では $R_{ab}=2G_{ab}/R^2$ なので、$H=0$ のままでは曲率の寄与が残る。その大きさを評価するために、作用の係数から球面の半径を読み取ろう。
 
-$SU(2)\\simeq S^3$ という同一視だけでは、物理的な長さは決まらない。作用 (6.1) を弦の計量結合と比較すると、標準的なWZW規格化では
+$SU(2)\\simeq S^3$ という同一視だけでは、物理的な長さは決まらない。基本表現のトレースでは単位球面の計量が $ds^2_{\\mathrm{unit}}=-\\tfrac12\\operatorname{tr}(g^{-1}dg)^2$ である。半径 $R$ ならこの計量を $R^2$ 倍する。弦の計量作用 $S_G=(4\\pi\\alpha')^{-1}\\int d^2\\sigma\\,G_{\\mu\\nu}\\partial_\\alpha X^\\mu\\partial_\\alpha X^\\nu$ は、上の複素座標規約では
+
+$$
+S_G=-\\frac{R^2}{4\\pi\\alpha'}\\int d^2z\\,\\operatorname{tr}(A_zA_{\\bar z})
+$$
+
+となる。作用 (6.1) と係数を比較すると
 
 $$
 \\boxed{R^2=k\\alpha'},\\qquad \\ell_s=\\sqrt{\\alpha'},\\qquad R/\\ell_s=\\sqrt{k}.
@@ -919,13 +941,22 @@ $$
 
 </details>
 
-これで曲率の大きさを作用の係数 $k$ で表せた。次に、これと釣り合うフラックスを求める。上の1-loop計算で用いた展開の小さなパラメータは $\\alpha'/R^2=1/k$ である。したがって幾何を用いた1-loopの見通しは大きな $k$ でよく制御される。曲率項は球面の大きさを尺度とともに変えようとし、フラックスの項はそれに逆向きに作用する。丸い球面の対称性を保つよう $H$ を体積形式に比例させると、この二つが釣り合う大きさは
+球面の左右移動の対称性を保つ3形式は体積形式の定数倍なので、$H=h\\,\\mathrm{vol}_{S^3_R}$ と置く。$h$ は単位体積当たりのフラックスの強さである。正規直交フレームでは $H_{abc}=h\\varepsilon_{abc}$ であり、$\\sum_{c,d}\\varepsilon_{acd}\\varepsilon_{bcd}=2\\delta_{ab}$ を使うと
+
+$$
+H_{acd}H_b{}^{cd}=2h^2G_{ab},\\qquad
+\\beta^G_{ab}=\\alpha'\\left(\\frac2{R^2}-\\frac{h^2}2\\right)G_{ab}+O(\\alpha'^2).
+$$
+
+従って曲率とフラックスの寄与が釣り合う条件は
 
 $$
 \\boxed{H=h\\,\\mathrm{vol}_{S^3_R},\\qquad h=\\pm\\frac2R}
 $$
 
-となる。この $H$ は球面上のどの点でも同じ強さと向きを持つという意味で共変一定なので、$B$ の1-loopベータ関数も消える。符号は向きの選択に対応する。有限の小さな $k$ でも成り立つ共形対称性は、後で量子カレント代数から確かめる。
+となる。$B$ の1-loopベータ関数は $\\beta^B_{ab}=-\\alpha'\\nabla^cH_{cab}/2+O(\\alpha'^2)$ であり、この $H$ は共変一定なので、その最初の項も零になる。符号は球面の向きの選択に対応し、以下では $h=2/R$ を選ぶ。
+
+ここで使ったのはdilatonを一定にしたボソニックシグマ模型の1-loop結果（原著式 (2.14)–(2.15)）である。展開の小さなパラメータは $\\alpha'/R^2=1/k$ なので、大きな $k$ での見通しを与える。有限 $k$ の厳密な共形対称性には、後の量子カレント代数を使う。
 
 <details>
 <summary>フラックスの強さを $2/R$ にすると、なぜベータ関数が消えるのか？</summary>
@@ -1028,7 +1059,11 @@ $$
 
 と定義する。これがWess–Zumino項である。ここでは閉じた向き付け可能な世界面を扱う。$SU(2)\\simeq S^3$ では $\\pi_1(S^3)=\\pi_2(S^3)=0$ により、この拡張が存在する。
 
-**三次元への延長は補助的な選択なので、同じ世界面の場 $g$ に割り当てる量子振幅は、その選び方によらなければならない。** この条件を調べるため、二つの拡張の作用を引き算する。共通の境界上では場が一致するので、第2の拡張の向きを反転して貼り合わせると、境界が消えた三次元多様体 $N$ と、二つの場の延長をつないだ写像 $\\widehat g:N\\to S^3$ ができる。積分の差はこの $N$ 上の積分となり、
+**三次元への延長は補助的な選択なので、同じ世界面の場 $g$ に割り当てる量子振幅は、その選び方によらなければならない。** この条件を調べるため、二つの拡張の作用を引き算する。共通の境界上では場が一致するので、第2の拡張の向きを反転して貼り合わせると、境界が消えた三次元多様体 $N$ と、二つの場の延長をつないだ写像 $\\widehat g:N\\to S^3$ ができる。積分の差を、この $N$ 上の一つの積分として扱える。
+
+![同じ世界面を境界に持つ二つの三次元延長領域のうち、第二の向きを反転し、共通の境界で貼り合わせて境界のない三次元領域を作る模式図](/diagrams/wz-extension-gluing.svg)
+
+図は $\\Sigma=S^2$、二つの延長領域が三次元球体 $B^3$ の場合を示し、貼り合わせた領域は $N=S^3$ になる。一般の世界面でも同じ操作で境界が消えるが、$N$ が球面になるとは限らない。必要なのは、$N$ が閉じた向き付き三次元多様体であり、二つの写像が共通の境界で一致することである。作用の差は
 
 $$
 \\Delta S_E
@@ -1059,7 +1094,7 @@ $$
 
 これがレベル量子化である。作用には $2\\pi i$ の整数倍の差があっても、その指数は一意になる。また $n$ は連続変形で変わらず $\\delta\\Delta S_E=0$ なので、局所的な運動方程式だけでは整数条件は得られない。正の運動項を持つSU(2) WZW模型では $k>0$ を選ぶ。同じ整数がフラックスを数え、曲率との釣り合いを通じて半径を定める。
 
-次に作用を変分できるよう、$H$ を群値の場で書き表す。基本表現のトレースと $R^2=k\\alpha'$ を用いると、フラックスの引き戻しは
+次に作用を変分できるよう、$H$ を群値の場で書き表す。単位球面で $g^{-1}dg=i\\sigma_a e^a$ と書くと、$e^a$ は左不変な正規直交1形式であり、Pauli行列のトレースから $\\operatorname{tr}(g^{-1}dg)^3=12\\,e^1\\wedge e^2\\wedge e^3=12\\,\\mathrm{vol}_{S^3_{\\mathrm{unit}}}$ を得る。一方 $H=(2/R)\\mathrm{vol}_{S^3_R}=2R^2\\mathrm{vol}_{S^3_{\\mathrm{unit}}}$ なので、フラックスの引き戻しは
 
 $$
 \\widetilde g^{\\,*}H
@@ -1067,7 +1102,7 @@ $$
 \\operatorname{tr}\\!\\left((\\widetilde g^{-1}d\\widetilde g)^3\\right)
 $$
 
-となる。三乗は行列値1形式の外積を表し、係数は下の折りたたみで確かめる。これをWess–Zumino項に代入すると、全作用は
+となる。三乗は行列の積と1形式の外積を同時に取る記号である。これをWess–Zumino項に代入すると、全作用は
 
 $$
 \\boxed{
@@ -1117,7 +1152,7 @@ $$
 \\widetilde\\eta|_\\Sigma=\\eta.
 $$
 
-チルダは三次元領域上の量を表し、境界への引き戻しが世界面上の量になる。この対応のもとで、3形式の変分は全微分になる：
+チルダは三次元領域上の量を表し、境界への引き戻しが世界面上の量になる。この対応のもとで、$\\delta\\widetilde A=d\\widetilde\\eta+[\\widetilde A,\\widetilde\\eta]$ を三乗の各因子へ代入する。トレースの巡回性で三項が等しくなり、交換子の項は相殺する。さらにMaurer–Cartan恒等式から $d(\\widetilde A^2)=0$ なので、3形式の変分は全微分になる：
 
 $$
 \\delta\\operatorname{tr}(\\widetilde{A}^3)
@@ -1260,7 +1295,15 @@ $$
 
 
 
-運動方程式 (6.3) とMaurer–Cartan恒等式から
+反正則側は $\\partial\\bar J=k\\partial A_{\\bar z}=0$ である。正則側には、同じ恒等式と逆行列の微分から
+
+$$
+\\bar\\partial(gA_zg^{-1})
+=g\\bigl(\\bar\\partial A_z-[A_z,A_{\\bar z}]\\bigr)g^{-1}
+=g(\\partial A_{\\bar z})g^{-1}=0
+$$
+
+が成り立つ。従って
 
 $$
 \\boxed{\\bar\\partial J=0,\\qquad\\partial\\bar J=0}
@@ -1342,21 +1385,7 @@ $$
 
 左右の分離は、理論が自由になったことを意味しない。同じ側の三成分はSU(2)の非可換な対称性で結び付いている。量子化後にその生成子が満たす交換関係が、次節のレベル $k$ のアフィンLie代数 $\\widehat{\\mathfrak{su}}(2)_k$ である。
 
-同じフラックスを、ここまで二つの方法で調べてきた。標的空間の幾何からは、球面の曲率による1-loopの計量の変化をフラックスが打ち消すことを確かめた。世界面の運動方程式からは、Wess–Zumino項の変分が $[A_z,{A_{\\bar z}}]$ を相殺し、左右のカレントが独立に保存されることを確かめた。前者は大きな $k$ での量子補正の見通し、後者は作用から直接得た保存則である。次節ではこの保存則を量子化し、有限の $k$ でも共形対称性を記述する代数を得る。
-
-さらに、3形式の周期は $\\pi_3(SU(2))\\simeq\\mathbb Z$ の巻き数を測るため、その係数 $k$ は整数に量子化される。この同じ整数が、次節ではカレント代数の中心拡張として現れる。
-
-したがって
-
-$$
-\\text{量子化された }H\\text{-flux}
-\\quad\\longleftrightarrow\\quad
-\\text{Wess–Zumino項の係数 }k
-\\quad\\longleftrightarrow\\quad
-\\widehat{\\mathfrak{su}}(2)_k\\text{ のレベル}
-$$
-
-という対応が得られる。幾何学的なフラックスの量子数と、世界面CFTの代数的なレベルは、別々のデータではない。
+フラックスの係数 $k$ は、拡張を変えても量子振幅が一致する条件で整数になり、Wess–Zumino項と計量項の相対係数は、交換子を相殺して左右のカレントを保存させた。次に、この保存カレントの量子OPEを入力として、同じ $k$ が状態の種類をどう制限するかを調べる。
 
 ## 6.1.2 アフィン $\\widehat{\\mathfrak{su}}(2)$ の表現論
 
@@ -1383,13 +1412,7 @@ $$
 
 で取り出される。
 
-円筒座標 $w=\\tau+i\\sigma$ と平面座標 $z=e^w$ を対応させると、$n$ は空間円周 $\\sigma$ 方向のFourierモード番号である。したがって
-
-- $J_0^a$ は世界面上で一定な変換、すなわち通常の大域的 $SU(2)$ を生成する。
-- $J_{-1}^a,J_{-2}^a,\\ldots$ はカレントの波を加える生成演算子になる。
-- $J_1^a,J_2^a,\\ldots$ は正エネルギー表現の基底状態を消す消滅演算子になる。
-
-最後の二点は、後で $[L_0,J_n^a]=-nJ_n^a$ を導くとエネルギーの言葉で確認できる。
+円筒座標 $w=\\tau+i\\sigma$ と平面座標 $z=e^w$ を対応させると、1形式の変換 $J_{\\mathrm{cyl}}(w)=zJ(z)$ により $J_{\\mathrm{cyl}}=\\sum_nJ_ne^{-nw}$ となる。したがって $n$ は空間円周 $\\sigma$ 方向のFourierモード番号であり、零モードは円周に沿って一定な変換を生成する。正負のモードが状態のエネルギーをどう変えるかは、エネルギー運動量テンソルを得た後で決まる。
 
 #### カレントOPEと中心項
 
@@ -1405,7 +1428,7 @@ J^a(z)J^b(w)
 }
 \`\`\`
 
-である。このOPE自体と、「作用の係数 $k$ が二重極の係数にもなる」というWard恒等式の結果は、WZW作用の量子化からの入力として使う。その代わり、OPEからモード代数と表現の制限がどう生じるかを以下で導く。$f^{ab}{}_{c}$ は
+である。このOPEと、「作用の係数 $k$ が二重極の係数にもなる」という対応は、整数レベルのWZW作用を量子化したWard恒等式の結果として使う（原著 §6.1.2・式 (6.5)、[WittenのWZW量子化](https://doi.org/10.1007/BF01215276)）。ここで導くのは、この局所積からモード代数と表現の制限が生じる過程である。$f^{ab}{}_{c}$ は
 
 $$
 [t_a,t_b]=if^{ab}{}_{c}t_c
@@ -1415,7 +1438,7 @@ $$
 
 前節と同じ基本表現トレースに対し、生成子を $t_a=\\sigma_a/\\sqrt2$ と取れば $\\operatorname{tr}(t_at_b)=\\delta_{ab}$、$f^{abc}=\\sqrt2\\varepsilon^{abc}$ となる。$\\sigma_a$ はPauli行列、$\\varepsilon^{123}=1$ は完全反対称記号である。この直交基底で[current OPE](#eq-current-ope)の二重極を $k\\delta^{ab}$ と書いているので、ここに現れる $k$ は作用の整数レベルと同じである。
 
-二重極は中心項、一重極はLie代数の交換子になる。二重極から出る微分が、中心項のモード番号 $n$ を生む。
+モードの交換子は、二つの動径積の順序を入れ替えた輪郭の差である。その差は $z=w$ を囲む小円へ縮められる。二重極では $\\operatorname{Res}_{z=w}z^n/(z-w)^2=nw^{n-1}$、一重極では $\\operatorname{Res}_{z=w}z^n/(z-w)=w^n$ なので、残る $w$ 積分からそれぞれ $kn\\delta^{ab}\\delta_{n+m,0}$ と $if^{ab}{}_{c}J_{n+m}^c$ が出る。
 
 <details>
 <summary>カレントOPEからモードの交換関係 (6.5) を導く</summary>
@@ -1690,7 +1713,7 @@ $$
 
 </details>
 
-この計算で $[Q_0,J_1^0]$ に現れる $k+2$ の由来を確認できた。一般のモードについては、標準的なSugawara計算の結果
+補足では $n=0,r=1$ の交換子を直接計算できる。一般のモードについては、標準的なSugawara計算の結果
 
 $$
 \\boxed{
@@ -1700,7 +1723,7 @@ $$
 \\tag{Sugawara-key}
 $$
 
-を第3章の式 (3.7) から採用する。上の計算は $n=0,r=1$ の場合であり、中心項からの $k$ と非可換交換子からの $2$ をそれぞれ示した。
+を第3章の式 (3.7) から採用する。係数の $k$ はcurrent交換子の中心項、$2$ は $SU(2)$ の非可換交換子から来る。
 
 一般の単純Lie代数 $\\mathfrak g$ では、この $2$ の代わりに双対Coxeter数 $h^\\vee$ が現れる：
 
@@ -1783,7 +1806,13 @@ L_n
 }.
 $$
 
-同じ交換関係をもう一度使って $[L_n,L_m]$ を計算すると、Virasoro代数の中心電荷は
+ここで用いるSugawara定理は、単純Lie代数の正整数レベルのカレント代数に対し、式 (6.6) が
+
+$$
+[L_n,L_m]=(n-m)L_{n+m}+\\frac{c}{12}(n^3-n)\\delta_{n+m,0}
+$$
+
+というVirasoro代数を満たすことを保証する（原著式 (3.7)、(6.6)）。この閉性が、カレント代数から共形対称性を得るための外部入力である。その中心電荷は
 
 $$
 \\boxed{
@@ -1859,7 +1888,15 @@ $$
 
 である。
 
-基底状態のエネルギーには零モードのCasimirだけが寄与する。
+式 (6.6) の $L_0$ でnormal orderingした正モードは右端で基底状態を消す。従って残るのは零モードのCasimirだけであり、
+
+$$
+L_0\\big|_{\\mathrm{ground}}
+=\\frac1{k+2}\\left[(J_0^0)^2+\\frac12(J_0^+J_0^-+J_0^-J_0^+)\\right]
+=\\frac{j(j+1)}{k+2}\\mathbf1
+$$
+
+となる。角括弧は通常のスピン $j$ 表現の二次Casimirである。
 
 <details>
 <summary>基底状態のウェイトが $j(j+1)/(k+2)$ になる理由</summary>
@@ -1932,45 +1969,61 @@ $$
 
 スピン $j$ の基底状態から、負のカレントモードで全ての励起を作った状態空間を $\\mathcal V_j$ と書く。この段階では、SU(2)の零モードの関係とカレントの交換関係だけを使っている。そのままで確率解釈のできる内積を持つかを調べよう。
 
-最初に調べる励起として $J_{-1}^+|j;j\\rangle$ を選ぶ。これは最も高いスピン成分へ、エネルギーを1、$J_0^0$ 固有値を1だけ増やすカレントを加えた状態である。そのノルムを求めるには、随伴演算子 $J_1^-$ との交換子を使う。この二つを閉じた代数にするため、三つの演算子を
+最初に調べる励起として $J_{-1}^+|j;j\\rangle$ を選ぶ。$[L_0,J_{-1}^+]=J_{-1}^+$ と $[J_0^0,J_{-1}^+]=J_{-1}^+$ により、エネルギーと磁気量子数をともに1だけ増やす状態である。ユニタリーな表現では $(J_n^+)^\\dagger=J_{-n}^-$ なので、そのノルムは
 
 $$
-\\boxed{
+\\begin{aligned}
+\\|J_{-1}^+|j;j\\rangle\\|^2
+&=\\langle j;j|J_1^-J_{-1}^+|j;j\\rangle\\\\
+&=\\langle j;j|[J_1^-,J_{-1}^+]|j;j\\rangle\\\\
+&=(k-2j)\\||j;j\\rangle\\|^2.
+\\end{aligned}
+$$
+
+二行目では $J_1^-|j;j\\rangle=0$、三行目では $[J_1^-,J_{-1}^+]=k-2J_0^0$ を使った。基底状態のノルムを正に取ると、$j>k/2$ ではこの一状態が負ノルムになり、直ちに排除される。
+
+残る $j\\leq k/2$ で同じ励起を繰り返すと、どこで新しい関係が生じるか。繰り返す演算子を
+
+$$
 E:=J_{-1}^+,
 \\qquad
 F:=J_1^-,
-\\qquad
-H:=J_0^0-\\frac{k}{2}
-}
+\\qquad E^\\dagger=F
 $$
 
-と定める。
+と置く。交換子 $[E,F]=2J_0^0-k$ に現れる零モードのずれを
+
+$$
+H_{\\mathrm{aff}}:=J_0^0-\\frac{k}{2}
+$$
+
+と書けば、三つの演算子だけで交換関係が閉じる。
 
 <details>
-<summary>$E,F,H$ が角運動量と同じ交換関係を満たす理由</summary>
+<summary>$E,F,H_{\\mathrm{aff}}$ が角運動量と同じ交換関係を満たす理由</summary>
 
 (affine-su2) から
 
 $$
 \\begin{aligned}
-[H,E]
+[H_{\\mathrm{aff}},E]
 &=[J_0^0,J_{-1}^+]
 =J_{-1}^+
 =E,\\\\
-[H,F]
+[H_{\\mathrm{aff}},F]
 &=[J_0^0,J_1^-]
 =-J_1^-
 =-F,\\\\
 [E,F]
 &=[J_{-1}^+,J_1^-]\\\\
 &=2J_0^0-k\\\\
-&=2H.
+&=2H_{\\mathrm{aff}}.
 \\end{aligned}
 $$
 
 </details>
 
-したがって $E,F,H$ は $[H,E]=E$、$[H,F]=-F$、$[E,F]=2H$ を満たす。これは通常の角運動量の上昇・下降演算子と同じ形の代数であり、複素化して $\\mathfrak{sl}_2$ と呼ぶ。中心項 $-k$ が $H=J_0^0-k/2$ というずれを生むため、この組のノルム条件にはレベルが現れる。
+したがって $E,F,H_{\\mathrm{aff}}$ は $[H_{\\mathrm{aff}},E]=E$、$[H_{\\mathrm{aff}},F]=-F$、$[E,F]=2H_{\\mathrm{aff}}$ を満たす。これは通常の角運動量の上昇・下降演算子と同じ形の代数であり、複素化して $\\mathfrak{sl}_2$ と呼ぶ。中心項 $-k$ が $H_{\\mathrm{aff}}=J_0^0-k/2$ というずれを生むため、この組のノルム条件にはレベルが現れる。
 
 <details>
 <summary>状態空間 $\\mathcal V_j$ とVerma加群の関係</summary>
@@ -1990,7 +2043,7 @@ $$
 また
 
 $$
-H|j;j\\rangle
+H_{\\mathrm{aff}}|j;j\\rangle
 =\\left(j-\\frac{k}{2}\\right)|j;j\\rangle.
 $$
 
@@ -2003,7 +2056,7 @@ $$
 と置けば
 
 $$
-H|j;j\\rangle=-\\frac{N}{2}|j;j\\rangle.
+H_{\\mathrm{aff}}|j;j\\rangle=-\\frac{N}{2}|j;j\\rangle.
 $$
 
 ユニタリー表現では
@@ -2036,39 +2089,39 @@ $$
 <details>
 <summary>交換子を $r$ 回展開し、ノルム漸化式を導く</summary>
 
-そのノルムを求めるため、まず $F E^r|j;j\\rangle$ を計算する。$[F,E]=-2H$ より
+そのノルムを求めるため、まず $F E^r|j;j\\rangle$ を計算する。$[F,E]=-2H_{\\mathrm{aff}}$ より
 
 $$
 \\begin{aligned}
 [F,E^r]
 &=\\sum_{s=0}^{r-1}E^s[F,E]E^{r-1-s}\\\\
-&=-2\\sum_{s=0}^{r-1}E^sHE^{r-1-s}.
+&=-2\\sum_{s=0}^{r-1}E^sH_{\\mathrm{aff}}E^{r-1-s}.
 \\end{aligned}
 $$
 
-$[H,E]=E$ から
+$[H_{\\mathrm{aff}},E]=E$ から
 
 $$
-HE^q=E^q(H+q)
+H_{\\mathrm{aff}}E^q=E^q(H_{\\mathrm{aff}}+q)
 $$
 
 \`\`\`math-hint
-$[H,E]=E$ は $HE=E(H+1)$ と同じ式。$E$ を一つ通過するごとに $1$ が加わる。
+$[H_{\\mathrm{aff}},E]=E$ は $H_{\\mathrm{aff}}E=E(H_{\\mathrm{aff}}+1)$ と同じ式。$E$ を一つ通過するごとに $1$ が加わる。
 
 $$
-HE^2=E(H+1)E=E^2(H+2),\\qquad
-HE^{q+1}=E^q(H+q)E=E^{q+1}(H+q+1).
+H_{\\mathrm{aff}}E^2=E(H_{\\mathrm{aff}}+1)E=E^2(H_{\\mathrm{aff}}+2),\\qquad
+H_{\\mathrm{aff}}E^{q+1}=E^q(H_{\\mathrm{aff}}+q)E=E^{q+1}(H_{\\mathrm{aff}}+q+1).
 $$
 \`\`\`
 
-なので、$H|j;j\\rangle=-\\tfrac N2|j;j\\rangle$ を使うと
+なので、$H_{\\mathrm{aff}}|j;j\\rangle=-\\tfrac N2|j;j\\rangle$ を使うと
 
 $$
 \\begin{aligned}
-E^sHE^{r-1-s}|j;j\\rangle
+E^sH_{\\mathrm{aff}}E^{r-1-s}|j;j\\rangle
 &=
 E^{r-1}
-\\left(H+r-1-s\\right)|j;j\\rangle\\\\
+\\left(H_{\\mathrm{aff}}+r-1-s\\right)|j;j\\rangle\\\\
 &=
 \\left(
 -\\frac{N}{2}+r-1-s
@@ -2172,28 +2225,13 @@ $r=0$ の空積は1とする。$N$ が非負整数なら $r\\leq N$ では $r!N!
 
 #### スピンの上限と零ノルム状態
 
-もし
-
-$$
-j>\\frac{k}{2},
-$$
-
-なら $N=k-2j<0$ である。$r=1$ を (norm-recursion) に代入すると
-
-$$
-\\lVert E|j;j\\rangle\\rVert^2
-=N\\lVert|j;j\\rangle\\rVert^2<0.
-$$
-
-したがって $j>k/2$ のVerma加群は負ノルム状態を含み、ユニタリーな量子論の状態空間にはできない。
-
-一方
+一励起のノルムから得た必要条件を満たす場合、すなわち
 
 $$
 0\\leq j\\leq\\frac{k}{2}
 $$
 
-なら、Wess–Zumino汎関数の一価性から $k\\in\\mathbb Z$ であり、さらにユニタリーな正エネルギーWZW模型では $k>0$ を選ぶ。また通常の $SU(2)$ 表現では $2j\\in\\mathbb Z_{\\geq0}$ である。したがって $N=k-2j$ は非負整数である。$1\\leq r\\leq N$ では
+を考える。Wess–Zumino汎関数の一価性から $k\\in\\mathbb Z$ であり、さらにユニタリーな正エネルギーWZW模型では $k>0$ を選ぶ。また通常の $SU(2)$ 表現では $2j\\in\\mathbb Z_{\\geq0}$ である。したがって $N=k-2j$ は非負整数である。$1\\leq r\\leq N$ では
 
 $$
 r(N-r+1)>0,
@@ -2218,7 +2256,7 @@ $$
 
 は零ノルム状態である。
 
-この零ノルム状態は、全正モードと零モード上昇演算子に消される新しい最高ウェイト状態でもある。
+この零ノルム状態は、新しい最高ウェイト状態でもある。まず $J_0^+$ と全 $J_n^+$ は $E=J_{-1}^+$ と可換であり、元の基底状態を消す。$J_n^0$（$n>0$）を $E$ のべきへ通すと $J_{n-1}^+$ が出るので、これも基底状態を消す。$J_n^-$（$n\\geq2$）の場合は $J_{n-1}^0$ と $J_{n-2}^+$ だけが残り、同様に零になる。残る $J_1^-=F$ は、既出の漸化式の係数 $(N+1)(N-(N+1)+1)=0$ により消す。従って、全正モードと零モード上昇演算子に消される。
 
 <details>
 <summary>零ノルム状態が全ての最高ウェイト条件を満たすことを確かめる</summary>
@@ -2274,11 +2312,11 @@ $$
 
 </details>
 
-量子状態として長さが零になるベクトルは、物理的な状態を数えるときに零と同一視する必要がある。さらに、零とした状態にカレントを作用させた結果も零でなければ、演算子の作用が一意に定まらない。そのため $\\psi_{\\mathrm{sing}}^j$ だけでなく、そこから全てのカレントで作る状態の集合 $\\mathcal N_j$ をまとめて除く。これが不変部分加群である。
+正定値の状態空間を作るには、この零ノルム状態を零と同一視する必要がある。零とした状態にカレントを作用させた結果も零でなければ、代表元の選び方で演算子の作用が変わってしまう。そのため $\\psi_{\\mathrm{sing}}^j$ だけでなく、そこから全てのカレントで作る状態の線形空間 $\\mathcal N_j$ をまとめて除く。これが不変部分加群である。
 
 具体的には、$\\psi_{\\mathrm{sing}}^j$ へ $J_0^-$ と全負モードを繰り返し作用させた状態の線形結合全体を $\\mathcal N_j$ とする。負モードはエネルギーを上げ、$J_0^-$ は同じエネルギーの別のスピン成分を作る。こうして、その零ノルム状態から作る励起を一緒に除く。
 
-正整数 $k$ と $0\\leq j\\leq k/2$ に対する可積分最高ウェイト表現の分類定理は、この $\\mathcal N_j$ が全状態と内積ゼロになる部分を尽くし、それを除いた空間の内積が正定値になることを保証する。この定理を使って、物理的な既約表現を
+正整数 $k$ と半整数 $0\\leq j\\leq k/2$ に対する可積分最高ウェイト表現の分類定理は、この $\\mathcal N_j$ が全状態と内積ゼロになる部分を尽くし、それを除いた空間が既約で正定値の内積を持つことを保証する（原著 §6.1.2, p.239）。これは一本の励起鎖の計算を、全負モードを含む状態空間へ拡張するための外部入力である。この定理を使って、物理的な既約表現を
 
 $$
 \\boxed{
@@ -2520,6 +2558,61 @@ $$
 
 </details>
 
+<details id="note-character-closed-forms">
+<summary>参照用データ：零ノルム状態を除いて数えるcharacterの閉形式 (6.8), (6.10)</summary>
+
+characterの閉形式には、負モードで作る候補から零ノルム部分加群を除く効果が含まれる。以下はWeyl–Kac character公式をSU(2)へ適用した表現論データとして採用する（原著 p.239, 式 (6.8), (6.10)）。この無限和の機械的評価を、状態を構成した計算そのものとは区別する。
+
+まず、電荷付きの式に使うtheta関数を定める。正整数 $K$ に対し、整数ラベル $\\ell$ の関数を
+
+$$
+\\Theta_\\ell^{(K)}(z,\\tau,u)
+:=e^{-2\\pi iKu}\\sum_{r\\in\\mathbb Z+\\ell/(2K)}
+q^{Kr^2}e^{-2\\pi i\\sqrt2Krz},
+\\qquad q=e^{2\\pi i\\tau}
+$$
+
+とする。$r$ は整数格子を $\\ell/(2K)$ だけ移した和の変数である。電荷を数える $z$ は、このノートの $J_0^3=\\sqrt2J_0^0$ に結合する。従って原著Appendix Aで $J_0^0$ の磁気量子数に結合するtheta変数を、ここでは $\\sqrt2z$ に置き換えた。補助変数 $u$ は全状態に共通するレベルの因子を記録する。
+
+この規約で式 (6.8) は
+
+$$
+\\chi_j(z,\\tau,u)
+=e^{-2\\pi iku}\\operatorname{Tr}_{\\mathcal H_j}
+\\left(q^{L_0-c/24}e^{-2\\pi izJ_0^3}\\right)
+=\\frac{\\Theta_{2j+1}^{(k+2)}-\\Theta_{-2j-1}^{(k+2)}}
+{\\Theta_1^{(2)}-\\Theta_{-1}^{(2)}}(z,\\tau,u).
+\\tag{6.8}
+$$
+
+比の先頭の電荷依存性は $\\sin[\\pi\\sqrt2(2j+1)z]/\\sin(\\pi\\sqrt2z)=\\sum_{m=-j}^j e^{-2\\pi i\\sqrt2 mz}$ であり、零モードのスピン多重項と一致する。高次の $q$ 係数には励起と零ノルム状態の除去が含まれる。
+
+電荷を記録しない式は、補助変数 $u=0$ にし、$z\\to0$ の極限を取って得る。このとき分子・分母はともに零になるが、一階の微分の比は有限である。Dedekind関数を
+
+$$
+\\eta(q)=q^{1/24}\\prod_{n=1}^{\\infty}(1-q^n)
+$$
+
+とし、和に現れる整数を $N_j(m):=2(k+2)m+2j+1$ と書くと、原著の式 (6.10) は
+
+$$
+\\boxed{\\chi_j(\\tau)=\\frac1{\\eta(q)^3}
+\\sum_{m\\in\\mathbb Z}N_j(m)q^{N_j(m)^2/[4(k+2)]}}
+\\tag{6.10}
+$$
+
+である。$N_j(m)$ は各項の係数と指数を決める整数であり、本文の励起gradeとは別の量である。$m=0$ の項と $\\eta(q)^{-3}$ の先頭を合わせた指数は
+
+$$
+\\frac{(2j+1)^2}{4(k+2)}-\\frac18
+=\\frac{j(j+1)}{k+2}-\\frac{3k}{24(k+2)}
+=h_j-\\frac c{24},
+$$
+
+係数は $2j+1$ になる。したがって、本文で基底状態を数えて得た先頭項を再現する。無限和には符号の異なる項もあるが、候補から零ノルム状態を引いた結果のcharacter係数 $d_j(N)$ は非負整数である。
+
+</details>
+
 #### トーラスの周期交換とmodular $S$
 
 トーラスには、複素平面上の移動
@@ -2634,7 +2727,14 @@ $$
 
 は、両端 $a=0,k+2$ で零になる離散正弦波を並べた行列である。
 
-これらの波は互いに直交する。係数 $\\sqrt{2/(k+2)}$ で長さを1にそろえているので
+これらの波の内積は
+
+$$
+\\sum_{b=1}^{k+1}\\sin\\frac{\\pi ab}{k+2}\\sin\\frac{\\pi a'b}{k+2}
+=\\frac{k+2}{2}\\delta_{aa'}
+$$
+
+である。正弦の積を二つの余弦の差に直し、それぞれを有限等比級数で足すとこの値になる。従って異なる波は直交し、係数 $\\sqrt{2/(k+2)}$ で各波の長さを1にそろえると
 
 $$
 S^{\\mathsf T}S=\\mathbf1.
@@ -2703,6 +2803,8 @@ S^2=\\mathbf1
 $$
 
 となる。
+
+共役表現とは、群の変換行列を複素共役した変換則である。SU(2)の有限次元既約表現は次元 $2j+1$ ごとに一種類なので、複素共役しても同じスピン $j$ になる。アフィン表現も、その零モード多重項を出発点に同じカレントで生成されるので、共役sectorのラベルは $j^+=j$ である。この自己共役性は、一般のmodular関係 $S^2=C$ の共役行列 $C$ がここでは単位行列であることに対応する。
 
 $k=2$ でラベルを $0,\\frac12,1$ の順に並べると
 
@@ -2842,9 +2944,7 @@ $$
 
 </details>
 
-Verlinde公式を行列として読むと、$S$ の各列がすべてのfusion行列に共通する固有ベクトルになり、その固有値は $S_{i\\ell}/S_{0\\ell}$ になる。
-
-式で書けば
+Verlinde公式の和を三つの行列の積として読む。$S_{i\\ell}/S_{0\\ell}$ を対角成分に置くと
 
 $$
 \\boxed{
@@ -2941,7 +3041,22 @@ $$
 
 ラベルを $0\\longleftrightarrow\\frac12\\longleftrightarrow1$ と並べた鎖の、隣への移動を表している。中央の $\\frac12$ からは両隣へ進めるが、両端からは中央へしか進めない。この端の存在が、通常の角運動量の合成との違いを生む。まず、この鎖が先ほどの $S$ 行列とどう結び付くかを一般の $k$ で確かめる。
 
-式 (6.9) の正弦の倍角公式により、$N_{\\frac12}$ の固有値は $2\\cos[\\pi(2\\ell+1)/(k+2)]$ となる。有限鎖の隣接行列 $A$ も同じ正弦波を固有ベクトルとし、同じ固有値を持つ。すべての列で一致するため $N_{\\frac12}=A$ である。
+一般の $k$ でも、Verlinde公式による固有値は正弦の倍角公式から
+
+$$
+\\frac{S_{\\frac12,\\ell}}{S_{0\\ell}}
+=\\frac{\\sin[2\\pi(2\\ell+1)/(k+2)]}{\\sin[\\pi(2\\ell+1)/(k+2)]}
+=2\\cos\\frac{\\pi(2\\ell+1)}{k+2}
+$$
+
+となる。一方、許容ラベルの両隣だけを1で結ぶ行列 $A$ を $A_j{}^r=1$（$|j-r|=1/2$）、それ以外は0と定める。この $A$ は状態間の接続を数える行列であり、前のMaurer–Cartan 1形式とは別の量である。正弦の加法定理によって
+
+$$
+(AS)_{j\\ell}=S_{j-\\frac12,\\ell}+S_{j+\\frac12,\\ell}
+=2\\cos\\frac{\\pi(2\\ell+1)}{k+2}\\,S_{j\\ell}
+$$
+
+が成り立つ。許容区間の外では $S_{-1/2,\\ell}=0$、$S_{(k+1)/2,\\ell}=0$ なので、この等式は両端でも成立する。従って $A$ と $N_{1/2}$ は、可逆な $S$ のすべての列で同じ固有値を持つ。$AS=N_{1/2}S$ の右から $S^{-1}$ を掛けると $A=N_{1/2}$ を得る。
 
 <details>
 <summary>基本表現とのfusionが、有限鎖の隣接行列になる理由</summary>
@@ -3247,89 +3362,82 @@ $$
 
 <!-- reference: fusing-matrix -->
 
-fusion係数が教えるのは、二つの表現からどの中間表現へ進めるかである。場を三つ以上結合すると、どの二つを先に結合するかという別の選択が生じる。最終的な相関関数はその選択に依らないはずだが、途中に使う基底は変わる。この基底変換を記録するために $F$ を導入する。
+fusion係数は、二つの表現からどの表現へ結べるかを数える。三つを結ぶ場合、最初の二つを先に結ぶ方法と、後ろの二つを先に結ぶ方法がある。同じ相関関数をどちらの順序でも計算するには、途中の表現を指定して選んだ二組の基底を対応させる必要がある。この対応を記録する行列がfusing行列 $F$ である。
 
 <!-- /reference -->
-
-
 
 <!-- reference: conformal-block -->
 
-$N_{ij}{}^r\\ne0$ のとき、chiral vertex operator（CVO）は、表現 $i$ に属するchiral場の挿入によって、$\\mathcal H_j$ の状態を $\\mathcal H_r$ へ移すintertwinerである。記号では
+$N_{ij}{}^r\\ne0$ のとき、chiral vertex operator（CVO）は、表現 $i$ の場の挿入によって、$\\mathcal H_j$ の状態を $\\mathcal H_r$ へ移す写像である：
 
 $$
 \\phi^i_{rj}(v;z):\\mathcal H_j\\longrightarrow\\mathcal H_r,
-\\qquad v\\in\\mathcal H_i,
+\\qquad v\\in\\mathcal H_i.
 $$
 
-と書く。ここでintertwinerとは、入力状態・挿入する場・出力状態に対するcurrentの作用が、Ward恒等式に従って両立する写像をいう。CVOを連結し、途中の表現を指定して得る相関関数の正則部分をconformal blockと呼ぶ。各blockは一つの中間channelの寄与であり、それらと反正則側のblockを組み合わせて物理的なbulk相関関数を作る。
+この写像は、入力状態・挿入する場・出力状態に対するカレントの作用をWard恒等式に従って両立させる。その意味でintertwinerと呼ぶ。CVOは左右を組み合わせる前の補助演算子であり、それだけで物理的な局所場ではない。CVOを連結して両端の状態との行列要素を取ると、局所的に正則な相関関数の一つの解ができる。途中に通る表現を指定して得るこの解がconformal blockである。blockを反正則側のblockと組み合わせて、一価な物理的bulk相関関数を作る。
 
 <!-- /reference -->
 
+括り方を具体化する。最初の二つの表現ラベルを $I,J$ と書く。$I\\star J$ のfusion則が、この二つを結ぶ途中の候補を与える。
 
+その候補から一つの表現 $P$ を選ぶ。$I\\star J\\to P$ と書けば、$P$ は最初の結合が通る中間表現である。
 
-四点blockを、一つのOPE順序に適した基底 $\\mathcal F_P^{(s)}$ と、別のOPE順序に適した基底 $\\mathcal F_Q^{(t)}$ で書けば、定義により
+これに三つ目の表現 $K$ を結合し、最終的な表現を $L$ とする。これが $((I\\star J)_P\\star K)_L$ という順序である。
 
-$$
-\\boxed{
-\\mathcal F_P^{(s)}(x)
-=
-\\sum_Q
-F_{PQ}
-\\begin{bmatrix}
-J&K\\\\ I&L
-\\end{bmatrix}
-\\mathcal F_Q^{(t)}(x)
-}
-$$
-
-となる。$I,J,K,L$ は挿入する四つの場の表現、$P,Q$ は二つの括り方での中間表現である。$x$ は四つの挿入点の相対配置を表す交差比で、三点を $0,1,\\infty$ に置けば残る点の座標になる。$F$ は $x$ に依存しない。同じ相関関数の空間に対し、異なる中間channelを使って選んだ二組の基底の対応を表すからである。その定数性を微分方程式から確かめる計算は次の補足に置く。
-
-具体例として、レベル $k=2$ で四つの外線を $I=J=K=L=\\frac12$ に取り、全体をvacuumへ閉じる四点blockを考える。最初の二つを結合する基底では
-
-$$
-\\frac12\\star\\frac12=0\\oplus1
-$$
-
-なので、中間表現は $P=0,1$ の二通りである。二番目と三番目を先に結合する基底でも $Q=0,1$ の二通りがある。第四のスピンも $\\frac12$ なので、最初の三つを結合した最終表現も $L=\\frac12$ であり、これと第四の外線を結合してvacuumを作る。この二つの基底は
+もう一方では $J\\star K$ を先に結び、その途中の表現を $Q$ とする。同じ外線と最終表現を保った二つの順序は
 
 $$
 \\bigl((I\\star J)_P\\star K\\bigr)_L
 \\quad\\xleftrightarrow{\\ F\\ }\\quad
-\\bigl(I\\star(J\\star K)_Q\\bigr)_L
+\\bigl(I\\star(J\\star K)_Q\\bigr)_L.
 \\tag{two-bracketings}
 $$
 
-で結ばれる。したがって $F$ は別の相関関数を作る係数ではなく、同じ四点block空間で中間channelの基底を取り替える行列である。
+この二つの木が許される条件を並べると、$F$ の各添字がどの結合に属するか分かる。
+
+| 中間表現 | 先に行う結合 | 次に行う結合 |
+|---|---|---|
+| $P$ | $I\\star J\\to P$ | $P\\star K\\to L$ |
+| $Q$ | $J\\star K\\to Q$ | $I\\star Q\\to L$ |
+
+各行の二つのfusion係数がともに1である表現だけを、blockの基底に使う。SU(2)の表現は自己共役なので、最後の表現 $L$ を第四の外線 $L$ と結んで真空へ閉じると、これを四点blockとして表せる。
+
+外線 $I,J,K,L$ の挿入点をそれぞれ $0,x,1,\\infty$ に置くと、交差比 $x$ が残る。この配置で、$P$ を使う解の基底を $\\mathcal F_P^{(s)}(x)$、$Q$ を使う解の基底を $\\mathcal F_Q^{(t)}(x)$ と書く。上の表で固定した外線順序に対し、定義は
+
+$$
+\\boxed{
+\\mathcal F_P^{(s)}(x)
+=\\sum_QF_{PQ}\\begin{bmatrix}J&K\\\\ I&L\\end{bmatrix}
+\\mathcal F_Q^{(t)}(x)
+}.
+$$
+
+$P,Q$ は基底を数える添字であり、$I,J,K,L$ は変換中に固定する外線の表現である。$F$ は挿入点を動かす演算子ではなく、同じ解の空間で基底を取り替える定数行列である。解析接続の経路とCVOの規格化を固定することを含めて、この定義を使う。
+
+例えば $k=2$ で四つの外線をすべてスピン $1/2$ にすると、$1/2\\star1/2=0\\oplus1$ なので $P,Q$ はそれぞれ $0,1$ の二通りである。どちらも残るスピン $1/2$ と結んで最終表現 $L=1/2$ にでき、四点blockの空間は二次元になる。従ってこの場合の $F$ は二つの中間channelを混ぜる $2\\times2$ 行列になる。
+
+ここでは、三点の結合を直交した角運動量の結合に対応させるrecoupling規格化を使う。原著の式 (6.12) は外線配列・次元因子に注意を要するため、下の閉形式では上の表と整合する配置を明記する。境界OPEへ同じ $F$ を使う場合も、境界場の規格化をこのCVO規格化とそろえる。
 
 <details>
-<summary>計算：blockとCVOの規格化を変えると $F$ はどう変わるか</summary>
+<summary>blockとCVOの規格化を変えると $F$ はどう変わるか</summary>
 
-新しい基底を $\\mathcal F_P^{\\prime(s)}=a_P\\mathcal F_P^{(s)}$、$\\mathcal F_Q^{\\prime(t)}=b_Q\\mathcal F_Q^{(t)}$ とする。基底であり続けるため、$a_P,b_Q$ は零でない定数とする。定義式の右辺を新しい基底に書き直すと
+基底を $\\mathcal F_P^{\\prime(s)}=a_P\\mathcal F_P^{(s)}$、$\\mathcal F_Q^{\\prime(t)}=b_Q\\mathcal F_Q^{(t)}$ と非零定数倍すると
 
 $$
-\\begin{aligned}
 \\mathcal F_P^{\\prime(s)}
-&=a_P\\mathcal F_P^{(s)}
-=a_P\\sum_QF_{PQ}\\mathcal F_Q^{(t)}\\\\
-&=\\sum_Qa_PF_{PQ}b_Q^{-1}\\mathcal F_Q^{\\prime(t)}.
-\\end{aligned}
+=\\sum_Qa_PF_{PQ}b_Q^{-1}\\mathcal F_Q^{\\prime(t)},
+\\qquad F'_{PQ}=a_Pb_Q^{-1}F_{PQ}.
 $$
 
-従って、新しい基底での係数は
-
-$$
-\\boxed{F'_{PQ}=a_Pb_Q^{-1}F_{PQ}}.
-$$
-
-二つのCVOをつないで作るblockなら、この $a_P,b_Q$ は各三点結合の規格化の積である。例えば $(I\\star J)\\star K\\to L$ の順序で、結合 $a\\star b\\to c$ のCVOを $\\gamma_{ab}^{c}$ 倍すると
+結合 $i\\star j\\to r$ のCVOを $\\gamma_{ij}^{r}$ 倍する場合、表の各行には二つの結合があるので
 
 $$
 a_P=\\gamma_{IJ}^{P}\\gamma_{PK}^{L},\\qquad
-b_Q=\\gamma_{JK}^{Q}\\gamma_{IQ}^{L}.
+b_Q=\\gamma_{JK}^{Q}\\gamma_{IQ}^{L},
 $$
 
-この例の外線の並べ方で、変換係数は
+従って
 
 $$
 F'_{PQ}
@@ -3337,29 +3445,41 @@ F'_{PQ}
 {\\gamma_{JK}^{Q}\\gamma_{IQ}^{L}}F_{PQ}
 $$
 
-となる。式 (6.12) の四角い配列へ代入する際は、その配列が指定する三点結合の順序にも合わせる。
-
-相関関数の正則部分を $\\sum_Pc_P\\mathcal F_P^{(s)}$ と書いていたなら、同じ関数は $\\sum_P(c_P/a_P)\\mathcal F_P^{\\prime(s)}$ である。blockの変更と逆向きに係数が変わるので、組み立てた相関関数は変わらない。$F$ をOPE係数に使うときには、両方の規格化をそろえる必要がある。
+となる。これが原著 p.241 のCVO再規格化則である。相関関数を $\\sum_Pc_P\\mathcal F_P^{(s)}$ と書いていたなら、新しい基底では係数が $c_P/a_P$ になるため、物理的な相関関数は変わらない。数値としての $F$ やOPE係数を比較するときに、規格化を一致させる必要がある理由はこの逆向きの変換である。
 
 </details>
 
 <details>
-<summary>fusing行列 $F$ が挿入点の位置に依存しない理由</summary>
+<summary>Sugawara構成からKZ方程式を得て、$F$ の定数性を確かめる</summary>
 
-Knizhnik--Zamolodchikov（KZ）方程式は、Sugawara構成とcurrentのWard恒等式から得られる一次連立微分方程式である。各挿入点 $z_i$ について、異なる挿入 $i,j$ に作用する生成子の不変縮約を $(z_i-z_j)^{-1}$ とともに足したものが接続行列になる。生成子と不変双線形形式を固定すると、その規格化も定まる。
-
-四点関数の交差比を $x$ とし、その方程式を $dY/dx=M(x)Y$ と略記する。ここで $Y$ は独立解を列に並べた正方行列である。特異点を避け、解析接続の経路を固定した領域で二つの基本解行列 $Y_s,Y_t$ を選ぶと
+カレント代数の一次場 $v_i$ の挿入に対し、$J_n^a|v_i\\rangle=0$（$n>0$）である。式 (6.6) の $L_{-1}$ では、一次場上で $J_{-1}^aJ_0^a$ だけが残るので
 
 $$
-\\begin{aligned}
+L_{-1}|v_i\\rangle
+=\\frac1{k+2}\\sum_aJ_{-1}^aJ_0^a|v_i\\rangle.
+$$
+
+$L_{-1}$ の挿入は $z_i$ の微分であり、$J_0^a$ は有限次元スピン表現の生成子 $t_a^{(i)}$ として作用する。$J_{-1}^a$ の輪郭を他の挿入点へ動かし、current Ward恒等式を使うと
+
+$$
+\\boxed{
+\\partial_{z_i}\\mathcal F(\\boldsymbol z)
+=\\frac1{k+2}\\sum_{j\\ne i}
+\\frac{\\sum_a t_a^{(i)}t_a^{(j)}}{z_i-z_j}
+\\mathcal F(\\boldsymbol z)
+}.
+$$
+
+これがこのノートの $\\operatorname{tr}(t_at_b)=\\delta_{ab}$ 規約でのKnizhnik–Zamolodchikov（KZ）方程式である。分子の二つの生成子は異なる挿入 $i,j$ に作用する。原著 p.240 の分子は同じ挿入の添字を二度印刷しているが、Ward恒等式から得るのは上の不変縮約である。係数はこの基底で $1/(k+2)$ であり、$t_a=\\sigma_a/2$ の角運動量基底なら $2/(k+2)$ になる。
+
+四点では、この連立方程式を交差比 $x$ の一次方程式 $dY/dx=M(x)Y$ にまとめられる。独立解を列に並べた正方行列を $Y$ とする。特異点を避け、解析接続の経路を固定した領域で二組の基本解 $Y_s,Y_t$ を選ぶと
+
+$$
 \\frac{d}{dx}(Y_t^{-1}Y_s)
-&=-Y_t^{-1}\\frac{dY_t}{dx}Y_t^{-1}Y_s
-+Y_t^{-1}\\frac{dY_s}{dx}\\\\
-&=-Y_t^{-1}M Y_s+Y_t^{-1}M Y_s=0.
-\\end{aligned}
+=-Y_t^{-1}MY_s+Y_t^{-1}MY_s=0.
 $$
 
-従って解の基底間の係数は定数になる。成分を本文の規約で並べたものが $F$ である。定数であることの証明と、その各成分の閉形式を求める問題は分かれており、後者には解の漸近条件とCVOの規格化が必要になる。以下では括り替え行列としての定義を用いる。閉形式を数値評価する際には、外線・中間辺の配置とCVOの規格化を同時に合わせる必要がある。
+従って基底変換の係数は定数である。その成分の閉形式を求めるには、さらに解の漸近条件とCVO規格化が必要になる。
 
 </details>
 
@@ -3367,57 +3487,100 @@ $$
 
 <!-- reference: fusing-classical-limit -->
 
-有限levelではfusionに上限があるため、fusing行列は通常の角運動量の係数と異なる。その係数を与えるのが量子変形された $6j$ symbolである。変形の大きさは、通常の整数を置き換える正弦比
+通常の角運動量でも、三つのスピンを結ぶ二つの順序の間には基底変換があり、その係数はWignerの $6j$ symbolで表される。有限レベルのWZW模型では、許される三点結合をfusion則で制限した上で、その係数を量子変形する。変形に使う整数の置き換えは
 
 $$
 [n]_k:=\\frac{\\sin(\\pi n/(k+2))}{\\sin(\\pi/(k+2))}
 $$
 
-に現れる。一般係数の閉形式は原著の式 (6.12) にある。ここでは、$F$ が同じblockを異なる結合順序で表す行列であることと、その古典極限を使う。
+である。量子 $6j$ symbolは、量子階乗 $[m]_k!:=\\prod_{n=1}^m[n]_k$ の有限個の積・比・平方根と、それらの有限和から作られる。和の範囲と階乗の引数は六つのスピンで決まり、その値から $F$ を計算できる。完全な式は下の補足に置く。
 
-レベルを大きくすると、有限鎖の右端は遠ざかる。手元のスピンラベルを固定していれば、やがてその合成は上端の影響を受けなくなるはずである。括り替え係数でも同じことが起こるかを確かめよう。スピンラベルを固定して $k\\to\\infty$ とすると
-
-$$
-[n]_k\\longrightarrow n,
-$$
-
-固定ラベルではレベル壁の制限もなくなり、適切に規格化と添字配置をそろえた括り替え係数は、通常の角運動量の括り替えへ近づく。原著ではこの対応を
+スピンを固定して $k\\to\\infty$ とすると、fusion条件 $I+J+P\\leq k$ などはやがて自動的に満たされる。また各固定正整数 $n$ について $\\sin x/x\\to1$ より $[n]_k\\to n$ となる。固定スピンなら十分大きな $k$ で分母の階乗は零にならず、有限和の各項で極限を取れるため、量子 $6j$ は通常のWigner $6j$ へ戻る。上で選んだ直交recoupling規格化では
 
 $$
 \\boxed{
 \\lim_{k\\to\\infty}
-F_{PQ}
-\\begin{bmatrix}
-J&K\\\\ I&L
-\\end{bmatrix}
-=
-\\begin{Bmatrix}
-J&K&P\\\\ I&L&Q
-\\end{Bmatrix}_{\\mathfrak{su}(2)}
+F_{PQ}\\begin{bmatrix}J&K\\\\ I&L\\end{bmatrix}
+=(-1)^{I+J+K+L}\\sqrt{(2P+1)(2Q+1)}
+\\begin{Bmatrix}I&J&P\\\\ K&L&Q\\end{Bmatrix}_{\\mathrm{Wigner}}
 }
 \\tag{6.13}
 $$
 
-と表す。右辺は原著の規格化で表した、通常の $\\mathfrak{su}(2)$ の角運動量の括り替え係数である。$6j$ symbolには次元因子や位相を分離する規約もあるため、他の文献の数値を使う際は規格化を合わせる。有限 $k$ の $F$ は、その「角運動量の括り替え」にlevel truncationを織り込んで変形したものだと読める。
+となる。右辺全体が、通常の角運動量の括り替え行列の成分である。原著 (6.13) の「$6j$」はこの括り替え係数として読む。標準的なWigner $6j$ symbolだけとは位相・次元因子が異なるので、両者を同一視しない。
 
 <!-- /reference -->
 
-スピンも $k$ に比例して増やす場合は右端も観測するラベルも一緒に動くため、上端から十分離れるとは限らない。正弦の引数 $\\pi n/(k+2)$ も一般には零に近づかず、$[n]_k$ を $n$ で近似する根拠が失われる。大きな $k$ という条件に加え、何を固定するかが必要になる。
+スピンも $k$ に比例して増やす場合は、$\\pi n/(k+2)$ が小さくなるとは限らず、$[n]_k\\simeq n$ もレベル壁の消失も保証されない。式 (6.13) は固定スピンの極限である。
 
-<details>
-<summary>$k\\to\\infty$ の極限でスピンを固定する必要がある理由</summary>
+<details id="note-fusing-racah-data">
+<summary>参照用データ：表の結合順序にそろえた量子Racah和 (6.12)</summary>
 
-固定した正整数 $n$ では、$\\pi n/(k+2)$ と $\\pi/(k+2)$ がともに零へ近づく。$\\sin x/x\\to1$ を使うと
+この閉形式は、量子群の括り替えデータとして採用する。[Poilblanc et al., Appendix A.3, p.16](https://link.aps.org/accepted/10.1103/PhysRevB.87.085106) の直交recoupling規格化と同じ形である。原著 (6.12) の外線配置と一方の次元因子は、本文のCVO再規格化則および原著 (6.23) の結合条件と合わないため、ここでは結合表で定めた配置へそろえる。
+
+量子階乗と三角係数を
 
 $$
-[n]_k
-=\\frac{\\sin(\\pi n/(k+2))}{\\sin(\\pi/(k+2))}
-\\sim\\frac{\\pi n/(k+2)}{\\pi/(k+2)}=n.
+[n]_k!:=\\prod_{r=1}^{n}[r]_k,\\qquad [0]_k!=1,
 $$
 
-固定したスピンから作る括り替え係数では、このような有限個の因子が通常の角運動量の係数へ近づく。一方、スピンを $k$ に比例して増やすと $\\pi n/(k+2)$ が小さくならず、同じ近似は使えない。式 (6.13) は固定スピンでの極限として読む。
+$$
+\\Delta_k(a,b,c)
+:=\\sqrt{\\frac{[a+b-c]_k![b+c-a]_k![c+a-b]_k!}
+{[a+b+c+1]_k!}}
+$$
+
+と定める。三つのラベル $a,b,c$ は式 (6.11) のfusion条件を満たすものに限る。その条件で階乗の引数は非負整数になる。本文の外線順序に対する閉形式は
+
+$$
+\\begin{aligned}
+F_{PQ}\\begin{bmatrix}J&K\\\\ I&L\\end{bmatrix}
+={}&(-1)^{I+J+K+L}\\sqrt{[2P+1]_k[2Q+1]_k}\\\\
+&\\times\\Delta_k(I,J,P)\\Delta_k(K,L,P)
+\\Delta_k(J,K,Q)\\Delta_k(I,L,Q)\\\\
+&\\times\\sum_s\\frac{(-1)^s[s+1]_k!}
+{[s-I-J-P]_k![s-K-L-P]_k!}\\,\\\\
+&\\hspace{8mm}\\times
+\\frac1{[s-J-K-Q]_k![s-I-L-Q]_k!}\\\\
+&\\hspace{8mm}\\times
+\\frac1{[I+J+K+L-s]_k![I+K+P+Q-s]_k![J+L+P+Q-s]_k!}.
+\\end{aligned}
+\\tag{6.12}
+$$
+
+和は、七つの分母の引数がすべて非負整数になる整数 $s$ だけを走る有限和である。四つの $\\Delta_k$ が、本文の表の四つの結合に一対一に対応する。原著の印刷では $\\sqrt{[2P+1][Q+1]}$ とあるが、この直交規格化の次元因子は $\\sqrt{[2P+1]_k[2Q+1]_k}$ である。外線配列を変えた資料から転記するときは、三角係数を各結合へ戻して配置を確認する。
+
+量子 $6j$ symbolを、位相と次元因子を除いた「四つの $\\Delta_k$ と有限和」と定義すれば、式は
+
+$$
+F_{PQ}\\begin{bmatrix}J&K\\\\ I&L\\end{bmatrix}
+=(-1)^{I+J+K+L}\\sqrt{[2P+1]_k[2Q+1]_k}
+\\begin{Bmatrix}I&J&P\\\\ K&L&Q\\end{Bmatrix}_{k}
+$$
+
+である。固定スピンでは和の範囲も固定されるため、$[n]_k\\to n$ を各階乗へ代入するとWignerのRacah和になり、本文の式 (6.13) を得る。
+
+例えば $k=2$、外線を全て $1/2$、行列の順を $P,Q=0,1$ とすると、この規格化では
+
+$$
+F=\\frac1{\\sqrt2}
+\\begin{pmatrix}-1&1\\\\1&1\\end{pmatrix},\\qquad F^\\mathsf TF=\\mathbf1.
+$$
+
+二組の直交基底の変換であることを直接検算できる。別のCVO規格化では行・列の符号も変わるが、その場合はOPE係数にも対応する変換を施す。
+
+恒等表現 $0$ を結ぶ場合も確認できる。$N_{Ij}{}^K=1$ である三つのラベルに対し、左または右に $0$ を加えた二つの木には各々一つしか中間表現がなく、同じ規格化では
+
+$$
+F_{I,j}\\begin{bmatrix}0&j\\\\I&K\\end{bmatrix}
+=F_{K,j}\\begin{bmatrix}j&0\\\\I&K\\end{bmatrix}=1
+$$
+
+となる。この性質により、後で境界OPE係数を $C=F$ と選んだときも、恒等場を左または右から掛ける操作が元の場を係数1で返す。二つの非自明な場を掛けて恒等場を出す係数は、二点関数の規格化にも依存する別の量である。
 
 </details>
+
+同じCVO規格化を保って四つの入力表現を結ぶと、括り方は五通りある。その間を $F$ で移動したとき、同じ二つの基底を結ぶ二つの経路が同じ行列を与える条件を **pentagon identity** と呼ぶ。WZWのfusingデータはこの条件を満たす（原著式 (3.63)、[Moore–Seibergの整合性関係](https://doi.org/10.1016/0370-2693(88)91796-0)）。この条件が、後に境界OPEを異なる順序で組み立てたときの一致を保証するための入力になる。
 
 $\\chi_j,S_{ij},N_{ij}{}^r,F$ が決定するデータは
 
@@ -3425,7 +3588,7 @@ $$
 \\begin{array}{c|c}
 \\text{データ}&\\text{決定される対象}\\\\
 \\hline
-\\chi_j&\\mathcal H_j\\text{ 内のエネルギー・電荷縮退度}\\\\
+\\chi_j&\\mathcal H_j\\text{ 内のエネルギー縮退度（電荷付きなら電荷も記録）}\\\\
 S_{ij}&\\text{トーラスの周期交換でcharacterがどう混ざるか}\\\\
 N_{ij}{}^r&\\text{二つのchiral familyからどのfamilyが何通り生じるか}\\\\
 F&\\text{同じconformal blockを異なるOPE順序で表す基底の対応}
@@ -3445,6 +3608,8 @@ $$
   - Verlinde公式：p.119, 式(3.76)。
   - theta関数の規約：Appendix A, p.316。
 - E. Witten, “Non-Abelian Bosonization in Two Dimensions,” *Commun. Math. Phys.* **92** (1984) 455–472. [doi:10.1007/BF01215276](https://doi.org/10.1007/BF01215276).
+- D. Poilblanc, A. E. Feiguin, M. Troyer, E. Ardonne and P. Bonderson, “One-dimensional itinerant interacting non-Abelian anyons,” *Phys. Rev. B* **87** (2013) 085106. [公開著者稿](https://link.aps.org/accepted/10.1103/PhysRevB.87.085106)。Appendix A.3, p.16のSU(2)$_k$ fusion、量子Racah和、直交recoupling規格化を参照。
+- G. Moore and N. Seiberg, “Polynomial Equations for Rational Conformal Field Theories,” *Phys. Lett. B* **212** (1988) 451–460. [doi:10.1016/0370-2693(88)91796-0](https://doi.org/10.1016/0370-2693(88)91796-0)。blockの基底変換の整合性、Verlindeとの関係を参照。
 `},{id:`6-2`,section:`6.2`,shortTitle:`Bulk・boundary CFT`,content:`# 6.2 $SU(2)$ WZW模型をbulk・boundary CFTとして解く
 
 6.1節では、[カレント代数](/6-1#ref-affine-algebra)と、その表現 $\\mathcal H_j$、[character](/6-1#ref-character)、[fusion則](/6-1#ref-fusion)、[fusing行列](/6-1#ref-fusing-matrix) $F$ を求めた。この節では、左右のカイラル理論を組み合わせてbulk理論を作り、そこに境界を入れる。
@@ -3523,7 +3688,7 @@ Z(\\tau,\\bar\\tau)
 \\tag{6.14}
 $$
 
-である。$S$ 変換ではユニタリ性によって中間の表現和が縮約し、$T:\\tau\\mapsto\\tau+1$ では左右の位相が打ち消す。そのため $Z$ はmodular不変である。
+である。$S$ 変換後の $\\chi_j\\overline{\\chi_r}$ の係数は $\\sum_iS_{ij}S_{ir}^*=\\delta_{jr}$ なので、同じ対角和へ戻る。$T:\\tau\\mapsto\\tau+1$ では左側に $e^{2\\pi i(h_j-c/24)}$、右側にその逆位相が掛かり、各積が不変になる。$S,T$ がmodular群を生成するため、これでmodular不変性が従う。
 
 <details>
 <summary>計算：$S$ のユニタリ性と左右の $T$ 位相からmodular不変性を確かめる</summary>
@@ -3580,7 +3745,7 @@ z,\\bar z
 \\tag{6.15}
 $$
 
-と書く。これは式 (3.27) のstate-field correspondenceを用いた記法である。$m,n=-j,-j+1,\\ldots,j$ は左右の成分ラベルである。左の $m$ はスピン生成子 $J_0^0=J_0^3/\\sqrt2$ の固有値とする。右側は左表現の双対基底でラベルし、$\\overline{|j;n\\rangle}$ の $\\bar J_0^0$ 固有値は $-n$ とする。この規約では左右を結ぶ不変tensorが $\\delta^{mn}$ となり、後のone-point functionと記法が揃う。すべての成分は共形ウェイト $(h_j,h_j)$ のVirasoro primaryであり、同じgrade $0$ の多重項に属する。
+と書く。これは式 (3.27) のstate-field correspondenceを用いた記法である。$m,n=-j,-j+1,\\ldots,j$ は左右の成分ラベルである。左の $m$ はスピン生成子 $J_0^0=J_0^3/\\sqrt2$ の固有値とする。右側は左表現の双対基底でラベルし、$\\overline{|j;n\\rangle}$ の $\\bar J_0^0$ 固有値は $-n$ とする。この規約では左右を結ぶ不変tensorが $\\delta^{mn}$ となり、後のone-point functionと記法が揃う。すべての成分は同じgrade $0$ の多重項に属する。正モード $L_n$ は $L_0$ 固有値を $n$ だけ下げるが、ground stateより低い状態は存在しないため、$n>0$ で $L_n$ はこれらを消す。右側も同様なので、全成分がウェイト $(h_j,h_j)$ のVirasoro primaryである。
 
 <details>
 <summary>導出：ground stateの全成分がVirasoro primaryになる理由</summary>
@@ -3613,7 +3778,7 @@ $$
 
 $$
 \\begin{aligned}
-C_{j_1,j_2}^{k;j_3}
+C_{j_1,j_2}^{\\mathrm{src};k;j_3}
 ={}&(s+1)!\\,P(s+1)P(1)^{1/2}\\\\
 &\\times\\prod_{\\nu=1}^3
 \\frac{P(\\widehat j_\\nu)\\widehat j_\\nu!}
@@ -3635,11 +3800,21 @@ $$
 
 と定義する。fusion条件により $s$ と $\\widehat j_\\nu$ は非負整数で、$s\\leq k$ である。従って階乗の引数は非負で、$P$ に現れる $n$ は $1\\leq n\\leq k+1$ に収まる。Gamma関数の引数はともに正なので、平方根には正の値を選べる。fusionで禁止されたchannelはOPEの和に含めない。
 
-この閉形式を使えば、後に示すClebsch--Gordan係数と合わせて、ground-state bulk場の結合を数値まで決められる。例えば $j_1=0,\\ j_2=j_3=j$ では $s=2j$、$(\\widehat j_1,\\widehat j_2,\\widehat j_3)=(2j,0,0)$ を代入すると積が相殺し、$C_{0,j}^{k;j}=1$ になる。これは恒等場とのOPEの規格化を確かめる例である。一般に場を $\\varphi_{j,j}\\mapsto a_j\\varphi_{j,j}$ と規格化し直せば、係数は $C_{j_1,j_2}^{k;j_3}\\mapsto(a_{j_1}a_{j_2}/a_{j_3})C_{j_1,j_2}^{k;j_3}$ と変わる。
+この閉形式と、本文で選んだ通常の単位規格化Clebsch--Gordan係数は、規格化を揃えて用いる。閉形式は三ラベルに対称であり、恒等場を含む値は $C_{0,j}^{\\mathrm{src};k;j}=C_{j,j}^{\\mathrm{src};k;0}=1$ である。一方、単位CGで $j\\otimes j\\to0$ を結ぶ係数は大きさ $1/\\sqrt{2j+1}$ なので、左右の積は $1/(2j+1)$ となる。閉形式をそのまま本文のCGへ掛けると、bulk場の二点規格化もこの値になる。
+
+本文の境界一点関数と次節の正規直交波 $\\sqrt{2j+1}D^j_{mn}$ に合わせ、各bulk場を $\\sqrt{2j+1}$ 倍して単位の二点規格化にする。この変更で、二入力の倍率を出力の倍率で割るため、本文のreduced OPE係数は
+
+$$
+C_{j_1,j_2}^{k;j_3}
+=\\sqrt{\\frac{(2j_1+1)(2j_2+1)}{2j_3+1}}\\,
+C_{j_1,j_2}^{\\mathrm{src};k;j_3}.
+$$
+
+従って $C_{0,j}^{k;j}=1$ は保たれ、$C_{j,j}^{k;0}=2j+1$ が左右CGの $1/(2j+1)$ を打ち消す。原著の閉形式・三点結合の規格化と、本文のCG/場の規格化を区別することで、OPEと境界一点関数を同じ場について比較できる。例えば $j_1=0,\\ j_2=j_3=j$ では $s=2j$、$(\\widehat j_1,\\widehat j_2,\\widehat j_3)=(2j,0,0)$ を代入すると積が相殺し、$C_{0,j}^{k;j}=1$ になる。これは恒等場とのOPEの規格化を確かめる例である。一般に場を $\\varphi_{j,j}\\mapsto a_j\\varphi_{j,j}$ と規格化し直せば、係数は $C_{j_1,j_2}^{k;j_3}\\mapsto(a_{j_1}a_{j_2}/a_{j_3})C_{j_1,j_2}^{k;j_3}$ と変わる。
 
 </details>
 
-ground state成分のOPEで、磁気量子数 $m,n$ への依存を決めるのは左右の零モードのWard恒等式である。許される三点結合は多重度1なので、その依存はClebsch--Gordan係数に比例し、比例係数を $C_{j_1,j_2}^{k;j_3}$ に含めることができる。以下では
+ground state成分のOPEで、磁気量子数 $m,n$ への依存を決めるのは左右の零モードのWard恒等式である。Ward恒等式は「二つの入力を回転してから結合する」と「結合した出力を回転する」が同じであることを要求する。スピン $j_1,j_2$ のtensor積には各許容スピン $j_3$ が一度ずつ現れるため、この条件を満たす結合写像は全体定数を除いて一つであり、Clebsch--Gordan係数で表せる。その全体定数を $C_{j_1,j_2}^{k;j_3}$ に含める。以下では
 
 $$
 \\beta_{j_1j_2j_3}^{m_1m_2m_3}
@@ -3710,7 +3885,7 @@ C_{j_1,j_2}^{k;j_3}
 \\end{aligned}
 $$
 
-和はfusionで許される $j_3$ と、その多重項の $m_3,n_3$ を走る。$\\cdots$ は正のgradeのdescendantの寄与を表す。
+和はfusionで許される $j_3$ と、その多重項の $m_3,n_3$ を走る。距離因子の指数は、出力の全ウェイト $2h_{j_3}$ から二つの入力の全ウェイト $2h_{j_1}+2h_{j_2}$ を引いたものになる。これにより両辺が同じスケール変換を受ける。$\\cdots$ は正のgradeのdescendantの寄与を表す。
 
 <details>
 <summary>計算：OPEの距離のべきと左右の係数を組み合わせる</summary>
@@ -3729,13 +3904,13 @@ $$
 
 ## 3. one-point functionとboundary state
 
-境界上にある励起の種類とエネルギーをすべて知れば、境界条件を区別できるだろうか。$k=2$ の模型には、左右のcurrentを同じようにつなぎ、しかもそれぞれの境界上の励起が同じスペクトルをもつ二つの境界がある。以下で構成する境界 $0$ と $1$ がその例である。まずこの二つを区別するため、境界から離れたbulk場の期待値を調べる。後で開弦スペクトルも計算し、両方の情報を照合する。
+同じbulk理論に境界を入れる。境界からbulk場へどれだけ結合するかを境界状態で表し、その結合から開弦の状態数を求める。
 
-境界を入れると、そこでcurrentやエネルギーがどう反射するかを指定する必要がある。まず[左右のcurrent](/6-1#ref-chiral-currents)を同じ成分どうしで結ぶtrivial gluing $\\Omega=\\mathrm{id}$ を選ぶ。[Sugawara構成](/6-1#ref-sugawara)ではエネルギー・運動量tensorもcurrentの二次式なので、この条件はエネルギーを境界の外へ流さない共形境界条件も与える。
+境界を入れると、そこでcurrentやエネルギーがどう反射するかを指定する必要がある。上半平面の実軸上で、[左右のcurrent](/6-1#ref-chiral-currents)を $J^a(x)=\\bar J^a(x)$ と結ぶtrivial gluing $\\Omega=\\mathrm{id}$ を選ぶ。[Sugawara構成](/6-1#ref-sugawara)の $T$ と $\\bar T$ は同じ係数のcurrentの二次式なので、この等式から $T(x)=\\bar T(x)$ が従う。左右のエネルギー流の差が零となり、境界の外へエネルギーを流さない。
 
 <!-- reference: boundary-state -->
 
-境界の影響をbulk側から記録するのが境界状態である。境界をもつ領域の経路積分を、その内部に引いた円まで行うと、円上のclosed-string状態への振幅が得られる。それらをまとめた $\\|B\\rangle\\rangle$ は「その境界がbulkの各状態にどれだけ結合するか」を表す。境界上を動く励起の状態空間は、後で別に求める。
+境界の影響をbulk側から記録するのが境界状態である。diskの物理的な境界と、その内側に引いた円との間で経路積分すると、円上の各closed-string状態への振幅が得られる。それらをまとめた $\\|B\\rangle\\rangle$ は「その境界がbulkの各状態にどれだけ結合するか」を表す。境界上を動く励起の状態空間は、後で別に求める。
 
 <!-- /reference -->
 
@@ -3792,7 +3967,21 @@ $$
 
 二つの境界を端にもつ円筒、すなわちannulusを考える。円筒の長さ方向をEuclid時間に取ると、円周上のclosed stringが一方の境界から他方へ伝播する。一方、円周方向を時間に取ると、両境界を端点とするopen stringが一周して元に戻るので、その状態についてのtraceになる。これは同じ世界面の経路積分を二通りに読んでいる。
 
-したがって境界状態のoverlapをmodular変換した結果は、open-string状態を数える分配関数と一致しなければならない。特に各表現の重複度は非負整数である。この要求がCardy conditionである。各characterの係数を比較すると、
+![同じannulusを長方形に開き、上下辺を同一視して示す。閉弦の見方では左右の境界間を時間が進み、縦の断面は円になる。開弦の見方では上下の周期方向に時間が進み、横の断面は両端を境界に置く区間になる。](/diagrams/annulus-channels.svg)
+
+図の上下辺は同一視されている。横方向を時間に取ると空間断面は円、縦方向を時間に取ると空間断面は区間になる。open区間の長さを $L$、Euclid時間の周期を $\\beta$ とする。区間のHamiltonianは $H_{\\rm open}=\\pi(L_0-c/24)/L$ なので、$e^{-\\beta H_{\\rm open}}=q^{L_0-c/24}$ に合わせるcharacterのmodulusは $\\tau=i\\beta/(2L)$ である。以下では $t:=\\beta/(2L)>0$ と定め、$\\tau=it$ を使う。二方向の交換でclosed側のmodulusは $-1/\\tau$ となる。
+
+Ishibashi状態は同じsectorの左右の基底を一対ずつ足した和なので、伝播を挟んだ重なりは一つのcharacterになる。従って境界状態を展開し、6.1のmodular変換を使うと
+
+$$
+\\begin{aligned}
+Z_{AB}^{\\rm closed}
+&=\\sum_\\ell(B_A{}^\\ell)^*B_B{}^\\ell\\chi_\\ell(-1/\\tau)\\\\
+&=\\sum_r\\left[\\sum_\\ell(B_A{}^\\ell)^*B_B{}^\\ell S_{\\ell r}\\right]\\chi_r(\\tau).
+\\end{aligned}
+$$
+
+open側では $\\mathcal H_r$ が $n_{AB}{}^r$ 個あると、traceは $Z_{AB}^{\\rm open}=\\sum_r n_{AB}{}^r\\chi_r(\\tau)$ になる。同じ世界面の経路積分であるため、各characterの係数を一致させる。この重複度が状態空間のコピー数として非負整数になることを要求するのがCardy conditionである：
 
 $$
 \\boxed{
@@ -3808,8 +3997,6 @@ $$
 を得る。
 
 <!-- /reference -->
-
-![同じannulusを長方形に開き、上下辺を同一視して示す。閉弦の見方では左右の境界間を時間が進み、縦の断面は円になる。開弦の見方では上下の周期方向に時間が進み、横の断面は両端を境界に置く区間になる。](/diagrams/annulus-channels.svg)
 
 <details>
 <summary>annulusの二つの切り方から非負整数条件を導く</summary>
@@ -3911,7 +4098,13 @@ Ishibashi条件が各sector内でcurrent gluingを満たす局所条件である
 
 <!-- reference: cardy-coefficients -->
 
-Cardy構成では、基準となる境界 $0$ を選び、それと境界 $J$ の間の開弦がちょうど一つのsector $\\mathcal H_J$ をもつように境界を並べる。この選び方をannulusの式へ入れて $S$ 変換を逆にたどると、境界状態の係数は
+基準境界 $0$ との間にsector $\\mathcal H_J$ を一つだけもつ境界 $J$ を構成する。すなわち $n_{00}{}^r=\\delta_{0r}$、$n_{0J}{}^r=\\delta_{Jr}$ と選ぶ。Cardy条件を $S^{-1}=S$ で逆変換すると
+
+$$
+|B_0{}^j|^2=S_{0j},\\qquad (B_0{}^j)^*B_J{}^j=S_{Jj}.
+$$
+
+許容範囲では $S_{0j}>0$ であり、Ishibashi状態の位相を選んで $B_0{}^j=\\sqrt{S_{0j}}$ とできる。第二式をこれで割れば
 
 $$
 \\boxed{
@@ -3924,7 +4117,13 @@ $$
 
 <!-- /reference -->
 
-となる。残る確認は、基準境界以外の二境界を選んでも、開弦の状態数が非負整数になるかである。この係数をCardy条件へ代入すると、三つの $S$ と分母の $S_{0j}$ からなる和が現れる。それは6.1節のVerlinde公式の和なので、$n_{IJ}{}^r=N_{IJ}{}^r$ となる。closed側の結合から作った量が、chiral fusionで数えた多重度に一致し、どの組でもCardy conditionを満たす。
+となる。残る確認は、基準境界以外の二境界を選んでも、開弦の状態数が非負整数になるかである。この係数をCardy条件へ代入すると
+
+$$
+n_{IJ}{}^r=\\sum_j\\frac{S_{Ij}S_{Jj}S_{rj}}{S_{0j}}=N_{IJ}{}^r
+$$
+
+となる。最後の等号は6.1のVerlinde公式であり、$S$ が実対称なので出力添字の複素共役も同じ値になる。closed側の結合から作った量が、chiral fusionで数えた多重度に一致し、どの組でもCardy conditionを満たす。
 
 <details>
 <summary>基準境界との間のスペクトルからCardy係数を決める</summary>
@@ -4070,19 +4269,14 @@ $$
 \\left\\langle
 \\varphi_{j,j}^{mn}(z,\\bar z)
 \\right\\rangle_J
-=
-\\left(\\frac{2}{k+2}\\right)^{1/4}
-\\frac{
-\\sin\\!\\left(\\frac{\\pi(2j+1)(2J+1)}{k+2}\\right)
-}{
-\\sin\\!\\left(\\frac{\\pi(2j+1)}{k+2}\\right)^{1/2}
-}
-\\frac{\\delta^{m,n}}{|z-\\bar z|^{2h_j}}
+=B_J{}^j\\frac{\\delta^{m,n}}{|z-\\bar z|^{2h_j}}
 }
 \\tag{6.17}
 $$
 
-となる。これは真空振幅で割る前のdisk one-point functionであり、$\\langle\\mathbf1\\rangle_J=B_J{}^0$ の規格化を使う。ここでも $h_j=j(j+1)/(k+2)$ である。境界に沿う共形対称性が距離への依存を固定し、保存された零モード対称性が左右成分の結び方を固定する。境界条件 $J$ の情報は係数 $B_J{}^j$ に集約される。
+となる。これは真空振幅で割る前のdisk one-point functionであり、$\\langle\\mathbf1\\rangle_J=B_J{}^0$ の規格化を使う。ここでも $h_j=j(j+1)/(k+2)$ である。境界に沿う並進対称性により期待値は高さ $y=\\operatorname{Im}z$ だけに依存し、全ウェイト $2h_j$ のスケール則により $(2y)^{-2h_j}=|z-\\bar z|^{-2h_j}$ になる。内部対称性は左右成分を結ぶ行列が全スピン生成子と可換であることを要求する。既約表現上のそのような行列は恒等行列の定数倍なので、双対基底では $\\delta^{mn}$ が残る。最後の定数は、挿入したground stateを境界状態の $j$ 成分に重ねた係数 $B_J{}^j$ である。
+
+恒等場の期待値を1にしたい場合はdisk真空振幅で割り、係数を $B_J{}^j/B_J{}^0$ に置き換える。次節で幾何を読み取る際も、どちらの規格化を使うかを区別する。
 
 <details>
 <summary>共形Ward恒等式と零モード対称性からone-point functionを求める</summary>
@@ -4119,7 +4313,7 @@ $$
 
 </details>
 
-3節冒頭の二つの境界を、同じbulk場で比べよう。$k=2$ で $j=\\frac12$ を式 (6.17) に入れると、境界 $J=0$ と $J=1$ では正弦の符号が逆になる。したがって、このbulk場の非零なone-point関数も逆符号になる。境界上の励起のスペクトルが同じでも、bulkへの結合は異なり、この二つを区別できる。
+例えば $k=2$ では、fusion則の $0\\star0=1\\star1=0$ と $n_{IJ}{}^r=N_{IJ}{}^r$ から、境界 $0$ と $1$ の自己スペクトルはともに $\\mathcal H_0$ になる。それでもbulkへの結合は異なる。 $j=\\frac12$ を式 (6.17) に入れると、境界 $J=0$ と $J=1$ では正弦の符号が逆になる。したがって、このbulk場の非零なone-point関数も逆符号になる。境界上の励起のスペクトルが同じでも、bulkへの結合は異なり、この二つを区別できる。
 
 <details>
 <summary>計算：境界 $0$ と $1$ のbulk結合を比較する</summary>
@@ -4144,7 +4338,12 @@ $$
 \\qquad \\Omega_g=\\operatorname{Ad}_g
 $$
 
-とする。この回転はcurrentの交換関係とSugawaraの二次式を保つので、同じbulk理論の中で共形対称性を保つ境界を作れる。以後この回転をtwistと呼ぶ。ここでの $g$ は固定した回転の群要素であり、6.1節の位置に依存する場 $g(z,\\bar z)$ とは区別する。$SU(2)$ のCartan部分群は、第3軸まわりの回転からなる $U(1)$ 部分群である。基本表現では
+とする。この回転はcurrentの交換関係とSugawaraの二次式を保つので、同じbulk理論の中で共形対称性を保つ境界を作れる。以後この回転をtwistと呼ぶ。ここでの $g$ は固定した回転の群要素であり、6.1節の位置に依存する場 $g(z,\\bar z)$ とは区別する。任意の $SU(2)$ 回転は、左右のcurrentを同じ大域的回転で回すことにより、その軸を第3軸に合わせられる。実際、$g$ を $hgh^{-1}$ へ対角化すると、gluingも $J_n+g\\bar J_{-n}g^{-1}=0$ から $J'_n+(hgh^{-1})\\bar J'_{-n}(hgh^{-1})^{-1}=0$ へ変わる。これは同じ理論で軸を選び直したものである。
+
+<details>
+<summary>回転軸を第3軸へ合わせる共役変換</summary>
+
+$SU(2)$ のCartan部分群は、第3軸まわりの回転からなる $U(1)$ 部分群である。基本表現では
 
 $$
 T=\\left\\{\\begin{pmatrix}e^{-i\\theta}&0\\\\0&e^{i\\theta}\\end{pmatrix}\\,\\middle|\\,\\theta\\in\\mathbb R\\right\\}
@@ -4160,7 +4359,11 @@ h\\left(J_n+g\\bar J_{-n}g^{-1}\\right)h^{-1}
 =0.
 $$
 
-左右に共通するこの回転は、カレント代数とエネルギー運動量テンソルを保つ大域的対称性である。従って、一つのtwistを持つ境界を調べる際には、軸を第3軸に合わせた代表を使える。任意の軸での境界状態や場の成分は、最後に逆回転して復元できる。この代表を各表現上の零モードの作用で書くと、実パラメータ $\\lambda$ を用いて
+左右に共通するこの回転は、カレント代数とエネルギー運動量テンソルを保つ大域的対称性である。従って、一つのtwistを持つ境界を調べる際には、軸を第3軸に合わせた代表を使える。任意の軸での境界状態や場の成分は、最後に逆回転して復元できる。
+
+</details>
+
+この代表を各表現上の零モードの作用で書くと、実パラメータ $\\lambda$ を用いて
 
 $$
 g=e^{-i\\lambda J_0^3},
@@ -4305,7 +4508,7 @@ $$
 
 </details>
 
-3節冒頭で述べたスペクトルの一致も、このfusion則から確かめられる。$k=2$ では $0\\star0=1\\star1=0$ なので、両端を境界 $0$ に置いた場合と、両端を境界 $1$ に置いた場合の開弦スペクトルはともに $\\mathcal H_0$ になる。一方、式 (6.17) で比べたbulk場への応答は逆符号だった。さらに $0$--$1$ 間には $\\mathcal H_1$ が現れるので、両端を異なる境界にした開弦からも違いが分かる。この二つのスペクトルが一致しても、ほかの境界やbulkとの関係まで一致するとは限らない。
+先ほどのone-point関数の例と、このfusion則を照合する。$k=2$ では $0\\star0=1\\star1=0$ なので、両端を境界 $0$ に置いた場合と、両端を境界 $1$ に置いた場合の開弦スペクトルはともに $\\mathcal H_0$ になる。一方、式 (6.17) で比べたbulk場への応答は逆符号だった。さらに $0$--$1$ 間には $\\mathcal H_1$ が現れるので、両端を異なる境界にした開弦からも違いが分かる。この二つのスペクトルが一致しても、ほかの境界やbulkとの関係まで一致するとは限らない。
 
 
 
@@ -4331,7 +4534,7 @@ $$
 
 時間方向を交換すると、open側の短い伝播はclosed側の長い伝播へ移る。長い伝播では低い共形エネルギーの状態が優勢になる。
 
-open側の時間と空間の比を $t$ とすると、closed側ではその比が $1/t$ になる。したがって $t\\to0$ はclosed側の長い円筒に対応する。伝播因子が高いエネルギーの状態を抑えるため、境界と結合する最も低い状態が支配する。この模型では $B_J{}^0>0$ なので、真空sectorが両境界へ結合する。
+characterに合わせたopen側の無次元時間を $t$ とすると、closed側では $1/t$ になる。したがって $t\\to0$ はclosed側の長い円筒に対応する。伝播因子が高いエネルギーの状態を抑えるため、境界と結合する最も低い状態が支配する。この模型では $B_J{}^0>0$ なので、真空sectorが両境界へ結合する。
 
 ここで測っているのは $SU(2)_k$ CFTの共形エネルギーである。これを弦の時空質量と結びつけるには、時空の他の方向を表す場も含めた弦理論全体の状態条件が必要になる。この節のannulus計算だけで、支配的な交換を「質量ゼロの弦」と決めることはできない。
 
@@ -4372,7 +4575,22 @@ $$
 
 ### 4.2 両端のgluingが違う場合
 
-片端が $\\mathrm{id}$、他端が $\\Omega_g$ なら、打ち消す逆回転がなく、overlapに一つの回転演算子が残る。回転軸方向の電荷が違う状態には異なる位相が掛かるため、open-channelへ移したエネルギーも電荷に依存すると予想できる。その依存性を式 (6.20) で確かめる。
+片端が $\\mathrm{id}$、他端が $\\Omega_g$ なら、overlapに一つの回転演算子が残る。twistされた境界をbra側に置くと、その回転は $e^{+i\\lambda\\bar J_0^3}$ であり、gluingの $\\bar J_0^3=-J_0^3$ を使えば左側の電荷挿入 $e^{-i\\lambda J_0^3}$ になる。 ket側をtwistすると挿入の符号は逆になるが、各gradeは $SU(2)$ の有限次元表現へ分かれ、電荷 $m$ と $-m$ を同じ重複度で持つ。このためcharged traceは $\\lambda\\mapsto-\\lambda$ に不変であり、以下のbra側の計算を、式 (6.20) のket側がtwistされた添字順へ移しても分配関数は同じになる。
+
+$a:=\\lambda/(2\\pi)$ と置く。電荷挿入を含むcharacterを
+
+$$
+\\chi_j(v,\\tau):=\\operatorname{Tr}_{\\mathcal H_j}
+q^{L_0-c/24}e^{-2\\pi ivJ_0^3},\\qquad q=e^{2\\pi i\\tau}
+$$
+
+と書く。$v$ は電荷に掛けるパラメータで、場を挿入する位置ではない。closed側では $v=a$ である。6.1のcharged-character変換は、中心項の規格化 $[J_n^3,J_m^3]=kn\\delta_{n+m,0}$ に対して
+
+$$
+\\chi_j(a,-1/\\tau)=q^{ka^2/2}\\sum_rS_{jr}\\chi_r(a\\tau,\\tau)
+$$
+
+となる。右辺で $e^{-2\\pi i(a\\tau)J_0^3}=q^{-aJ_0^3}$ と置き換えると、共通因子も同じtraceへ入れられ、指数は $L_0-aJ_0^3+ka^2/2-c/24$ になる。sectorを混ぜる $S$ は元と同じなので、Cardy条件の和も同じ $N_{IJ}{}^r$ を与える。
 
 <details>
 <summary>式 (6.9) のcharged-character変換を用いた式 (6.20) の導出</summary>
@@ -4484,7 +4702,13 @@ $$
 
 を得る。線形項は、相対回転に応じて $J_0^3$ 電荷ごとに生じるenergy shiftを表す。二次項は、affine代数の中心項に由来する一様なshiftである。これはopen-string traceであるが、$\\lambda\\ne0$ では通常のspecialised character $\\chi_j(\\tau)$ の和ではない。二つの端点で保存するcurrentの組み合わせが異なるため、open stringは相対twistを感じるからである。
 
-例えば $k=2,\\ I=J=\\frac12$ の開弦には、$h_1=\\frac12$ にスピン $1$ の三成分がある。小さな相対twistを加えると、同じエネルギーだった三成分が回転軸方向の電荷に応じて分かれる。正の $\\lambda$ では $m=1$ の成分は下がり、$m=-1$ は上がり、$m=0$ は共通の二次項だけ移動する。両端を一緒に回した場合には分裂は生じない。
+例えば $k=2,\\ I=J=\\frac12$ の開弦には、$h_1=\\frac12$ にスピン $1$ の三成分がある。式 (6.20) に $J_0^3=\\sqrt2m$ を代入すると、共通の $-c/24$ を除いた各成分の共形エネルギーは
+
+$$
+h_m(\\lambda)=\\frac12-\\frac{\\sqrt2m}{2\\pi}\\lambda+\\frac{\\lambda^2}{4\\pi^2},\\qquad m=-1,0,1.
+$$
+
+小さな相対twistを加えると、零で重なっていた三成分が回転軸方向の電荷に応じて分かれる。正の $\\lambda$ では $m=1$ の成分は下がり、$m=-1$ は上がり、$m=0$ は共通の二次項だけ移動する。両端を一緒に回した場合には分裂は生じない。
 
 ![相対twistが零のとき共形エネルギー二分の一で重なる三成分が、正の相対twistで電荷に応じて上・中央・下へ分かれる。両端の共通回転では三成分は重なったままである。](/diagrams/relative-twist.svg)
 
@@ -4531,7 +4755,7 @@ $$
 
 と書く。ここで上付き $IJ$ は、実軸上でその挿入点を右から左へ横切ると境界条件が $I$ から $J$ へ変わることを表す。
 
-したがって、二つの境界場の積を取るには、中間の境界条件が一致しなければならない：
+$x_1>x_2$ に二つの場を置くと、境界条件は $x>x_1$ で $I$、$x_2<x<x_1$ で $J$、$x<x_2$ で $K$ となる。右から左へたどると
 
 $$
 I\\xrightarrow{\\ \\psi_i^{IJ}\\ }J
@@ -4562,7 +4786,7 @@ m&p&n
 \\tag{6.22}
 $$
 
-座標の冪は一次元の共形共変性、$m,p,n$ 依存はglobal $SU(2)$ 対称性により固定され、$n$ は $-r,-r+1,\\ldots,r$ の範囲をとる。許される $r$ は同時に
+座標差の指数を $\\alpha$ とすると、拡大 $x\\mapsto\\rho x$ に対する両辺の因子が $\\rho^{-h_i-h_j}=\\rho^{\\alpha-h_r}$ なので $\\alpha=h_r-h_i-h_j$ になる。境界場は一つのchiral代数に属するため、bulkの全ウェイト $2h_j$ ではなく $h_j$ を使う。磁気量子数への依存はbulkの場合と同じ零モードのWard恒等式からClebsch--Gordan係数となる。出力成分 $n$ は $-r,-r+1,\\ldots,r$ を走り、$n=m+p$ 以外は零になる。許される $r$ は同時に
 
 $$
 N_{ij}{}^r=1,
@@ -4629,7 +4853,22 @@ $$
 
 前節でOPEに現れうる場を絞った。残る係数は、OPEの順序によらず同じ相関関数を得るというboundary sewing条件で制約される。Cardy構成では境界ラベルもchiral表現に対応するため、6.1.2の[fusing行列](/6-1#ref-fusing-matrix) $F$ を使って二つの展開を比較できる。
 
-境界を順にたどる結合 $((I\\star i)_J\\star j)\\to K$ と、二つの場を先に融合する結合 $I\\star(i\\star j)_r\\to K$ が、比較する二つの基底である。前者の中間ラベル $J$ から後者の $r$ への変換係数 $F_{Jr}$ を境界OPEに使うと、OPE順序を変えても整合する。三つ以上の場での整合性は、何回か括り替える二つの経路が一致する $F$ のpentagon identityに帰着する。
+比較する二つの結合は次のとおりである。
+
+| 結合の順序 | 最初の結合 | 次の結合 | 中間ラベル |
+|---|---|---|---|
+| 境界を順にたどる | $I\\star i\\to J$ | $J\\star j\\to K$ | 境界条件 $J$ |
+| 場を先にOPEする | $i\\star j\\to r$ | $I\\star r\\to K$ | 出力場のスピン $r$ |
+
+どちらも入力 $I,i,j$ から出力 $K$ へ至る。同じconformal block空間の基底をこの二通りに選んだ際の変換行列が
+
+$$
+\\left(F_K^{Iij}\\right)_{Jr}:=F_{Jr}\\begin{bmatrix}i&j\\\\I&K\\end{bmatrix}
+$$
+
+である。最初のtreeの存在条件は $N_{Ii}{}^JN_{Jj}{}^K=1$、二番目は $N_{ij}{}^rN_{Ir}{}^K=1$。この模型のfusion許容条件は三ラベルについて対称なので、これらは前節で指定した境界場とOPE出力の存在条件に一致する。
+
+この添字の対応に加え、境界場とCVOの規格化を揃える。Cardy型のboundary sewingの解（原著 (4.91)）は、この規約でOPEのスカラー係数をその基底変換成分に等しく取れることを述べる。三つの境界場を二通りにOPEした相関関数の比較は、$F$ による括り替えを挟むため、$F$ のpentagon identityへ帰着する。単に二つの係数を直接等置するのではない。
 
 <details>
 <summary>導出：境界条件の列から $F_{Jr}$ の添字を決める</summary>
@@ -4697,7 +4936,13 @@ i&j\\\\ I&K
 \\tag{6.23}
 $$
 
-となる。
+となる。6.1で用いた直交recoupling基底に対応する場の規格化での等式である。場を $\\psi_i^{IJ}\\mapsto a_i^{IJ}\\psi_i^{IJ}$ と変えると、出力場の変更を戻すため
+
+$$
+C_{ijr}^{IJK}\\mapsto\\frac{a_i^{IJ}a_j^{JK}}{a_r^{IK}}C_{ijr}^{IJK}
+$$
+
+となる。次節で境界場を行列の基底と比較する場合も、この規格化を揃えて積の係数を比べる。
 
 <details>
 <summary>式 (6.23) の規格化依存性とpentagon identityによる結合則</summary>
@@ -4714,60 +4959,35 @@ $$
 
 従って $C_{ijr}^{\\prime IJK}=(a_i^{IJ}a_j^{JK}/a_r^{IK})C_{ijr}^{IJK}$ となる。式 (6.23) の右辺と数値を比較するときには、同じ再規格化をCVOの基底にも反映する必要がある。特に、境界場の二点関数の係数を後から1に規格化すると、OPE係数も変わる。規格化に依らない内容は、二つのOPE順序から作る相関関数が一致することである。
 
-その帰着を添字つきで見る。fusion multiplicityは0または1なのでchannel多重度添字は不要である。三つの境界場 $b,c,d$ が境界条件を
+boundary sewingの添字を、本文と同じ役割に揃えて確認する。境界条件が $I,J,K,L$ と並び、三つの場のスピンが $i,j,\\ell$ である場合を取る。ここで新しい $L$ は三番目の場を通過した後の境界、$\\ell$ はその場のスピンである。
 
 $$
-a\\xrightarrow{\\ b\\ }f
-\\xrightarrow{\\ c\\ }g
-\\xrightarrow{\\ d\\ }e
+I\\xrightarrow{\\ i\\ }J\\xrightarrow{\\ j\\ }K\\xrightarrow{\\ \\ell\\ }L.
 $$
 
-と変える場合を取り、許される中間表現を図式どおり $n,p,m$ と書く。まず $b,c$ を $n$ へ融合し、次に $n,d$ を $p$ へ融合すると、係数は $C_{bcn}^{afg}C_{ndp}^{age}$ になる。逆に $c,d$ を $m$ へ先に融合すれば、係数は $C_{cdm}^{fge}C_{bmp}^{afe}$ となる。ただし二つの計算は異なる[conformal block](/6-1#ref-conformal-block)基底に展開されている。そのまま係数同士を等置するのではなく、最初の基底を $F_p^{bcd}$ で後者へ移してから比較する。
+最初に $i,j$ をスピン $r$ へ結合する。次に $r,\\ell$ を結合した最終出力のスピンを $p$ と書く。この経路の係数は $C_{ijr}^{IJK}C_{r\\ell p}^{IKL}$ である。一方、$j,\\ell$ を先にスピン $s$ へ結合する経路では $C_{j\\ell s}^{JKL}C_{isp}^{IJL}$ になる。$p$ はここでは最終出力のスピンであり、式 (6.22) の磁気量子数の役割とは異なる。
 
-後者の基底の一つ $m$ を固定すると、前者のすべての $n$ からの寄与を足す必要がある。式 (6.23) と共通のCVO規約でのboundary sewing relationは
+二つの経路は異なるconformal block基底を使う。前者から後者への変換は $F_p^{ij\\ell}$ なので、後者の一つのchannel $s$ の係数を比較するには、前者の全 $r$ からの寄与を足す：
 
 $$
-\\boxed{
-\\sum_n
-C_{bcn}^{afg}
-C_{ndp}^{age}
-\\left(F_p^{bcd}\\right)_{nm}
+\\sum_r C_{ijr}^{IJK}C_{r\\ell p}^{IKL}
+\\left(F_p^{ij\\ell}\\right)_{rs}
+=C_{j\\ell s}^{JKL}C_{isp}^{IJL}.
+$$
+
+これがboundary sewing relationである。式 (6.23) を四つのOPE係数にそれぞれ代入すると
+
+$$
+\\sum_r
+\\left(F_K^{Iij}\\right)_{Jr}
+\\left(F_L^{Ir\\ell}\\right)_{Kp}
+\\left(F_p^{ij\\ell}\\right)_{rs}
 =
-C_{cdm}^{fge}
-C_{bmp}^{afe}
-}
+\\left(F_L^{Jj\\ell}\\right)_{Ks}
+\\left(F_L^{Iis}\\right)_{Jp}.
 $$
 
-である。ここで中央の $F$ は、$((b\\star c)_n\\star d)\\to p$ を $b\\star((c\\star d)_m)\\to p$ へ括り替える。式 (6.23) による四つのOPE係数の置換は
-
-$$
-\\begin{aligned}
-C_{bcn}^{afg}&=\\left(F_g^{abc}\\right)_{fn},
-&
-C_{ndp}^{age}&=\\left(F_e^{and}\\right)_{gp},\\\\
-C_{cdm}^{fge}&=\\left(F_e^{fcd}\\right)_{gm},
-&
-C_{bmp}^{afe}&=\\left(F_e^{abm}\\right)_{fp}.
-\\end{aligned}
-$$
-
-これを直前のsewing relationへ代入すると
-
-$$
-\\boxed{
-\\sum_n
-\\left(F_g^{abc}\\right)_{fn}
-\\left(F_e^{and}\\right)_{gp}
-\\left(F_p^{bcd}\\right)_{nm}
-=
-\\left(F_e^{fcd}\\right)_{gm}
-\\left(F_e^{abm}\\right)_{fp}
-}
-$$
-
-を得る。例えば $C_{ndp}^{age}$ では、入力場のラベルが $n,d$、境界の列が $a,g,e$、出力が $p$ なので、式 (6.23) の $I,J,K;i,j,r$ に $a,g,e;n,d,p$ を代入して $(F_e^{and})_{gp}$ を得る。他の三つも同じ置換であり、中間の境界条件とOPE出力の添字を入れ替えないことが肝要である。
-
-左辺は四つの表現 $a,b,c,d$ の括り方を三回の基底変換でたどる経路、右辺は二回の基底変換でたどる経路であり、これはfusing matrixのpentagon identityそのものである。CVOの括り替えがpentagon identityを満たすため、式 (6.23) のboundary OPEは結合的になる。[再規格化しても何が不変か](#note-gauge-dependent-f-physical-ope)
+例えば二番目の係数は、入力 $r,\\ell$、境界 $I,K,L$、出力 $p$ なので、$(F_L^{Ir\\ell})_{Kp}$ になる。左辺は四つの入力表現 $I,i,j,\\ell$ の括り方を三回の変換で変える経路、右辺は二回の変換で変える経路である。これは6.1のpentagon identityであり、式 (6.23) を使った境界OPEの結合則を保証する。[再規格化しても何が不変か](#note-gauge-dependent-f-physical-ope)
 
 <details id="note-gauge-dependent-f-physical-ope">
 <summary>場の大きさを変えても、OPEの整合性は変わらないのか？</summary>
@@ -4813,2626 +5033,1332 @@ $$
 - 同 Chapter 4, printed pp. 145--146, 156--162: twisted Ishibashi状態、Cardy解、annulus spectrum、boundary sewingとCardy型boundary OPE、式 (4.53), (4.80)--(4.81), (4.91)。
 `},{id:`6-3`,section:`6.3`,shortTitle:`大体積極限と fuzzy sphere`,content:`# 6.3 大体積極限の幾何とfuzzy sphere
 
-6.2節では、境界CFTの整合条件からCardy境界条件を構成し、$J=0,\\frac12,\\ldots,\\frac k2$ で分類した。この境界条件を、WZW模型の場 $g$ が境界上で取れる値の制限として読めるだろうか。その値が標的空間 $SU(2)$ のどんな図形をなすかを求める。
+6.2節で得たCardy境界条件には、スピン $J=0,\\frac12,\\ldots,\\frac k2$ が付いている。同じ境界条件から、閉弦に対する円板一点関数と、両端がその境界にある開弦の状態・OPEが求まる。前者がブレーンの位置と形を、後者がその上の場の積をどう指定するかを調べる。
 
-## 1. 境界条件が指定する図形
+ここでいうブレーンのworldvolumeは、WZW場 $g:\\Sigma\\to SU(2)$ が世界面の境界で取れる値の集合 $Q_J$ である。幾何学的な境界条件は $g(\\partial\\Sigma)\\subset Q_J$ と書ける。この集合をCFTの結果から求め、最後に境界相互作用によって別のブレーンへ変わる過程までたどる。
 
-### 1.1 境界で許される場の値を図形として読む
+## 1. 円板一点関数から球面の位置を求める
 
-Cardy境界条件 $J$ に対応するworldvolumeの $SU(2)$ 成分を $Q_J$ と書く。WZW場 $g:\\Sigma\\to SU(2)$ の幾何学的な境界条件は
+### 1.1 閉弦の波が測るブレーンの分布
 
-$$
-g(\\partial\\Sigma)\\subset Q_J\\subset SU(2).
-$$
+円板の中心にbulk場 $\\varphi$ を置く。動径量子化では、この場が円周上の状態 $|\\varphi\\rangle$ を作り、円板外周の境界条件 $J$ が境界状態 $\\langle\\!\\langle J|$ を指定する。従って一点関数は重なり $\\langle\\!\\langle J|\\varphi\\rangle$ である。円周に沿う場 $g$ の配置は標的空間内の閉じた曲線なので、この状態を閉弦状態、重なりをブレーンと閉弦の結合振幅として読む。
 
-と表される。Cardy構成が与える一点関数から、この $Q_J$ の位置と形を求める。
+![円板世界面の円周が標的空間内の閉じた曲線に写る。外周の像は端点が許される領域Qにある。](/diagrams/disk-state-target.svg)
 
-古典的な図形として読むため、レベル $k$ を大きくする。WZW作用の規格化から、標的空間の半径 $R$ と弦の長さ $\\sqrt{\\alpha'}$ は
+位置を調べるには、閉弦の振動を励起せず、位置だけを残した成分を使う。その近似が有効になるのが大きなレベル $k$ である。WZW作用が与える三次元球面の半径 $R$ は、弦の長さ $\\sqrt{\\alpha'}$ と
 
 $$
-R^2=k\\alpha',
-\\qquad
-\\frac{R}{\\sqrt{\\alpha'}}=\\sqrt{k}
+R^2=k\\alpha',\\qquad R/\\sqrt{\\alpha'}=\\sqrt{k}
 \\tag{radius-level}
 $$
 
-で結ばれる。$k\\gg1$ では、弦の長さに比べて曲率半径が大きい。この大体積極限で、境界CFTのデータをブレーンの幾何として解釈する。
+で結ばれる。固定スピン $j$ のprimaryは $h_j=j(j+1)/(k+2)\\to0$ となるが、カレントの負モードによる振動はウェイトを正整数だけ上げる。この差により、$k\\gg1$ では位置を表す低い成分を振動から分けられる。
 
-### 1.2 $SU(2)$ の共役類は角度を固定した球面である
-
-まず、標的空間内の位置を表そう。$SU(2)$ の任意の元は
-
-$$
-g=\\cos\\vartheta\\,\\mathbf1
-+i\\sin\\vartheta\\,\\mathbf n^a\\sigma_a,
-\\qquad
-0\\leq\\vartheta\\leq\\pi,
-\\qquad
-\\mathbf n\\cdot\\mathbf n=1
-\\tag{SU2-polar}
-$$
-
-と書ける。$\\sigma_a$ はPauli行列、$\\mathbf1$ は $2\\times2$ 単位行列で、$a=1,2,3$ は和を取る。四つの実数 $(\\cos\\vartheta,\\sin\\vartheta\\,\\mathbf n)$ の二乗和が1になるので、群全体が三次元球面 $S^3$ である。
-
-この中で $\\vartheta=\\vartheta_0\\in(0,\\pi)$ を固定すると、$\\mathbf n$ だけが単位二次元球面を動く。四次元空間の座標で書けば
-
-$$
-x_0=R\\cos\\vartheta_0,
-\\qquad
-x_1^2+x_2^2+x_3^2=R^2\\sin^2\\vartheta_0.
-$$
-
-従って、この集合は半径 $R\\sin\\vartheta_0$ の $S^2$ である。
-
-同じ集合を群論の言葉で表したものが**共役類**になる。共役類とは、一つの元 $g_0$ をすべての $h\\in SU(2)$ で $hg_0h^{-1}$ と動かして得る集合である。代表元を
-
-$$
-g_0=e^{i\\vartheta_0\\sigma_3}
-=\\operatorname{diag}(e^{i\\vartheta_0},e^{-i\\vartheta_0})
-$$
-
-とすると
-
-$$
-hg_0h^{-1}
-=\\cos\\vartheta_0\\,\\mathbf1
-+i\\sin\\vartheta_0\\,h\\sigma_3h^{-1}.
-$$
-
-共役作用はPauli行列の三成分を回転させる。$h$ を動かすと $h\\sigma_3h^{-1}=\\mathbf n^a\\sigma_a$ の $\\mathbf n$ は全方向を走る。一方、共役変換は固有値 $e^{\\pm i\\vartheta_0}$ を保つため、$\\vartheta_0$ は変わらない。よって
-
-$$
-\\mathcal C_{\\vartheta_0}
-:=\\{he^{i\\vartheta_0\\sigma_3}h^{-1}\\mid h\\in SU(2)\\}
-=\\{g\\in SU(2)\\mid\\vartheta(g)=\\vartheta_0\\}
-\\simeq S^2.
-\\tag{spherical-conjugacy-class}
-$$
-
-共役な群要素は、この球面上の異なる位置を表す。$\\vartheta_0=0,\\pi$ では $\\sin\\vartheta_0=0$ となり、共役類はそれぞれ $e=\\mathbf1$、$-e=-\\mathbf1$ の一点に縮退する。
-
-これで「球面的な共役類」がどの図形か分かった。次に、Cardy境界条件が端点を実際にこの集合へ制限することと、その角度を調べる。
-
-<details>
-<summary>球面の誘導計量と物理半径</summary>
-
-$\\mathbf n\\cdot d\\mathbf n=0$ を使って四次元空間の計量を引き戻すと
-
-$$
-\\begin{aligned}
-ds^2
-&=R^2\\left[d(\\cos\\vartheta)^2+d(\\sin\\vartheta\\,\\mathbf n)^2\\right]\\\\
-&=R^2\\left(d\\vartheta^2+\\sin^2\\vartheta\\,d\\Omega_2^2\\right),
-\\qquad d\\Omega_2^2=d\\mathbf n\\cdot d\\mathbf n.
-\\end{aligned}
-$$
-
-$\\vartheta$ を固定すると $d\\vartheta=0$ なので、誘導計量は $R^2\\sin^2\\vartheta\\,d\\Omega_2^2$ となる。半径 $r$ の球面の計量 $r^2d\\Omega_2^2$ と比べれば
-
-$$
-r(\\vartheta)=R\\sin\\vartheta.
-\\tag{brane-radius}
-$$
-
-</details>
-
-## 2. 閉弦への結合からworldvolumeを特定する
-
-### 2.1 ブレーンの位置は、閉弦の波との結合に現れる
-
-まず、§6.2で求めた一点関数を単位円板上で考えよう。中心にbulk場 $\\varphi$ を一つ置き、外周に境界条件 $J$ を課す。動径量子化では、$\\varphi$ が円周上の状態 $|\\varphi\\rangle$ を作り、外周の境界条件は境界状態 $\\langle\\!\\langle J|$ で表される。円板の一点関数は、その重なり
-
-$$
-\\langle\\varphi(0)\\rangle_{J,\\mathrm{disk}}
-=\\langle\\!\\langle J|\\varphi\\rangle
-$$
-
-である。この円周上の場 $g$ は、標的空間では一本の閉じた曲線を描く。弦理論でいう**閉弦の配置**がこの曲線であり、同じ一点関数を閉弦状態とブレーンの結合振幅として読む。
-
-![一つの場の配置gを描いた模式図。左はCFTを定義する円板。右は場の値の空間で、青い円周の像は閉じた曲線、緑の外周の像はQ上にある。](/diagrams/disk-state-target.svg)
-
-この重なりを、標的空間の位置で計算してみよう。大体積極限の主要な近似で、振動を励起しない低エネルギー成分に注目する。位置だけを残す近似では、円周に沿う配置の変化を除き、一つの群要素 $g$ で配置を指定する。その位置 $g$ にある基底状態を $|g\\rangle$ とすると、状態 $|f\\rangle$ の位置表示は波動関数 $f(g)=\\langle g|f\\rangle$ になる。
-
-一点 $g_0$ だけを許す境界条件を考えると、この近似では円板の境界も同じ $g_0$ に写る。従って境界状態の位置成分は $\\langle g_0|$ に比例し、重なりは $\\langle g_0|f\\rangle=f(g_0)$ に比例する。ブレーンの位置を変えると、同じ波の別の位置での値を拾うことになる。
-
-許される位置が図形 $Q$ 全体に広がる場合、境界状態の位置成分を $Q$ 上の各 $\\langle g_i|$ の重ね合わせで表す。小部分 $i$ の大きさと局所的な結合の強さをまとめた重みを $w_i$ とすれば、状態 $|f\\rangle$ との重なりは、線形性により $\\sum_i w_i\\langle g_i|f\\rangle=\\sum_i w_i f(g_i)$ になる。
-
-![一点のブレーンでは波動関数の値f(g0)を拾う。広がったブレーンQでは、小部分ごとの値f(gi)にその部分の重みwiを掛けて足す。Qの一方向を模式的に描いている。](/diagrams/brane-wave-sum.svg)
-
-小部分を細かくした極限で、重みを $d\\nu_Q(g)$ と書けば、この半古典近似での結合振幅は
+位置を群要素 $g$ で指定し、閉弦状態の位置表示を波動関数 $f(g)$ とする。一点 $g_0$ にあるブレーンとの重なりは $f(g_0)$ に比例する。広がったブレーンでは、各部分への結合を足すので
 
 $$
 \\mathcal A_Q[f]=\\int_Q d\\nu_Q(g)\\,f(g)
 \\tag{brane-coupling-as-integral}
 $$
 
-となる。[境界状態の位置表示（Felderほか §2）](https://arxiv.org/html/hep-th/9909030#S2)
+となる。重み $d\\nu_Q$ は各部分の大きさと結合の強さを含む。この半古典的な位置表示を用い、**すべての低い波への結合を再現する重みの台**を求める。台とは、どんな小さな近傍にも非零の重みがある位置の集合である。その集合が閉弦によって測られるブレーンの領域になる。[境界状態の位置表示（Felderほか、§2）](https://arxiv.org/html/hep-th/9909030#S2)
 
-従って、結合は $f$ の $Q$ 上での値だけに依存する。$Q$ から離れた場所だけに波を置けば結合は零になる。ブレーン上の各部分に非零の局所的な結合があれば、この測度の台、すなわち重みが存在する領域が $Q$ である。
+![一点のブレーンはf(g0)を拾う。広がった領域Qでは、各部分での波の値f(gi)に重みwiを掛けて足す。](/diagrams/brane-wave-sum.svg)
 
-これを逆向きに使う。Cardy境界条件が**各波にどれだけ結合するか**を一点関数から求め、それらを再現する測度の台を特定すれば、worldvolumeが分かる。
+### 1.2 群上の波とCardy一点関数を対応させる
 
-### 2.2 一点関数は群上のFourier係数を与える
-
-$SU(2)$ 上の波の完全系として、Peter--Weyl基底
+群上の波の基底には、スピン $j$ の表現行列 $D^j(g)$ の行列要素を使う：
 
 $$
-\\phi_j^{mn}(g):=\\sqrt{2j+1}\\,D^j_{mn}(g),
-\\qquad
-j=0,\\tfrac12,1,\\ldots,\\quad m,n=-j,\\ldots,j
+\\phi_j^{mn}(g):=\\sqrt{2j+1}\\,D^j_{mn}(g),\\qquad
+m,n=-j,\\ldots,j.
 \\tag{6.24}
 $$
 
-を使う。$D^j$ はスピン $j$ の有限次元既約表現である。これらは、群全体の体積を1としたHaar測度
+Peter–Weylの定理によれば、$j=0,\\frac12,1,\\ldots$ をすべて含むこれらの関数は、全体積を1に規格化したHaar測度 $d\\mu$ に関して完全正規直交系になる。大きな $k$ でbulk primary $\\varphi_{j,j}^{mn}$ の振動を励起しない成分を、この波動関数に対応させる。両者は左右の零モードの群作用と内積が同じである。
+
+6.2節の[Cardy一点関数](/6-2#ref-cardy-coefficients)を、上半平面上の距離因子から分けると
 
 $$
-d\\mu(g)=\\frac{\\sin^2\\vartheta}{2\\pi^2}\\,d\\vartheta\\,d\\Omega,
-\\qquad
-\\int_{S^2}d\\Omega=4\\pi,\\qquad \\int_{SU(2)}d\\mu=1
-$$
-
-に関して正規直交する。大体積極限では、bulk primary $\\varphi_{j,j}^{mn}$ が作る閉弦の低エネルギー状態の波動関数が、この $\\phi_j^{mn}$ になる。
-
-円板と共形同値な上半平面で、Cardy一点関数を世界面上の距離因子と結合係数 $B_J^j$ に分けると
-
-$$
-\\left\\langle\\varphi_{j,j}^{mn}(z,\\bar z)\\right\\rangle_J
-=\\frac{B_J^j\\delta^{mn}}{|z-\\bar z|^{2h_j}},
-\\qquad h_j=\\frac{j(j+1)}{k+2}.
-$$
-
-位置を調べるために使うのは $B_J^j\\delta^{mn}$ である。境界状態の位置表示を $\\rho_J$ と書けば
-
-$$
-B_J^j\\delta^{mn}
-=\\int_{SU(2)}d\\mu(g)\\,\\rho_J(g)\\phi_j^{mn}(g).
-\\tag{boundary-state-fourier-overlap}
-$$
-
-すなわち、各一点関数が分布 $\\rho_J$ の一つのFourier係数を与える。§2.1の $d\\nu_Q$ に対応するのが $\\rho_J\\,d\\mu$ である。
-
-<details>
-<summary>閉弦の零モードとPeter--Weyl基底の対応</summary>
-
-対角WZW模型で、左右のcurrentの零モードが作用するground-state空間は
-
-$$
-\\mathcal H_{\\mathrm{zero}}^{(k)}
-\\simeq\\bigoplus_{j=0,\\frac12,\\ldots,k/2}V_j\\otimes V_j^*
-$$
-
-である。行列要素も
-
-$$
-D^j(ugv^{-1})=D^j(u)D^j(g)D^j(v)^{-1}
-$$
-
-と変換するため、その二つの添字が $V_j$ と $V_j^*$ の作用を受ける。また
-
-$$
-\\int d\\mu(g)\\,\\overline{D^j_{mn}(g)}D^{j'}_{m'n'}(g)
-=\\frac{\\delta_{jj'}\\delta_{mm'}\\delta_{nn'}}{2j+1}
-$$
-
-なので、$|j,m,n\\rangle\\leftrightarrow\\sqrt{2j+1}D^j_{mn}(g)$ と対応させれば、群作用と内積がともに一致する。有限 $k$ では $j\\leq k/2$ の部分空間であり、$k\\to\\infty$ で全表現を含む和を完備化すると $L^2(SU(2),d\\mu)$ になる。
-
-固定した $j$ のground stateは $h_j=O(k^{-1})$ である。一方、currentの負モードによる振動の励起は共形ウェイトを正整数だけ上げる。このエネルギー差によって、大体積極限では弦の位置を表す低エネルギー部分を取り出せる。
-
-diskの動径量子化では
-
-$$
-B_J^j\\delta^{mn}=\\langle\\!\\langle J|j,m,n\\rangle.
-$$
-
-$\\phi_j^{mn}(g)=\\langle g|j,m,n\\rangle$、$\\rho_J(g)=\\langle\\!\\langle J|g\\rangle$ と置き、位置基底の完全性を挿入すると
-
-$$
-\\langle\\!\\langle J|j,m,n\\rangle
-=\\int d\\mu(g)\\,\\langle\\!\\langle J|g\\rangle\\langle g|j,m,n\\rangle
-=\\int d\\mu(g)\\,\\rho_J(g)\\phi_j^{mn}(g)
-$$
-
-を得る。$\\rho_J$ は閉弦との結合を記録する分布である。完全な境界状態には非零モードの弦振動も含まれ、ここではprimaryに対応する成分の幾何を読む。
-
-</details>
-
-### 2.3 Cardy係数から位置の分布を復元する
-
-式 (6.17) が与える係数は
-
-$$
-B_J^j
-=\\left(\\frac2{k+2}\\right)^{1/4}
-\\frac{\\sin\\!\\left[\\frac{\\pi(2j+1)(2J+1)}{k+2}\\right]}
-{\\sqrt{\\sin\\!\\left[\\frac{\\pi(2j+1)}{k+2}\\right]}}.
+\\langle\\varphi_{j,j}^{mn}(z,\\bar z)\\rangle_J
+=\\frac{B_J^j\\delta^{mn}}{|z-\\bar z|^{2h_j}},\\qquad
+B_J^j=\\left(\\frac2{k+2}\\right)^{1/4}
+\\frac{\\sin((2j+1)\\vartheta_J)}{\\sqrt{\\sin(\\pi(2j+1)/(k+2))}},
 \\tag{6.17}
 $$
 
-まず $\\delta^{mn}$ に注目する。逆展開では対角成分だけが残るので
-
 $$
-\\rho_J(g)=\\sum_{j=0,\\frac12,\\ldots}^{k/2}
-B_J^j\\sum_{m=-j}^j\\overline{\\phi_j^{mm}(g)}.
-$$
-
-この和はcharacter、すなわち表現行列のtraceに比例する。$g$ の固有値が $e^{\\pm i\\vartheta}$ であることから
-
-$$
-\\sum_{m=-j}^j\\phi_j^{mm}(g)
-=\\sqrt{2j+1}\\,\\operatorname{tr}D^j(g)
-=\\sqrt{2j+1}\\frac{\\sin((2j+1)\\vartheta)}{\\sin\\vartheta}
-\\tag{class-character}
-$$
-
-となる。実数なので複素共役を外せる。さらに、$\\rho_J$ は方向 $\\mathbf n$ に依存しない。Cardy境界は、同じ共役類内のすべての位置に等しく結合する。残る問題は、角度 $\\vartheta$ のどこに重みがあるかである。
-
-<details>
-<summary>characterを有限等比級数で計算する</summary>
-
-\`\`\`math-steps
-lhs: \\sum_{m=-j}^j\\phi_j^{mm}(g)
-note: $\\phi_j^{mn}=\\sqrt{2j+1}D^j_{mn}$ を代入する。対角成分の和がtraceである。
-popup-math: \\sum_m D^j_{mm}(g)=\\operatorname{tr}_{V_j}D^j(g)
-part normalization: \\sqrt{2j+1}\\,
-part character: \\operatorname{tr}_{V_j}D^j(g)
----
-note: traceは共役で変わらないため、$g$ を対角化してよい。スピン成分 $m$ に対する固有値は $e^{2im\\vartheta}$ になる。
-popup-math: D^j(g)\\sim\\operatorname{diag}_{m=-j,\\ldots,j}(e^{2im\\vartheta})
-part normalization: \\sqrt{2j+1}\\,
-part character: \\sum_{m=-j}^je^{2im\\vartheta}
----
-note: $m=-j+r$ として公比 $e^{2i\\vartheta}$ の等比級数を足す。$1-e^{2ix}=-2ie^{ix}\\sin x$ で指数因子が相殺する。分母が零の点では連続極限を取る。
-popup-math: \\begin{aligned}\\sum_{m=-j}^je^{2im\\vartheta}&=e^{-2ij\\vartheta}\\frac{1-e^{2i(2j+1)\\vartheta}}{1-e^{2i\\vartheta}}\\\\&=e^{-2ij\\vartheta}\\frac{e^{i(2j+1)\\vartheta}\\sin((2j+1)\\vartheta)}{e^{i\\vartheta}\\sin\\vartheta}.\\end{aligned}
-part normalization: \\sqrt{2j+1}\\,
-part character: \\frac{\\sin((2j+1)\\vartheta)}{\\sin\\vartheta}
-\`\`\`
-
-</details>
-
-その角度を求めるため、分子に現れる量を
-
-$$
-\\vartheta_J:=\\frac{\\pi(2J+1)}{k+2}
+\\vartheta_J:=\\frac{\\pi(2J+1)}{k+2}.
 \\tag{quantised-angle}
 $$
 
-と書く。$k\\to\\infty$ の間も閉弦モード $j,m,n$ を固定し、境界ラベルは
+ここで $B_J^j\\delta^{mn}$ が位置の波 $\\phi_j^{mn}$ への結合である。$\\delta^{mn}$ は $m=n$ の成分だけに結合することを示す。分布 $\\rho_J$ を用いた位置表示では
 
 $$
-\\vartheta_{J(k)}\\longrightarrow\\vartheta_0\\in(0,\\pi),
-\\qquad
+B_J^j\\delta^{mn}=\\int d\\mu(g)\\,\\rho_J(g)\\phi_j^{mn}(g).
+\\tag{boundary-state-fourier-overlap}
+$$
+
+一点関数を集める操作が、分布 $\\rho_J$ のFourier係数を集める操作になった。
+
+<details>
+<summary>零モード空間と波動関数の内積を照合する</summary>
+
+対角WZW模型で、アフィン表現の最低ウェイト部分は
+
+$$
+\\mathcal H_{\\mathrm{zero}}^{(k)}
+\\simeq\\bigoplus_{j=0,\\frac12,\\ldots,k/2}V_j\\otimes V_j^*.
+$$
+
+群上の行列要素も $D^j(ugv^{-1})=D^j(u)D^j(g)D^j(v)^{-1}$ と変換するので、左右の添字は同じ表現を担う。Schurの直交関係
+
+$$
+\\int d\\mu\\,\\overline{D^j_{mn}}D^{j'}_{m'n'}
+=\\frac{\\delta_{jj'}\\delta_{mm'}\\delta_{nn'}}{2j+1}
+$$
+
+から、式 (6.24) の平方根が正規化をそろえる。有限 $k$ では $j\\leq k/2$ の部分空間であり、$k\\to\\infty$ で全表現を含めると $L^2(SU(2),d\\mu)$ が得られる。
+
+位置基底を $|g\\rangle$、$\\phi_j^{mn}(g)=\\langle g|j,m,n\\rangle$、$\\rho_J(g)=\\langle\\!\\langle J|g\\rangle$ とすれば、完全性 $\\int d\\mu\\,|g\\rangle\\langle g|=1$ の挿入が式 (boundary-state-fourier-overlap) を与える。境界状態には振動成分もあるので、これは境界状態全体を単なる位置分布へ置き換える主張ではない。
+
+</details>
+
+### 1.3 一様な球面平均が同じ係数を与える
+
+どんな集合がこの結合を再現するかを見るため、群要素を
+
+$$
+g=\\cos\\vartheta\\,\\mathbf1+i\\sin\\vartheta\\,\\mathbf n^a\\sigma_a,
+\\quad 0\\leq\\vartheta\\leq\\pi,\\quad \\mathbf n\\cdot\\mathbf n=1
+\\tag{SU2-polar}
+$$
+
+と表す。$\\sigma_a$ はPauli行列、$a=1,2,3$ は和を取る。四つの実座標 $(\\cos\\vartheta,\\sin\\vartheta\\,\\mathbf n)$ の二乗和は1であり、これが $SU(2)\\simeq S^3$ の表示である。$\\vartheta=\\vartheta_0$ を固定すると、$\\mathbf n$ が二次元球面を動く。その物理半径は
+
+$$
+r(\\vartheta_0)=R\\sin\\vartheta_0.
+\\tag{brane-radius}
+$$
+
+![S3の二次元断面内で、x0一定の線分を右の球面S2へ対応させる。実際の共役類は線分ではなく、半径Rsinθの二次元球面である。](/diagrams/su2-conjugacy-slices.svg)
+
+図の左は三次元球面を二次元の断面で描いている。固定した $x_0=R\\cos\\vartheta$ の線分が、実際には右の $S^2$ に対応する。
+
+この球面は共役類でもある。共役変換 $g\\mapsto hgh^{-1}$ は固有値 $e^{\\pm i\\vartheta}$ を保ち、$\\mathbf n$ を全方向へ回すからである。従って
+
+$$
+\\mathcal C_{\\vartheta_0}
+:=\\{he^{i\\vartheta_0\\sigma_3}h^{-1}\\mid h\\in SU(2)\\}
+=\\{g\\mid\\vartheta(g)=\\vartheta_0\\}\\simeq S^2
+\\tag{spherical-conjugacy-class}
+$$
+
+となる。$\\vartheta_0=0,\\pi$ では球面がそれぞれ $e=\\mathbf1,-e=-\\mathbf1$ の一点へ縮む。
+
+| 固定する量 | 動ける値 | 標的空間内の集合 |
+|---|---|---|
+| $\\vartheta=0$ | 方向 $\\mathbf n$ の違いが消える | 北極 $e$ |
+| $0<\\vartheta<\\pi$ | $\\mathbf n\\in S^2$ | 半径 $R\\sin\\vartheta$ の共役類 |
+| $\\vartheta=\\pi$ | 方向 $\\mathbf n$ の違いが消える | 南極 $-e$ |
+
+球面上の一様な平均を $\\langle f\\rangle_{\\vartheta_0}:=(4\\pi)^{-1}\\int_{S^2}d\\Omega\\,f(\\vartheta_0,\\mathbf n)$ と書く。平均した表現行列は共役で変わらないので、Schurの補題により単位行列に比例する。そのtraceはcharacter
+
+$$
+\\chi_j(\\vartheta_0)=\\operatorname{tr}D^j(g)
+=\\frac{\\sin((2j+1)\\vartheta_0)}{\\sin\\vartheta_0}
+\\tag{class-character}
+$$
+
+である。単位行列のtraceが $2j+1$ であることから比例係数が決まり、球面平均は
+
+$$
+\\langle\\phi_j^{mn}\\rangle_{\\vartheta_0}
+=\\frac{\\chi_j(\\vartheta_0)}{\\sqrt{2j+1}}\\delta^{mn}
+$$
+
+となる。
+
+一方、Cardy結合を一定の波への結合 $B_J^0$ で割ると、全体の強さを除いて形を比べられる。$k\\to\\infty$ で閉弦のスピン $j$ を固定し、境界ラベルを
+
+$$
+\\vartheta_{J(k)}\\to\\vartheta_0\\in(0,\\pi),\\qquad
 J(k)\\sim\\frac{k\\vartheta_0}{2\\pi}
 \\tag{limit-A}
 $$
 
-となるように選ぶ。この極限では
+と選ぶ。このとき $\\sin(\\pi(2j+1)/(k+2))\\sim(2j+1)\\sin(\\pi/(k+2))$ なので
 
 $$
-\\sin\\!\\left(\\frac{\\pi(2j+1)}{k+2}\\right)
-=\\frac{\\pi(2j+1)}{k+2}\\bigl[1+O(k^{-2})\\bigr]
-$$
-
-なので
-
-$$
-\\begin{aligned}
-B_{J(k)}^j
-&=\\left(\\frac2{k+2}\\right)^{1/4}
-\\sqrt{\\frac{k+2}{\\pi(2j+1)}}\\,
-\\sin((2j+1)\\vartheta_{J(k)})\\bigl[1+O(k^{-2})\\bigr]\\\\
-&=\\underbrace{\\frac{2^{1/4}(k+2)^{1/4}}{\\sqrt\\pi}}_{=:A_k}
-\\frac{\\sin((2j+1)\\vartheta_{J(k)})}{\\sqrt{2j+1}}
-\\bigl[1+O(k^{-2})\\bigr].
-\\end{aligned}
-$$
-
-全モードに共通の強さ $A_k$ を除くと、分布の形を決める係数は
-
-$$
-\\frac{B_{J(k)}^j}{A_k}
+\\frac{B_{J(k)}^j}{B_{J(k)}^0}\\delta^{mn}
 \\longrightarrow
-\\frac{\\sin((2j+1)\\vartheta_0)}{\\sqrt{2j+1}}.
+\\frac{\\sin((2j+1)\\vartheta_0)}{\\sqrt{2j+1}\\sin\\vartheta_0}\\delta^{mn}
+=\\langle\\phi_j^{mn}\\rangle_{\\vartheta_0}.
 $$
 
-この係数列を逆展開すると、正弦関数の完全性から
+**各位置の波へのCardy結合が、角度 $\\vartheta_0$ の球面上の平均と一致した。** Peter–Weyl基底の全係数は分布を一意に指定するので、極限の結合の台はこの球面である。半古典的なworldvolumeを $Q_J=\\mathcal C_{\\vartheta_J}$ と読む根拠がここにある。
+
+<details>
+<summary>分布の逆展開、式 (6.25) の係数、半径の確認</summary>
+
+polar座標でのHaar測度は
 
 $$
-\\frac{\\delta(\\vartheta-\\vartheta_0)}{\\sin\\vartheta_0}
-=\\frac2\\pi\\sum_{j=0,\\frac12,\\ldots}\\sum_{m=-j}^j
-\\frac{\\sin((2j+1)\\vartheta_0)}{\\sqrt{2j+1}}\\phi_j^{mm}(g)
-\\tag{6.25}
+d\\mu(g)=\\frac{\\sin^2\\vartheta}{2\\pi^2}\\,d\\vartheta\\,d\\Omega,
+\\quad \\int_{S^2}d\\Omega=4\\pi.
 $$
 
-を得る。$\\delta$ は測度 $d\\vartheta$ に関するDirac deltaである。従って、極限の係数列が表す分布は
+従って球面平均を与える、全体の重みを1にした分布は
 
 $$
-\\rho_\\infty(g)
-=\\frac{\\pi}{2\\sin\\vartheta_0}\\,
-\\delta(\\vartheta(g)-\\vartheta_0).
+\\rho_{\\infty}^{\\mathrm{norm}}(g)
+=\\frac{\\pi}{2\\sin^2\\vartheta_0}\\delta(\\vartheta-\\vartheta_0).
 \\tag{brane-localisation}
 $$
 
-ここで $\\rho_\\infty$ は、各固定モードについて求めた $\\rho_{J(k)}/A_k$ の極限の位置表示である。係数の一致が示したのは、角度方向の重みが $\\vartheta_0$ に集中することである。
+これを積分へ戻すと $\\int d\\mu\\,\\rho_{\\infty}^{\\mathrm{norm}}f=(4\\pi)^{-1}\\int d\\Omega\\,f(\\vartheta_0,\\mathbf n)$ になる。$\\delta$ は $d\\vartheta$ に関するDirac deltaである。規格化する前の分布には、真空結合 $B_J^0$ の全体因子も掛かる。
 
-<details>
-<summary>式 (6.25) の係数 $2/\\pi$ の確認</summary>
+characterは、対角化した $g$ のスピン成分の固有値を足して
 
-まず $\\delta(\\vartheta-\\vartheta_0)$ の正弦展開の係数を求める。$0<\\vartheta_0<\\pi$ とし、区間 $(0,\\pi)$ 上の分布として
+$$
+\\chi_j(\\vartheta)=\\sum_{m=-j}^je^{2im\\vartheta}
+=\\frac{\\sin((2j+1)\\vartheta)}{\\sin\\vartheta}
+$$
+
+と求まる。$n=2j+1$ は全正整数を一度ずつ走り、正弦完全系は
 
 $$
 \\delta(\\vartheta-\\vartheta_0)
-=\\sum_{n=1}^{\\infty}a_n\\sin(n\\vartheta)
-$$
-
-と展開する。正弦関数の直交性と規格化は、積和公式から計算できる。正整数 $n,\\ell$ に対して、$n\\ne\\ell$ なら
-
-$$
-\\begin{aligned}
-\\int_0^\\pi\\sin(n\\vartheta)\\sin(\\ell\\vartheta)\\,d\\vartheta
-&=\\frac12\\int_0^\\pi
-\\bigl[\\cos((n-\\ell)\\vartheta)-\\cos((n+\\ell)\\vartheta)\\bigr]\\,d\\vartheta\\\\
-&=\\frac12\\left[
-\\frac{\\sin((n-\\ell)\\vartheta)}{n-\\ell}
--\\frac{\\sin((n+\\ell)\\vartheta)}{n+\\ell}
-\\right]_0^\\pi=0,
-\\end{aligned}
-$$
-
-$n=\\ell$ なら
-
-$$
-\\int_0^\\pi\\sin^2(\\ell\\vartheta)\\,d\\vartheta
-=\\left[\\frac{\\vartheta}{2}
--\\frac{\\sin(2\\ell\\vartheta)}{4\\ell}\\right]_0^\\pi
-=\\frac\\pi2.
-$$
-
-したがって展開の両辺に $\\sin(\\ell\\vartheta)$ を掛けて積分すると
-
-$$
-\\begin{aligned}
-\\sin(\\ell\\vartheta_0)
-&=\\int_0^\\pi\\delta(\\vartheta-\\vartheta_0)
-\\sin(\\ell\\vartheta)\\,d\\vartheta\\\\
-&=\\sum_{n=1}^{\\infty}a_n
-\\int_0^\\pi\\sin(n\\vartheta)\\sin(\\ell\\vartheta)\\,d\\vartheta
-=\\frac\\pi2 a_\\ell,
-\\end{aligned}
-$$
-
-すなわち $a_\\ell=(2/\\pi)\\sin(\\ell\\vartheta_0)$ を得る。正弦関数系の完全性により、これらの係数は元の分布を再現する：
-
-$$
-\\delta(\\vartheta-\\vartheta_0)
-=\\frac2\\pi\\sum_{n=1}^{\\infty}
-\\sin(n\\vartheta_0)\\sin(n\\vartheta).
-$$
-
-これを式 (6.25) の右辺へ結びつける。$n=2j+1$ と置くと、$j=0,\\frac12,1,\\ldots$ は正整数 $n$ を一度ずつ走る。式 (class-character) を代入すれば
-
-$$
-\\begin{aligned}
-&\\frac2\\pi\\sum_{j=0,\\frac12,\\ldots}
-\\frac{\\sin((2j+1)\\vartheta_0)}{\\sqrt{2j+1}}
-\\sum_{m=-j}^j\\phi_j^{mm}(g)\\\\
-&\\quad=\\frac2\\pi\\sum_{j=0,\\frac12,\\ldots}
-\\frac{\\sin((2j+1)\\vartheta_0)}{\\sqrt{2j+1}}
-\\sqrt{2j+1}\\frac{\\sin((2j+1)\\vartheta)}{\\sin\\vartheta}\\\\
-&\\quad=\\frac1{\\sin\\vartheta}\\frac2\\pi
-\\sum_{n=1}^{\\infty}\\sin(n\\vartheta_0)\\sin(n\\vartheta)\\\\
-&\\quad=\\frac{\\delta(\\vartheta-\\vartheta_0)}{\\sin\\vartheta}
-=\\frac{\\delta(\\vartheta-\\vartheta_0)}{\\sin\\vartheta_0}.
-\\end{aligned}
-$$
-
-最後の等号はdelta分布の台で係数関数を評価する性質による。実際、$(0,\\pi)$ 内に台をもつ任意の滑らかな試験関数 $f$ に対して
-
-$$
-\\int_0^\\pi f(\\vartheta)
-\\frac{\\delta(\\vartheta-\\vartheta_0)}{\\sin\\vartheta}\\,d\\vartheta
-=\\frac{f(\\vartheta_0)}{\\sin\\vartheta_0}
-=\\int_0^\\pi f(\\vartheta)
-\\frac{\\delta(\\vartheta-\\vartheta_0)}{\\sin\\vartheta_0}\\,d\\vartheta.
-$$
-
-これで式 (6.25) が得られ、係数 $2/\\pi$ は正弦関数のノルム二乗 $\\pi/2$ の逆数として定まる。
-
-</details>
-
-### 2.4 その分布が球面的なworldvolumeを表す理由
-
-$\\rho_\\infty$ を§2.1の結合の積分へ戻すと、幾何学的な意味を直接読める。波動関数を座標で $f(\\vartheta,\\mathbf n)$ と書けば
-
-$$
-\\begin{aligned}
-\\mathcal A_\\infty[f]
-&:=\\int_{SU(2)}d\\mu(g)\\,\\rho_\\infty(g)f(g)\\\\
-&=\\frac1{2\\pi^2}\\frac{\\pi}{2\\sin\\vartheta_0}
-\\int_0^\\pi d\\vartheta\\,\\sin^2\\vartheta\\,
-\\delta(\\vartheta-\\vartheta_0)
-\\int_{S^2}d\\Omega\\,f(\\vartheta,\\mathbf n)\\\\
-&=\\frac{\\sin\\vartheta_0}{4\\pi}
-\\int_{S^2}d\\Omega\\,f(\\vartheta_0,\\mathbf n).
-\\end{aligned}
-$$
-
-右辺は、**角度 $\\vartheta_0$ の球面上で波の値を積分する結合**である。一定の波 $f=1$ への結合 $\\mathcal A_\\infty[1]=\\sin\\vartheta_0$ で割ると
-
-$$
-\\frac{\\mathcal A_\\infty[f]}{\\mathcal A_\\infty[1]}
-=\\frac1{4\\pi}\\int_{S^2}d\\Omega\\,f(\\vartheta_0,\\mathbf n).
-$$
-
-全体の強さを除いたCardyブレーンの結合は、この球面上の一様な平均になった。この測度は、球面から離れた場所で零になり、球面上のどの小さな領域にも正の重みをもつ。従って、その台は球面全体である。
-
-§2.1では、境界条件 $g(\\partial\\Sigma)\\subset Q$ が、波を $Q$ 上で積分する結合を与えた。いまCardy一点関数から復元した結合がまさにこの形になったため、半古典的に読み取れる端点の許容領域は $Q=\\{\\vartheta=\\vartheta_0\\}$ である。そして§1.2で、この集合が一つの共役類であることを示した。以上から
-
-$$
-\\boxed{
-Q=\\mathcal C_{\\vartheta_0}
-=\\{he^{i\\vartheta_0\\sigma_3}h^{-1}\\mid h\\in SU(2)\\}
-\\simeq S^2
-}
-$$
-
-と結論する。これが、$SU(2)$ WZW模型のCardyブレーンのworldvolumeを、群を標的空間とする模型の球面的な共役類と同定する意味である。$J(k)$ が角度を選び、共役類に沿う二つの方向が端点の動ける方向になる。§3では、同じ端点の制限をcurrentのgluing条件から直接確かめる。
-
-<details>
-<summary>大体積極限で同定した幾何の範囲</summary>
-
-計算で示した収束は、各固定モード $\\phi_j^{mn}$、従ってその有限個の線形結合に対するものである。これらすべてへの作用は、本文の球面測度と一致する。Peter--Weyl基底の全係数は分布を一意に定めるため、極限の係数列が表す分布をこの球面測度と同定できる。有限 $k$ の分布列が任意の滑らかな試験関数に対して弱収束することまで証明するには、高スピン成分を $k$ に一様に抑える評価が別途必要になる。
-
-有限 $k$ ではprimaryのモードが $j\\leq k/2$ に限られ、Cardy係数の分母も一般には線形近似できない。その有限和で復元した分布は滑らかであり、鋭いdelta分布にはならない。ここで得たworldvolumeは、固定した低エネルギー閉弦モードに対する半古典的な幾何である。端点 $\\vartheta_0=0,\\pi$ では共役類が一点に縮退し、$1/\\sin\\vartheta_0$ を含む上の式への直接代入はできない。
-
-</details>
-
-### 2.5 ラベルを変えると球面はどこへ動くか
-
-Cardy係数に現れる角度 $\\vartheta_J$ に、§1の幾何学的な式 $r=R\\sin\\vartheta$ を対応させよう。この換算で得る半径を $r_J:=R\\sin\\vartheta_J$ と書く。§2.4で球面への局在を確かめたのは、$J$ を $k$ とともに増やして $0<\\vartheta_0<\\pi$ を保つ極限である。固定 $J$ にこの半径の式を延ばした値は、Cardy角度の半古典的な換算値として扱う。固定 $J$ の有限個の開弦成分が持つ空間構造は、§5以降で境界場の積から調べる。
-
-まず二つの例で半径を比べよう。$\\alpha'$ を固定し、$J=\\frac12$ のブレーンについて $k$ を増やすと、
-
-$$
-\\vartheta_{1/2}=\\frac{2\\pi}{k+2}\\longrightarrow0,
-\\qquad
-r_{1/2}=\\sqrt{k\\alpha'}\\sin\\frac{2\\pi}{k+2}
-\\sim2\\pi\\sqrt{\\frac{\\alpha'}k}\\longrightarrow0.
-$$
-
-周囲の $S^3$ の半径は増えているのに、Cardy角度は北極へ近づき、その半径の換算値は零へ向かう。一方、$k$ を偶数として $J=k/4$ を選び続けると、
-
-$$
-\\vartheta_{k/4}=\\frac\\pi2,
-\\qquad r_{k/4}=R=\\sqrt{k\\alpha'}.
-$$
-
-こちらは赤道の球面にとどまり、標的空間とともに大きくなる。従って、有限の角度にある球面を調べるには、$k$ とともに $J$ も増やす必要がある。
-
-<details id="note-which-large-k-question">
-<summary>Jを増やす速さで、球面の大きさはどう変わるか？</summary>
-
-角度が北極へ近づく場合にも、標的空間全体が大きくなるため、物理半径は複数の振る舞いを示す。
-
-$\\alpha'$を固定し、$J\\sim Ck^\\beta$、$0<\\beta<1$とすると、$\\vartheta_J\\sim2\\pi Ck^{\\beta-1}$で北極へ近づく。一方、物理半径は$r_J\\sim2\\pi C\\sqrt{\\alpha'}k^{\\beta-1/2}$であり、$\\beta<1/2$なら縮み、$\\beta=1/2$なら有限、$\\beta>1/2$なら増大する。
-
-$J/k\\to C$、$0<C<1/2$なら有限の角度が残る。この場合も、位置は半径比 $r_J/R$ と物理半径 $r_J$ を区別して読める。
-
-$$
-r_J\\sim2\\pi C\\sqrt{\\alpha'}\\,k^{\\beta-1/2}\\quad(0<\\beta<1)
-$$
-
-参照：6.3 · large-volume極限と式 (6.17)
-
-</details>
-
-## 3. gluing条件が定める端点の運動と磁束
-
-§2では、Cardy一点関数から、閉弦が測るブレーンの分布を球面上の測度と同定した。開弦の端点に課すカレントの条件 $J=\\bar J$ は、群値場 $g$ の境界での微分を制限する。この制限を共役類に垂直な成分と接する成分に分けると、端点が動ける領域と、その上の反対称背景場が定まる。
-
-### 3.1 境界に沿う微分と垂直な微分
-
-世界面を上半平面 $y\\geq0$、その境界を実軸 $y=0$ とし、$z=x+iy$ と書く。境界上の曲線 $g(x,0)$ が、標的空間内での開弦端点の軌跡である。従って $\\partial_xg$ は端点の動く方向を表し、$\\partial_yg$ は世界面の内側へ進んだときの場の変化を表す。
-
-WZW模型のカレントは
-
-$$
-J(z)=-k\\,\\partial g\\,g^{-1},
-\\qquad
-\\bar J(\\bar z)=k\\,g^{-1}\\bar\\partial g
-$$
-
-である。ここで $J(z)$ はカレント、引数のないラベル $J$ はCardy境界条件を指定するスピンである。標準の[gluing条件](/6-2#ref-gluing) $J(z)=\\bar J(\\bar z)$ を $y=0$ に課すと
-
-$$
--(\\partial g)g^{-1}=g^{-1}\\bar\\partial g
-\\tag{6.26}
-$$
-
-を得る。
-
-両辺を同じ接空間で比較するため、点 $g$ での接ベクトルに左から $g^{-1}$ を掛け、単位元での接空間 $\\mathfrak{su}(2)$ に移す：
-
-$$
-g^{-1}\\partial_xg,\\qquad g^{-1}\\partial_yg.
-$$
-
-実時間では、これらは実Lie代数 $\\mathfrak{su}(2)$ に値を取る。以下の上半平面では境界時間をEuclid化しており、微分とgluingの等式は複素化した接空間で扱う。実時間 $t$ へ $x=it$ と戻すと $i\\partial_x=\\partial_t$ となり、後で得る混合条件の係数も実数になる。
-
-共役作用 $\\operatorname{Ad}(g)Y:=gYg^{-1}$ を用いると、$\\partial g\\,g^{-1}=\\operatorname{Ad}(g)(g^{-1}\\partial g)$ である。また
-
-$$
-\\partial=\\frac12(\\partial_x-i\\partial_y),
-\\qquad
-\\bar\\partial=\\frac12(\\partial_x+i\\partial_y)
-$$
-
-なので、式 (6.26) は
-
-$$
-\\begin{aligned}
--\\operatorname{Ad}(g)(g^{-1}\\partial_xg-ig^{-1}\\partial_yg)&=g^{-1}\\partial_xg+ig^{-1}\\partial_yg,\\\\
-i(\\operatorname{Ad}(g)-1)g^{-1}\\partial_yg&=(\\operatorname{Ad}(g)+1)g^{-1}\\partial_xg
-\\end{aligned}
-$$
-
-となる。従って境界条件は
-
-$$
-\\boxed{
-(\\operatorname{Ad}(g)-1)g^{-1}\\partial_yg
-=-i(\\operatorname{Ad}(g)+1)g^{-1}\\partial_xg.
-}
-\\tag{6.27}
-$$
-
-以下では、この式の標的空間内での成分を調べる。添字 $x,y$ は**世界面の方向**を指定し、上付きの $\\parallel,\\perp$ は**標的空間の共役類に対する接方向・法線方向**を指定する。例えば $(g^{-1}\\partial_xg)^\\perp$ は、端点の動きのうち共役類から離れる方向の成分である。
-
-### 3.2 法線成分は端点を一つの共役類にとどめる
-
-点 $g$ を通る共役類 $\\mathcal C_g=\\{hgh^{-1}\\mid h\\in SU(2)\\}$ の接方向は、微小な共役変換で求められる。$\\epsilon\\in\\mathfrak{su}(2)$ に対して
-
-$$
-\\delta g
-=\\left.\\frac{d}{dt}\\right|_{t=0}e^{t\\epsilon}ge^{-t\\epsilon}
-=\\epsilon g-g\\epsilon
-$$
-
-であり、左移動した接ベクトルは
-
-$$
-g^{-1}\\delta g
-=(\\operatorname{Ad}(g^{-1})-1)\\epsilon
-$$
-
-となる。$\\epsilon$ を動かして得られるベクトル全体が接空間なので
-
-$$
-T_g\\mathcal C_g
-\\cong\\operatorname{Im}(\\operatorname{Ad}(g^{-1})-1).
-$$
-
-ここで $\\cong$ は左移動による同一視を表す。共役作用で保たれる内積を用いると、$\\operatorname{Ad}(g)$ は直交変換である。内積に関する随伴を $\\dagger$ で表すと、一般に $(\\operatorname{Im}M)^\\perp=\\ker M^\\dagger$ であり、今の場合は
-
-$$
-(\\operatorname{Ad}(g^{-1})-1)^\\dagger
-=\\operatorname{Ad}(g)-1
-$$
-
-だから、法線空間は
-
-$$
-(T_g\\mathcal C_g)^\\perp
-\\cong\\ker(\\operatorname{Ad}(g)-1)
-$$
-
-となる。すなわち、共役類に垂直なベクトルは $\\operatorname{Ad}(g)$ で変わらない。
-
-この分解を式 (6.27) に適用する。$\\operatorname{Ad}(g)$ は接空間と法線空間をそれぞれ保ち、法線空間では恒等写像なので
-
-$$
-\\underbrace{(\\operatorname{Ad}(g)-1)(g^{-1}\\partial_yg)^\\perp}_{0}
-=-i\\underbrace{(\\operatorname{Ad}(g)+1)(g^{-1}\\partial_xg)^\\perp}_{2(g^{-1}\\partial_xg)^\\perp}.
+=\\frac2\\pi\\sum_{n=1}^\\infty\\sin(n\\vartheta)\\sin(n\\vartheta_0).
 $$
 
 従って
 
 $$
-\\boxed{(g^{-1}\\partial_xg)^\\perp=0.}
-\\tag{endpoint-tangent}
+\\frac{\\delta(\\vartheta-\\vartheta_0)}{\\sin\\vartheta_0}
+=\\frac2\\pi\\sum_{j=0,\\frac12,\\ldots}\\sum_{m=-j}^j
+\\frac{\\sin((2j+1)\\vartheta_0)}{\\sqrt{2j+1}}\\phi_j^{mm}(g).
+\\tag{6.25}
 $$
 
-端点の軌跡 $g(x,0)$ の接ベクトルは、常に共役類の接空間に含まれる。$SU(2)$ の非縮退な共役類では $\\vartheta$ が法線方向の座標なので、この条件は
+原著 p.246 の式 (6.25) の係数は $4/\\pi$ だが、ここで明記した全半整数スピンの和と通常の $d\\vartheta$ のdeltaでは $2/\\pi$ となる。正弦の直交積分 $\\int_0^\\pi\\sin(n\\vartheta)\\sin(n'\\vartheta)d\\vartheta=(\\pi/2)\\delta_{nn'}$ でも検算できる。全体係数の訂正は台の位置を変えない。
+
+誘導計量は、$\\mathbf n\\cdot d\\mathbf n=0$ を用いて
 
 $$
-\\partial_x\\vartheta(x,0)=0
+ds^2=R^2\\left(d\\vartheta^2+\\sin^2\\vartheta\\,d\\Omega_2^2\\right).
 $$
 
-を意味する。端点は一定の $\\vartheta$ をもつ球面上を動く。これは球面に垂直な方向のDirichlet条件である。$\\vartheta=0,\\pi$ では共役類の接空間が零次元になり、端点はそれぞれ $e,-e$ に固定される。
+$\\vartheta$ 固定で $ds^2=r^2d\\Omega_2^2$ と比べれば式 (brane-radius) が得られる。
 
-この局所的な計算は、各共役類について成り立つ。量子論で許される球面の選択にはCardy境界条件のデータが入り、§2の一点関数との照合が $\\vartheta_J=\\pi(2J+1)/(k+2)$ を与える。
-
-<details>
-<summary>接空間の像と法線空間の核が対応する理由</summary>
-
-$M^\\dagger$ を内積に関する随伴とする。ベクトル $v$ が $M$ の像全体に直交する条件は
-
-$$
-(v,M\\epsilon)=(M^\\dagger v,\\epsilon)=0
-\\quad\\text{for all }\\epsilon
-$$
-
-なので、$M^\\dagger v=0$ と同値である。これを $M=\\operatorname{Ad}(g^{-1})-1$ に適用した。
-
-また、$\\operatorname{Ad}(g)$ は法線空間を固定する直交変換なので、その直交補空間である接空間も保つ。従って式 (6.27) の法線成分を取る際、接成分から法線成分への混入はない。
+ここまで示したのは各固定 $j$ の係数の収束である。有限 $k$ の分布列が任意の滑らかな試験関数に弱収束するという強い主張には、高いスピンを一様に抑える評価も必要になる。幾何の同定には、固定した低い波に対する極限の係数列を用いている。
 
 </details>
 
-### 3.3 接成分は球面上の磁束を定める
+### 1.4 大きなレベルと大きなスピンは別の極限である
 
-法線方向の条件が端点の位置を制限する一方、式 (6.27) の接成分は、球面に沿う二つの微分 $(g^{-1}\\partial_xg)^\\parallel,(g^{-1}\\partial_yg)^\\parallel$ を結びつける。非縮退な共役類の接空間上では $1-\\operatorname{Ad}(g)$ が可逆なので、
+有限 $k$ では閉弦primaryは $j\\leq k/2$ に限られる。この有限個の係数だけから真の位置分布や厚みは一意に決まらない。$\\vartheta_J$ は、全ての固定した低い波への応答をlarge-$k$ で照合したときの、半古典的な位置を指定する角度である。有限 $k$ の境界条件を厚みのない古典球面へ厳密に置き換えるものではない。
+
+また、$k$ を増やす際に $J$ をどう選ぶかで、見る球面は変わる。$J$ を固定すれば $\\vartheta_J\\to0$、$\\alpha'$ 固定で $r_J\\sim\\pi(2J+1)\\sqrt{\\alpha'/k}\\to0$ となる。有限の角度の球面を残すには、上の $J\\sim k\\vartheta_0/(2\\pi)$ が必要である。
+
+| 極限 | 残す対象 | この節で分かること |
+|---|---|---|
+| 固定した閉弦 $j$、$J/k\\to\\vartheta_0/(2\\pi)$ | $S^3$ 内の有限角度の球面 | 一点関数の台と共役類の位置 |
+| 固定した境界ラベル $J$、$k\\to\\infty$ | 北極近くの有限個の開弦primary | 後で求める有限行列の積 |
+| 行列の半径を固定し、$J\\to\\infty$ | 固定角運動量の模様 | 後で比べる古典球面上の積 |
+
+<details id="note-which-large-k-question">
+<summary>$J$ を増やす速さと物理半径</summary>
+
+$\\alpha'$ 固定で $J\\sim Ck^\\beta$、$0<\\beta<1$ なら、$\\vartheta_J\\sim2\\pi Ck^{\\beta-1}\\to0$ だが
 
 $$
-\\boxed{
-B_g:=(1-\\operatorname{Ad}(g))^{-1}(1+\\operatorname{Ad}(g))
-=\\frac{1+\\operatorname{Ad}(g)}{1-\\operatorname{Ad}(g)}
-}
+r_J\\sim2\\pi C\\sqrt{\\alpha'}\\,k^{\\beta-1/2}.
+$$
+
+従って $\\beta<1/2$ では縮み、$\\beta=1/2$ では有限、$\\beta>1/2$ では増大する。$J/k\\to C\\in(0,1/2)$ なら有限角度にとどまり、$r_J/R\\to\\sin(2\\pi C)$ となる。角度、半径比、長さとしての半径を区別する必要がある。
+
+例えば固定 $J=1/2$ では $r_{1/2}\\sim2\\pi\\sqrt{\\alpha'/k}$。一方、$J=k/4$ を選べるレベルでは $\\vartheta_{k/4}=\\pi/2$、$r_{k/4}=R$ である。
+
+</details>
+
+## 2. gluing条件から端点の運動と非可換性を求める
+
+一点関数は、閉弦の波が測るブレーンの分布を指定した。同じ球面を開弦端点の運動から確かめる。使うのは6.2節の標準gluing $J(z)=\\bar J(\\bar z)$ であり、ここでは $J(z)$ がカレント、引数のない $J$ が境界ラベルである。
+
+### 2.1 世界面の微分を標的空間の接方向へ分ける
+
+世界面を上半平面 $z=x+iy$、境界を $y=0$ とする。境界上の $g(x,0)$ が端点の軌跡なので、$\\partial_xg$ はその動く方向を表す。$\\partial_yg$ は世界面の内側へ進んだときの場の変化である。カレント $J=-k\\partial g\\,g^{-1}$、$\\bar J=kg^{-1}\\bar\\partial g$ をgluingへ代入すると
+
+$$
+-(\\partial g)g^{-1}=g^{-1}\\bar\\partial g.
+\\tag{6.26}
+$$
+
+両方の微分を同じLie代数で比較するため、左から $g^{-1}$ を掛けた $g^{-1}\\partial_xg,g^{-1}\\partial_yg$ を使う。$\\operatorname{Ad}(g)Y:=gYg^{-1}$ と $\\partial=(\\partial_x-i\\partial_y)/2$ を代入して整理すれば
+
+$$
+(\\operatorname{Ad}(g)-1)g^{-1}\\partial_yg
+=-i(\\operatorname{Ad}(g)+1)g^{-1}\\partial_xg.
+\\tag{6.27}
+$$
+
+共役類の接方向は、微小共役変換 $\\delta g=\\epsilon g-g\\epsilon$ から求まる。左へ移すと $g^{-1}\\delta g=(\\operatorname{Ad}(g^{-1})-1)\\epsilon$ なので、接空間はこの作用素の像である。共役作用は不変内積で直交するため、直交する法線空間は $\\ker(\\operatorname{Ad}(g)-1)$ になる。従って法線方向では $\\operatorname{Ad}(g)=1$ である。
+
+式 (6.27) の法線成分を取ると、左辺が零、右辺が $-2i(g^{-1}\\partial_xg)^\\perp$ となり
+
+$$
+(g^{-1}\\partial_xg)^\\perp=0.
+\\tag{endpoint-tangent}
+$$
+
+を得る。これは $\\partial_x\\vartheta=0$、すなわち端点が一つの共役類から出られないという条件である。gluingは角度の値までは選ばず、量子論で選ぶ角度は一点関数が指定する $\\vartheta_J$ になる。
+
+<details>
+<summary>式 (6.27) の変形と接空間・法線空間の検算</summary>
+
+$\\bar\\partial=(\\partial_x+i\\partial_y)/2$ と $\\partial g\\,g^{-1}=\\operatorname{Ad}(g)(g^{-1}\\partial g)$ を用いると、式 (6.26) は
+
+$$
+-\\operatorname{Ad}(g)(g^{-1}\\partial_xg-ig^{-1}\\partial_yg)
+=g^{-1}\\partial_xg+ig^{-1}\\partial_yg.
+$$
+
+$\\partial_x$ の項を右、$\\partial_y$ の項を左へ移して $i$ で割ると式 (6.27) になる。
+
+一般に $(\\operatorname{Im}M)^\\perp=\\ker M^\\dagger$ である。実際、$v$ が全 $M\\epsilon$ と直交する条件は $(M^\\dagger v,\\epsilon)=0$ が全 $\\epsilon$ で成り立つ条件だからである。$\\operatorname{Ad}(g)^\\dagger=\\operatorname{Ad}(g^{-1})$ より、ここでは $M^\\dagger=\\operatorname{Ad}(g)-1$ となる。
+
+接方向と法線方向は共役作用で別々に保たれ、法線成分を取る際に接成分は混入しない。$g=\\pm e$ では共役作用が全Lie代数で恒等となるので、式 (6.27) は全方向に $\\partial_xg=0$ を課す。
+
+Euclid世界面では混合条件に $i$ が現れる。これは実時間の境界条件を解析接続した式であり、複素化した接空間で扱う。$x=it$ と戻せば $i\\partial_x=\\partial_t$ であり、実時間の条件は実係数になる。
+
+</details>
+
+### 2.2 球面に沿う混合条件は磁束を表す
+
+非縮退な共役類の接空間では $1-\\operatorname{Ad}(g)$ が可逆である。従って式 (6.27) の接成分は
+
+$$
+(g^{-1}\\partial_yg)^\\parallel=iB_g(g^{-1}\\partial_xg)^\\parallel,
+\\qquad
+B_g:=\\frac{1+\\operatorname{Ad}(g)}{1-\\operatorname{Ad}(g)}.
 \\tag{6.28}
 $$
 
-と定義すれば、
+と解ける。分母の逆は接空間上だけで取る。法線方向は既にDirichlet条件が決めている。
+
+この係数の意味を、開弦の作用の変分と比べる。$X^i$ を局所的な標的座標、$G$ をその計量、$B_{\\mathrm{bulk}}$ を内部の反対称場の局所2形式とする。さらに端点がブレーン上のゲージ接続 $a$ に結合すると、境界条件に入る2形式は
 
 $$
-\\boxed{(g^{-1}\\partial_yg)^\\parallel=iB_g (g^{-1}\\partial_xg)^\\parallel}
+\\mathcal F:=B_{\\mathrm{bulk}}|_Q+2\\pi\\alpha'\\,da
 $$
 
-となる。逆行列を取る範囲は接空間である。法線空間は $1-\\operatorname{Ad}(g)$ の核であり、そこには既に $(g^{-1}\\partial_xg)^\\perp=0$ が課されている。
-
-この混合条件を、開弦の作用から得られる境界条件と比較する。この共役類を $\\mathcal C$ と書き、その誘導計量を $G$、標的空間の反対称テンソル場の局所ポテンシャルを $B_{\\mathrm{bulk}}$、ブレーン上のゲージポテンシャルを $a$ とする。局所標的座標を $X^i$、世界面座標を $(x,y)$ とし、世界面の向きを $dx\\wedge dy$ に取る。$X^*$ は形式を世界面へ引き戻す操作である。計量への結合に加え、開弦は世界面の内部で $B_{\\mathrm{bulk}}$、端点の経路で $a$ に結合する。Euclid作用を
+である。$B_{\\mathrm{bulk}}\\mapsto B_{\\mathrm{bulk}}+d\\Lambda$ の変化は $a\\mapsto a-\\Lambda|_Q/(2\\pi\\alpha')$ で相殺され、この和がゲージ不変になる。接方向の変分が消える条件は $G\\partial_yX-i\\mathcal F\\partial_xX=0$ なので、gluingから得た条件と比べると
 
 $$
-S=\\frac1{4\\pi\\alpha'}\\int_\\Sigma d^2\\xi\\,
-G_{ij}\\partial_\\mu X^i\\partial_\\mu X^j
+G^{-1}\\mathcal F=B_g.
+$$
+
+式 (6.28) の $B_g$ は、2形式 $\\mathcal F$ の添字を一つ計量で上げた作用素である。磁束が零なら $\\partial_yX^\\parallel=0$ というNeumann条件になり、磁束があると端点に沿う微分が混ざる。
+
+<details>
+<summary>境界変分、反対称性、Wess–Zuminoの3形式との関係</summary>
+
+局所標的座標 $X^i$ で、世界面の向きを $dx\\wedge dy$ とし、Euclid作用を
+
+$$
+S=\\frac1{4\\pi\\alpha'}\\int_\\Sigma G_{ij}\\partial_\\mu X^i\\partial_\\mu X^j
 +\\frac i{2\\pi\\alpha'}\\int_\\Sigma X^*B_{\\mathrm{bulk}}
 +i\\int_{\\partial\\Sigma}X^*a
 $$
 
-と規格化する。$\\mu$ は世界面の二方向を走る。端点の位置を変分すると、計量項は部分積分で境界項を生じ、2形式の項から $B_{ij}\\partial_xX^j$、端点結合から $(da)_{ij}\\partial_xX^j$ が現れる。上半平面の外向き法線は $-\\partial_y$ なので、まとめると
+とする。$X^*$ は引き戻しである。上半平面の外向き法線が $-\\partial_y$ であることを使い、各項を変分すると
 
 $$
-\\delta S\\big|_{\\partial\\Sigma}
+\\delta S|_{\\partial\\Sigma}
 =-\\frac1{2\\pi\\alpha'}\\int dx\\,\\delta X^i
-\\left[G_{ij}\\partial_yX^j-i\\bigl(B_{ij}+2\\pi\\alpha'(da)_{ij}\\bigr)\\partial_xX^j\\right].
+\\left(G_{ij}\\partial_yX^j-i\\mathcal F_{ij}\\partial_xX^j\\right).
 $$
 
-ここで $B_{ij}$ は $B_{\\mathrm{bulk}}$ の成分である。作用での結合係数の比を含めると、境界条件に入る2形式は
+接方向の $\\delta X$ は任意なので、括弧の接成分が零になる。これが本文で比べた境界条件である。
+
+$A=\\operatorname{Ad}(g)$ と略記すると、$A^\\dagger=A^{-1}$ より
 
 $$
-\\mathcal F:=B_{\\mathrm{bulk}}|_{\\mathcal C}+2\\pi\\alpha'\\,da
+B_g^\\dagger=\\frac{1+A^{-1}}{1-A^{-1}}=-\\frac{1+A}{1-A}=-B_g.
 $$
 
-である。この和はゲージ変換からも確認できる。局所的な1形式 $\\Lambda$ による $B_{\\mathrm{bulk}}\\mapsto B_{\\mathrm{bulk}}+d\\Lambda$ による世界面作用の変化は、Stokesの定理で境界積分になる。それを $a\\mapsto a-\\Lambda|_{\\mathcal C}/(2\\pi\\alpha')$ で相殺すると、$\\mathcal F$ は不変に保たれる。従って端点に作用する背景は、このゲージ不変な組合せで指定される。接方向の場の変分から、上半平面での境界条件は
+従って $G(v,B_gw)$ は反対称であり、2形式を定める。左移動した1形式による表示は、全体の規格化を除き $\\operatorname{tr}(g^{-1}dg\\wedge B_g(g^{-1}dg))$ となる。
 
-$$
-\\begin{aligned}
-G(g^{-1}\\partial_yg)^\\parallel
--i\\mathcal F(g^{-1}\\partial_xg)^\\parallel&=0,\\\\
-(g^{-1}\\partial_yg)^\\parallel
-&=iG^{-1}\\mathcal F(g^{-1}\\partial_xg)^\\parallel.
-\\end{aligned}
-$$
-
-となる。gluing条件と比較すると
-
-$$
-\\boxed{G^{-1}\\mathcal F=B_g}
-$$
-
-を得る。従って式 (6.28) の $B_g$ は、境界で作用する2形式 $\\mathcal F$ の一方の添字を計量で上げた作用素である。$\\mathcal F=0$ なら通常のNeumann条件 $(g^{-1}\\partial_yg)^\\parallel=0$ になり、$\\mathcal F$ があると境界に沿う微分が混ざる。
-
-<details>
-<summary>式 (6.28) の作用素が反対称であること</summary>
-
-$A:=\\operatorname{Ad}(g)$ と略記する。不変内積に関して $A^\\dagger=A^{-1}$ なので、接空間上で
-
-$$
-B_g^\\dagger
-=\\frac{1+A^{-1}}{1-A^{-1}}
-=-\\frac{1+A}{1-A}
-=-B_g.
-$$
-
-従って $G(v,B_gw)$ は $v,w$ を交換すると符号を変え、2形式を定める。左移動した1形式を用いたトレース表示は、全体規格化を除いて
-
-$$
-\\operatorname{tr}\\!\\left(
-g^{-1}dg\\wedge B_g(g^{-1}dg)
-\\right)
-$$
-
-である。$B_g$ は二つ目のLie代数値1形式に作用する。
+WZWのNS–NS 3形式は局所的に $H=dB_{\\mathrm{bulk}}$ である。$d(da)=0$ なのでブレーン上では $d\\mathcal F=H|_Q$。SU(2)の共役類は二次元であり、この3形式の引き戻しは零になる。ここでの2形式はブレーン上の境界条件を指定するもので、球面上だけの式から周囲の非零な3形式を復元するものではない。一般群での対応は原著 p.248 と [Alekseev–Schomerus](https://arxiv.org/abs/hep-th/9812193) にある。
 
 </details>
 
+### 2.3 磁束のある端点座標は順序によって積が変わる
 
-
-標的空間のNS--NS（Neveu–Schwarz–Neveu–Schwarz）3形式 $H$ は、局所的には $H=dB_{\\mathrm{bulk}}$ と書ける。ブレーン上では $d(da)=0$ により $d\\mathcal F=H|_{\\mathcal C}$ となる。$SU(2)$ の共役類は二次元なので、この3形式の引き戻しは零である。球面上の2形式は境界条件から決まり、周囲の3形式はWZW作用が与える。[共役類上の2形式とWess–Zumino項の関係](https://arxiv.org/html/hep-th/9812193v2)も、この引き戻しについての条件として記述される。
-
-### 3.4 内部自己同型による球面の移動
-
-標準gluingで得られた球面を $\\mathcal C_{h_J}$ とし、代表元を $h_J=e^{i\\vartheta_J\\sigma_3}$ に取る。固定した $s\\in SU(2)$ による共役変換 $\\Omega_s(Y)=sYs^{-1}$ は内部自己同型である。これを用いて境界条件を
+混合条件で開弦を量子化した際の局所結果を使う。計量と $\\mathcal F$ を小さな領域で一定と近似すると、境界座標場 $X^a(x)$ の二点関数には
 
 $$
-J=\\Omega_s(\\bar J)=s\\bar J s^{-1}
-$$
-
-と変更すると、対応する球面は右から $s$ を掛けた位置へ移る。
-
-実際、群値場を右移動 $g\\mapsto gs$ すると、$s$ が定数であることから
-
-$$
-J[gs]=J[g],
-\\qquad
-\\bar J[gs]=s^{-1}\\bar J[g]s.
-$$
-
-従って標準gluing $J[g]=\\bar J[g]$ を満たす場は、右移動すると $J[gs]=s\\bar J[gs]s^{-1}$ を満たす。端点の領域も同じ右移動を受け、
-
-$$
-\\boxed{\\mathcal W_{J,s}=\\mathcal C_{h_J}s}
-\\tag{translated-brane}
-$$
-
-となる。WZW模型の計量は左右の群移動で不変なので、この移動は球面の形と大きさを保つ。$J$ が選ぶ球面を、$s$ が標的空間内で移動する。
-
-<details>
-<summary>変更後のgluingを保つ対称性とその軌道</summary>
-
-内部自己同型はLie括弧と不変内積を保つため、カレント代数とSugawaraのエネルギー運動量テンソルを保つ。従って変更後も、同じバルク理論の共形境界条件が得られる。
-
-左右の大域変換 $g\\mapsto ugv^{-1}$ では
-
-$$
-J\\mapsto\\operatorname{Ad}_uJ,
-\\qquad
-\\bar J\\mapsto\\operatorname{Ad}_v\\bar J
-$$
-
-と変わる。$J=\\Omega_s(\\bar J)$ を保つ連続な対角群は $v=s^{-1}us=\\Omega_s^{-1}(u)$ であり、その作用は
-
-$$
-h\\longmapsto uh\\Omega_s^{-1}(u^{-1})
-=uhs^{-1}u^{-1}s
-$$
-
-となる。この軌道を $\\mathcal O_{h,s}$ と書けば
-
-$$
-\\begin{aligned}
-\\mathcal O_{h,s}
-&:=\\{uh\\Omega_s^{-1}(u^{-1})\\mid u\\in SU(2)\\}\\\\
-&=\\{u(hs^{-1})u^{-1}s\\mid u\\in SU(2)\\}
-=\\mathcal C_{hs^{-1}}s.
-\\end{aligned}
-\\tag{inner-twisted-orbit}
-$$
-
-$h=h_Js$ を選ぶと $\\mathcal O_{h_Js,s}=\\mathcal C_{h_J}s$ となり、カレントから求めた端点の領域と一致する。
-
-</details>
-
-開弦の両端のブレーンを同じ $s$ で移動すれば、WZW作用の計量項とWess–Zumino項はこの大域的な群移動で不変であり、境界背景も同時に移される。従って同じ開弦理論の場を変数変換したことになり、スペクトルは変わらない。両端で異なるgluingを選ぶと相対的な回転が残り、6.2節の§4.1で求めた、回転量を引数にもつ[アフィン指標](/6-1#ref-character)に現れる。
-
-## 4. 端点座標の交換子からPoisson括弧へ
-
-§3で求めたのは、開弦端点に課す混合境界条件である。次に、この条件のもとで開弦を量子化し、端点の位置を表す二つの座標場の積を調べる。通常の座標関数なら $FG=GF$ だが、量子場の積は挿入する順序に依存し得る。その順序依存性を測る交換子が、ブレーン上の関数をどのような代数で表すべきかを教える。
-
-まず、ブレーンの小さな領域で計量 $G$ と2形式 $\\mathcal F$ を一定と近似する。境界座標を $x$、長さの次元をもつ局所標的座標の場を $\\mathcal X^a(x)$ とする。§3.3の混合境界条件を満たす二点相関関数は
-
-$$
-\\langle\\mathcal X^a(x)\\mathcal X^b(x')\\rangle
+\\langle X^a(x)X^b(x')\\rangle
 =-\\alpha'G_{\\mathrm{op}}^{ab}\\log(x-x')^2
-+\\frac i2\\theta_{\\mathrm{phys}}^{ab}\\operatorname{sgn}(x-x').
++\\frac i2\\theta^{ab}\\operatorname{sgn}(x-x')
 $$
 
-ここで $G_{\\mathrm{op}}^{ab}$ は開弦の有効計量の逆行列の成分である。長さの二乗の次元をもつ反対称係数 $\\theta_{\\mathrm{phys}}^{ab}$ は
+が現れ、反対称係数は $\\theta=2\\pi\\alpha'[(G+\\mathcal F)^{-1}]_{\\mathrm A}$ である。$G_{\\mathrm{op}}$ は開弦が見る計量、$[M]_{\\mathrm A}=(M-M^{\\mathsf T})/2$ は反対称部分を取る操作である。[一定背景での境界伝播関数（Seiberg–Witten、§2.1）](https://arxiv.org/html/hep-th/9908142v3)
+
+同じ点へ $x>x'$ と $x<x'$ から近づく二つの積を引くと、対数項が消え、$i\\theta^{ab}$ が残る。実時間ではこれは同一端点の座標交換子 $[\\widehat X^a,\\widehat X^b]=i\\theta^{ab}$ になる。従って磁束は、端点上の場を掛ける順序への依存を生む。
+
+型と規格化をそろえよう。左移動した基底 $g^{-1}dg=\\tau_ae^a$、$\\tau_a=-i\\sigma_a/2$ では、計量は $G_{ab}=(k\\alpha'/4)\\delta_{ab}$ である。この基底での二つの上付き添字を持つ係数を $\\theta_e^{ab}$ とし、無次元係数を $\\Theta^{ab}:=(k/4\\pi)\\theta_e^{ab}$ と定義する。$\\delta_{ab}$ で一つの添字を下げれば、$B_g$ と同じ型の作用素になる。$\\mathcal F=GB_g$ を代入すると、$[(1+B_g)^{-1}]_{\\mathrm A}=-B_g(1-B_g^2)^{-1}$ から
 
 $$
-\\theta_{\\mathrm{phys}}^{ab}
-=2\\pi\\alpha'\\bigl[(G+\\mathcal F)^{-1}\\bigr]_{\\mathrm A}^{ab},
-\\qquad [M]_{\\mathrm A}:=\\frac12(M-M^{\\mathsf T})
+\\Theta=-2B_g(1-B_g^2)^{-1}
+=\\frac12\\left(\\operatorname{Ad}(g^{-1})-\\operatorname{Ad}(g)\\right).
 $$
 
-で与えられる。この伝播関数を、[一定の背景場における開弦の量子化](https://arxiv.org/html/hep-th/9908142v3)の結果として用いる。符号関数は $x>x'$ で $+1$、$x<x'$ で $-1$ なので、同じ点へ近づく二通りの順序の差を取ると、対数項は消え、$i\\theta_{\\mathrm{phys}}^{ab}$ が残る。Lorentzian世界面では境界方向が端点の時間に対応し、この差は同一端点の等時刻交換子
+次に北極近くで $g=e^X\\simeq1+X$ と置く。$X$ はLie代数の元であり、$\\operatorname{Ad}(e^X)=e^{\\operatorname{ad}X}$、$\\operatorname{ad}X(Y)=[X,Y]$ なので、指数関数の一次の差から
 
 $$
-[\\widehat{\\mathcal X}^{a},\\widehat{\\mathcal X}^{b}]
-=i\\theta_{\\mathrm{phys}}^{ab}
-$$
-
-を表す。従って磁束の効果は、端点の座標同士にも非零の交換子が生じることである。
-
-座標に限らず、端点の位置の関数 $F(\\mathcal X)$ と $G(\\mathcal X)$ を観測量に取れる。局所的にそれらを展開すると、非可換性に関する一次の交換子は $i\\theta_{\\mathrm{phys}}^{ab}(\\partial_aF)(\\partial_bG)$ になる。以下では座標を無次元化し、交換子の共通係数を取り除いた反対称テンソルを $\\Theta^{ab}$ と書く。具体的な換算係数は、この節で計量とともに定める。$\\partial_a$ はその座標についての偏微分である。これを用いて、古典的な関数に対する反対称な微分演算
-
-$$
-\\{F,G\\}:=\\Theta^{ab}(\\partial_aF)(\\partial_bG)
-$$
-
-を作る。この演算は積の微分則を満たし、さらにJacobi恒等式を満たすとき **Poisson括弧**と呼ばれる。§4.1では実際にその恒等式を確かめる。これが、端点の量子場の積を調べる途中にPoisson構造が現れる理由である。
-
-この括弧が指定するのは観測量同士の関係である。運動を求めるには、さらにHamiltonianが必要になる。弦全体の正準形式では、弦に沿う位置を $\\sigma$ と書くと、弦の形 $\\mathcal X^a(\\sigma)$ とその共役運動量が変数であり、混合境界条件も満たすように制約を処理すると端点の括弧が得られる。端点座標だけの有効記述を使う場合には、そこで適切なHamiltonian $H_{\\mathrm{eff}}$ を別途求めて初めて、$\\dot F=\\{F,H_{\\mathrm{eff}}\\}$ を運動方程式と解釈できる。以下で求める $\\Theta$ だけから、弦の振動や端点の具体的な軌道までは決まらない。
-
-球面についてその係数を計算しよう。§3.3の $\\mathcal F=GB_g$ を用い、計量を単位行列にした接空間の基底を取る。$B_g^{\\mathsf T}=-B_g$ なので
-
-$$
-\\bigl[(1+B_g)^{-1}\\bigr]_{\\mathrm A}
-=\\frac12\\left((1+B_g)^{-1}-(1-B_g)^{-1}\\right)
-=-B_g(1-B_g^2)^{-1}.
-$$
-
-原著の無次元テンソルは、この反対称部分の2倍という規格化を使う：
-
-$$
-\\Theta:=-2B_g(1-B_g^2)^{-1}.
-$$
-
-この全体係数と物理的な交換子との対応も定めておこう。次節で使う生成子 $\\tau_a=-i\\sigma_a/2$ により $g^{-1}dg=\\tau_a e^a$ と書くと、$e^a$ は左移動した余接基底である。半径 $R$ の計量は
-
-$$
-ds^2=-\\frac{R^2}{2}\\operatorname{tr}(g^{-1}dg)^2
-=\\frac{k\\alpha'}4\\delta_{ab}e^a e^b.
-$$
-
-従ってこの基底では、物理計量と2形式の和は $(k\\alpha'/4)(1+B_g)$ になる。端点交換子の係数をこの無次元基底で表し直して $\\theta_e^{ab}$ と書けば、
-
-$$
-\\theta_e^{ab}
-=\\frac{2\\pi\\alpha'}{k\\alpha'/4}[(1+B_g)^{-1}]_{\\mathrm A}^{ab}
-=\\frac{4\\pi}{k}\\Theta^{ab}.
-$$
-
-以下のPoisson括弧は、この共通係数 $4\\pi/k$ を取り除いた規約である。交換子に戻すときはこの係数を掛ける。ここでの換算は局所的な一定背景の近似であり、有限サイズのブレーンの量子代数は§5以降で境界OPEから調べる。
-
-式 (6.28) を代入するため $A:=\\operatorname{Ad}(g)$ と略記する。接空間では $1-A$ が可逆であり、$A$ の多項式同士は可換なので
-
-$$
-1-B_g^2
-=\\frac{(1-A)^2-(1+A)^2}{(1-A)^2}
-=\\frac{-4A}{(1-A)^2}.
-$$
-
-これを戻すと
-
-$$
-\\Theta
-=-2\\frac{1+A}{1-A}\\frac{(1-A)^2}{-4A}
-=\\frac{1-A^2}{2A},
-$$
-
-すなわち
-
-$$
-\\boxed{\\Theta(g)=\\frac12\\left(\\operatorname{Ad}(g^{-1})-\\operatorname{Ad}(g)\\right)}
-$$
-
-を得る。この計算は $B_g$ の逆行列を使わないため、$B_g=0$ となる赤道も含む。$\\vartheta=0,\\pi$ では共役類が一点となり、二次元の接空間を用いた議論は終端する。
-
-### 4.1 単位元近傍で線形Poisson構造が現れる
-
-ここでは単位元近傍の小さい角度を持つブレーンに注目する。$J$ を固定して $k\\to\\infty$ とすると $\\vartheta_J\\to0$ なのでこの条件を満たす。large $k$ で曲率が小さいことに加え、$g$ が単位元に近いという条件のもとで、Lie代数 $\\mathfrak{su}(2)\\simeq\\mathbb R^3$ で近似できる。座標を
-
-$$
-X:=y^a\\tau_a\\in\\mathfrak{su}(2),
-\\qquad
-g=e^X\\simeq1+X
-$$
-
-と定義する。ここでは $g=e^X$ と書くため、$\\tau_a$ は $\\tau_a^\\dagger=-\\tau_a$ を満たすanti-Hermitian生成子に取り、ここから§6までは $\\tau_a=-i\\sigma_a/2$、$(U,V)=-2\\operatorname{tr}(UV)$ と取る。すると $(\\tau_a,\\tau_b)=\\delta_{ab}$、$[\\tau_a,\\tau_b]=\\varepsilon_{ab}{}^c\\tau_c$ であり、以下の構造定数、すなわち交換子を基底で展開した係数は $f_{ab}{}^c=\\varepsilon_{ab}{}^c$ となる。$\\varepsilon_{123}=1$ で、添字を交換すると符号が反転する完全反対称記号である。以下の $\\epsilon_{ab}{}^c$ も同じ記号を表す。この内積は、直前の物理計量から半径の二乗を除いた $-\\operatorname{tr}/2$ の4倍である。ここではLie代数の座標と構造定数の規格化をそろえ、物理的長さは§6.2で別に換算する。
-
-$$
-\\operatorname{Ad}(e^X)=e^{\\operatorname{ad}X},
-\\qquad
-\\operatorname{ad}(X)(Y):=[X,Y]
-$$
-
-なので、$\\Theta=\\tfrac12(\\operatorname{Ad}_{g^{-1}}-\\operatorname{Ad}_g)$ を $X$ の一次まで展開すると
-
-\`\`\`math-steps
-lhs: \\Theta
-note: 共役作用を指数関数で書き、$g^{-1}=e^{-X}$ にも同じ関係を使う。
-popup-math: \\operatorname{Ad}(e^{\\pm X})Y=e^{\\pm X}Ye^{\\mp X}=Y\\pm[X,Y]+\\tfrac12[X,[X,Y]]+\\cdots
-part expression: \\frac12\\left(e^{-\\operatorname{ad}X}-e^{\\operatorname{ad}X}\\right)
----
-note: $K=\\operatorname{ad}X$と略記して指数関数を展開すると、偶数次が相殺する。ここでは$X$の一次を残す。
-popup-math: \\begin{aligned}e^{-K}&=1-K+\\tfrac12K^2+O(K^3),\\\\e^K&=1+K+\\tfrac12K^2+O(K^3),\\\\\\tfrac12(e^{-K}-e^K)&=-K+O(K^3).\\end{aligned}
-part expression: -\\operatorname{ad}X+O(X^3)
-\`\`\`
-
-単位元近傍の一次近似では
-
-$$
-\\boxed{\\Theta=-\\operatorname{ad}(X).}
+\\Theta=-\\operatorname{ad}(X)+O(X^3).
 \\tag{6.29}
 $$
 
-成分を計算する前に、作用素から二つの添字をもつ量への対応を定める。この直交基底では
-
-$$
-\\Theta_{ab}:=(\\tau_a,\\Theta\\tau_b),
-\\qquad f_{abc}:=f_{ab}{}^d\\delta_{dc}=\\varepsilon_{abc}.
-$$
-
-$\\Theta_{ab}$ は、$\\Theta$ を $\\tau_b$ に作用させた結果の $\\tau_a$ 成分である。式 (6.29) と $X=y^c\\tau_c$ を順に代入すると
-
-$$
-\\begin{aligned}
-\\Theta_{ab}
-&=-(\\tau_a,[X,\\tau_b])\\\\
-&=-y^c f_{cb}{}^d(\\tau_a,\\tau_d)\\\\
-&=-y^c f_{cba}
-=f_{abc}y^c.
-\\end{aligned}
-$$
-
-二行目では $[\\tau_c,\\tau_b]=f_{cb}{}^d\\tau_d$、三行目では $(\\tau_a,\\tau_d)=\\delta_{ad}$ を使った。最後に、完全反対称な $f_{abc}$ の第1・第3添字を交換すると $f_{cba}=-f_{abc}$ となり、負号が相殺する。
+を得る。$X=y^a\\tau_a$、$\\tau_a=-i\\sigma_a/2$、$[\\tau_a,\\tau_b]=\\varepsilon_{ab}{}^c\\tau_c$ と書くと、一次近似の成分は $\\Theta^{ab}=\\varepsilon^{ab}{}_cy^c$ である。$\\varepsilon_{123}=1$ は完全反対称記号であり、以後 $f_{ab}{}^c:=\\varepsilon_{ab}{}^c$ と書く。
 
 <!-- reference: poisson-bracket -->
 
-ここまでの $\\Theta$ の成分は、群の接空間を左移動してLie代数へ戻した基底で表している。指数座標 $y^a$ の基底との関係は $g^{-1}dg=dX+O(X\\,dX)$ なので、両基底の変換行列は単位行列から $O(X)$ だけずれる。$\\Theta$ 自体が $O(X)$ であるため、この変換がPoisson成分に与える修正は二次以上であり、一次の成分は座標基底でも同じになる。従って、一次近似で添字を $\\delta_{ab}$ で上げれば
+指数座標と左移動基底の差はこの一次では寄与しない。交換子の共通係数 $4\\pi/k$ を除き、その一次を古典的な微分演算へ移すと
 
 $$
-\\Theta^{ab}(y)=f^{ab}{}_cy^c.
-$$
-
-したがって座標関数はLie--Poisson括弧
-
-$$
-\\boxed{
-\\{y^a,y^b\\}=f^{ab}{}_cy^c
-}
+\\{y^a,y^b\\}=f^{ab}{}_cy^c,
+\\qquad
+\\{F,G\\}:=f^{ab}{}_cy^c\\partial_aF\\,\\partial_bG
 \\tag{6.30}
 $$
 
-をもつ。一般の関数の括弧は $\\{F,G\\}=\\Theta^{ab}\\partial_aF\\,\\partial_bG$ と定義する。$\\partial_a=\\partial/\\partial y^a$ であり、Leibniz則 $\\{F,GH\\}=\\{F,G\\}H+G\\{F,H\\}$ により座標の括弧から関数の括弧が決まる。Poisson括弧にはさらにJacobi恒等式が必要だが、座標で評価すると
-
-$$
-\\{y^a,\\{y^b,y^c\\}\\}+\\text{cyclic}
-=\\left(f^{bc}{}_d f^{ad}{}_e
-+f^{ca}{}_d f^{bd}{}_e
-+f^{ab}{}_d f^{cd}{}_e\\right)y^e=0
-$$
-
-となる。$\\text{cyclic}$ は $a,b,c$ を循環させた残り二項を加える記号である。最後の零はLie代数の構造定数のJacobi恒等式による。微分と積で作った上の括弧では、この座標での恒等式が一般の関数にも拡張される。
+というLie–Poisson括弧である。ここでは $\\partial_a=\\partial/\\partial y^a$、添字の上げ下げは $\\delta_{ab}$ を用いる。この括弧は積の微分則を満たし、Jacobi恒等式は $f$ のLie代数Jacobi恒等式から従う。座標間の括弧を指定すれば、任意の関数間の括弧も右辺で求まる。
 
 <!-- /reference -->
 
-### 4.2 Poisson構造が球面ごとに閉じる理由
-
-二次関数
+この演算が球面上でも定義できる理由を確かめよう。座標の二乗和 $c(y)=\\sum_a(y^a)^2$ は
 
 $$
-c(y):=\\sum_a(y^a)^2
+\\{c,y^b\\}=2f^{ab}{}_cy^ay^c=0
 $$
 
-を考える。各座標との[Poisson括弧](/6-3#ref-poisson-bracket)は
+を満たす。$y^ay^c$ が対称、$f^{ab}{}_c$ が $a,c$ に反対称なので相殺する。従って $c$ はすべての関数と括弧が零であり、$c$ を固定した
 
 $$
-\\begin{aligned}
-\\{c,y^b\\}
-&=2\\sum_a y^a\\{y^a,y^b\\}\\\\
-&=2\\sum_{a,c}y^ay^c f^{ab}{}_c\\\\
-&=0.
-\\end{aligned}
-$$
-
-\`\`\`math-hint
-積の法則で $(y^a)^2$ から $2y^a$ が出る。最後の和は、$a,c$ を入れ替えた項を組にする。
-
-$$
-\\sum_{a,c}y^ay^cf_{abc}
-=\\frac12\\sum_{a,c}y^ay^c(f_{abc}+f_{cba})=0.
-$$
-
-添字を入れ替えても $y^ay^c$ は同じで、構造定数だけが逆符号になる。
-\`\`\`
-
-最後は、直交基底では添字をすべて下げた $f_{abc}$ が完全反対称である一方、$y^ay^c$ が $a,c$ に対称だからである。Leibniz則により $\\{c,F(y)\\}=0$ は任意の関数 $F$ に対して成立する。従って、$F$ が生成する流れ $\\dot y^a=\\{y^a,F\\}$ では $\\dot c=\\partial_a c\\,\\dot y^a=\\{c,F\\}=0$ となる。この流れは
-
-$$
-\\boxed{
 \\sum_a(y^a)^2=c
-}
 \\tag{6.31}
 $$
 
-という各球面から外へ出ない。
+の球面から括弧の操作が出ない。$c>0$ では二次元球面、$c=0$ では一点である。単位元近傍の球面には、こうして非零のPoisson構造が付く。量子化でその括弧を交換子へ置き換えたとき、どんな代数になるかを次に開弦OPEで確かめる。
 
-この球面を相空間とみなし、例えば $H_{\\mathrm{eff}}=\\omega y^3$ というHamiltonianを選ぶと
+<details>
+<summary>$\\Theta$ の行列計算、物理単位への換算、Jacobi恒等式</summary>
 
-$$
-\\dot y^1=-\\omega y^2,\\qquad
-\\dot y^2=\\omega y^1,\\qquad
-\\dot y^3=0
-$$
-
-となる。$\\omega$ は時間の逆数の次元をもつ定数で、この流れは球面上の $y^3$ 軸まわりの回転である。角運動量のPoisson括弧と同じ代数をもつため、スピンの歳差運動と同じ形になる。これは括弧の力学的な使い方を示すHamiltonianの選択例である。WZW模型の実際の有効Hamiltonianを決定するには、開弦のエネルギーなど追加の情報が必要になる。
-
-ここでHamiltonianの選択によらず言えるのは、半径が保存されることである。共役類が球面であるという幾何学的事実と、Lie--Poisson括弧が半径一定の球面内で閉じるという代数的事実が一致する。
-
-## 5. 開弦の四成分を掛け合わせる
-
-### 5.1 四成分をもつブレーンの場
-
-同じCardyブレーン $J=\\frac12$ に両端をもつ開弦を考える。[自己融合の規則](/6-1#ref-fusion)は、$k\\geq2$ で
+接空間上で $A=\\operatorname{Ad}(g)$ と置くと
 
 $$
-\\frac12\\star\\frac12=0\\oplus1
+1-B_g^2=\\frac{(1-A)^2-(1+A)^2}{(1-A)^2}
+=\\frac{-4A}{(1-A)^2},
 $$
 
-となる。従って、開弦の各アフィン表現の最低エネルギー部分を集めると $V_0\\oplus V_1$ が得られる。回転で変わらない一成分と、回転で互いに混ざる三成分である。開弦の全状態空間には、これらにカレントの負モードを作用させたdescendantもあるが、以下ではこの四つのboundary primaryに注目する。
+なので $-2B_g(1-B_g^2)^{-1}=(1-A^2)/(2A)$ となる。$B_g^{-1}$ を使わない表示なので、$B_g=0$ となる赤道でも式は有効である。
 
-$J=\\frac12$ を固定して $k\\to\\infty$ とすると、それらの共形ウェイト $h_0=0$、$h_1=2/(k+2)$ はともに零になる。境界場を近づけたとき、この四成分がどのように掛け合わされるかを調べたい。まず、回転の性質が同じ球面上の模様で表すことを試そう。
-
-### 5.2 球面の四つの模様と、その積
-
-単位球面上の関数 $1,x,y,z$ は、ちょうど $V_0\\oplus V_1$ として回転する。場の重ね合わせを複素係数で取り、候補となる空間を $W=\\operatorname{span}_{\\mathbb C}\\{1,x,y,z\\}$ とする。しかし、点ごとの積で得る $x^2$ は $W$ に含まれない。積の後に四成分だけを取り出せば、$W$ の中で閉じる積を作れるだろうか。
-
-球面全体の平均を $\\langle f\\rangle_{S^2}:=(4\\pi)^{-1}\\int_{S^2}f\\,d\\Omega$ と書く。四成分を取り出すには、各基底関数との重なりを測る。球面の対称性から $\\langle x\\rangle_{S^2}=0$、$\\langle xy\\rangle_{S^2}=0$ であり、$x^2+y^2+z^2=1$ より $\\langle x^2\\rangle_{S^2}=\\langle y^2\\rangle_{S^2}=\\langle z^2\\rangle_{S^2}=1/3$ である。従って
+不変内積 $(U,V)=-2\\operatorname{tr}(UV)$ では $\\tau_a$ が正規直交する。成分は
 
 $$
-P(f):=\\langle f\\rangle_{S^2}
-+3\\langle xf\\rangle_{S^2}x
-+3\\langle yf\\rangle_{S^2}y
-+3\\langle zf\\rangle_{S^2}z
+\\Theta_{ab}=-(\\tau_a,[y^c\\tau_c,\\tau_b])
+=-y^cf_{cba}=f_{abc}y^c.
 $$
 
-とすれば、$P(1)=1$、$P(x)=x$、$P(y)=y$、$P(z)=z$ となる。これが内積 $(f,g)=\\langle\\overline f g\\rangle_{S^2}$ に関する $W$ への直交射影である。例えば $x^2$ の定数成分は $1/3$ で、一次成分を測る $\\langle x^3\\rangle_{S^2}$、$\\langle yx^2\\rangle_{S^2}$、$\\langle zx^2\\rangle_{S^2}$ はいずれも反転対称性で零になる。同様に $xy$ の四成分はすべて零なので
+指数座標と左移動基底は $g^{-1}dg=dX+O(X\\,dX)$ だけずれ、$\\Theta=O(X)$ なので一次の座標成分は変わらない。構造定数のJacobi恒等式を代入すると
 
 $$
-P(x^2)=\\frac13,\\qquad P(xy)=0
+\\{y^a,\\{y^b,y^c\\}\\}+\\text{cyclic}
+=(f^{bc}{}_df^{ad}{}_e+f^{ca}{}_df^{bd}{}_e+f^{ab}{}_df^{cd}{}_e)y^e=0.
 $$
 
-となる。$f,g\\in W$ の積を $P(fg)$ と定め、この射影を毎回はさむと
+微分則により、これは一般の関数にも拡張する。
+
+物理単位への換算では、$g^{-1}dg=\\tau_ae^a$ に対する計量は
 
 $$
-P\\bigl(P(x^2)y\\bigr)=\\frac y3,
-\\qquad
-P\\bigl(xP(xy)\\bigr)=0.
+ds^2=-\\frac{R^2}{2}\\operatorname{tr}(g^{-1}dg)^2
+=\\frac{k\\alpha'}4\\delta_{ab}e^ae^b.
 $$
 
-同じ三つの成分 $x,x,y$ でも、括る順序で答えが変わってしまう。四成分という状態数と回転の性質だけでは、結合的な積は決まらない。場を続けて掛けられる模型を作るには、積そのものを探す必要がある。
-
-### 5.3 Pauli行列で積を閉じる
-
-四成分を行列で表してみよう。複素係数 $a_0,a_1,a_2,a_3$ を使った $A=a_0\\mathbf1+\\sum_{a=1}^3a_a\\sigma_a$ 全体を考える。ここで $\\mathbf1$ は $2\\times2$ 単位行列、$\\sigma_a$ は三つのPauli行列である。これらも、スピン $1/2$ の回転行列 $U\\in SU(2)$ による変換 $A\\mapsto UAU^{-1}$ のもとで $V_0\\oplus V_1$ をなす。その積は
+従って境界伝播関数の無次元基底での係数は
 
 $$
-\\boxed{
-\\sigma_a\\sigma_b
-=\\delta_{ab}\\mathbf1+i\\epsilon_{ab}{}^c\\sigma_c
-}
-\\tag{spin-half-fuzzy-product}
+\\theta_e=\\frac{2\\pi\\alpha'}{k\\alpha'/4}[(1+B_g)^{-1}]_{\\mathrm A}
+=\\frac{4\\pi}{k}\\Theta.
 $$
 
-であり、複素係数を許した四成分の中で閉じる。各基底行列はHermitianだが、その積の係数には $i$ が現れるため、積の代数としては複素行列全体を用いる。行列積なので結合則も成り立つ。例えば、$\\sigma_1^2=\\mathbf1$ と $\\sigma_1\\sigma_2=i\\sigma_3$ から
+本文のPoisson括弧は、この共通係数 $4\\pi/k$ を除いた規約である。単位元近傍の実際の指数座標の交換子へ戻すと $[\\widehat y^a,\\widehat y^b]\\simeq i(4\\pi/k)f^{ab}{}_c\\widehat y^c$ となる。これは一定背景を局所的に用いた一次近似であり、有限 $k$ の全境界代数を定める結果ではない。
+
+Poisson括弧は観測量同士の関係を与える。運動方程式 $\\dot F=\\{F,H_{\\mathrm{eff}}\\}$ に用いるにはHamiltonian $H_{\\mathrm{eff}}$ が別に必要であり、この括弧だけでは端点の軌道や弦の振動は決まらない。
+
+</details>
+
+<details>
+<summary>内部自己同型でgluingを変えると球面が移る</summary>
+
+固定群要素 $s\\in SU(2)$ により、標準gluingを $J=s\\bar Js^{-1}$ へ変える。右移動 $g\\mapsto gs$ では $J[gs]=J[g]$、$\\bar J[gs]=s^{-1}\\bar J[g]s$ なので、標準gluingを満たす場の像が、この変更後のgluingを満たす。端点の領域は
 
 $$
-(\\sigma_1\\sigma_1)\\sigma_2=\\sigma_2,
-\\qquad
-\\sigma_1(\\sigma_1\\sigma_2)=i\\sigma_1\\sigma_3=\\sigma_2.
+\\mathcal W_{J,s}=\\mathcal C_{\\vartheta_J}s
+\\tag{translated-brane}
 $$
 
-この積では $\\sigma_1\\sigma_2=i\\sigma_3$、$\\sigma_2\\sigma_1=-i\\sigma_3$ と、掛ける順序が区別される。四成分で回転と結合的な積を扱う候補として、$2\\times2$ 複素行列全体の代数 $\\operatorname{Mat}(2)$ が得られた。一般に $n\\times n$ 複素行列全体を $\\operatorname{Mat}(n)$ と書く。
+となる。群移動は計量を保ち、球面の大きさは変えない。
 
-![普通の球面上の定数の模様と三方向の滑らかな角度依存に、単位行列と三つのPauli行列を対応させる。](/diagrams/fuzzy-components.svg)
-
-図は、成分が回転でどう混ざるかを対応させている。三つの座標行列は同時対角化できないため、各点へ三つの座標値を割り当てる描像は使えない。有限性は、表せる角度依存の成分数に現れる。
-
-### 5.4 境界OPEで候補を確かめる
-
-開弦の積がこの候補を選ぶことを、[境界OPE](/6-2#ref-boundary-ope)で確かめよう。OPEには四つのprimaryに加え、カレントの負モードで作る励起も現れるので、まずそれらを分けられる極限を定める。
-
-$L_0$ は共形ウェイトを測る演算子であり、カレントのモードに対して $[L_0,J^a_{-n}]=nJ^a_{-n}$ を満たす。従ってウェイト $h_\\ell$ のprimaryに $J^{a_1}_{-n_1}\\cdots J^{a_q}_{-n_q}$（各 $n_r\\geq1$）を作用させると、ウェイトは $h_\\ell+N$、$N=n_1+\\cdots+n_q$ になる。この増分 $N$ をgradeと呼ぶ。primary自身は $N=0$、負モードによるdescendantは $N\\geq1$ である。
-
-境界上で $x_1>x_2$ とし、$x_{12}=x_1-x_2$ と置く。スケール変換で両辺のウェイトを合わせるため、ウェイト $h_\\ell+N$ の出力に掛かるOPEの距離因子は
+$\\Omega_s=\\operatorname{Ad}_s$ とすると、変更後のgluingを保つ左右の対角群は $g\\mapsto ug\\Omega_s^{-1}(u^{-1})$ と作用する。その軌道は
 
 $$
-x_{12}^{h_\\ell+N-h_i-h_j}
-=x_{12}^{h_\\ell-h_i-h_j}x_{12}^{N}
+\\mathcal O_{h,s}=\\{uhs^{-1}u^{-1}s\\mid u\\in SU(2)\\}
+=\\mathcal C_{hs^{-1}}s.
+\\tag{inner-twisted-orbit}
 $$
 
-となる。以下では二点関数が有限に規格化された場を用い、固定したスピンとgradeでOPE係数が有限な大体積極限をもつという境界OPEの結果を使う。この係数の条件と距離因子を合わせて極限を取る。まず $J=1/2$ を固定して $k\\to\\infty$ とすると、primaryの $h_i,h_j,h_\\ell$ は零へ向かい、最初の因子が1になる。その後に $x_{12}\\to0$ とすると、$N\\geq1$ の項は消え、四つのprimaryの積が残る。この順序で得る積を $\\star$ と書く。
+$h=e^{i\\vartheta_J\\sigma_3}s$ を選べば上の移動した球面に一致する。両端を同じ $s$ で移せば大域対称性による変数変換なので開弦スペクトルも変わらない。異なる移動を両端へ施すと相対的な移動が残り、6.2節の異なるgluing間のスペクトルに現れる。
 
-spin 1の三成分を $\\psi_m:=\\psi_{1,m}$、$m=-1,0,1$ と書く。identityを単位元とする規格化で、積の係数を求めよう。
+</details>
 
-境界OPEの係数は、磁気量子数を結ぶClebsch--Gordan係数と、括り替えを表すfusing係数の積である。[fusing係数の古典極限](/6-1#ref-fusing-classical-limit)を $J=\\frac12$ に適用する。単位元を保つ規格化で、二つのspin 1からspin $\\ell=0,1$ へ進む係数は、それぞれ
+## 3. 開弦OPEが球面上の関数を行列にする
 
-$$
-\\mathcal R_{110}^{(1/2)}=-\\sqrt3,
-\\qquad
-\\mathcal R_{111}^{(1/2)}=-\\sqrt2.
-$$
+### 3.1 開弦の回転成分と行列の成分を比べる
 
-一般式は§6.3で扱う。ここで使う入力は、境界OPEがClebsch–Gordan係数とfusing係数の積であり、後者が大きな $k$ で通常のWigner $6j$ に近づくという6.2節の結果である。この小さい例では、Wigner $6j$ の値 $\\{1\\,1\\,0;\\frac12\\,\\frac12\\,\\frac12\\}_{\\mathrm W}=1/\\sqrt6$、$\\{1\\,1\\,1;\\frac12\\,\\frac12\\,\\frac12\\}_{\\mathrm W}=-1/3$ に、位相・次元因子 $(-1)^{1+\\ell}\\sqrt{18}$ を掛ければよい。
-
-基底状態の符号を標準的なCondon--Shortley規約にそろえたClebsch--Gordan係数は
+同じCardy境界 $J$ に両端をもつ開弦の状態空間は、6.2節のannulusから
 
 $$
-\\begin{array}{c|cc}
-(m,p)&\\langle1m,1p\\mid00\\rangle&\\langle1m,1p\\mid10\\rangle\\\\\\hline
-(0,0)&-1/\\sqrt3&0\\\\
-(1,-1)&1/\\sqrt3&1/\\sqrt2\\\\
-(-1,1)&1/\\sqrt3&-1/\\sqrt2
-\\end{array}
-$$
-
-である。各列に対応する $\\mathcal R$ を掛けると次の三式を得る。許される出力にspin 2は含まれない。
-
-この係数を使うと、
-
-$$
-\\begin{aligned}
-\\psi_0\\star\\psi_0&=\\mathbf1,\\\\
-\\psi_{+1}\\star\\psi_{-1}&=-\\mathbf1-\\psi_0,\\\\
-\\psi_{-1}\\star\\psi_{+1}&=-\\mathbf1+\\psi_0.
-\\end{aligned}
-$$
-
-最後の二式は、挿入順序を変えるとspin 1成分の符号が反転することを示す。
-
-
-
-Cartesian成分へ基底を変える：
-
-$$
-u_1=\\frac{\\psi_{-1}-\\psi_{+1}}{\\sqrt2},\\qquad
-u_2=\\frac{i(\\psi_{+1}+\\psi_{-1})}{\\sqrt2},\\qquad
-u_3=\\psi_0.
-$$
-
-回転共変性により、二つのベクトル成分の積は $u_a\\star u_b=A\\delta_{ab}\\mathbf1+B i\\epsilon_{ab}{}^cu_c$ の形になる。第一式から $A=1$、後二式の差から $u_1\\star u_2=i u_3$、従って $B=1$ が決まる。こうして
-
-$$
-\\boxed{u_a\\star u_b=\\delta_{ab}\\mathbf1+i\\epsilon_{ab}{}^cu_c}
-$$
-
-を得る。$\\mathbf1\\mapsto\\mathbf1$、$u_a\\mapsto\\sigma_a$ は、回転の成分と積の両方を保つ。開弦から得られた四成分の代数は、$2\\times2$ 行列代数そのものである。
-
-## 6. 一般のスピンへ広げる
-
-$J=\\frac12$ で得た「開弦の回転成分と行列の成分が一致し、OPEがその行列積を選ぶ」という対応を、一般の $J$ で調べる。
-
-### 6.1 開弦と行列の回転成分を比べる
-
-同じCardyブレーン $J$ に両端をもつopen stringの状態空間は
-
-$$
-\\boxed{
-\\mathcal H_{JJ}
-=\\bigoplus_{j=0}^{j_{\\max}}
-N_{JJ}{}^j\\,\\mathcal H_j,
-\\qquad
-j_{\\max}=\\min(2J,k-2J)
-}
+\\mathcal H_{JJ}=\\bigoplus_{j=0}^{j_{\\max}}N_{JJ}{}^j\\mathcal H_j,
+\\qquad j_{\\max}=\\min(2J,k-2J)
 \\tag{6.38}
 $$
 
-である。$\\mathcal H_j$ はアフィン $\\widehat{\\mathfrak{su}}(2)_k$ の既約表現、$N_{JJ}{}^j$ は[fusion](/6-1#ref-fusion) multiplicityである。この場合、現れる $j$ は整数で、各multiplicityは0または1である。
+と求まる。$\\mathcal H_j$ はアフィン表現、$N_{JJ}{}^j$ はそのfusion多重度で、この和では整数 $j$ が各一回ずつ現れる。各 $\\mathcal H_j$ の最低ウェイト部分は、零モードによるスピン $j$ の有限次元表現 $V_j$ である。対応する境界primaryを $\\psi_{j,m}$、$m=-j,\\ldots,j$ とする。
 
-各 $\\mathcal H_j$ の最低エネルギー部分は、零モード $\\mathfrak{su}(2)$ の有限次元多重項 $V_j$ をなす。その状態に対応するboundary primaryを
-
-$$
-\\psi_{j,m}(x),
-\\qquad
-m=-j,\\ldots,j
-$$
-
-と書く。その共形ウェイトは
+ここからは **$J$ を固定して $k\\to\\infty$** とする。やがて $j_{\\max}=2J$ となり、primaryの空間は $\\bigoplus_{j=0}^{2J}V_j$ になる。同じ回転成分をもつ候補は、スピン $J$ の空間 $V_J$ 上の全行列である。行列単位 $|m\\rangle\\langle n|$ は $V_J\\otimes V_J^*$ として回転し、$SU(2)$ では双対が同じスピンなので
 
 $$
-h_j=\\frac{j(j+1)}{k+2}.
-$$
-
-$J$ を固定して $k\\to\\infty$ とすると、やがて $k-2J>2J$ になるので
-
-$$
-j_{\\max}=2J.
-$$
-
-従って、ground-state空間は
-
-$$
-\\mathcal H_{JJ}^{\\mathrm{ground}}
-\\cong\\bigoplus_{j=0}^{2J}V_j
-$$
-
-となる。この成分数と回転の性質を、スピン $J$ の空間上の行列と比べる。
-
-行列単位 $|m\\rangle\\langle n|$ の左側は $V_J$、右側は双対表現 $V_J^*$ として回るので、表現として
-
-$$
-\\operatorname{Mat}(2J+1)
-\\cong V_J\\otimes V_J^*
-$$
-
-であり、$SU(2)$ では $V_J^*\\cong V_J$ なので、通常のtensor積則から
-
-$$
-\\boxed{
-\\operatorname{Mat}(2J+1)
-\\cong\\bigoplus_{j=0}^{2J}V_j
-}
+\\operatorname{Mat}(2J+1)\\cong V_J\\otimes V_J^*
+\\cong\\bigoplus_{j=0}^{2J}V_j.
 \\tag{6.36}
 $$
 
-を得る。右辺の $j$ は整数値だけを取る。次元も
+通常の角運動量合成が、開弦と同じ各一回の分解を与えた。次元も $\\sum_{j=0}^{2J}(2j+1)=(2J+1)^2$ と一致する。ただし状態数と回転の一致だけでは、場を掛けた際の係数は決まらない。次に積を比べる。
+
+### 3.2 $J=1/2$ の四成分で、積の違いを見る
+
+$J=1/2$ ではprimaryはスカラー一成分とベクトル三成分になる。普通の単位球面上の関数 $1,n_1,n_2,n_3$ も同じように回るが、点ごとの積 $n_1^2$ にはスピン2の成分があり、四成分の中で閉じない。
+
+一方、$2\\times2$ 行列の基底 $\\mathbf1,\\sigma_1,\\sigma_2,\\sigma_3$ は同じスカラーとベクトルとして回り、
 
 $$
-\\sum_{j=0}^{2J}(2j+1)
-=(2J+1)^2
-=\\dim\\operatorname{Mat}(2J+1)
+\\sigma_a\\sigma_b=\\delta_{ab}\\mathbf1+i\\varepsilon_{ab}{}^c\\sigma_c
+\\tag{spin-half-fuzzy-product}
 $$
 
-と一致する。
+という積で四成分の中に閉じる。例えば $\\sigma_1\\sigma_2=i\\sigma_3$ と $\\sigma_2\\sigma_1=-i\\sigma_3$ では順序が区別される。この行列積が境界場の積であるかは、OPEの係数を計算して判定できる。
 
-このように、開弦のground stateと $\\operatorname{End}(V_J)=\\operatorname{Mat}(2J+1)$ は回転の表現として一致する。$J=\\frac12$ で見た四成分の対応が、一般の $J$ でも得られた。次にこの行列を球面の座標と結び、その積が境界OPEと一致することを確かめる。
+![スカラー一成分とベクトル三成分という回転の分解を、球面の模様と単位行列・Pauli行列で対応させる。](/diagrams/fuzzy-components.svg)
 
-有限 $k$ で $J$ がレベル壁に近い場合には $j_{\\max}=k-2J<2J$ となる。この場合の成分と積は、有限 $k$ のfusionとfusing dataに従う。ここから行う通常の全行列代数との同定は、$J$ を固定した大体積極限での主張である。
+図の対応は回転の成分を対応させている。三つの座標行列は同時対角化できず、球面上の各点に三つの同時固有値を割り当てる図ではない。
 
-### 6.2 行列を球面の座標として読む
+<details>
+<summary>普通の球面の積から高い成分を削るだけでは結合則を保てない</summary>
 
-§6.1で現れた $V_J$ 上の行列を、§4の座標の括弧と結びつけよう。§4では指数座標 $y^a$ に対して、共通係数 $4\\pi/k$ を取り除いたPoisson括弧 $\\{y^a,y^b\\}=f^{ab}{}_c y^c$ を得た。その線形関係を行列で表すため、スピン $J$ のHermitian生成子 $T_a^{(J)}$ を用いる。この節では添字を $\\delta_{ab}$ で上げ下げする。
+$W=\\operatorname{span}\\{1,n_1,n_2,n_3\\}$ とし、球面平均による直交射影を $P$ とする。対称性から $\\langle n_a\\rangle=0$、$\\langle n_an_b\\rangle=\\delta_{ab}/3$ なので
 
 $$
-\\boxed{
-[T_a^{(J)},T_b^{(J)}]=if_{ab}{}^cT_c^{(J)}.
-}
+P(f)=\\langle f\\rangle+3\\sum_a\\langle n_af\\rangle n_a.
+$$
+
+従って $P(n_1^2)=1/3$、$P(n_1n_2)=0$ であり、射影を毎回はさむ積では
+
+$$
+P(P(n_1^2)n_2)=n_2/3,\\qquad P(n_1P(n_1n_2))=0.
+$$
+
+括る順序で結果が変わる。有限個の調和成分へ削る操作だけでは、境界場の結合的な積を得られない。行列積は結合則と有限の成分数を同時に保つ候補になる。
+
+</details>
+
+### 3.3 球面のPoisson括弧を座標行列で実現する
+
+前節の $\\{y^a,y^b\\}=f^{ab}{}_cy^c$ を、量子座標の交換子へ置き換える。スピン $J$ のHermitian生成子 $T_a^{(J)}$ は
+
+$$
+[T_a^{(J)},T_b^{(J)}]=if_{ab}{}^cT_c^{(J)}
 \\tag{6.32}
 $$
 
-球面では回転不変な座標の二乗和が一定になる。行列側でこれに対応するのが二次Casimirであり、スピン $J$ の既約表現では
+を満たすので、この交換子を実現する。また座標の二乗和が一定という条件は、Casimir
 
 $$
-\\boxed{
-\\sum_a\\bigl(T_a^{(J)}\\bigr)^2=c\\,\\mathbf1,
-\\qquad c=J(J+1)
-}
+\\sum_a(T_a^{(J)})^2=J(J+1)\\mathbf1
 \\tag{6.33}
 $$
 
-となる。一般に、有限次元Hermitian表現で同じCasimir値を要求すると、$j(j+1)$ が $j\\geq0$ で単調増加するため、同じスピンのコピーだけが許される。ここでは一つの既約表現 $V_J$ を用いる。
+に移る。同じCasimir値をもつ有限次元Hermitian表現は、同一スピンの既約表現のコピーだけからなる。一枚の球面には一つの既約表現 $V_J$ を使い、コピーの数は後でブレーンの枚数として扱う。
 
-$T_a^{(J)}$ と指数座標の尺度を合わせるには、§4で除いた係数を戻す必要がある。局所的な一定背景の近似で得た交換子の線形項は
+<!-- reference: fuzzy-sphere -->
 
-$$
-[\\widehat y^a,\\widehat y^b]
-\\simeq i\\frac{4\\pi}{k}f^{ab}{}_c\\widehat y^c
-$$
-
-である。この線形項を式 (6.32) で実現する規格化は $\\widehat y^a=(4\\pi/k)T^{(J)a}$ となる。実際、左辺に代入すると係数が $(4\\pi/k)^2$ になり、$T^c=(k/4\\pi)\\widehat y^c$ を戻せば右辺を得る。
-
-さらに§4の計量は単位元近傍で $ds^2\\simeq(R^2/4)\\delta_{ab}dy^ady^b$ だった。従って、長さの次元を持つ局所座標は $(R/2)y^a$ であり、上の線形項から作った座標行列の二乗和は
+生成子 $T_a^{(J)}$ と単位行列の和・積が作る代数は
 
 $$
-\\sum_a\\left(\\frac R2\\widehat y^a\\right)^2
-=\\frac{4\\pi^2\\alpha'}k J(J+1)\\mathbf1.
+\\mathcal A_J=\\operatorname{End}(V_J)=\\operatorname{Mat}(2J+1).
 $$
 
-この近似による行列半径を $r_{\\mathrm{mat}}$ と書けば、
+実際、$T_3^{(J)}$ の固有値への射影を多項式で作り、昇降演算子をその両側から挟めば、全行列単位を得られる。この有限行列代数を **fuzzy sphereの関数代数**と呼ぶ。球面上のPoisson構造を交換子で実現し、回転の成分が $j\\leq2J$ に切られた量子化である。
+
+<!-- /reference -->
+
+このCasimirが指定するのは座標行列の尺度である。物理的なブレーン半径と比べる際には換算が必要で、特に固定した有限 $J$ では古典的な半径公式を厳密な量子半径として使えない。
+
+<details>
+<summary>全行列代数の生成と、Cardy半径との比較</summary>
+
+$T_3|m\\rangle=m|m\\rangle$ とし、異なる固有値への補間多項式
+
+$$
+P_m=\\prod_{n\\ne m}\\frac{T_3-n\\mathbf1}{m-n}=|m\\rangle\\langle m|
+$$
+
+を作る。$T_\\pm=T_1\\pm iT_2$ の適切なべきの両側に $P_m,P_n$ を掛ければ、非零定数倍を除いて $|m\\rangle\\langle n|$ が得られる。これらが全行列の基底なので、生成される代数は全行列代数である。$J=0$ では単位行列だけから $\\operatorname{Mat}(1)$ を得る。
+
+局所Poisson構造の物理的な係数を戻すと、$\\widehat y^a=(4\\pi/k)T^{(J)a}$ が一次の交換子を実現する。単位元近傍で長さとしての座標は $(R/2)y^a$ なので、行列の二乗和が与える半径は
 
 $$
 r_{\\mathrm{mat}}=2\\pi\\sqrt{\\frac{\\alpha'}k}\\sqrt{J(J+1)}.
 $$
 
-一方、§2.5のCardy角度の半径換算値は、小角度 $(2J+1)/k\\ll1$ で
+Cardy角度を古典計量へ入れた半径は、小角度 $J/k\\ll1$ で
 
 $$
 r_J=R\\sin\\vartheta_J
-\\simeq2\\pi\\sqrt{\\frac{\\alpha'}k}\\left(J+\\frac12\\right)
+\\simeq2\\pi\\sqrt{\\frac{\\alpha'}k}\\left(J+\\frac12\\right).
 $$
 
-となる。二つの式は $J\\gg1$ で同じ主要項を持つ。これは $\\sqrt{J(J+1)}=\\sqrt{(J+1/2)^2-1/4}$ から分かり、この二つの $J$ 依存係数の相対差は $O(J^{-2})$ である。Cardy半径を上の小角度の式に置き換える誤差は、これとは別に相対的に $O(k^{-1})+O((J/k)^2)$ となる。ここで比べているのは局所的な線形Poisson構造から作った行列半径と、Cardy角度から換算した半古典的な半径である。小角度近似とこの大きな $J$ での比較を同時に行う範囲は $1\\ll J\\ll k$ となる。
+$\\sqrt{J(J+1)}=\\sqrt{(J+1/2)^2-1/4}$ なので、$1\\ll J\\ll k$ では両者の主要項が一致する。Casimirによる係数の相対差は $O(J^{-2})$、角度の小角度展開による相対誤差は別に $O(k^{-1})+O((J/k)^2)$ である。
 
-固定した有限の $J$ では、この二つの係数の差は $k\\to\\infty$ でも相対的に残る。例えば $J=0$ では生成子は零で、行列代数に座標方向の成分はないが、$r_0$ の換算式には有限 $k$ で非零の値がある。局所的なPoisson近似と§2の局在の議論だけから、有限 $J$ の厳密な物理半径を決めることはできない。固定 $J$ で確立すべき主張は、境界場の積がこの行列代数と一致することであり、§6.4でOPE係数を使って確かめる。
-
-行列代数自体を任意の半径 $r$ の球面と比較する際には、$J>0$ で
-
-$$
-\\widehat x^a:=\\frac{r}{\\sqrt{J(J+1)}}T^{(J)a},
-\\qquad
-\\sum_a(\\widehat x^a)^2=r^2\\mathbf1
-$$
-
-と規格化できる。ここで $r$ は比較のために指定する長さである。§6.5ではこの $r$ を一定にして $J\\to\\infty$ を取り、行列積が古典球面上の積へ近づくことを調べる。
-
-<!-- reference: fuzzy-sphere -->
-
-三つの座標生成子と恒等演算子の積・和が作る代数を $\\mathcal A_J$ とする。スピン $J$ の既約表現では、まず $T_3^{(J)}$ の互いに異なる固有値 $m$ に対し、固有値 $m$ で1、他の固有値で0となる補間多項式を作れば、固有状態への射影 $|m\\rangle\\langle m|$ を得る。さらに昇降演算子で $|n\\rangle$ を $|m\\rangle$ へ移し、両側をこれらの射影で挟めば、定数倍を除いて任意の行列単位 $|m\\rangle\\langle n|$ を作れる。従って
-
-$$
-\\boxed{
-\\mathcal A_J=\\operatorname{End}(V_J)=\\operatorname{Mat}(2J+1).
-}
-$$
-
-となる。§6.1で開弦と回転成分が一致した行列空間は、球面の量子座標から生成される代数でもある。この代数をfuzzy sphereの関数代数と呼ぶ。
-
-<!-- /reference -->
-
-<details>
-<summary>座標行列が全行列代数を生成することの確認</summary>
-
-スピン基底 $|m\\rangle$ では $T_3^{(J)}|m\\rangle=m|m\\rangle$ であり、固有値はすべて異なる。従って
-
-$$
-P_m=\\prod_{n\\ne m}\\frac{T_3^{(J)}-n\\mathbf1}{m-n}
-=|m\\rangle\\langle m|
-$$
-
-は $T_3^{(J)}$ の多項式である。$|m\\rangle$ には1、他の固有状態には0として作用することから、この等式が分かる。昇降演算子 $T_\\pm^{(J)}:=T_1^{(J)}\\pm iT_2^{(J)}$ で $|n\\rangle$ を $|m\\rangle$ へ移し、両側を $P_m,P_n$ で挟めば、非零の定数倍を除いて $|m\\rangle\\langle n|$ が得られる。これらは全行列空間の基底なので、座標と恒等行列が全行列代数を生成する。$J=0$ では恒等行列だけで $\\operatorname{Mat}(1)$ を得る。
+固定した小さい $J$ では相対差は残る。例えば $J=0$ の行列座標は零だが、有限 $k$ の $R\\sin\\vartheta_0$ は非零である。これは、一点へ近づく分布の半古典的な位置と、局所Poissonの線形近似を小さい表現で量子化した座標を、同じ厳密な半径と同一視できないことを示す。境界OPEとの代数の一致は、この半径の比較とは独立に確かめる。
 
 </details>
 
-### 6.3 調和関数の基底で行列積を求める
+### 3.4 OPEと行列積の係数をそろえる
 
-古典球面上では、回転を表す実ベクトル場
-
-$$
-\\mathcal R_a=f_{ac}{}^b y^c\\partial_b
-$$
-
-のもとで球面調和関数 $\\mathscr Y_m^j$ がスピン $j$ として変換する。球面調和関数は角度方向の模様の基底で、$j$ が全角運動量、$m=-j,\\ldots,j$ が一軸方向の成分を指定する。古典的な点ごとの積も回転に共変なので、Clebsch--Gordan分解に従って
+行列の回転生成子は、群の共役作用 $A\\mapsto UAU^{-1}$ を一次まで展開して
 
 $$
-\\boxed{
-\\mathscr Y_m^i\\mathscr Y_p^j
-=\\sum_{\\ell,s}c_{ij\\ell}
-\\left\\langle im,jp\\mid\\ell s\\right\\rangle
-\\mathscr Y_s^\\ell
-}
-\\tag{6.34}
-$$
-
-と書ける。$\\langle im,jp\\mid\\ell s\\rangle$ は二つの角運動量成分 $(i,m),(j,p)$ を合成したとき、全角運動量 $(\\ell,s)$ にどれだけ含まれるかを表すClebsch--Gordan係数である。$c_{ij\\ell}$ は球面調和関数の規格化と三つの調和関数の積分、すなわちGaunt係数によって決まる。本節ではその個別値を使わない。
-
-量子球面上の状態が $v\\mapsto Uv$ と回転するとき、$Av$ も $UAv$ へ回転するには、行列は $A\\mapsto UAU^{-1}$ と変わる。$U=e^{-i\\epsilon T_a^{(J)}}$ を一次まで展開すると $UAU^{-1}=A-i\\epsilon[T_a^{(J)},A]+O(\\epsilon^2)$ なので、無限小変換を $\\delta A=-i\\epsilon \\ell_aA$ と表す規約で、生成子を
-
-$$
-\\boxed{
-\\ell_aA:=[T_a^{(J)},A],
-\\qquad
-A\\in\\operatorname{Mat}(2J+1)
-}
+\\ell_aA:=[T_a^{(J)},A]
 \\tag{6.35}
 $$
 
-と定める。$T_a^{(J)}$ は§6.2で用いた無次元生成子である。群要素を $g=e^X$ と表す際のanti-Hermitian基底 $\\tau_a$ との関係は、スピン $J$ 表現で $dD^J(\\tau_a)=-iT_a^{(J)}$ となる。
-
-境界primaryには角運動量のラベル $(j,m)$ が付いている。行列側でも同じラベルをもつ基底を選べば、成分ごとにOPEと積を比較できる。そのため、行列に作用する回転生成子 $\\ell_a$ を使い、
+と得られる。行列のスピン $j$ 成分の基底を $Y_m^j$ とし、$\\sum_a\\ell_a\\ell_aY_m^j=j(j+1)Y_m^j$、$\\ell_3Y_m^j=mY_m^j$ を満たすように選ぶ。倍率と位相も固定するため、標準Condon–Shortley位相のCG係数で
 
 $$
-\\sum_a\\ell_a\\ell_a Y_m^j=j(j+1)Y_m^j,
-\\qquad
-\\ell_3Y_m^j=mY_m^j
+\\langle J,n'|Y_m^j|J,n\\rangle
+:=\\sqrt{2j+1}\\,\\langle Jn,jm\\mid Jn'\\rangle
 $$
 
-を満たす行列を求める。§6.1の分解から、各 $j=0,1,\\ldots,2J$ に対してこのような $2j+1$ 個の基底行列が存在する。これらを $Y_m^j$ と書く。普通の球面調和関数と同じ回転の固有値で分類されるため、fuzzy spherical harmonicsと呼ぶ。$Y_m^j$ 自体は $V_J$ に作用する $(2J+1)\\times(2J+1)$ 行列であり、展開する場は $A=\\sum_{j,m}a_{j,m}Y_m^j$ である。
+と定める。$n,n'$ はspin $J$ の磁気量子数である。この基底では $Y_0^0=\\mathbf1$ で、$\\operatorname{tr}((Y_m^j)^\\dagger Y_p^i)/(2J+1)=\\delta_{ji}\\delta_{mp}$ となる。これらをfuzzy spherical harmonicsと呼ぶ。名前にharmonicとあっても、$Y_m^j$ 自体は $V_J$ に作用する行列である。
 
-この基底は座標生成子から作れる。$T_+=T_1^{(J)}+iT_2^{(J)}$ とすれば、$[T_3^{(J)},(T_+)^j]=j(T_+)^j$、$[T_+,(T_+)^j]=0$ なので、$(T_+)^j$ がスピン $j$ の最高成分になる。そこへ $\\ell_-A=[T_1^{(J)}-iT_2^{(J)},A]$ を繰り返し作用させて $m=j-1,\\ldots,-j$ を作る。$(T_+)^j$ が非零なのは $j\\leq2J$ までで、§6.1の成分数とも一致する。$j=0$ の出発点は単位行列であり、$Y_0^0=\\mathbf1$ とする。
-
-各スピンの全体の大きさと位相を固定するため、Clebsch--Gordan係数で行列要素を指定しよう。$V_J$ の正規直交基底を $|J,n\\rangle$、$n=-J,\\ldots,J$ とする。テンソル積 $V_J\\otimes V_j$ には、積基底 $|J,n\\rangle\\otimes|j,m\\rangle$ と、全スピンで分類した結合基底がある。このテンソル積に現れる全スピン $J$ の結合基底を $|(J,j);J,n'\\rangle$ と書く。記号
+普通の球面調和関数 $\\mathscr Y_m^j$ の積は、角運動量を合成するClebsch–Gordan係数により
 
 $$
-\\langle Jn,jm\\mid Jn'\\rangle
-:=\\bigl(\\langle J,n|\\otimes\\langle j,m|\\bigr)
-|(J,j);J,n'\\rangle
+\\mathscr Y_m^i\\mathscr Y_p^j
+=\\sum_{\\ell,s}c_{ij\\ell}\\langle im,jp\\mid\\ell s\\rangle\\mathscr Y_s^\\ell
+\\tag{6.34}
 $$
 
-は、この二種類の基底の重なりを $V_J\\otimes V_j$ の内積で測った数である。右端の $Jn'$ は、そのテンソル積内の全スピンを指定している。標準のCondon--Shortley規約ではこれらの係数は実数となる。
-
-回転共変なスピン $j$ の行列要素は、この結合係数にスピンごとの定数を掛けて書ける。その定数を $\\sqrt{2j+1}$ に選び、
+と展開される。$\\langle im,jp\\mid\\ell s\\rangle$ は入力二つの回転成分を出力の回転成分へ合成する基底変換の係数、$c_{ij\\ell}$ は磁気量子数に依存しない積の強さである。行列積も同じ回転共変性をもち、ある係数 $\\mathcal R_{ij\\ell}^{(J)}$ により
 
 $$
-\\boxed{
+Y_m^iY_p^j
+=\\sum_{\\ell\\leq2J,s}\\mathcal R_{ij\\ell}^{(J)}
+\\langle im,jp\\mid\\ell s\\rangle Y_s^\\ell
+\\tag{6.37}
+$$
+
+と書ける。この係数は、行列要素を掛ける際の角運動量の結合順を変える $6j$ 係数で求まる。
+
+境界側の[primaryのOPE](/6-2#ref-boundary-ope)は、順序 $x_1>x_2$、$x_{12}=x_1-x_2$ で
+
+$$
+\\widehat\\psi_{i,m}(x_1)\\widehat\\psi_{j,p}(x_2)
+=\\sum_{\\ell,s}x_{12}^{h_\\ell-h_i-h_j}
+\\langle im,jp\\mid\\ell s\\rangle
+\\widehat F_{J\\ell}\\!\\begin{bmatrix}i&j\\\\J&J\\end{bmatrix}
+\\widehat\\psi_{\\ell,s}(x_2)+\\cdots.
+\\tag{6.39}
+$$
+
+$\\widehat F$ は6.1節の正規直交な括り替え係数を用いたfusing matrix、$\\widehat\\psi$ はその規格化での境界場である。$\\cdots$ はdescendantの寄与を表す。行列と同じ回転成分を既に対応させているので、比べるべき残りは距離因子と、このスカラー係数になる。
+
+固定 $J$ で $k\\to\\infty$ とすると全 $h_j\\to0$ となり、primaryの距離因子は1へ近づく。同時に量子 $6j$ で書かれたfusing係数は、固定スピンでは通常の角運動量の $6j$ へ近づく。さらに行列基底と規格化をそろえるため、整数スピン $j$ ごとに
+
+$$
+\\psi_{j,m}:=a_j\\widehat\\psi_{j,m},\\qquad a_j:=(-1)^j\\sqrt{2j+1},\\qquad
+F_{J\\ell}:=\\frac{a_ia_j}{a_\\ell}\\widehat F_{J\\ell}
+$$
+
+と換算する。二つの入力に $a_i,a_j$、出力に $a_\\ell^{-1}$ が掛かるので、この係数変換になる。換算後の係数は $F_{J\\ell}^{(\\infty)}=\\mathcal R_{ij\\ell}^{(J)}$ を満たす。規格化因子を含めたこの一致が、原著 pp.250–251、式 (6.37)–(6.40) で使う括り替え係数の結果である。
+
+次に点を近づける。primaryからのウェイトの増分をgrade $N$ と呼ぶ。$N\\geq1$ のdescendantの距離因子には、primaryより $x_{12}^{N}$ が余分に掛かるので、この順序の極限で消える。従って
+
+$$
+\\lim_{x_1\\to x_2}\\lim_{k\\to\\infty}
+\\psi_{i,m}(x_1)\\psi_{j,p}(x_2)
+=\\sum_{\\ell,s}\\mathcal R_{ij\\ell}^{(J)}
+\\langle im,jp\\mid\\ell s\\rangle\\psi_{\\ell,s}(x_2).
+\\tag{6.40}
+$$
+
+式 (6.37) と係数が一致したので、$\\psi_{j,m}\\leftrightarrow Y_m^j$ は、回転の対応に加えて **積を保つ対応**になる。有限 $k$ のまま点を重ねる場合や、$J$ を $k$ と同程度に増やす場合には、この極限の行列積へそのまま置き換えられない。
+
+<details>
+<summary>行列要素から $6j$ の係数と場の規格化を求める</summary>
+
+標準Condon–Shortley位相のClebsch–Gordan係数を使い、行列基底を
+
+$$
 \\langle J,n'|Y_m^j|J,n\\rangle
 =\\sqrt{2j+1}\\,\\langle Jn,jm\\mid Jn'\\rangle
-}
 $$
 
-と定める。左辺は $V_J$ 上の行列要素、右辺は $V_J\\otimes V_j$ 内で計算した数である。
+と定める。右辺の係数は $V_J\\otimes V_j$ 内の、全スピン $J$ の結合基底との重なりである。$Y_0^0=\\mathbf1$ となり、normalized traceによる内積は $\\operatorname{tr}((Y_m^j)^\\dagger Y_p^i)/(2J+1)=\\delta_{ji}\\delta_{mp}$ となる。
 
-$j=0$ では右辺が $\\delta_{n'n}$ となり、単位元規格化を満たす。$J=1/2$ では具体的に
-
-$$
-Y_0^0=\\mathbf1,\\qquad
-Y_0^1=\\sigma_3,\\qquad
-Y_{+1}^1=-\\frac{\\sigma_1+i\\sigma_2}{\\sqrt2},\\qquad
-Y_{-1}^1=\\frac{\\sigma_1-i\\sigma_2}{\\sqrt2}
-$$
-
-となり、§5の四成分を再現する。一般の $J$ でも $\\psi_{j,m}\\leftrightarrow Y_m^j$ と対応させられ、各 $V_j$ が一度ずつ現れるため、残る自由度は境界場のスピンごとの規格化である。
-
-二つの行列を掛けると、途中の磁気量子数 $r$ について
+行列積の要素は
 
 $$
 \\langle J,n'|Y_m^iY_p^j|J,n\\rangle
 =\\sqrt{(2i+1)(2j+1)}\\sum_r
-\\langle Jr,im\\mid Jn'\\rangle
-\\langle Jn,jp\\mid Jr\\rangle
+\\langle Jr,im\\mid Jn'\\rangle\\langle Jn,jp\\mid Jr\\rangle.
 $$
 
-と和を取る。この結合順序を、スピン $i,j$ を先に $\\ell$ へ結合する順序へ変換する係数がWigner $6j$ である。従って、積の $m,p$ 依存は $\\langle im,jp\\mid\\ell s\\rangle$ にまとめられる。その残りの係数を $\\mathcal R_{ij\\ell}^{(J)}$ と書く。
-
-角運動量の各基底ベクトルの符号を標準的なCondon--Shortley規約にそろえ、通常のWigner $6j$ symbolを $\\{\\cdots\\}_{\\mathrm W}$ と書く。以下では、CG係数三つの結合順序を変える標準的なrecoupling恒等式を用いる。この恒等式を上の行列要素の規格化に適用した係数は
+この「$j$ を先に作用させてから $i$ を作用させる」結合を、$i,j$ を先に $\\ell$ へ合成する結合へ変えると、通常のWigner $6j$ を用いて
 
 $$
-\\boxed{
 \\mathcal R_{ij\\ell}^{(J)}
-:=
-(-1)^{2J+\\ell}
-\\sqrt{(2J+1)(2i+1)(2j+1)}
-\\begin{Bmatrix}
-i&j&\\ell\\\\
-J&J&J
-\\end{Bmatrix}_{\\mathrm W}
-}
+=(-1)^{2J+\\ell}\\sqrt{(2J+1)(2i+1)(2j+1)}
+\\begin{Bmatrix}i&j&\\ell\\\\J&J&J\\end{Bmatrix}_{\\mathrm W}
 $$
 
-である。
+を得る。原著の $\\{\\cdots\\}$ は規格化を含むrecoupling係数であるため、裸のWigner symbolと同じ数とは限らない。unit channelでは $\\mathcal R_{0jj}^{(J)}=1$ であり、$Y_0^0Y_m^j=Y_m^j$ を検算できる。
 
-<details>
-<summary>括り替えの位相と境界場の規格化を確かめる</summary>
-
-境界OPEとの比較には、括り替えの基底も指定する。まず、各三点結合のlarge-$k$ 極限を正規直交Clebsch--Gordan係数に取ったfusing matrixを $\\widehat F$ と書く。6.2節のtree $((J\\star i)_J\\star j)\\to J$ を磁気量子数で表すと、古典極限の定義は
+境界側でも場の規格化を明記する。三点結合を正規直交CG係数で選んだ場を $\\widehat\\psi_{j,m}$、その係数を $\\widehat F$ とする。順に $i,j$ を境界へ結合する標準的なtreeでは
 
 $$
-\\begin{aligned}
-&\\sum_r
-\\langle Jn,im\\mid Jr\\rangle
-\\langle Jr,jp\\mid Jn'\\rangle\\\\
-&\\quad=\\sum_{\\ell,s}
-\\widehat F^{(\\infty)}_{J\\ell}
-\\langle im,jp\\mid\\ell s\\rangle
-\\langle Jn,\\ell s\\mid Jn'\\rangle.
-\\end{aligned}
-$$
-
-この通常の角運動量の括り替えでは
-
-$$
-\\widehat F^{(\\infty)}_{J\\ell}
-=(-1)^{2J+i+j}
-\\sqrt{(2J+1)(2\\ell+1)}
-\\begin{Bmatrix}i&j&\\ell\\\\J&J&J\\end{Bmatrix}_{\\mathrm W}.
-$$
-
-行列積では上の和の $i,m$ と $j,p$ が逆順になる。Clebsch--Gordan係数の交換則 $\\langle jp,im\\mid\\ell s\\rangle=(-1)^{i+j-\\ell}\\langle im,jp\\mid\\ell s\\rangle$ を使い、入力行列の因子 $\\sqrt{2i+1}\\sqrt{2j+1}$ を出力行列の $\\sqrt{2\\ell+1}$ で割ると、先の $\\mathcal R$ を得る。
-
-境界側では、$\\widehat F$ と対応する規格化の場を $\\widehat\\psi_{j,m}$ とし、
-
-$$
-\\psi_{j,m}=a_j\\widehat\\psi_{j,m},
-\\qquad a_j=(-1)^j\\sqrt{2j+1}
-$$
-
-と取る。同じ境界 $J$ の間に現れる $j$ は整数であり、$a_0=1$ なので恒等場も保たれる。[境界場の再規格化則](/6-2#ref-boundary-ope)を用いると、OPEのスカラー係数の極限は全ての許容channelで
-
-$$
-\\frac{a_i a_j}{a_\\ell}\\widehat F^{(\\infty)}_{J\\ell}
-=(-1)^{i+j-\\ell}
-\\sqrt{\\frac{(2i+1)(2j+1)}{2\\ell+1}}
-\\widehat F^{(\\infty)}_{J\\ell}
-=\\mathcal R_{ij\\ell}^{(J)}
-$$
-
-となる。最後の位相は $(-1)^{2J+2i+2j-\\ell}=(-1)^{2J+\\ell}$ を使った。この節では、この境界場の規格化に換算したfusing係数を式 (6.39) の $F$ に用いる。各スピンに一つの因子 $a_j$ を指定することで、行列積と境界OPEの全係数が同時に揃う。
-
-</details>
-
-二つのfuzzy harmonicの積は再び有限行列なので
-
-$$
-Y_m^iY_p^j
-=\\sum_{\\ell\\leq2J}\\sum_s
-\\mathcal R_{ij\\ell}^{(J)}
-\\left\\langle im,jp\\mid \\ell s\\right\\rangle
-Y_s^\\ell
-\\tag{6.37}
-$$
-
-という形に展開される。角括弧はClebsch--Gordan係数である。unit channelでは
-
-$$
-\\mathcal R_{0j j}^{(J)}=1,
-$$
-
-となり、$Y_0^0Y_p^j=Y_p^j$ を再現する。積は $j\\leq2J$ の有限空間で閉じる。
-
-冒頭のPauli行列の積では、$\\delta_{ab}$ がspin $0$ へ、$\\epsilon_{ab}{}^c$ がspin $1$ へ結合する。これがClebsch--Gordan係数をCartesian基底で見た例である。$2\\times2$ 行列にはspin $2$ 成分がないため、二つのspin $1$ 成分を掛けても、結果はspin $0$ とspin $1$ の中に収まる。
-
-### 6.4 OPE係数まで一致する
-
-境界OPEと照合する際は、場の規格化もそろえる。三点結合を正規直交Clebsch--Gordan係数に取った場を $\\widehat\\psi_{j,m}$、そのfusing係数を $\\widehat F$ と書く。その古典極限は
-
-$$
-\\widehat F^{(\\infty)}_{J\\ell}
+\\widehat F_{J\\ell}^{(\\infty)}
 =(-1)^{2J+i+j}\\sqrt{(2J+1)(2\\ell+1)}
 \\begin{Bmatrix}i&j&\\ell\\\\J&J&J\\end{Bmatrix}_{\\mathrm W}.
 $$
 
-そこで $a_j=(-1)^j\\sqrt{2j+1}$ として $\\psi_{j,m}=a_j\\widehat\\psi_{j,m}$ を用いる。二つの入力に $a_i a_j$ が掛かり、出力の場を $\\psi_{\\ell,s}$ で書き直すと $a_\\ell$ で割るため、OPE係数の極限は
+$\\psi_{j,m}=a_j\\widehat\\psi_{j,m}$、$a_j=(-1)^j\\sqrt{2j+1}$ と取ると、二入力と一出力の換算により
 
 $$
-\\frac{a_i a_j}{a_\\ell}\\widehat F^{(\\infty)}_{J\\ell}
-=\\mathcal R_{ij\\ell}^{(J)}
+F_{J\\ell}^{(\\infty)}
+=\\frac{a_ia_j}{a_\\ell}\\widehat F_{J\\ell}^{(\\infty)}
+=\\mathcal R_{ij\\ell}^{(J)}.
 $$
 
-となる。$a_0=1$ なので恒等場は保たれる。以下の $F$ は、この規格化の場に対応するfusing係数を表す。
+ここでの $j$ は整数で $a_0=1$ なので恒等場も保つ。別のCG位相やfusing matrixの基底を使うと表示係数も変わるが、同じ換算を両側へ施せば積を保つ対応は変わらない。有限 $k$ での変換には、その有限 $k$ の三点結合の規格化もそろえる。
 
-状態空間の対応に加えて、積の係数も一致するかを確かめる。6.2節の[boundary primaryのOPE](/6-2#ref-boundary-ope)は
+量子数 $[n]_k=\\sin(n\\pi/(k+2))/\\sin(\\pi/(k+2))$ は固定整数 $n$ で $n$ へ近づく。固定 $J,i,j,\\ell$ では量子 $6j$ の階乗の引数と和の項数が固定されるので、各量子階乗を通常の階乗へ置き換えた極限が上のWigner $6j$ になる。
 
-$$
-\\boxed{
-\\psi_{i,m}(x_1)\\psi_{j,p}(x_2)
-=\\sum_{\\ell,s}
-x_{12}^{h_\\ell-h_i-h_j}
-\\left\\langle im,jp\\mid \\ell s\\right\\rangle
-F_{J\\ell}\\!\\begin{bmatrix}i&j\\\\J&J\\end{bmatrix}
-\\psi_{\\ell,s}(x_2)
-+\\cdots
-}
-\\tag{6.39}
-$$
+descendantを落とす際は、有限に規格化した状態の、固定スピン・固定gradeのOPE係数がこの極限で有限である結果を使う。負モード $J_{-n}$ はウェイトを $n$ 上げるため、descendantのgrade $N$ が距離因子の追加次数になる。ここでの積は、まず $k\\to\\infty$ を取り、次に点を近づけてgrade 0へ射影した積である。
 
-である。ここでは境界上の順序を $x_1>x_2$ に固定し、$x_{12}=x_1-x_2>0$ とする。$F$ はfusing matrix、$\\cdots$ はdescendantの寄与を表す。
+</details>
 
-$J$ を固定して $k\\to\\infty$ とすると、固定した $i,j,\\ell$ に対し
+<details>
+<summary>$J=1/2$ の境界OPEをPauli行列で検算する</summary>
+
+上の基底では
 
 $$
-h_i,h_j,h_\\ell\\longrightarrow0
+Y_0^1=\\sigma_3,\\quad
+Y_{+1}^1=-\\frac{\\sigma_1+i\\sigma_2}{\\sqrt2},\\quad
+Y_{-1}^1=\\frac{\\sigma_1-i\\sigma_2}{\\sqrt2}.
 $$
 
-なので
+Wigner $6j$ の値と規格化因子から $\\mathcal R_{110}^{(1/2)}=-\\sqrt3$、$\\mathcal R_{111}^{(1/2)}=-\\sqrt2$ を得る。対応するCG係数は、$(m,p)=(0,0)$ のspin 0への係数が $-1/\\sqrt3$、$(1,-1),(-1,1)$ のspin 0への係数がともに $1/\\sqrt3$、spin 1の $m=0$ への係数がそれぞれ $1/\\sqrt2,-1/\\sqrt2$ である。従って極限の積 $\\star$ は
 
 $$
-x_{12}^{h_\\ell-h_i-h_j}\\longrightarrow1.
+\\psi_{1,0}\\star\\psi_{1,0}=\\mathbf1,\\quad
+\\psi_{1,+1}\\star\\psi_{1,-1}=-\\mathbf1-\\psi_{1,0},\\quad
+\\psi_{1,-1}\\star\\psi_{1,+1}=-\\mathbf1+\\psi_{1,0}.
 $$
 
-同時に、6.1節の[括り替え係数の古典極限](/6-1#ref-fusing-classical-limit)を使うとfusing matrixの極限を追える。量子数 $[n]_k:=\\sin(n\\pi/(k+2))/\\sin(\\pi/(k+2))$ は固定した整数 $n$ に対して $n$ へ近づく。ここでは $J,i,j,\\ell$ が固定されているので、量子 $6j$ を作る階乗の引数と和の項数も固定されている。従って各量子階乗を通常の階乗へ置き換えたWigner $6j$ に収束する。上で指定した正規直交Clebsch--Gordan基底ではこの極限が $\\widehat F^{(\\infty)}_{J\\ell}$ であり、境界場の因子 $a_j=(-1)^j\\sqrt{2j+1}$ を掛けると、OPE係数は $(a_i a_j/a_\\ell)\\widehat F^{(\\infty)}_{J\\ell}=\\mathcal R_{ij\\ell}^{(J)}$ へ近づく。したがって
+Cartesian基底へ戻せば、式 (spin-half-fuzzy-product) と同じ積になる。許される出力はspin 0と1だけで、spin 2はない。
+
+</details>
+
+### 3.5 円板相関関数が行列のtraceになる
+
+行列 $A=\\sum_{j,m}a_{j,m}Y_m^j$ に対応する境界場を、同じ係数で $\\psi[A]:=\\sum_{j,m}a_{j,m}\\psi_{j,m}$ と定める。固定 $J$ の極限では、前のOPEが $\\psi[A]\\psi[B]=\\psi[AB]$ になる。
+
+相関関数を取る操作も求めよう。回転不変な一成分は単位行列だけなので、境界場の期待値は行列のスカラー成分、すなわちtraceに比例する。係数を決める真空結合は $g_J:=B_J^0$ である。一点関数の正弦の比から
 
 $$
-\\boxed{
-\\lim_{x_1\\to x_2}\\lim_{k\\to\\infty}
-\\psi_{i,m}(x_1)\\psi_{j,p}(x_2)
-=\\sum_{\\ell,s}
-\\left\\langle im,jp\\mid \\ell s\\right\\rangle
-\\mathcal R_{ij\\ell}^{(J)}
-\\psi_{\\ell,s}(x_2).
-}
-\\tag{6.40}
-$$
-
-この順序付きの極限では、まず $k\\to\\infty$ としてprimary間の距離因子を1にし、その後に点を近づける。grade $N\\geq1$ のdescendantにはprimaryに比べて $x_{12}^{N}$ が余分に付くので、後の極限で残るのはground-state部分である。有限 $k$ のまま点を重ねると一般には特異な距離因子が残るため、同じ積にはならない。
-
-式 (6.40) の右辺の係数は式 (6.37) の行列積と同じである。従って $\\psi_{j,m}\\leftrightarrow Y_m^j$ は、固定 $J$ の大体積極限で得たground-state境界場の積を保つ代数同型である。
-
-離れた挿入点での相関関数も、この行列積とtraceで求められるだろうか。そのためには、点を近づける間に相関関数が変わらないことを確かめる。[KZ方程式](/6-1#ref-fusing-matrix)は、currentのWard恒等式とSugawara構成から得られる。標準gluingを用いて境界のcurrentを反射すると、境界primaryの相関関数は一つのchiralなKZ方程式に従う。各場の成分をまとめた相関関数ベクトルを $\\mathcal G_k$ と書けば、6.1節の直交生成子の規格化では
-
-$$
-\\partial_{x_r}\\mathcal G_k
-=\\frac1{k+2}\\sum_{s\\ne r}
-\\frac{\\sum_a t^a_{(r)}t^a_{(s)}}{x_r-x_s}\\mathcal G_k.
-$$
-
-$t^a_{(r)}$ は $r$ 番目の挿入の有限次元スピン表現に作用する生成子で、異なる挿入の添字だけを動かす。スピン生成子を $T_a$ とした規格化に対して $t^a=\\sqrt2\\,T_a$ である。ここでは全スピンを固定して $k\\to\\infty$ とするので、これらの行列は $k$ に依存しない。挿入点を同じ順序のまま、互いの距離が正の下限を持つ有限な経路で動かすと、右辺の接続行列の積分は $O(1/k)$ になる。従って、この移動による相関関数の変化も、有限な規格化を選んだ極限では零へ向かう。極限の相関関数は各順序領域で位置に依存せず、4点以上にある交比への依存も消える。
-
-先にこの極限を取り、その後に点を近づければ、同じ定数を式 (6.40) のOPEで求められる。点間距離も $k$ とともに零へ送る場合には接続の積分が一様に小さいとは限らないので、ここでは二つの極限の順序を固定する。
-
-行列
-
-$$
-A=\\sum_{j,m}a_{j,m}Y_m^j
-$$
-
-に対応する境界場を
-
-$$
-\\psi[A](x):=\\sum_{j,m}a_{j,m}\\psi_{j,m}(x)
-$$
-
-と書く。回転不変な相関関数は、行列のスカラー成分に比例する。この比例定数はOPEでは決まらず、disk真空振幅の規格化で決まる。Cardy境界のdisk真空振幅は、§2の真空結合 $g_J=b_{J;0}=S_{J0}/\\sqrt{S_{00}}$ であり、固定 $J$ では
-
-$$
-\\frac{g_J}{g_0}
-=\\frac{\\sin((2J+1)\\pi/(k+2))}{\\sin(\\pi/(k+2))}
+\\frac{g_J}{g_0}=\\frac{\\sin((2J+1)\\pi/(k+2))}{\\sin(\\pi/(k+2))}
 \\longrightarrow2J+1.
 $$
 
-従って式 (6.41) では、すべての $J$ に共通する因子 $g_0$ でdisk相関関数を割ってからlarge-$k$ 極限を取り、$\\langle\\mathbf1\\rangle=2J+1$ を得る。この規格化で通常のmatrix trace、$\\operatorname{tr}(\\mathbf1)=2J+1$ が得られる。OPEを繰り返すと、固定 $J$ の大体積極限での $n$ 点関数は
+全 $J$ に共通する $g_0$ で円板相関関数を割る規格化を使えば、恒等場の期待値は $2J+1=\\operatorname{tr}\\mathbf1$ になる。
+
+また、この極限での相関関数は、境界上の挿入順を保つ限り位置に依存しない。固定スピンのKZ方程式では位置変化を生成する係数が $1/(k+2)$ に比例して消えるからである。従って点を近づけ、OPEを繰り返して同じ値を求めると
 
 $$
-\\boxed{
-\\left\\langle
-\\psi[A_1](x_1)\\cdots\\psi[A_n](x_n)
-\\right\\rangle
-=\\operatorname{tr}(A_1A_2\\cdots A_n)
-}
+\\left\\langle\\psi[A_1](x_1)\\cdots\\psi[A_n](x_n)\\right\\rangle
+=\\operatorname{tr}(A_1\\cdots A_n)
 \\tag{6.41}
 $$
 
-になる。境界identity期待値を1に規格化した相関関数は、右辺を $2J+1$ で割ったnormalized traceで与えられる。traceは、行列積から回転不変なスカラー成分を取り出す操作であり、CFTのdisk真空振幅の役割と一致する。
+となる。恒等場の期待値を1にする規格化なら、右辺を $2J+1$ で割る。traceは巡回的な順序変更には不変だが、隣り合う二つの交換には一般に不変でない。$J=1/2$ で三つのPauli成分を入れると $\\operatorname{tr}(\\sigma_1\\sigma_2\\sigma_3)=2i$、順序を一つ交換すると $-2i$ であり、非可換性が円板の三点関数に現れる。
 
 <details>
-<summary>三点関数で挿入順序の違いを測る</summary>
+<summary>KZ方程式から挿入点への依存が消える範囲を確かめる</summary>
 
-二点関数では $\\operatorname{tr}(AB)=\\operatorname{tr}(BA)$ なので、二つの行列を交換しても値は変わらない。三点関数では、その差が $\\operatorname{tr}([A,B]C)$ となり、非可換性が残り得る。$J=\\frac12$ のPauli行列に対応する場を、同じ境界上の順序を固定した三点へ置いて比べよう。式 (spin-half-fuzzy-product) より
+$T_a$ がスピン生成子 $[T_a,T_b]=if_{ab}{}^cT_c$ の規約なら、境界primaryの相関関数ベクトル $\\mathcal G_k$ は
 
 $$
-\\sigma_1\\sigma_2\\sigma_3=i\\mathbf1,
-\\qquad
-\\sigma_2\\sigma_1\\sigma_3=-i\\mathbf1.
+\\partial_{x_r}\\mathcal G_k
+=\\frac2{k+2}\\sum_{s\\ne r}\\frac{\\sum_aT_{a,(r)}T_{a,(s)}}{x_r-x_s}\\mathcal G_k
 $$
 
-従って、式 (6.41) の規格化では、それぞれの三点関数は $2i$ と $-2i$ になる。identity期待値を1にする規格化なら $i$ と $-i$ であり、どちらでも順序による符号の違いが残る。円周に沿った巡回的な並べ替え $ABC\\mapsto BCA$ はtraceを変えず、隣り合う二つの交換 $ABC\\mapsto BAC$ とは異なる。
+に従う。これはgluingによる反射、カレントのWard恒等式、Sugawara構成を使ったchiral KZ方程式である。
+
+全スピンを固定し、互いの距離が正の下限をもつ有限の経路で点を動かすと、右辺の接続行列の積分は $O(1/k)$ となる。従って有限に規格化した極限の相関関数は、各順序領域で一定になる。点間距離を $k$ とともに縮める場合は一様な評価ではないため、式 (6.40) と同じく先に $k\\to\\infty$ を取る。
 
 </details>
 
-境界場を近づける操作が行列積になり、相関関数を取る操作がtraceになるため、座標の非可換性を境界相関関数の順序依存として確かめられる。例えば $J=\\frac12$ では、三方向に対応する場のうち二つの挿入順序を交換すると、三点関数の符号が反転する。球面の行列表示は、開弦の相互作用の具体的な予測を与えている。
+### 3.6 行列の大きさを増やすと古典球面の積に近づく
 
-### 6.5 行列のサイズを増やすと古典球面に近づく
+有限行列は角運動量 $j\\leq2J$ の模様しか持たず、任意に細かい角度依存を表せない。古典球面の積を回復する際には、行列の半径を一定に規格化して、調べる模様の角運動量を固定したまま $J\\to\\infty$ とする。
 
-開弦の積が有限行列の積になることが分かった。この行列のサイズを大きくしたとき、通常の球面上の関数の積はどう回復されるだろうか。
-
-古典球面では $j=0,1,2,\\ldots$ の全角運動量が存在する。fuzzy sphereでは
+具体的に $N_a:=T_a^{(J)}/\\sqrt{J(J+1)}$ と置くと
 
 $$
-j_{\\max}=2J
+\\sum_aN_a^2=\\mathbf1,\\qquad
+[N_a,N_b]=\\frac{if_{ab}{}^c}{\\sqrt{J(J+1)}}N_c.
 $$
 
-で切れるため、角度方向の任意に短い波長を作れない。古典球面を回復する際には、半径を一定に規格化し、調べる角運動量 $i,j$ を固定したまま $J\\to\\infty$ とする。その理由を、固定次数の座標多項式で見よう。単位半径の行列 $n_a:=T_a^{(J)}/\\sqrt{J(J+1)}$ は $\\sum_a n_a^2=\\mathbf1$ と $[n_a,n_b]=i\\varepsilon_{ab}{}^cn_c/\\sqrt{J(J+1)}$ を満たす。各 $n_a$ の作用素ノルムは1以下なので、隣り合う二因子の交換で生じる誤差は $O(J^{-1})$ である。次数を固定した多項式なら並べ替えの回数も有限であり、行列積を完全対称化した積との差は $J\\to\\infty$ で消える。
-
-球面調和関数のスピン $j$ 成分は、次数 $j$ の対称でトレースを除いた座標多項式で表せる。対応する対称化行列多項式は§6.3の $Y_m^j$ とスピンごとの規格化を除いて一致する。古典側も $\\langle\\overline{\\mathscr Y_m^j}\\mathscr Y_m^j\\rangle_{S^2}=1$ に規格化すれば、規格化も一致する極限を取れる。実際、$n_3$ の規格化traceは固有値 $m/\\sqrt{J(J+1)}$ の等重みの和であり、固定次数では $\\frac12\\int_{-1}^1du$ による球面平均へ収束する。他の成分も回転不変性と対称化によって同じ平均を得る。従って固定した角運動量で、式 (6.37) の積は古典球面の積へ近づく。この説明は次数を固定しており、$J$ と同程度の細かいmodeを追う極限には適用しない。
+$N_a$ のノルムは1以下であり、隣り合う二因子を交換する誤差は $O(1/J)$ になる。固定次数の座標多項式なら並べ替える回数が有限なので、積の順序の違いは消える。球面調和関数はそのような座標多項式で表せるため、固定角運動量の範囲で行列積が古典球面の点ごとの積へ近づく。$J$ と同程度の高い角運動量まで同時に追う主張ではない。
 
 <details>
-<summary>半径を固定すると座標の非可換性が小さくなる</summary>
+<summary>関数を対称化行列へ移す写像と積の誤差</summary>
 
-§6.2の物理座標に式 (6.32) を代入すると
+半径 $r$ を固定し、$\\widehat x_a=rN_a$ とすれば $\\sum_a\\widehat x_a^2=r^2\\mathbf1$ となる。古典単位球面の座標 $n_a$ の対称トレースレス多項式で球面調和関数を表し、各 $n_a$ を $N_a$ へ置き換えて全順序の平均を取る写像を $Q_J$ とする。$Q_J(1)=\\mathbf1$ とし、固定した有限個の調和成分へ線形に延ばす。
 
-$$
-[\\widehat x^a,\\widehat x^b]
-=i\\frac{r}{\\sqrt{J(J+1)}}f^{ab}{}_c\\widehat x^c.
-$$
-
-固定した $r$ に対し係数は $J\\to\\infty$ で零へ向かう。関数の積まで比較するため、古典関数を行列へ移す写像を定める。無次元の座標を $n^a=x^a/r$、対応する行列を $N_J^a=\\widehat x^a/r$ と書くと
+二つの行列多項式の積を対称順序へ戻す際の差は、有限回の $[N_a,N_b]=O(1/J)$ である。球面の関係 $\\sum_an_a^2=1$ は行列のCasimirで再現されるので、固定次数の $f,g$ に対して
 
 $$
-\\sum_a n^an^a=1,\\qquad
-\\sum_a N_J^aN_J^a=\\mathbf1,\\qquad
-[N_J^a,N_J^b]
-=\\frac{i f^{ab}{}_c}{\\sqrt{J(J+1)}}N_J^c.
+\\|Q_J(f)Q_J(g)-Q_J(fg)\\|=O(1/J)\\to0.
 $$
 
-固定した角運動量 $\\ell$ の球面調和関数は、対称でtraceが零の係数 $c_{a_1\\cdots a_\\ell}$ を使った多項式 $c_{a_1\\cdots a_\\ell}n^{a_1}\\cdots n^{a_\\ell}$ で書ける。その $n^a$ を $N_J^a$ に置き、全ての順序の平均を取る写像を $Q_J$ とする。有限個の調和関数の和へ線形に延ばし、$Q_J(1)=\\mathbf1$ とする。次数は $J$ とともに増やさず、十分大きい $J$ で $\\ell\\leq2J$ を満たす範囲を扱う。$Q_J$ は回転と可換で、各スピンは行列空間内に一度ずつ現れるので、得られる行列は式 (6.37) の $Y_m^\\ell$ と同じ既約部分空間の基底になる。ここでは古典関数との対応を、この対称順序による規格化で固定する。
-
-$Q_J(f)Q_J(g)$ を $Q_J(fg)$ の対称順序へ並べ直す際に生じる違いは、座標行列の交換子である。固定次数なら並べ替えの回数は有限で、$\\|N_J^a\\|\\leq1$、$\\|[N_J^a,N_J^b]\\|=O(1/J)$ である。球面上の関係 $\\sum_a(n^a)^2=1$ を使って次数を下げる操作も、行列のCasimir関係と有限回の並べ替えで再現される。従って、固定した有限個の調和modeからなる $f,g$ について
-
-$$
-\\|Q_J(f)Q_J(g)-Q_J(fg)\\|=O(1/J)\\longrightarrow0
-$$
-
-となる。$\\|\\cdot\\|$ は行列の作用素ノルムである。これが、この範囲で行列積が球面上の点ごとの積に近づくという主張である。一般の滑らかな関数を扱うには、まず有限個の調和modeで近似し、その打ち切りを外す誤差も別に評価する。
+normalized traceも球面平均へ近づく。$N_3$ の固有値は $m/\\sqrt{J(J+1)}$ なので、固定次数のtraceは $\\frac12\\int_{-1}^1du$ のRiemann和へ収束する。他の成分は回転不変性から同じ球面平均を得る。一般の滑らかな関数へ延ばすには、有限調和成分への近似誤差も評価する。
 
 </details>
 
-### 閉弦から求めるブレーンの台と開弦代数
-
-一枚のCardy braneでは、閉弦結合と開弦OPEが同じ表現 $V_J$ を選ぶ。
+同じCardyラベル $J$ が、閉弦結合では球面の位置を、開弦OPEでは行列代数を指定した。ただしそれぞれを確立した極限は違う。
 
 $$
-\\boxed{
 \\begin{array}{rcl}
-J&\\xrightarrow{\\ \\text{closed-string coupling}\\ }&
-\\vartheta_J\\text{ にある共役類 }\\mathcal C_{h_J}\\simeq S^2,\\\\[2mm]
-J&\\xrightarrow{\\ \\text{open-string OPE}\\ }&
-\\operatorname{End}(V_J)\\text{ の行列積}.
+J/k\\text{ を固定した閉弦結合}&\\longrightarrow&\\vartheta_J\\text{ の共役類},\\\\
+J\\text{ を固定した開弦OPE}&\\longrightarrow&\\operatorname{End}(V_J)\\text{ の積}.
 \\end{array}
-}
 \\tag{cardy-label-as-quantised-geometry}
 $$
 
-非縮退な球面の位置は $J/k$ を一定に保って読み、通常の有限行列積は $J$ を固定して得た。共通のCardyラベルがそれぞれのデータを指定する。Clebsch--Gordan係数は球面上の角運動量modeの結合を、fusing matrix $F$ は各出力スピンへの結合の強さを担う。
+平坦な磁束付きブレーンでもOPEが非可換積になり、相関関数がその積と積分で表される。ここではfusion則が開弦の角運動量成分を有限に切り、積分に相当する操作が有限行列のtraceになる。原著 p.252 は、適切な極限での同様の切断量子化が他のコンパクト背景にも現れる可能性を指摘するが、一般の場合の証明としては扱わない。
 
-## 複数のブレーンと境界相互作用
+## 4. 境界相互作用から球面上の有効作用へ
 
-同じブレーンを重ねたとき、開弦の場はどう変わるだろうか。まず枚数を境界CFTで表し、その境界に相互作用を加える。
-
-### Chan--Paton因子と境界摂動
-
-円板世界面の境界に、値が1または2のラベルを付ける。まず、このラベルは境界に沿って変わらないものとする。一周できる配置は「ずっと1」と「ずっと2」の二通りなので、ラベルを足し合わせると円板の振幅に2が掛かる。
-
-この構成を境界CFTの言葉で定式化し、追加した内部状態に作用する境界場を調べる。その境界場で摂動を加えると、内部状態と元のCFTが結合する。弦理論では、内部状態の数を重ねたブレーンの枚数として、摂動の係数をブレーン上の背景場として読む。
-
-#### 境界を一周すると枚数が現れる
+### 4.1 ブレーンの枚数と球面の行列サイズを分ける
 
 <!-- reference: brane-stack -->
 
-ラベルの値を $r=1,\\ldots,M$ に増やす。境界の円周上に $N$ 個の目印を置き、各点でのラベルを $r_1,\\ldots,r_N$ とする。隣の目印まで円弧に沿って進む間、ラベルは保たれる。その規則を表す行列は $I_{rs}=\\delta_{rs}$ であり、$\\delta_{rs}$ は $r=s$ なら1、それ以外では0である。一周分の因子は、各円弧の因子を掛け、目印でのラベルをすべて足し合わせて
-
-$$
-\\sum_{r_1,\\ldots,r_N=1}^{M}
-\\delta_{r_1r_2}\\delta_{r_2r_3}\\cdots\\delta_{r_Nr_1}
-=\\operatorname{Tr}(I^N)=M
-$$
-
-となる。隣り合うラベルがすべて一致した配置だけが残り、その共通の値を $M$ 通り選べるためである。元の世界面の場は円板全体にあり、追加したラベルはその境界上にある。この段階では両者の相互作用を入れず、それぞれの因子を独立に計算して掛け合わせる。
-
-この規則は、境界に沿う方向をEuclid時間とし、状態空間 $W=\\mathbb C^M$、ハミルトニアン $H_\\partial=0$ の量子系を境界に置くことで実現できる。正規直交基底を $|r\\rangle$ とすると、円弧に沿ってEuclid時間 $t$ だけ進む伝播振幅は
-
-$$
-K_{sr}(t)=\\langle s|e^{-tH_\\partial}|r\\rangle=\\delta_{sr}.
-$$
-
-二つの円弧をつなぐと $\\sum_s\\delta_{us}\\delta_{sr}=\\delta_{ur}$ となるので、計算のために置く目印の数や位置に結果は依存しない。また、内部状態の伝播はEuclid時間 $t$ に依存せず、元の場の変換則にも影響しないので、元の境界条件の共形対称性が保たれる。
-
-元の境界条件を $J$ とすると、この拡張を $J^{\\oplus M}$ と書く。円板の内部に元のCFTのbulk場を一つ挿入しても、内部ラベルの和は独立に計算できるため、その一点関数には一律に $M$ が掛かる。弦理論では、この円板一点関数からブレーンと閉弦状態との結合を読む。すべての結合が同じ倍率になることは、元のブレーンと同じ位置と形で、結合の強さが $M$ 倍になることに対応する。これを同種ブレーン $M$ 枚の重なり、すなわちstackと解釈する。ここで $W$ の次元 $M$ は枚数であり、スピン $J$ の表現空間 $V_J$ の次元 $2J+1$ とは独立である。
-
-ここでの相関関数と振幅は、分配関数で割る前の量を指す。固定した円板上で内部ラベルに触れない観測だけを行い、期待値を分配関数で規格化すれば、係数 $M$ は消える。一方、境界成分が $b$ 個ある世界面では因子は $M^b$ であり、円板には $M$、annulusには $M^2$ が掛かる。異なる世界面の相対的な寄与には枚数が現れる。
+同じ境界条件 $J$ を $M$ 個重ねた配置を $(M,J)$ とする。重ね合わせでは円板の境界がそのどれであるかを $M$ 通り選べるので、閉弦への各一点関数が $M$ 倍になる。これを同じ形と位置のブレーン $M$ 枚のstackとして読む。追加した内部ラベルをChan–Patonラベルという。
 
 <!-- /reference -->
-
-#### 境界場には行列因子が付く
 
 <!-- reference: chan-paton-open-fields -->
 
-内部状態を $s$ から $r$ へ変える演算子は、行列単位 $E_{rs}:=|r\\rangle\\langle s|$ である。$\\langle s|$ が入力の $s$ 成分を取り出し、$|r\\rangle$ が出力を指定する。元の境界場 $\\psi^{JJ}_\\alpha(x)$ と組み合わせると、拡張後の境界場は
-
-$$
-\\Psi_{\\alpha;rs}(x)=\\psi^{JJ}_\\alpha(x)\\otimes E_{rs}
-$$
-
-となる。$x$ は境界上の挿入位置、$\\alpha$ は元の境界場の種類、$r,s$ はChan--Paton添字である。追加した因子は $H_\\partial=0$ なので、$\\Psi_{\\alpha;rs}$ の共形ウェイトは $\\psi^{JJ}_\\alpha$ と同じである。挿入点で内部ラベルが変わり、挿入の間では保たれる、という規則で相関関数を計算する。
-
-例えば $M=2$ のとき、$E_{12}$ と $E_{21}$ を一周する境界に挿入すればラベルは元に戻れるが、$E_{12}$ を二度挿入しても一周つながらない。実際、
-
-$$
-\\operatorname{Tr}(E_{12}E_{21})=1,
-\\qquad
-\\operatorname{Tr}(E_{12}E_{12})=0.
-$$
-
-一般の行列 $\\lambda_i$ を伴う境界場を円周上に挿入すると、元のCFTの相関関数に、境界に沿う行列積のtraceが掛かる。従って境界場の相関には、内部状態の数だけでなく、挿入した行列とその順序が現れる。
-
-この境界場の構成は、帯上の状態空間でも確かめられる。両端の境界条件が $J$ の帯を量子化した状態空間を $\\mathcal H_{JJ}$ とすると、内部状態の付加によって
-
-$$
-\\mathcal H_{J^{\\oplus M},J^{\\oplus M}}
-=\\mathcal H_{JJ}\\otimes W\\otimes W^*
-\\simeq\\mathcal H_{JJ}\\otimes\\operatorname{Mat}(M)
-$$
-
-となる。$W^*$ は $W$ の双対空間で、$W\\otimes W^*$ の元 $|r\\rangle\\langle s|$ が上の行列単位にあたる。帯を上半平面へ写した状態・演算子対応により、この状態空間が境界場に対応する。左右の境界条件が異なればBCCO（境界条件変更演算子）となるが、今は元のCFTの境界条件は左右とも $J$ である。
-
-弦理論では帯上の状態を開弦状態と読み、$r,s$ をその両端の内部ラベルと解釈する。物理状態条件を満たす境界場を使えば、同じ行列積のtraceが開弦の散乱振幅に現れる。[Chan--Paton因子と開弦振幅（Polchinski §1.2）](https://arxiv.org/html/hep-th/9611050v2#S1.SS2)
+開弦には両端のラベル $r,s=1,\\ldots,M$ が付き、片端を $s$ から $r$ へ変える内部演算子は行列単位 $E_{rs}=|r\\rangle\\langle s|$ になる。従って境界場の空間には $\\operatorname{Mat}(M)$ の因子が加わる。境界に沿う挿入の間でラベルを足し合わせると $E_{rs}E_{tu}=\\delta_{st}E_{ru}$、一周するとtraceとなる。
 
 <!-- /reference -->
 
-#### 境界摂動で二つの系を結ぶ
-
-<!-- reference: chan-paton-background -->
-
-この拡張した理論に境界摂動（boundary perturbation）を加える。摂動展開の各項は、境界場を挿入し、その位置を境界に沿って積分した相関関数である。今は境界場が内部状態にも作用するため、各項にChan--Paton行列の積が伴う。
-
-まず、境界場に付けた行列係数が、なぜbrane上のゲージ場として振る舞うのかを確かめたい。自由ボソンでは端点の位置を場 $X$ で直接表せるので、内部状態の伝播がその位置にどう依存するかを追える。
-
-Neumann境界条件をもつ $d$ 成分の自由ボソンCFTを選び、場を $X^\\mu$、境界座標を $\\tau$ とする。自由ボソンの境界場
+既に求めた球面の積と合わせると、stack上のprimaryに対応する行列は
 
 $$
-\\psi_p^\\mu(\\tau)
-=:\\!\\partial_\\tau X^\\mu(\\tau)e^{ip\\cdot X(\\tau)}\\!:
+A\\in\\operatorname{Mat}(M)\\otimes\\operatorname{Mat}(2J+1).
 $$
 
-を、Chan--Paton行列を含む係数 $a_\\mu(p)$ で重ねる。$p$ は指数型の場の運動量ラベル、$:\\cdots:$ は正規順序を表す。この係数のFourier合成を $A_\\mu$ と書けば、摂動に使う境界場は
+二つの因子の意味を区別する。
 
-$$
-\\begin{aligned}
-A_\\mu(y)&=\\int d^d p\\,a_\\mu(p)e^{ip\\cdot y},\\\\
-\\mathcal O_A(\\tau)
-&=\\int d^d p\\,\\psi_p^\\mu(\\tau)\\otimes a_\\mu(p)
-=:\\!A_\\mu(X(\\tau))\\partial_\\tau X^\\mu(\\tau)\\!:.
-\\end{aligned}
-$$
+| 因子 | 記録するもの | 次元 |
+|---|---|---|
+| $\\operatorname{Mat}(M)$ | 弦端が付くブレーンの番号 | $M^2$ |
+| $\\operatorname{Mat}(2J+1)$ | 一枚の球面の角運動量成分 | $(2J+1)^2$ |
 
-となる。$\\mu$ は和を取り、Fourier積分の規格化は $a_\\mu$ に含めた。$y$ は $X$ の値域の座標であり、$A_\\mu(y)$ は境界摂動の係数をまとめた行列値の関数である。以下ではHermitian行列の規約を使い、正規順序の記号は省略する。経路積分ではこの関数 $A_\\mu(\\,\\cdot\\,)$ を指定して、場 $X$ を積分する。
-
-短い区間では $\\int d\\tau\\,A_\\mu(X)\\partial_\\tau X^\\mu\\simeq A_\\mu(X_i)\\Delta X_i^\\mu$ である。境界の短い一区間で $X$ が $X_i$ から $X_i+\\Delta X_i$ へ変わるとき、内部状態を伝播させる行列を
-
-$$
-U_i[X]=\\exp\\!\\left(iA_\\mu(X_i)\\Delta X_i^\\mu\\right)
-=I+iA_\\mu(X_i)\\Delta X_i^\\mu+\\cdots
-$$
-
-とする。添字 $\\mu$ は和を取り、区間を十分細かくする極限でこの積を定義する。$A=0$ なら $U_i=I$ なので、世界面の配置によらず内部状態は保たれる。一般の $A$ では、$X_i$ と $\\Delta X_i$ を変えると伝播行列 $U_i[X]$ も変わる。従って、内部状態がどの振幅で伝播するかが、境界における世界面の場の値に依存する。これが二つの系の結合である。
-
-元の自由ボソンの作用を $S_0[X]$ とすると、摂動を加えた分配関数は
-
-$$
-Z[A]=\\int\\mathcal D X\\,e^{-S_0[X]}\\,
-\\operatorname{Tr}\\!\\left(U_N[X]\\cdots U_1[X]\\right).
-$$
-
-$A=0$ では境界因子 $M$ を積分の外へ出せるが、一般の $A$ ではこの因子自体が配置 $X$ に依存する。行列積のtraceを連続極限で書いたものがWilson loop
-
-$$
-\\operatorname{Tr}\\,\\mathcal P
-\\exp\\!\\left(i\\oint_{\\partial\\Sigma}A_\\mu(X)\\,dX^\\mu\\right)
-$$
-
-である。$\\mathcal P$ は境界に沿う伝播の順に行列を掛ける指定であり、$A_\\mu dX^\\mu$ は無次元となる規約を用いている。指数関数の各次数は、$\\mathcal O_A$ の挿入位置を順序付きで積分した項に対応する。この式が行列値の境界摂動をまとめて表す。量子論では近接する挿入の積に正則化と繰り込みが必要であり、その共形性を次に調べる。
-
-また、線形の摂動では $A_\\mu\\mapsto A_\\mu+\\partial_\\mu\\chi$ による変化が $\\partial_\\tau\\chi(X)$ という全微分になるため、一価の行列値関数 $\\chi$ に対して閉じた境界での積分は変わらない。有限の結合では、内部状態のユニタリ変換 $g(y)$ に対して
-
-$$
-\\begin{aligned}
-A_\\mu&\\mapsto gA_\\mu g^{-1}-i(\\partial_\\mu g)g^{-1},\\\\
-U_\\gamma&\\mapsto g(X_f)U_\\gamma g(X_i)^{-1}
-\\end{aligned}
-$$
-
-と変換する。$U_\\gamma$ は境界のある区間に沿う伝播行列で、$X_i,X_f$ はその始点と終点での $X$ の値である。一周すれば $X_f=X_i$ なのでtraceは保たれる。このゲージ接続の変換則をもつため、$A_\\mu$ を背景ゲージ場と呼ぶ。弦理論では $X$ の値域をbraneに沿う標的空間と読み、$A_\\mu$ をbrane上のゲージ場と解釈する。
-
-境界場の係数 $A$ にゲージ場としての意味が付いた。次に、その配置が共形境界条件を与えるための条件を求める。
-
-#### 共形性を保つ摂動をβ関数で選ぶ
-
-境界摂動の結合 $g\\int d\\tau\\,V(\\tau)$ が、一次で共形性を保つ条件を調べる。ウェイト $h$ の境界primaryは、$\\tau\\mapsto\\lambda\\tau$ のもとで $V\\mapsto\\lambda^{-h}V$ と変わるため、積分全体には $\\lambda^{1-h}$ が掛かる。従って結合を無次元に保つには $h=1$ が必要である。これを境界摂動のmarginal条件と呼ぶ。さらに一般の共形変換に対してもprimaryとして変換する必要がある。
-
-先ほどの自由ボソンの場で、この二つの条件が何を選ぶかを計算しよう。偏極 $\\epsilon_\\mu$ とChan--Paton行列 $\\lambda$ を固定し、$V=\\epsilon_\\mu:\\!\\partial_\\tau X^\\mu e^{ip\\cdot X}\\!:\\otimes\\lambda$ とする。境界二点関数を $\\langle X^\\mu(\\tau)X^\\nu(0)\\rangle=-2\\alpha'\\eta^{\\mu\\nu}\\log|\\tau|$ と規格化する。$\\eta$ は成分の内積を定める計量、$\\alpha'$ は長さの二乗の次元をもつ定数であり、$p^2$ や $p\\cdot\\epsilon$ は $\\eta$ で縮約する。
-
-状態・演算子対応では、指数型の場に運動量状態 $|p\\rangle$ が対応し、微分を一つ付けると、定数因子を除いて $|V\\rangle=\\epsilon_\\mu\\alpha_{-1}^\\mu|p\\rangle$ が対応する。$\\alpha_n^\\mu$ は自由ボソンの振動モードで、
-
-$$
-[\\alpha_m^\\mu,\\alpha_n^\\nu]=m\\eta^{\\mu\\nu}\\delta_{m+n,0},
-\\quad
-\\alpha_0^\\mu|p\\rangle=\\sqrt{2\\alpha'}p^\\mu|p\\rangle,
-\\quad
-\\alpha_{n>0}^\\mu|p\\rangle=0
-$$
-
-を満たす。Chan--Paton行列は共形変換に関与しないため、この計算では省く。エネルギー運動量テンソルのモードは $L_n=\\tfrac12\\sum_r:\\!\\alpha_{n-r}\\cdot\\alpha_r\\!:$ である。上の交換関係を二つの振動子にそれぞれ用いると、各項から $-m\\alpha_{n+m}^\\mu/2$ が出るので
-
-$$
-[L_n,\\alpha_m^\\mu]=-m\\alpha_{n+m}^\\mu
-$$
-
-を得る。運動量状態では $L_0|p\\rangle=\\alpha'p^2|p\\rangle$、$L_{n>0}|p\\rangle=0$ だから、
-
-$$
-\\begin{aligned}
-L_0|V\\rangle&=(1+\\alpha'p^2)|V\\rangle,\\\\
-L_1|V\\rangle&=\\epsilon_\\mu\\alpha_0^\\mu|p\\rangle
-=\\sqrt{2\\alpha'}(p\\cdot\\epsilon)|p\\rangle,\\\\
-L_{n\\geq2}|V\\rangle&=\\epsilon_\\mu\\alpha_{n-1}^\\mu|p\\rangle=0.
-\\end{aligned}
-$$
-
-$L_0$ の式がウェイト $h=1+\\alpha'p^2$ を与える。primaryであるには正の $L_n$ がすべて状態を消す必要があるので、残る条件は $p\\cdot\\epsilon=0$ である。演算子の言葉では、$T(z)V(0)$ の $z^{-n-2}$ の係数が $L_n|V\\rangle$ に対応するため、$L_1$ の式が三次の極、$L_0$ の式が二次の極を決める。全微分となる純ゲージの摂動を除き、weight 1 primaryで代表した非自明な境界摂動は
-
-$$
-\\boxed{p\\cdot\\epsilon=0,\\qquad p^2=0}
-$$
-
-を満たす偏極と運動量から作られる。Lorentz符号の標的空間では、これは横偏極をもつ質量零ベクトルの条件であり、境界ゲージ場の自由な波に対応する。[自由ボソンの境界場と開弦状態の対応（Polchinski §1.1）](https://arxiv.org/html/hep-th/9611050v2#S1.SS1)
-
-有限の結合では、近接する境界場のOPEも寄与する。これを繰り込むと、世界面の観測尺度に応じて摂動の係数が変わり得る。その変化を表すのが境界のβ関数 $\\beta^A[A]$ である。先ほどの $A_\\mu$ は一般の境界摂動を指定する関数だったが、そのうち共形境界を与えるものを選ぶには
-
-$$
-\\beta^A[A]=0
-$$
-
-を要求する。他の境界結合が生成される場合は、それらのβ関数も同時に消す。$h=1$ の条件はこの方程式の線形化にあたり、有限の摂動が共形性を保つには非線形の項まで満たす必要がある。
-
-#### 境界の共形性から時空の有効作用へ
-
-この制約には、時空の場の運動方程式という読み方もある。平坦な背景で、弦結合と低エネルギーの $\\alpha'$ 展開の最低次に限る。世界面の繰り込み計算から得られる結果を用いると、ゲージ場の共形性条件はYang–Mills方程式
-
-$$
-D^\\nu F_{\\nu\\mu}=0,
-\\qquad
-F_{\\mu\\nu}=\\partial_\\mu A_\\nu-\\partial_\\nu A_\\mu-i[A_\\mu,A_\\nu]
-$$
-
-になる。ここで $D_\\mu B:=\\partial_\\mu B-i[A_\\mu,B]$ は行列値の場 $B$ の共変微分、$F_{\\mu\\nu}$ はゲージ場の強さである。この方程式を、別の作用から確かめる。Euclid化したbraneの世界体積の座標を $y^\\mu$、ゲージ結合を $g_{\\rm YM}$ とすると、時空の有効作用の最低次の項は
-
-$$
-\\Gamma_{\\rm YM}[A]
-=\\frac{1}{4g_{\\rm YM}^2}\\int d^d y\\,
-\\operatorname{Tr}(F_{\\mu\\nu}F^{\\mu\\nu}).
-$$
-
-この作用の停留条件も $D_\\mu F^{\\mu\\nu}=0$ である。
+円板の境界場相関関数は、両方の因子について積を取りtraceを取る。annulusでは両端を独立に選ぶので、相互作用を入れる前の開弦分配関数は一枚のものの $M^2$ 倍になる。
 
 <details>
-<summary>Yang–Mills作用の変分</summary>
+<summary>境界上の内部状態を使ってstackと行列因子を構成する</summary>
 
-$A$ を変分すると $\\delta F_{\\mu\\nu}=D_\\mu\\delta A_\\nu-D_\\nu\\delta A_\\mu$ である。$F_{\\mu\\nu}$ の反対称性を使って二つの項をまとめ、無限遠で $\\delta A$ が消えるとして部分積分すると
+状態空間 $W=\\mathbb C^M$、Hamiltonian $H_\\partial=0$ の内部量子系を境界に置く。境界の一区間に沿う伝播は $\\langle s|e^{-tH_\\partial}|r\\rangle=\\delta_{sr}$ であり、一周すると $\\operatorname{Tr}_W1=M$ となる。伝播が長さに依存せず、元のCFTから独立なので、この付加だけでは共形性を変えない。
 
-$$
-\\delta\\Gamma_{\\rm YM}
-=\\frac{1}{g_{\\rm YM}^2}\\int d^d y\\,
-\\operatorname{Tr}(F^{\\mu\\nu}D_\\mu\\delta A_\\nu)
-=-\\frac{1}{g_{\\rm YM}^2}\\int d^d y\\,
-\\operatorname{Tr}\\bigl((D_\\mu F^{\\mu\\nu})\\delta A_\\nu\\bigr).
-$$
+境界場は $\\psi_\\alpha^{JJ}\\otimes E_{rs}$ となり、ウェイトは元の境界場のままである。帯の状態空間も $\\mathcal H_{JJ}\\otimes W\\otimes W^*$ となり、$W\\otimes W^*\\simeq\\operatorname{Mat}(M)$ が同じ行列因子を与える。
 
-任意の $\\delta A_\\nu$ に対してこれが零になる条件は、上のYang–Mills方程式である。
+ここでの円板振幅は真空分配関数で割る前の量である。内部ラベルに触れない観測を同じ円板の分配関数で割れば $M$ は相殺するが、境界成分が $b$ 個ある世界面の因子 $M^b$ は、異なる世界面の相対的な寄与に残る。
 
 </details>
 
-世界面では $A$ を指定して $X$ を積分した。ここでは $A(y)$ 自身の配置を変分している。前者の共形性条件と後者の運動方程式が、この近似で同じ背景を選ぶ。弦の補正を含めれば、共形性条件と有効作用の両方に対応する補正が入る。[境界β関数とゲージ場の有効作用](https://arxiv.org/abs/1711.05821)
+### 4.2 どの開弦成分を軽い場として残すか
 
-brane上の場を動的に扱う際には、この時空の有効作用を用いる。Lorentz符号に戻した運動方程式が標的空間での時間発展を記述し、境界β関数は世界面の繰り込み尺度による変化を記述する。
-
-次の7節では、自由ボソンの境界場に代えてWZWの境界場を用い、Chan--Paton行列を係数とする境界摂動を扱う。背景の曲率とフラックスを反映した有効作用を求め、その定常解として球面braneの形成を調べる。[WZW背景でのbraneの有効作用](https://arxiv.org/abs/hep-th/0003187)
-
-<!-- /reference -->
-
-### 軽いゲージ場と重い弦振動を分ける
-
-自由ボソンでは $:\\!\\partial X e^{ipX}\\!:$ がゲージ場の境界頂点を与えた。WZW模型では $\\partial X$ に相当するカレントと、球面上の模様を表すboundary primaryを組み合わせる。その励起が軽く残り、追加の弦振動を切り離せる極限を、共形ウェイトから選ぼう。
-
-各アフィン表現の最低エネルギー状態に対応する場をground primaryと呼び、そこへカレントの負モードを作用させた励起をcurrent descendantと呼ぶ。スピン $j$ のground primaryのウェイトは $h_j=j(j+1)/(k+2)$ であり、カレントを一回励起すると $1+h_j$ になる。外部時空の運動量因子と合わせて全ウェイトを1にする質量殻条件から、質量二乗は内部CFTのウェイトの1からのずれを $\\alpha'$ で割ることで得られる。従って、この成分の質量尺度は
+球面上の相互作用を調べるため、primaryの上へカレントを一回励起した状態を使う。その内部ウェイトは $1+h_j$ である。外部時空の運動量因子と合わせた弦の質量殻条件では、内部ウェイトの1からのずれが質量二乗 $m_j^2=h_j/\\alpha'$ を与える。従って
 
 $$
-m_j^2\\sim\\frac{h_j}{\\alpha'}
-=\\frac{j(j+1)}{(k+2)\\alpha'}.
+m_j^2=\\frac{j(j+1)}{(k+2)\\alpha'},
+\\qquad \\Delta m^2=\\frac N{\\alpha'}
 $$
 
-Cardy角度を球面の半径へ半古典的に換算すると、固定 $J$ で $r_J\\sim\\pi(2J+1)\\sqrt{\\alpha'/k}$ となる。§6.2で区別した半径の換算値について、同じ $k\\to\\infty$ で、固定 $\\alpha'$ のもとでは $r_J\\to0$ と $m_j^2\\to0$ がともに起こる。磁束をもつブレーンでは、開弦の運動の尺度を決めるのはこの共形ウェイトであり、小さな幾何学的半径と軽い開弦成分が両立する。
-
-さらに弦振動を加えると、ウェイトに正整数 $N$ が加わり、質量二乗は $\\Delta m^2=N/\\alpha'$ だけ増える。追加の振動を無限に重くするには $\\alpha'\\to0$ とし、同時に固定した $j$ のゲージ場成分を軽く保つには $k\\alpha'\\to\\infty$ とすればよい。これにより $m_j^2\\to0$、$\\Delta m^2\\to\\infty$ となる。従って、低エネルギー作用を取り出す条件は
+である。二番目はさらに弦振動をgrade $N\\geq1$ だけ加えた際の増分である。固定した $J,M$ の有限個の成分を残し、追加の振動を無限に重くする条件は
 
 $$
-k\\to\\infty,
-\\qquad\\alpha'\\to0,
-\\qquad k\\alpha'\\to\\infty,
-\\qquad J,M\\text{ を固定}
+\\alpha'\\to0,\\qquad k\\to\\infty,\\qquad k\\alpha'\\to\\infty.
 $$
 
-である。$M$ は同じ境界条件 $J$ をもつブレーンの枚数である。例えば $\\alpha'=\\ell^2/\\sqrt{k}$（$\\ell$ は固定した長さ）なら、二つの質量尺度をこのように分けられる。$R^2=k\\alpha'\\to\\infty$ なので標的空間の曲率も小さくなる。ここで得たのは、保持する成分と追加の弦振動との質量尺度を分ける条件である。低エネルギー作用では重い状態の仮想的な寄与も結合係数に取り込む必要があり、次節ではdisk振幅との照合によってその作用を定める。
+このとき $m_j^2\\to0$、$\\Delta m^2\\to\\infty$ となる。軽い場の質量を決めるのは開弦のウェイトであり、$R\\sin\\vartheta_J$ という閉弦計量での小さい半径から、逆半径の質量を推測してはいけない。磁束によって開弦が見る計量が変わっているからである。
 
-ここでは世界面のフェルミオンを含めないbosonic $SU(2)_k$ 境界CFTのゲージ場成分を扱う。ground primary自体に対応する時空の場は質量二乗 $(h_j-1)/\\alpha'$ が負になるtachyonであり、以下の有効作用の対象から外す。固定 $J$ では $j\\leq2J$ なので、残すcurrent descendantの成分数は有限である。
+残した三つの偏極をHermitian行列 $A_a$、$a=1,2,3$ へまとめる。この三成分には、滑らかな球面でいう接方向のゲージ接続と、法線方向の位置変化が含まれる。球面の半径を固定する制約は課さないので、点状ブレーンのstackから球面を作る配置も同じ変数で扱える。
 
-## 7. fuzzy sphere上のゲージ理論
+bosonic弦ではprimary自体の質量二乗 $(h_j-1)/\\alpha'$ が負であるtachyonもある。以下ではその成分を含めず、一回のカレント励起による場の作用を扱う。このbosonic計算だけでブレーンの全安定性を主張するものではない。適合する超対称背景では、同じ式がbosonic低エネルギー作用として得られる（原著 p.254）。
 
-上の条件で残るゲージ場成分は、開弦の端点に結合し、球面上のゲージ結合と球面の法線方向の変形を担う。fuzzy sphere上では、これらを三つのHermitian行列 $A_a$ にまとめる。円板世界面に境界場を挿入した相関関数（disk振幅）から、低エネルギーの場の運動を再現する有効作用を求める。
+### 4.3 円板振幅が微分、積、三次の結合を指定する
 
-$a=1,2,3$ は球面を回転させるLie代数方向で、$A_a\\in\\operatorname{Mat}(2J+1)$ が一枚のブレーンの三成分の場を表す。$M$ 枚の同種ブレーンのstackでは
-
-$$
-A_a\\in
-\\operatorname{Mat}(M)\\otimes\\operatorname{Mat}(2J+1).
-$$
-
-行列 $A_a$ に対応する境界場を $\\psi[A_a]$ と書く。$A_a=\\sum_{j,m}a_{j,m;a}Y_m^j$ を展開し、各 $Y_m^j$ を $\\psi_{j,m}$ に置き換えた場である。$M$ 枚の場合、係数 $a_{j,m;a}$ 自体が $M\\times M$ 行列になる。
-
-この二つの因子は、弦の端点の番号と、球面上の模様をそれぞれ記録する。一方の端が $r$ 枚目、他方が $s$ 枚目に付く場を $(A_a)_{rs}$ と書くと、各成分は $\\operatorname{Mat}(2J+1)$ の元である。例えば $M=2$ なら、同じブレーンに両端が付く $(1,1),(2,2)$ と、異なるブレーンを結ぶ $(1,2),(2,1)$ の四成分がある。
-
-[Chan--Paton因子](#ref-brane-stack)の積と、§6で求めたfuzzy sphereの積を合わせると、境界OPEはこの二つの行列因子の積になる。円板振幅では、その積のtraceを両方の因子について取る。
-
-<!-- reference: gauge-conventions -->
-
-有効作用では、5–6節の無次元生成子から長さの単位を換算して
+カレントの規格化を明記する。$T_a=\\sigma_a/2$ に対応する通常の成分カレントを $\\mathcal J^a$ とすると
 
 $$
-\\mathsf T_a^{(J)}:=\\frac{T_a^{(J)}}{\\sqrt{2\\alpha'}},\\qquad
-\\mathfrak f_{ab}{}^c:=\\frac{f_{ab}{}^c}{\\sqrt{2\\alpha'}},\\qquad
-L_a A:=[\\mathbf1_M\\otimes\\mathsf T_a^{(J)},A]
-$$
-
-を使う。$\\mathbf1_M$ は端点の番号の空間に作用する $M\\times M$ 単位行列で、回転微分 $L_a$ は球面の行列因子だけに作用する。§6の無次元の回転微分 $\\ell_a$ とは $L_a=\\ell_a/\\sqrt{2\\alpha'}$ の関係にある。$\\mathfrak f_{ab}{}^c$ は換算後の構造定数であり、$[\\mathsf T_a,\\mathsf T_b]=i\\mathfrak f_{ab}{}^c\\mathsf T_c$ を満たす。$A_a$ も $\\mathsf T_a$ と同じ、長さの逆数の次元で扱う。$a=1,2,3$ は三つの回転方向を表す。
-
-添字の上げ下げには開弦の逆計量 $G^{ab}=(2/k)\\delta^{ab}$ と $G_{ab}=(k/2)\\delta_{ab}$ を使い、$L^a:=G^{ab}L_b$ とする。
-
-<!-- /reference -->
-
-### 7.1 ゲージ場の頂点演算子と振幅
-
-この有効作用では、$T_a^{(1/2)}=\\sigma_a/2$ に対応するカレントを $\\mathcal J^a$ とし、$J^a:=\\sqrt{2\\alpha'}\\,\\mathcal J^a/k$ と再規格化する。$\\mathcal J^a$ は6.1節の直交基底でのカレントの $1/\\sqrt2$ 倍である。以下の $J^a$ はこの再規格化後のカレントを指す。
-
-ゲージ場の頂点演算子は、この $J^a$ と境界場のnormal-ordered product（正規順序積）
-
-$$
-\\boxed{
-:J^a\\psi[A_a]:(x)
-=\\sum_{a;j,m}a_{j,m;a}:J^a\\psi_{j,m}:(x)
-}
-\\tag{6.42}
-$$
-
-である。コロン $:\\,\\cdot\\,:$ は、二つの場を近づけた際のOPEの特異部分を差し引いた積を表す。状態としては $J^a_{-1}|j,m\\rangle$ に対応し、低エネルギーに残した一回のカレント励起を表している。この頂点の相関関数から、場 $A_a$ の相互作用を求める。その際、外線には弦の物理状態条件を課す。
-
-<details>
-<summary>物理状態条件とdisk振幅の縮約・規格化</summary>
-
-上の[作用で使う生成子と回転微分](#ref-gauge-conventions)の規約を用いる。カレントを一回励起した状態 $\\sum_aJ^a_{-1}|A_a\\rangle$ にVirasoro条件 $L_1^{\\mathrm{Vir}}|\\mathrm{phys}\\rangle=0$ を課すと、縦成分が除かれて
-
-$$
-L^aA_a=0
-$$
-
-という横条件が得られる。$|A_a\\rangle$ は境界場 $\\psi[A_a]$ に対応する状態、$|\\mathrm{phys}\\rangle$ は弦の物理状態条件を満たす状態を表す。Virasoro生成子 $L_n^{\\mathrm{Vir}}$ は世界面の共形変換を生成し、球面の回転微分 $L_a$ とは区別する。カレントのウェイトが1なので $[L_1^{\\mathrm{Vir}},J^a_{-1}]=J^a_0$ である。primary上では $L_1^{\\mathrm{Vir}}=0$、零モード $J^a_0$ は行列へ、共通の規格化定数を除いて $L^a$ として作用するため、$L_1^{\\mathrm{Vir}}\\sum_aJ^a_{-1}|A_a\\rangle=0$ が上の式になる。これは平坦空間の横条件 $p^aA_a=0$ に対応する。ここで指定したのは散乱振幅に入れる物理的な外線である。内部WZW因子だけではウェイトが $1+h_j$ なので、完全な弦の頂点では外部時空の運動量因子も掛け、全ウェイト1の質量殻条件を満たすものを使う。以下ではその外部因子を省略し、球面に関する結合を取り出す。
-
-作用の形を決めるOPEは
-
-$$
-J^a(x_1)\\psi[A](x_2)
-=\\frac{\\alpha'}{x_1-x_2}\\psi[L^aA](x_2)
-+\\text{regular}
-$$
-
-および
-
-$$
-\\boxed{
-J^a(x_1)J^b(x_2)
-=\\frac{\\alpha'}2
-\\frac{G^{ab}}{(x_1-x_2)^2}
-+\\alpha'\\frac{i\\mathfrak f^{ab}{}_c}{x_1-x_2}J^c(x_2)
-+\\text{regular}
-}
+\\mathcal J^a(x)\\mathcal J^b(x')
+\\sim\\frac{k\\delta^{ab}}{2(x-x')^2}
++\\frac{if^{ab}{}_c\\mathcal J^c(x')}{x-x'}.
 \\tag{6.43}
 $$
 
-である。$\\text{regular}$ は $x_1\\to x_2$ でも発散しない項を表す。ここでは開弦の逆計量 $G^{ab}=(2/k)\\delta^{ab}$ と、その逆行列 $G_{ab}=(k/2)\\delta_{ab}$ を使って $L^a=G^{ab}L_b$ とする。構造定数の添字は $\\mathfrak f^{ab}{}_c=G^{ad}G^{be}G_{cf}\\mathfrak f_{de}{}^f$、$\\mathfrak f^{abc}=G^{ad}G^{be}\\mathfrak f_{de}{}^c$ と上げる。一つ上・二つ下の $\\mathfrak f_{ab}{}^c$ がLie括弧の係数である。
+これは6.1節の直交生成子 $\\sigma_a/\\sqrt2$ のカレント成分を $1/\\sqrt2$ 倍した規格化である。原著の式 (6.43) の弦の単位への換算は下の補足に記す。
 
-この $k$ 依存はカレントの規格化から確かめられる。$T_a^{(1/2)}=\\sigma_a/2$ に対応する再規格化前のカレントを $\\mathcal J^a$ と書けば
-
-$$
-\\mathcal J^a(x)\\mathcal J^b(0)
-\\sim\\frac{k\\delta^{ab}}{2x^2}
-+\\frac{i f^{ab}{}_c\\mathcal J^c(0)}x,
-\\qquad
-\\mathcal J^a(x)\\psi[A](0)\\sim\\frac{\\psi[\\ell_a A](0)}x.
-$$
-
-§6.1の直交生成子 $\\sigma_a/\\sqrt2$ からは $1/\\sqrt2$ 倍の成分に当たる。有効作用で使うカレントを $J^a:=\\sqrt{2\\alpha'}\\,\\mathcal J^a/k$ とすると、二重極は $\\alpha'\\delta^{ab}/k=\\alpha'G^{ab}/2$ になる。また $\\alpha'L^a=\\sqrt{2\\alpha'}\\,\\ell_a/k$ なので、primaryとの一重極も上の式に一致する。従って $G^{ab}$ はこのカレントと微分の規格化をそろえた開弦の計量である。
-
-三点関数に構造定数が入る過程を一つ追う。$x_{ij}:=x_i-x_j$ とし、最初の二つのカレントを一重極に縮約し、その結果を三つ目と二重極に縮約すると
+行列 $A_a$ の各調和成分を境界場へ移した $\\psi[A_a]$ を使うと、頂点の内部因子は
 
 $$
-J^a(x_1)J^b(x_2)J^c(x_3)
-\\supset
-\\frac{i(\\alpha')^2}{2}\\,
-\\frac{\\mathfrak f^{ab}{}_dG^{dc}}{x_{12}x_{23}^2}
-=\\frac{i(\\alpha')^2}{2}\\,
-\\frac{\\mathfrak f^{abc}}{x_{12}x_{23}^2}.
+:\\mathcal J^a\\psi[A_a]:(x)
+=\\sum_{a;j,m}a_{j,m;a}:\\mathcal J^a\\psi_{j,m}:(x).
+\\tag{6.42}
 $$
 
-これは一つの縮約経路の寄与であり、全三点関数は他の経路も合わせて共形共変な位置依存を持つ。残ったprimaryの相関関数は行列のtraceなので、この寄与には $\\mathfrak f^{abc}\\operatorname{tr}(A_aA_bA_c)$ が掛かる。最初の二つを二重極に縮約し、残るカレントをprimaryに作用させる経路からは $\\operatorname{tr}((L_aA_b)A^aA^b)$ 型の微分項が生じる。
+コロンはOPEの特異部分を引いた正規順序積を表す。これが状態 $\\mathcal J^a_{-1}|A_a\\rangle$ に対応し、先に残した一回の励起を表している。完全な弦の頂点では外部時空の因子も掛け、全ウェイトを1にする。さらにVirasoroの $L_1$ 条件を使うと、内部の横条件 $\\ell^aA_a=0$ が得られる。
 
-四点の最低次の項は、カレントを二組ずつ二重極に縮約する三通りである。primaryの順序付きtraceを掛ける前の係数は
+<!-- reference: chan-paton-background -->
 
-$$
-\\frac{(\\alpha')^2}{4}\\left(
-\\frac{G^{ab}G^{cd}}{x_{12}^2x_{34}^2}
-+\\frac{G^{ac}G^{bd}}{x_{13}^2x_{24}^2}
-+\\frac{G^{ad}G^{bc}}{x_{14}^2x_{23}^2}
-\\right).
-$$
+この頂点を境界に積分する $\\delta S_\\partial\\propto\\int dx\\,:\\mathcal J^a\\psi[A_a]:$ が、行列係数 $A_a$ による境界相互作用である。平坦空間では $\\int a_i(X)\\partial_xX^i dx$ が端点の内部状態の平行移動を指定するゲージ接続の結合になる。WZWではカレントがその微分成分を担い、球面上の係数関数を $\\psi[A_a]$ が担う。従って同じ頂点を、ブレーン上のゲージ場・位置変形の背景へ端点を結合するものとして読む。
 
-構造定数を含む縮約は、この四点の最低次の近似では高次になる。これらの相関関数から作用を読む際には、世界面の再パラメータ化を固定するghostの相関関数を掛け、境界の挿入順序を足し、四点では低エネルギー場の交換で既に再現される寄与と局所的な四次結合を区別する。
+<!-- /reference -->
 
-</details>
+円板の三点・四点振幅でこの頂点を掛け合わせると、次の対応が得られる。
 
-### 7.2 物理振幅からゲージ不変な作用へ
+| 世界面の操作 | 行列での結果 |
+|---|---|
+| primaryのOPEと相関関数 | 行列積とtrace |
+| カレントをprimaryへ作用させる一重極 | 回転微分 $\\ell_aA=[T_a,A]$ |
+| カレント同士の $f^{ab}{}_c\\mathcal J^c$ の極 | $f_{abc}\\operatorname{tr}(A_aA_bA_c)$ 型の三次結合 |
 
-ここでは $J,M$ を固定し、$\\alpha'\\to0$、$k\\alpha'\\to\\infty$ とする極限の最低次の作用を扱い、massive fieldと高階微分・subleadingな $1/k$ 補正を省く。相対係数はdisk振幅からの入力であり、[Alekseev–Recknagel–Schomerus §4](https://arxiv.org/html/hep-th/0003187v2#S4)でカレントの縮約構造と平坦空間の振幅規格化を照合した結果を使う。
+最後の極は平坦な可換カレントにはなく、曲がった背景に特有の三次項を生む。最低次の四次結合では二重極二組の縮約が寄与し、この非可換カレント項は高次になる。作用の相対係数は、ghost因子、挿入順序の和、四点の交換振幅との分離も含めた計算の結果を用いる（原著 pp.252–254）。上の対応だけから係数を推測するものではない。
 
 <details>
-<summary>二次・三次・四次の振幅から任意の場の作用へ</summary>
+<summary>ゲージ接続としての境界結合と物理状態条件</summary>
 
-[Alekseev–Recknagel–Schomerus §4、式 (4.13)–(4.18)](https://arxiv.org/html/hep-th/0003187v2#S4)から採用する二次・三次・四次項を、現在の記号で書くと
+平坦空間の境界が $X_i$ から $X_i+\\Delta X_i$ へ進む際、内部状態を運ぶ行列は $U_i=1+ia_j(X_i)\\Delta X_i^j+\\cdots$ である。区間をつなぎ一周すると $\\operatorname{Tr}\\mathcal P\\exp(i\\oint a_jdX^j)$ となる。内部基底を $u(X)$ で変えたとき、一区間の伝播は $u(X_f)U_iu(X_i)^{-1}$ へ変わる。両端の基底変換を相殺する接続の変換が $a_j\\mapsto ua_ju^{-1}-i(\\partial_ju)u^{-1}$ であり、一周のtraceは不変になる。これが係数 $a_j$ にゲージ接続の意味を与える。
 
-$$
-\\begin{aligned}
-S_0&=\\frac12\\operatorname{tr}\\bigl(A_aL_bL^bA^a\\bigr),\\\\
-S_3&=-\\operatorname{tr}\\bigl((L_aA_b)[A^a,A^b]\\bigr)
-+\\frac i3\\mathfrak f^{abc}\\operatorname{tr}\\bigl(A_a[A_b,A_c]\\bigr),\\\\
-S_4&=-\\frac14\\operatorname{tr}\\bigl([A_a,A_b][A^a,A^b]\\bigr).
-\\end{aligned}
-$$
-
-$S_0$ の $L_bL^b$ は、既に求めた質量二乗 $j(j+1)/(k\\alpha')$ を固有値にもつ。$S_3$ の二項は三点の微分縮約と構造定数の縮約に、$S_4$ は四点の最低次の局所結合に対応する。ghostと順序和の数値計算全体は上の原論文の結果を用いている。以下ではこれらの係数を変えずに作用を組み直す。
-
-振幅を求めた外線は $D:=L^aA_a=0$ を満たすので、その上で消える項の係数を振幅だけで決めることはできない。任意の場を変分できる作用を得るには、この制約面から外へ拡張する必要がある。採用する拡張は
+WZWの頂点状態では $[L_1^{\\mathrm{Vir}},\\mathcal J^a_{-1}]=\\mathcal J^a_0$、primaryには $L_1^{\\mathrm{Vir}}=0$ である。零モードは行列に $\\ell^a$ として作用するので
 
 $$
-S[A]=S_0+S_3+S_4+\\frac12\\operatorname{tr}(D^2).
+L_1^{\\mathrm{Vir}}\\sum_a\\mathcal J^a_{-1}|A_a\\rangle=0
+\\quad\\Longrightarrow\\quad \\sum_a\\ell^aA_a=0.
 $$
 
-追加項は物理的な外線の二次振幅を変えず、作用全体をゲージ不変にする。例えば $\\operatorname{tr}((L_aB)C)=-\\operatorname{tr}(B L_aC)$ と $[L_a,L_b]=i\\mathfrak f_{ab}{}^cL_c$ を使うと、この二次項まで含めて下の式 (6.44) にまとめられる。これがここで使うoff-shell作用、すなわち物理状態条件を変数に課さずに定義した作用である。ゲージ対称性による同値な配置は残るが、運動方程式を求める際の $\\delta A_a$ は任意のHermitian行列とする。物理振幅から許される場の再定義の自由度のうち、このゲージ不変な表示を選んでいる。
+これは散乱振幅の外線に課す横条件である。有効作用を変分する際に全変数へ課す制約ではなく、任意の場へ拡張したゲージ不変な作用を用いる。
+
+滑らかな球面の単位法線を $n_a$ とすると、三成分は $A_a=A_a^\\parallel+n_a\\phi$、$\\sum_an_aA_a^\\parallel=0$ と分けられる。$A^\\parallel$ が接方向のゲージ接続、$\\phi$ が法線位置のscalarである。横条件 $\\ell^aA_a=0$ は微分を含み、$\\phi=0$ を要求する条件とは違う。有限行列では、背景と場を合わせた座標の二乗和が背景Casimirからずれる量が、この法線変形に対応する。
 
 </details>
 
-この作用は任意のHermitian行列 $A_a$ を変数とし、ゲージ変換に対して不変となる形で定義する。場の強さ $F_{ab}$ は、場を二方向に動かす順序を交換したとき、ゲージ場によって生じる差を測る量である。その二乗から作る項をYang–Mills項と呼ぶ。以下ではさらに、ゲージ場の三次の積や微分を組み合わせたChern–Simons型の項を使う。以下の $S_{(M,J)}$ は、$J$ 型のブレーン $M$ 枚の配置の作用であり、添字 $(M,J)$ はこの二つを指定する。全体の数値係数を除き、低エネルギー有効作用は
+### 4.4 ゲージ不変な作用と共変座標
+
+以下では無次元生成子 $T_a$、微分 $\\ell_a=[\\mathbf1_M\\otimes T_a,\\,\\cdot\\,]$、$\\delta_{ab}$ による縮約を使う。開弦の計量と弦の単位の共通係数を外へ出した表示である。場 $A_a$ もこの表示では無次元とする。
+
+<!-- reference: gauge-conventions -->
+
+この規約で、同種ブレーン $M$ 枚、ラベル $J$ の最低次の作用は
 
 $$
-\\boxed{
 S_{(M,J)}[A]
-=S_{\\mathrm{YM}}+S_{\\mathrm{CS}}
-=\\frac14\\operatorname{tr}(F_{ab}F^{ab})
--\\frac i2\\operatorname{tr}(\\mathfrak f^{abc}\\operatorname{CS}_{abc})
-}
+=\\frac14\\operatorname{tr}(F_{ab}F_{ab})
+-\\frac i2\\operatorname{tr}(f_{abc}\\operatorname{CS}_{abc})
 \\tag{6.44}
 $$
 
-である。ここで
+となり、
 
 $$
-\\boxed{
-F_{ab}(A)
-=iL_aA_b-iL_bA_a+i[A_a,A_b]+\\mathfrak f_{ab}{}^cA_c
-}
+F_{ab}=i\\ell_aA_b-i\\ell_bA_a+i[A_a,A_b]+f_{ab}{}^cA_c,
 \\tag{6.45}
 $$
 
-および
-
 $$
-\\boxed{
-\\operatorname{CS}_{abc}(A)
-=(L_aA_b)A_c
-+\\frac13A_a[A_b,A_c]
--\\frac i2\\mathfrak f_{ab}{}^dA_dA_c
-}
+\\operatorname{CS}_{abc}=(\\ell_aA_b)A_c
++\\frac13A_a[A_b,A_c]-\\frac i2f_{ab}{}^dA_dA_c
 \\tag{6.46}
 $$
 
-である。$\\operatorname{CS}_{abc}$ は式 (6.46) で定義した行列の組合せを指し、$(L_aA_b)A_c$ では微分は $A_b$ だけに作用する。traceはfuzzy行列とChan--Paton行列の両方について取る。
+と定める。traceは両行列因子について取る。最初の項がYang–Mills項、二番目がこの行列模型のChern–Simons型項である。微分 $\\ell_a$ は球面の因子だけに作用し、$[\\ell_a,\\ell_b]=if_{ab}{}^c\\ell_c$ を満たす。
 
-fuzzy sphere上の微分 $L_a$ は可換な座標微分ではなく、三つの回転方向を微分の基準（frame）に使っているため
+<!-- /reference -->
 
-$$
-[L_a,L_b]=i\\mathfrak f_{ab}{}^cL_c
-$$
-
-を満たす。式 (6.45) の $\\mathfrak f_{ab}{}^cA_c$ は、この非可換性を補い、場の強さを $F_{ab}\\mapsto UF_{ab}U^{-1}$ と変換させる項である。このように場と同じ基底変換に従うことを共変という。
-
-この場の強さが共変に変わる理由を、背景とゲージ場を一つの行列にまとめて確かめる。$M$ 枚のstackに対し
+この場の強さ $F_{ab}$ の意味は、背景と場を合わせると明瞭になる。背景生成子を $T_a^{\\mathrm{bg}}:=\\mathbf1_M\\otimes T_a^{(J)}$ とし、共変座標
 
 $$
-X_a:=\\mathbf1_M\\otimes\\mathsf T_a^{(J)}+A_a
+X_a:=T_a^{\\mathrm{bg}}+A_a
 \\tag{covariant-coordinate}
 $$
 
-と置き、共変座標と呼ぶ。$U$ を同じ行列空間のユニタリ変換として $X_a\\mapsto UX_aU^{-1}$ と変換する。
-
-背景を $B_a:=\\mathbf1_M\\otimes\\mathsf T_a^{(J)}$ と略記すると、$X_a$ の変換を $A_a$ で表した式は
+を作る。すると
 
 $$
-A_a\\longmapsto UX_aU^{-1}-B_a
-=UA_aU^{-1}+U[B_a,U^{-1}]
-=UA_aU^{-1}+U(L_aU^{-1}).
+F_{ab}=i[X_a,X_b]+f_{ab}{}^cX_c.
 $$
 
-最後の項は、基底変換 $U$ が球面上の位置に依存する際の微分項に対応する。場の変換にこの項を含めることで、背景の微分と場の結合を合わせた $X_a$ が共変に変わる。
+背景だけでは $[T_a^{\\mathrm{bg}},T_b^{\\mathrm{bg}}]=if_{ab}{}^cT_c^{\\mathrm{bg}}$ なので $F_{ab}=0$ であり、$F$ はこの回転代数からのずれを測っている。ユニタリ基底変換 $X_a\\mapsto UX_aU^{-1}$ のもとで $F_{ab}\\mapsto UF_{ab}U^{-1}$ となり、traceが不変になる。これがゲージ対称性である。Hermitianな行列 $\\lambda$ をゲージ変換のパラメーターとすると、$A_a$ の無限小変換は $\\delta A_a=i\\ell_a\\lambda+i[A_a,\\lambda]$ と書ける。
 
-背景生成子の交換関係を使うと、場の強さは
-
-$$
-F_{ab}=i[X_a,X_b]+\\mathfrak f_{ab}{}^cX_c
-$$
-
-にまとまる。背景だけの項が $i[\\mathsf T_a,\\mathsf T_b]+\\mathfrak f_{ab}{}^c\\mathsf T_c=0$ で消え、残りが式 (6.45) である。
-
-共変座標をユニタリ行列 $U$ で同時に $X_a\\mapsto UX_aU^{-1}$ と変換すると、$F_{ab}$ も $UF_{ab}U^{-1}$ へ変わる。従ってtraceの巡回性からYang–Mills項は変わらない。これが共変座標で見たゲージ対称性である。
-
-Chern–Simons項にもゲージ不変性を保つ二次項があり、式 (6.44) の相対係数では微分を含まない質量項が相殺する。従って球面上で一定な変位に対する二次のポテンシャルが消える。
-
-三つの行列には接方向のゲージ場と法線方向の変形を含める。以下の作用では半径を固定せず、任意のHermitian行列を変分する。$J=0$ の点状stackも同じ三行列で扱えるので、球面が形成される配置まで比較できる。
+式 (6.44) の相対係数では、二つの項の微分を含まない二次項が相殺する。従って一定の変位に質量項が生じず、後でブレーンを移動する解が得られる。Chern–Simons型項の係数を自由に変えると、この性質を失う。ここでは弦の振幅が指定する組合せを使う。
 
 <details>
-<summary>接方向のゲージ場と法線scalarの分解</summary>
+<summary>原著の単位、円板規格化、二次・三次・四次項</summary>
 
-三成分を保つ理由は、滑らかな球面で見ると分かる。大体積の局所的な三次元空間で、球面の単位法線を $n_a$ とする。回転のベクトル場 $K_a$ は $n_aK_a=0$ を満たすので、接方向の接続1形式 $a$ を回転方向で測った成分 $a(K_a)$ には一つの関係がある。一般の三成分は
-
-$$
-A_a=A_a^{\\parallel}+n_a\\phi,\\qquad
-\\phi:=\\sum_a n_aA_a,\\qquad
-\\sum_a n_aA_a^{\\parallel}=0
-$$
-
-と分かれる。$A_a^{\\parallel}$ は接方向のゲージ場、$\\phi$ は法線方向の位置変化を表すscalarである。この分解では三次元の直交座標の $\\delta_{ab}$ で縮約している。外線に課した $L^aA_a=0$ は微分を含む条件であり、この $\\phi$ を零にする条件とは異なる。
-
-有限行列で法線変形を捉えるには、$J>0$ に対して $B_a:=\\mathbf1_M\\otimes\\mathsf T_a^{(J)}$、$\\rho_J^2:=J(J+1)/(2\\alpha')$ と置き、
+原著の弦の単位の生成子と構造定数は
 
 $$
-\\Phi:=\\frac{\\sum_aX_aX_a-\\rho_J^2\\mathbf1}{2\\rho_J}
-=\\frac{\\sum_a\\{B_a,A_a\\}+\\sum_a A_aA_a}{2\\rho_J}
+\\mathsf T_a=\\frac{T_a}{\\sqrt{2\\alpha'}},\\qquad
+\\mathfrak f_{ab}{}^c=\\frac{f_{ab}{}^c}{\\sqrt{2\\alpha'}},\\qquad
+L_a=\\frac{\\ell_a}{\\sqrt{2\\alpha'}}.
 $$
 
-を見る。$\\{B,A\\}:=BA+AB$ は反交換子である。背景では $\\sum_a B_aB_a=\\rho_J^2\\mathbf1$ なので $\\Phi=0$。交換子が小さく、変形も小さい極限では $B_a/\\rho_J\\to n_a$ により $\\Phi\\to\\phi$ となる。また $\\Phi\\mapsto U\\Phi U^{-1}$ なので、その固有値やtraceはゲージ変換に依存しない。ここで用いた $X_a$ は長さの逆数の次元をもつ。二乗和から得る半径を物理的な長さへ換算する際には、座標の規格化に従う。以下の作用には $\\Phi=0$ という半径固定の制約を課さない。$J=0$ では法線の基準となる球面自体がなく、三行列をそのまま変数とする。これが点状stackから球面を作る配置も含む理由である。
+物理単位の場も $A_a^{\\mathrm{phys}}=A_a/\\sqrt{2\\alpha'}$ とする。開弦逆計量は $G^{ab}=(2/k)\\delta^{ab}$ であり、弦の単位のカレント $j^a=\\sqrt{2\\alpha'}\\mathcal J^a/k$ は
+
+$$
+j^a(x)j^b(x')\\sim\\frac{\\alpha'}2\\frac{G^{ab}}{(x-x')^2}
++\\alpha'\\frac{i\\mathfrak f^{ab}{}_cj^c(x')}{x-x'},
+\\qquad
+j^a(x)\\psi[A](x')\\sim\\frac{\\alpha'}{x-x'}\\psi[L^aA](x').
+$$
+
+これが原著の式 (6.43) の規格化である。構造定数は $\\mathfrak f^{ab}{}_c=G^{ad}G^{be}G_{cf}\\mathfrak f_{de}{}^f$、$L^a=G^{ab}L_b$ と上げる。二重極は直接 $\\alpha'\\delta^{ab}/k$、一重極も同じ換算で一致する。
+
+物理単位の式 (6.44) へ代入すると、本文の作用全体に $1/(k^2\\alpha'^2)$ が掛かる。円板規格化を含めて境界エントロピーと比べる無次元作用は、総行列次元 $d=M(2J+1)$ に対し
+
+$$
+\\mathscr S_{(M,J)}[A]=\\frac{4\\pi^2}{k^2d}S_{(M,J)}[A].
+$$
+
+この全体係数は運動方程式を変えないが、作用値の比較には必要である。弦の単位で $(2\\pi\\alpha')^2$ とnormalized traceを使う規約に対応する。[disk振幅と作用規格化（Alekseev–Recknagel–Schomerus、§§4–5）](https://arxiv.org/html/hep-th/0003187v2)
+
+横条件 $D:=\\ell_aA_a=0$ を満たす外線上での作用の各次数を、本文の単位で書けば
+
+$$
+\\begin{aligned}
+S_0&=\\frac12\\operatorname{tr}(A_a\\ell_b\\ell_bA_a),\\\\
+S_3&=-\\operatorname{tr}((\\ell_aA_b)[A_a,A_b])
++\\frac i3f_{abc}\\operatorname{tr}(A_a[A_b,A_c]),\\\\
+S_4&=-\\frac14\\operatorname{tr}([A_a,A_b][A_a,A_b]).
+\\end{aligned}
+$$
+
+任意の場へ拡張したゲージ不変な表示は $S_0+S_3+S_4+\\frac12\\operatorname{tr}(D^2)$ であり、式 (6.44) に一致する。$D^2$ は外線条件の上で消えるため、その追加は物理振幅を変えない。作用の場の再定義には自由度があり、ここではこの表示を選ぶ。
+
+三点の一つの縮約経路を追うと、二つのカレントを一重極で縮約して残りと二重極で縮約することで $if_{abc}\\operatorname{tr}(A_aA_bA_c)$ が生じる。四点の最低次には二重極二組の三通りの縮約が寄与する。ghostを掛け、全境界順序を足し、軽い場の交換寄与と局所四次結合を分けた結果が上の相対係数になる。
+
+原著 p.254 が比較する既存のfuzzy sphereのYang–Mills模型や任意のYM–CS結合と、この弦からの作用を区別するのも、この特定の相対係数である。
 
 </details>
 
-## 8. 古典解がブレーンの凝縮を表す
+## 5. 行列の定常点をブレーンの凝縮先として読む
 
-場の値が変わると、ブレーン上で許される開弦の運動も変わる。その新しい運動とエネルギーが別のブレーン配置のものに一致すれば、有効作用の解をブレーンの再配置として読める。以下では、時間変化しない場の値、すなわち行列配置を $A_a=S_a$ として表し、二種類の解を見る。作用の変分が零になる配置を定常点と呼ぶ。配置全体のラベルを $Q$ と書き、同種ブレーン $M$ 枚の場合は $Q=(M,J)$ とする。$\\mathfrak f_{ab}{}^c$ は作用の規格化での $\\mathfrak{su}(2)$ 構造定数、$L_a$ は球面上の回転微分である。
+### 5.1 停留条件と、境界RG終点を同定する二つの照合
 
-§7の作用を、半径を固定せず、任意のHermitian行列 $A_a$ について変分する。まず共変座標 $X_a=\\mathbf1_M\\otimes\\mathsf T_a^{(J)}+A_a$ で整理すると、背景だけの定数を除いて
-
-$$
-P(X):=\\operatorname{tr}\\left(
--\\frac14[X_a,X_b][X^a,X^b]
-+\\frac i3\\mathfrak f^{abc}X_a[X_b,X_c]\\right)
-$$
-
-を用いて $S_B[A]=P(B+A)-P(B)$ と書ける。ここで $B_a=\\mathbf1_M\\otimes\\mathsf T_a^{(J)}$ は出発点の背景である。式 (6.44) の二次項はこの形では相殺している。traceの巡回性で変分 $\\delta X_b$ を前へ移すと、四次項から二重交換子、三次項から $\\mathfrak f$ に比例する交換子が得られる。
+行列配置を変分して作用の停留点を求める。共変座標 $X_a=T_a^{\\mathrm{bg}}+A_a$ を使うと、式 (6.44) は背景だけの定数を引いた
 
 $$
-\\delta S=\\operatorname{tr}\\!\\left(
-\\delta X_b\\,[X_a,[X^a,X^b]-i\\mathfrak f^{ab}{}_cX^c]
-\\right).
+S_{(M,J)}[A]=P(X)-P(T^{\\mathrm{bg}}),\\qquad
+P(X):=\\operatorname{tr}\\left(-\\frac14[X_a,X_b]^2
++\\frac i3f_{abc}X_a[X_b,X_c]\\right)
 $$
 
-$\\delta X_b$ は任意のHermitian行列なので、停留条件は
+となる。二次の質量項が相殺することも、この表示から読める。traceを巡回して変分を一つにまとめると、停留条件は $[X_a,[X_a,X_b]-if_{ab}{}^cX_c]=0$ であり、場の強さで書き直せば
 
 $$
-[X_a,[X^a,X^b]-i\\mathfrak f^{ab}{}_cX^c]=0
-$$
-
-となる。角括弧の内側は $F^{ab}/i$ であり、$[X_a,\\,\\cdot\\,]=L_a+[A_a,\\,\\cdot\\,]$ なので、作用 (6.44) の運動方程式は
-
-$$
-\\boxed{
-L_aF^{ab}+[A_a,F^{ab}]=0.
-}
+\\ell_aF_{ab}+[A_a,F_{ab}]=0.
 \\tag{6.49}
 $$
 
-定常点 $A=\\Lambda$ のまわりで場を $A=\\Lambda+\\delta A$ と分ける。$\\delta A$ はその配置からの小さな変化（揺らぎ）を表す。$\\Lambda$ が別のブレーン配置 $Q'$ を表すためには、$\\Lambda$ のまわりの揺らぎ作用が $Q'$ 上のopen-string有効作用になり、さらに解を代入した作用値（on-shell作用値）が両配置の張力差と一致しなければならない。張力はブレーンの静的なエネルギーの尺度である。
+である。
 
-$\\mathscr S_Q^{(0)}$ を、disk規格化を含む低エネルギー展開の最低次の作用とする。また $g_Q$ を境界CFTの円板上の真空振幅（disk partition function）で、Dブレーン張力に比例する量とする。$\\ln g_Q$ が境界エントロピーで、$g_Q$ 自体はboundary degeneracy、または $g$ 因子と呼ばれる。この近似の内部では二つの条件は
+境界相互作用の係数は世界面の観測尺度によって繰り込まれる。その変化が境界RG flow、係数の変化率が $\\beta$ であり、$\\beta=0$ が共形境界条件となる固定点を指定する。低エネルギー作用の停留点は、その固定点の候補である。ただし行列方程式を解いただけでは、どの境界CFTへ流れたかは分からない。原著 §6.3.4 は、次の二つの独立な情報で終点を同定する。
+
+- **開弦側**：解の周りの揺らぎの作用が、候補となる新しいブレーンの作用に一致する。
+- **閉弦側**：解を代入した作用値が、両配置の真空結合 $g$ の比から求める境界エントロピー差に一致する。
+
+配置のラベルを $Q=(M,J)$、解を $A=\\Lambda$、候補の終点を $Q'$ とする。$\\delta A$ は解からの揺らぎである。作用の全体規格化も含む無次元作用を $\\mathscr S_Q$ とすれば、照合する式は
 
 $$
-\\boxed{
-\\mathscr S_Q^{(0)}(\\Lambda+\\delta A)
-=\\mathscr S_Q^{(0)}(\\Lambda)+\\mathscr S_{Q'}^{(0)}(\\delta A),
-\\qquad
-\\mathscr S_Q^{(0)}(\\Lambda)
-=\\left[\\ln\\frac{g_{Q'}}{g_Q}\\right]_{\\text{最低次の非零 }1/k\\text{ 項}}
-}
+\\mathscr S_Q(\\Lambda+\\delta A)
+=\\mathscr S_Q(\\Lambda)+\\mathscr S_{Q'}(\\delta A),\\qquad
+\\mathscr S_Q(\\Lambda)=\\left[\\ln\\frac{g_{Q'}}{g_Q}\\right]_{\\text{同じ近似次数}}
 \\tag{6.47}
 $$
 
-と書ける。$M$ 枚のCardyブレーン $J$ なら
+である。ここで $g_Q$ は円板の真空結合、$\\ln g_Q$ は境界エントロピーであり、同じ背景では $g_Q$ がブレーンの張力に比例する。6.2節のCardy係数から
 
 $$
-\\boxed{
-g_{(M,J)}
-=M g_J
-=M\\frac{S_{J0}}{\\sqrt{S_{00}}}.
-}
+g_{(M,J)}=Mg_J=M\\frac{S_{J0}}{\\sqrt{S_{00}}}
 \\tag{6.48}
 $$
 
-$S_{J0}$ は $SU(2)_k$ modular $S$-matrixである。
+と分かる。$S_{J0}$ はmodular $S$-matrixの成分で、作用 $S_{(M,J)}$ とは別の量である。$g_{Q'}<g_Q$ なら終点の張力が小さい。式 (6.47) は有効作用を求めた $1/k$ の次数で比べる式であり、全弦作用の厳密等式ではない。
 
-<!-- reference: constant-current-perturbation -->
+<details>
+<summary>共変座標による作用の変分</summary>
 
-ゲージ場は境界場 $\\psi[A_a]$ を通じてカレントに結合する。式 (6.42) の頂点場を境界に積分すると、ゲージ場による境界摂動は $\\delta S_{\\partial}\\propto\\int dx\\,:J^a\\psi[A_a]:$ となる。worldvolume上で一定の $A_a=S_a\\otimes\\mathbf1$ では、$\\mathbf1$ に対応する境界場が恒等場なので
-
-$$
-\\delta S_{\\partial}\\propto\\int dx\\,S_aJ^a(x)
-$$
-
-に簡約される。比例係数はカレントと結合定数の規格化に吸収する。
-
-<!-- /reference -->
-
-### 8.1 constant gauge fieldの二種類の代表的解
-
-まず
+$\\delta[X_a,X_b]=[\\delta X_a,X_b]+[X_a,\\delta X_b]$ とtraceの巡回性を用いると、四次項は
 
 $$
-L_aS_b=0
+\\delta P_4=\\operatorname{tr}\\bigl(\\delta X_b[X_a,[X_a,X_b]]\\bigr)
 $$
 
-を満たすconstant fieldに制限する。これはfuzzy harmonicのスカラー成分だけをもち、$S_a$ がChan--Paton空間 $\\operatorname{Mat}(M)$ にだけ作用することを意味する。式 (6.49) は
+を与える。三次項では三つの変分が $f$ の反対称性と巡回性で同じ形になるため
 
 $$
-\\boxed{
-\\left[
-S_a,
-[S_a,S_b]-i\\mathfrak f_{ab}{}^cS_c
-\\right]=0
-}
+\\delta P_3=-i\\operatorname{tr}\\bigl(\\delta X_bf_{ab}{}^c[X_a,X_c]\\bigr).
+$$
+
+和が任意のHermitian $\\delta X_b$ で零となる条件が本文の二重交換子の式である。$F_{ab}/i=[X_a,X_b]-if_{ab}{}^cX_c$、$[X_a,\\,\\cdot\\,]=\\ell_a+[A_a,\\,\\cdot\\,]$ を代入すると式 (6.49) になる。
+
+境界RGの尺度変化と標的空間での時間発展は別の操作である。ここでは静的な場の配置とCFTの固定点を照合する。任意の停留点が実際に到達可能なRG終点であることは、この近似の運動方程式だけでは保証されない。
+
+</details>
+
+### 5.2 一定場の可換解とスピン表現の解
+
+まず $\\ell_aS_b=0$ の場 $A_b=S_b$ に制限する。既約 $V_J$ 上の全生成子と可換なので、この場は $S_b\\in\\operatorname{Mat}(M)\\otimes\\mathbf1$、すなわち球面の模様を持たずChan–Paton因子だけに作用する。式 (6.49) は
+
+$$
+[S_a,[S_a,S_b]-if_{ab}{}^cS_c]=0
 \\tag{6.50}
 $$
 
-へ簡約される。以下は物理的解釈が明確な二つの族であり、式 (6.50) の全解分類ではない。
+へ簡約される。
 
-第一の解は
+<!-- reference: constant-current-perturbation -->
 
-$$
-[S_a,S_b]=0
-$$
-
-である。Hermitianな $S_a$ は同時対角化でき、各対角成分 $s_a^{(r)}$ は一枚のブレーンへ独立に $\\int dx\\,s_a^{(r)}J^a$ を結合する。カレントの境界積分はWard恒等式により零モードの群作用を生成し、その変形を有限に積み重ねると、6.2節で用いた $e^{-i\\lambda\\bar J_0^3}$ 型の回転が境界状態へ作用する。[カレントによる境界変形](https://arxiv.org/abs/hep-th/9811237)を、§3.4の $\\mathcal C_{h_J}s$ と照合すると、これは各ブレーンの群多様体内での移動である。大体積の局所座標ではこの移動を並進として読めるため、固有値三つ組は元の配置からの変位を指定する。物理的な長さへの換算には作用の規格化を使う。
-
-第二の解は
+この一定場に対応する $\\psi[S_a]$ は、球面側では恒等場である。従って頂点の境界積分は
 
 $$
-\\boxed{
-[S_a,S_b]=i\\mathfrak f_{ab}{}^cS_c
-}
+\\delta S_\\partial\\propto\\int dx\\,S_a\\mathcal J^a(x)
 $$
 
-である。このとき式 (6.50) の内側の括弧が零になる。つまり、三つのChan--Paton行列が $\\mathfrak{su}(2)$ 表現を作れば、自動的に定常点になる。
-
-### 8.2 $M$ 個の点が一つの球面になる
-
-出発点を $J=0$ のpoint-like brane $M$ 枚のstack
-
-$$
-Q=(M,0)
-$$
-
-とする。$J=0$ ではworldvolume行列因子は $\\operatorname{Mat}(1)$ なので、全行列自由度はChan--Paton代数 $\\operatorname{Mat}(M)$ にある。
-
-$M\\ge2$ では、この行列が球面を作る方向へ変わるとき、何がエネルギーを下げるのだろうか。点状stackの低エネルギー展開の最低次の作用では、二次項が相殺し、背景に由来する三次項と正の四次項が残る。球面を作る向きでは小さな振幅で三次項がエネルギーを下げ、振幅をさらに大きくすると四次項が優勢になる。その釣り合いが、有限の振幅をもつ球面配置を選ぶ。
-
-$S_a$ に $M$ 次元既約表現を選ぶ。そのspinを
-
-$$
-J_M:=\\frac{M-1}{2},
-\\qquad
-M=2J_M+1
-$$
-
-とする。すると、もともと「どの点状ブレーンに弦端が付くか」を表していた $\\operatorname{Mat}(M)$ が
-
-$$
-\\operatorname{Mat}(M)
-=\\operatorname{Mat}(2J_M+1)
-$$
-
-となり、spin $J_M$ のfuzzy sphere関数代数と同じになる。さらに、この背景の周りでは交換子 $[S_a,\\delta A]$ がスピン $J_M$ の球面上の回転微分を担う。行列の数だけでなく、揺らぎが動く規則も一枚の球面のものに変わる。この一致を、揺らぎの作用と張力から確かめる。
-
-#### 球面へ向かう経路のエネルギー
-
-§7の物理単位をもつスピン $J_M$ の生成子を $\\mathsf T_a:=\\mathsf T_a^{(J_M)}$ と略記し、行列配置の経路 $S_a=t\\mathsf T_a$ を考える。$t$ は無次元の行列振幅であり、$t=0$ が元の点状stack、$t=1$ が上の球面解である。$K_{ab}:=\\mathfrak f_{ab}{}^c\\mathsf T_c$、$C:=\\operatorname{tr}(K_{ab}K^{ab})$ と置く。添字を上げる計量は作用と同じ正定値のものなので、非自明表現 $M\\ge2$ では $C>0$ となる。
-
-点状braneでは $L_a=0$ だから、式 (6.45)、(6.46) をこの経路で評価すると
-
-$$
-\\begin{aligned}
-F_{ab}&=(t-t^2)K_{ab},\\\\
-S_{\\mathrm{YM}}&=\\frac C4(t^2-2t^3+t^4),\\\\
-S_{\\mathrm{CS}}&=C\\left(\\frac{t^3}{6}-\\frac{t^2}{4}\\right).
-\\end{aligned}
-$$
-
-\`\`\`math-hint
-点状braneでは微分項が零になる。$S_a=t\\mathsf T_a$ と $[\\mathsf T_a,\\mathsf T_b]=iK_{ab}$ を代入すると
-
-$$
-i[S_a,S_b]+\\mathfrak f_{ab}{}^cS_c
-=i t^2(iK_{ab})+tK_{ab}=(t-t^2)K_{ab}.
-$$
-
-Yang–Mills項はその二乗なので、$\\tfrac14\\operatorname{tr}(F_{ab}F^{ab})=\\tfrac C4(t-t^2)^2$ になる。Chern–Simons項では、$\\mathfrak f^{abc}$ の反対称性により $\\mathsf T_a\\mathsf T_b$ の反対称部分だけが残る。
-
-$$
-\\mathfrak f^{abc}\\operatorname{tr}(\\mathsf T_a\\mathsf T_b\\mathsf T_c)
-=\\frac12\\mathfrak f^{abc}\\operatorname{tr}([\\mathsf T_a,\\mathsf T_b]\\mathsf T_c)
-=\\frac i2\\mathfrak f^{abc}\\mathfrak f_{ab}{}^d\\operatorname{tr}(\\mathsf T_d\\mathsf T_c)=\\frac i2C.
-$$
-
-式 (6.44) の全体係数も含めると、三次項の縮約には $(-i/3)t^3$ が掛かるので $Ct^3/6$、二次項には $-t^2/4$ が掛かるので $-Ct^2/4$ となる。
-\`\`\`
-
-和を取ると二次項が消え、エネルギーは
-
-$$
-V(t)=C\\left(\\frac{t^4}{4}-\\frac{t^3}{3}\\right),
-\\qquad
-V'(t)=Ct^2(t-1)
-$$
-
-となる。$0<t<1$ では減少し、$t>1$ では増加するため、$t=1$ はこの経路に沿う極小である。$V(0)=0$ に対し $V(1)=-C/12$ なので、球面配置は出発点より低いエネルギーをもつ。
-
-![行列振幅tに沿うエネルギーV/C。点状stackのt=0からエネルギーが下がり、球面配置のt=1で極小のマイナス十二分の一に達し、その先では増加する。](/diagrams/sphere-energy.svg)
-
-この曲線は、固定した $M$ でのlarge-$k$ の最低次の有効作用を、一つの行列配置の経路に制限したものである。$t$ はRG時間ではない。凝縮先の境界条件を同定するには、このエネルギー低下に加えて、揺らぎの力学と張力を照合する。
-
-<span id="note-chan-paton-becomes-space"></span>
-
-#### 揺らぎの作用から球面ブレーンを同定する
-
-§8の表示 $S_B[A]=P(B+A)-P(B)$ を使う。点状stackでは $B=0$。球面解 $S_a$ は次元 $M=2J_M+1$ の既約表現なので、あるユニタリ行列 $U$ によって $US_aU^{-1}=\\mathsf T_a^{(J_M)}$ とできる。揺らぎも $a_a:=U\\delta A_aU^{-1}$ と移すと、traceの巡回性から
-
-$$
-\\begin{aligned}
-S_{(M,0)}[S+\\delta A]-S_{(M,0)}[S]
-&=P(S+\\delta A)-P(S)\\\\
-&=P(\\mathsf T^{(J_M)}+a)-P(\\mathsf T^{(J_M)})\\\\
-&=S_{(1,J_M)}[a].
-\\end{aligned}
-$$
-
-二辺は同じ $M\\times M$ 行列の全空間を変数とし、同じ $G^{ab}$、$\\mathfrak f_{ab}{}^c$ とtraceを使う。回転微分も $U[S_a,\\delta A]U^{-1}=[\\mathsf T_a^{(J_M)},U\\delta AU^{-1}]$ と移る。したがって二次のスペクトルだけでなく、この近似で残す三次・四次の相互作用まで一致する。
-
-全体規格化も比較できる。以下で境界エントロピーと比べる無次元作用では、総行列次元 $d$ に対し正規化したtrace $\\operatorname{tr}/d$ と共通因子 $(2\\pi\\alpha')^2$ を使う。今は両配置とも $d=M$ なので
-
-$$
-\\mathscr S^{(0)}_{(M,0)}[S+\\delta A]
-=\\mathscr S^{(0)}_{(M,0)}[S]
-+\\mathscr S^{(0)}_{(1,J_M)}[a].
-$$
-
-この規格化は[ARS §5の作用値と $g$ 因子の照合](https://arxiv.org/html/hep-th/0003187v2#S5)に対応する。絶対的なdisk真空振幅を掛ける規約でも、固定 $M$ では両配置の真空振幅の比は $1+O(k^{-2})$ であり、比較する最低次の作用係数は共通である。有限 $k$ の全弦作用の一致を主張しているわけではない。
-
-#### 張力を閉弦への結合と照合する
-
-式 (6.48) に $2J_M+1=M$ とmodular $S$-matrixを代入すると
-
-$$
-\\frac{g_{(1,J_M)}}{g_{(M,0)}}
-=\\frac{S_{J_M0}}{M S_{00}}
-=\\frac{\\sin(M\\alpha_k)}{M\\sin\\alpha_k},
-\\qquad \\alpha_k=\\frac{\\pi}{k+2}.
-$$
-
-$M$ を固定して正弦と対数を展開すれば
-
-$$
-\\begin{aligned}
-\\ln\\frac{g_{(1,J_M)}}{g_{(M,0)}}
-&=-\\frac{M^2-1}{6}\\alpha_k^2+O(\\alpha_k^4)\\\\
-&=-\\frac{\\pi^2}{6}\\frac{M^2-1}{k^2}+O(k^{-3})
-\\end{aligned}
-$$
-
-となる。一方、作用側では $\\mathfrak f_{ab}{}^c=\\varepsilon_{ab}{}^c/\\sqrt{2\\alpha'}$、$G^{ab}=(2/k)\\delta^{ab}$ とCasimirから
-
-$$
-\\begin{aligned}
-C&=\\frac{4}{k^2\\alpha'}\\operatorname{tr}\\sum_c\\mathsf T_c^2
-=\\frac{M(M^2-1)}{2k^2\\alpha'^2},\\\\
-\\mathscr S^{(0)}_{(M,0)}[S]
-&=\\frac{(2\\pi\\alpha')^2}{M}\\left(-\\frac C{12}\\right)
-=-\\frac{\\pi^2}{6}\\frac{M^2-1}{k^2}.
-\\end{aligned}
-$$
-
-このように、disk規格化を含む作用値は、真空結合から独立に求めた境界エントロピー差の最低次の項に一致する [Alekseev–Recknagel–Schomerus](https://arxiv.org/abs/hep-th/0003187)。これは固定した $M$ でのlarge-$k$漸近等式であり、有限 $k$ の厳密等式ではない。最低次の項が負なので、この近似範囲では最終状態の張力は小さく、凝縮の向きも正しい。
-
-<!-- reference: condensation-identification -->
-
-この定常点は
-
-$$
-\\boxed{
-(M,0)\\longrightarrow(1,J_M),
-\\qquad
-J_M=\\frac{M-1}{2}
-}
-$$
-
-という凝縮を表す。
+になる。以下の二種類の行列は、同じcurrentへ異なる内部状態の結合を指定している。
 
 <!-- /reference -->
 
-三つの $S_a$ を同じ基底変換で共通のブロック対角形に分けられるとき、表現は可約である。それ以上分けられない既約ブロックごとに一枚の球面ブレーンが生じ、最終状態はそれらの重ね合わせになる。出発点が一般の $(M,J)$ でも、Chan--Paton空間と $V_J$ のテンソル積上で、次元 $M(2J+1)$ の任意の $\\mathfrak{su}(2)$ 表現を共変座標として選べば定常解が得られる [Alekseev–Recknagel–Schomerus](https://arxiv.org/abs/hep-th/0003187)。この一般解では $L_aA_b\\neq0$ でもよく、「constant field」の仮定は本質ではない。
+可換なHermitian行列 $[S_a,S_b]=0$ は同時対角化できる。各対角成分ではcurrentの境界積分が群の零モード作用を生成し、ブレーンを群多様体内で移す。実際、右移動 $g\\mapsto gs$ はgluingを $J=\\bar J$ から $J=s\\bar Js^{-1}$ へ変え、球面を $\\mathcal C_{\\vartheta_J}s$ へ移す。従ってこの解は $M$ 枚それぞれの移動を表す。この変形は共形性を保つchiral marginal変形である。
 
-世界面の境界相互作用として見ると、並進は結合の強さを変えても共形境界条件を保つ連続変形である。一方、球面形成を起こす相互作用は、長い距離で見るほど強くなり、別の境界条件へ向かう。このように観測尺度とともに結合が変わる過程を境界RG flowと呼ぶ。ここでの並進をchiral marginal、球面形成をmarginally relevantな変形という。
-
-## 9. finite $k$ でも残るflow：Kondo効果
-
-large-$k$ の計算だけでは、曲率が大きい有限 $k$ でも同じ球面形成が起きるかは分からない。手掛かりは、三つのChan--Paton行列が一つのスピンとしてcurrentに結合していることである。これは、磁性不純物のスピンが周囲と相互作用するKondo模型の境界問題と同じ形を持つ。その結果を使うと、相互作用が長距離・低エネルギー（赤外）で強くなる向きのflowについて、$2J_M=M-1\\leq k$ なら $(M,0)\\to(1,J_M)$ が有限 $k$ でも成立する。
-
-### 9.1 boundary spinの吸収
-
-Kondo模型は、三次元の伝導体にある磁性不純物と伝導電子の相互作用を扱う。不純物どうしが十分離れている場合、一つの不純物との散乱を球対称なs波で近似すると、電子の空間依存は不純物からの動径だけになる。Euclid時間を $x$、動径を $y\\geq0$ とすれば、問題は半平面上の場の理論となり、不純物は境界 $y=0$ に置かれる。
-
-電子の伝導チャネルが $k$ 本あると、そのフェルミオンから作るスピンカレントは $\\widehat{\\mathfrak{su}}(2)_k$ をなす。各チャネルがレベル1の寄与を持ち、全スピンカレントの中心項ではそれらが加算されるためである。このスピンに結合する部分が、WZW模型と共通する。spin $J_M$ の不純物を $M=2J_M+1$ 次元表現行列 $\\Lambda_a$ で表すと、境界相互作用は
+もう一つは、三つの行列がスピン表現
 
 $$
-\\boxed{
-S_{\\mathrm{pert}}
-\\sim\\lambda\\int_{-\\infty}^{\\infty}dx\\,
-\\Lambda_aJ^a(x,0)
-}
+[S_a,S_b]=if_{ab}{}^cS_c
+$$
+
+をなす場合である。式 (6.50) の内側が零になるので、これも自動的に停留点になる。可換解と異なり、三方向の内部状態を独立には対角化できない。その解が一枚の球面を表すことを、上の二つの照合で調べる。
+
+### 5.3 $M$ 枚の点状ブレーンが一枚の球面になる
+
+出発点を $(M,0)$ とする。$J=0$ の球面因子は $\\operatorname{Mat}(1)$ なので、全自由度は端点の番号を記録する $\\operatorname{Mat}(M)$ にある。$S_a$ に $M$ 次元の既約スピン表現を選び、そのスピンを
+
+$$
+J_M:=\\frac{M-1}{2}
+$$
+
+と書く。すると $M=2J_M+1$ であり、同じ $M\\times M$ 行列がスピン $J_M$ の球面の関数代数になる。
+
+| 同じ行列 $\\operatorname{Mat}(M)$ の読み方 | 背景 | 揺らぎに作用する微分 |
+|---|---|---|
+| 凝縮前の点状stack | $T^{\\mathrm{bg}}=0$ | $\\ell=0$ |
+| 表現解の周り | $S_a=T_a^{(J_M)}$ | $[S_a,\\,\\cdot\\,]$ |
+| 一枚の $J_M$ 球面 | $T_a^{(J_M)}$ | $[T_a^{(J_M)},\\,\\cdot\\,]$ |
+
+数の一致だけでなく、揺らぎの微分も一致している。作用 $P$ は同じ全行列空間で定義されるので
+
+$$
+S_{(M,0)}[S+\\delta A]-S_{(M,0)}[S]
+=P(S+\\delta A)-P(S)=S_{(1,J_M)}[\\delta A].
+$$
+
+三次・四次の相互作用まで同じになる。この両配置の総行列次元はともに $M$ で、円板規格化の係数も同じである。これが開弦側からの球面の同定である。
+
+<details id="note-chan-paton-becomes-space">
+<summary>球面へ向かう行列配置と、エネルギー低下</summary>
+
+$M\\geq2$ とし、$A_a=tT_a^{(J_M)}$ という一つの経路へ作用を制限する。$t$ は行列振幅で、$t=0$ が点状stack、$t=1$ が表現解であり、RG時間ではない。$C:=2\\operatorname{tr}\\sum_a(T_a^{(J_M)})^2>0$ とすると、交換関係を $P$ へ代入して
+
+$$
+V(t)=C\\left(\\frac{t^4}{4}-\\frac{t^3}{3}\\right),\\qquad
+V'(t)=Ct^2(t-1)
+$$
+
+を得る。例えば四次項では $\\sum_{a,b}[T_a,T_b]^2=-2\\sum_aT_a^2$、三次項では $f_{abc}T_a[T_b,T_c]=2i\\sum_aT_a^2$ を用いる。
+
+従って $0<t<1$ でエネルギーは減り、$t>1$ では増え、$V(1)=-C/12<V(0)=0$ となる。二次項が消え、背景による三次項が小さい振幅でエネルギーを下げ、四次項が大きい振幅を抑えることが有限の球面解を選んでいる。
+
+![行列振幅tに沿う作用V/C。点状stackのt=0から下がり、表現解のt=1でマイナス十二分の一の極小になる。](/diagrams/sphere-energy.svg)
+
+この曲線は一つの経路での低エネルギー作用であり、全方向の安定性やRG軌道を示すものではない。実際の終点の同定には、本文の揺らぎ作用と真空結合の照合を併せて用いる。
+
+</details>
+
+閉弦側では、式 (6.48) の厳密な結合の比は
+
+$$
+\\frac{g_{(1,J_M)}}{g_{(M,0)}}
+=\\frac{\\sin(M\\pi/(k+2))}{M\\sin(\\pi/(k+2))}.
+$$
+
+固定した $M$ で正弦と対数を展開すると
+
+$$
+\\ln\\frac{g_{(1,J_M)}}{g_{(M,0)}}
+=-\\frac{\\pi^2(M^2-1)}{6k^2}+O(k^{-3}).
+$$
+
+作用側でも、$P(S)=-M J_M(J_M+1)/6$ となる。円板規格化を含める係数 $4\\pi^2/(k^2M)$ を掛ければ
+
+$$
+\\mathscr S_{(M,0)}[S]
+=-\\frac{4\\pi^2}{6k^2}J_M(J_M+1)
+=-\\frac{\\pi^2(M^2-1)}{6k^2}.
+$$
+
+最低次の作用値と境界エントロピー差が一致し、負号も終点の低い張力を示す。
+
+<!-- reference: condensation-identification -->
+
+従って、開弦の揺らぎと閉弦の真空結合の両方が
+
+$$
+(M,0)\\longrightarrow(1,J_M),\\qquad J_M=(M-1)/2
+$$
+
+という凝縮先を支持する。三つのChan–Paton行列がスピン表現になることで、端点の番号として導入した行列空間が一枚の球面の空間依存を担うようになった。
+
+<!-- /reference -->
+
+large-$k$ の作用は終点の候補とその照合を与えた。実際に紫外からそこへ流れるには、current結合の符号と繰り込みによる変化が必要である。次節では反強磁性的な結合を指定し、そのRG方向と有限 $k$ の固定点を与えるCFTの結果を用いる。
+
+<details>
+<summary>可約表現、非一定解、他の背景との比較</summary>
+
+$S_a$ が既約ブロックの直和なら、各ブロックが一枚の球面を与え、終点はその重ね合わせになる。一般の $(M,J)$ でも、共変座標 $X_a$ に次元 $M(2J+1)$ の任意の $\\mathfrak{su}(2)$ 表現を選べば $F=0$ の解になる。ここでの表現は $A_a$ 自身ではなく、背景を足した $X_a$ の表現である。$\\ell_aA_b\\neq0$ の非一定場も含まれる。
+
+同じ球面形成は他のNS–NS背景の議論やR–R背景でのdielectric効果とも比較される（原著 pp.255–256）。SU(2) WZWでの利点は、NS–NS背景の模型が世界面CFTとして扱え、有限レベルの補正を境界データで調べられることである。
+
+</details>
+
+## 6. 有限レベルでの凝縮をKondo固定点から求める
+
+### 6.1 同じ境界相互作用をもつKondo模型
+
+一定の表現行列のcurrent摂動 $\\int dx\\,S_a\\mathcal J^a$ は、Kondo模型の境界相互作用と同じ形をもつ。Kondo模型では、伝導電子と一つの磁性不純物のスピンとの結合を扱う。不純物との散乱をs波へ制限すると空間依存が動径だけになり、Euclid時間 $x$ と動径 $y\\geq0$ の半平面上で、不純物を境界へ置いた問題になる。
+
+$k$ 個の独立な伝導チャネルのスピンカレントを足すと、各チャネルのレベル1の中心項も足され、$\\widehat{\\mathfrak{su}}(2)_k$ のカレントになる。不純物のスピン $J_M$ を $M=2J_M+1$ 次元表現の行列 $\\Lambda_a$ とすると、境界相互作用は
+
+$$
+S_{\\mathrm{pert}}\\sim\\lambda\\int dx\\,\\Lambda_a\\mathcal J^a(x,0)
 \\tag{6.51}
 $$
 
-と結合する。$\\lambda$ はboundary couplingであり、以下では赤外で相互作用が強くなる反強磁性的な結合の向きを選ぶ。[定数ゲージ場の境界摂動](#ref-constant-current-perturbation)も $\\int dx\\,S_aJ^a$ なので、WZWブレーン端点をconstant background gauge field
+である。$\\lambda>0$ を、Hamiltonianに正の $\\lambda\\,\\boldsymbol\\Lambda\\cdot\\boldsymbol{\\mathcal J}$ を加える反強磁性的な結合と定める。currentのウェイトは1なので、この結合は古典的には無次元である。使うKondo RGの結果は、この符号の弱い結合が赤外で増大するというもの（原著 pp.256–258、[Affleck–Ludwig](https://doi.org/10.1016/0550-3213(91)90109-B)）であり、この意味でmarginally relevantと呼ぶ。負の結合に同じRG方向を仮定しない。ブレーンの端点の内部状態と不純物のスピン空間が同じ表現、結合するcurrentも同じなので、その固定点のスペクトルをブレーンの境界問題へ移せる。
+
+使う外部結果はAffleck–Ludwigの「境界スピンの吸収」である。条件 $2J_M\\leq k$ のとき、有限の繰り込まれた結合 $\\lambda^*$ に赤外固定点があり、紫外の $V_{J_M}\\otimes\\mathcal H_j$ のスペクトルは固定点で
 
 $$
-S_a=\\Lambda_a\\in\\operatorname{Mat}(M)
-$$
-
-へ結合する項と同じである。
-
-$$
-2J_M\\leq k
-$$
-
-のもとでは、繰り込まれた結合が有限値 $\\lambda^*$ に達する赤外固定点がある。等号の場合をexact screening、不等号 $2J_M<k$ の場合をoverscreeningという。この固定点のスペクトルはAffleck–Ludwigのboundary-spin absorption principleによって与えられる。
-
-有限次元の不純物スピン空間を $V_{J_M}$、結合するアフィン表現を $\\mathcal H_j$ とする。$q=e^{-2\\pi t}$（$t>0$）は円筒の縦横比から定まる重みで、相互作用を含む無次元Hamiltonianについて
-
-$$
-\\boxed{
-\\begin{aligned}
-\\left.
-\\operatorname{Tr}_{V_{J_M}\\otimes\\mathcal H_j}
-q^{H_{\\mathrm{unpert}}+H_{\\mathrm{pert}}(\\lambda)}
-\\right|_{\\lambda=\\lambda^*}
-&=\\sum_lN_{jJ_M}{}^l\\chi_l(q),\\\\
-H_{\\mathrm{unpert}}&=L_0^{\\mathrm{Vir}}-\\frac{c_{\\mathrm{CFT}}}{24}.
-\\end{aligned}
-}
+\\left.\\operatorname{Tr}_{V_{J_M}\\otimes\\mathcal H_j}
+q^{H_{\\mathrm{unpert}}+H_{\\mathrm{pert}}(\\lambda)}\\right|_{\\lambda=\\lambda^*}
+=\\sum_lN_{jJ_M}{}^l\\chi_l(q)
 \\tag{6.52}
 $$
 
-となる。$H_{\\mathrm{pert}}(\\lambda)$ は式 (6.51) の境界相互作用、$L_0^{\\mathrm{Vir}}$ はVirasoro零モード、$c_{\\mathrm{CFT}}=3k/(k+2)$ は中心電荷である。紫外固定点 $\\lambda=0$ ではスピン成分が独立なのでtraceは $\\dim V_{J_M}\\,\\chi_j=M\\chi_j$ に分かれる。相互作用によるスペクトルの変化を両固定点で比較すると
+となる（原著 pp.257–258、[Affleck–Ludwigのfusion則](https://doi.org/10.1016/0550-3213(91)90109-B)）。$H_{\\mathrm{unpert}}=L_0-c/24$ で、$c=3k/(k+2)$ は中心電荷である。$q$ はannulusの形状が決める $0<q<1$ の重みであり、$\\chi_l$ はアフィン表現 $\\mathcal H_l$ の全状態を数える指標である。$N_{jJ_M}{}^l$ は $SU(2)_k$ のfusion多重度を使う。
+
+相互作用のない紫外ではスピンの $M$ 成分が独立なので、左辺は $M\\chi_j$ である。従って固定点間のスペクトル変化を
 
 $$
-\\boxed{
-M\\chi_j(q)\\longrightarrow\\sum_lN_{jJ_M}{}^l\\chi_l(q).
-}
+M\\chi_j(q)\\longrightarrow\\sum_lN_{jJ_M}{}^l\\chi_l(q)
 \\tag{6.53}
 $$
 
-となる。$\\chi_j(q)=\\operatorname{Tr}_{\\mathcal H_j}q^{L_0^{\\mathrm{Vir}}-c_{\\mathrm{CFT}}/24}$ はdescendantまで数える[アフィンcharacter](/6-1#ref-character)であり、$N_{jJ_M}{}^l$ は表現 $j,J_M$ のfusionから表現 $l$ が現れる多重度である。以下では式 (6.52) の固定点スペクトルを入力として、凝縮先のbraneを同定する。
+と書ける。独立だった有限次元のスピンが、赤外ではアフィン表現とのfusionへ組み込まれることが「吸収」の意味である。
 
-左辺の $M$ は短距離・高エネルギー（紫外）で独立だったboundary-spin成分である。赤外ではその有限次元spinが消えたのではなく、アフィンsectorとのfusionへ吸収されている。
+$2J_M=k$ はexact screening、$2J_M<k$ はoverscreeningの場合である。$2J_M>k$ ではunderscreeningとなり、同じ有限結合の固定点には到達しない。large-$k$ で得た表現解を、無条件に有限 $k$ へ移せるわけではない。
 
-### 9.2 point-brane stackへ二回適用する
+### 6.2 開弦の両端へ吸収則を適用する
 
-$Z_Q(q)$ を配置 $Q$ 上の開弦の分配関数、すなわち全開弦状態を共形ウェイトの重み付きで数えたものとする。$M$ 枚のpoint-like braneでは、open stringの両端がそれぞれ $M$ 枚のどれにも付けるので
-
-$$
-Z_{(M,0)}(q)=M^2\\chi_0(q).
-$$
-
-吸収則を一方の端点へ適用すると
+$M$ 枚の $J=0$ ブレーンでは、両端の番号を独立に選ぶので、分配関数は $M^2\\chi_0$ である。片端へ式 (6.53) を適用すると、$0\\star J_M=J_M$ より $M\\chi_{J_M}$ になる。もう片端にも適用すると
 
 $$
-M^2\\chi_0
-\\longrightarrow M\\chi_{J_M},
+M^2\\chi_0\\longrightarrow M\\chi_{J_M}
+\\longrightarrow\\sum_jN_{J_MJ_M}{}^j\\chi_j
+=Z_{(1,J_M)}.
 $$
 
-もう一方にも適用すると
+最後の式は、一枚のCardy境界 $J_M$ の自己annulusと一致する。ラベルも同定するため、他端を試験境界 $0$ に固定する。この場合はstack側の一端だけに吸収則を使うので
 
 $$
-M\\chi_{J_M}
-\\longrightarrow
-\\sum_jN_{J_MJ_M}{}^j\\chi_j
-=Z_{(1,J_M)}(q).
+Z_{0,(M,0)}=M\\chi_0
+\\longrightarrow\\sum_lN_{0J_M}{}^l\\chi_l
+=\\chi_{J_M}=Z_{0,J_M}.
 $$
 
-したがって
+$0\\star J_M=J_M$ により、試験境界とのスペクトルは $J_M$ を直接選ぶ。従って
 
 $$
-\\boxed{
-(M,0)\\longrightarrow(1,J_M)
-}
+(M,0)\\longrightarrow(1,J_M),\\qquad M-1=2J_M\\leq k
 \\tag{6.54}
 $$
 
-は、条件 $2J_M=M-1\\leq k$ の範囲で有限 $k$ にも存続する。$2J_M>k$ では、不純物スピンを十分に遮蔽しきれないunderscreened領域に入り、有限couplingの同じ固定点へ到達しない。large-$k$ 行列模型の定常点と、有限-$k$ CFTのfusion則が同じflowを予言した。
+の凝縮が有限レベルにも存続する。低エネルギー作用の漸近的な照合を、有限 $k$ の固定点スペクトルが支えた。
 
-### 9.3 球面braneのstackへの適用
-
-同じ吸収則は、$J$ 型braneを $M=2J_M+1$ 枚重ねた配置にも使える。$2J_M\\leq k$ のもとで、constantなChan--Paton行列にスピン $J_M$ の既約表現を選ぶと、終点は
+同じ規則は $J$ 型の球面を $M=2J_M+1$ 枚重ねた配置にも使える。終点は
 
 $$
 (M,J)\\longrightarrow\\bigoplus_lN_{J\\,J_M}{}^l(1,l)
 $$
 
-と予測される。右辺は、fusionで現れるラベル $l$ のbraneの重ね合わせである。これを調べるには、他端に任意のCardy境界 $I$ を置いてannulusを比較する。吸収則 (6.53) をstack側の端点に適用すると
+となり、fusionで現れる各ラベルの球面の重ね合わせになる。有限 $k$ のfusion切断もこの式に含まれる。
+
+<details>
+<summary>任意の試験境界とのannulusで終点を判定する</summary>
+
+他端に任意のCardy境界 $I$ を置く。stack側だけに吸収則を用いると
 
 $$
 \\begin{aligned}
@@ -7442,94 +6368,53 @@ M\\sum_jN_{IJ}{}^j\\chi_j
 \\end{aligned}
 $$
 
-第二行にはfusionの結合則 $(I\\star J)\\star J_M=I\\star(J\\star J_M)$ を使った。任意の $I$ に対し、最後の式は上のbraneの重ね合わせとのannulusに一致する。$J=0$ では $0\\star J_M=J_M$ なので式 (6.54) に戻る。このように、large-$k$ で見つけたconstant解の終点は、有限 $k$ ではfusionによる切断も含めて調べられる。
+二行目はfusionの結合則による。任意の $I$ とのannulusが、このラベルの重ね合わせとのannulusへ変わっている。$J=0$ なら一つの $J_M$ だけが現れ、式 (6.54) を再現する。
 
-## 10. RG flowからDブレーンchargeを読む
+</details>
 
-点状ブレーン $M$ 枚が一枚の球面になっても、凝縮前の枚数をその球面に記録できるだろうか。式 (6.54) は、ラベル $J$ の球面に $M=2J+1$ を対応させる。そこで、形が変わっても保存され、重ね合わせに対して加算される量をcharge（電荷）と呼び、この数え方がすべてのflowと両立するかを調べる。
+## 7. RG flowが保存する電荷を数える
 
-電荷を調べるため、ここからは世界面のフェルミオンを含むsupersymmetric（超対称）模型を扱う。$k$ は引き続きbosonicカレント代数のレベルで、超対称模型のレベルは $\\kappa=k+2$ である。有限レベルの $S^3$ 背景では、R–R（Ramond–Ramond）閉弦モードへの結合は整数単位の電荷として量子化されない（原著 p.258、同所の文献 [31]）。世界面のRG flowで結ばれる配置に同じ値を割り当てることが、保存電荷を調べる手掛かりになる。
+球面へ凝縮しても、出発点の枚数を保存する量を割り当てられるだろうか。重ね合わせに対して加算され、許される境界RG flowで不変な量をブレーン電荷とする。式 (6.54) により、ラベル $J$ のブレーンには北極側の一枚の電荷 $q_0$ の $(2J+1)$ 倍を割り当てる必要がある。
 
-以下では原著 pp.257–258 に従い、同じ向きの最大対称braneを重ね、共通のフェルミオン・外部因子をもつ境界条件について、fusionで与えられる凝縮先を用いる。超対称な境界相互作用のbosonic低エネルギー作用も式 (6.44) になるが、有限レベルの終点は吸収則からの入力である。理論の構成と適用条件は下の補足で述べる。
+ここからは原著 pp.258–259 が扱う**超対称模型**の電荷を考える。$k$ は引き続きbosonicアフィン因子のレベルで、全超対称カレントのレベルは $\\kappa=k+2$ である。同じ向きのブレーン、共通のフェルミオン・外部因子、許容スピンの範囲で、bosonic境界ラベルが上のfusion則に従う結果を使う。R–R閉弦への結合だけを整数電荷とみなすと有限レベルでは適切に量子化されないため、原著はRG不変な電荷から調べている。
 
-北極側のブレーン一枚のchargeを $q_0$ とする。$M=k+1$ は式 (6.54) を適用できる最大の枚数なので、その終点 $J=k/2$ の電荷は保存則から
+最大の許容枚数 $M=k+1$ に吸収則を使うと、終点は $J=k/2$ である。従って電荷保存から $q_{k/2}=(k+1)q_0$ となる。一方、この南極側の境界条件は、向きまで含めると北極側の反ブレーンを移動したものに対応する（原著 p.258）。反ブレーンは電荷の符号を逆にし、移動は電荷を変えないので、同じ終点には $q_{k/2}=-q_0$ と割り当てる必要がある。球面の位置だけでは向きは分からず、この反ブレーンの同定は追加の入力である。
 
-$$
-q_{k/2}=(k+1)q_0
-$$
-
-と数えられる。一方、同じ終状態について、原著 p.258 は「北極のanti-braneを南極へ移したもの」という向きを含む同定を与える。anti-brane（反ブレーン）は元のブレーンと反対の電荷をもち、位置を移しても電荷は変わらないため、こちらからは
+両方を合わせると
 
 $$
-q_{k/2}=-q_0
+(k+1)q_0=-q_0,\\qquad (k+2)q_0=0.
 $$
 
-を得る。この向きの同定は、球面の位置を求めた計算に加えて用いる入力である。
+非零の整数電荷では、この関係を満たせない。$q_0$ を繰り返し足すと零に戻る有限周期の電荷が必要であり、この関係だけなら周期は $k+2$ の約数と分かる。
 
-同じ終状態の電荷が二通りに数えられたので、両者を合わせると
-
-$$
-(k+1)q_0=-q_0,
-\\qquad\\boxed{(k+2)q_0=0.}
-$$
-
-非零の整数値を $q_0$ に割り当てると、この関係を満たせない。必要なのは、有限回足すと零に戻る電荷である。整数倍すると零になる関係をtorsion関係、初めて零になるまで足す回数を位数と呼ぶ。上の式から、その位数は $k+2$ の約数と分かる。最小の周期を決めるには、さらに小さい追加関係がないことを確かめる必要がある。
-
-完全な分類は、背景の $H$ 磁束を含むtwisted K-theoryから $\\mathbb Z_{k+2}$ と与えられる。この分類では $q_0$ の整数倍ですべての電荷を表せるので、$q_0$ をこの群の生成元と呼ぶ。その位数は正確に $k+2$ となる。従って、点状ブレーンの枚数を $k+2$ で割った余りが電荷を表す。twisted K-theoryは、ブレーンと反ブレーンの生成・消滅も許して電荷を分類するK理論に、背景の磁束を組み込んだものである。RG flowで見つけた関係が、この完全分類と一致する。
+周期を正確に決める別の結果が、$S^3$ の $H$ 磁束を組み込んだtwisted K-theoryである。$\\kappa=k+2$ 単位の磁束をもつこの球面因子のtwisted K-groupは $\\mathbb Z_{k+2}$ となり、北極側の一枚が生成元になる。この結果を用いれば、枚数を $k+2$ で割った余りが電荷であると分かる。上で求めたRGの関係はこの分類と両立する。[SU(2)の電荷とtwisted K-group（Fredenhagen–Schomerus、§§4.1, 5）](https://arxiv.org/pdf/hep-th/0012164)
 
 <details>
-<summary>超対称模型の境界相互作用と南極側のbrane</summary>
+<summary>超対称模型への移行、南極側の位置、分類の射程</summary>
 
-boundary RG flowで結ばれる配置を同じdynamical charge classとみなす。本文で用いたflowが成立する模型と、その終状態の幾何学的な解釈を確認する。
+超対称 $SU(2)$ 因子は、全カレントからフェルミオン双線形を分離すると、レベル $k=\\kappa-2$ のbosonicカレントと三つの自由フェルミオンの積へ書ける。最大対称境界ではcurrentとフェルミオンをgluingし、超カレントにも $G=\\pm\\bar G$ を課す。完全な超弦背景では外部因子とGSO射影へ適合する境界条件を選ぶ。
 
-supersymmetric $SU(2)$ WZW模型では、最大対称ブレーンは
+超対称なゲージ場頂点はフェルミオンによる状態と、その超対称descendantから作るので、境界相互作用にはcurrent項とフェルミオン項が伴う。bosonic作用 (6.44) が同じでも、bosonic模型のtachyonを残したまま超対称電荷の議論へ移るものではない。原著 pp.254, 258 と原論文の適合する超対称背景についての結果を使っている。
 
-$$
-J=0,\\frac12,\\ldots,\\frac k2
-$$
+有限 $k$ で $J=k/2$ の角度は $\\vartheta_{k/2}=\\pi-\\pi/(k+2)$ であり、閉弦の有限個の波から得る分布は文字通り南極のdeltaではない。$J=0$ も同様である。原著Figure 6.2の、点から球面が大きくなり赤道を越えて縮む像は、これらの境界条件の半古典的な配置を表す。電荷の関係は、有限レベルの厳密なflowと向きの同定から求めている。
 
-の $k+1$ 種類の境界条件をもつ。ここでも $k$ はbosonic affine $\\widehat{\\mathfrak{su}}(2)$ 因子のlevelである。supersymmetric levelを $\\kappa:=k+2$ と呼ぶ別規約では、以下の $k+2$ はすべて $\\kappa$ と書かれる。
-
-この移行には、世界面理論の変更が必要である。超対称 $SU(2)$ 因子は、フェルミオン双線形を全カレントから分離すると、レベル $k=\\kappa-2$ のbosonicカレント $\\widetilde{\\mathcal J}^a$ と三つの自由フェルミオン $\\chi^a$ の積に書ける。記号 $\\chi^a$ は境界primary $\\psi[A]$ と区別したもので、$\\chi^a(x)\\chi^b(0)\\sim(\\kappa/2)\\delta^{ab}/x$ の規格化を使う。最大対称境界では左右のカレントとフェルミオンを同じ群のgluingで接合し、超カレントにも $G=\\eta\\bar G$（$\\eta=\\pm1$）を課す。さらに超弦の状態の射影であるGSO射影と、外部時空因子の境界条件に適合したbraneを選ぶ。
-
-NS（Neveu–Schwarz）sectorは、フェルミオンが半整数モードを持つ状態空間である。ゲージ場の状態はこのsectorの $\\chi^a_{-1/2}|A_a\\rangle$ になり、境界に積分する相互作用はその超対称descendantから作る。たとえば一定のChan--Paton行列 $\\Lambda_a$ に対し、その線形項は、共通係数を除いて
-
-$$
-\\mathcal O_{\\Lambda}
-=\\Lambda_a\\left(\\widetilde{\\mathcal J}^{a}
--\\frac{i}{\\kappa}f^{a}{}_{bc}:\\chi^b\\chi^c:\\right)
-$$
-
-となる。これは $G_{-1/2}(\\Lambda_a\\chi^a_{-1/2}|0\\rangle)$ を書いたものであり、bosonic currentへの結合にフェルミオン項が伴う。非可換な $\\Lambda_a$ の有限結合では、境界に沿う順序付けとその接触項も超対称な境界相互作用として定義する必要がある。ここではこの線形頂点の指定と、[ARS §4後半](https://arxiv.org/html/hep-th/0003187v2#S4)の適合する超弦braneでの振幅計算を使う。その計算では球面方向のbosonic低エネルギー作用が式 (6.44) に一致する。
-
-有限レベルの終点には、低エネルギー作用とは別の入力を用いる。原著 pp.257–258 が超対称模型の最大対称ブレーンに適用する吸収則では、上の超対称境界相互作用の球面形成の向きに対し、bosonic因子の境界ラベルがspin $J_M$ とのfusionで変わる。適用するのは同じ向きのbraneのstack、許容spin $2J_M\\leq k$、共通のフェルミオン・外部因子を持つ境界条件である。以下で使う有限レベルの結論は、この条件での超対称flowの終点である。ここまでの頂点と最低次の作用の計算に加え、終点の同定を原著から採用している。
-
-北極 $e$ にpoint-like braneを重ね、式 (6.54) に従って凝縮させると、$M=2J+1$ の増加に伴って対応する球面は大きくなり、赤道を越えると再び縮む。$M=k+1$、すなわち $J=k/2$ では、large-$k$ の幾何学的像で南極 $-e$ のpoint-like objectへ至る。有限 $k$ では式 (quantised-angle) が
-
-$$
-\\vartheta_{k/2}=\\pi-\\frac{\\pi}{k+2}
-$$
-
-を与え、有限個のモードから再構成したone-point分布はdelta分布にならないため、文字通り一点へ局在しているわけではない。ここで使うのは、その境界条件が南極側の縮退共役類へ近づくことと、有限 $k$ のRG flowが厳密に存在することである。
-
-この位置の情報に、原著 p.258 によるbraneの向きの同定を合わせて、本文の $q_{k/2}=-q_0$ を用いる。
+K理論では、ブレーンと反ブレーンの生成・消滅なども含めた電荷の同値類を扱い、twisted K理論はそこに背景の積分 $H$ 磁束を組み込む。原著は、すべての許容共形境界条件やすべてのRG flowが既知ではないことにも注意する。一つのflowから完全な電荷群を証明したわけではなく、RGで得た関係と、この背景の数学的なtwisted K-groupを照合している。一般の背景でどのK理論が全弦的な電荷を捉えるかは、別に判定する必要がある。
 
 </details>
 
 ## 参考文献
 
-- A. Recknagel and V. Schomerus, *Boundary Conformal Field Theory and the Worldsheet Approach to D-Branes*, pp.246--247, equations (6.17), (6.24)--(6.25): Cardy one-point functionと共役類への局在。
-- 同書, pp.247--248, equations (6.26)--(6.31): gluing条件、共役類の接空間、$B$-field、Lie--Poisson構造。
-- 同書, pp.249--252, equations (6.32)--(6.41): fuzzy sphereの量子化、行列調和関数、境界OPEとの一致。
-- 同書, pp.252--256, equations (6.42)--(6.50): fuzzy sphere上のYang--Mills--Chern--Simons作用と古典解。
-- 同書, pp.257--259, equations (6.51)--(6.54) and Figures 6.1--6.2: Kondo RG、brane凝縮、twisted K-theoryによるchargeの解釈。
-- 同書, pp.239--245, equations (6.9), (6.11), (6.13), (6.16)--(6.23): modular $S$、fusion、fusing matrix、Cardy境界状態と境界OPE。6.3節で使う厳密CFTデータの出所。
-- A. Yu. Alekseev, A. Recknagel and V. Schomerus, “Brane dynamics in background fluxes and non-commutative geometry,” [hep-th/0003187](https://arxiv.org/abs/hep-th/0003187): 式 (6.44)--(6.50) のdisk振幅による相対係数、古典解、brane凝縮。
-
-- N. Seiberg and E. Witten, “String Theory and Noncommutative Geometry,” [hep-th/9908142](https://arxiv.org/abs/hep-th/9908142), §2.1: 一定の計量・磁束での境界伝播関数と、その反対称部分。
+- Recknagel–Schomerus, *Boundary Conformal Field Theory and the Worldsheet Approach to D-Branes*, Chapter 6, pp.245–259。§6.3.1、式 (6.24)–(6.25)：閉弦波と球面への局在。§6.3.2、式 (6.26)–(6.31)：gluing、共役類、磁束、局所Poisson構造。§6.3.3、式 (6.32)–(6.41)：有限行列と境界OPE。§6.3.4、式 (6.42)–(6.54)：有効作用、凝縮、Kondo固定点、電荷。
+- 同書 §6.2、式 (6.16)–(6.23)：Cardy境界状態の真空結合、開弦スペクトル、boundary primaryのOPE。
+- G. Felder, J. Fröhlich, J. Fuchs and C. Schweigert, [“The geometry of WZW branes”](https://arxiv.org/abs/hep-th/9909030), §2：境界状態の位置表示。
+- N. Seiberg and E. Witten, [“String Theory and Noncommutative Geometry”](https://arxiv.org/abs/hep-th/9908142), §2.1：局所一定背景の境界伝播関数。
+- A. Yu. Alekseev, A. Recknagel and V. Schomerus, [“Brane dynamics in background fluxes and non-commutative geometry”](https://arxiv.org/abs/hep-th/0003187), §§4–5：disk振幅、作用の規格化、古典解。
+- I. Affleck and A. W. W. Ludwig, [“The Kondo effect, conformal field theory and fusion rules”](https://doi.org/10.1016/0550-3213(91)90109-B)：境界スピンとfusionによる固定点スペクトル。
+- S. Fredenhagen and V. Schomerus, [“Branes on Group Manifolds, Gluon Condensates, and twisted K-theory”](https://arxiv.org/abs/hep-th/0012164), §§4–5：超対称模型の電荷とtwisted K-theoryとの比較。
 `},{id:`6-4`,section:`6.4`,shortTitle:`WZW coset と orbifold`,content:`# 6.4 WZW模型のorbifold・cosetとbrane
 
-6.3では、$SU(2)$ WZW模型の境界条件を球面braneとして読み、その上の開弦を調べた。ここでは、親理論の対称性を使って別の理論を作ると、このbraneがどう移るかを考える。
+6.3では、境界状態のbulk一点係数を群上の波動関数への応答として読み、$SU(2)$のbraneが共役二球面に局在することを得た。また、annulusのcharacter展開は、そのbraneを両端に持つ開弦のsectorと重複度を与えた。ここでは、$SU(2)$の点を対称性で同一視して別の理論を作り、この二つの測定から商空間のbraneを決める。
 
 最初の例は $SO(3)=SU(2)/\\mathbb Z_2$ である。$g$ と $-g$ を同じ点とみなすと、北側と南側の球面は一枚に重なる。では、もともと自分自身へ移る赤道球面はどうなるだろうか。形だけでは区別できない二種類の境界条件が生じる理由を、開弦の状態から確かめる。
 
@@ -7555,7 +6440,7 @@ $$
 
 の場合を扱う。
 
-親 $SU(2)_k$ 理論のsectorは $j=0,\\frac12,1,\\ldots,2n$ である。任意のsectorとfusionしても単一のsectorを与えるものを **simple current** と呼ぶ。この模型では
+親 $SU(2)_k$ 理論のsectorは $j=0,\\frac12,1,\\ldots,2n$ である。sector $\\mathcal H_j$ はspin $j$ の有限次元基底状態とcurrentの励起からなり、その基底ウェイトは $h_j=j(j+1)/(k+2)$ である。中心作用がbraneを交換する規則を、同じ表現ラベルの上でも求めよう。任意のsectorとfusionしても単一のsectorを与えるものを **simple current** と呼ぶ。この模型では
 
 $$
 j_{\\rm sc}:=\\frac{k}{2}=2n,
@@ -7565,7 +6450,7 @@ $$
 
 が非自明なsimple currentとその作用を与える。[fusion則](/6-1#ref-fusion)の出力範囲に $j_{\\rm sc}=2n$ を入れると、下限 $|2n-j|$ と上限 $\\min(2n+j,2n-j)$ がともに $2n-j$ となるためである。$j_{\\rm sc}\\star j_{\\rm sc}=0$ なので、$\\{0,j_{\\rm sc}\\}$ はfusionについて $\\mathbb Z_2$ を作る。
 
-このラベルの作用と球面の交換は、[Cardy](/6-2#ref-cardy-coefficients) braneの共役類角から対応づけられる。brane $J$ の角度は $\\vartheta_J=\\pi(2J+1)/(4n+2)$ なので
+braneにも親理論のsectorと同じ範囲のラベル $J$ が付く。6.3で一点係数から得た局在角は $\\vartheta_J=\\pi(2J+1)/(k+2)$ である。$k=4n$ を代入すれば、上のfusionによるラベル変換は
 
 $$
 \\vartheta_{\\iota(J)}
@@ -7574,7 +6459,7 @@ $$
 \\tag{simple-current-reflects-latitude}
 $$
 
-orbit $[J]=\\{J,2n-J\\}$ は一般に二要素をもち、$J=n$ だけが一要素となる。このfixed labelに対応する共役類は
+orbit $[J]=\\{J,2n-J\\}$ は一般に二要素をもち、$J=n$ だけが一要素となる。この群作用で動かないラベルを **fixed label** と呼ぶ。対応する共役類は
 
 $$
 \\vartheta_n=\\frac\\pi2,
@@ -7582,7 +6467,7 @@ $$
 \\tag{fixed-label-is-equator}
 $$
 
-という赤道である。ここでfixedなのはbraneのラベルと局在集合であり、赤道上の各点は反対点へ移る。
+という赤道である。対応する赤道球面は集合として保たれるが、その上の各点は反対点へ移る。したがって標的空間に固定点はない。
 
 $k=4n$ という条件は、simple currentをchiral algebraへ加えるときに現れる。その共形ウェイトは
 
@@ -7591,9 +6476,16 @@ h_{j_{\\rm sc}}
 =\\frac{2n(2n+1)}{4n+2}=n\\in\\mathbb Z.
 $$
 
-従って、vacuum moduleと合わせた $\\mathcal A_{\\rm ext}=\\mathcal H_0\\oplus\\mathcal H_{j_{\\rm sc}}$ を整数spinの拡張代数にできる。ここでは原著§4.A.3の自己局所的simple-current構成を用い、局所的・結合的なOPEを持つ拡張の存在を入力とする。自己局所性と残るsectorの条件は、次節のmonodromy chargeで確認する。
+従って、vacuum moduleと合わせた $\\mathcal A_{\\rm ext}=\\mathcal H_0\\oplus\\mathcal H_{j_{\\rm sc}}$ を整数spinの拡張代数にできる。ここでは、追加する場どうしを一周させても位相が変わらないという自己局所性の条件の下で、局所的・結合的な拡張OPEを構成できるという原著§4.A.3の結果を入力とする。自己局所性と残るsectorの条件は、次節のmonodromy chargeで確認する。
 
-WZ位相の量子化には偶数 $k$ が必要である。被覆 $SU(2)\\to SO(3)$ の次数が2なので、商上の基本3-cycleを通るfluxは $k/2$ になるためである。本節の $k=4n$ は、この条件に加えて上の整数spin拡張を使える場合に当たる。
+<details id="so3-level-condition">
+<summary>$SO(3)$のWZ位相と、本節で$k=4n$を選ぶ理由</summary>
+
+WZ位相の量子化だけなら偶数 $k$ が必要である。被覆を $p:SU(2)\\to SO(3)$、商の規格化した3形式を $\\omega$ とすると、被覆の次数2から $\\int_{SU(2)}p^*\\omega=2\\int_{SO(3)}\\omega$ である。親理論のfluxが整数 $k$ なので、商上のfluxは $k/2$ となり、これも整数でなければならない。
+
+本節ではさらに、追加するsimple currentのウェイト $h_{k/2}=k/4$ を整数にして、通常の局所的なchiral algebra拡張を使う。このため $k=4n$ に範囲を絞った。偶数levelの全てを本節の公式が扱うわけではない。
+
+</details>
 
 ### 1.2 閉弦のtwisted sectorとorbifold分配関数
 
@@ -7624,7 +6516,30 @@ $$
 
 $b$ は時間方向の貼り合わせに中心作用を入れるかどうかを表す。torusの周期を交換する $S$ 変換は $(a,b)\\mapsto(b,a)$、$T$ 変換は $(a,b)\\mapsto(a,b+a)$ と四つの振幅を移す（添字はmodulo 2）。
 
-親理論のbulk sector $j$ に中心元は $(-1)^{2j}$ と作用する。[character](/6-1#ref-character)を用いれば、untwistedの二振幅と、それらのmodular変換で得られるtwistedの二振幅は
+親のbulk基底状態に対応する波動関数はspin $j$ の表現行列 $D^j(g)$ である。$D^j(-g)=(-1)^{2j}D^j(g)$ だから中心元の作用は $(-1)^{2j}$ となる。currentは中心作用で不変なので、同じ符号がsector全体に作用する。以下、$\\chi_j(q)=\\operatorname{Tr}_{\\mathcal H_j}q^{L_0-c/24}$ を親のchiral characterとする。
+
+untwistedだけを射影すると整数spinの対角項が残る。しかし射影のtraceに入れた中心作用は、torusの二周期を交換すると空間方向のtwistへ移るため、この対角和だけではmodular不変にならない。twisted振幅を求めるには、既知のsine型 $S$ 行列に $\\iota(r)=2n-r$ を入れる。$\\sin((2j+1)\\pi-x)=(-1)^{2j}\\sin x$ より $S_{j,\\iota(r)}=(-1)^{2j}S_{jr}$ だから、$Z_{0,1}$ の $S$ 変換で $\\chi_r\\overline{\\chi_s}$ に掛かる係数は
+
+$$
+\\sum_j(-1)^{2j}S_{jr}\\overline{S_{js}}
+=\\sum_jS_{j,\\iota(r)}\\overline{S_{js}}
+=\\delta_{s,\\iota(r)}.
+$$
+
+従って $Z_{1,0}=\\sum_j\\chi_j\\overline{\\chi_{\\iota(j)}}$ である。さらに $T$ は各交差項へ $e^{2\\pi i(h_j-h_{\\iota(j)})}=e^{2\\pi i(j-n)}=(-1)^{2j}$ を掛け、$Z_{1,1}$ を与える。$Z_{0,0}+Z_{0,1}$ と $Z_{1,0}+Z_{1,1}$ は、それぞれこの符号が正の整数spinだけを二倍して残す。四振幅を平均すると、
+
+$$
+Z_{\\rm orb}
+=\\sum_{\\substack{j=0\\\\j\\in\\mathbb Z}}^{2n}
+\\left(|\\chi_j|^2+\\chi_j\\overline{\\chi_{2n-j}}\\right).
+$$
+
+ここで対角項はuntwisted、交差項はtwistedの不変部分から来る。twistによる交差の相手 $2n-j$ は、simple currentの作用 $\\iota(j)$ である。
+
+<details id="so3-torus-amplitudes">
+<summary>中心作用を入れたtraceのmodular変換と、四振幅の平均</summary>
+
+untwistedの二振幅は、恒等演算子または中心作用を挿入したtraceである。それらを$S,T$変換するとtwistedの二振幅を得る。
 
 $$
 \\begin{aligned}
@@ -7651,6 +6566,8 @@ Z_{\\rm orb}
 \\left(|\\chi_j|^2+\\chi_j\\overline{\\chi_{2n-j}}\\right).
 $$
 
+</details>
+
 半整数spinの項は射影で消えた。残った二要素orbitでは、$j$ と $2n-j$ の対角項・交差項が $|\\chi_j+\\chi_{2n-j}|^2$ にまとまる。fixed label $j=n$ では対角項と交差項が同じになる。よって
 
 $$
@@ -7662,9 +6579,9 @@ Z^{SO(3)}(q,\\bar q)
 }
 $$
 
-を得る。和は整数 $j$ について取り、これは $D_{\\mathrm{even}}$ modular invariantと呼ばれる。一般世界面での貼り合わせと接合条件には、前節で指定したsimple-current orbifoldの構成結果を用いる。
+を得る。和は整数 $j$ について取り、これは $D_{\\mathrm{even}}$ modular invariantと呼ばれる。この計算で確認したのはtorusのmodular不変性である。以後の境界場の積には、有限群orbifold境界CFTの構成結果を入力として使い、該当箇所でその内容を指定する。
 
-この射影は、拡張代数に対する局所性にも対応する。simple currentをsector $j$ の場のまわりに一周させる際の位相を測る **monodromy charge** は
+整数spinだけが残る条件を、chiral algebra拡張でも確かめる。simple currentの場とsector $j$ の場のOPEは、fusion先 $\\iota(j)$ に向かい、距離の冪 $h_{\\iota(j)}-h_{j_{\\rm sc}}-h_j$ を持つ。この冪の小数部分が、一方の場を他方の周囲に一周させたときの位相を定める。逆向きの位相を $e^{2\\pi iQ_{\\rm sc}(j)}$ と書いた量が **monodromy charge** であり、
 
 $$
 \\begin{aligned}
@@ -7677,11 +6594,11 @@ $$
 
 分子の差が $(2j-2n)(2n+1)$ となることを使った。従って、拡張した場とのmonodromyが自明な $Q_{\\rm sc}=0$ のsectorは、射影に残った整数spinと一致する。$Q_{\\rm sc}(j_{\\rm sc})=2n\\equiv0$ は追加する場の自己局所性を確認している。また $Q_{\\rm sc}(2n-j)\\equiv j$ なので、この条件はorbit全体で共通である。
 
-拡張代数では $\\chi_j+\\chi_{2n-j}$ が一つのcharacterとなる。fixed label $n$ を動かさない群、すなわち **stabilizer** は $\\mathbb Z_2$ 全体であり、その一次元表現は非自明元を $+1$ または $-1$ に写す二通りある。原著§4.A.3のfixed-point resolutionでは、これらが二つの拡張sectorを区別する。上の $2|\\chi_n|^2$ はその二つを親characterで書いたものである。
+拡張代数では、二つの親sectorが追加した場の作用で結ばれ、$\\chi_j+\\chi_{2n-j}$ が一つのcharacterとなる。一方、$n$ は作用の前後で同じなので、この方法だけでは二つのコピーを区別できない。固定ラベルを動かさない群を **stabilizer** と呼ぶ。$n$ のstabilizerは $\\mathbb Z_2$ 全体で、その非自明元に $+1$ または $-1$ を割り当てる二つの一次元表現がある。原著§4.A.3のfixed-point resolutionでは、この符号を指定して二つの拡張sectorに分ける。上の $2|\\chi_n|^2$ は、それらを親characterで書いたものに当たる。
 
 ### 1.3 赤道braneの二つのholonomyと開弦スペクトル
 
-境界では、親の $\\widehat{\\mathfrak{su}}(2)_k$ カレント代数とそのgluingを保つ条件を構成する。拡張で加えた場のgluingには自由度を残すので、親の全Cardy labelを用いる。[simple-current orbifoldの境界構成](https://arxiv.org/abs/hep-th/0108126)により、二要素orbitは
+閉弦の射影は、中心作用で変わらないbulk状態を選んだ。境界条件は、親braneとその像を合わせた配置を商へ降ろして作る。したがって、親brane一枚が単独で中心作用に不変である必要はない。ここでは親の $\\widehat{\\mathfrak{su}}(2)_k$ currentのgluingを保ち、拡張で加えた場のgluingまで一律に固定しない境界条件を含める。このため、整数spinのbulk sectorだけでなく、半整数を含む全ての親Cardy labelを出発点にする。[simple-current orbifoldの境界構成](https://arxiv.org/abs/hep-th/0108126)により、二要素orbitは
 
 $$
 [J]=\\{J,2n-J\\},
@@ -7690,9 +6607,9 @@ $$
 
 というbraneを与える。半整数 $J$ のbraneも、その像と合わせて商の境界条件になる。
 
-赤道では、$\\mathbb{RP}^2$ 上の端点の運び方に選択がある。端点の複素一次元の自由度を各点へ付けたものをline bundleと呼び、loopを一周したときの位相をholonomyと呼ぶ。非可縮loopの被覆へのliftは反対点で終わるため、この位相は反対点を同一視する際の端点の変換である。二周で縮められるので、flatなline bundleのholonomyは $\\epsilon=\\pm1$ の二通りになる。
+赤道では、$\\mathbb{RP}^2$ 上の端点の運び方に選択がある。端点の複素一次元の自由度を各点へ付けたものをline bundleと呼び、loopを一周したときの位相をholonomyと呼ぶ。非可縮loopの被覆へのliftは反対点で終わるため、この位相は反対点を同一視する際の端点の変換である。flatなline bundleでは、可縮loopのholonomyは1である。非可縮loopを二周すると縮められるので、一周のholonomy $\\epsilon$ は $\\epsilon^2=1$ を満たす。従って $\\epsilon=\\pm1$ の二通りになる。
 
-これはstabilizerの一次元表現 $W_\\epsilon=\\mathbb C$ に中心元を $\\gamma_\\epsilon=\\epsilon\\,\\operatorname{id}$ として作用させる選択である。対応する基本braneを $[n]_\\epsilon$ と書く。fixed-point resolutionは、この端点表現まで指定して固定orbitを分解する操作である。large-volumeでの局在集合との対応は
+これはstabilizerの一次元表現 $W_\\epsilon=\\mathbb C$ に中心元を $\\gamma_\\epsilon=\\epsilon\\,\\operatorname{id}$ として作用させる選択である。対応する基本braneを $[n]_\\epsilon$ と書く。固定orbitからbraneを作る際にもこの端点表現を指定する必要があり、その二つの選択が、境界のfixed-point resolutionで得る二つのbraneである。bulk sectorの分解で現れたstabilizerと同じ群が、ここでは端点の同一視に作用している。large-volumeでの局在集合との対応は
 
 $$
 \\begin{array}{c|c}
@@ -7703,7 +6620,11 @@ $$
 \\tag{so3-brane-destination}
 $$
 
-となる。この端点の選択が有限levelの開弦にもたらす違いを求めよう。親の赤道brane間の開弦空間はfusion則から
+となる。図の上段は二つの共役類が一つの球面へ移る操作、下段は一枚の赤道に対する二つの端点同一視を示す。$+$ と $-$ の違いは、局在集合の違いではなくholonomyの違いである。
+
+![北側と南側の共役二球面がSO(3)の一つの球面へ写る。赤道の反対点同一視はRP2を作り、同じRP2上で端点を同一視する符号がプラスまたはマイナスの二braneを区別する。](/diagrams/so3-conjugacy-quotient.svg)
+
+この端点の選択が有限levelの開弦にもたらす違いを求めよう。親の赤道brane間の開弦空間はfusion則から
 
 $$
 \\mathcal H_{nn}=\\bigoplus_{j=0}^{2n}\\mathcal H_j,
@@ -7718,7 +6639,7 @@ $$
 
 となる（原著§6.4.1、式 (6.56)）。この有限levelの構成結果を用いるので、符号は全descendantにも共通する。
 
-両端が $\\epsilon',\\epsilon$ の開弦には、端点の写像 $T:W_{\\epsilon'}\\to W_\\epsilon$ も付く。その変換は $\\gamma_\\epsilon T\\gamma_{\\epsilon'}^{-1}=\\epsilon\\epsilon'T$ であり、全群作用は
+開弦は、始点の端点自由度を終点の端点自由度へ写す。したがって両端が $\\epsilon',\\epsilon$ の開弦には、波動状態とともに写像 $T:W_{\\epsilon'}\\to W_\\epsilon$ も付く。その変換は $\\gamma_\\epsilon T\\gamma_{\\epsilon'}^{-1}=\\epsilon\\epsilon'T$ であり、全群作用は
 
 $$
 \\mathcal U_{\\epsilon\\epsilon'}(\\psi\\otimes T)
@@ -7761,7 +6682,9 @@ $$
 
 ### 1.4 赤道braneの境界OPEとcrossed product
 
-赤道braneの系列 $J=n=k/4$ に沿って $k\\to\\infty$ とすると、式 (6.55) のspin上限 $2n$ が外れ、低エネルギーの境界場は球面調和関数 $Y_m^j$ で表される。原著によれば、この極限では赤道上の $B$-fieldが消え、未分裂braneの境界OPEは、以下のcrossed productの積へ収束する（原著 p.262）。
+開弦を数える式 (6.55) には、各spinが二コピーずつ現れた。次に、それらの場を掛けたときに四種類の端点がどう接合するかを調べる。
+
+赤道braneの系列 $J=n=k/4$ に沿って $k\\to\\infty$ とする。この極限では、どの固定整数spin $j$ もやがて上限 $2n$ 以下になり、$h_j=j(j+1)/(k+2)\\to0$ となる。その基底場を球面調和関数 $Y_m^j$ と対応させれば、全ての固定 $j$ を通じて赤道 $S^2$ の関数を再構成できる。currentのdescendantは正整数の励起エネルギーを持つので、この低エネルギー代数には含めない。原著によれば、この極限では赤道上の $B$-fieldが消え、未分裂braneの境界OPEは、以下のcrossed productの積へ収束する（原著 p.262）。
 
 球面の反対点を交換する作用を関数へ移したものを $\\iota^*$ と書く。
 
@@ -7784,7 +6707,7 @@ $$
 A=C^\\infty(S^2)\\rtimes_{\\iota^*}\\mathbb Z_2
 $$
 
-を **crossed product algebra** と呼ぶ。一般要素は $f+h\\theta$ であり、各整数spinに $Y_m^j$ と $Y_m^j\\theta$ の二multipletを持つ。これが未分裂スペクトル (6.55) の二重化に対応する。積は上の関係だけで定まり、例えば
+を **crossed product algebra** と呼ぶ。一般要素は $f+h\\theta$ であり、各整数spinに $Y_m^j$ と $Y_m^j\\theta$ の二multipletを持つ。これが未分裂スペクトル (6.55) の二重化に対応する。別の元を $u+v\\theta$ と書く。$u,v$ も $S^2$ 上の関数である。積は上の関係だけで定まり、例えば
 
 $$
 (f+h\\theta)(u+v\\theta)
@@ -7794,7 +6717,7 @@ $$
 
 となる。群作用を挟むと、次の関数が反対点で評価されることがこの積に組み込まれている。
 
-端点の符号への射影子を $e_\\epsilon=(1+\\epsilon\\theta)/2$ とすれば、$e_\\epsilon e_{\\epsilon'}=\\delta_{\\epsilon\\epsilon'}e_\\epsilon$ である。$\\epsilon'$ から $\\epsilon$ への開弦を表す部分は
+同じ代数の中でresolved braneを取り出すには、群生成子 $\\theta$ の固有値を $\\epsilon$ に限定する。対応する射影子を $e_\\epsilon=(1+\\epsilon\\theta)/2$ とすれば、$e_\\epsilon e_{\\epsilon'}=\\delta_{\\epsilon\\epsilon'}e_\\epsilon$ である。$\\epsilon'$ から $\\epsilon$ への開弦を表す部分は
 
 $$
 A_{\\epsilon\\epsilon'}:=e_\\epsilon A e_{\\epsilon'}.
@@ -7823,13 +6746,30 @@ $$
 
 ### 1.5 力学と電荷
 
-球面braneの力学には、ラベル $J$ を固定した $k\\to\\infty$ 極限を用いる。この極限でも、6.3節の[fuzzy $S^2$](/6-3#ref-fuzzy-sphere)上のYang--Mills項とChern--Simons項の組合せが有効作用を与え、D0-braneのstackは球面braneへ膨張できる。前節の赤道代数では $J=k/4$ がレベルとともに増えており、この二つの極限は異なるスケーリングを用いている。
+球面braneの力学には、ラベル $J$ を固定した $k\\to\\infty$ 極限を用いる。6.3では、この極限の低い開弦modeが行列代数 $\\operatorname{Mat}(2J+1)$ を作り、三つの行列値場のYang--Mills項とChern--Simons項を組み合わせた有効作用を得た。原著p.262によれば、この作用の計算は商の球面braneにも引き継がれる。6.3の凝縮結果を使うと、$M$ 枚のD0-braneの端点行列が既約spin $(M-1)/2$ 表現を作る解は、一枚の球面braneに対応する。行列サイズが元の枚数 $M$ であり、Casimir条件 $\\sum_a S_a^2=((M-1)/2)((M+1)/2)\\mathbf1$ が半径一定の行列球面を与える。これは停留点の形だけからの同定ではなく、6.3で開弦スペクトルと一点応答を照合した結果を引き継いだものである。前節の赤道代数では $J=k/4$ がレベルとともに増えており、この二つの極限は異なるスケーリングを用いている。
 
-電荷群には、未分裂braneから $\\mathbb Z_{n+1}$ 型の寄与がある。赤道のresolved braneにはさらに追加chargeがあり、large-$k$ ではtwisted sectorの閉弦との結合から測定できる（原著 pp.261–262）。同じ $\\mathbb{RP}^2$ を台とする二つのbraneの違いは、開弦の射影に加えて、この閉弦への結合にも現れる。
+braneの電荷は、直和配置で加算でき、許された凝縮で保存される量として定める。$k=4n$ の未分裂braneについて、[Matsubara–Schomerus–Smedbäck §4.1](https://arxiv.org/abs/hep-th/0108126) は電荷群への寄与を
+
+$$
+\\mathbb Z_{k/2+1}=\\mathbb Z_{2n+1}
+$$
+
+とする。これは、この部分の電荷を整数の $2n+1$ による剰余で区別するという結果であり、背景の全braneを含む電荷群をここで決めたわけではない。
+
+赤道のresolved braneにはさらに追加chargeがあり、large-$k$ ではtwisted sectorの閉弦との結合から測定できる（原著p.262、同論文§4.1）。ここで結合とは、その閉弦のbulk場の境界一点係数を指す。同じ $\\mathbb{RP}^2$ を台とする二つのbraneの違いは、開弦の射影に加えて、この閉弦への応答にも現れる。
+
+<details id="so3-charge-source-convention">
+<summary>未分裂braneの電荷について、書籍と一次論文で異なる位数</summary>
+
+書籍p.262は $k=4n$ のもとで未分裂braneの寄与を $\\mathbb Z_{n+1}$ と記している。一方、同書がこのorbifoldの構成に参照するMatsubara–Schomerus–Smedbäckの一次論文§4.1（論文p.13、PDF第14ページ）は、同じ $k=4n$ の条件で $\\mathbb Z_{k/2+1}$ と記す。二つの表記は $k=4n$ を代入しても一致しない。
+
+本文では一次論文の $\\mathbb Z_{2n+1}$ を採用した。書籍の $\\mathbb Z_{n+1}$ を別の独立したcharge寄与として加えてはいけない。また、resolved braneの追加chargeを含む全電荷群は、この一つの値だけから決まらない。
+
+</details>
 
 ## 2. coset模型：状態の分解とbraneの幾何
 
-ここまでは離散群 $\\mathbb Z_2$ によるorbifoldを扱った。次に、連続部分群 $H\\subset G$ に対応する自由度を除くcoset模型を考える。
+ここまでは離散群 $\\mathbb Z_2$ によるorbifoldを扱った。次に、compact Lie群 $G$ の連続部分群 $H\\subset G$ に対応する自由度を除くcoset模型を考える。群の点を同一視したときに残る座標を、量子理論ではどの状態が担うかが問題となる。
 
 まず $SU(2)$ に $U(1)$ が共役で作用する例で、何を忘れ、何が残るのかを確かめよう。その後で、同じ自由度の除去をcurrentと状態空間で記述する。
 
@@ -7839,7 +6779,7 @@ $$
 g\\longmapsto hgh^{-1}
 $$
 
-という共役作用になる。本節では、この作用の軌道空間を $G/H$ と書き、射影を
+という共役作用になる。本節の $G/H$ は、$g$ と $hgh^{-1}$ を同じ点とする共役作用の軌道空間である。通常の右剰余類 $gH$ との混同を避けるため、以下では必ずこの作用で商を取る。その射影、すなわち群要素をその軌道へ送る写像を
 
 $$
 \\pi^G_{G/H}:G\\longrightarrow G/H
@@ -7848,7 +6788,7 @@ $$
 
 とする。この共役作用を使って、残る座標を実際に求める。
 
-$SU(2)$とそのCartan部分群$U(1)$の元を
+$SU(2)$の群要素を、二つの複素数 $\\alpha,\\beta$ を用いて
 
 $$
 g=
@@ -7856,17 +6796,16 @@ g=
 \\alpha&\\beta\\\\
 -\\beta^*&\\alpha^*
 \\end{pmatrix},
-\\qquad
-h=
-\\begin{pmatrix}
-\\omega&0\\\\
-0&\\omega^*
-\\end{pmatrix},
+\\qquad |\\alpha|^2+|\\beta|^2=1
 $$
 
+と書く。次に、Cartan部分群 $U(1)$ の元を位相 $\\omega$ で
+
 $$
-|\\alpha|^2+|\\beta|^2=1,
-\\qquad |\\omega|=1
+h=
+\\begin{pmatrix}
+\\omega&0\\\\0&\\omega^*
+\\end{pmatrix},\\qquad |\\omega|=1
 $$
 
 と書く。この共役作用を計算すると、
@@ -7894,15 +6833,15 @@ $$
 
 orbifoldとcosetの違いは、一点の近くに残る方向を比べると見える。反対点同一視 $g\\sim-g$ では、十分小さな近傍は離れた別の近傍と重なるだけなので、各点の近くの三方向は保たれ、$SO(3)$ も三次元である。一方、$SU(2)$ に $U(1)$ が共役で作用するcosetでは、一般の点を動かす連続した一方向を同一視するため、二方向が残る。
 
-この共役作用を局所ゲージ対称性にした理論がvector gauged WZW模型である。標準のcompact cosetでは、その量子化によって、$H$ currentの全modeの励起を取り除いた分岐多重度空間が状態を収める。以下ではこの対応を用い、残る演算子と状態を順に定める。ゲージ場を積分すると計量とdilatonも誘導されるため、上のdiskはまず残る座標を表している。
+この共役作用を、世界面の各点で独立に行えるゲージ対称性にした理論がvector gauged WZW模型である。局所的な変換を同一視するため、量子理論では $H$ currentの零modeだけでなく、全modeが作る励起を除く必要がある。標準のcompact cosetでは、ゲージ量子化後の状態は、以下で定義する分岐多重度空間に対応する。このゲージ量子化と代数的cosetの対応を外部入力とし、詳しい条件は下の補足に記す。ゲージ場の積分は計量とdilatonも生むので、上で求めたdiskは、まず座標空間を表している。
 
 ### 2.1 cosetの対称代数とVirasoro生成子
 
-まず局所的なcurrent代数を定める。$G$のcurrent algebraのレベルを$k_G$とし、affine埋め込み$\\iota:\\mathfrak h\\hookrightarrow\\mathfrak g$を選ぶ。不変内積$(\\ ,\\ )_G,(\\ ,\\ )_H$は、simple因子では長根の長さを、abelian因子ではcurrentの二点関数を固定するように選ぶ。**embedding index** $x_e$を
+まず局所的なcurrent代数を定める。$G$のcurrent algebraのレベルを$k_G$とし、affine代数まで延びる埋め込み $\\mathfrak h\\hookrightarrow\\mathfrak g$ を選ぶ。不変内積$(\\ ,\\ )_G,(\\ ,\\ )_H$は、simple因子では長根の長さの二乗を2に、abelian因子ではcurrentの二点関数を固定するように選ぶ。以下のlevel式は $H$ の各simple因子または一つの $U(1)$ 因子ごとに用いる。複数因子では $T^H$ を各因子のSugawara tensorの和とし、高次元abelian部分では中心項の内積行列を使う。一因子について、**embedding index** $x_e$を
 
 $$
-(\\iota X,\\iota Y)_G
-=x_e(X,Y)_H
+(X,Y)_G=x_e(X,Y)_H,
+\\qquad X,Y\\in\\mathfrak h\\subset\\mathfrak g
 $$
 
 で定めると、$H$ currentの中心項は$x_e$倍になるので
@@ -7930,13 +6869,20 @@ $$
 
 と定める。
 
-$L_n^G$のうち$H$ currentが作る部分を$L_n^H$として差し引いたため、$L_n^{G/H}$は$\\widehat{\\mathfrak h}_{k_H}$のcurrentと可換である。したがって$H$方向の励起を変えずに作用する独立なVirasoro代数になり、
+$H$ currentのmodeを $K_m^a$ とする。currentは両方のSugawara stress tensorに対して共形ウェイト1を持つため、
+
+$$
+[L_n^G,K_m^a]=-mK_{n+m}^a,\\qquad
+[L_n^H,K_m^a]=-mK_{n+m}^a.
+$$
+
+差を取れば $[L_n^{G/H},K_m^a]=0$ となる。$L_n^H$ 自体も $H$ currentの二次式なので、$L_n^{G/H}$ と $L_m^H$ は可換である。従って
 
 $$
 T^G=T^{G/H}+T^H
 $$
 
-という互いに可換な分解から中心電荷も加法的に分かれる：
+という互いに可換な分解になる。$G$のVirasoro交換関係から$H$の交換関係を引くと、混合交換子が零なので差もVirasoro代数となり、その中心項は二つの中心項の差である：
 
 $$
 \\boxed{
@@ -7946,7 +6892,7 @@ $$
 
 $H$の励起に使われるエネルギーを差し引くことで、それ以外の励起のエネルギーだけを測っている。
 
-<details>
+<details id="coset-virasoro-check">
 <summary>Virasoro生成子の差の交換関係と中心電荷</summary>
 
 $H$のcurrentを$K_m^a$と書く。currentの共形ウェイトは両方のSugawara構成で$1$なので
@@ -7982,7 +6928,7 @@ $$
 }
 $$
 
-$\\mathcal H_{(\\lambda,\\lambda')}$は、分母sector $\\lambda'$が$\\mathcal H^G_\\lambda$の中に現れる多重度空間である。$L_n^{G/H}$は$H$ currentと可換なので、この多重度空間だけに作用する。この空間がcoset chiral algebraの表現を担う。たとえば同じ$H$表現が三回現れれば、$H$の演算子は三つのコピーの内部で同じように作用し、どのコピーかを区別しない。そのコピーを区別する三次元空間が多重度空間である。affine表現では各励起段階にコピーが現れるため、この空間自体が無限次元になり、残る励起を収める。分母labelは、どの$H$表現に伴う空間を選んだかを記録している。
+残した空間 $\\mathcal H_{(\\lambda,\\lambda')}$ は、分母sector $\\lambda'$ が $\\mathcal H^G_\\lambda$ の中に何度、どのエネルギーで現れるかを記録する **分岐多重度空間** である。$L_n^{G/H}$は$H$ currentと可換なので、この多重度空間だけに作用する。この空間がcoset chiral algebraの表現を担う。有限次元の例で、同じ$H$表現が三回現れれば、$H$の演算子は三つのコピーの内部で同じように作用し、どのコピーかを区別しない。そのコピーを区別する三次元空間が多重度空間である。affine表現では各励起段階にコピーが現れるため、この空間自体が無限次元になり、残る励起を収める。分母labelは、どの$H$表現に伴う空間を選んだかを記録している。
 
 characterの言葉では、上のHilbert空間の分解は
 
@@ -7995,7 +6941,7 @@ $$
 
 となる。ここで$z_H$は$H$のCartan chargeを数える変数である。$L_0^G=L_0^{G/H}+L_0^H$と$c_G=c_{G/H}+c_H$により、各直和成分で$q^{L_0-c/24}$のtraceが二因子に分かれる。係数$b_{(\\lambda,\\lambda')}(q)$は残った多重度空間上のtrace、すなわちcoset characterである。
 
-以下では、原著と同じく有限種類の既約sectorを持ち、多重度空間が同一視と必要な固定点分解を経てそれらのsectorを与えるcosetを扱う。この性質は模型を選ぶ際の仮定である。
+分岐だけでは、零の空間をラベルとして残したり、同じcoset表現を二度数えたりしてしまう。以下では、有限種類の既約sectorを持つrational cosetを選び、非零の分岐空間が下の同一視と必要な固定点分解によってそのsectorを与えることを仮定する。分岐公式だけから、どのcosetでもこの性質を持つとは結論しない。
 
 この分解から二つの規則が生じる。
 
@@ -8022,7 +6968,7 @@ $$
    (\\lambda,\\lambda')\\sim(\\mu,\\mu')
    $$
    
-   と同一視する。以下、この同一視を生成するsimple-current対の有限群を $\\Gamma_{\\mathrm{id}}$ と書く。
+   と同一視する。本節で用いる模型では、この同一視は、分子と分母のラベルへ同時にfusionするsimple-current対から生じる。その有限群を $\\Gamma_{\\mathrm{id}}$ と書く。
 
 $\\Gamma_{\\mathrm{id}}$ が許容ラベル対の集合 $\\mathcal E$ に自由に作用し、すべてのorbitが同じ長さ $N_0=|\\Gamma_{\\mathrm{id}}|$ を持つ場合、sector集合は
 
@@ -8032,9 +6978,9 @@ $$
 
 によりラベルされる。$\\Gamma_{\\mathrm{id}}$ の作用に固定点がある場合は、この単純な商だけでは足りず、orbifoldの$[n]_\\pm$と同様のfixed-point resolutionや追加sectorが必要になる。
 
-以後、coset sectorを $i=[(\\lambda,\\lambda')]\\in I_{G/H}$ と書く。角括弧はfield-identification同値類を表し、括弧内はその代表である。cosetのcharacterを $\\chi_i=b_{(\\lambda,\\lambda')}$ と表す。
+ここから一般公式には、$\\Gamma_{\\mathrm{id}}$ が自由に作用し、追加のsectorを要しない場合だけを用いる。3節のminimal modelはこの条件を満たす。以後、coset sectorを $i=[(\\lambda,\\lambda')]\\in I_{G/H}$ と書く。角括弧はfield-identification同値類を表し、括弧内はその代表である。cosetのcharacterを $\\chi_i=b_{(\\lambda,\\lambda')}$ と表す。
 
-<details>
+<details id="coset-gauged-action">
 <summary>Vector gauged WZWの作用とゲージ対称性</summary>
 
 共役軌道の同一視を世界面の理論として実現するため、$\\mathfrak h$ に値を取るゲージ場 $A_z,A_{\\bar z}$ を導入し、位置に依存する $h(z,\\bar z)$ による共役変換をゲージ対称性とする。その作用は、traceとWZW作用の規約を揃えて
@@ -8054,12 +7000,12 @@ $$
 
 </details>
 
-<details>
+<details id="coset-brst-branching">
 <summary>BRST量子化と分岐多重度空間の対応</summary>
 
 標準のcompact cosetでは、正整数levelの可積分moduleと対応する分母の補助moduleを用いると、量子化後の物理状態は分岐多重度空間 $\\mathcal H_{(\\lambda,\\lambda')}$ に収まる。この対応は [Hwang–RhedinのBRST coset構成](https://arxiv.org/abs/hep-th/9305174) から採用する。
 
-BRST記述では、ゲージ固定によって分母の補助currentとghostを加え、ゲージ制約を表す冪零演算子 $Q$ に対して $\\ker Q/\\operatorname{im}Q$ を取る。$Q^2=0$ は誘導levelと補助current・ghostのanomaly相殺に依存する。ghost零modeの重複を除く相対cohomologyのghost数0成分では、各分母moduleの励起が相殺され、その多重度空間だけが残る。abelian分母なら、対角chargeを固定した上で、その振動子とゲージ・ghostの振動子を除く操作になる。
+BRST記述では、ゲージ固定によって分母の補助currentとghostを加え、ゲージ制約を表す冪零演算子 $Q$ に対して $\\ker Q/\\operatorname{im}Q$ を取る。$Q^2=0$ は誘導levelと補助current・ghostのanomaly相殺に依存する。非abelianのsimple分母では、補助currentのlevelを $-k_H-2h_H^\\vee$ とし、分母の基底最高ウェイトに対応する補助moduleはnull状態を持たないものを選ぶ（同論文§3、定理、式 (3.9)）。$h_H^\\vee$ は分母Lie代数のdual Coxeter数である。ghostのCartan零modeによる重複を除いた相対cohomologyを取ると、非零の成分はghost数0だけとなり、各分母moduleの励起が相殺され、その多重度空間が残る。abelian分母なら、対角chargeを固定した上で、その振動子とゲージ・ghostの振動子を除く操作になる。
 
 したがって単に $K_0$ のsingletを親Hilbert空間から選ぶ操作では足りない。局所ゲージ対称性はcurrentの非零modeにも制約を課し、その励起を除去する。この残った空間に $\\mathcal A_{G/H}$ の場が作用するので、幾何の共役商と分岐多重度による量子理論が結び付く。左右のsectorの組合せとfield identificationまで指定して、full CFTが決まる。
 
@@ -8067,7 +7013,22 @@ BRST記述では、ゲージ固定によって分母の補助currentとghostを�
 
 ### 2.3 cosetの$S$行列とfusion則
 
-$i=[(\\lambda,\\lambda')]$、$j=[(\\mu,\\mu')]$、$r=[(\\kappa,\\kappa')]$ とする。すべてのfield-identification orbitの長さが$N_0$である場合、cosetのfusion係数とmodular $S$-matrixは親理論のデータから
+境界状態を作るには、coset characterがmodular変換でどう混ざるかと、coset sectorどうしのfusionが必要になる。先に求めた分岐式 $\\chi^G=\\sum b\\chi^H$ にmodular変換を施すと、$G$側の変換を行い、$H$側の変換を逆に除く。このため一つのラベル対に対する係数は $S^G\\overline{S^H}$ となる。さらに同じcoset characterを表す $N_0$ 個のラベル対をまとめるので、係数は $N_0$ 倍される。
+
+sector $i=[(\\lambda,\\lambda')]$ と $j=[(\\mu,\\mu')]$ に対して、その行列は
+
+$$
+\\boxed{
+S_{ij}
+=N_0S^G_{\\lambda\\mu}
+\\overline{S^H_{\\lambda'\\mu'}}
+}
+\\tag{6.59}
+$$
+
+となる。$H$の$S$行列はunitaryなので、逆変換を複素共役で書ける。orbitをまとめられるためには、同一orbitの係数も同じである必要がある。simple-current型のselection ruleは、同一視を生成する各対 $(a,a')$ について $Q^G_a(\\mu)=Q^H_{a'}(\\mu')\\pmod1$ を要求する。ここで $Q_a(\\mu)=h_a+h_\\mu-h_{a\\times\\mu}\\pmod1$ はmonodromy chargeである。simple-currentの標準関係 $S_{a\\times\\lambda,\\mu}=e^{2\\pi iQ_a(\\mu)}S_{\\lambda\\mu}$ を使うと、分子の位相と複素共役した分母の逆位相が相殺するため、積は同一orbitの代表によらない。
+
+次に、結果sectorを $r=[(\\kappa,\\kappa')]$ とする。上の$S$行列をVerlinde公式へ入れると、fusion係数は
 
 $$
 \\boxed{
@@ -8079,24 +7040,9 @@ N^{H;\\nu'}_{\\lambda'\\mu'}
 \\tag{6.58}
 $$
 
-および
+となる。$N^{G;\\nu}_{\\lambda\\mu}$ は $G$ のfusion $\\lambda\\times\\mu$ に $\\nu$ が現れる重複度であり、分母の係数も同様である。まず分子・分母のfusionを別々に行い、二つの出力ラベルを組にする。その組が $r$ と同じcoset表現を与えるたびに重複度を加えるため、field-identification orbit全体の和になる。この公式の成立には、上で指定した固定点のないsector構成を用いている（原著p.263）。
 
-$$
-\\boxed{
-S_{ij}
-=N_0S^G_{\\lambda\\mu}
-\\overline{S^H_{\\lambda'\\mu'}}
-}
-\\tag{6.59}
-$$
-
-で組み立てられる。式 (6.58) の和は、結果ラベル$(\\kappa,\\kappa')$とfield identificationで同値なすべてのラベル対にわたる。分母側の複素共役は、characterの分岐式から$H$のmodular変換を逆変換して取り除くために現れる。$H$の$S$-matrixがunitaryであることが、ここで逆変換を複素共役で書ける理由である。
-
-ここで$N^{G;\\nu}_{\\lambda\\mu}$は$G$のfusion $\\lambda\\times\\mu$に$\\nu$が現れる重複度であり、$N^{H;\\nu'}_{\\lambda'\\mu'}$も同様である。
-
-この式の意味は、$G$側と$H$側でfusionを行い、結果を同じfield-identification同値類ごとに集めることである。個々の係数は親理論のfusion則と$S$-matrixから決まる。
-
-<details>
+<details id="coset-modular-matrix">
 <summary>cosetの$S$行列：複素共役とorbit長$N_0$の由来</summary>
 
 $\\chi^G_\\lambda=\\sum_{\\lambda'}b_{(\\lambda,\\lambda')}\\chi^H_{\\lambda'}$の両辺を$S$変換し、$H$のcharacterの係数を比べると
@@ -8132,9 +7078,9 @@ $$
 
 ### 2.4 一点関数と開弦スペクトル
 
-charge-conjugation modular invariantを取り、coset chiral algebraを保つ自明な[gluing](/6-2#ref-gluing)条件を課す。最大対称なCardy braneは $A=[(\\Lambda,\\Lambda')]\\in I_{G/H}$ でラベルされる。代表に対応する有限次元表現は $V^G_\\Lambda\\otimes(V^H_{\\Lambda'})^*$ であり、分母側に双対表現が入る。
+bulkにはcharge-conjugation modular invariant、すなわち各coset sectorを反chiralの共役sectorと一度ずつ組にした状態空間を取る。境界では左右のcoset chiral algebraを同じ生成子どうしで貼り合わせる自明なgluingを選ぶ。この条件では6.2のCardy構成が使え、最大対称なbraneを $A=[(\\Lambda,\\Lambda')]\\in I_{G/H}$ でラベルする。bulk sector $i$ に対する単位規格化した境界状態の係数は $S_{Ai}/\\sqrt{S_{0i}}$ であり、開弦の重複度にはfusion係数を用いる。代表に対応する有限次元表現は $V^G_\\Lambda\\otimes(V^H_{\\Lambda'})^*$ であり、分母側に双対表現が入る。これは一点係数の分母側が複素共役を取ることに対応し、次節では群要素の逆元として現れる。
 
-bulk sector $i=[(\\lambda,\\lambda')]$ の一点関数は
+bulk sector $i=[(\\lambda,\\lambda')]$ のprimaryの共形ウェイトを $h_i$ とする。その一点関数は
 
 $$
 \\boxed{
@@ -8148,15 +7094,15 @@ $$
 \\tag{6.60}
 $$
 
-である。ここでは原著の式 (6.60) の規格化を採用する。位置分布の同定に使う量を、真空への結合で割った**相対応答**
+である。式 (6.59) の $S_{Ai}/\\sqrt{S_{0i}}$ を単位規格化したIshibashi状態で評価すると、この右辺には共通因子 $\\sqrt{N_0}$ が付く。原著の式 (6.60) にはこの共通因子が記されていないため、ここでは同式の表示を保ち、絶対規格化を必要とする計算には直接用いない。以下では規格化に依存しない位置情報を使うため、真空への結合で割った **相対応答**
 
 $$
 R_A{}^i:=\\frac{B_A{}^i}{B_A{}^0}
 $$
 
-である。原著の規約と単位規格化したcoset Ishibashi状態との間にある共通因子は、この比で消える。その換算は、実際に $R_A{}^i$ を使う§2.5の導出で示す。
+とする。共通因子 $\\sqrt{N_0}$ はこの比で消える。$R_A{}^i$ は、bulk mode $i$ への応答を、brane全体の大きさを測る真空modeへの応答に対して比べた量である。
 
-同じCardy構成で、二つのbrane $A_1,A_2$ の重なりをopen channelへ変換すると、開弦スペクトルは
+同じCardy構成では、二つの境界状態の重なりをmodular変換でopen channelのtraceへ移すと、$A_1$から$A_2$への開弦sector $i$ の重複度が $N_{A_1i}{}^{A_2}$ になる。従って
 
 $$
 \\boxed{
@@ -8180,11 +7126,13 @@ $$
 
 となる。$N_{(\\lambda,\\lambda')}$は、$H$-sector $\\lambda'$が$G$-module $\\lambda$のどのaffine gradeで最初に現れるかを表す。有限次元Lie代数の表現$\\lambda$を$H$へ制限した段階ですでに$\\lambda'$が現れるラベル対では、このgradeは零である。
 
-$N_{(\\lambda,\\lambda')}$ は分岐に使う代表ラベル対に付く量であり、以下では $N$ と略記する。幾何に用いるsectorの集合は、$N=0$ となる代表を持つfield-identification同値類として定める。原著の $I^r_{G/H}$ はこの集合を表す。以下のlarge-level極限では、その代表の有限次元ラベルを固定して状態を追う。
+この分岐grade $N_{(\\lambda,\\lambda')}$ は代表ラベル対に付く量である。幾何に用いるsectorの集合は、分岐gradeが零になる代表を持つfield-identification同値類として定める。原著の $I^r_{G/H}$ はこの集合を表す。以下のlarge-level極限では、その代表の有限次元ラベルを固定して状態を追う。
 
-分子・分母の各因子のlevelを一定比率で大きくし、有限次元表現のlabelを固定すると、$h^G_\\lambda$と$h^H_{\\lambda'}$は$1/k$の大きさになる。$N=0$の場はこの極限で軽くなるが、$N>0$の場にはcurrentを励起するエネルギーが残る。この違いが、ゆっくり変化する幾何を読む際にgrade 0のsectorを選ぶ理由である。後の$N=2$模型のようにlevelを固定した因子も含む場合は、その因子のウェイトが残るため別に評価する。
+分子・分母の各因子のlevelを一定比率で大きくし、有限次元表現のlabelを固定すると、$h^G_\\lambda$と$h^H_{\\lambda'}$は$1/k$の大きさになる。grade 0の場はこの極限で軽くなるが、正のgradeを持つ場にはcurrentを励起するエネルギーが残る。この違いが、ゆっくり変化する幾何を読む際にgrade 0のsectorを選ぶ理由である。後のminimal modelのようにlevelを固定した因子も含む場合は、その因子のウェイトが残るため別に評価する。
 
-brane $A=[(\\Lambda,\\Lambda')]$ の局在集合を構成しよう。$G$のbrane共役類$C^G_\\Lambda$と、$H\\subset G$へ埋め込んだ分母共役類$C^H_{\\Lambda'}$から
+位置分布とは、各bulk波動関数をbrane上で平均した値を全て指定したものと考える。6.3で $SU(2)$ の一点係数を共役類上の平均と比べたのと同じ方法で、ここでも先に平均を作り、それが相対応答 $R_A{}^i$ と一致するかを確かめる。
+
+brane $A=[(\\Lambda,\\Lambda')]$ の局在集合の候補を構成しよう。$G$のbrane共役類$C^G_\\Lambda$と、$H\\subset G$へ埋め込んだ分母共役類$C^H_{\\Lambda'}$から
 
 $$
 C^G_\\Lambda(C^H_{\\Lambda'})^{-1}
@@ -8193,7 +7141,7 @@ u\\in C^G_\\Lambda,
 v\\in C^H_{\\Lambda'}\\}
 $$
 
-を作る。この集合は$H$の共役作用で不変である。実際、$h(uv^{-1})h^{-1}=(huh^{-1})(hvh^{-1})^{-1}$の二因子はそれぞれ元の共役類に属する。このため集合全体をorbit空間へ射影できる。coset braneの局在集合は
+を作る。この集合は$H$の共役作用で不変である。実際、$h(uv^{-1})h^{-1}=(huh^{-1})(hvh^{-1})^{-1}$の二因子はそれぞれ元の共役類に属する。このため集合全体をorbit空間へ射影できる。二つの共役類の積と射影によって得る候補は
 
 $$
 \\boxed{
@@ -8207,14 +7155,74 @@ $$
 
 分母label$\\Lambda'$が、射影する前に親braneを$H$共役類の全要素でずらす。その後で$H$共役方向を忘れる。式 (6.60) の$G$因子と共役$H$因子、式 (6.62) の$C^G$と$(C^H)^{-1}$は、代数と幾何で同じ二段階を表している。
 
-この集合に沿う分布を一点関数から同定するには、$G$ の表現行列の $H$ 表現添字を部分traceして作る、不変modeへの応答を比べる。共役類上で平均した表現行列はSchurの補題によりcharacterの定数倍となるため、$uv^{-1}$ 上の平均は分子characterと分母characterの複素共役の積を与える。このmodeをHaar測度で正規化した応答は、large-level極限の $R_A{}^i$ と一致する。こうして全ての不変modeで応答を確かめると、位置分布は二つの共役類測度を $uv^{-1}$ に移し、さらに商へ射影したものと分かる。
+この候補の平均と一点関数を比較する。$G$の表現 $\\lambda$ を $H$ へ制限したときに現れる表現 $\\lambda'$ を選び、次元を $d_\\lambda:=\\dim V^G_\\lambda$、$d_{\\lambda'}:=\\dim V^H_{\\lambda'}$ とする。同じ $H$ 表現のコピーを $r,t$ で区別し、$H$ 添字 $\\mu$ だけを平均traceした関数を
+
+$$
+F^{\\lambda\\lambda'}_{rt}(g)
+:=\\frac1{d_{\\lambda'}}\\sum_{\\mu=1}^{d_{\\lambda'}}
+\\langle r,\\mu|D^\\lambda(g)|t,\\mu\\rangle
+$$
+
+と定める。全体の体積を1にしたHaar測度で、行列要素の直交性 $\\int_G|D^\\lambda_{ab}|^2dg=1/d_\\lambda$ を使うと、trace内の $d_{\\lambda'}$ 個の項は互いに直交する。従って
+
+$$
+\\|F^{\\lambda\\lambda'}_{rt}\\|^2=\\frac1{d_\\lambda d_{\\lambda'}},
+\\qquad
+\\widehat F^{\\lambda\\lambda'}_{rt}
+:=\\sqrt{d_\\lambda d_{\\lambda'}}F^{\\lambda\\lambda'}_{rt}
+$$
+
+が単位規格化したmodeである。
+
+共役変換ではblockの両側に $H$ の表現行列とその逆行列が掛かる。traceの巡回性で相殺するため、$F^{\\lambda\\lambda'}_{rt}(hgh^{-1})=F^{\\lambda\\lambda'}_{rt}(g)$ となり、これは商空間の波動関数である。
+
+有限次元の群characterを $\\chi^{G,\\mathrm{fin}}_\\lambda$ とする。親WZWのbrane共役類には、$\\chi^{G,\\mathrm{fin}}_\\lambda(t_\\Lambda)=S^G_{\\lambda\\Lambda}/S^G_{0\\Lambda}$ を満たす代表点 $t_\\Lambda$ の規約を用いる。これはshiftしたweightとlevelによるWZWの共役類選択であり、原著§6.4.2と [Fredenhagen–Schomerus付録A](https://arxiv.org/abs/hep-th/0111189) から採用する。$SU(2)$ では $\\vartheta_J=\\pi(2J+1)/(k+2)$ に当たる。$H$ 側も同じ規約を用いる。共役類上で表現行列を平均すれば、群作用と可換な行列になるため、Schurの補題により
+
+$$
+\\int_{C^G_\\Lambda}D^\\lambda(u)\\,d\\mu_G(u)
+=\\frac{\\chi^{G,\\mathrm{fin}}_\\lambda(t_\\Lambda)}{\\dim V^G_\\lambda}\\,\\mathbf 1.
+$$
+
+ここで $d\\mu_G$ は共役類上の不変確率測度である。$H$側の逆元 $v^{-1}$ に対する平均も同様で、characterが複素共役になる。従って、二つの共役類を独立に平均し、$D^\\lambda(uv^{-1})=D^\\lambda(u)D^\\lambda(v^{-1})$ を使うと、波動関数への応答は分子characterと分母characterの複素共役の積を含む。
+
+一点係数の側も、式 (6.60) を $B_A{}^0$ で割り、指定したcharacterの対応を使えば
+
+$$
+R_A{}^i
+=\\frac{\\chi^{G,\\mathrm{fin}}_\\lambda(t_\\Lambda)
+\\overline{\\chi^{H,\\mathrm{fin}}_{\\lambda'}(t_{\\Lambda'})}}
+{\\sqrt{d^q_\\lambda d^q_{\\lambda'}}},
+\\qquad d^q_\\lambda:=\\frac{S^G_{0\\lambda}}{S^G_{00}}
+$$
+
+となる。分母側の量子次元 $d^q_{\\lambda'}$ も $H$ の $S$ で定める。固定した有限次元表現についてlevelを大きくすると $d^q\\to d$ なので、相対応答の極限は
+
+$$
+R_A{}^i\\longrightarrow
+\\frac{\\chi^{G,\\mathrm{fin}}_\\lambda(t_\\Lambda)
+\\overline{\\chi^{H,\\mathrm{fin}}_{\\lambda'}(t_{\\Lambda'})}}
+{\\sqrt{\\dim V^G_\\lambda\\,\\dim V^H_{\\lambda'}}}.
+$$
+
+共役類平均を $\\widehat F$ に代入すると、コピー間はSchur平均の恒等行列によって $\\delta_{rt}$ となり、規格化因子を含めて
+
+$$
+\\int d\\mu_G(u)d\\mu_H(v)\\widehat F^{\\lambda\\lambda'}_{rt}(uv^{-1})
+=\\delta_{rt}\\,
+\\frac{\\chi^{G,\\mathrm{fin}}_\\lambda(t_\\Lambda)
+\\overline{\\chi^{H,\\mathrm{fin}}_{\\lambda'}(t_{\\Lambda'})}}
+{\\sqrt{d_\\lambda d_{\\lambda'}}}
+=\\lim\\delta_{rt}R_A{}^i
+$$
+
+になる。CFT側でもtrivial gluingは左右のコピーを $\\delta_{rt}$ で結ぶため、同じmodeへの応答が一致する。これらの部分traceは、群上の表現行列の完全な基底を$H$共役不変な関数へ制限した基底を作る。従って全ての位置modeで平均が一致すれば、位置分布も一致する。式 (6.62) がbraneの台を与えるのは、この一点関数との照合による（原著p.264、[Fredenhagen–Schomerus付録A](https://arxiv.org/abs/hep-th/0111189)）。
 
 この局在はlarge-level・低エネルギーでの解釈である。有限levelでは利用できるmodeが限られ、annulusには幾何の再構成に用いなかったsectorも含まれる。
 
-<details>
+<details id="coset-localization-response">
 <summary>共役類積の分布と一点係数の一致：規格化と完全性</summary>
 
-brane $A=[(\\Lambda,\\Lambda')]$ の位置分布は、単位規格化したbulk modeへの応答を一点係数と照合して求める。式 (6.60) はfield-identification orbitの代表bulk場に対する原著の規格化である。単位規格化したcoset Ishibashi状態のCardy係数 $S_{Ai}/\\sqrt{S_{0i}}$ には式 (6.59) から全体に $\\sqrt{N_0}$ が付くが、$R_A{}^i=B_A{}^i/B_A{}^0$ では消える。従って、以下ではこの比が要求する応答を有限次元characterで表す。
+brane $A=[(\\Lambda,\\Lambda')]$ の位置分布は、単位規格化したbulk modeへの応答を一点係数と照合して求める。式 (6.60) は原著の表示を保っており、単位規格化したCardy係数との全体因子の差を比で除いて用いる。単位規格化したcoset Ishibashi状態のCardy係数 $S_{Ai}/\\sqrt{S_{0i}}$ には式 (6.59) から全体に $\\sqrt{N_0}$ が付くが、$R_A{}^i=B_A{}^i/B_A{}^0$ では消える。従って、以下ではこの比が要求する応答を有限次元characterで表す。
 
 $C^G_\\Lambda$ と $C^H_{\\Lambda'}$ は、それぞれのWZW模型で境界ラベル $\\Lambda,\\Lambda'$ に対応する共役類とする。代表点 $t_\\Lambda,t_{\\Lambda'}$ には、有限次元characterとmodular $S$ の対応
 
@@ -8307,7 +7315,7 @@ $$
 
 ### 2.6 coset模型における境界spin吸収
 
-coset braneの間でも、6.3節のboundary spin absorptionに対応するRG flowを考える。$G$の有限次元表現$\\sigma$がaffine sectorへ持ち上がるとし、$H$への制限を同様に持ち上げたものを$\\sigma|_H$と書く。提案されているflow則は
+coset braneの間でも境界摂動によるRG flowを考える。6.3で使ったboundary spin absorptionは、境界の端点自由度に有限次元表現 $\\sigma$ を付けてcurrentへ結合すると、終状態のbraneラベルへ $\\sigma$ をfusionするという規則であった。cosetでは $H$ 方向を取り除いた後もこのspinを付ける必要があるため、初期配置にはその $H$ 表現成分を用いる。可積分affine sectorに対応する $G$ の有限次元表現を $\\sigma$ とする。これを $H$ の既約表現へ分解し、各成分を分母の可積分affine sectorへ持ち上げて足した直和を $\\sigma|_H$ と書く。$\\times$ は、それぞれのaffine代数のfusion積を表す。提案されているflow則は
 
 $$
 \\boxed{
@@ -8318,7 +7326,7 @@ $$
 \\tag{6.63}
 $$
 
-左辺では$\\sigma$の$H$成分が分母label側に付着し、右辺では同じ$\\sigma$が分子label$\\Lambda$へfusionされている。6.3節のboundary spin absorptionと同様に、境界に付けたspinが終状態のbrane labelへ取り込まれる。式 (6.63) はその機構のcoset版として提案された規則であり、labelの等式だけからflowの存在や向きが証明されるわけではない。[Fredenhagen–SchomerusのRG-flow則](https://arxiv.org/abs/hep-th/0205011)に従い、両辺が許容境界条件を与え、対応する境界摂動を考えられる場合に用いる。両辺は一般に可約labelを含むので、物理的なbrane配置として読むときは既約Cardy braneの直和へ分解する。
+左辺では$\\sigma$の$H$成分が分母label側に付着し、右辺では同じ$\\sigma$が分子label$\\Lambda$へfusionされている。6.3節のboundary spin absorptionと同様に、境界に付けたspinが終状態のbrane labelへ取り込まれる。式 (6.63) はその機構のcoset版として提案された規則であり、labelの等式だけからflowの存在や向きが証明されるわけではない。[Fredenhagen–SchomerusのRG-flow則](https://arxiv.org/abs/hep-th/0205011)に従い、固定点のないcosetで両辺がselection ruleを満たす境界条件を与え、$G$のadjoint表現を$H$へ制限した成分を持つsector $(0,\\lambda')$ の境界場による摂動が存在する場合に用いる。両辺は一般に可約labelを含むので、物理的なbrane配置として読むときは既約Cardy braneの直和へ分解する。$H$を自明な群にすると、$\\sigma|_H$ は $\\dim\\sigma$ 個の自明表現になり、初期配置は $\\dim\\sigma$ 枚の同じbraneとなる。これにより、親WZW模型のspin吸収則を回復する。
 
 ## 3. $N=2$ minimal model：円板上の線分状brane
 
@@ -8341,36 +7349,37 @@ $$
 
 である。ここで$N=2$は世界面の超対称性の種類を表す。Virasoro生成子に加えて、$U(1)$ chargeを測るcurrentと、それに対して逆符号のchargeを持つ二つのsupercurrentがある。二つの$\\widehat{\\mathfrak u}(1)$は、有限個のsectorを持つようchiral algebraを拡張したrational Gaussian modelである。
 
-分母は、$SU(2)_k$ のCartan currentと、独立な $U(1)_2$ currentの対角結合である。この節では整数chargeを固有値に持つ規格化を用い、前節までの $J^3$ に対して
+分母は、$SU(2)_k$ のCartan currentと、独立な $U(1)_2$ currentの対角結合である。まずCartan chargeを整数で数える規格化に揃える。前節までの $J^3_0$ はweight $m_j$ に固有値 $\\sqrt2m_j$ を持つので、
 
 $$
-C:=\\sqrt2J^3,\\qquad K:=C+F
+C:=\\sqrt2J^3,\\qquad C_0=2m_j,
+\\qquad C(z)C(w)\\sim\\frac{2k}{(z-w)^2}.
 $$
 
-と置く。$F$ は分子 $U(1)_2$ の整数chargeを測るcurrentであり、$C_0$ は $SU(2)$ のCartan weightの二倍を測る。二つの因子は独立なので $C(z)F(w)$ はregularである。従って
+$C$ は $SU(2)$ の整数Cartan chargeを測るcurrentである。次に、独立な分子 $U(1)_2$ の整数chargeを測るcurrentを $F$ とする。この規格化では
 
 $$
-C(z)C(w)\\sim\\frac{2k}{(z-w)^2},\\qquad
-F(z)F(w)\\sim\\frac{4}{(z-w)^2}
+F(z)F(w)\\sim\\frac4{(z-w)^2},\\qquad C(z)F(w)\\sim\\mathrm{regular}.
 $$
 
-から
+対角chargeを測るcurrentを $K:=C+F$ と定めれば、独立な二因子の二点関数が加わり、
 
 $$
-K(z)K(w)\\sim\\frac{2(k+2)}{(z-w)^2}
+K(z)K(w)\\sim\\frac{2k+4}{(z-w)^2}
+=\\frac{2(k+2)}{(z-w)^2}.
 $$
 
-を得る。この整数charge規約では $U(1)_\\ell$ の二重極係数は $2\\ell$ なので、対角current $K$ が分母 $U(1)_{k+2}$ を生成する。Sugawara構成による電荷 $q$ の基底状態のウェイトは $q^2/(4\\ell)$ である。中心電荷は分子から対角分母を引いて
+整数charge規約の $U(1)_\\ell$ は二重極係数 $2\\ell$ を持つので、$K$ が分母 $U(1)_{k+2}$ を生成する。電荷 $q$ の基底ウェイトは、このcurrentのSugawara構成から $q^2/(4\\ell)$ となる。各Gaussian modelの中心電荷は1であり、分子から対角分母を引くと
 
 $$
-c=\\frac{3k}{k+2}+1-1=\\frac{3k}{k+2}
+c=\\frac{3k}{k+2}+1-1=\\frac{3k}{k+2}.
 $$
 
-となる。
+分岐では、分子の $SU(2)$ 表現を整数 $l=2j$ で表す。分子 $U(1)_2$ のcharge labelを $s$ とする。この二つが分子ラベル $(l,s)$ になる。
 
-分岐では、分子の二つの表現と分母の表現を指定する。整数三つ組 $(l,m,s)$ を用い、$l$ は $SU(2)_k$ のspin $j=l/2$、$s$ は分子 $U(1)_2$ のcharge label、$m$ は分母の対角charge labelとする。対角current $K=C+F$ が測る電荷は、Cartan電荷と分子 $U(1)_2$ の電荷の和である。
+次に、対角current $K=C+F$ が測るchargeのlabelを $m$ とすれば、分母ラベルは $m$ である。慣用の順序では、分岐空間を三つ組 $(l,m,s)$ で表す。
 
-この $U(1)_\\ell$ のrationalな拡張では、電荷 $\\pm2\\ell$ のchiral場を代数に加える。その共形ウェイトは $(2\\ell)^2/(4\\ell)=\\ell$ であり、整数である。これらの場の作用で電荷が $2\\ell$ ずつ変わる状態は同じ拡張sectorに入るため、sector labelは $q\\bmod2\\ell$ となる（原著 §6.4.3、式 (5.48) の拡張）。
+abelian currentだけでは電荷の異なる表現が無限にある。有限種類のsectorで境界を構成するため、ここではrationalな拡張を使う。$U(1)_\\ell$ の拡張では、電荷 $\\pm2\\ell$ のchiral場を代数に加える。その共形ウェイトは $(2\\ell)^2/(4\\ell)=\\ell$ であり、整数である。これらの場の作用で電荷が $2\\ell$ ずつ変わる状態は同じ拡張sectorに入るため、sector labelは $q\\bmod2\\ell$ となる（原著 §6.4.3、式 (5.48) の拡張）。
 
 この周期に従い、三つ組の代表を
 
@@ -8398,9 +7407,16 @@ $$
 \\boxed{l+m+s\\equiv0\\pmod2}
 $$
 
-である。spin $l/2$のCartan weightを二倍した整数chargeは$-l,-l+2,\\ldots,l$なので、すべて$l$と同じ偶奇を持つ。分子$U(1)_2$のcharge $s$を加えた対角chargeが$m$になるため、$m\\equiv l+s\\pmod2$が必要になる。currentによる励起もこの偶奇を変えない。
+である。spin $l/2$のCartan weightを二倍した整数chargeは$-l,-l+2,\\ldots,l$なので、すべて$l$と同じ偶奇を持つ。分子$U(1)_2$のcharge $s$を加えた対角chargeが$m$になるため、$m\\equiv l+s\\pmod2$が必要になる。currentによる励起もこの偶奇を変えない。この模型では、この偶奇条件を満たす三つ組の分岐空間は全て非零になるという原著p.265の分岐結果を用いる。上の電荷計算は、そのselection ruleが必要となる理由を示している。
 
-この模型で $U(1)_2$ を用いる理由は、電荷 $\\pm2$ の場が共形ウェイト $2^2/8=1/2$ を持ち、複素フェルミオン $\\eta^\\pm$ として使えることにある。これらを含むフェルミオンの代数へ拡張すると、
+$U(1)_2$ の追加には超対称性を作る役割もある。電荷 $\\pm2$ の場はウェイト $1/2$ のフェルミオンとなり、$SU(2)$ の昇降currentとの積が、対角電荷零・ウェイト $3/2$ の二つのsupercurrentを作る。その生成子も含めると $N=2$ 超共形代数になる。
+
+ここで数えている固定 $s$ の分岐空間は、supercurrentをまだ含まない偶部分代数のsectorである。supercurrentを作用させると $s$ と $s+2$ の二成分が結ばれる。従って、超共形代数全体の表現を読むときには二成分を合わせる。以下では、固定 $s$ のcharacterを使って境界データを記述する。
+
+<details id="minimal-supercurrents">
+<summary>$U(1)_2$のフェルミオンから$N=2$生成子とNS・R成分を作る</summary>
+
+この模型で $U(1)_2$ を用いる理由は、電荷 $\\pm2$ の場が共形ウェイト $2^2/8=1/2$ を持ち、複素フェルミオン $\\eta^\\pm$ として使えることにある。$\\eta^+$ の $F$ 電荷は $+2$、$\\eta^-$ は $-2$ である。一方、$J^\\pm$ の整数Cartan電荷は $\\pm2$ なので、逆の符号を組にすると対角電荷が相殺する。これらを含むフェルミオンの代数へ拡張すると、
 
 $$
 G^+\\propto J^+\\eta^-,\\qquad G^-\\propto J^-\\eta^+
@@ -8410,7 +7426,9 @@ $$
 
 有限個のラベルとmodular dataは、この超共形代数の**偶部分代数**に対する分岐を表す。分子のrational $U(1)_2$ の真空代数は電荷 $4\\mathbb Z$ の場を含み、$\\eta^\\pm$ は電荷 $2\\bmod4$ の成分に属する。
 
-偶数 $s$ はNS成分、奇数 $s$ はR成分に対応する。supercurrentの作用は $s$ と $s+2$ の成分を結ぶので、超共形代数全体の表現はこの二成分を合わせて読む。以下の $\\chi_{[l,m,s]}$ は固定した $s$ の偶部分代数のcharacterであり、二成分の和がNSまたはR表現の通常のtraceを与える。この三つ組の規約は [Keller–Rossi §2.3](https://arxiv.org/abs/hep-th/0610175)にもまとめられている。
+偶数 $s$ は、円筒上でフェルミオンを反周期に貼るNS（Neveu–Schwarz）成分、奇数 $s$ は周期的に貼るR（Ramond）成分に対応する。supercurrentの作用は $s$ と $s+2$ の成分を結ぶので、超共形代数全体の表現はこの二成分を合わせて読む。以下の $\\chi_{[l,m,s]}$ は固定した $s$ の偶部分代数のcharacterであり、二成分の和がNSまたはR表現の通常のtraceを与える。この三つ組の規約は [Keller–Rossi §2.3](https://arxiv.org/abs/hep-th/0610175)にもまとめられている。
+
+</details>
 
 さらに、一般cosetのfield identificationはこの規約で
 
@@ -8422,9 +7440,9 @@ $$
 }
 $$
 
-と具体化される。親のcurrentのmodeを同時に付け替えると、分子・分母のラベルがこの組合せで変わり、cosetの生成子は同じ作用を保つ。従って二つの分岐空間は同じcoset表現を与える。
+と具体化される。これは、分子の $SU(2)$ simple current $l=k$、分子 $U(1)_2$ のcharge $2$、分母 $U(1)_{k+2}$ のcharge $k+2$ を同時に作用させる同一視である。この同時作用が分岐空間のcoset生成子を変えないという表現論の結果を用いる（原著p.289、[Fredenhagen §4.7](https://arxiv.org/abs/hep-th/0301229)）。例えば $[0,0,0]=[k,k+2,2]$ は同じ真空sectorを二通りに書いている。selection ruleが許される組を選び、field identificationはその後に同じ空間の重複を除く、という違いがここにも現れる。
 
-<details>
+<details id="minimal-field-identification">
 <summary>Spectral flowによるfield identificationの導出</summary>
 
 整数charge current $C,F,K$ に対し、次の付け替えを行う：
@@ -8469,17 +7487,23 @@ $$
 
 であり、追加のfixed-point resolutionは要らない。
 
-diagonal modular invariantとA-type gluingを選ぶと、最大対称Cardy braneも
+境界では原著と同じくdiagonal bulk modular invariantと **A-type gluing** を選ぶ。A-typeは、左右の $N=2$ のR-currentを反対符号で貼り合わせ、二つのsupercurrentを $G^+\\leftrightarrow\\bar G^-$、$G^-\\leftrightarrow\\bar G^+$ の組で貼る条件である。この選択でCardy braneが構成でき、braneラベル $[L,M,S]$ もbulkと同じselection ruleとfield identificationを満たす（原著§6.4.3）。ここで $L$ は分子 $SU(2)$、$S$ は分子 $U(1)_2$、$M$ は分母のラベルである。以下で、この境界条件の一点関数をdisk上の位置へ翻訳する。
+
+幾何とflowには、原著に合わせて $S=0$ のbraneを使う。比較のため $S=2$ も残すと、$S\\mapsto S+2$ は同じ線分の向きを反転し、braneとanti-braneを交換する。線分の位置は $L,M$ で決まる。この向きの規約は [Fredenhagen §4.7](https://arxiv.org/abs/hep-th/0301229) に従い、後にfield identificationとの整合を端点で確かめる。
+
+このラベルを式 (6.60) へ代入した一点係数は、$SU(2)$ のsine係数に二つのGaussian modelの位相を掛けたものになる：
 
 $$
-(L,M,S)
+B^{[l,m,s]}_{[L,M,S]}
+=\\frac{1}{\\sqrt{2(k+2)}}
+\\frac{\\sin\\!\\left(\\frac{\\pi(l+1)(L+1)}{k+2}\\right)}
+{\\sqrt{\\sin\\!\\left(\\frac{\\pi(l+1)}{k+2}\\right)}}
+\\exp\\!\\left(\\frac{i\\pi mM}{k+2}-\\frac{i\\pi sS}{2}\\right).
 $$
 
-という同じselection ruleとfield identificationを満たす同値類でラベルされる。A-type gluingは、境界で左右の$N=2$ $U(1)$ currentを反対符号で貼り合わせ、supercurrent $G^+$と$\\bar G^-$、$G^-$と$\\bar G^+$を組にする境界条件である。この選択が、以下のdisk上の一次元braneを与える。
+ここでは式 (6.60) と同じ全体規格化を使う。分子 $U(1)_2$ の$S$行列が $sS$ の位相を与え、分母 $U(1)_{k+2}$ は複素共役するため $mM$ の位相が逆符号になる。この二つの位相が、次に取り出す位置と向きの情報を区別する。全ての係数とannulusの具体式は下に示す。
 
-$S$ は線分の位置には現れないspin-structure・向きのlabelであり、$S\\mapsto S+2$ はbraneとanti-braneを交換する。幾何図では$S=0$に固定するが、有限levelの境界labelには$S$を残す。
-
-<details>
+<details id="minimal-modular-boundary-data">
 <summary>Minimal modelの$S$行列・一点係数・開弦スペクトル</summary>
 
 式 (6.59)--(6.61)への代入に必要な三つのmodular dataとfusion dataを揃える。まず分子の$U(1)_2$では
@@ -8545,7 +7569,7 @@ $$
 
 となる。角括弧はfield-identification同値類を表す。
 
-一点関数では、field-identification orbitをまとめる前の代表bulk場を規格化し、その規格化を式 (6.60) に用いる。この規約でminimal modelへ特殊化すると
+一点関数では、原著式 (6.60) の全体因子を除いた表示に合わせてminimal modelへ特殊化する。すると
 
 $$
 \\begin{aligned}
@@ -8576,7 +7600,7 @@ S^{U(1)_2}_{0s}
 \\end{aligned}
 $$
 
-となる。orbit全体を単位規格化したbulk場を使う場合には右辺を $\\sqrt{N_0}=\\sqrt2$ 倍する。以下の $B^{[l,m,s]}_{(L,M,S)}$ は上式の代表bulk場規格化を指す。
+となる。単位規格化したIshibashi状態のCardy係数を使う場合は、式 (6.59) から右辺を $\\sqrt{N_0}=\\sqrt2$ 倍する。以下の $B^{[l,m,s]}_{(L,M,S)}$ は原著式 (6.60) に合わせた表示を指し、位置の照合には真空係数との比を用いる。
 
 $$
 \\left\\langle
@@ -8627,11 +7651,13 @@ h_{[l,m,0]}=\\frac{l(l+2)-m^2}{4(k+2)}\\longrightarrow0
 \\qquad(l,m\\text{ を固定})
 $$
 
-となる。固定レベルのフェルミオンを励起する成分には、そのウェイトが残る。そこで位置を読むmodeにはこの真空成分を用いる。その一点係数では $e^{-i\\pi sS/2}=1$ となり、真空への応答で割ると分子 $U(1)_2$ の共通係数も消える。残る $SU(2)$ の係数と $e^{i\\pi mM/(k+2)}$ が位置分布を定める。従ってこの幾何には $SU(2)$ の $U(1)$ 共役不変な波動関数を使え、境界の $S$ はspin構造・向きの情報として残る。
+となる。固定レベルのフェルミオンを励起する成分には、そのウェイトが残る。そこで位置を読むmodeにはこの真空成分を用いる。その一点係数では $e^{-i\\pi sS/2}=1$ となり、真空への応答で割ると分子 $U(1)_2$ の共通係数も消える。残る $SU(2)$ の係数と $e^{i\\pi mM/(k+2)}$ が位置分布を定める。従ってdisk上の位置を読むには $SU(2)$ の $U(1)$ 共役不変な波動関数だけで足りる。これが、追加した $U(1)_2$ 因子をこのbraneの位置計算から外せる理由である。境界ラベル $S$ は、これらの位置modeへは結合せず、向きなどの境界情報を区別する。
 
 2節で求めた共役作用の商では、群要素の左上成分 $\\alpha$ がdisk上の位置を表す。同じ $\\alpha$ をもつ群要素は、$\\beta$ の位相が違っても一つの点へ写る。そこで球面brane上のすべての点について $\\alpha$ の取り得る値を集めれば、disk内でのbraneの形が求まる。
 
-$SU(2)$のlabel $L$のbraneは、共役類
+境界ラベル $L,M$ は、probeであるbulkラベル $l,m$ と区別する。有限 $L$ を固定して $k\\to\\infty$ とすると球面は端へ縮むので、disk内の有限な線分を残すには、以下の角度が有限に保たれるよう $L,M$ もlevelとともに動かす。各bulk probe $l,m$ は先の通り固定する。
+
+$SU(2)$のlabel $L$のbraneに対応する共役類は
 
 $$
 C^G_L:
@@ -8642,7 +7668,7 @@ C^G_L:
 \\psi_L:=\\frac{\\pi(L+1)}{k+2}
 $$
 
-に局在する。行列$u$の左上成分を$a$と書けば$\\operatorname{Tr}u=2\\operatorname{Re}a$なので
+である。行列$u$の左上成分を$a$と書けば$\\operatorname{Tr}u=2\\operatorname{Re}a$なので
 
 $$
 \\operatorname{Re}a=\\cos\\psi_L.
@@ -8653,18 +7679,18 @@ brane label $M\\in\\mathbb Z_{2(k+2)}$ は分母 $U(1)$ の整数chargeである
 $$
 h_{M}=
 \\begin{pmatrix}
-e^{i\\phi_{M}}&0\\\\
-0&e^{-i\\phi_{M}}
+e^{-i\\phi_{M}}&0\\\\
+0&e^{i\\phi_{M}}
 \\end{pmatrix},
 \\qquad
 \\phi_{M}
 :=\\frac{\\pi M}{k+2}
 $$
 
-だけからなる。一般式 (6.62) に従って$uh_{M}^{-1}$を作ると、その左上成分、すなわちdisk座標は
+だけからなる。この符号は、分母の $S_{mM}/S_{0M}=e^{-i\\pi mM/(k+2)}$ を有限character $\\chi_m(h_M)=e^{-im\\phi_M}$ に合わせる規約である。一般式 (6.62) に従って$uh_{M}^{-1}$を作ると、その左上成分、すなわちdisk座標は
 
 $$
-\\alpha=ae^{-i\\phi_{M}}
+\\alpha=ae^{i\\phi_{M}}
 $$
 
 になる。したがって共役類の条件$\\operatorname{Re}a=\\cos\\psi_L$は
@@ -8672,23 +7698,23 @@ $$
 $$
 \\boxed{
 \\operatorname{Re}
-\\left(e^{i\\phi_{M}}\\alpha\\right)
+\\left(e^{-i\\phi_{M}}\\alpha\\right)
 =\\cos\\psi_L,
 \\qquad |\\alpha|\\le1.
 }
 $$
 
-これは直線を単位diskの内部に制限した線分である。boundary stateの低エネルギー一点係数は、この線分に沿うmode profileを与える。単位円上で $\\alpha=e^{i\\theta}$ と置くと $\\cos(\\theta+\\phi_M)=\\cos\\psi_L$ なので、二端点は
+これは直線を単位diskの内部に制限した線分である。boundary stateの低エネルギー一点係数は、この線分に沿うmode profileを与える。単位円上で $\\alpha=e^{i\\theta}$ と置くと $\\cos(\\theta-\\phi_M)=\\cos\\psi_L$ なので、二端点は
 
 $$
 \\alpha_\\pm(L,M)
-=e^{i(-\\phi_M\\pm\\psi_L)}
-=\\exp\\!\\left[\\frac{i\\pi}{k+2}\\bigl(-M\\pm(L+1)\\bigr)\\right].
+=e^{i(\\phi_M\\pm\\psi_L)}
+=\\exp\\!\\left[\\frac{i\\pi}{k+2}\\bigl(M\\pm(L+1)\\bigr)\\right].
 $$
 
 $S=0$ の基準の向きを $\\alpha_-\\to\\alpha_+$ と定める。端点の角度差は $2\\psi_L$ であり、線分の長さは $2\\sin\\psi_L$ となる。$S=0$ かつ $L$ を固定すると、selection ruleにより $M$ は2ずつ変わるので、隣り合う許容線分の回転角は $2\\pi/(k+2)$ である。$M$を1だけ変える場合は $S$ のparityも変える。
 
-selection ruleは、端点の取り得る位置も定める。$L+M$ が偶数なら $-M\\pm(L+1)$ は奇数だから、すべての端点は単位円に内接する正 $(k+2)$ 角形の頂点
+selection ruleは、端点の取り得る位置も定める。$L+M$ が偶数なら $M\\pm(L+1)$ は奇数だから、すべての端点は単位円に内接する正 $(k+2)$ 角形の頂点
 
 $$
 v_r:=\\exp\\!\\left[\\frac{i\\pi(2r+1)}{k+2}\\right],
@@ -8698,8 +7724,8 @@ $$
 に乗る。整数の代表 $L,M$ に対して
 
 $$
-r_-:=\\frac{-M-L-2}{2},\\qquad
-r_+:=\\frac{L-M}{2},\\qquad r_+-r_-=L+1
+r_-:=\\frac{M-L-2}{2},\\qquad
+r_+:=\\frac{M+L}{2},\\qquad r_+-r_-=L+1
 $$
 
 と置けば、braneは
@@ -8737,7 +7763,7 @@ $$
 
 を得る。左辺でも $M+2\\nu-P$ は偶数なので、すべて許容braneである。chargeは $2(k+2)$ を法として扱い、角括弧はfield-identification同値類を表す。
 
-この初期境界条件には、隣り合うbraneを結ぶrelevantな境界変更場がある。$P\\ge1$ とし、$B_\\nu:=[0,M+2\\nu-P,0]$ と置く。$B_\\nu$ から $B_{\\nu+1}$ への開弦では、式 (6.61) のcharge差が $m=2,s=0$、分子fusionが $0\\times0=0$ なので、sector $[0,2,0]$ が重複度1で現れる。逆向きには共役sector $[0,-2,0]$ が現れる。
+この矢印の終点は式 (6.63) のRG則からの予測である。幾何で鎖が一本へ短くなることだけでは、境界摂動の存在を証明しない。まず、左辺の直和境界に隣り合うbraneを結ぶ境界変更場があり、その摂動がrelevantであることを確かめる。$P\\ge1$ とし、$B_\\nu:=[0,M+2\\nu-P,0]$ と置く。$B_\\nu$ から $B_{\\nu+1}$ への開弦では、式 (6.61) のcharge差が $m=2,s=0$、分子fusionが $0\\times0=0$ なので、sector $[0,2,0]$ が重複度1で現れる。逆向きには共役sector $[0,-2,0]$ が現れる。
 
 分子の真空moduleでcharge $\\pm2$ を持つ最も低い状態は $J^\\pm_{-1}|0\\rangle$ である。grade 0の真空はcharge 0しか持たないので、ここではgrade 1を使う。分子ウェイト1から分母 $U(1)_{k+2}$ のウェイトを引くと
 
@@ -8746,7 +7772,12 @@ h_\\psi=1-\\frac{(\\pm2)^2}{4(k+2)}
 =1-\\frac1{k+2}<1
 $$
 
-となる。境界摂動の結合は長さに対して重み $1-h_\\psi$ を持つので、有限 $k\\ge1$ でこの場はrelevantである。ここではgrade 1の励起が $h=1$ に下側から近づく。幾何の抽出に使った $h\\to0$ の条件と、RGでの $h<1$ の条件は、異なるエネルギーの範囲を選んでいる。これらの場を $\\psi_{\\nu+1,\\nu}$ とそのHermitian共役 $\\psi_{\\nu,\\nu+1}$ と書けば、実作用への摂動は
+となる。境界摂動の結合は長さに対して重み $1-h_\\psi$ を持つので、有限 $k\\ge1$ でこの場はrelevantである。ここではgrade 1の励起が $h=1$ に下側から近づく。幾何の抽出に使った $h\\to0$ の条件と、RGでの $h<1$ の条件は、異なるエネルギーの範囲を選んでいる。この計算により、鎖の隣接braneを結ぶ摂動の結合がRGで増えることは分かる。終点を指定するには、さらにspin吸収に対応する結合を選ぶ必要がある。その選択と端点行列の扱いは、次の補足に示す。
+
+<details id="minimal-rg-perturbation">
+<summary>直和境界の端点行列と、spin吸収に対応する境界摂動</summary>
+
+これらの場を $\\psi_{\\nu+1,\\nu}$ とそのHermitian共役 $\\psi_{\\nu,\\nu+1}$ と書けば、実作用への摂動は
 
 $$
 \\delta S_\\partial
@@ -8755,13 +7786,15 @@ $$
 +\\overline{u_\\nu}\\psi_{\\nu,\\nu+1}(x)\\right)
 $$
 
-と書ける。spin $P/2$ の吸収に対応する結合は、昇降演算子の行列要素に合わせて
+と書ける。端点を $\\nu=0,\\ldots,P$ のweight基底として見ると、spin $P/2$ の昇降演算子の行列要素は $\\sqrt{(\\nu+1)(P-\\nu)}$ である。large-levelのspin吸収の記述では、これに合わせた組合せとして
 
 $$
 u_\\nu=u\\sqrt{(\\nu+1)(P-\\nu)}
 $$
 
-と選ぶ。RGでは、この摂動のOPEから生成される対角結合なども含めて発展させる。境界変更場は直和境界の端点行列を含み、その経路順序付き積と端点traceにより摂動展開を定める。
+を選ぶ。$u$ は共通の摂動強度である。この行列要素の選択だけで有限levelの赤外終点を証明することはできず、終点には本文に示したRG則を入力する。RGでは、この摂動のOPEから生成される対角結合なども含めて発展させる。境界変更場は直和境界の端点行列を含み、その経路順序付き積と端点traceにより摂動展開を定める。
+
+</details>
 
 $[0,\\pm2,0]$ は、分子のadjointを分母へ制限したcharge $\\pm2$ に対応し、[Fredenhagen–Schomerusの式 (2)](https://arxiv.org/abs/hep-th/0205011) が指定する摂動sectorに含まれる。spinを吸収する枝の赤外終点 $[P,M,0]$ は、[Fredenhagen §4.7、式 (33)](https://arxiv.org/abs/hep-th/0301229) の有限levelでのRG-flow予測を用いる。上の計算は、必要な境界変更場が存在してrelevantであり、その吸収則に適合することを示している。$P=0$ では初期・終境界条件が同じで、凝縮を起こす隣接sectorはない。
 
@@ -8769,24 +7802,24 @@ $[0,\\pm2,0]$ は、分子のadjointを分母へ制限したcharge $\\pm2$ に�
 
 $$
 [L,M,0]:\\quad v_a\\longrightarrow v_{a+L+1},\\qquad
- a=\\frac{-M-L-2}{2},\\qquad
+ a=\\frac{M-L-2}{2},\\qquad
  v_a=e^{i\\pi(2a+1)/(k+2)}
 $$
 
 を使う。頂点番号は $k+2$ を法として読む。終状態 $[P,M,0]$ の始点番号を
 
 $$
-r:=\\frac{-M-P-2}{2}
+r:=\\frac{M-P-2}{2}
 $$
 
 とすると、その線分は $v_r\\to v_{r+P+1}$ である。初期状態の $\\nu$ 番目に同じ端点公式を用いると
 
 $$
 [0,M+2\\nu-P,0]:\\quad
-v_{r+P-\\nu}\\longrightarrow v_{r+P-\\nu+1}.
+v_{r+\\nu}\\longrightarrow v_{r+\\nu+1}.
 $$
 
-従って $\\nu=P,P-1,\\ldots,0$ の順に並べれば
+従って $\\nu=0,1,\\ldots,P$ の順に並べれば
 
 $$
 \\boxed{v_r\\longrightarrow v_{r+1}\\longrightarrow\\cdots
@@ -8795,7 +7828,11 @@ $$
 
 という $P+1$ 本の最短線分の鎖になる。その二つの外端を終状態の一本が結ぶ。$P=k$ では正 $(k+2)$ 角形の $k+1$ 辺をたどり、残る一辺の両端へ到達する。
 
-代数では、$\\sigma_P|_{U(1)}$ の全weightを並べた可約境界条件が、分子側でspinを吸収した既約境界条件へ流れる。large-volumeの幾何では、同じ外端を持つ短い線分の鎖が一本へ凝縮する。この端点一致は、RG則が予測するflowとbraneの位置の対応を確かめている。
+例えば $k=4,P=2,M=2$ では、許される頂点は正六角形上にある。初期配置の三本を順に並べると $[0,0,0]$、$[0,2,0]$、$[0,4,0]$ であり、$v_5\\to v_0\\to v_1\\to v_2$ の鎖になる。終状態 $[2,2,0]$ は同じ外端 $v_5,v_2$ を結ぶ直径である。図では、境界RG則が与える二つの境界条件に、この端点公式を適用している。
+
+![正六角形の三辺をつなぐv5からv0、v1、v2への初期braneの鎖と、同じ外端v5とv2を直接結ぶ終状態braneの直径を比較する。k=4、P=2、M=2。](/diagrams/minimal-brane-flow.svg)
+
+代数では、$\\sigma_P|_{U(1)}$ の全weightを並べた可約境界条件が、分子側でspinを吸収した既約境界条件へ流れる。diskの幾何では、同じ外端を持つ短い線分の鎖と一本の線分に対応する。端点一致は、代数的flow則と位置の対応を検算する。有限levelでこのflowを予測する根拠は上で指定した境界RG則であり、図形の長さの比較だけからflowを導くものではない。
 
 ## 4. orbifoldとcosetのbrane構成の比較
 
