@@ -22,6 +22,15 @@ categories:
 # アイテムリスト
 items:
   - title:
+      en: "SU(2) WZW Model — Recknagel & Schomerus Chapter 6"
+      ja: "SU(2) WZW模型 — Recknagel・Schomerus 第6章"
+    category: notes
+    url: /wzw-notes/
+    description:
+      en: Japanese reading notes connecting current algebra, boundary CFT, D-brane geometry, fuzzy spheres, cosets, and orbifolds.
+      ja: カレント代数から境界CFT、Dブレーン幾何、fuzzy sphere、coset・orbifoldへつなぐ日本語読書ノート。
+
+  - title:
       en: Graduate Entrance Exam Solutions (Applied Physics)
       ja: 物理工学専攻院試解答
     category: notes
