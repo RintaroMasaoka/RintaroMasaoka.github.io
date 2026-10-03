@@ -37,6 +37,12 @@ effects, not an empirical claim about brain states or an observed reaction from
 every reader. Its checks distinguish mathematical necessity, explanatory role,
 and placement without licensing the deletion of essential scope conditions.
 
+The compliance-signaling subtype of 16 develops a user observation that an
+artifact can advertise correct instruction-following to its requester, overtly
+or through wording and emphasis. Its explanatory model distinguishes fulfilling
+a requirement from demonstrating that fulfillment inside the deliverable.
+The pattern does not by itself establish a model's intentions or training cause.
+
 ## Research map
 
 | Entries | Source | Relevant scope |

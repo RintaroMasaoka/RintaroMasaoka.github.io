@@ -10,8 +10,8 @@ to attend to it; introducing a symbol asks them to track it; foregrounding a
 qualification can suggest that it explains the result or deserves investigation.
 A useful model is a sequence of actions on the reader's understanding: each
 choice can change what they consider important, what they expect next, what they
-hold in memory, and which questions they pursue. The user proposed this model
-as a way to explain failures of communication. It is not a literal claim that
+hold in memory, and which questions they pursue. This is a model for explaining failures of
+communication, not a literal claim that
 each word executes a fixed mental command or that actual brain states are known.
 
 Judge these effects against the understanding the passage is meant to produce.
@@ -57,8 +57,8 @@ reasoning and history that serve its audience, expressed for that audience.
 ## 16. Leak conversation or instruction language into the artifact
 
 **Failure.** Import wording from requests, critiques, internal plans, or revision
-history into the artifact, giving readers material or implications they do not
-need.
+history into the artifact, or use the artifact to signal obedience to those
+instructions, giving readers material or implications they do not need.
 
 **Why it can happen.** A language model generates from the supplied context;
 vocabulary and phrasing can shape the continuation alongside content. Humans
@@ -70,6 +70,47 @@ is reused without being converted into language addressed to the final reader.
 **Examples.** Turn “be more concrete” into a sentence announcing that concreteness
 is important; use an internal workflow name as a reader-facing heading; retain
 “unlike the old approach” after the rejected approach has become irrelevant.
+
+**Small-scale pattern: signal compliance inside the deliverable.**
+An artifact can carry messages to the requester about the assistant's performance
+alongside its messages to the intended reader. Overt examples include “This
+explanation faithfully meets the requested criteria” or “We prioritize clarity
+and concrete examples.” Subtler forms include repeatedly echoing a requested
+quality, inserting headings that advertise it, or giving a corrected detail
+extra prominence chiefly to make the correction visible. These can appear in a
+first draft as well as a revision; they need not quote the instruction verbatim.
+
+A plausible mechanism is confusing fulfilling a requirement with visibly
+asserting that it was fulfilled. Evaluation cues remain salient in AI context,
+while commentary about work and the work itself are generated in the same
+medium. Human writers can also address an evaluator while ostensibly addressing
+their audience. This explains a pattern to test, not an inferred desire for
+approval or deception. It differs from merely leaving an obsolete phrase behind:
+the added wording or structure functions as a report or self-assessment of
+instruction-following inside the artifact.
+
+**Discriminating test.** Hold the reader, task, and required content fixed. If
+there were no need to demonstrate compliance to the requester, would this phrase,
+repetition, emphasis, or heading still help the reader? Trace any apparent echo
+to supplied instructions when available. Without that history, do not invent its
+origin; assess the visible self-assessment and its role. A phrase such as “in
+practice” or a requested heading is not evidence by itself.
+
+**Repair.** Realize the requested quality in the content: give the example,
+explanation, or logical connection. Remove claims that merely advertise doing
+so, and restore the emphasis warranted by the subject. Retain the actual
+correction; remove only the display of having corrected it. Keep any requested
+completion summary outside the artifact unless reporting compliance or changes
+is itself the artifact's purpose. Do not add a sentence announcing that the
+artifact now avoids these signals.
+
+**Boundary.** Preserve useful reader orientation, meaningful statements of scope
+or method, explicitly requested structures, and reports whose purpose is to
+account for requirements or revisions. The requester may also be the reader;
+the distinction is between communicative roles, not necessarily different people.
+Use 01 additionally only when a visible compliance signal was accepted as success;
+use 18 when its emphasis creates a separate misleading implication. Observable
+contamination alone does not establish those additional failures.
 
 **Small-scale pattern: negate a discarded draft inside the final artifact.**
 In “not A, but B,” A may come from an earlier draft, a rejected interpretation,
