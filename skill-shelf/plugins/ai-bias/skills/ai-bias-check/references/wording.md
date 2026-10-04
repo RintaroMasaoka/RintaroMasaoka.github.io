@@ -1,4 +1,4 @@
-# E. Wording and terminology
+# Wording and terminology
 
 These entries continue category E. Inspect an actual phrase in its paragraph,
 with the artifact's purpose, field, and intended audience held fixed. A familiar
