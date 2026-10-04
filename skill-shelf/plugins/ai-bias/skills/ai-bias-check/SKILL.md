@@ -1,6 +1,6 @@
 ---
 name: ai-bias-check
-description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, proof requests derailed by objections or convenient assumptions, unsupported premises, fixation, circular validation, misdirected reader attention, defensive overformalization, instruction-compliance signals in deliverables, and misleading wording. Use for an explicit bias review or a concrete sign of these patterns during reasoning or revision; not for demographic fairness audits."
+description: "Diagnose and correct recurring biases in AI reasoning, research, writing, and revision, including goal substitution, proof requests derailed by objections or convenient assumptions, unsupported premises, fixation, circular validation, misdirected reader attention, defensive overformalization, habitual limitation endings, instruction-compliance signals in deliverables, and misleading wording. Use for an explicit bias review or a concrete sign of these patterns during reasoning or revision; not for demographic fairness audits."
 ---
 
 # AI Bias Check
@@ -49,7 +49,8 @@ do not load the whole catalogue or run every check by default.
 | E. Information selection and communication | Does the artifact convey supported meaning in its own vocabulary, with appropriate emphasis and detail? | [16 Context leakage; 17 Reader information; 18 Implied meaning; 19 Unnecessary information](references/communication.md); [20 Unmarked coinages; 21 Missing relations; 22 Unstable terms; 23 Claim strength](references/wording.md) |
 
 For true details that make readers focus on the wrong issue, including defensive
-piles of assumptions and definitions, start with
+piles of assumptions and definitions or explanations habitually ending in what
+cannot be concluded, start with
 [18](references/communication.md#18-judge-the-whole-message-by-sentence-level-truth).
 Recover the intended message and check the attention, questions, and importance
 judgments the passage invites. For information with no useful role or excessive

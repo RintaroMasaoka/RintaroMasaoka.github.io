@@ -43,6 +43,12 @@ or through wording and emphasis. Its explanatory model distinguishes fulfilling
 a requirement from demonstrating that fulfillment inside the deliverable.
 The pattern does not by itself establish a model's intentions or training cause.
 
+The habitual limitation-ending subtype of 18 develops a user observation that
+explanations repeatedly close with what cannot be concluded. Its test concerns
+the takeaway created by the ending, including cases where every proposition is
+true. The proposed mechanism is an imbalance between checking overclaims and
+choosing a useful stopping point; it is not attributed to the studies below.
+
 ## Research map
 
 | Entries | Source | Relevant scope |
