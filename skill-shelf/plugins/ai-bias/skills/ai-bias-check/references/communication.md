@@ -245,6 +245,51 @@ Use 19 for unnecessary inclusion or disproportionate space, 23 for unwarranted
 hedging or claim strength, and 01 only when resistance to objections has itself
 replaced communicative success. None of these causes follows from 18 alone.
 
+### Habitually end explanations with what cannot be concluded
+
+**Failure.** Close an explanation with a limitation by default, making what has
+not been established the passage's takeaway even when it does not qualify the
+result just explained. Repeated endings such as “This does not establish X” can
+make a supported, useful result seem inconclusive. The limitation itself may be
+true; the error is the significance its closing position gives it.
+
+**Why it can happen.** A plausible mechanism is checking for possible overclaims
+without also choosing a stopping point that serves the explanation. A model can
+continue a completed explanation with a readily available cautious ending,
+confusing adding a reservation with calibrating the actual claim. Human writers
+anticipating criticism can do the same. This is a working explanation, not a
+claim about a particular model's hidden reasoning or training incentives.
+
+**Check.** Read the ending together with the claim it follows. What specific,
+plausible inference would the reader otherwise make, and how does this limit
+correct it? Does it delimit the established result or introduce a stronger claim
+that the passage never invited? What understanding does the ending leave the
+reader with? Across sections, check whether repeated reservations keep
+resetting a developing explanation to apparent uncertainty. Repetition or a
+negative last sentence alone is not a defect.
+
+**Repair.** State what follows within its actual scope and stop when the passage
+has done its job. Place a necessary qualification with the claim it qualifies;
+retain it at the end when that is where it best prevents a material error.
+Remove irrelevant reservations and repeated limits already clear in context.
+Do not append a compensating upbeat summary or force every passage to end with
+a positive claim. When the requested question is unresolved, that unresolved
+status may be the correct takeaway.
+
+**Example.** After deriving a relaxation time within a stated linear model,
+ending with “This does not establish the behavior of every nonlinear system”
+can divert attention to an unasked universality claim. Leave the relaxation
+result scoped to the model. If the reader instead asks whether the derivation
+establishes stability at large amplitudes, explicitly explaining that it does
+not answer that question is necessary.
+
+**Boundary.** Keep negative results, consequential uncertainty, limitations
+requested as the subject, and cautions needed to prevent an inference or action
+the passage would otherwise invite. Use 19 for a reservation with no useful
+role, and 23 when the wording makes the supported proposition itself needlessly
+tentative. Use 18 when the closing emphasis distorts the takeaway even though
+the propositions and their stated strength remain accurate.
+
 ## 19. Include information beyond its useful role
 
 **Failure.** Include a related fact, or give it excessive space or emphasis,
