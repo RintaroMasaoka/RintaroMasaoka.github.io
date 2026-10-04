@@ -47,6 +47,24 @@ const packages = {
     license: "MIT License",
     description: "Recognize and correct recurring biases in AI reasoning, writing, and revision. Includes 23 patterns across five categories, with explanations, checks, and remedies for reasoning and phrasing—including invented terms, drafting residue, and unsupported rhetorical contrasts. English instructions; responses follow your requested language.",
     skills: ["ai-bias-check"],
+    referenceSections: {
+      "ai-bias-check": [
+        { label: "Bias categories", items: [
+          { document: "references/goals.md" },
+          { document: "references/evidence.md" },
+          { document: "references/search-and-revision.md" },
+          { document: "references/inference.md" },
+          { label: "E. Information selection and communication", children: [
+            { document: "references/communication.md", label: "Communication and reader attention", range: "16–19" },
+            { document: "references/wording.md", label: "Wording and terminology", range: "20–23" },
+          ] },
+        ] },
+        { label: "Guides & sources", items: [
+          { document: "references/proof-tasks.md" },
+          { document: "references/sources.md" },
+        ] },
+      ],
+    },
   },
 };
 
@@ -87,7 +105,9 @@ function openChapter(index, fragment = '', moveToText = false) {
   const parent = chapter.skill && skillPath(currentPackage, chapter.skill);
   backToSkill.hidden = !parent || parent === chapter.path;
   backToSkill.dataset.document = parent || '';
-  document.querySelector('#chapter-label').textContent = chapter.title;
+  document.querySelector('#chapter-label').textContent = chapter.category
+    ? `${chapter.category} / ${chapter.contentsLabel || chapter.title}`
+    : chapter.title;
   document.querySelector('#page-number').textContent = `${index + 1} / ${chapters.length}`;
   previous.disabled = index === 0;
   next.disabled = index === chapters.length - 1;
@@ -111,10 +131,19 @@ function openChapter(index, fragment = '', moveToText = false) {
   if (moveToText) chapterBody.focus({preventScroll: true});
 }
 
-function appendDocument(list, chapter, label = chapter.title) {
+function appendDocument(list, chapter, label = chapter.title, range) {
   const item = document.createElement('li');
   const button = document.createElement('button');
-  button.textContent = label;
+  const text = document.createElement('span');
+  text.className = 'document-title';
+  text.textContent = label;
+  button.append(text);
+  if (range) {
+    const numbers = document.createElement('span');
+    numbers.className = 'reference-range';
+    numbers.textContent = range;
+    button.append(numbers);
+  }
   button.dataset.document = chapter.path;
   button.title = chapter.path.split('/').slice(1).join('/');
   item.append(button);
@@ -138,17 +167,41 @@ function buildContents(reader, packageName) {
     const item = appendDocument(skillList, main, skill);
     included.add(main.path);
     const references = documents.filter(doc => doc.skill === skill && doc.path !== main.path);
-    if (references.length) {
-      const label = document.createElement('span');
+    const appendSection = (heading, entries) => {
+      const label = document.createElement('h4');
       label.className = 'reference-label';
-      label.textContent = 'Supporting documents';
+      label.textContent = heading;
       const list = document.createElement('ul');
       list.className = 'reference-list';
       item.append(label, list);
-      for (const doc of references) {
-        appendDocument(list, doc);
-        included.add(doc.path);
-      }
+      const appendEntry = (target, entry, category) => {
+        if (entry.children) {
+          const group = document.createElement('li');
+          const groupLabel = document.createElement('h5');
+          groupLabel.className = 'reference-category';
+          groupLabel.textContent = entry.label;
+          const children = document.createElement('ul');
+          children.className = 'reference-children';
+          group.append(groupLabel, children);
+          target.append(group);
+          entry.children.forEach(child => appendEntry(children, child, entry.label));
+        } else {
+          const path = `${packageName}/skills/${skill}/${entry.document}`;
+          const doc = references.find(doc => doc.path === path);
+          if (!doc || included.has(path)) throw new Error(`Invalid contents document: ${path}`);
+          appendDocument(target, {...doc, category, contentsLabel: entry.label}, entry.label || doc.title, entry.range);
+          included.add(path);
+        }
+      };
+      entries.forEach(entry => appendEntry(list, entry));
+    };
+    const sections = packages[packageName].referenceSections?.[skill] || [];
+    sections.forEach(section => appendSection(section.label, section.items));
+    const remaining = references.filter(doc => !included.has(doc.path));
+    if (remaining.length) {
+      appendSection('Supporting documents', remaining.map(doc => ({
+        document: doc.path.slice(`${packageName}/skills/${skill}/`.length),
+      })));
     }
   }
   const shared = documents.filter(doc => !included.has(doc.path));
