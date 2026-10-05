@@ -55,8 +55,8 @@ const packages = {
           { document: "references/search-and-revision.md" },
           { document: "references/inference.md" },
           { label: "E. Information selection and communication", children: [
-            { document: "references/communication.md", label: "Communication and reader attention", range: "16–19" },
-            { document: "references/wording.md", label: "Wording and terminology", range: "20–23" },
+            { document: "references/communication.md", label: "Communication and reader attention" },
+            { document: "references/wording.md", label: "Wording and terminology" },
           ] },
         ] },
         { label: "Guides & sources", items: [
@@ -131,19 +131,13 @@ function openChapter(index, fragment = '', moveToText = false) {
   if (moveToText) chapterBody.focus({preventScroll: true});
 }
 
-function appendDocument(list, chapter, label = chapter.title, range) {
+function appendDocument(list, chapter, label = chapter.title) {
   const item = document.createElement('li');
   const button = document.createElement('button');
   const text = document.createElement('span');
   text.className = 'document-title';
   text.textContent = label;
   button.append(text);
-  if (range) {
-    const numbers = document.createElement('span');
-    numbers.className = 'reference-range';
-    numbers.textContent = range;
-    button.append(numbers);
-  }
   button.dataset.document = chapter.path;
   button.title = chapter.path.split('/').slice(1).join('/');
   item.append(button);
@@ -189,7 +183,7 @@ function buildContents(reader, packageName) {
           const path = `${packageName}/skills/${skill}/${entry.document}`;
           const doc = references.find(doc => doc.path === path);
           if (!doc || included.has(path)) throw new Error(`Invalid contents document: ${path}`);
-          appendDocument(target, {...doc, category, contentsLabel: entry.label}, entry.label || doc.title, entry.range);
+          appendDocument(target, {...doc, category, contentsLabel: entry.label}, entry.label || doc.title);
           included.add(path);
         }
       };
