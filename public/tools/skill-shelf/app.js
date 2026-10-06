@@ -66,6 +66,13 @@ const packages = {
       ],
     },
   },
+  "speech-act": {
+    version: "0.1.1",
+    title: "Speech Act",
+    license: "MIT License",
+    description: "Design scholarly writing and explanations around what they enable an intended reader to understand, judge, question, or do.",
+    skills: ["speech-act-writing"],
+  },
 };
 
 const dialog = document.querySelector('#package-dialog');

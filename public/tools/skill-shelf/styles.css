@@ -272,6 +272,11 @@ p {
   height: 326px;
 }
 
+.book--speech {
+  --book-color: #536c7a;
+  height: 334px;
+}
+
 .book-meta {
   position: relative;
   z-index: 1;
@@ -533,6 +538,7 @@ footer {
   .book--research { width: clamp(62px, 12vw, 82px); height: 286px; }
   .book--study { width: clamp(56px, 11vw, 74px); height: 280px; }
   .book--bias { height: 286px; }
+  .book--speech { height: 292px; }
 
   .book-title,
   .book--academic .book-title {
