@@ -1,4 +1,4 @@
-import{n as e,r as t,t as n}from"./rolldown-runtime-CSSSg6FL.js";import{i as r,n as i,r as a}from"./framework-ZegdmD18.js";import{t as o}from"./index-BOWfyWE6.js";function s(e){let t=[],n=String(e||``),r=n.indexOf(`,`),i=0,a=!1;for(;!a;){r===-1&&(r=n.length,a=!0);let e=n.slice(i,r).trim();(e||!a)&&t.push(e),i=r+1,r=n.indexOf(`,`,i)}return t}function c(e,t){let n=t||{};return(e[e.length-1]===``?[...e,``]:e).join((n.padRight?` `:``)+`,`+(n.padLeft===!1?``:` `)).trim()}var l=/^[$_\p{ID_Start}][$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,u=/^[$_\p{ID_Start}][-$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,d={};function f(e,t){return((t||d).jsx?u:l).test(e)}var p=/[ \t\n\f\r]/g;function m(e){return typeof e==`object`?e.type===`text`?h(e.value):!1:h(e)}function h(e){return e.replace(p,``)===``}var g=class{constructor(e,t,n){this.normal=t,this.property=e,n&&(this.space=n)}};g.prototype.normal={},g.prototype.property={},g.prototype.space=void 0;function _(e,t){let n={},r={};for(let t of e)Object.assign(n,t.property),Object.assign(r,t.normal);return new g(n,r,t)}function v(e){return e.toLowerCase()}var y=class{constructor(e,t){this.attribute=t,this.property=e}};y.prototype.attribute=``,y.prototype.booleanish=!1,y.prototype.boolean=!1,y.prototype.commaOrSpaceSeparated=!1,y.prototype.commaSeparated=!1,y.prototype.defined=!1,y.prototype.mustUseProperty=!1,y.prototype.number=!1,y.prototype.overloadedBoolean=!1,y.prototype.property=``,y.prototype.spaceSeparated=!1,y.prototype.space=void 0;var b=e({boolean:()=>S,booleanish:()=>C,commaOrSpaceSeparated:()=>D,commaSeparated:()=>ee,number:()=>T,overloadedBoolean:()=>w,spaceSeparated:()=>E}),x=0,S=O(),C=O(),w=O(),T=O(),E=O(),ee=O(),D=O();function O(){return 2**++x}var k=Object.keys(b),te=class extends y{constructor(e,t,n,r){let i=-1;if(super(e,t),A(this,`space`,r),typeof n==`number`)for(;++i<k.length;){let e=k[i];A(this,k[i],(n&b[e])===b[e])}}};te.prototype.defined=!0;function A(e,t,n){n&&(e[t]=n)}function ne(e){let t={},n={};for(let[r,i]of Object.entries(e.properties)){let a=new te(r,e.transform(e.attributes||{},r),i,e.space);e.mustUseProperty&&e.mustUseProperty.includes(r)&&(a.mustUseProperty=!0),t[r]=a,n[v(r)]=r,n[v(a.attribute)]=r}return new g(t,n,e.space)}var re=ne({properties:{ariaActiveDescendant:null,ariaAtomic:C,ariaAutoComplete:null,ariaBusy:C,ariaChecked:C,ariaColCount:T,ariaColIndex:T,ariaColSpan:T,ariaControls:E,ariaCurrent:null,ariaDescribedBy:E,ariaDetails:null,ariaDisabled:C,ariaDropEffect:E,ariaErrorMessage:null,ariaExpanded:C,ariaFlowTo:E,ariaGrabbed:C,ariaHasPopup:null,ariaHidden:C,ariaInvalid:null,ariaKeyShortcuts:null,ariaLabel:null,ariaLabelledBy:E,ariaLevel:T,ariaLive:null,ariaModal:C,ariaMultiLine:C,ariaMultiSelectable:C,ariaOrientation:null,ariaOwns:E,ariaPlaceholder:null,ariaPosInSet:T,ariaPressed:C,ariaReadOnly:C,ariaRelevant:null,ariaRequired:C,ariaRoleDescription:E,ariaRowCount:T,ariaRowIndex:T,ariaRowSpan:T,ariaSelected:C,ariaSetSize:T,ariaSort:null,ariaValueMax:T,ariaValueMin:T,ariaValueNow:T,ariaValueText:null,role:null},transform(e,t){return t===`role`?t:`aria-`+t.slice(4).toLowerCase()}});function ie(e,t){return t in e?e[t]:t}function j(e,t){return ie(e,t.toLowerCase())}var ae=ne({attributes:{acceptcharset:`accept-charset`,classname:`class`,htmlfor:`for`,httpequiv:`http-equiv`},mustUseProperty:[`checked`,`multiple`,`muted`,`selected`],properties:{abbr:null,accept:ee,acceptCharset:E,accessKey:E,action:null,allow:null,allowFullScreen:S,allowPaymentRequest:S,allowUserMedia:S,alpha:S,alt:null,as:null,async:S,autoCapitalize:null,autoComplete:E,autoFocus:S,autoPlay:S,blocking:E,capture:null,charSet:null,checked:S,cite:null,className:E,closedBy:null,colorSpace:null,cols:T,colSpan:T,command:null,commandFor:null,content:null,contentEditable:C,controls:S,controlsList:E,coords:T|ee,crossOrigin:null,data:null,dateTime:null,decoding:null,default:S,defer:S,dir:null,dirName:null,disabled:S,download:w,draggable:C,encType:null,enterKeyHint:null,fetchPriority:null,form:null,formAction:null,formEncType:null,formMethod:null,formNoValidate:S,formTarget:null,headers:E,height:T,hidden:w,high:T,href:null,hrefLang:null,htmlFor:E,httpEquiv:E,id:null,imageSizes:null,imageSrcSet:null,inert:S,inputMode:null,integrity:null,is:null,isMap:S,itemId:null,itemProp:E,itemRef:E,itemScope:S,itemType:E,kind:null,label:null,lang:null,language:null,list:null,loading:null,loop:S,low:T,manifest:null,max:null,maxLength:T,media:null,method:null,min:null,minLength:T,multiple:S,muted:S,name:null,nonce:null,noModule:S,noValidate:S,onAbort:null,onAfterPrint:null,onAuxClick:null,onBeforeMatch:null,onBeforePrint:null,onBeforeToggle:null,onBeforeUnload:null,onBlur:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onContextLost:null,onContextMenu:null,onContextRestored:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnded:null,onError:null,onFocus:null,onFormData:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLanguageChange:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadEnd:null,onLoadStart:null,onMessage:null,onMessageError:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRejectionHandled:null,onReset:null,onResize:null,onScroll:null,onScrollEnd:null,onSecurityPolicyViolation:null,onSeeked:null,onSeeking:null,onSelect:null,onSlotChange:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnhandledRejection:null,onUnload:null,onVolumeChange:null,onWaiting:null,onWheel:null,open:S,optimum:T,pattern:null,ping:E,placeholder:null,playsInline:S,popover:null,popoverTarget:null,popoverTargetAction:null,poster:null,preload:null,readOnly:S,referrerPolicy:null,rel:E,required:S,reversed:S,rows:T,rowSpan:T,sandbox:E,scope:null,scoped:S,seamless:S,selected:S,shadowRootClonable:S,shadowRootCustomElementRegistry:S,shadowRootDelegatesFocus:S,shadowRootMode:null,shadowRootSerializable:S,shape:null,size:T,sizes:null,slot:null,span:T,spellCheck:C,src:null,srcDoc:null,srcLang:null,srcSet:null,start:T,step:null,style:null,tabIndex:T,target:null,title:null,translate:null,type:null,typeMustMatch:S,useMap:null,value:C,width:T,wrap:null,writingSuggestions:null,align:null,aLink:null,archive:E,axis:null,background:null,bgColor:null,border:T,borderColor:null,bottomMargin:T,cellPadding:null,cellSpacing:null,char:null,charOff:null,classId:null,clear:null,code:null,codeBase:null,codeType:null,color:null,compact:S,declare:S,event:null,face:null,frame:null,frameBorder:null,hSpace:T,leftMargin:T,link:null,longDesc:null,lowSrc:null,marginHeight:T,marginWidth:T,noResize:S,noHref:S,noShade:S,noWrap:S,object:null,profile:null,prompt:null,rev:null,rightMargin:T,rules:null,scheme:null,scrolling:C,standby:null,summary:null,text:null,topMargin:T,valueType:null,version:null,vAlign:null,vLink:null,vSpace:T,allowTransparency:null,autoCorrect:null,autoSave:null,credentialless:S,disablePictureInPicture:S,disableRemotePlayback:S,exportParts:ee,part:E,prefix:null,property:null,results:T,security:null,unselectable:null},space:`html`,transform:j}),oe=ne({attributes:{accentHeight:`accent-height`,alignmentBaseline:`alignment-baseline`,arabicForm:`arabic-form`,baselineShift:`baseline-shift`,capHeight:`cap-height`,className:`class`,clipPath:`clip-path`,clipRule:`clip-rule`,colorInterpolation:`color-interpolation`,colorInterpolationFilters:`color-interpolation-filters`,colorProfile:`color-profile`,colorRendering:`color-rendering`,crossOrigin:`crossorigin`,dataType:`datatype`,dominantBaseline:`dominant-baseline`,enableBackground:`enable-background`,fillOpacity:`fill-opacity`,fillRule:`fill-rule`,floodColor:`flood-color`,floodOpacity:`flood-opacity`,fontFamily:`font-family`,fontSize:`font-size`,fontSizeAdjust:`font-size-adjust`,fontStretch:`font-stretch`,fontStyle:`font-style`,fontVariant:`font-variant`,fontWeight:`font-weight`,glyphName:`glyph-name`,glyphOrientationHorizontal:`glyph-orientation-horizontal`,glyphOrientationVertical:`glyph-orientation-vertical`,hrefLang:`hreflang`,horizAdvX:`horiz-adv-x`,horizOriginX:`horiz-origin-x`,horizOriginY:`horiz-origin-y`,imageRendering:`image-rendering`,letterSpacing:`letter-spacing`,lightingColor:`lighting-color`,markerEnd:`marker-end`,markerMid:`marker-mid`,markerStart:`marker-start`,maskType:`mask-type`,navDown:`nav-down`,navDownLeft:`nav-down-left`,navDownRight:`nav-down-right`,navLeft:`nav-left`,navNext:`nav-next`,navPrev:`nav-prev`,navRight:`nav-right`,navUp:`nav-up`,navUpLeft:`nav-up-left`,navUpRight:`nav-up-right`,onAbort:`onabort`,onActivate:`onactivate`,onAfterPrint:`onafterprint`,onBeforePrint:`onbeforeprint`,onBegin:`onbegin`,onCancel:`oncancel`,onCanPlay:`oncanplay`,onCanPlayThrough:`oncanplaythrough`,onChange:`onchange`,onClick:`onclick`,onClose:`onclose`,onCopy:`oncopy`,onCueChange:`oncuechange`,onCut:`oncut`,onDblClick:`ondblclick`,onDrag:`ondrag`,onDragEnd:`ondragend`,onDragEnter:`ondragenter`,onDragExit:`ondragexit`,onDragLeave:`ondragleave`,onDragOver:`ondragover`,onDragStart:`ondragstart`,onDrop:`ondrop`,onDurationChange:`ondurationchange`,onEmptied:`onemptied`,onEnd:`onend`,onEnded:`onended`,onError:`onerror`,onFocus:`onfocus`,onFocusIn:`onfocusin`,onFocusOut:`onfocusout`,onHashChange:`onhashchange`,onInput:`oninput`,onInvalid:`oninvalid`,onKeyDown:`onkeydown`,onKeyPress:`onkeypress`,onKeyUp:`onkeyup`,onLoad:`onload`,onLoadedData:`onloadeddata`,onLoadedMetadata:`onloadedmetadata`,onLoadStart:`onloadstart`,onMessage:`onmessage`,onMouseDown:`onmousedown`,onMouseEnter:`onmouseenter`,onMouseLeave:`onmouseleave`,onMouseMove:`onmousemove`,onMouseOut:`onmouseout`,onMouseOver:`onmouseover`,onMouseUp:`onmouseup`,onMouseWheel:`onmousewheel`,onOffline:`onoffline`,onOnline:`ononline`,onPageHide:`onpagehide`,onPageShow:`onpageshow`,onPaste:`onpaste`,onPause:`onpause`,onPlay:`onplay`,onPlaying:`onplaying`,onPopState:`onpopstate`,onProgress:`onprogress`,onRateChange:`onratechange`,onRepeat:`onrepeat`,onReset:`onreset`,onResize:`onresize`,onScroll:`onscroll`,onSeeked:`onseeked`,onSeeking:`onseeking`,onSelect:`onselect`,onShow:`onshow`,onStalled:`onstalled`,onStorage:`onstorage`,onSubmit:`onsubmit`,onSuspend:`onsuspend`,onTimeUpdate:`ontimeupdate`,onToggle:`ontoggle`,onUnload:`onunload`,onVolumeChange:`onvolumechange`,onWaiting:`onwaiting`,onZoom:`onzoom`,overlinePosition:`overline-position`,overlineThickness:`overline-thickness`,paintOrder:`paint-order`,panose1:`panose-1`,pointerEvents:`pointer-events`,referrerPolicy:`referrerpolicy`,renderingIntent:`rendering-intent`,shapeRendering:`shape-rendering`,stopColor:`stop-color`,stopOpacity:`stop-opacity`,strikethroughPosition:`strikethrough-position`,strikethroughThickness:`strikethrough-thickness`,strokeDashArray:`stroke-dasharray`,strokeDashOffset:`stroke-dashoffset`,strokeLineCap:`stroke-linecap`,strokeLineJoin:`stroke-linejoin`,strokeMiterLimit:`stroke-miterlimit`,strokeOpacity:`stroke-opacity`,strokeWidth:`stroke-width`,tabIndex:`tabindex`,textAnchor:`text-anchor`,textDecoration:`text-decoration`,textRendering:`text-rendering`,transformOrigin:`transform-origin`,typeOf:`typeof`,underlinePosition:`underline-position`,underlineThickness:`underline-thickness`,unicodeBidi:`unicode-bidi`,unicodeRange:`unicode-range`,unitsPerEm:`units-per-em`,vAlphabetic:`v-alphabetic`,vHanging:`v-hanging`,vIdeographic:`v-ideographic`,vMathematical:`v-mathematical`,vectorEffect:`vector-effect`,vertAdvY:`vert-adv-y`,vertOriginX:`vert-origin-x`,vertOriginY:`vert-origin-y`,wordSpacing:`word-spacing`,writingMode:`writing-mode`,xHeight:`x-height`,playbackOrder:`playbackorder`,timelineBegin:`timelinebegin`},properties:{about:D,accentHeight:T,accumulate:null,additive:null,alignmentBaseline:null,alphabetic:T,amplitude:T,arabicForm:null,ascent:T,attributeName:null,attributeType:null,azimuth:T,bandwidth:null,baselineShift:null,baseFrequency:null,baseProfile:null,bbox:null,begin:null,bias:T,by:null,calcMode:null,capHeight:T,className:E,clip:null,clipPath:null,clipPathUnits:null,clipRule:null,color:null,colorInterpolation:null,colorInterpolationFilters:null,colorProfile:null,colorRendering:null,content:null,contentScriptType:null,contentStyleType:null,crossOrigin:null,cursor:null,cx:null,cy:null,d:null,dataType:null,defaultAction:null,descent:T,diffuseConstant:T,direction:null,display:null,dur:null,divisor:T,dominantBaseline:null,download:S,dx:null,dy:null,edgeMode:null,editable:null,elevation:T,enableBackground:null,end:null,event:null,exponent:T,externalResourcesRequired:null,fill:null,fillOpacity:T,fillRule:null,filter:null,filterRes:null,filterUnits:null,floodColor:null,floodOpacity:null,focusable:null,focusHighlight:null,fontFamily:null,fontSize:null,fontSizeAdjust:null,fontStretch:null,fontStyle:null,fontVariant:null,fontWeight:null,format:null,fr:null,from:null,fx:null,fy:null,g1:ee,g2:ee,glyphName:ee,glyphOrientationHorizontal:null,glyphOrientationVertical:null,glyphRef:null,gradientTransform:null,gradientUnits:null,handler:null,hanging:T,hatchContentUnits:null,hatchUnits:null,height:null,href:null,hrefLang:null,horizAdvX:T,horizOriginX:T,horizOriginY:T,id:null,ideographic:T,imageRendering:null,initialVisibility:null,in:null,in2:null,intercept:T,k:T,k1:T,k2:T,k3:T,k4:T,kernelMatrix:D,kernelUnitLength:null,keyPoints:null,keySplines:null,keyTimes:null,kerning:null,lang:null,lengthAdjust:null,letterSpacing:null,lightingColor:null,limitingConeAngle:T,local:null,markerEnd:null,markerMid:null,markerStart:null,markerHeight:null,markerUnits:null,markerWidth:null,mask:null,maskContentUnits:null,maskType:null,maskUnits:null,mathematical:null,max:null,media:null,mediaCharacterEncoding:null,mediaContentEncodings:null,mediaSize:T,mediaTime:null,method:null,min:null,mode:null,name:null,navDown:null,navDownLeft:null,navDownRight:null,navLeft:null,navNext:null,navPrev:null,navRight:null,navUp:null,navUpLeft:null,navUpRight:null,numOctaves:null,observer:null,offset:null,onAbort:null,onActivate:null,onAfterPrint:null,onBeforePrint:null,onBegin:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnd:null,onEnded:null,onError:null,onFocus:null,onFocusIn:null,onFocusOut:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadStart:null,onMessage:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onMouseWheel:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRepeat:null,onReset:null,onResize:null,onScroll:null,onSeeked:null,onSeeking:null,onSelect:null,onShow:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnload:null,onVolumeChange:null,onWaiting:null,onZoom:null,opacity:null,operator:null,order:null,orient:null,orientation:null,origin:null,overflow:null,overlay:null,overlinePosition:T,overlineThickness:T,paintOrder:null,panose1:null,path:null,pathLength:T,patternContentUnits:null,patternTransform:null,patternUnits:null,phase:null,ping:E,pitch:null,playbackOrder:null,pointerEvents:null,points:null,pointsAtX:T,pointsAtY:T,pointsAtZ:T,preserveAlpha:null,preserveAspectRatio:null,primitiveUnits:null,propagate:null,property:D,r:null,radius:null,referrerPolicy:null,refX:null,refY:null,rel:D,rev:D,renderingIntent:null,repeatCount:null,repeatDur:null,requiredExtensions:D,requiredFeatures:D,requiredFonts:D,requiredFormats:D,resource:null,restart:null,result:null,rotate:null,rx:null,ry:null,scale:null,seed:null,shapeRendering:null,side:null,slope:null,snapshotTime:null,specularConstant:T,specularExponent:T,spreadMethod:null,spacing:null,startOffset:null,stdDeviation:null,stemh:null,stemv:null,stitchTiles:null,stopColor:null,stopOpacity:null,strikethroughPosition:T,strikethroughThickness:T,string:null,stroke:null,strokeDashArray:D,strokeDashOffset:null,strokeLineCap:null,strokeLineJoin:null,strokeMiterLimit:T,strokeOpacity:T,strokeWidth:null,style:null,surfaceScale:T,syncBehavior:null,syncBehaviorDefault:null,syncMaster:null,syncTolerance:null,syncToleranceDefault:null,systemLanguage:D,tabIndex:T,tableValues:null,target:null,targetX:T,targetY:T,textAnchor:null,textDecoration:null,textRendering:null,textLength:null,timelineBegin:null,title:null,transformBehavior:null,type:null,typeOf:D,to:null,transform:null,transformOrigin:null,u1:null,u2:null,underlinePosition:T,underlineThickness:T,unicode:null,unicodeBidi:null,unicodeRange:null,unitsPerEm:T,values:null,vAlphabetic:T,vMathematical:T,vectorEffect:null,vHanging:T,vIdeographic:T,version:null,vertAdvY:T,vertOriginX:T,vertOriginY:T,viewBox:null,viewTarget:null,visibility:null,width:null,widths:null,wordSpacing:null,writingMode:null,x:null,x1:null,x2:null,xChannelSelector:null,xHeight:T,y:null,y1:null,y2:null,yChannelSelector:null,z:null,zoomAndPan:null},space:`svg`,transform:ie}),se=ne({properties:{xLinkActuate:null,xLinkArcRole:null,xLinkHref:null,xLinkRole:null,xLinkShow:null,xLinkTitle:null,xLinkType:null},space:`xlink`,transform(e,t){return`xlink:`+t.slice(5).toLowerCase()}}),ce=ne({attributes:{xmlnsxlink:`xmlns:xlink`},properties:{xmlnsXLink:null,xmlns:null},space:`xmlns`,transform:j}),le=ne({properties:{xmlBase:null,xmlLang:null,xmlSpace:null},space:`xml`,transform(e,t){return`xml:`+t.slice(3).toLowerCase()}}),ue={classId:`classID`,dataType:`datatype`,itemId:`itemID`,strokeDashArray:`strokeDasharray`,strokeDashOffset:`strokeDashoffset`,strokeLineCap:`strokeLinecap`,strokeLineJoin:`strokeLinejoin`,strokeMiterLimit:`strokeMiterlimit`,typeOf:`typeof`,xLinkActuate:`xlinkActuate`,xLinkArcRole:`xlinkArcrole`,xLinkHref:`xlinkHref`,xLinkRole:`xlinkRole`,xLinkShow:`xlinkShow`,xLinkTitle:`xlinkTitle`,xLinkType:`xlinkType`,xmlnsXLink:`xmlnsXlink`},de=/[A-Z]/g,fe=/-[a-z]/g,pe=/^data[-\w.:]+$/i;function me(e,t){let n=v(t),r=t,i=y;if(n in e.normal)return e.property[e.normal[n]];if(n.length>4&&n.slice(0,4)===`data`&&pe.test(t)){if(t.charAt(4)===`-`){let e=t.slice(5).replace(fe,ge);r=`data`+e.charAt(0).toUpperCase()+e.slice(1)}else{let e=t.slice(4);if(!fe.test(e)){let n=e.replace(de,he);n.charAt(0)!==`-`&&(n=`-`+n),t=`data`+n}}i=te}return new i(r,t)}function he(e){return`-`+e.toLowerCase()}function ge(e){return e.charAt(1).toUpperCase()}var _e=_([re,ae,se,ce,le],`html`),ve=_([re,oe,se,ce,le],`svg`);function ye(e){let t=String(e||``).trim();return t?t.split(/[ \t\n\r\f]+/g):[]}function be(e){return e.join(` `).trim()}var xe=n(((e,t)=>{var n=/\/\*[^*]*\*+([^/*][^*]*\*+)*\//g,r=/\n/g,i=/^\s*/,a=/^(\*?[-#/*\\\w]+(\[[0-9a-z_-]+\])?)\s*/,o=/^:\s*/,s=/^((?:'(?:\\'|.)*?'|"(?:\\"|.)*?"|\([^)]*?\)|[^};])+)/,c=/^[;\s]*/,l=/^\s+|\s+$/g,u=`
+import{n as e,r as t,t as n}from"./rolldown-runtime-CSSSg6FL.js";import{i as r,n as i,r as a}from"./framework-ZegdmD18.js";import{t as o}from"./index-tlaAp7KD.js";function s(e){let t=[],n=String(e||``),r=n.indexOf(`,`),i=0,a=!1;for(;!a;){r===-1&&(r=n.length,a=!0);let e=n.slice(i,r).trim();(e||!a)&&t.push(e),i=r+1,r=n.indexOf(`,`,i)}return t}function c(e,t){let n=t||{};return(e[e.length-1]===``?[...e,``]:e).join((n.padRight?` `:``)+`,`+(n.padLeft===!1?``:` `)).trim()}var l=/^[$_\p{ID_Start}][$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,u=/^[$_\p{ID_Start}][-$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,d={};function f(e,t){return((t||d).jsx?u:l).test(e)}var p=/[ \t\n\f\r]/g;function m(e){return typeof e==`object`?e.type===`text`?h(e.value):!1:h(e)}function h(e){return e.replace(p,``)===``}var g=class{constructor(e,t,n){this.normal=t,this.property=e,n&&(this.space=n)}};g.prototype.normal={},g.prototype.property={},g.prototype.space=void 0;function _(e,t){let n={},r={};for(let t of e)Object.assign(n,t.property),Object.assign(r,t.normal);return new g(n,r,t)}function v(e){return e.toLowerCase()}var y=class{constructor(e,t){this.attribute=t,this.property=e}};y.prototype.attribute=``,y.prototype.booleanish=!1,y.prototype.boolean=!1,y.prototype.commaOrSpaceSeparated=!1,y.prototype.commaSeparated=!1,y.prototype.defined=!1,y.prototype.mustUseProperty=!1,y.prototype.number=!1,y.prototype.overloadedBoolean=!1,y.prototype.property=``,y.prototype.spaceSeparated=!1,y.prototype.space=void 0;var b=e({boolean:()=>S,booleanish:()=>C,commaOrSpaceSeparated:()=>D,commaSeparated:()=>ee,number:()=>T,overloadedBoolean:()=>w,spaceSeparated:()=>E}),x=0,S=O(),C=O(),w=O(),T=O(),E=O(),ee=O(),D=O();function O(){return 2**++x}var k=Object.keys(b),te=class extends y{constructor(e,t,n,r){let i=-1;if(super(e,t),A(this,`space`,r),typeof n==`number`)for(;++i<k.length;){let e=k[i];A(this,k[i],(n&b[e])===b[e])}}};te.prototype.defined=!0;function A(e,t,n){n&&(e[t]=n)}function ne(e){let t={},n={};for(let[r,i]of Object.entries(e.properties)){let a=new te(r,e.transform(e.attributes||{},r),i,e.space);e.mustUseProperty&&e.mustUseProperty.includes(r)&&(a.mustUseProperty=!0),t[r]=a,n[v(r)]=r,n[v(a.attribute)]=r}return new g(t,n,e.space)}var re=ne({properties:{ariaActiveDescendant:null,ariaAtomic:C,ariaAutoComplete:null,ariaBusy:C,ariaChecked:C,ariaColCount:T,ariaColIndex:T,ariaColSpan:T,ariaControls:E,ariaCurrent:null,ariaDescribedBy:E,ariaDetails:null,ariaDisabled:C,ariaDropEffect:E,ariaErrorMessage:null,ariaExpanded:C,ariaFlowTo:E,ariaGrabbed:C,ariaHasPopup:null,ariaHidden:C,ariaInvalid:null,ariaKeyShortcuts:null,ariaLabel:null,ariaLabelledBy:E,ariaLevel:T,ariaLive:null,ariaModal:C,ariaMultiLine:C,ariaMultiSelectable:C,ariaOrientation:null,ariaOwns:E,ariaPlaceholder:null,ariaPosInSet:T,ariaPressed:C,ariaReadOnly:C,ariaRelevant:null,ariaRequired:C,ariaRoleDescription:E,ariaRowCount:T,ariaRowIndex:T,ariaRowSpan:T,ariaSelected:C,ariaSetSize:T,ariaSort:null,ariaValueMax:T,ariaValueMin:T,ariaValueNow:T,ariaValueText:null,role:null},transform(e,t){return t===`role`?t:`aria-`+t.slice(4).toLowerCase()}});function ie(e,t){return t in e?e[t]:t}function j(e,t){return ie(e,t.toLowerCase())}var ae=ne({attributes:{acceptcharset:`accept-charset`,classname:`class`,htmlfor:`for`,httpequiv:`http-equiv`},mustUseProperty:[`checked`,`multiple`,`muted`,`selected`],properties:{abbr:null,accept:ee,acceptCharset:E,accessKey:E,action:null,allow:null,allowFullScreen:S,allowPaymentRequest:S,allowUserMedia:S,alpha:S,alt:null,as:null,async:S,autoCapitalize:null,autoComplete:E,autoFocus:S,autoPlay:S,blocking:E,capture:null,charSet:null,checked:S,cite:null,className:E,closedBy:null,colorSpace:null,cols:T,colSpan:T,command:null,commandFor:null,content:null,contentEditable:C,controls:S,controlsList:E,coords:T|ee,crossOrigin:null,data:null,dateTime:null,decoding:null,default:S,defer:S,dir:null,dirName:null,disabled:S,download:w,draggable:C,encType:null,enterKeyHint:null,fetchPriority:null,form:null,formAction:null,formEncType:null,formMethod:null,formNoValidate:S,formTarget:null,headers:E,height:T,hidden:w,high:T,href:null,hrefLang:null,htmlFor:E,httpEquiv:E,id:null,imageSizes:null,imageSrcSet:null,inert:S,inputMode:null,integrity:null,is:null,isMap:S,itemId:null,itemProp:E,itemRef:E,itemScope:S,itemType:E,kind:null,label:null,lang:null,language:null,list:null,loading:null,loop:S,low:T,manifest:null,max:null,maxLength:T,media:null,method:null,min:null,minLength:T,multiple:S,muted:S,name:null,nonce:null,noModule:S,noValidate:S,onAbort:null,onAfterPrint:null,onAuxClick:null,onBeforeMatch:null,onBeforePrint:null,onBeforeToggle:null,onBeforeUnload:null,onBlur:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onContextLost:null,onContextMenu:null,onContextRestored:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnded:null,onError:null,onFocus:null,onFormData:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLanguageChange:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadEnd:null,onLoadStart:null,onMessage:null,onMessageError:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRejectionHandled:null,onReset:null,onResize:null,onScroll:null,onScrollEnd:null,onSecurityPolicyViolation:null,onSeeked:null,onSeeking:null,onSelect:null,onSlotChange:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnhandledRejection:null,onUnload:null,onVolumeChange:null,onWaiting:null,onWheel:null,open:S,optimum:T,pattern:null,ping:E,placeholder:null,playsInline:S,popover:null,popoverTarget:null,popoverTargetAction:null,poster:null,preload:null,readOnly:S,referrerPolicy:null,rel:E,required:S,reversed:S,rows:T,rowSpan:T,sandbox:E,scope:null,scoped:S,seamless:S,selected:S,shadowRootClonable:S,shadowRootCustomElementRegistry:S,shadowRootDelegatesFocus:S,shadowRootMode:null,shadowRootSerializable:S,shape:null,size:T,sizes:null,slot:null,span:T,spellCheck:C,src:null,srcDoc:null,srcLang:null,srcSet:null,start:T,step:null,style:null,tabIndex:T,target:null,title:null,translate:null,type:null,typeMustMatch:S,useMap:null,value:C,width:T,wrap:null,writingSuggestions:null,align:null,aLink:null,archive:E,axis:null,background:null,bgColor:null,border:T,borderColor:null,bottomMargin:T,cellPadding:null,cellSpacing:null,char:null,charOff:null,classId:null,clear:null,code:null,codeBase:null,codeType:null,color:null,compact:S,declare:S,event:null,face:null,frame:null,frameBorder:null,hSpace:T,leftMargin:T,link:null,longDesc:null,lowSrc:null,marginHeight:T,marginWidth:T,noResize:S,noHref:S,noShade:S,noWrap:S,object:null,profile:null,prompt:null,rev:null,rightMargin:T,rules:null,scheme:null,scrolling:C,standby:null,summary:null,text:null,topMargin:T,valueType:null,version:null,vAlign:null,vLink:null,vSpace:T,allowTransparency:null,autoCorrect:null,autoSave:null,credentialless:S,disablePictureInPicture:S,disableRemotePlayback:S,exportParts:ee,part:E,prefix:null,property:null,results:T,security:null,unselectable:null},space:`html`,transform:j}),oe=ne({attributes:{accentHeight:`accent-height`,alignmentBaseline:`alignment-baseline`,arabicForm:`arabic-form`,baselineShift:`baseline-shift`,capHeight:`cap-height`,className:`class`,clipPath:`clip-path`,clipRule:`clip-rule`,colorInterpolation:`color-interpolation`,colorInterpolationFilters:`color-interpolation-filters`,colorProfile:`color-profile`,colorRendering:`color-rendering`,crossOrigin:`crossorigin`,dataType:`datatype`,dominantBaseline:`dominant-baseline`,enableBackground:`enable-background`,fillOpacity:`fill-opacity`,fillRule:`fill-rule`,floodColor:`flood-color`,floodOpacity:`flood-opacity`,fontFamily:`font-family`,fontSize:`font-size`,fontSizeAdjust:`font-size-adjust`,fontStretch:`font-stretch`,fontStyle:`font-style`,fontVariant:`font-variant`,fontWeight:`font-weight`,glyphName:`glyph-name`,glyphOrientationHorizontal:`glyph-orientation-horizontal`,glyphOrientationVertical:`glyph-orientation-vertical`,hrefLang:`hreflang`,horizAdvX:`horiz-adv-x`,horizOriginX:`horiz-origin-x`,horizOriginY:`horiz-origin-y`,imageRendering:`image-rendering`,letterSpacing:`letter-spacing`,lightingColor:`lighting-color`,markerEnd:`marker-end`,markerMid:`marker-mid`,markerStart:`marker-start`,maskType:`mask-type`,navDown:`nav-down`,navDownLeft:`nav-down-left`,navDownRight:`nav-down-right`,navLeft:`nav-left`,navNext:`nav-next`,navPrev:`nav-prev`,navRight:`nav-right`,navUp:`nav-up`,navUpLeft:`nav-up-left`,navUpRight:`nav-up-right`,onAbort:`onabort`,onActivate:`onactivate`,onAfterPrint:`onafterprint`,onBeforePrint:`onbeforeprint`,onBegin:`onbegin`,onCancel:`oncancel`,onCanPlay:`oncanplay`,onCanPlayThrough:`oncanplaythrough`,onChange:`onchange`,onClick:`onclick`,onClose:`onclose`,onCopy:`oncopy`,onCueChange:`oncuechange`,onCut:`oncut`,onDblClick:`ondblclick`,onDrag:`ondrag`,onDragEnd:`ondragend`,onDragEnter:`ondragenter`,onDragExit:`ondragexit`,onDragLeave:`ondragleave`,onDragOver:`ondragover`,onDragStart:`ondragstart`,onDrop:`ondrop`,onDurationChange:`ondurationchange`,onEmptied:`onemptied`,onEnd:`onend`,onEnded:`onended`,onError:`onerror`,onFocus:`onfocus`,onFocusIn:`onfocusin`,onFocusOut:`onfocusout`,onHashChange:`onhashchange`,onInput:`oninput`,onInvalid:`oninvalid`,onKeyDown:`onkeydown`,onKeyPress:`onkeypress`,onKeyUp:`onkeyup`,onLoad:`onload`,onLoadedData:`onloadeddata`,onLoadedMetadata:`onloadedmetadata`,onLoadStart:`onloadstart`,onMessage:`onmessage`,onMouseDown:`onmousedown`,onMouseEnter:`onmouseenter`,onMouseLeave:`onmouseleave`,onMouseMove:`onmousemove`,onMouseOut:`onmouseout`,onMouseOver:`onmouseover`,onMouseUp:`onmouseup`,onMouseWheel:`onmousewheel`,onOffline:`onoffline`,onOnline:`ononline`,onPageHide:`onpagehide`,onPageShow:`onpageshow`,onPaste:`onpaste`,onPause:`onpause`,onPlay:`onplay`,onPlaying:`onplaying`,onPopState:`onpopstate`,onProgress:`onprogress`,onRateChange:`onratechange`,onRepeat:`onrepeat`,onReset:`onreset`,onResize:`onresize`,onScroll:`onscroll`,onSeeked:`onseeked`,onSeeking:`onseeking`,onSelect:`onselect`,onShow:`onshow`,onStalled:`onstalled`,onStorage:`onstorage`,onSubmit:`onsubmit`,onSuspend:`onsuspend`,onTimeUpdate:`ontimeupdate`,onToggle:`ontoggle`,onUnload:`onunload`,onVolumeChange:`onvolumechange`,onWaiting:`onwaiting`,onZoom:`onzoom`,overlinePosition:`overline-position`,overlineThickness:`overline-thickness`,paintOrder:`paint-order`,panose1:`panose-1`,pointerEvents:`pointer-events`,referrerPolicy:`referrerpolicy`,renderingIntent:`rendering-intent`,shapeRendering:`shape-rendering`,stopColor:`stop-color`,stopOpacity:`stop-opacity`,strikethroughPosition:`strikethrough-position`,strikethroughThickness:`strikethrough-thickness`,strokeDashArray:`stroke-dasharray`,strokeDashOffset:`stroke-dashoffset`,strokeLineCap:`stroke-linecap`,strokeLineJoin:`stroke-linejoin`,strokeMiterLimit:`stroke-miterlimit`,strokeOpacity:`stroke-opacity`,strokeWidth:`stroke-width`,tabIndex:`tabindex`,textAnchor:`text-anchor`,textDecoration:`text-decoration`,textRendering:`text-rendering`,transformOrigin:`transform-origin`,typeOf:`typeof`,underlinePosition:`underline-position`,underlineThickness:`underline-thickness`,unicodeBidi:`unicode-bidi`,unicodeRange:`unicode-range`,unitsPerEm:`units-per-em`,vAlphabetic:`v-alphabetic`,vHanging:`v-hanging`,vIdeographic:`v-ideographic`,vMathematical:`v-mathematical`,vectorEffect:`vector-effect`,vertAdvY:`vert-adv-y`,vertOriginX:`vert-origin-x`,vertOriginY:`vert-origin-y`,wordSpacing:`word-spacing`,writingMode:`writing-mode`,xHeight:`x-height`,playbackOrder:`playbackorder`,timelineBegin:`timelinebegin`},properties:{about:D,accentHeight:T,accumulate:null,additive:null,alignmentBaseline:null,alphabetic:T,amplitude:T,arabicForm:null,ascent:T,attributeName:null,attributeType:null,azimuth:T,bandwidth:null,baselineShift:null,baseFrequency:null,baseProfile:null,bbox:null,begin:null,bias:T,by:null,calcMode:null,capHeight:T,className:E,clip:null,clipPath:null,clipPathUnits:null,clipRule:null,color:null,colorInterpolation:null,colorInterpolationFilters:null,colorProfile:null,colorRendering:null,content:null,contentScriptType:null,contentStyleType:null,crossOrigin:null,cursor:null,cx:null,cy:null,d:null,dataType:null,defaultAction:null,descent:T,diffuseConstant:T,direction:null,display:null,dur:null,divisor:T,dominantBaseline:null,download:S,dx:null,dy:null,edgeMode:null,editable:null,elevation:T,enableBackground:null,end:null,event:null,exponent:T,externalResourcesRequired:null,fill:null,fillOpacity:T,fillRule:null,filter:null,filterRes:null,filterUnits:null,floodColor:null,floodOpacity:null,focusable:null,focusHighlight:null,fontFamily:null,fontSize:null,fontSizeAdjust:null,fontStretch:null,fontStyle:null,fontVariant:null,fontWeight:null,format:null,fr:null,from:null,fx:null,fy:null,g1:ee,g2:ee,glyphName:ee,glyphOrientationHorizontal:null,glyphOrientationVertical:null,glyphRef:null,gradientTransform:null,gradientUnits:null,handler:null,hanging:T,hatchContentUnits:null,hatchUnits:null,height:null,href:null,hrefLang:null,horizAdvX:T,horizOriginX:T,horizOriginY:T,id:null,ideographic:T,imageRendering:null,initialVisibility:null,in:null,in2:null,intercept:T,k:T,k1:T,k2:T,k3:T,k4:T,kernelMatrix:D,kernelUnitLength:null,keyPoints:null,keySplines:null,keyTimes:null,kerning:null,lang:null,lengthAdjust:null,letterSpacing:null,lightingColor:null,limitingConeAngle:T,local:null,markerEnd:null,markerMid:null,markerStart:null,markerHeight:null,markerUnits:null,markerWidth:null,mask:null,maskContentUnits:null,maskType:null,maskUnits:null,mathematical:null,max:null,media:null,mediaCharacterEncoding:null,mediaContentEncodings:null,mediaSize:T,mediaTime:null,method:null,min:null,mode:null,name:null,navDown:null,navDownLeft:null,navDownRight:null,navLeft:null,navNext:null,navPrev:null,navRight:null,navUp:null,navUpLeft:null,navUpRight:null,numOctaves:null,observer:null,offset:null,onAbort:null,onActivate:null,onAfterPrint:null,onBeforePrint:null,onBegin:null,onCancel:null,onCanPlay:null,onCanPlayThrough:null,onChange:null,onClick:null,onClose:null,onCopy:null,onCueChange:null,onCut:null,onDblClick:null,onDrag:null,onDragEnd:null,onDragEnter:null,onDragExit:null,onDragLeave:null,onDragOver:null,onDragStart:null,onDrop:null,onDurationChange:null,onEmptied:null,onEnd:null,onEnded:null,onError:null,onFocus:null,onFocusIn:null,onFocusOut:null,onHashChange:null,onInput:null,onInvalid:null,onKeyDown:null,onKeyPress:null,onKeyUp:null,onLoad:null,onLoadedData:null,onLoadedMetadata:null,onLoadStart:null,onMessage:null,onMouseDown:null,onMouseEnter:null,onMouseLeave:null,onMouseMove:null,onMouseOut:null,onMouseOver:null,onMouseUp:null,onMouseWheel:null,onOffline:null,onOnline:null,onPageHide:null,onPageShow:null,onPaste:null,onPause:null,onPlay:null,onPlaying:null,onPopState:null,onProgress:null,onRateChange:null,onRepeat:null,onReset:null,onResize:null,onScroll:null,onSeeked:null,onSeeking:null,onSelect:null,onShow:null,onStalled:null,onStorage:null,onSubmit:null,onSuspend:null,onTimeUpdate:null,onToggle:null,onUnload:null,onVolumeChange:null,onWaiting:null,onZoom:null,opacity:null,operator:null,order:null,orient:null,orientation:null,origin:null,overflow:null,overlay:null,overlinePosition:T,overlineThickness:T,paintOrder:null,panose1:null,path:null,pathLength:T,patternContentUnits:null,patternTransform:null,patternUnits:null,phase:null,ping:E,pitch:null,playbackOrder:null,pointerEvents:null,points:null,pointsAtX:T,pointsAtY:T,pointsAtZ:T,preserveAlpha:null,preserveAspectRatio:null,primitiveUnits:null,propagate:null,property:D,r:null,radius:null,referrerPolicy:null,refX:null,refY:null,rel:D,rev:D,renderingIntent:null,repeatCount:null,repeatDur:null,requiredExtensions:D,requiredFeatures:D,requiredFonts:D,requiredFormats:D,resource:null,restart:null,result:null,rotate:null,rx:null,ry:null,scale:null,seed:null,shapeRendering:null,side:null,slope:null,snapshotTime:null,specularConstant:T,specularExponent:T,spreadMethod:null,spacing:null,startOffset:null,stdDeviation:null,stemh:null,stemv:null,stitchTiles:null,stopColor:null,stopOpacity:null,strikethroughPosition:T,strikethroughThickness:T,string:null,stroke:null,strokeDashArray:D,strokeDashOffset:null,strokeLineCap:null,strokeLineJoin:null,strokeMiterLimit:T,strokeOpacity:T,strokeWidth:null,style:null,surfaceScale:T,syncBehavior:null,syncBehaviorDefault:null,syncMaster:null,syncTolerance:null,syncToleranceDefault:null,systemLanguage:D,tabIndex:T,tableValues:null,target:null,targetX:T,targetY:T,textAnchor:null,textDecoration:null,textRendering:null,textLength:null,timelineBegin:null,title:null,transformBehavior:null,type:null,typeOf:D,to:null,transform:null,transformOrigin:null,u1:null,u2:null,underlinePosition:T,underlineThickness:T,unicode:null,unicodeBidi:null,unicodeRange:null,unitsPerEm:T,values:null,vAlphabetic:T,vMathematical:T,vectorEffect:null,vHanging:T,vIdeographic:T,version:null,vertAdvY:T,vertOriginX:T,vertOriginY:T,viewBox:null,viewTarget:null,visibility:null,width:null,widths:null,wordSpacing:null,writingMode:null,x:null,x1:null,x2:null,xChannelSelector:null,xHeight:T,y:null,y1:null,y2:null,yChannelSelector:null,z:null,zoomAndPan:null},space:`svg`,transform:ie}),se=ne({properties:{xLinkActuate:null,xLinkArcRole:null,xLinkHref:null,xLinkRole:null,xLinkShow:null,xLinkTitle:null,xLinkType:null},space:`xlink`,transform(e,t){return`xlink:`+t.slice(5).toLowerCase()}}),ce=ne({attributes:{xmlnsxlink:`xmlns:xlink`},properties:{xmlnsXLink:null,xmlns:null},space:`xmlns`,transform:j}),le=ne({properties:{xmlBase:null,xmlLang:null,xmlSpace:null},space:`xml`,transform(e,t){return`xml:`+t.slice(3).toLowerCase()}}),ue={classId:`classID`,dataType:`datatype`,itemId:`itemID`,strokeDashArray:`strokeDasharray`,strokeDashOffset:`strokeDashoffset`,strokeLineCap:`strokeLinecap`,strokeLineJoin:`strokeLinejoin`,strokeMiterLimit:`strokeMiterlimit`,typeOf:`typeof`,xLinkActuate:`xlinkActuate`,xLinkArcRole:`xlinkArcrole`,xLinkHref:`xlinkHref`,xLinkRole:`xlinkRole`,xLinkShow:`xlinkShow`,xLinkTitle:`xlinkTitle`,xLinkType:`xlinkType`,xmlnsXLink:`xmlnsXlink`},de=/[A-Z]/g,fe=/-[a-z]/g,pe=/^data[-\w.:]+$/i;function me(e,t){let n=v(t),r=t,i=y;if(n in e.normal)return e.property[e.normal[n]];if(n.length>4&&n.slice(0,4)===`data`&&pe.test(t)){if(t.charAt(4)===`-`){let e=t.slice(5).replace(fe,ge);r=`data`+e.charAt(0).toUpperCase()+e.slice(1)}else{let e=t.slice(4);if(!fe.test(e)){let n=e.replace(de,he);n.charAt(0)!==`-`&&(n=`-`+n),t=`data`+n}}i=te}return new i(r,t)}function he(e){return`-`+e.toLowerCase()}function ge(e){return e.charAt(1).toUpperCase()}var _e=_([re,ae,se,ce,le],`html`),ve=_([re,oe,se,ce,le],`svg`);function ye(e){let t=String(e||``).trim();return t?t.split(/[ \t\n\r\f]+/g):[]}function be(e){return e.join(` `).trim()}var xe=n(((e,t)=>{var n=/\/\*[^*]*\*+([^/*][^*]*\*+)*\//g,r=/\n/g,i=/^\s*/,a=/^(\*?[-#/*\\\w]+(\[[0-9a-z_-]+\])?)\s*/,o=/^:\s*/,s=/^((?:'(?:\\'|.)*?'|"(?:\\"|.)*?"|\([^)]*?\)|[^};])+)/,c=/^[;\s]*/,l=/^\s+|\s+$/g,u=`
 `,d=`/`,f=`*`,p=``,m=`comment`,h=`declaration`;function g(e,t){if(typeof e!=`string`)throw TypeError(`First argument must be a string`);if(!e)return[];t||={};var l=1,g=1;function v(e){var t=e.match(r);t&&(l+=t.length);var n=e.lastIndexOf(u);g=~n?e.length-n:g+e.length}function y(){var e={line:l,column:g};return function(t){return t.position=new b(e),C(),t}}function b(e){this.start=e,this.end={line:l,column:g},this.source=t.source}b.prototype.content=e;function x(n){var r=Error(t.source+`:`+l+`:`+g+`: `+n);if(r.reason=n,r.filename=t.source,r.line=l,r.column=g,r.source=e,!t.silent)throw r}function S(t){var n=t.exec(e);if(n){var r=n[0];return v(r),e=e.slice(r.length),n}}function C(){S(i)}function w(e){var t;for(e||=[];t=T();)t!==!1&&e.push(t);return e}function T(){var t=y();if(!(d!=e.charAt(0)||f!=e.charAt(1))){for(var n=2;p!=e.charAt(n)&&(f!=e.charAt(n)||d!=e.charAt(n+1));)++n;if(n+=2,p===e.charAt(n-1))return x(`End of comment missing`);var r=e.slice(2,n-2);return g+=2,v(r),e=e.slice(n),g+=2,t({type:m,comment:r})}}function E(){var e=y(),t=S(a);if(t){if(T(),!S(o))return x(`property missing ':'`);var r=S(s),i=e({type:h,property:_(t[0].replace(n,p)),value:r?_(r[0].replace(n,p)):p});return S(c),i}}function ee(){var e=[];w(e);for(var t;t=E();)t!==!1&&(e.push(t),w(e));return e}return C(),ee()}function _(e){return e?e.replace(l,p):p}t.exports=g})),Se=n((e=>{var t=e&&e.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(e,`__esModule`,{value:!0}),e.default=r;var n=t(xe());function r(e,t){let r=null;if(!e||typeof e!=`string`)return r;let i=(0,n.default)(e),a=typeof t==`function`;return i.forEach(e=>{if(e.type!==`declaration`)return;let{property:n,value:i}=e;a?t(n,i,e):i&&(r||={},r[n]=i)}),r}})),Ce=n((e=>{Object.defineProperty(e,`__esModule`,{value:!0}),e.camelCase=void 0;var t=/^--[a-zA-Z0-9_-]+$/,n=/-([a-z])/g,r=/^[^-]+$/,i=/^-(webkit|moz|ms|o|khtml)-/,a=/^-(ms)-/,o=function(e){return!e||r.test(e)||t.test(e)},s=function(e,t){return t.toUpperCase()},c=function(e,t){return`${t}-`};e.camelCase=function(e,t){return t===void 0&&(t={}),o(e)?e:(e=e.toLowerCase(),e=t.reactCompat?e.replace(a,c):e.replace(i,c),e.replace(n,s))}})),we=n(((e,t)=>{var n=(e&&e.__importDefault||function(e){return e&&e.__esModule?e:{default:e}})(Se()),r=Ce();function i(e,t){var i={};return!e||typeof e!=`string`||(0,n.default)(e,function(e,n){e&&n&&(i[(0,r.camelCase)(e,t)]=n)}),i}i.default=i,t.exports=i})),Te=De(`end`),Ee=De(`start`);function De(e){return t;function t(t){let n=t&&t.position&&t.position[e]||{};if(typeof n.line==`number`&&n.line>0&&typeof n.column==`number`&&n.column>0)return{line:n.line,column:n.column,offset:typeof n.offset==`number`&&n.offset>-1?n.offset:void 0}}}function Oe(e){let t=Ee(e),n=Te(e);if(t&&n)return{start:t,end:n}}function ke(e){return!e||typeof e!=`object`?``:`position`in e||`type`in e?je(e.position):`start`in e||`end`in e?je(e):`line`in e||`column`in e?Ae(e):``}function Ae(e){return Me(e&&e.line)+`:`+Me(e&&e.column)}function je(e){return Ae(e&&e.start)+`-`+Ae(e&&e.end)}function Me(e){return e&&typeof e==`number`?e:1}var Ne=class extends Error{constructor(e,t,n){super(),typeof t==`string`&&(n=t,t=void 0);let r=``,i={},a=!1;if(t&&(i=`line`in t&&`column`in t||`start`in t&&`end`in t?{place:t}:`type`in t?{ancestors:[t],place:t.position}:{...t}),typeof e==`string`?r=e:!i.cause&&e&&(a=!0,r=e.message,i.cause=e),!i.ruleId&&!i.source&&typeof n==`string`){let e=n.indexOf(`:`);e===-1?i.ruleId=n:(i.source=n.slice(0,e),i.ruleId=n.slice(e+1))}if(!i.place&&i.ancestors&&i.ancestors){let e=i.ancestors[i.ancestors.length-1];e&&(i.place=e.position)}let o=i.place&&`start`in i.place?i.place.start:i.place;this.ancestors=i.ancestors||void 0,this.cause=i.cause||void 0,this.column=o?o.column:void 0,this.fatal=void 0,this.file=``,this.message=r,this.line=o?o.line:void 0,this.name=ke(i.place)||`1:1`,this.place=i.place||void 0,this.reason=this.message,this.ruleId=i.ruleId||void 0,this.source=i.source||void 0,this.stack=a&&i.cause&&typeof i.cause.stack==`string`?i.cause.stack:``,this.actual=void 0,this.expected=void 0,this.note=void 0,this.url=void 0}};Ne.prototype.file=``,Ne.prototype.name=``,Ne.prototype.reason=``,Ne.prototype.message=``,Ne.prototype.stack=``,Ne.prototype.column=void 0,Ne.prototype.line=void 0,Ne.prototype.ancestors=void 0,Ne.prototype.cause=void 0,Ne.prototype.fatal=void 0,Ne.prototype.place=void 0,Ne.prototype.ruleId=void 0,Ne.prototype.source=void 0;var Pe=t(we(),1),Fe={}.hasOwnProperty,Ie=new Map,Le=/[A-Z]/g,Re=new Set([`table`,`tbody`,`thead`,`tfoot`,`tr`]),ze=new Set([`td`,`th`]),Be=`https://github.com/syntax-tree/hast-util-to-jsx-runtime`;function Ve(e,t){if(!t||t.Fragment===void 0)throw TypeError("Expected `Fragment` in options");let n=t.filePath||void 0,r;if(t.development){if(typeof t.jsxDEV!=`function`)throw TypeError("Expected `jsxDEV` in options when `development: true`");r=Qe(n,t.jsxDEV)}else{if(typeof t.jsx!=`function`)throw TypeError("Expected `jsx` in production options");if(typeof t.jsxs!=`function`)throw TypeError("Expected `jsxs` in production options");r=Ze(n,t.jsx,t.jsxs)}let i={Fragment:t.Fragment,ancestors:[],components:t.components||{},create:r,elementAttributeNameCase:t.elementAttributeNameCase||`react`,evaluater:t.createEvaluater?t.createEvaluater():void 0,filePath:n,ignoreInvalidStyle:t.ignoreInvalidStyle||!1,passKeys:t.passKeys!==!1,passNode:t.passNode||!1,schema:t.space===`svg`?ve:_e,stylePropertyNameCase:t.stylePropertyNameCase||`dom`,tableCellAlignToStyle:t.tableCellAlignToStyle!==!1},a=He(i,e,void 0);return a&&typeof a!=`string`?a:i.create(e,i.Fragment,{children:a||void 0},void 0)}function He(e,t,n){if(t.type===`element`)return Ue(e,t,n);if(t.type===`mdxFlowExpression`||t.type===`mdxTextExpression`)return We(e,t);if(t.type===`mdxJsxFlowElement`||t.type===`mdxJsxTextElement`)return Ke(e,t,n);if(t.type===`mdxjsEsm`)return Ge(e,t);if(t.type===`root`)return qe(e,t,n);if(t.type===`text`)return Je(e,t)}function Ue(e,t,n){let r=e.schema,i=r;t.tagName.toLowerCase()===`svg`&&r.space===`html`&&(i=ve,e.schema=i),e.ancestors.push(t);let a=it(e,t.tagName,!1),o=$e(e,t),s=tt(e,t);return Re.has(t.tagName)&&(s=s.filter(function(e){return typeof e==`string`?!m(e):!0})),Ye(e,o,a,t),Xe(o,s),e.ancestors.pop(),e.schema=r,e.create(t,a,o,n)}function We(e,t){if(t.data&&t.data.estree&&e.evaluater){let n=t.data.estree.body[0];return n.type,e.evaluater.evaluateExpression(n.expression)}at(e,t.position)}function Ge(e,t){if(t.data&&t.data.estree&&e.evaluater)return e.evaluater.evaluateProgram(t.data.estree);at(e,t.position)}function Ke(e,t,n){let r=e.schema,i=r;t.name===`svg`&&r.space===`html`&&(i=ve,e.schema=i),e.ancestors.push(t);let a=t.name===null?e.Fragment:it(e,t.name,!0),o=et(e,t),s=tt(e,t);return Ye(e,o,a,t),Xe(o,s),e.ancestors.pop(),e.schema=r,e.create(t,a,o,n)}function qe(e,t,n){let r={};return Xe(r,tt(e,t)),e.create(t,e.Fragment,r,n)}function Je(e,t){return t.value}function Ye(e,t,n,r){typeof n!=`string`&&n!==e.Fragment&&e.passNode&&(t.node=r)}function Xe(e,t){if(t.length>0){let n=t.length>1?t:t[0];n&&(e.children=n)}}function Ze(e,t,n){return r;function r(e,r,i,a){let o=Array.isArray(i.children)?n:t;return a?o(r,i,a):o(r,i)}}function Qe(e,t){return n;function n(n,r,i,a){let o=Array.isArray(i.children),s=Ee(n);return t(r,i,a,o,{columnNumber:s?s.column-1:void 0,fileName:e,lineNumber:s?s.line:void 0},void 0)}}function $e(e,t){let n={},r,i;for(i in t.properties)if(i!==`children`&&Fe.call(t.properties,i)){let a=nt(e,i,t.properties[i]);if(a){let[i,o]=a;e.tableCellAlignToStyle&&i===`align`&&typeof o==`string`&&ze.has(t.tagName)?r=o:n[i]=o}}if(r){let t=n.style||={};t[e.stylePropertyNameCase===`css`?`text-align`:`textAlign`]=r}return n}function et(e,t){let n={};for(let r of t.attributes)if(r.type===`mdxJsxExpressionAttribute`)if(r.data&&r.data.estree&&e.evaluater){let t=r.data.estree.body[0];t.type;let i=t.expression;i.type;let a=i.properties[0];a.type,Object.assign(n,e.evaluater.evaluateExpression(a.argument))}else at(e,t.position);else{let i=r.name,a;if(r.value&&typeof r.value==`object`)if(r.value.data&&r.value.data.estree&&e.evaluater){let t=r.value.data.estree.body[0];t.type,a=e.evaluater.evaluateExpression(t.expression)}else at(e,t.position);else a=r.value===null?!0:r.value;n[i]=a}return n}function tt(e,t){let n=[],r=-1,i=e.passKeys?new Map:Ie;for(;++r<t.children.length;){let a=t.children[r],o;if(e.passKeys){let e=a.type===`element`?a.tagName:a.type===`mdxJsxFlowElement`||a.type===`mdxJsxTextElement`?a.name:void 0;if(e){let t=i.get(e)||0;o=e+`-`+t,i.set(e,t+1)}}let s=He(e,a,o);s!==void 0&&n.push(s)}return n}function nt(e,t,n){let r=me(e.schema,t);if(!(n==null||typeof n==`number`&&Number.isNaN(n))){if(Array.isArray(n)&&(n=r.commaSeparated?c(n):be(n)),r.property===`style`){let t=typeof n==`object`?n:rt(e,String(n));return e.stylePropertyNameCase===`css`&&(t=ot(t)),[`style`,t]}return[e.elementAttributeNameCase===`react`&&r.space?ue[r.property]||r.property:r.attribute,n]}}function rt(e,t){try{return(0,Pe.default)(t,{reactCompat:!0})}catch(t){if(e.ignoreInvalidStyle)return{};let n=t,r=new Ne("Cannot parse `style` attribute",{ancestors:e.ancestors,cause:n,ruleId:`style`,source:`hast-util-to-jsx-runtime`});throw r.file=e.filePath||void 0,r.url=Be+`#cannot-parse-style-attribute`,r}}function it(e,t,n){let r;if(!n)r={type:`Literal`,value:t};else if(t.includes(`.`)){let e=t.split(`.`),n=-1,i;for(;++n<e.length;){let t=f(e[n])?{type:`Identifier`,name:e[n]}:{type:`Literal`,value:e[n]};i=i?{type:`MemberExpression`,object:i,property:t,computed:!!(n&&t.type===`Literal`),optional:!1}:t}r=i}else r=f(t)&&!/^[a-z]/.test(t)?{type:`Identifier`,name:t}:{type:`Literal`,value:t};if(r.type===`Literal`){let t=r.value;return Fe.call(e.components,t)?e.components[t]:t}if(e.evaluater)return e.evaluater.evaluateExpression(r);at(e)}function at(e,t){let n=new Ne("Cannot handle MDX estrees without `createEvaluater`",{ancestors:e.ancestors,place:t,ruleId:`mdx-estree`,source:`hast-util-to-jsx-runtime`});throw n.file=e.filePath||void 0,n.url=Be+`#cannot-handle-mdx-estrees-without-createevaluater`,n}function ot(e){let t={},n;for(n in e)Fe.call(e,n)&&(t[st(n)]=e[n]);return t}function st(e){let t=e.replace(Le,ct);return t.slice(0,3)===`ms-`&&(t=`-`+t),t}function ct(e){return`-`+e.toLowerCase()}var lt={action:[`form`],cite:[`blockquote`,`del`,`ins`,`q`],data:[`object`],formAction:[`button`,`input`],href:[`a`,`area`,`base`,`link`],icon:[`menuitem`],itemId:null,manifest:[`html`],ping:[`a`,`area`],poster:[`video`],src:[`audio`,`embed`,`iframe`,`img`,`input`,`script`,`source`,`track`,`video`]},ut={};function dt(e,t){let n=t||ut;return ft(e,typeof n.includeImageAlt==`boolean`?n.includeImageAlt:!0,typeof n.includeHtml==`boolean`?n.includeHtml:!0)}function ft(e,t,n){if(mt(e)){if(`value`in e)return e.type===`html`&&!n?``:e.value;if(t&&`alt`in e&&e.alt)return e.alt;if(`children`in e)return pt(e.children,t,n)}return Array.isArray(e)?pt(e,t,n):``}function pt(e,t,n){let r=[],i=-1;for(;++i<e.length;)r[i]=ft(e[i],t,n);return r.join(``)}function mt(e){return!!(e&&typeof e==`object`)}var ht=document.createElement(`i`);function gt(e){let t=`&`+e+`;`;ht.innerHTML=t;let n=ht.textContent;return n.charCodeAt(n.length-1)===59&&e!==`semi`||n===t?!1:n}function _t(e,t,n,r){let i=e.length,a=0,o;if(t=t<0?-t>i?0:i+t:t>i?i:t,n=n>0?n:0,r.length<1e4)o=Array.from(r),o.unshift(t,n),e.splice(...o);else for(n&&e.splice(t,n);a<r.length;)o=r.slice(a,a+1e4),o.unshift(t,0),e.splice(...o),a+=1e4,t+=1e4}function vt(e,t){return e.length>0?(_t(e,e.length,0,t),e):t}var yt={}.hasOwnProperty;function bt(e){let t={},n=-1;for(;++n<e.length;)xt(t,e[n]);return t}function xt(e,t){let n;for(n in t){let r=(yt.call(e,n)?e[n]:void 0)||(e[n]={}),i=t[n],a;if(i)for(a in i){yt.call(r,a)||(r[a]=[]);let e=i[a];St(r[a],Array.isArray(e)?e:e?[e]:[])}}}function St(e,t){let n=-1,r=[];for(;++n<t.length;)(t[n].add===`after`?e:r).push(t[n]);_t(e,0,0,r)}function Ct(e,t){let n=Number.parseInt(e,t);return n<9||n===11||n>13&&n<32||n>126&&n<160||n>55295&&n<57344||n>64975&&n<65008||(n&65535)==65535||(n&65535)==65534||n>1114111?`�`:String.fromCodePoint(n)}function wt(e){return e.replace(/[\t\n\r ]+/g,` `).replace(/^ | $/g,``).toLowerCase().toUpperCase()}var Tt=It(/[A-Za-z]/),Et=It(/[\dA-Za-z]/),Dt=It(/[#-'*+\--9=?A-Z^-~]/);function Ot(e){return e!==null&&(e<32||e===127)}var kt=It(/\d/),At=It(/[\dA-Fa-f]/),jt=It(/[!-/:-@[-`{-~]/);function M(e){return e!==null&&e<-2}function Mt(e){return e!==null&&(e<0||e===32)}function Nt(e){return e===-2||e===-1||e===32}var Pt=It(/\p{P}|\p{S}/u),Ft=It(/\s/);function It(e){return t;function t(t){return t!==null&&t>-1&&e.test(String.fromCharCode(t))}}function Lt(e){let t=[],n=-1,r=0,i=0;for(;++n<e.length;){let a=e.charCodeAt(n),o=``;if(a===37&&Et(e.charCodeAt(n+1))&&Et(e.charCodeAt(n+2)))i=2;else if(a<128)/[!#$&-;=?-Z_a-z~]/.test(String.fromCharCode(a))||(o=String.fromCharCode(a));else if(a>55295&&a<57344){let t=e.charCodeAt(n+1);a<56320&&t>56319&&t<57344?(o=String.fromCharCode(a,t),i=1):o=`�`}else o=String.fromCharCode(a);o&&=(t.push(e.slice(r,n),encodeURIComponent(o)),r=n+i+1,``),i&&=(n+=i,0)}return t.join(``)+e.slice(r)}function Rt(e,t,n,r){let i=r?r-1:1/0,a=0;return o;function o(r){return Nt(r)?(e.enter(n),s(r)):t(r)}function s(r){return Nt(r)&&a++<i?(e.consume(r),s):(e.exit(n),t(r))}}var zt={tokenize:Bt};function Bt(e){let t=e.attempt(this.parser.constructs.contentInitial,r,i),n;return t;function r(n){if(n===null){e.consume(n);return}return e.enter(`lineEnding`),e.consume(n),e.exit(`lineEnding`),Rt(e,t,`linePrefix`)}function i(t){return e.enter(`paragraph`),a(t)}function a(t){let r=e.enter(`chunkText`,{contentType:`text`,previous:n});return n&&(n.next=r),n=r,o(t)}function o(t){if(t===null){e.exit(`chunkText`),e.exit(`paragraph`),e.consume(t);return}return M(t)?(e.consume(t),e.exit(`chunkText`),a):(e.consume(t),o)}}var Vt={tokenize:Ut},Ht={tokenize:Wt};function Ut(e){let t=this,n=[],r=0,i,a,o;return s;function s(i){if(r<n.length){let a=n[r];return t.containerState=a[1],e.attempt(a[0].continuation,c,l)(i)}return l(i)}function c(e){if(r++,t.containerState._closeFlow){t.containerState._closeFlow=void 0,i&&v();let n=t.events.length,a=n,o;for(;a--;)if(t.events[a][0]===`exit`&&t.events[a][1].type===`chunkFlow`){o=t.events[a][1].end;break}_(r);let s=n;for(;s<t.events.length;)t.events[s][1].end={...o},s++;return _t(t.events,a+1,0,t.events.slice(n)),t.events.length=s,l(e)}return s(e)}function l(a){if(r===n.length){if(!i)return f(a);if(i.currentConstruct&&i.currentConstruct.concrete)return m(a);t.interrupt=!!(i.currentConstruct&&!i._gfmTableDynamicInterruptHack)}return t.containerState={},e.check(Ht,u,d)(a)}function u(e){return i&&v(),_(r),f(e)}function d(e){return t.parser.lazy[t.now().line]=r!==n.length,o=t.now().offset,m(e)}function f(n){return t.containerState={},e.attempt(Ht,p,m)(n)}function p(e){return r++,n.push([t.currentConstruct,t.containerState]),f(e)}function m(n){if(n===null){i&&v(),_(0),e.consume(n);return}return i||=t.parser.flow(t.now()),e.enter(`chunkFlow`,{_tokenizer:i,contentType:`flow`,previous:a}),h(n)}function h(n){if(n===null){g(e.exit(`chunkFlow`),!0),_(0),e.consume(n);return}return M(n)?(e.consume(n),g(e.exit(`chunkFlow`)),r=0,t.interrupt=void 0,s):(e.consume(n),h)}function g(e,n){let s=t.sliceStream(e);if(n&&s.push(null),e.previous=a,a&&(a.next=e),a=e,i.defineSkip(e.start),i.write(s),t.parser.lazy[e.start.line]){let e=i.events.length;for(;e--;)if(i.events[e][1].start.offset<o&&(!i.events[e][1].end||i.events[e][1].end.offset>o))return;let n=t.events.length,a=n,s,c;for(;a--;)if(t.events[a][0]===`exit`&&t.events[a][1].type===`chunkFlow`){if(s){c=t.events[a][1].end;break}s=!0}for(_(r),e=n;e<t.events.length;)t.events[e][1].end={...c},e++;_t(t.events,a+1,0,t.events.slice(n)),t.events.length=e}}function _(r){let i=n.length;for(;i-- >r;){let r=n[i];t.containerState=r[1],r[0].exit.call(t,e)}n.length=r}function v(){i.write([null]),a=void 0,i=void 0,t.containerState._closeFlow=void 0}}function Wt(e,t,n){return Rt(e,e.attempt(this.parser.constructs.document,t,n),`linePrefix`,this.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)}function Gt(e){if(e===null||Mt(e)||Ft(e))return 1;if(Pt(e))return 2}function Kt(e,t,n){let r=[],i=-1;for(;++i<e.length;){let a=e[i].resolveAll;a&&!r.includes(a)&&(t=a(t,n),r.push(a))}return t}var qt={name:`attention`,resolveAll:Jt,tokenize:Yt};function Jt(e,t){let n=-1,r,i,a,o,s,c,l,u;for(;++n<e.length;)if(e[n][0]===`enter`&&e[n][1].type===`attentionSequence`&&e[n][1]._close){for(r=n;r--;)if(e[r][0]===`exit`&&e[r][1].type===`attentionSequence`&&e[r][1]._open&&t.sliceSerialize(e[r][1]).charCodeAt(0)===t.sliceSerialize(e[n][1]).charCodeAt(0)){if((e[r][1]._close||e[n][1]._open)&&(e[n][1].end.offset-e[n][1].start.offset)%3&&!((e[r][1].end.offset-e[r][1].start.offset+e[n][1].end.offset-e[n][1].start.offset)%3))continue;c=e[r][1].end.offset-e[r][1].start.offset>1&&e[n][1].end.offset-e[n][1].start.offset>1?2:1;let d={...e[r][1].end},f={...e[n][1].start};Xt(d,-c),Xt(f,c),o={type:c>1?`strongSequence`:`emphasisSequence`,start:d,end:{...e[r][1].end}},s={type:c>1?`strongSequence`:`emphasisSequence`,start:{...e[n][1].start},end:f},a={type:c>1?`strongText`:`emphasisText`,start:{...e[r][1].end},end:{...e[n][1].start}},i={type:c>1?`strong`:`emphasis`,start:{...o.start},end:{...s.end}},e[r][1].end={...o.start},e[n][1].start={...s.end},l=[],e[r][1].end.offset-e[r][1].start.offset&&(l=vt(l,[[`enter`,e[r][1],t],[`exit`,e[r][1],t]])),l=vt(l,[[`enter`,i,t],[`enter`,o,t],[`exit`,o,t],[`enter`,a,t]]),l=vt(l,Kt(t.parser.constructs.insideSpan.null,e.slice(r+1,n),t)),l=vt(l,[[`exit`,a,t],[`enter`,s,t],[`exit`,s,t],[`exit`,i,t]]),e[n][1].end.offset-e[n][1].start.offset?(u=2,l=vt(l,[[`enter`,e[n][1],t],[`exit`,e[n][1],t]])):u=0,_t(e,r-1,n-r+3,l),n=r+l.length-u-2;break}}for(n=-1;++n<e.length;)e[n][1].type===`attentionSequence`&&(e[n][1].type=`data`);return e}function Yt(e,t){let n=this.parser.constructs.attentionMarkers.null,r=this.previous,i=Gt(r),a;return o;function o(t){return a=t,e.enter(`attentionSequence`),s(t)}function s(o){if(o===a)return e.consume(o),s;let c=e.exit(`attentionSequence`),l=Gt(o),u=!l||l===2&&i||n.includes(o),d=!i||i===2&&l||n.includes(r);return c._open=!!(a===42?u:u&&(i||!d)),c._close=!!(a===42?d:d&&(l||!u)),t(o)}}function Xt(e,t){e.column+=t,e.offset+=t,e._bufferIndex+=t}var Zt={name:`autolink`,tokenize:Qt};function Qt(e,t,n){let r=0;return i;function i(t){return e.enter(`autolink`),e.enter(`autolinkMarker`),e.consume(t),e.exit(`autolinkMarker`),e.enter(`autolinkProtocol`),a}function a(t){return Tt(t)?(e.consume(t),o):t===64?n(t):l(t)}function o(e){return e===43||e===45||e===46||Et(e)?(r=1,s(e)):l(e)}function s(t){return t===58?(e.consume(t),r=0,c):(t===43||t===45||t===46||Et(t))&&r++<32?(e.consume(t),s):(r=0,l(t))}function c(r){return r===62?(e.exit(`autolinkProtocol`),e.enter(`autolinkMarker`),e.consume(r),e.exit(`autolinkMarker`),e.exit(`autolink`),t):r===null||r===32||r===60||Ot(r)?n(r):(e.consume(r),c)}function l(t){return t===64?(e.consume(t),u):Dt(t)?(e.consume(t),l):n(t)}function u(e){return Et(e)?d(e):n(e)}function d(n){return n===46?(e.consume(n),r=0,u):n===62?(e.exit(`autolinkProtocol`).type=`autolinkEmail`,e.enter(`autolinkMarker`),e.consume(n),e.exit(`autolinkMarker`),e.exit(`autolink`),t):f(n)}function f(t){if((t===45||Et(t))&&r++<63){let n=t===45?f:d;return e.consume(t),n}return n(t)}}var $t={partial:!0,tokenize:en};function en(e,t,n){return r;function r(t){return Nt(t)?Rt(e,i,`linePrefix`)(t):i(t)}function i(e){return e===null||M(e)?t(e):n(e)}}var tn={continuation:{tokenize:rn},exit:an,name:`blockQuote`,tokenize:nn};function nn(e,t,n){let r=this;return i;function i(t){if(t===62){let n=r.containerState;return n.open||=(e.enter(`blockQuote`,{_container:!0}),!0),e.enter(`blockQuotePrefix`),e.enter(`blockQuoteMarker`),e.consume(t),e.exit(`blockQuoteMarker`),a}return n(t)}function a(n){return Nt(n)?(e.enter(`blockQuotePrefixWhitespace`),e.consume(n),e.exit(`blockQuotePrefixWhitespace`),e.exit(`blockQuotePrefix`),t):(e.exit(`blockQuotePrefix`),t(n))}}function rn(e,t,n){let r=this;return i;function i(t){return Nt(t)?Rt(e,a,`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(t):a(t)}function a(r){return e.attempt(tn,t,n)(r)}}function an(e){e.exit(`blockQuote`)}var on={name:`characterEscape`,tokenize:sn};function sn(e,t,n){return r;function r(t){return e.enter(`characterEscape`),e.enter(`escapeMarker`),e.consume(t),e.exit(`escapeMarker`),i}function i(r){return jt(r)?(e.enter(`characterEscapeValue`),e.consume(r),e.exit(`characterEscapeValue`),e.exit(`characterEscape`),t):n(r)}}var cn={name:`characterReference`,tokenize:ln};function ln(e,t,n){let r=this,i=0,a,o;return s;function s(t){return e.enter(`characterReference`),e.enter(`characterReferenceMarker`),e.consume(t),e.exit(`characterReferenceMarker`),c}function c(t){return t===35?(e.enter(`characterReferenceMarkerNumeric`),e.consume(t),e.exit(`characterReferenceMarkerNumeric`),l):(e.enter(`characterReferenceValue`),a=31,o=Et,u(t))}function l(t){return t===88||t===120?(e.enter(`characterReferenceMarkerHexadecimal`),e.consume(t),e.exit(`characterReferenceMarkerHexadecimal`),e.enter(`characterReferenceValue`),a=6,o=At,u):(e.enter(`characterReferenceValue`),a=7,o=kt,u(t))}function u(s){if(s===59&&i){let i=e.exit(`characterReferenceValue`);return o===Et&&!gt(r.sliceSerialize(i))?n(s):(e.enter(`characterReferenceMarker`),e.consume(s),e.exit(`characterReferenceMarker`),e.exit(`characterReference`),t)}return o(s)&&i++<a?(e.consume(s),u):n(s)}}var un={partial:!0,tokenize:pn},dn={concrete:!0,name:`codeFenced`,tokenize:fn};function fn(e,t,n){let r=this,i={partial:!0,tokenize:x},a=0,o=0,s;return c;function c(e){return l(e)}function l(t){let n=r.events[r.events.length-1];return a=n&&n[1].type===`linePrefix`?n[2].sliceSerialize(n[1],!0).length:0,s=t,e.enter(`codeFenced`),e.enter(`codeFencedFence`),e.enter(`codeFencedFenceSequence`),u(t)}function u(t){return t===s?(o++,e.consume(t),u):o<3?n(t):(e.exit(`codeFencedFenceSequence`),Nt(t)?Rt(e,d,`whitespace`)(t):d(t))}function d(n){return n===null||M(n)?(e.exit(`codeFencedFence`),r.interrupt?t(n):e.check(un,h,b)(n)):(e.enter(`codeFencedFenceInfo`),e.enter(`chunkString`,{contentType:`string`}),f(n))}function f(t){return t===null||M(t)?(e.exit(`chunkString`),e.exit(`codeFencedFenceInfo`),d(t)):Nt(t)?(e.exit(`chunkString`),e.exit(`codeFencedFenceInfo`),Rt(e,p,`whitespace`)(t)):t===96&&t===s?n(t):(e.consume(t),f)}function p(t){return t===null||M(t)?d(t):(e.enter(`codeFencedFenceMeta`),e.enter(`chunkString`,{contentType:`string`}),m(t))}function m(t){return t===null||M(t)?(e.exit(`chunkString`),e.exit(`codeFencedFenceMeta`),d(t)):t===96&&t===s?n(t):(e.consume(t),m)}function h(t){return e.attempt(i,b,g)(t)}function g(t){return e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),_}function _(t){return a>0&&Nt(t)?Rt(e,v,`linePrefix`,a+1)(t):v(t)}function v(t){return t===null||M(t)?e.check(un,h,b)(t):(e.enter(`codeFlowValue`),y(t))}function y(t){return t===null||M(t)?(e.exit(`codeFlowValue`),v(t)):(e.consume(t),y)}function b(n){return e.exit(`codeFenced`),t(n)}function x(e,t,n){let i=0;return a;function a(t){return e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),c}function c(t){return e.enter(`codeFencedFence`),Nt(t)?Rt(e,l,`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(t):l(t)}function l(t){return t===s?(e.enter(`codeFencedFenceSequence`),u(t)):n(t)}function u(t){return t===s?(i++,e.consume(t),u):i>=o?(e.exit(`codeFencedFenceSequence`),Nt(t)?Rt(e,d,`whitespace`)(t):d(t)):n(t)}function d(r){return r===null||M(r)?(e.exit(`codeFencedFence`),t(r)):n(r)}}}function pn(e,t,n){let r=this;return i;function i(t){return t===null?n(t):(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),a)}function a(e){return r.parser.lazy[r.now().line]?n(e):t(e)}}var mn={name:`codeIndented`,tokenize:gn},hn={partial:!0,tokenize:_n};function gn(e,t,n){let r=this;return i;function i(t){return e.enter(`codeIndented`),Rt(e,a,`linePrefix`,5)(t)}function a(e){let t=r.events[r.events.length-1];return t&&t[1].type===`linePrefix`&&t[2].sliceSerialize(t[1],!0).length>=4?o(e):n(e)}function o(t){return t===null?c(t):M(t)?e.attempt(hn,o,c)(t):(e.enter(`codeFlowValue`),s(t))}function s(t){return t===null||M(t)?(e.exit(`codeFlowValue`),o(t)):(e.consume(t),s)}function c(n){return e.exit(`codeIndented`),t(n)}}function _n(e,t,n){let r=this;return i;function i(t){return r.parser.lazy[r.now().line]?n(t):M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),i):Rt(e,a,`linePrefix`,5)(t)}function a(e){let a=r.events[r.events.length-1];return a&&a[1].type===`linePrefix`&&a[2].sliceSerialize(a[1],!0).length>=4?t(e):M(e)?i(e):n(e)}}var vn={name:`codeText`,previous:bn,resolve:yn,tokenize:xn};function yn(e){let t=e.length-4,n=3,r,i;if((e[n][1].type===`lineEnding`||e[n][1].type===`space`)&&(e[t][1].type===`lineEnding`||e[t][1].type===`space`)){for(r=n;++r<t;)if(e[r][1].type===`codeTextData`){e[n][1].type=`codeTextPadding`,e[t][1].type=`codeTextPadding`,n+=2,t-=2;break}}for(r=n-1,t++;++r<=t;)i===void 0?r!==t&&e[r][1].type!==`lineEnding`&&(i=r):(r===t||e[r][1].type===`lineEnding`)&&(e[i][1].type=`codeTextData`,r!==i+2&&(e[i][1].end=e[r-1][1].end,e.splice(i+2,r-i-2),t-=r-i-2,r=i+2),i=void 0);return e}function bn(e){return e!==96||this.events[this.events.length-1][1].type===`characterEscape`}function xn(e,t,n){let r=0,i,a;return o;function o(t){return e.enter(`codeText`),e.enter(`codeTextSequence`),s(t)}function s(t){return t===96?(e.consume(t),r++,s):(e.exit(`codeTextSequence`),c(t))}function c(t){return t===null?n(t):t===32?(e.enter(`space`),e.consume(t),e.exit(`space`),c):t===96?(a=e.enter(`codeTextSequence`),i=0,u(t)):M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),c):(e.enter(`codeTextData`),l(t))}function l(t){return t===null||t===32||t===96||M(t)?(e.exit(`codeTextData`),c(t)):(e.consume(t),l)}function u(n){return n===96?(e.consume(n),i++,u):i===r?(e.exit(`codeTextSequence`),e.exit(`codeText`),t(n)):(a.type=`codeTextData`,l(n))}}var Sn=class{constructor(e){this.left=e?[...e]:[],this.right=[]}get(e){if(e<0||e>=this.left.length+this.right.length)throw RangeError("Cannot access index `"+e+"` in a splice buffer of size `"+(this.left.length+this.right.length)+"`");return e<this.left.length?this.left[e]:this.right[this.right.length-e+this.left.length-1]}get length(){return this.left.length+this.right.length}shift(){return this.setCursor(0),this.right.pop()}slice(e,t){let n=t??1/0;return n<this.left.length?this.left.slice(e,n):e>this.left.length?this.right.slice(this.right.length-n+this.left.length,this.right.length-e+this.left.length).reverse():this.left.slice(e).concat(this.right.slice(this.right.length-n+this.left.length).reverse())}splice(e,t,n){let r=t||0;this.setCursor(Math.trunc(e));let i=this.right.splice(this.right.length-r,1/0);return n&&Cn(this.left,n),i.reverse()}pop(){return this.setCursor(1/0),this.left.pop()}push(e){this.setCursor(1/0),this.left.push(e)}pushMany(e){this.setCursor(1/0),Cn(this.left,e)}unshift(e){this.setCursor(0),this.right.push(e)}unshiftMany(e){this.setCursor(0),Cn(this.right,e.reverse())}setCursor(e){if(!(e===this.left.length||e>this.left.length&&this.right.length===0||e<0&&this.left.length===0))if(e<this.left.length){let t=this.left.splice(e,1/0);Cn(this.right,t.reverse())}else{let t=this.right.splice(this.left.length+this.right.length-e,1/0);Cn(this.left,t.reverse())}}};function Cn(e,t){let n=0;if(t.length<1e4)e.push(...t);else for(;n<t.length;)e.push(...t.slice(n,n+1e4)),n+=1e4}function wn(e){let t={},n=-1,r,i,a,o,s,c,l,u=new Sn(e);for(;++n<u.length;){for(;n in t;)n=t[n];if(r=u.get(n),n&&r[1].type===`chunkFlow`&&u.get(n-1)[1].type===`listItemPrefix`&&(c=r[1]._tokenizer.events,a=0,a<c.length&&c[a][1].type===`lineEndingBlank`&&(a+=2),a<c.length&&c[a][1].type===`content`))for(;++a<c.length&&c[a][1].type!==`content`;)c[a][1].type===`chunkText`&&(c[a][1]._isInFirstContentOfListItem=!0,a++);if(r[0]===`enter`)r[1].contentType&&(Object.assign(t,Tn(u,n)),n=t[n],l=!0);else if(r[1]._container){for(a=n,i=void 0;a--;)if(o=u.get(a),o[1].type===`lineEnding`||o[1].type===`lineEndingBlank`)o[0]===`enter`&&(i&&(u.get(i)[1].type=`lineEndingBlank`),o[1].type=`lineEnding`,i=a);else if(!(o[1].type===`linePrefix`||o[1].type===`listItemIndent`))break;i&&(r[1].end={...u.get(i)[1].start},s=u.slice(i,n),s.unshift(r),u.splice(i,n-i+1,s))}}return _t(e,0,1/0,u.slice(0)),!l}function Tn(e,t){let n=e.get(t)[1],r=e.get(t)[2],i=t-1,a=[],o=n._tokenizer;o||(o=r.parser[n.contentType](n.start),n._contentTypeTextTrailing&&(o._contentTypeTextTrailing=!0));let s=o.events,c=[],l={},u,d,f=-1,p=n,m=0,h=0,g=[h];for(;p;){for(;e.get(++i)[1]!==p;);a.push(i),p._tokenizer||(u=r.sliceStream(p),p.next||u.push(null),d&&o.defineSkip(p.start),p._isInFirstContentOfListItem&&(o._gfmTasklistFirstContentOfListItem=!0),o.write(u),p._isInFirstContentOfListItem&&(o._gfmTasklistFirstContentOfListItem=void 0)),d=p,p=p.next}for(p=n;++f<s.length;)s[f][0]===`exit`&&s[f-1][0]===`enter`&&s[f][1].type===s[f-1][1].type&&s[f][1].start.line!==s[f][1].end.line&&(h=f+1,g.push(h),p._tokenizer=void 0,p.previous=void 0,p=p.next);for(o.events=[],p?(p._tokenizer=void 0,p.previous=void 0):g.pop(),f=g.length;f--;){let t=s.slice(g[f],g[f+1]),n=a.pop();c.push([n,n+t.length-1]),e.splice(n,2,t)}for(c.reverse(),f=-1;++f<c.length;)l[m+c[f][0]]=m+c[f][1],m+=c[f][1]-c[f][0]-1;return l}var En={resolve:On,tokenize:kn},Dn={partial:!0,tokenize:An};function On(e){return wn(e),e}function kn(e,t){let n;return r;function r(t){return e.enter(`content`),n=e.enter(`chunkContent`,{contentType:`content`}),i(t)}function i(t){return t===null?a(t):M(t)?e.check(Dn,o,a)(t):(e.consume(t),i)}function a(n){return e.exit(`chunkContent`),e.exit(`content`),t(n)}function o(t){return e.consume(t),e.exit(`chunkContent`),n.next=e.enter(`chunkContent`,{contentType:`content`,previous:n}),n=n.next,i}}function An(e,t,n){let r=this;return i;function i(t){return e.exit(`chunkContent`),e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),Rt(e,a,`linePrefix`)}function a(i){if(i===null||M(i))return n(i);let a=r.events[r.events.length-1];return!r.parser.constructs.disable.null.includes(`codeIndented`)&&a&&a[1].type===`linePrefix`&&a[2].sliceSerialize(a[1],!0).length>=4?t(i):e.interrupt(r.parser.constructs.flow,n,t)(i)}}function jn(e,t,n,r,i,a,o,s,c){let l=c||1/0,u=0;return d;function d(t){return t===60?(e.enter(r),e.enter(i),e.enter(a),e.consume(t),e.exit(a),f):t===null||t===32||t===41||Ot(t)?n(t):(e.enter(r),e.enter(o),e.enter(s),e.enter(`chunkString`,{contentType:`string`}),h(t))}function f(n){return n===62?(e.enter(a),e.consume(n),e.exit(a),e.exit(i),e.exit(r),t):(e.enter(s),e.enter(`chunkString`,{contentType:`string`}),p(n))}function p(t){return t===62?(e.exit(`chunkString`),e.exit(s),f(t)):t===null||t===60||M(t)?n(t):(e.consume(t),t===92?m:p)}function m(t){return t===60||t===62||t===92?(e.consume(t),p):p(t)}function h(i){return!u&&(i===null||i===41||Mt(i))?(e.exit(`chunkString`),e.exit(s),e.exit(o),e.exit(r),t(i)):u<l&&i===40?(e.consume(i),u++,h):i===41?(e.consume(i),u--,h):i===null||i===32||i===40||Ot(i)?n(i):(e.consume(i),i===92?g:h)}function g(t){return t===40||t===41||t===92?(e.consume(t),h):h(t)}}function Mn(e,t,n,r,i,a){let o=this,s=0,c;return l;function l(t){return e.enter(r),e.enter(i),e.consume(t),e.exit(i),e.enter(a),u}function u(l){return s>999||l===null||l===91||l===93&&!c||l===94&&!s&&`_hiddenFootnoteSupport`in o.parser.constructs?n(l):l===93?(e.exit(a),e.enter(i),e.consume(l),e.exit(i),e.exit(r),t):M(l)?(e.enter(`lineEnding`),e.consume(l),e.exit(`lineEnding`),u):(e.enter(`chunkString`,{contentType:`string`}),d(l))}function d(t){return t===null||t===91||t===93||M(t)||s++>999?(e.exit(`chunkString`),u(t)):(e.consume(t),c||=!Nt(t),t===92?f:d)}function f(t){return t===91||t===92||t===93?(e.consume(t),s++,d):d(t)}}function Nn(e,t,n,r,i,a){let o;return s;function s(t){return t===34||t===39||t===40?(e.enter(r),e.enter(i),e.consume(t),e.exit(i),o=t===40?41:t,c):n(t)}function c(n){return n===o?(e.enter(i),e.consume(n),e.exit(i),e.exit(r),t):(e.enter(a),l(n))}function l(t){return t===o?(e.exit(a),c(o)):t===null?n(t):M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),Rt(e,l,`linePrefix`)):(e.enter(`chunkString`,{contentType:`string`}),u(t))}function u(t){return t===o||t===null||M(t)?(e.exit(`chunkString`),l(t)):(e.consume(t),t===92?d:u)}function d(t){return t===o||t===92?(e.consume(t),u):u(t)}}function Pn(e,t){let n;return r;function r(i){return M(i)?(e.enter(`lineEnding`),e.consume(i),e.exit(`lineEnding`),n=!0,r):Nt(i)?Rt(e,r,n?`linePrefix`:`lineSuffix`)(i):t(i)}}var Fn={name:`definition`,tokenize:Ln},In={partial:!0,tokenize:Rn};function Ln(e,t,n){let r=this,i;return a;function a(t){return e.enter(`definition`),o(t)}function o(t){return Mn.call(r,e,s,n,`definitionLabel`,`definitionLabelMarker`,`definitionLabelString`)(t)}function s(t){return i=wt(r.sliceSerialize(r.events[r.events.length-1][1]).slice(1,-1)),t===58?(e.enter(`definitionMarker`),e.consume(t),e.exit(`definitionMarker`),c):n(t)}function c(t){return Mt(t)?Pn(e,l)(t):l(t)}function l(t){return jn(e,u,n,`definitionDestination`,`definitionDestinationLiteral`,`definitionDestinationLiteralMarker`,`definitionDestinationRaw`,`definitionDestinationString`)(t)}function u(t){return e.attempt(In,d,d)(t)}function d(t){return Nt(t)?Rt(e,f,`whitespace`)(t):f(t)}function f(a){return a===null||M(a)?(e.exit(`definition`),r.parser.defined.push(i),t(a)):n(a)}}function Rn(e,t,n){return r;function r(t){return Mt(t)?Pn(e,i)(t):n(t)}function i(t){return Nn(e,a,n,`definitionTitle`,`definitionTitleMarker`,`definitionTitleString`)(t)}function a(t){return Nt(t)?Rt(e,o,`whitespace`)(t):o(t)}function o(e){return e===null||M(e)?t(e):n(e)}}var zn={name:`hardBreakEscape`,tokenize:Bn};function Bn(e,t,n){return r;function r(t){return e.enter(`hardBreakEscape`),e.consume(t),i}function i(r){return M(r)?(e.exit(`hardBreakEscape`),t(r)):n(r)}}var Vn={name:`headingAtx`,resolve:Hn,tokenize:Un};function Hn(e,t){let n=e.length-2,r=3,i,a;return e[r][1].type===`whitespace`&&(r+=2),n-2>r&&e[n][1].type===`whitespace`&&(n-=2),e[n][1].type===`atxHeadingSequence`&&(r===n-1||n-4>r&&e[n-2][1].type===`whitespace`)&&(n-=r+1===n?2:4),n>r&&(i={type:`atxHeadingText`,start:e[r][1].start,end:e[n][1].end},a={type:`chunkText`,start:e[r][1].start,end:e[n][1].end,contentType:`text`},_t(e,r,n-r+1,[[`enter`,i,t],[`enter`,a,t],[`exit`,a,t],[`exit`,i,t]])),e}function Un(e,t,n){let r=0;return i;function i(t){return e.enter(`atxHeading`),a(t)}function a(t){return e.enter(`atxHeadingSequence`),o(t)}function o(t){return t===35&&r++<6?(e.consume(t),o):t===null||Mt(t)?(e.exit(`atxHeadingSequence`),s(t)):n(t)}function s(n){return n===35?(e.enter(`atxHeadingSequence`),c(n)):n===null||M(n)?(e.exit(`atxHeading`),t(n)):Nt(n)?Rt(e,s,`whitespace`)(n):(e.enter(`atxHeadingText`),l(n))}function c(t){return t===35?(e.consume(t),c):(e.exit(`atxHeadingSequence`),s(t))}function l(t){return t===null||t===35||Mt(t)?(e.exit(`atxHeadingText`),s(t)):(e.consume(t),l)}}var Wn=`address.article.aside.base.basefont.blockquote.body.caption.center.col.colgroup.dd.details.dialog.dir.div.dl.dt.fieldset.figcaption.figure.footer.form.frame.frameset.h1.h2.h3.h4.h5.h6.head.header.hr.html.iframe.legend.li.link.main.menu.menuitem.nav.noframes.ol.optgroup.option.p.param.search.section.summary.table.tbody.td.tfoot.th.thead.title.tr.track.ul`.split(`.`),Gn=[`pre`,`script`,`style`,`textarea`],Kn={concrete:!0,name:`htmlFlow`,resolveTo:Yn,tokenize:Xn},qn={partial:!0,tokenize:Qn},Jn={partial:!0,tokenize:Zn};function Yn(e){let t=e.length;for(;t--&&!(e[t][0]===`enter`&&e[t][1].type===`htmlFlow`););return t>1&&e[t-2][1].type===`linePrefix`&&(e[t][1].start=e[t-2][1].start,e[t+1][1].start=e[t-2][1].start,e.splice(t-2,2)),e}function Xn(e,t,n){let r=this,i,a,o,s,c;return l;function l(e){return u(e)}function u(t){return e.enter(`htmlFlow`),e.enter(`htmlFlowData`),e.consume(t),d}function d(s){return s===33?(e.consume(s),f):s===47?(e.consume(s),a=!0,h):s===63?(e.consume(s),i=3,r.interrupt?t:j):Tt(s)?(e.consume(s),o=String.fromCharCode(s),g):n(s)}function f(a){return a===45?(e.consume(a),i=2,p):a===91?(e.consume(a),i=5,s=0,m):Tt(a)?(e.consume(a),i=4,r.interrupt?t:j):n(a)}function p(i){return i===45?(e.consume(i),r.interrupt?t:j):n(i)}function m(i){return i===`CDATA[`.charCodeAt(s++)?(e.consume(i),s===6?r.interrupt?t:D:m):n(i)}function h(t){return Tt(t)?(e.consume(t),o=String.fromCharCode(t),g):n(t)}function g(s){if(s===null||s===47||s===62||Mt(s)){let c=s===47,l=o.toLowerCase();return!c&&!a&&Gn.includes(l)?(i=1,r.interrupt?t(s):D(s)):Wn.includes(o.toLowerCase())?(i=6,c?(e.consume(s),_):r.interrupt?t(s):D(s)):(i=7,r.interrupt&&!r.parser.lazy[r.now().line]?n(s):a?v(s):y(s))}return s===45||Et(s)?(e.consume(s),o+=String.fromCharCode(s),g):n(s)}function _(i){return i===62?(e.consume(i),r.interrupt?t:D):n(i)}function v(t){return Nt(t)?(e.consume(t),v):E(t)}function y(t){return t===47?(e.consume(t),E):t===58||t===95||Tt(t)?(e.consume(t),b):Nt(t)?(e.consume(t),y):E(t)}function b(t){return t===45||t===46||t===58||t===95||Et(t)?(e.consume(t),b):x(t)}function x(t){return t===61?(e.consume(t),S):Nt(t)?(e.consume(t),x):y(t)}function S(t){return t===null||t===60||t===61||t===62||t===96?n(t):t===34||t===39?(e.consume(t),c=t,C):Nt(t)?(e.consume(t),S):w(t)}function C(t){return t===c?(e.consume(t),c=null,T):t===null||M(t)?n(t):(e.consume(t),C)}function w(t){return t===null||t===34||t===39||t===47||t===60||t===61||t===62||t===96||Mt(t)?x(t):(e.consume(t),w)}function T(e){return e===47||e===62||Nt(e)?y(e):n(e)}function E(t){return t===62?(e.consume(t),ee):n(t)}function ee(t){return t===null||M(t)?D(t):Nt(t)?(e.consume(t),ee):n(t)}function D(t){return t===45&&i===2?(e.consume(t),A):t===60&&i===1?(e.consume(t),ne):t===62&&i===4?(e.consume(t),ae):t===63&&i===3?(e.consume(t),j):t===93&&i===5?(e.consume(t),ie):M(t)&&(i===6||i===7)?(e.exit(`htmlFlowData`),e.check(qn,oe,O)(t)):t===null||M(t)?(e.exit(`htmlFlowData`),O(t)):(e.consume(t),D)}function O(t){return e.check(Jn,k,oe)(t)}function k(t){return e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),te}function te(t){return t===null||M(t)?O(t):(e.enter(`htmlFlowData`),D(t))}function A(t){return t===45?(e.consume(t),j):D(t)}function ne(t){return t===47?(e.consume(t),o=``,re):D(t)}function re(t){if(t===62){let n=o.toLowerCase();return Gn.includes(n)?(e.consume(t),ae):D(t)}return Tt(t)&&o.length<8?(e.consume(t),o+=String.fromCharCode(t),re):D(t)}function ie(t){return t===93?(e.consume(t),j):D(t)}function j(t){return t===62?(e.consume(t),ae):t===45&&i===2?(e.consume(t),j):D(t)}function ae(t){return t===null||M(t)?(e.exit(`htmlFlowData`),oe(t)):(e.consume(t),ae)}function oe(n){return e.exit(`htmlFlow`),t(n)}}function Zn(e,t,n){let r=this;return i;function i(t){return M(t)?(e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),a):n(t)}function a(e){return r.parser.lazy[r.now().line]?n(e):t(e)}}function Qn(e,t,n){return r;function r(r){return e.enter(`lineEnding`),e.consume(r),e.exit(`lineEnding`),e.attempt($t,t,n)}}var $n={name:`htmlText`,tokenize:er};function er(e,t,n){let r=this,i,a,o;return s;function s(t){return e.enter(`htmlText`),e.enter(`htmlTextData`),e.consume(t),c}function c(t){return t===33?(e.consume(t),l):t===47?(e.consume(t),x):t===63?(e.consume(t),y):Tt(t)?(e.consume(t),w):n(t)}function l(t){return t===45?(e.consume(t),u):t===91?(e.consume(t),a=0,m):Tt(t)?(e.consume(t),v):n(t)}function u(t){return t===45?(e.consume(t),p):n(t)}function d(t){return t===null?n(t):t===45?(e.consume(t),f):M(t)?(o=d,ne(t)):(e.consume(t),d)}function f(t){return t===45?(e.consume(t),p):d(t)}function p(e){return e===62?A(e):e===45?f(e):d(e)}function m(t){return t===`CDATA[`.charCodeAt(a++)?(e.consume(t),a===6?h:m):n(t)}function h(t){return t===null?n(t):t===93?(e.consume(t),g):M(t)?(o=h,ne(t)):(e.consume(t),h)}function g(t){return t===93?(e.consume(t),_):h(t)}function _(t){return t===62?A(t):t===93?(e.consume(t),_):h(t)}function v(t){return t===null||t===62?A(t):M(t)?(o=v,ne(t)):(e.consume(t),v)}function y(t){return t===null?n(t):t===63?(e.consume(t),b):M(t)?(o=y,ne(t)):(e.consume(t),y)}function b(e){return e===62?A(e):y(e)}function x(t){return Tt(t)?(e.consume(t),S):n(t)}function S(t){return t===45||Et(t)?(e.consume(t),S):C(t)}function C(t){return M(t)?(o=C,ne(t)):Nt(t)?(e.consume(t),C):A(t)}function w(t){return t===45||Et(t)?(e.consume(t),w):t===47||t===62||Mt(t)?T(t):n(t)}function T(t){return t===47?(e.consume(t),A):t===58||t===95||Tt(t)?(e.consume(t),E):M(t)?(o=T,ne(t)):Nt(t)?(e.consume(t),T):A(t)}function E(t){return t===45||t===46||t===58||t===95||Et(t)?(e.consume(t),E):ee(t)}function ee(t){return t===61?(e.consume(t),D):M(t)?(o=ee,ne(t)):Nt(t)?(e.consume(t),ee):T(t)}function D(t){return t===null||t===60||t===61||t===62||t===96?n(t):t===34||t===39?(e.consume(t),i=t,O):M(t)?(o=D,ne(t)):Nt(t)?(e.consume(t),D):(e.consume(t),k)}function O(t){return t===i?(e.consume(t),i=void 0,te):t===null?n(t):M(t)?(o=O,ne(t)):(e.consume(t),O)}function k(t){return t===null||t===34||t===39||t===60||t===61||t===96?n(t):t===47||t===62||Mt(t)?T(t):(e.consume(t),k)}function te(e){return e===47||e===62||Mt(e)?T(e):n(e)}function A(r){return r===62?(e.consume(r),e.exit(`htmlTextData`),e.exit(`htmlText`),t):n(r)}function ne(t){return e.exit(`htmlTextData`),e.enter(`lineEnding`),e.consume(t),e.exit(`lineEnding`),re}function re(t){return Nt(t)?Rt(e,ie,`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(t):ie(t)}function ie(t){return e.enter(`htmlTextData`),o(t)}}var tr={name:`labelEnd`,resolveAll:ar,resolveTo:or,tokenize:sr},nr={tokenize:cr},rr={tokenize:lr},ir={tokenize:ur};function ar(e){let t=-1,n=[];for(;++t<e.length;){let r=e[t][1];if(n.push(e[t]),r.type===`labelImage`||r.type===`labelLink`||r.type===`labelEnd`){let e=r.type===`labelImage`?4:2;r.type=`data`,t+=e}}return e.length!==n.length&&_t(e,0,e.length,n),e}function or(e,t){let n=e.length,r=0,i,a,o,s;for(;n--;)if(i=e[n][1],a){if(i.type===`link`||i.type===`labelLink`&&i._inactive)break;e[n][0]===`enter`&&i.type===`labelLink`&&(i._inactive=!0)}else if(o){if(e[n][0]===`enter`&&(i.type===`labelImage`||i.type===`labelLink`)&&!i._balanced&&(a=n,i.type!==`labelLink`)){r=2;break}}else i.type===`labelEnd`&&(o=n);let c={type:e[a][1].type===`labelLink`?`link`:`image`,start:{...e[a][1].start},end:{...e[e.length-1][1].end}},l={type:`label`,start:{...e[a][1].start},end:{...e[o][1].end}},u={type:`labelText`,start:{...e[a+r+2][1].end},end:{...e[o-2][1].start}};return s=[[`enter`,c,t],[`enter`,l,t]],s=vt(s,e.slice(a+1,a+r+3)),s=vt(s,[[`enter`,u,t]]),s=vt(s,Kt(t.parser.constructs.insideSpan.null,e.slice(a+r+4,o-3),t)),s=vt(s,[[`exit`,u,t],e[o-2],e[o-1],[`exit`,l,t]]),s=vt(s,e.slice(o+1)),s=vt(s,[[`exit`,c,t]]),_t(e,a,e.length,s),e}function sr(e,t,n){let r=this,i=r.events.length,a,o;for(;i--;)if((r.events[i][1].type===`labelImage`||r.events[i][1].type===`labelLink`)&&!r.events[i][1]._balanced){a=r.events[i][1];break}return s;function s(t){return a?a._inactive?d(t):(o=r.parser.defined.includes(wt(r.sliceSerialize({start:a.end,end:r.now()}))),e.enter(`labelEnd`),e.enter(`labelMarker`),e.consume(t),e.exit(`labelMarker`),e.exit(`labelEnd`),c):n(t)}function c(t){return t===40?e.attempt(nr,u,o?u:d)(t):t===91?e.attempt(rr,u,o?l:d)(t):o?u(t):d(t)}function l(t){return e.attempt(ir,u,d)(t)}function u(e){return t(e)}function d(e){return a._balanced=!0,n(e)}}function cr(e,t,n){return r;function r(t){return e.enter(`resource`),e.enter(`resourceMarker`),e.consume(t),e.exit(`resourceMarker`),i}function i(t){return Mt(t)?Pn(e,a)(t):a(t)}function a(t){return t===41?u(t):jn(e,o,s,`resourceDestination`,`resourceDestinationLiteral`,`resourceDestinationLiteralMarker`,`resourceDestinationRaw`,`resourceDestinationString`,32)(t)}function o(t){return Mt(t)?Pn(e,c)(t):u(t)}function s(e){return n(e)}function c(t){return t===34||t===39||t===40?Nn(e,l,n,`resourceTitle`,`resourceTitleMarker`,`resourceTitleString`)(t):u(t)}function l(t){return Mt(t)?Pn(e,u)(t):u(t)}function u(r){return r===41?(e.enter(`resourceMarker`),e.consume(r),e.exit(`resourceMarker`),e.exit(`resource`),t):n(r)}}function lr(e,t,n){let r=this;return i;function i(t){return Mn.call(r,e,a,o,`reference`,`referenceMarker`,`referenceString`)(t)}function a(e){return r.parser.defined.includes(wt(r.sliceSerialize(r.events[r.events.length-1][1]).slice(1,-1)))?t(e):n(e)}function o(e){return n(e)}}function ur(e,t,n){return r;function r(t){return e.enter(`reference`),e.enter(`referenceMarker`),e.consume(t),e.exit(`referenceMarker`),i}function i(r){return r===93?(e.enter(`referenceMarker`),e.consume(r),e.exit(`referenceMarker`),e.exit(`reference`),t):n(r)}}var dr={name:`labelStartImage`,resolveAll:tr.resolveAll,tokenize:fr};function fr(e,t,n){let r=this;return i;function i(t){return e.enter(`labelImage`),e.enter(`labelImageMarker`),e.consume(t),e.exit(`labelImageMarker`),a}function a(t){return t===91?(e.enter(`labelMarker`),e.consume(t),e.exit(`labelMarker`),e.exit(`labelImage`),o):n(t)}function o(e){return e===94&&`_hiddenFootnoteSupport`in r.parser.constructs?n(e):t(e)}}var pr={name:`labelStartLink`,resolveAll:tr.resolveAll,tokenize:mr};function mr(e,t,n){let r=this;return i;function i(t){return e.enter(`labelLink`),e.enter(`labelMarker`),e.consume(t),e.exit(`labelMarker`),e.exit(`labelLink`),a}function a(e){return e===94&&`_hiddenFootnoteSupport`in r.parser.constructs?n(e):t(e)}}var hr={name:`lineEnding`,tokenize:gr};function gr(e,t){return n;function n(n){return e.enter(`lineEnding`),e.consume(n),e.exit(`lineEnding`),Rt(e,t,`linePrefix`)}}var _r={name:`thematicBreak`,tokenize:vr};function vr(e,t,n){let r=0,i;return a;function a(t){return e.enter(`thematicBreak`),o(t)}function o(e){return i=e,s(e)}function s(a){return a===i?(e.enter(`thematicBreakSequence`),c(a)):r>=3&&(a===null||M(a))?(e.exit(`thematicBreak`),t(a)):n(a)}function c(t){return t===i?(e.consume(t),r++,c):(e.exit(`thematicBreakSequence`),Nt(t)?Rt(e,s,`whitespace`)(t):s(t))}}var yr={continuation:{tokenize:Cr},exit:Tr,name:`list`,tokenize:Sr},br={partial:!0,tokenize:Er},xr={partial:!0,tokenize:wr};function Sr(e,t,n){let r=this,i=r.events[r.events.length-1],a=i&&i[1].type===`linePrefix`?i[2].sliceSerialize(i[1],!0).length:0,o=0;return s;function s(t){let i=r.containerState.type||(t===42||t===43||t===45?`listUnordered`:`listOrdered`);if(i===`listUnordered`?!r.containerState.marker||t===r.containerState.marker:kt(t)){if(r.containerState.type||(r.containerState.type=i,e.enter(i,{_container:!0})),i===`listUnordered`)return e.enter(`listItemPrefix`),t===42||t===45?e.check(_r,n,l)(t):l(t);if(!r.interrupt||t===49)return e.enter(`listItemPrefix`),e.enter(`listItemValue`),c(t)}return n(t)}function c(t){return kt(t)&&++o<10?(e.consume(t),c):(!r.interrupt||o<2)&&(r.containerState.marker?t===r.containerState.marker:t===41||t===46)?(e.exit(`listItemValue`),l(t)):n(t)}function l(t){return e.enter(`listItemMarker`),e.consume(t),e.exit(`listItemMarker`),r.containerState.marker=r.containerState.marker||t,e.check($t,r.interrupt?n:u,e.attempt(br,f,d))}function u(e){return r.containerState.initialBlankLine=!0,a++,f(e)}function d(t){return Nt(t)?(e.enter(`listItemPrefixWhitespace`),e.consume(t),e.exit(`listItemPrefixWhitespace`),f):n(t)}function f(n){return r.containerState.size=a+r.sliceSerialize(e.exit(`listItemPrefix`),!0).length,t(n)}}function Cr(e,t,n){let r=this;return r.containerState._closeFlow=void 0,e.check($t,i,a);function i(n){return r.containerState.furtherBlankLines=r.containerState.furtherBlankLines||r.containerState.initialBlankLine,Rt(e,t,`listItemIndent`,r.containerState.size+1)(n)}function a(n){return r.containerState.furtherBlankLines||!Nt(n)?(r.containerState.furtherBlankLines=void 0,r.containerState.initialBlankLine=void 0,o(n)):(r.containerState.furtherBlankLines=void 0,r.containerState.initialBlankLine=void 0,e.attempt(xr,t,o)(n))}function o(i){return r.containerState._closeFlow=!0,r.interrupt=void 0,Rt(e,e.attempt(yr,t,n),`linePrefix`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:4)(i)}}function wr(e,t,n){let r=this;return Rt(e,i,`listItemIndent`,r.containerState.size+1);function i(e){let i=r.events[r.events.length-1];return i&&i[1].type===`listItemIndent`&&i[2].sliceSerialize(i[1],!0).length===r.containerState.size?t(e):n(e)}}function Tr(e){e.exit(this.containerState.type)}function Er(e,t,n){let r=this;return Rt(e,i,`listItemPrefixWhitespace`,r.parser.constructs.disable.null.includes(`codeIndented`)?void 0:5);function i(e){let i=r.events[r.events.length-1];return!Nt(e)&&i&&i[1].type===`listItemPrefixWhitespace`?t(e):n(e)}}var Dr={name:`setextUnderline`,resolveTo:Or,tokenize:kr};function Or(e,t){let n=e.length,r,i,a;for(;n--;)if(e[n][0]===`enter`){if(e[n][1].type===`content`){r=n;break}e[n][1].type===`paragraph`&&(i=n)}else e[n][1].type===`content`&&e.splice(n,1),!a&&e[n][1].type===`definition`&&(a=n);let o={type:`setextHeading`,start:{...e[r][1].start},end:{...e[e.length-1][1].end}};return e[i][1].type=`setextHeadingText`,a?(e.splice(i,0,[`enter`,o,t]),e.splice(a+1,0,[`exit`,e[r][1],t]),e[r][1].end={...e[a][1].end}):e[r][1]=o,e.push([`exit`,o,t]),e}function kr(e,t,n){let r=this,i;return a;function a(t){let a=r.events.length,s;for(;a--;)if(r.events[a][1].type!==`lineEnding`&&r.events[a][1].type!==`linePrefix`&&r.events[a][1].type!==`content`){s=r.events[a][1].type===`paragraph`;break}return!r.parser.lazy[r.now().line]&&(r.interrupt||s)?(e.enter(`setextHeadingLine`),i=t,o(t)):n(t)}function o(t){return e.enter(`setextHeadingLineSequence`),s(t)}function s(t){return t===i?(e.consume(t),s):(e.exit(`setextHeadingLineSequence`),Nt(t)?Rt(e,c,`lineSuffix`)(t):c(t))}function c(r){return r===null||M(r)?(e.exit(`setextHeadingLine`),t(r)):n(r)}}var Ar={tokenize:jr};function jr(e){let t=this,n=e.attempt($t,r,e.attempt(this.parser.constructs.flowInitial,i,Rt(e,e.attempt(this.parser.constructs.flow,i,e.attempt(En,i)),`linePrefix`)));return n;function r(r){if(r===null){e.consume(r);return}return e.enter(`lineEndingBlank`),e.consume(r),e.exit(`lineEndingBlank`),t.currentConstruct=void 0,n}function i(r){if(r===null){e.consume(r);return}return e.enter(`lineEnding`),e.consume(r),e.exit(`lineEnding`),t.currentConstruct=void 0,n}}var Mr={resolveAll:Ir()},Nr=Fr(`string`),Pr=Fr(`text`);function Fr(e){return{resolveAll:Ir(e===`text`?Lr:void 0),tokenize:t};function t(t){let n=this,r=this.parser.constructs[e],i=t.attempt(r,a,o);return a;function a(e){return c(e)?i(e):o(e)}function o(e){if(e===null){t.consume(e);return}return t.enter(`data`),t.consume(e),s}function s(e){return c(e)?(t.exit(`data`),i(e)):(t.consume(e),s)}function c(e){if(e===null)return!0;let t=r[e],i=-1;if(t)for(;++i<t.length;){let e=t[i];if(!e.previous||e.previous.call(n,n.previous))return!0}return!1}}}function Ir(e){return t;function t(t,n){let r=-1,i;for(;++r<=t.length;)i===void 0?t[r]&&t[r][1].type===`data`&&(i=r,r++):(!t[r]||t[r][1].type!==`data`)&&(r!==i+2&&(t[i][1].end=t[r-1][1].end,t.splice(i+2,r-i-2),r=i+2),i=void 0);return e?e(t,n):t}}function Lr(e,t){let n=0;for(;++n<=e.length;)if((n===e.length||e[n][1].type===`lineEnding`)&&e[n-1][1].type===`data`){let r=e[n-1][1],i=t.sliceStream(r),a=i.length,o=-1,s=0,c;for(;a--;){let e=i[a];if(typeof e==`string`){for(o=e.length;e.charCodeAt(o-1)===32;)s++,o--;if(o)break;o=-1}else if(e===-2)c=!0,s++;else if(e!==-1){a++;break}}if(t._contentTypeTextTrailing&&n===e.length&&(s=0),s){let i={type:n===e.length||c||s<2?`lineSuffix`:`hardBreakTrailing`,start:{_bufferIndex:a?o:r.start._bufferIndex+o,_index:r.start._index+a,line:r.end.line,column:r.end.column-s,offset:r.end.offset-s},end:{...r.end}};r.end={...i.start},r.start.offset===r.end.offset?Object.assign(r,i):(e.splice(n,0,[`enter`,i,t],[`exit`,i,t]),n+=2)}n++}return e}var Rr=e({attentionMarkers:()=>Kr,contentInitial:()=>Br,disable:()=>qr,document:()=>zr,flow:()=>Hr,flowInitial:()=>Vr,insideSpan:()=>Gr,string:()=>Ur,text:()=>Wr}),zr={42:yr,43:yr,45:yr,48:yr,49:yr,50:yr,51:yr,52:yr,53:yr,54:yr,55:yr,56:yr,57:yr,62:tn},Br={91:Fn},Vr={[-2]:mn,[-1]:mn,32:mn},Hr={35:Vn,42:_r,45:[Dr,_r],60:Kn,61:Dr,95:_r,96:dn,126:dn},Ur={38:cn,92:on},Wr={[-5]:hr,[-4]:hr,[-3]:hr,33:dr,38:cn,42:qt,60:[Zt,$n],91:pr,92:[zn,on],93:tr,95:qt,96:vn},Gr={null:[qt,Mr]},Kr={null:[42,95]},qr={null:[]};function Jr(e,t,n){let r={_bufferIndex:-1,_index:0,line:n&&n.line||1,column:n&&n.column||1,offset:n&&n.offset||0},i={},a=[],o=[],s=[],c={attempt:C(x),check:C(S),consume:v,enter:y,exit:b,interrupt:C(S,{interrupt:!0})},l={code:null,containerState:{},defineSkip:h,events:[],now:m,parser:e,previous:null,sliceSerialize:f,sliceStream:p,write:d},u=t.tokenize.call(l,c);return t.resolveAll&&a.push(t),l;function d(e){return o=vt(o,e),g(),o[o.length-1]===null?(w(t,0),l.events=Kt(a,l.events,l),l.events):[]}function f(e,t){return Xr(p(e),t)}function p(e){return Yr(o,e)}function m(){let{_bufferIndex:e,_index:t,line:n,column:i,offset:a}=r;return{_bufferIndex:e,_index:t,line:n,column:i,offset:a}}function h(e){i[e.line]=e.column,E()}function g(){let e;for(;r._index<o.length;){let t=o[r._index];if(typeof t==`string`)for(e=r._index,r._bufferIndex<0&&(r._bufferIndex=0);r._index===e&&r._bufferIndex<t.length;)_(t.charCodeAt(r._bufferIndex));else _(t)}}function _(e){u=u(e)}function v(e){M(e)?(r.line++,r.column=1,r.offset+=e===-3?2:1,E()):e!==-1&&(r.column++,r.offset++),r._bufferIndex<0?r._index++:(r._bufferIndex++,r._bufferIndex===o[r._index].length&&(r._bufferIndex=-1,r._index++)),l.previous=e}function y(e,t){let n=t||{};return n.type=e,n.start=m(),l.events.push([`enter`,n,l]),s.push(n),n}function b(e){let t=s.pop();return t.end=m(),l.events.push([`exit`,t,l]),t}function x(e,t){w(e,t.from)}function S(e,t){t.restore()}function C(e,t){return n;function n(n,r,i){let a,o,s,u;return Array.isArray(n)?f(n):`tokenize`in n?f([n]):d(n);function d(e){return t;function t(t){let n=t!==null&&e[t],r=t!==null&&e.null;return f([...Array.isArray(n)?n:n?[n]:[],...Array.isArray(r)?r:r?[r]:[]])(t)}}function f(e){return a=e,o=0,e.length===0?i:p(e[o])}function p(e){return n;function n(n){return u=T(),s=e,e.partial||(l.currentConstruct=e),e.name&&l.parser.constructs.disable.null.includes(e.name)?h(n):e.tokenize.call(t?Object.assign(Object.create(l),t):l,c,m,h)(n)}}function m(t){return e(s,u),r}function h(e){return u.restore(),++o<a.length?p(a[o]):i}}}function w(e,t){e.resolveAll&&!a.includes(e)&&a.push(e),e.resolve&&_t(l.events,t,l.events.length-t,e.resolve(l.events.slice(t),l)),e.resolveTo&&(l.events=e.resolveTo(l.events,l))}function T(){let e=m(),t=l.previous,n=l.currentConstruct,i=l.events.length,a=Array.from(s);return{from:i,restore:o};function o(){r=e,l.previous=t,l.currentConstruct=n,l.events.length=i,s=a,E()}}function E(){r.line in i&&r.column<2&&(r.column=i[r.line],r.offset+=i[r.line]-1)}}function Yr(e,t){let n=t.start._index,r=t.start._bufferIndex,i=t.end._index,a=t.end._bufferIndex,o;if(n===i)o=[e[n].slice(r,a)];else{if(o=e.slice(n,i),r>-1){let e=o[0];typeof e==`string`?o[0]=e.slice(r):o.shift()}a>0&&o.push(e[i].slice(0,a))}return o}function Xr(e,t){let n=-1,r=[],i;for(;++n<e.length;){let a=e[n],o;if(typeof a==`string`)o=a;else switch(a){case-5:o=`\r`;break;case-4:o=`
 `;break;case-3:o=`\r
 `;break;case-2:o=t?` `:`	`;break;case-1:if(!t&&i)continue;o=` `;break;default:o=String.fromCharCode(a)}i=a===-2,r.push(o)}return r.join(``)}function Zr(e){let t={constructs:bt([Rr,...(e||{}).extensions||[]]),content:n(zt),defined:[],document:n(Vt),flow:n(Ar),lazy:{},string:n(Nr),text:n(Pr)};return t;function n(e){return n;function n(n){return Jr(t,e,n)}}}function Qr(e){for(;!wn(e););return e}var $r=/[\0\t\n\r]/g;function ei(){let e=1,t=``,n=!0,r;return i;function i(i,a,o){let s=[],c,l,u,d,f;for(i=t+(typeof i==`string`?i.toString():new TextDecoder(a||void 0).decode(i)),u=0,t=``,n&&=(i.charCodeAt(0)===65279&&u++,void 0);u<i.length;){if($r.lastIndex=u,c=$r.exec(i),d=c&&c.index!==void 0?c.index:i.length,f=i.charCodeAt(d),!c){t=i.slice(u);break}if(f===10&&u===d&&r)s.push(-3),r=void 0;else switch(r&&=(s.push(-5),void 0),u<d&&(s.push(i.slice(u,d)),e+=d-u),f){case 0:s.push(65533),e++;break;case 9:for(l=Math.ceil(e/4)*4,s.push(-2);e++<l;)s.push(-1);break;case 10:s.push(-4),e=1;break;default:r=!0,e=1}u=d+1}return o&&(r&&s.push(-5),t&&s.push(t),s.push(null)),s}}var ti=/\\([!-/:-@[-`{-~])|&(#(?:\d{1,7}|x[\da-f]{1,6})|[\da-z]{1,31});/gi;function ni(e){return e.replace(ti,ri)}function ri(e,t,n){if(t)return t;if(n.charCodeAt(0)===35){let e=n.charCodeAt(1),t=e===120||e===88;return Ct(n.slice(t?2:1),t?16:10)}return gt(n)||e}var ii={}.hasOwnProperty;function ai(e,t,n){return t&&typeof t==`object`&&(n=t,t=void 0),oi(n)(Qr(Zr(n).document().write(ei()(e,t,!0))))}function oi(e){let t={transforms:[],canContainEols:[`emphasis`,`fragment`,`heading`,`paragraph`,`strong`],enter:{autolink:a(Ce),autolinkProtocol:T,autolinkEmail:T,atxHeading:a(ye),blockQuote:a(me),characterEscape:T,characterReference:T,codeFenced:a(he),codeFencedFenceInfo:o,codeFencedFenceMeta:o,codeIndented:a(he,o),codeText:a(ge,o),codeTextData:T,data:T,codeFlowValue:T,definition:a(_e),definitionDestinationString:o,definitionLabelString:o,definitionTitleString:o,emphasis:a(ve),hardBreakEscape:a(be),hardBreakTrailing:a(be),htmlFlow:a(xe,o),htmlFlowData:T,htmlText:a(xe,o),htmlTextData:T,image:a(Se),label:o,link:a(Ce),listItem:a(Te),listItemValue:f,listOrdered:a(we,d),listUnordered:a(we),paragraph:a(Ee),reference:se,referenceString:o,resourceDestinationString:o,resourceTitleString:o,setextHeading:a(ye),strong:a(De),thematicBreak:a(Ae)},exit:{atxHeading:c(),atxHeadingSequence:x,autolink:c(),autolinkEmail:pe,autolinkProtocol:fe,blockQuote:c(),characterEscapeValue:E,characterReferenceMarkerHexadecimal:le,characterReferenceMarkerNumeric:le,characterReferenceValue:ue,characterReference:de,codeFenced:c(g),codeFencedFence:h,codeFencedFenceInfo:p,codeFencedFenceMeta:m,codeFlowValue:E,codeIndented:c(_),codeText:c(te),codeTextData:E,data:E,definition:c(),definitionDestinationString:b,definitionLabelString:v,definitionTitleString:y,emphasis:c(),hardBreakEscape:c(D),hardBreakTrailing:c(D),htmlFlow:c(O),htmlFlowData:E,htmlText:c(k),htmlTextData:E,image:c(ne),label:ie,labelText:re,lineEnding:ee,link:c(A),listItem:c(),listOrdered:c(),listUnordered:c(),paragraph:c(),referenceString:ce,resourceDestinationString:j,resourceTitleString:ae,resource:oe,setextHeading:c(w),setextHeadingLineSequence:C,setextHeadingText:S,strong:c(),thematicBreak:c()}};ci(t,(e||{}).mdastExtensions||[]);let n={};return r;function r(e){let r={type:`root`,children:[]},a={stack:[r],tokenStack:[],config:t,enter:s,exit:l,buffer:o,resume:u,data:n},c=[],d=-1;for(;++d<e.length;)(e[d][1].type===`listOrdered`||e[d][1].type===`listUnordered`)&&(e[d][0]===`enter`?c.push(d):d=i(e,c.pop(),d));for(d=-1;++d<e.length;){let n=t[e[d][0]];ii.call(n,e[d][1].type)&&n[e[d][1].type].call(Object.assign({sliceSerialize:e[d][2].sliceSerialize},a),e[d][1])}if(a.tokenStack.length>0){let e=a.tokenStack[a.tokenStack.length-1];(e[1]||ui).call(a,void 0,e[0])}for(r.position={start:si(e.length>0?e[0][1].start:{line:1,column:1,offset:0}),end:si(e.length>0?e[e.length-2][1].end:{line:1,column:1,offset:0})},d=-1;++d<t.transforms.length;)r=t.transforms[d](r)||r;return r}function i(e,t,n){let r=t-1,i=-1,a=!1,o,s,c,l;for(;++r<=n;){let t=e[r];switch(t[1].type){case`listUnordered`:case`listOrdered`:case`blockQuote`:t[0]===`enter`?i++:i--,l=void 0;break;case`lineEndingBlank`:t[0]===`enter`&&(o&&!l&&!i&&!c&&(c=r),l=void 0);break;case`linePrefix`:case`listItemValue`:case`listItemMarker`:case`listItemPrefix`:case`listItemPrefixWhitespace`:break;default:l=void 0}if(!i&&t[0]===`enter`&&t[1].type===`listItemPrefix`||i===-1&&t[0]===`exit`&&(t[1].type===`listUnordered`||t[1].type===`listOrdered`)){if(o){let i=r;for(s=void 0;i--;){let t=e[i];if(t[1].type===`lineEnding`||t[1].type===`lineEndingBlank`){if(t[0]===`exit`)continue;s&&(e[s][1].type=`lineEndingBlank`,a=!0),t[1].type=`lineEnding`,s=i}else if(!(t[1].type===`linePrefix`||t[1].type===`blockQuotePrefix`||t[1].type===`blockQuotePrefixWhitespace`||t[1].type===`blockQuoteMarker`||t[1].type===`listItemIndent`))break}c&&(!s||c<s)&&(o._spread=!0),o.end=Object.assign({},s?e[s][1].start:t[1].end),e.splice(s||r,0,[`exit`,o,t[2]]),r++,n++}if(t[1].type===`listItemPrefix`){let i={type:`listItem`,_spread:!1,start:Object.assign({},t[1].start),end:void 0};o=i,e.splice(r,0,[`enter`,i,t[2]]),r++,n++,c=void 0,l=!0}}}return e[t][1]._spread=a,n}function a(e,t){return n;function n(n){s.call(this,e(n),n),t&&t.call(this,n)}}function o(){this.stack.push({type:`fragment`,children:[]})}function s(e,t,n){this.stack[this.stack.length-1].children.push(e),this.stack.push(e),this.tokenStack.push([t,n||void 0]),e.position={start:si(t.start),end:void 0}}function c(e){return t;function t(t){e&&e.call(this,t),l.call(this,t)}}function l(e,t){let n=this.stack.pop(),r=this.tokenStack.pop();if(r)r[0].type!==e.type&&(t?t.call(this,e,r[0]):(r[1]||ui).call(this,e,r[0]));else throw Error("Cannot close `"+e.type+"` ("+ke({start:e.start,end:e.end})+`): it’s not open`);n.position.end=si(e.end)}function u(){return dt(this.stack.pop())}function d(){this.data.expectingFirstListItemValue=!0}function f(e){if(this.data.expectingFirstListItemValue){let t=this.stack[this.stack.length-2];t.start=Number.parseInt(this.sliceSerialize(e),10),this.data.expectingFirstListItemValue=void 0}}function p(){let e=this.resume(),t=this.stack[this.stack.length-1];t.lang=e}function m(){let e=this.resume(),t=this.stack[this.stack.length-1];t.meta=e}function h(){this.data.flowCodeInside||(this.buffer(),this.data.flowCodeInside=!0)}function g(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e.replace(/^(\r?\n|\r)|(\r?\n|\r)$/g,``),this.data.flowCodeInside=void 0}function _(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e.replace(/(\r?\n|\r)$/g,``)}function v(e){let t=this.resume(),n=this.stack[this.stack.length-1];n.label=t,n.identifier=wt(this.sliceSerialize(e)).toLowerCase()}function y(){let e=this.resume(),t=this.stack[this.stack.length-1];t.title=e}function b(){let e=this.resume(),t=this.stack[this.stack.length-1];t.url=e}function x(e){let t=this.stack[this.stack.length-1];t.depth||=this.sliceSerialize(e).length}function S(){this.data.setextHeadingSlurpLineEnding=!0}function C(e){let t=this.stack[this.stack.length-1];t.depth=this.sliceSerialize(e).codePointAt(0)===61?1:2}function w(){this.data.setextHeadingSlurpLineEnding=void 0}function T(e){let t=this.stack[this.stack.length-1].children,n=t[t.length-1];(!n||n.type!==`text`)&&(n=Oe(),n.position={start:si(e.start),end:void 0},t.push(n)),this.stack.push(n)}function E(e){let t=this.stack.pop();t.value+=this.sliceSerialize(e),t.position.end=si(e.end)}function ee(e){let n=this.stack[this.stack.length-1];if(this.data.atHardBreak){let t=n.children[n.children.length-1];t.position.end=si(e.end),this.data.atHardBreak=void 0;return}!this.data.setextHeadingSlurpLineEnding&&t.canContainEols.includes(n.type)&&(T.call(this,e),E.call(this,e))}function D(){this.data.atHardBreak=!0}function O(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e}function k(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e}function te(){let e=this.resume(),t=this.stack[this.stack.length-1];t.value=e}function A(){let e=this.stack[this.stack.length-1];if(this.data.inReference){let t=this.data.referenceType||`shortcut`;e.type+=`Reference`,e.referenceType=t,delete e.url,delete e.title}else delete e.identifier,delete e.label;this.data.referenceType=void 0}function ne(){let e=this.stack[this.stack.length-1];if(this.data.inReference){let t=this.data.referenceType||`shortcut`;e.type+=`Reference`,e.referenceType=t,delete e.url,delete e.title}else delete e.identifier,delete e.label;this.data.referenceType=void 0}function re(e){let t=this.sliceSerialize(e),n=this.stack[this.stack.length-2];n.label=ni(t),n.identifier=wt(t).toLowerCase()}function ie(){let e=this.stack[this.stack.length-1],t=this.resume(),n=this.stack[this.stack.length-1];this.data.inReference=!0,n.type===`link`?n.children=e.children:n.alt=t}function j(){let e=this.resume(),t=this.stack[this.stack.length-1];t.url=e}function ae(){let e=this.resume(),t=this.stack[this.stack.length-1];t.title=e}function oe(){this.data.inReference=void 0}function se(){this.data.referenceType=`collapsed`}function ce(e){let t=this.resume(),n=this.stack[this.stack.length-1];n.label=t,n.identifier=wt(this.sliceSerialize(e)).toLowerCase(),this.data.referenceType=`full`}function le(e){this.data.characterReferenceType=e.type}function ue(e){let t=this.sliceSerialize(e),n=this.data.characterReferenceType,r;n?(r=Ct(t,n===`characterReferenceMarkerNumeric`?10:16),this.data.characterReferenceType=void 0):r=gt(t);let i=this.stack[this.stack.length-1];i.value+=r}function de(e){let t=this.stack.pop();t.position.end=si(e.end)}function fe(e){E.call(this,e);let t=this.stack[this.stack.length-1];t.url=this.sliceSerialize(e)}function pe(e){E.call(this,e);let t=this.stack[this.stack.length-1];t.url=`mailto:`+this.sliceSerialize(e)}function me(){return{type:`blockquote`,children:[]}}function he(){return{type:`code`,lang:null,meta:null,value:``}}function ge(){return{type:`inlineCode`,value:``}}function _e(){return{type:`definition`,identifier:``,label:null,title:null,url:``}}function ve(){return{type:`emphasis`,children:[]}}function ye(){return{type:`heading`,depth:0,children:[]}}function be(){return{type:`break`}}function xe(){return{type:`html`,value:``}}function Se(){return{type:`image`,title:null,url:``,alt:null}}function Ce(){return{type:`link`,title:null,url:``,children:[]}}function we(e){return{type:`list`,ordered:e.type===`listOrdered`,start:null,spread:e._spread,children:[]}}function Te(e){return{type:`listItem`,spread:e._spread,checked:null,children:[]}}function Ee(){return{type:`paragraph`,children:[]}}function De(){return{type:`strong`,children:[]}}function Oe(){return{type:`text`,value:``}}function Ae(){return{type:`thematicBreak`}}}function si(e){return{line:e.line,column:e.column,offset:e.offset}}function ci(e,t){let n=-1;for(;++n<t.length;){let r=t[n];Array.isArray(r)?ci(e,r):li(e,r)}}function li(e,t){let n;for(n in t)if(ii.call(t,n))switch(n){case`canContainEols`:{let r=t[n];r&&e[n].push(...r);break}case`transforms`:{let r=t[n];r&&e[n].push(...r);break}case`enter`:case`exit`:{let r=t[n];r&&Object.assign(e[n],r);break}}}function ui(e,t){throw Error(e?"Cannot close `"+e.type+"` ("+ke({start:e.start,end:e.end})+"): a different token (`"+t.type+"`, "+ke({start:t.start,end:t.end})+`) is open`:"Cannot close document, a token (`"+t.type+"`, "+ke({start:t.start,end:t.end})+`) is still open`)}function di(e){let t=this;t.parser=n;function n(n){return ai(n,{...t.data(`settings`),...e,extensions:t.data(`micromarkExtensions`)||[],mdastExtensions:t.data(`fromMarkdownExtensions`)||[]})}}function fi(e,t){let n={type:`element`,tagName:`blockquote`,properties:{},children:e.wrap(e.all(t),!0)};return e.patch(t,n),e.applyData(t,n)}function pi(e,t){let n={type:`element`,tagName:`br`,properties:{},children:[]};return e.patch(t,n),[e.applyData(t,n),{type:`text`,value:`
@@ -299,7 +299,7 @@ l0,-`+(t+144)+`c-2,-159.3,-10,-310.7,-24,-454c-53.3,-528,-210,-949.7,
 
 <!-- reference: wzw-model -->
 
-平坦な空間の自由ボソンでは、運動方程式 $\\partial\\bar\\partial X=0$ から $\\bar\\partial(\\partial X)=0$ と $\\partial(\\bar\\partial X)=0$ が従う。左と右の振動を、それぞれ正則・反正則なカレントで記録できる。三次元球面 $S^3$ を動く弦でも同じ分離を得るには、曲がった空間の運動項に何を加えればよいか。SU(2) Wess–Zumino–Witten（WZW）模型は、その問いを解く作用を持つ。作用から得る無限個の保存量が、量子論では許される状態と場の結合を決める。
+平坦な空間の自由ボソンでは、運動方程式 $\\partial\\bar\\partial X=0$ から $\\bar\\partial(\\partial X)=0$ と $\\partial(\\bar\\partial X)=0$ が従う。左と右の振動を、それぞれ正則・反正則なカレントで記録できる。三次元球面 $S^3$ を動く弦でも、左右を別々に記録できるだろうか。まず球面の計量から作用を作り、どこで分離が止まるかを調べる。その障害を取り除く項がWess–Zumino項である。得られたカレントを量子化した後には、任意のスピンから状態を作ってよいか、二つの場を結ぶとどの表現が残るか、という二つの選択を同じ対称性から決めていく。
 
 <!-- /reference -->
 
@@ -307,7 +307,7 @@ l0,-`+(t+144)+`c-2,-159.3,-10,-310.7,-24,-454c-53.3,-528,-210,-949.7,
 
 ## 6.1.1 作用とカイラル対称性
 
-群値の場から運動項を作り、左右のカレントを分離するために必要な背景場を調べる。その結合を大域的に定義するとWess–Zumino項とレベルの量子化が現れる。
+自由ボソンでは、運動方程式を微分の保存則として読めた。同じことを球面上で試すため、群値の場の微分から運動項を作る。微分同士の交換子が残るなら、その交換子を消す寄与を作用に加える必要がある。
 
 ### 群値場と主カイラル模型
 
@@ -420,7 +420,7 @@ $$
 
 #### 主カイラル模型の作用
 
-SU(2)上の不変計量を用い、場の一階微分の二次式から作る作用は
+自由ボソンの運動項は、場の一階微分の二次式だった。球面上でも、同じ接空間へ移した二成分 $A_z,A_{\\bar z}$ をSU(2)の不変計量で組み合わせる。こうしてまず作れる作用は
 
 $$
 S_0[g]
@@ -625,7 +625,9 @@ $$
 これを $\\bar\\partial A_z=-\\partial{A_{\\bar z}}$ に戻せば、もう一方の符号も決まる。
 \`\`\`
 
-一般には交換子が消えないので、一方の成分を変えると他方の運動にも影響する。可換群なら交換子は零となり、自由ボソンのように分離する。WZW模型では、作用に別の項を加えてこの結び付きを調整する。得られる左右のカレントには、左不変形式と右不変形式をそれぞれ使う。そのため、最終的に正則になる量は $A_z$ そのものとは限らない。
+一般には交換子が消えないので、主カイラル模型の運動項だけでは自由ボソンの分離を再現できない。可換群なら交換子は零になるが、SU(2)ではその条件を任意の場に課せない。必要なのは、交換子を零と仮定することではなく、運動方程式に現れる交換子を作用の別の寄与で打ち消すことである。
+
+実際、Maurer–Cartan恒等式を使うと、計量項の変分に現れる $\\partial A_{\\bar z}+\\bar\\partial A_z$ は $2\\partial A_{\\bar z}+[A_z,A_{\\bar z}]$ になる。追加する項の変分が $-[A_z,A_{\\bar z}]$ を与えれば、同じ群値場の運動方程式を $\\partial A_{\\bar z}=0$ にできる。得られる左右のカレントには、左不変形式と右不変形式をそれぞれ使う。そのため、正則になる量は $A_z$ そのものとは限らない。
 
 ### 曲率とフラックス
 
@@ -1141,7 +1143,7 @@ $$
 
 ### 運動方程式とカイラル対称性
 
-三次元積分で定義したWess–Zumino項が、世界面の運動方程式にどう寄与するかを調べよう。既出の \${A}=g^{-1}dg$ と変分パラメータ $\\eta=g^{-1}\\delta g$ を、延長した場 $\\widetilde g$ から同じ方法で作る：
+Wess–Zumino項を作用に組み込めた。これが主カイラル模型に残った交換子を消すか、同じ群値場 $g$ の変分で確かめよう。既出の \${A}=g^{-1}dg$ と変分パラメータ $\\eta=g^{-1}\\delta g$ を、延長した場 $\\widetilde g$ から同じ方法で作る：
 
 $$
 \\widetilde{A}:=\\widetilde g^{-1}d\\widetilde g,
@@ -1385,7 +1387,7 @@ $$
 
 左右の分離は、理論が自由になったことを意味しない。同じ側の三成分はSU(2)の非可換な対称性で結び付いている。量子化後にその生成子が満たす交換関係が、次節のレベル $k$ のアフィンLie代数 $\\widehat{\\mathfrak{su}}(2)_k$ である。
 
-フラックスの係数 $k$ は、拡張を変えても量子振幅が一致する条件で整数になり、Wess–Zumino項と計量項の相対係数は、交換子を相殺して左右のカレントを保存させた。次に、この保存カレントの量子OPEを入力として、同じ $k$ が状態の種類をどう制限するかを調べる。
+球面の計量だけでは残った交換子が、Wess–Zumino項の変分によって消えた。その結果、曲がった球面上でも $\\bar\\partial J=0$ と $\\partial\\bar J=0$ を得て、左右それぞれの保存量を輪郭積分で取り出せる。フラックスの係数 $k$ は、拡張を変えても量子振幅が一致する条件で整数になった。この整数を持つ保存カレントは得られたが、その対称性に従う量子状態の種類はまだ決めていない。次に量子OPEを入力として、その選択を調べる。
 
 ## 6.1.2 アフィン $\\widehat{\\mathfrak{su}}(2)$ の表現論
 
@@ -1865,7 +1867,7 @@ J_n^\\pm=\\frac{J_n^1\\pm iJ_n^2}{\\sqrt2}
 \\tag{Cartan-Weyl-basis}
 $$
 
-へ移る。零モードは $[J_0^0,J_0^\\pm]=\\pm J_0^\\pm$、$[J_0^+,J_0^-]=2J_0^0$ を満たす。正エネルギー表現とは、$L_0$ の固有値が下から有界な表現である。エネルギーを下げる正モードは最下層の状態を消し、エネルギーを変えない零モードはその最下層の中を動く。したがって基底状態は通常のSU(2)の多重項を作る。既約な表現を一つ選び、そのスピン $j$ の基底状態を
+へ移る。零モードは $[J_0^0,J_0^\\pm]=\\pm J_0^\\pm$、$[J_0^+,J_0^-]=2J_0^0$ を満たす。正エネルギー表現とは、$L_0$ の固有値が下から有界な表現である。ここでは最小固有値が存在し、その固有空間に有限次元のSU(2)既約多重項を一つ選び、そこから負モードで状態を生成するクラスを構成する（原著 §6.1.2）。エネルギーを下げる正モードはこの最下層を消し、エネルギーを変えない零モードは最下層の中でSU(2)として作用する。選んだ多重項のスピンを $j$ とし、その基底状態を
 
 $$
 |j;\\ell\\rangle,
@@ -1965,9 +1967,9 @@ $$
 
 ### 可積分表現
 
-カレントの負モードでエネルギーを上げられることが分かった。次に、その出発点となる基底状態のスピンを選ぶ。通常の $SU(2)$ では任意に大きなスピンが許されるが、カレントで作る励起も含めて確率解釈を保つには、すべての状態のノルムが非負でなければならない。この条件が基底状態の選び方を制限する。
+負のカレントモードはエネルギーを上げる。そこで、通常のSU(2)表現と同じようにスピン $j$ の基底状態を選び、全ての負モードで励起を作ることを試す。この候補の状態空間を $\\mathcal V_j$ と書く。零モードのSU(2)の関係とカレントの交換関係は満たすが、どの $j$ でも物理的な状態空間になるとはまだ分からない。
 
-スピン $j$ の基底状態から、負のカレントモードで全ての励起を作った状態空間を $\\mathcal V_j$ と書く。この段階では、SU(2)の零モードの関係とカレントの交換関係だけを使っている。そのままで確率解釈のできる内積を持つかを調べよう。
+確率解釈を保つには、基底状態だけでなく、そこから作った全ての励起のノルムが非負でなければならない。この条件と候補 $\\mathcal V_j$ を照合すれば、出発点に選べるスピンを制限できる。
 
 最初に調べる励起として $J_{-1}^+|j;j\\rangle$ を選ぶ。$[L_0,J_{-1}^+]=J_{-1}^+$ と $[J_0^0,J_{-1}^+]=J_{-1}^+$ により、エネルギーと磁気量子数をともに1だけ増やす状態である。ユニタリーな表現では $(J_n^+)^\\dagger=J_{-n}^-$ なので、そのノルムは
 
@@ -1980,7 +1982,7 @@ $$
 \\end{aligned}
 $$
 
-二行目では $J_1^-|j;j\\rangle=0$、三行目では $[J_1^-,J_{-1}^+]=k-2J_0^0$ を使った。基底状態のノルムを正に取ると、$j>k/2$ ではこの一状態が負ノルムになり、直ちに排除される。
+二行目では $J_1^-|j;j\\rangle=0$、三行目では $[J_1^-,J_{-1}^+]=k-2J_0^0$ を使った。基底状態のノルムを正に取ると、$j>k/2$ ではこの一状態が負ノルムになる。通常のSU(2)では許されるスピンでも、その上にカレントの励起を作るとノルム条件を破る。この候補は物理的な表現から排除しなければならない。
 
 残る $j\\leq k/2$ で同じ励起を繰り返すと、どこで新しい関係が生じるか。繰り返す演算子を
 
@@ -2256,7 +2258,7 @@ $$
 
 は零ノルム状態である。
 
-この零ノルム状態は、新しい最高ウェイト状態でもある。まず $J_0^+$ と全 $J_n^+$ は $E=J_{-1}^+$ と可換であり、元の基底状態を消す。$J_n^0$（$n>0$）を $E$ のべきへ通すと $J_{n-1}^+$ が出るので、これも基底状態を消す。$J_n^-$（$n\\geq2$）の場合は $J_{n-1}^0$ と $J_{n-2}^+$ だけが残り、同様に零になる。残る $J_1^-=F$ は、既出の漸化式の係数 $(N+1)(N-(N+1)+1)=0$ により消す。従って、全正モードと零モード上昇演算子に消される。
+この零ノルム状態は、新しい最高ウェイト状態でもある。まず零モード $J_0^+$ と正モード $J_n^+$（$n>0$）は $E=J_{-1}^+$ と可換であり、元の最高ウェイト基底状態 $|j;j\\rangle$ を消す。$J_n^0$（$n>0$）を $E$ のべきへ通すと $J_{n-1}^+$ が出るので、これも基底状態を消す。$J_n^-$（$n\\geq2$）の場合は $J_{n-1}^0$ と $J_{n-2}^+$ だけが残り、同様に零になる。残る $J_1^-=F$ は、既出の漸化式の係数 $(N+1)(N-(N+1)+1)=0$ により消す。従って、全正モードと零モード上昇演算子に消される。
 
 <details>
 <summary>零ノルム状態が全ての最高ウェイト条件を満たすことを確かめる</summary>
@@ -2312,7 +2314,7 @@ $$
 
 </details>
 
-正定値の状態空間を作るには、この零ノルム状態を零と同一視する必要がある。零とした状態にカレントを作用させた結果も零でなければ、代表元の選び方で演算子の作用が変わってしまう。そのため $\\psi_{\\mathrm{sing}}^j$ だけでなく、そこから全てのカレントで作る状態の線形空間 $\\mathcal N_j$ をまとめて除く。これが不変部分加群である。
+スピンを $j\\leq k/2$ に絞っても、候補 $\\mathcal V_j$ にはこの零ノルム状態が残る。正定値の状態空間にするには、それを零と同一視する必要がある。さらに、零とした状態にカレントを作用させた結果も零でなければ、代表元の選び方で演算子の作用が変わってしまう。そのため $\\psi_{\\mathrm{sing}}^j$ だけでなく、そこから全てのカレントで作る状態の線形空間 $\\mathcal N_j$ をまとめて除く。これが不変部分加群である。
 
 具体的には、$\\psi_{\\mathrm{sing}}^j$ へ $J_0^-$ と全負モードを繰り返し作用させた状態の線形結合全体を $\\mathcal N_j$ とする。負モードはエネルギーを上げ、$J_0^-$ は同じエネルギーの別のスピン成分を作る。こうして、その零ノルム状態から作る励起を一緒に除く。
 
@@ -2400,7 +2402,9 @@ $$
 
 である。
 
-ここで制限されたのは、各表現の出発点を指定するラベル $j$ である。各表現には負のカレントモードが作る無限個の励起があり、$j\\leq k/2$ は全励起のエネルギーやスピンに上限を課す条件ではない。
+これで、与えられた正整数レベル $k$ に対して、出発点に選べるスピンと、零として除くべき励起を指定できる。$k=2$ なら三つのラベル $0,\\frac12,1$ が残り、次の $\\frac32$ が落ちる理由も、一励起の負ノルムとして確かめられた。
+
+一本の励起鎖から直接分かったのは上限の必要性と零ノルム状態の位置であり、全ての負モードを含めた商の正定値性と既約性には、先ほどの分類定理を使った。また、制限されたのは各表現の出発点のラベル $j$ である。各表現には無限個の励起があり、$j\\leq k/2$ は全励起のエネルギーやスピンに上限を課す条件ではない。この無限個の状態がどのエネルギーに何個あるかは、次にcharacterで数える。
 
 作用で $R^2=k\\alpha'$ を決めた同じ整数 $k$ が、量子論では中心項と表現ラベルの上限にも現れた。この対応は幾何と状態の分類を結ぶ。[半径・level・表現上限はどこでつながるか](#note-one-level-three-roles)
 
@@ -2615,7 +2619,7 @@ $$
 
 #### トーラスの周期交換とmodular $S$
 
-トーラスには、複素平面上の移動
+character $\\chi_i(\\tau)$ は、一つの可積分表現の状態をEuclid時間発展の重みで数えていた。同じトーラスを別の方向に切って時間を定めたとき、この数え方はどう変わるだろうか。トーラスには、複素平面上の移動
 
 $$
 w\\sim w+1,
@@ -2631,7 +2635,7 @@ $$
 
 は、向きを保ちながら二周期の役割を交換する。例えば $\\tau=it$ なら $-1/\\tau=i/t$ であり、長い時間方向と短い空間方向が入れ替わる。
 
-一つの表現だけを選んだcharacterは、時間と空間のどちらを切って状態を定義したかに依存する。$SU(2)_k$ では、切り替えた後のcharacterも $k+1$ 個の可積分表現のcharacterの線形結合になる。この有限個での閉性はこの模型の表現論の性質であり、theta関数の変換則から確かめられる。全てのCFTで同じ有限和が使えるわけではない。
+交換前の $\\chi_i(\\tau)$ と交換後の $\\chi_i(-1/\\tau)$ は、同じトーラスのカイラルな振幅を、異なる周期を時間に選んで表す。$SU(2)_k$ では、後者を前者と同じ $k+1$ 個の可積分表現のcharacterで展開できる。この有限個での閉性はこの模型の表現論の性質であり、theta関数の変換則から確かめられる。全てのCFTで同じ有限和が使えるわけではない。
 
 エネルギーだけを数えるspecialised characterについて
 
@@ -2643,30 +2647,7 @@ $$
 }
 $$
 
-となる。個々のcharacterが不変になるのではなく、全表現を一組としたときに閉じて変換される。
-
-この交換は、状態を数える際にも役立つ。空間の円周を固定して $\\tau=it$ の $t$ を小さくすると、高いエネルギーの状態も重みに寄与し、直接の和には多数の励起が必要になる。ところが周期を交換した $i/t$ ではEuclid時間が長く、最も低いエネルギーの真空が支配する。これにより、多数の励起が作る高温での振る舞いを、交換後の低温の真空データから読み取れる。
-
-<details>
-<summary>低温の真空から高温のcharacterを求める</summary>
-
-上の変換則に $\\tau=i/t$ を入れると
-
-$$
-\\chi_i(it)=\\sum_j S_{ij}\\chi_j(i/t).
-$$
-
-右辺の展開変数は $q'=e^{-2\\pi/t}$ である。$t\\to0^+$ で $q'\\to0$ となり、$j>0$ の基底状態には $h_j>0$、descendantにはさらに正のgradeがあるため、それらの寄与は真空に比べて指数的に小さくなる。真空の $h_0=0$ と $d_0(0)=1$ を使うと
-
-$$
-\\chi_0(i/t)\\sim e^{\\pi c/(12t)},
-\\qquad
-\\chi_i(it)\\sim S_{i0}\\,e^{\\pi c/(12t)}.
-$$
-
-固定した $k$ に対し $S_{i0}>0$ なので、すべてのcharacterが同じ主な指数増大を示し、表現ごとの違いは先頭係数 $S_{i0}$ に現れる。ここで高温・低温とは、空間の円周を固定した世界面のトレースの温度を指す。
-
-</details>
+となる。
 
 <details>
 <summary>電荷付きcharacterのmodular変換</summary>
@@ -2699,6 +2680,8 @@ i,j=0,\\frac12,\\ldots,\\frac k2.
 $$
 
 この公式は特殊関数の変換公式として採用する。
+
+行列要素 $S_{ij}$ が、交換後の表現 $i$ のcharacterに、交換前の表現 $j$ のcharacterがどれだけ混ざるかを記録する。
 
 #### $S$ 行列と離散正弦変換
 
@@ -2806,6 +2789,31 @@ $$
 
 共役表現とは、群の変換行列を複素共役した変換則である。SU(2)の有限次元既約表現は次元 $2j+1$ ごとに一種類なので、複素共役しても同じスピン $j$ になる。アフィン表現も、その零モード多重項を出発点に同じカレントで生成されるので、共役sectorのラベルは $j^+=j$ である。この自己共役性は、一般のmodular関係 $S^2=C$ の共役行列 $C$ がここでは単位行列であることに対応する。
 
+個々のcharacterが周期交換で不変になるわけではない。変換されるのは $k+1$ 個のcharacterを一組にした振幅であり、$S_{ij}$ は状態の縮退度ではなく、その混合係数である。縮退度は各characterの $q$ 展開の係数が数えている。
+
+この二つの数え方を結ぶと、直接には多数の励起を足す問題を、低いエネルギーの状態から調べられる。空間の円周を固定して $\\tau=it$ の $t$ を小さくすると、高いエネルギーの状態も重みに寄与するが、交換後の $i/t$ ではEuclid時間が長く、真空が支配する。変換則に $\\tau=i/t$ を入れれば $\\chi_i(it)=\\sum_jS_{ij}\\chi_j(i/t)$ なので、高温側の振る舞いを低温側の真空データから読み取れる。
+
+<details>
+<summary>低温の真空から高温のcharacterを求める</summary>
+
+上の変換則に $\\tau=i/t$ を入れると
+
+$$
+\\chi_i(it)=\\sum_j S_{ij}\\chi_j(i/t).
+$$
+
+右辺の展開変数は $q'=e^{-2\\pi/t}$ である。$t\\to0^+$ で $q'\\to0$ となり、$j>0$ の基底状態には $h_j>0$、descendantにはさらに正のgradeがあるため、それらの寄与は真空に比べて指数的に小さくなる。真空の $h_0=0$ と $d_0(0)=1$ を使うと
+
+$$
+\\chi_0(i/t)\\sim e^{\\pi c/(12t)},
+\\qquad
+\\chi_i(it)\\sim S_{i0}\\,e^{\\pi c/(12t)}.
+$$
+
+固定した $k$ に対し $S_{i0}>0$ なので、すべてのcharacterが同じ主な指数増大を示し、表現ごとの違いは先頭係数 $S_{i0}$ に現れる。ここで高温・低温とは、空間の円周を固定した世界面のトレースの温度を指す。
+
+</details>
+
 $k=2$ でラベルを $0,\\frac12,1$ の順に並べると
 
 $$
@@ -2819,7 +2827,16 @@ S=
 }
 $$
 
-である。各列は、三点の有限区間に許された三つの定在波になっている。今はトーラスの周期交換からこの行列を得た。次には、場を結合するという局所的な操作を調べると、この同じ三つの波がその固有モードとして現れる。
+である。例えば中央の行を使えば、
+
+$$
+\\chi_{\\frac12}\\!\\left(-\\frac1\\tau\\right)
+=\\frac{\\chi_0(\\tau)-\\chi_1(\\tau)}{\\sqrt2}
+$$
+
+と、交換後の一つのcharacterを交換前の二つから再構成できる。負号があるのは、右辺が状態の部分集合の足し合わせではなく、切り方を変えるための振幅の線形結合だからである。もう一度交換すれば $S^2=\\mathbf1$ により元のcharacterへ戻る。これで周期交換の前後を行き来できる。
+
+この行列の各列は、三点の有限区間に許された三つの定在波でもある。周期交換による状態の数え直しは分かったが、二つの場を近づけたときに現れる表現はまだ求めていない。その局所的な結合を調べると、同じ正弦波がfusion行列の固有モードとして現れる。
 
 <details>
 <summary>周期交換を二度行うと元へ戻ることと、表現の自己共役性</summary>
@@ -3049,7 +3066,7 @@ $$
 =2\\cos\\frac{\\pi(2\\ell+1)}{k+2}
 $$
 
-となる。一方、許容ラベルの両隣だけを1で結ぶ行列 $A$ を $A_j{}^r=1$（$|j-r|=1/2$）、それ以外は0と定める。この $A$ は状態間の接続を数える行列であり、前のMaurer–Cartan 1形式とは別の量である。正弦の加法定理によって
+となる。一方、許容ラベルの両隣だけを1で結ぶ行列 $A$ を $A_j{}^r=1$（$|j-r|=1/2$）、それ以外は0と定める。この $A$ は表現ラベル間の接続を数える行列であり、前のMaurer–Cartan 1形式とは別の量である。正弦の加法定理によって
 
 $$
 (AS)_{j\\ell}=S_{j-\\frac12,\\ell}+S_{j+\\frac12,\\ell}
@@ -3293,15 +3310,17 @@ $$
 \\end{aligned}
 $$
 
-二つは結合則により等しいから、共通の $1$ を除くと
+ここで最初の候補 $1\\star1=0\\oplus1$ を一方の括り方へ戻すと、$1\\oplus(0\\oplus1)=0\\oplus1\\oplus1$ になる。他方の $0\\oplus1$ と比べ、スピン $1$ が一コピー余る。個々のラベルが上限内でも、三つを結ぶ二つの結果は一致しない。
+
+結合則を満たすには、二つの結果の各表現の多重度を一致させる。共通の $1$ を除くと
 
 $$
 1\\star1=0
 $$
 
-が強制される。有限鎖の端で $\\frac12\\star1$ が片方向にしか進めないことが、結合則を通じて $1\\star1$ の値まで決めた。上端の制約は、他の積にも伝わる。
+が強制される。この値を戻すと、一方は $1\\oplus0$、他方は $0\\oplus1$ となり、各表現が一コピーずつで一致する。候補にあった余分なスピン $1$ が消えたことを、同じ括り方の比較で確かめられた。
 
-これで $k=2$ の全fusion則がそろった。
+有限鎖の端で $\\frac12\\star1$ が片方向にしか進めないことが、結合則を通じて $1\\star1$ の値まで決めた。これで $k=2$ では、どの二つのchiral familyを結んでも、現れうるfamilyとその多重度を次の式から読める。
 
 $$
 \\begin{aligned}
@@ -3311,6 +3330,8 @@ $$
 1\\star1&=0.
 \\end{aligned}
 $$
+
+ここで決めたのは $k=2$ のfusion係数であり、個々のOPE係数の数値ではない。また、一つの結合則の検算だけで一般の $k$ の全fusion則が得られたわけでもない。次に原著の一般式を使い、入力と出力をまとめて制限する条件を読む。
 
 <details>
 <summary>$k=2$ で $1\\star1=0$ になることを係数で確かめる</summary>
@@ -3493,7 +3514,15 @@ $$
 [n]_k:=\\frac{\\sin(\\pi n/(k+2))}{\\sin(\\pi/(k+2))}
 $$
 
-である。量子 $6j$ symbolは、量子階乗 $[m]_k!:=\\prod_{n=1}^m[n]_k$ の有限個の積・比・平方根と、それらの有限和から作られる。和の範囲と階乗の引数は六つのスピンで決まり、その値から $F$ を計算できる。完全な式は下の補足に置く。
+である。量子 $6j$ symbolは、量子階乗 $[m]_k!:=\\prod_{n=1}^m[n]_k$ の有限個の積・比・平方根と、それらの有限和から作られる。ここでは、下のRacah和における四つの三角係数と有限和を量子 $6j$ とする規約を採用する。選んだ直交recoupling規格化では、これと $F$ の関係は
+
+$$
+F_{PQ}\\begin{bmatrix}J&K\\\\ I&L\\end{bmatrix}
+=(-1)^{I+J+K+L}\\sqrt{[2P+1]_k[2Q+1]_k}
+\\begin{Bmatrix}I&J&P\\\\ K&L&Q\\end{Bmatrix}_{k}
+$$
+
+である（[Poilblanc et al., Appendix A.3](https://link.aps.org/accepted/10.1103/PhysRevB.87.085106)）。位相は外線の四スピン、平方根は中間表現 $P,Q$ の量子次元から決まる。外線配列は先の結合表の四つの三角条件に対応する。量子 $6j$ の和の範囲と階乗の引数は六つのスピンで決まるため、これらを固定すれば有限和になる。完全なRacah和は下の補足に置く。
 
 スピンを固定して $k\\to\\infty$ とすると、fusion条件 $I+J+P\\leq k$ などはやがて自動的に満たされる。また各固定正整数 $n$ について $\\sin x/x\\to1$ より $[n]_k\\to n$ となる。固定スピンなら十分大きな $k$ で分母の階乗は零にならず、有限和の各項で極限を取れるため、量子 $6j$ は通常のWigner $6j$ へ戻る。上で選んだ直交recoupling規格化では
 
@@ -3597,7 +3626,9 @@ $$
 
 となる。Verlinde公式はcharacterのmodular変換とfusionの多重度を結び付け、$F$ は場を結合する順序の間の対応を与える。
 
-これらはカイラル理論の状態と結合に関するデータである。[6.2節](/6-2)では左右の表現を組み合わせてbulk理論を作り、境界条件を選んで開弦のスペクトルとOPEを求める。
+球面上で左右の振動を別々に記録できるか、という問いには、Wess–Zumino項による交換子の相殺と二つの保存カレントで答えた。そのカレントの量子代数を使うと、許容スピンを $0,\\frac12,\\ldots,k/2$ に絞り、零ノルム状態を除いた表現の状態数をcharacterで数えられた。$S$ はトーラスの周期交換の前後を結び、同じ $S$ からfusion係数を得ると、通常の角運動量の合成では残る出力がレベル条件で消える理由も読める。さらに $F$ は、残った表現を異なる順序で結ぶ二つのblock基底を対応させる。
+
+これで一方のカイラル理論の状態と結合を扱う材料がそろった。しかし、左右のどの表現を組み合わせるか、弦の端で左右のカレントをどう結ぶかは、まだ指定していない。[6.2節](/6-2)ではこの二つを選び、bulk理論と境界条件を作る。ここで得た $S,N,F$ が、その選択の整合性と、開弦のスペクトル・OPEを計算するための入力になる。
 
 ## 参考文献
 
@@ -3904,7 +3935,7 @@ $$
 
 ## 3. one-point functionとboundary state
 
-同じbulk理論に境界を入れる。境界からbulk場へどれだけ結合するかを境界状態で表し、その結合から開弦の状態数を求める。
+同じbulk理論に境界を入れると、bulkの各状態への結合の強さを選ぶ必要がある。currentの反射の仕方を決めれば、その強さまで決まるだろうか。まずgluingを満たす境界状態を作り、そこに残る自由度を調べる。
 
 境界を入れると、そこでcurrentやエネルギーがどう反射するかを指定する必要がある。上半平面の実軸上で、[左右のcurrent](/6-1#ref-chiral-currents)を $J^a(x)=\\bar J^a(x)$ と結ぶtrivial gluing $\\Omega=\\mathrm{id}$ を選ぶ。[Sugawara構成](/6-1#ref-sugawara)の $T$ と $\\bar T$ は同じ係数のcurrentの二次式なので、この等式から $T(x)=\\bar T(x)$ が従う。左右のエネルギー流の差が零となり、境界の外へエネルギーを流さない。
 
@@ -3916,7 +3947,7 @@ $$
 
 
 
-ここで選んだbulk模型は有限個のchiral sectorをもつcharge-conjugation型なので、Cardy構成を適用できる。まずcurrent gluingを満たす部品を作り、次にその組み合わせが開弦の状態数としても解釈できることを要求する。
+ここで選んだbulk模型は有限個のchiral sectorをもつcharge-conjugation型である。以下ではtrivial gluingを保つ境界について、Cardy構成を使う。
 
 ### 3.1 Cardy conditionはannulusの二つの量子化を一致させる
 
@@ -3932,7 +3963,7 @@ $$
 \\tag{Ishibashi-gluing}
 $$
 
-を満たすIshibashi状態 $|j\\rangle\\rangle$ がある。gluing条件だけなら、その任意の線形結合
+を満たすIshibashi状態 $|j\\rangle\\rangle$ がある。条件は境界状態に対して線形なので、各部品が条件を満たせば、その任意の線形結合
 
 $$
 \\|A\\rangle\\rangle
@@ -3965,13 +3996,21 @@ $$
 
 <!-- reference: cardy-condition -->
 
-二つの境界を端にもつ円筒、すなわちannulusを考える。円筒の長さ方向をEuclid時間に取ると、円周上のclosed stringが一方の境界から他方へ伝播する。一方、円周方向を時間に取ると、両境界を端点とするopen stringが一周して元に戻るので、その状態についてのtraceになる。これは同じ世界面の経路積分を二通りに読んでいる。
+係数 $B_A{}^j$ を選ぶには、境界の局所条件とは別の条件を使う。二つの境界を端にもつ円筒、すなわちannulusを考える。円筒の長さ方向をEuclid時間に取ると、円周上のclosed stringが一方の境界から他方へ伝播する。一方、円周方向を時間に取ると、両境界を端点とするopen stringが一周して元に戻るので、その状態についてのtraceになる。これは同じ世界面の経路積分を二通りに読んでいる。
 
 ![同じannulusを長方形に開き、上下辺を同一視して示す。閉弦の見方では左右の境界間を時間が進み、縦の断面は円になる。開弦の見方では上下の周期方向に時間が進み、横の断面は両端を境界に置く区間になる。](/diagrams/annulus-channels.svg)
 
 図の上下辺は同一視されている。横方向を時間に取ると空間断面は円、縦方向を時間に取ると空間断面は区間になる。open区間の長さを $L$、Euclid時間の周期を $\\beta$ とする。区間のHamiltonianは $H_{\\rm open}=\\pi(L_0-c/24)/L$ なので、$e^{-\\beta H_{\\rm open}}=q^{L_0-c/24}$ に合わせるcharacterのmodulusは $\\tau=i\\beta/(2L)$ である。以下では $t:=\\beta/(2L)>0$ と定め、$\\tau=it$ を使う。二方向の交換でclosed側のmodulusは $-1/\\tau$ となる。
 
-Ishibashi状態は同じsectorの左右の基底を一対ずつ足した和なので、伝播を挟んだ重なりは一つのcharacterになる。従って境界状態を展開し、6.1のmodular変換を使うと
+open側でsector $\\mathcal H_r$ が $n_{AB}{}^r$ 個現れるなら、その状態のtraceは
+
+$$
+Z_{AB}^{\\rm open}=\\sum_r n_{AB}{}^r\\chi_r(\\tau)
+$$
+
+となる。$n_{AB}{}^r$ は状態空間のコピー数なので、各 $r$ について非負整数でなければならない。同じannulusをclosed側で計算した値も、この形に書ける必要がある。
+
+そこで、まだ係数を自由にした境界状態をclosed側の振幅へ代入する。Ishibashi状態は同じsectorの左右の基底を一対ずつ足した和なので、伝播を挟んだ重なりは一つのcharacterになる。6.1のmodular変換 $\\chi_\\ell(-1/\\tau)=\\sum_rS_{\\ell r}\\chi_r(\\tau)$ を使えば
 
 $$
 \\begin{aligned}
@@ -3981,7 +4020,7 @@ Z_{AB}^{\\rm closed}
 \\end{aligned}
 $$
 
-open側では $\\mathcal H_r$ が $n_{AB}{}^r$ 個あると、traceは $Z_{AB}^{\\rm open}=\\sum_r n_{AB}{}^r\\chi_r(\\tau)$ になる。同じ世界面の経路積分であるため、各characterの係数を一致させる。この重複度が状態空間のコピー数として非負整数になることを要求するのがCardy conditionである：
+open側と同じcharacterの係数を比べると、自由な係数 $B_A{}^j$ には、gluingだけでは課されていなかった条件が見える：
 
 $$
 \\boxed{
@@ -3994,7 +4033,7 @@ n_{AB}{}^r
 \\tag{Cardy-condition}
 $$
 
-を得る。
+これがCardy conditionである。必要なのは $B_A{}^j$ 自体の非負性ではなく、この和が各open sectorのコピー数になることである。
 
 <!-- /reference -->
 
@@ -4098,7 +4137,9 @@ Ishibashi条件が各sector内でcurrent gluingを満たす局所条件である
 
 <!-- reference: cardy-coefficients -->
 
-基準境界 $0$ との間にsector $\\mathcal H_J$ を一つだけもつ境界 $J$ を構成する。すなわち $n_{00}{}^r=\\delta_{0r}$、$n_{0J}{}^r=\\delta_{Jr}$ と選ぶ。Cardy条件を $S^{-1}=S$ で逆変換すると
+非負整数という条件だけを眺めても、まだ係数の具体的な選び方は分からない。まず、基準境界 $0$ との間にsector $\\mathcal H_J$ を一つだけもつ境界 $J$ を構成しよう。すなわち $n_{00}{}^r=\\delta_{0r}$、$n_{0J}{}^r=\\delta_{Jr}$ と選ぶ。
+
+この模型の $S$ は実対称でユニタリなので $S^{-1}=S$、従って $\\sum_rS_{\\ell r}S_{rj}=\\delta_{\\ell j}$ である。Cardy条件に $S_{rj}$ を掛けて $r$ を足せば、closed側のsector $j$ の係数を取り出せる。この逆変換から
 
 $$
 |B_0{}^j|^2=S_{0j},\\qquad (B_0{}^j)^*B_J{}^j=S_{Jj}.
@@ -4117,13 +4158,13 @@ $$
 
 <!-- /reference -->
 
-となる。残る確認は、基準境界以外の二境界を選んでも、開弦の状態数が非負整数になるかである。この係数をCardy条件へ代入すると
+となる。基準境界との間では $\\sum_jS_{Jj}S_{jr}=\\delta_{Jr}$ だから、選んだ一コピーのスペクトルが戻る。残る確認は、基準境界以外の二境界でも開弦の状態数が非負整数になるかである。同じ係数をCardy条件へ代入すると
 
 $$
 n_{IJ}{}^r=\\sum_j\\frac{S_{Ij}S_{Jj}S_{rj}}{S_{0j}}=N_{IJ}{}^r
 $$
 
-となる。最後の等号は6.1のVerlinde公式であり、$S$ が実対称なので出力添字の複素共役も同じ値になる。closed側の結合から作った量が、chiral fusionで数えた多重度に一致し、どの組でもCardy conditionを満たす。
+となる。最後の等号は6.1のVerlinde公式であり、$S$ が実対称なので出力添字の複素共役も同じ値になる。closed側の結合から作った量が、chiral fusionで数えた多重度に一致し、どの組でもCardy conditionを満たす。これで二つの境界 $I,J$ を指定すれば、その間に各sectorが何コピー現れるかを計算できる。gluingだけでは自由だった結合係数が、open側の状態数と結び付いた。ここで構成したのは指定した対角模型・trivial gluing・基準境界をもつCardy解であり、annulusの一致だけで、あらゆる境界条件の分類や境界相関関数のsewingまで済んだとはしない。
 
 <details>
 <summary>基準境界との間のスペクトルからCardy係数を決める</summary>
@@ -4453,11 +4494,15 @@ $$
 
 ### 4.1 同じgluingを両端に置く場合
 
-3.2節でCardy係数をVerlinde公式へ代入し、開弦sectorの重複度が $N_{IJ}{}^j$ になることを得た。これは、境界を閉弦への結合として指定した情報から、両端をその境界に置いた開弦の励起が決まったことを意味する。
+両端の境界 $I,J$ を指定して、開弦の励起をエネルギーごとに数えたい。基本となるのは6.1で求めた各sector $\\mathcal H_j$ のcharacterである。$q=e^{2\\pi i\\tau}$ とすると、一つのsectorのtraceは
 
+$$
+\\chi_j(q)=\\operatorname{Tr}_{\\mathcal H_j}q^{L_0-c/24}
+$$
 
+である。sectorの内部の励起はこの式にすべて含まれている。残る仕事は、どのsectorを何コピー使うかを決めることだ。
 
-したがって、境界 $I$ から $J$ へ張るopen stringの状態空間は
+3.2節で、同じtrivial gluingをもつCardy境界間のコピー数は $n_{IJ}{}^j=N_{IJ}{}^j$ と求めた。各sectorは $L_0$ の作用で保たれ、直和上のtraceは各成分のtraceの和になる。従って状態空間を
 
 $$
 \\boxed{
@@ -4468,9 +4513,7 @@ N_{IJ}{}^j\\mathcal H_j
 }
 $$
 
-である。
-
-この状態空間で、エネルギーごとの状態数を数える。$q=e^{2\\pi i\\tau}$ とし、各sectorのcharacterを $\\chi_j(q)=\\operatorname{Tr}_{\\mathcal H_j}q^{L_0-c/24}$ と書くと、直和の各コピーから同じtraceが一つずつ寄与するため、
+と分解すれば、sector $j$ の各コピーが同じ $\\chi_j$ を一つずつ寄与する。それらを足して
 
 $$
 \\boxed{
@@ -4480,9 +4523,9 @@ Z_{IJ}(q)
 }
 $$
 
-となる。
+を得る。例えば $k=2$ で $I=J=\\tfrac12$ なら、$\\tfrac12\\star\\tfrac12=0\\oplus1$ だから $\\mathcal H_{1/2,1/2}=\\mathcal H_0\\oplus\\mathcal H_1$、$Z_{1/2,1/2}=\\chi_0+\\chi_1$ となる。真空sectorだけでなく、スピン1のground stateとそのaffine descendantも数えられる。
 
-characterは各sectorの内部スペクトルを与え、fusion係数はどのsectorを何コピー並べるかを与える。これにより、トーラス上のmodular変換から得た正弦行列が、Dブレーン間のopen-stringスペクトルを決めている。
+このように、内部の励起を数えるcharacterを一度求めておけば、両端の境界を変える仕事はfusion係数による組合せに移る。トーラスの周期交換を記録した $S$ 行列が、Verlinde公式とCardy条件を通じて、境界条件 $I,J$ の間に存在する開弦の励起を決めている。
 
 <details>
 <summary>例：$k=2$ のopen-string spectrum</summary>
@@ -4851,16 +4894,16 @@ $$
 
 ### 5.2 なぜ係数がfusing matrixになるのか
 
-前節でOPEに現れうる場を絞った。残る係数は、OPEの順序によらず同じ相関関数を得るというboundary sewing条件で制約される。Cardy構成では境界ラベルもchiral表現に対応するため、6.1.2の[fusing行列](/6-1#ref-fusing-matrix) $F$ を使って二つの展開を比較できる。
+境界場の列 $I\\xrightarrow{\\ i\\ }J\\xrightarrow{\\ j\\ }K$ は、境界を順にたどると二つの結合 $I\\star i\\to J$、$J\\star j\\to K$ と読める。一方、二つの場を先にOPEすると、$i\\star j\\to r$、$I\\star r\\to K$ と読める。前者の途中にあるのは境界 $J$、後者の途中にあるのは出力場のスピン $r$ である。
 
-比較する二つの結合は次のとおりである。
+どちらも同じ入力 $I,i,j$ から同じ出力 $K$ へ至る。違うのは途中の括り方なので、6.1の[fusing行列](/6-1#ref-fusing-matrix) $F$ によって二つのconformal block基底を結べる。その対応を並べると次のようになる。
 
 | 結合の順序 | 最初の結合 | 次の結合 | 中間ラベル |
 |---|---|---|---|
 | 境界を順にたどる | $I\\star i\\to J$ | $J\\star j\\to K$ | 境界条件 $J$ |
 | 場を先にOPEする | $i\\star j\\to r$ | $I\\star r\\to K$ | 出力場のスピン $r$ |
 
-どちらも入力 $I,i,j$ から出力 $K$ へ至る。同じconformal block空間の基底をこの二通りに選んだ際の変換行列が
+境界を順にたどる基底から、場を先にOPEする基底への変換を、本文のrecoupling規約で書くと
 
 $$
 \\left(F_K^{Iij}\\right)_{Jr}:=F_{Jr}\\begin{bmatrix}i&j\\\\I&K\\end{bmatrix}
@@ -4868,7 +4911,7 @@ $$
 
 である。最初のtreeの存在条件は $N_{Ii}{}^JN_{Jj}{}^K=1$、二番目は $N_{ij}{}^rN_{Ir}{}^K=1$。この模型のfusion許容条件は三ラベルについて対称なので、これらは前節で指定した境界場とOPE出力の存在条件に一致する。
 
-この添字の対応に加え、境界場とCVOの規格化を揃える。Cardy型のboundary sewingの解（原著 (4.91)）は、この規約でOPEのスカラー係数をその基底変換成分に等しく取れることを述べる。三つの境界場を二通りにOPEした相関関数の比較は、$F$ による括り替えを挟むため、$F$ のpentagon identityへ帰着する。単に二つの係数を直接等置するのではない。
+第一添字 $J$ は最初のtreeの中間辺、第二添字 $r$ はOPE後のtreeの中間辺を指定する。従って境界の列を与えれば、使うべき $F$ の行と列を読める。ただし、基底の対応を示しただけでは、任意に規格化した場のOPE係数の数値は決まらない。境界場とCVOの規格化も揃える。Cardy型のboundary sewingの解（原著 (4.91)）は、この規約でOPEのスカラー係数をその基底変換成分に等しく取れることを述べる。三つの境界場を二通りにOPEした相関関数の比較は、$F$ による括り替えを挟むため、$F$ のpentagon identityへ帰着する。単に二つの係数を直接等置するのではない。
 
 <details>
 <summary>導出：境界条件の列から $F_{Jr}$ の添字を決める</summary>
@@ -4942,7 +4985,7 @@ $$
 C_{ijr}^{IJK}\\mapsto\\frac{a_i^{IJ}a_j^{JK}}{a_r^{IK}}C_{ijr}^{IJK}
 $$
 
-となる。次節で境界場を行列の基底と比較する場合も、この規格化を揃えて積の係数を比べる。
+となる。この再規格化を区別すれば、許容channelを選ぶfusion則に加えて、それらの結合の強さを $F$ から計算できる。例えば $k=2$ の列 $0\\xrightarrow{\\ 1/2\\ }\\tfrac12\\xrightarrow{\\ 1/2\\ }0$ では、chiral fusionには $r=0,1$ があるが、出力空間 $\\mathcal H_{00}=\\mathcal H_0$ は $r=0$ だけを許す。その係数には、外線 $0,\\tfrac12,\\tfrac12,0$、中間辺 $J=\\tfrac12$ と $r=0$ をもつ $F$ の成分を使えばよい。次節で境界場を行列の基底と比較する場合も、同じように規格化を揃えて積の係数を比べる。
 
 <details>
 <summary>式 (6.23) の規格化依存性とpentagon identityによる結合則</summary>
@@ -5024,6 +5067,10 @@ $$
 
 </details>
 
+境界の反射条件だけでは決まらなかったbulkへの結合を、annulusの二つの量子化の一致で具体化した。その結果、二境界間のsectorはfusion則で数えられ、境界場の結合は、規格化を揃えた $F$ 行列で扱えるようになった。
+
+同じ自己スペクトルをもつ境界でも、bulkの一点関数への応答は異なりうる。境界を調べるには「その上に何が動くか」と「bulkへどう結合するか」の両方を使える。次節ではこの二種類のデータを使い、境界が $SU(2)$ のどこに広がるのか、境界場の積がどの代数になるのかを調べる。
+
 ## 参照
 
 - Recknagel--Schomerus, *Boundary Conformal Field Theory and the Worldsheet Approach to D-Branes*, Chapter 6, printed pp. 240--241: fusing matrixの量子 $6j$ 閉形式と規格化依存性、式 (6.12)--(6.13)。
@@ -5033,7 +5080,7 @@ $$
 - 同 Chapter 4, printed pp. 145--146, 156--162: twisted Ishibashi状態、Cardy解、annulus spectrum、boundary sewingとCardy型boundary OPE、式 (4.53), (4.80)--(4.81), (4.91)。
 `},{id:`6-3`,section:`6.3`,shortTitle:`大体積極限と fuzzy sphere`,content:`# 6.3 大体積極限の幾何とfuzzy sphere
 
-6.2節で得たCardy境界条件には、スピン $J=0,\\frac12,\\ldots,\\frac k2$ が付いている。同じ境界条件から、閉弦に対する円板一点関数と、両端がその境界にある開弦の状態・OPEが求まる。前者がブレーンの位置と形を、後者がその上の場の積をどう指定するかを調べる。
+6.2節で得たCardy境界条件には、スピン $J=0,\\frac12,\\ldots,\\frac k2$ が付いている。そのラベルから、閉弦への円板一点関数も、両端がその境界にある開弦の状態・OPEも計算できる。けれども、これらの式のどこに「球面」が入っているのだろうか。一点関数と球面上の平均を照合して位置を求め、開弦OPEと球面上の場の積を照合して、同じラベルが指定する幾何を読み取る。
 
 ここでいうブレーンのworldvolumeは、WZW場 $g:\\Sigma\\to SU(2)$ が世界面の境界で取れる値の集合 $Q_J$ である。幾何学的な境界条件は $g(\\partial\\Sigma)\\subset Q_J$ と書ける。この集合をCFTの結果から求め、最後に境界相互作用によって別のブレーンへ変わる過程までたどる。
 
@@ -5054,7 +5101,7 @@ $$
 
 で結ばれる。固定スピン $j$ のprimaryは $h_j=j(j+1)/(k+2)\\to0$ となるが、カレントの負モードによる振動はウェイトを正整数だけ上げる。この差により、$k\\gg1$ では位置を表す低い成分を振動から分けられる。
 
-位置を群要素 $g$ で指定し、閉弦状態の位置表示を波動関数 $f(g)$ とする。一点 $g_0$ にあるブレーンとの重なりは $f(g_0)$ に比例する。広がったブレーンでは、各部分への結合を足すので
+位置を群要素 $g$ で指定し、閉弦状態の位置表示を波動関数 $f(g)$ とする。CFTでは一点関数として与えられた同じ結合を、標的空間の位置から計算してみよう。一点 $g_0$ にあるブレーンとの重なりは $f(g_0)$ に比例する。広がったブレーンでは、各部分への結合を足すので
 
 $$
 \\mathcal A_Q[f]=\\int_Q d\\nu_Q(g)\\,f(g)
@@ -5099,7 +5146,7 @@ B_J^j\\delta^{mn}=\\int d\\mu(g)\\,\\rho_J(g)\\phi_j^{mn}(g).
 \\tag{boundary-state-fourier-overlap}
 $$
 
-一点関数を集める操作が、分布 $\\rho_J$ のFourier係数を集める操作になった。
+一点関数を集める操作が、分布 $\\rho_J$ のFourier係数を集める操作になった。従って、ある球面で波を平均した値がこれらの係数とすべて一致すれば、その球面が同じ閉弦の測定を再現する。次に、この照合を角度の異なる球面に対して行う。
 
 <details>
 <summary>零モード空間と波動関数の内積を照合する</summary>
@@ -5196,7 +5243,7 @@ $$
 =\\langle\\phi_j^{mn}\\rangle_{\\vartheta_0}.
 $$
 
-**各位置の波へのCardy結合が、角度 $\\vartheta_0$ の球面上の平均と一致した。** Peter–Weyl基底の全係数は分布を一意に指定するので、極限の結合の台はこの球面である。半古典的なworldvolumeを $Q_J=\\mathcal C_{\\vartheta_J}$ と読む根拠がここにある。
+**各位置の波へのCardy結合が、角度 $\\vartheta_0$ の球面上の平均と一致した。** $\\delta^{mn}$ は球面上で方向を一様に平均することに、正弦の比はその球面の角度に対応する。Peter–Weyl基底の全係数は分布を一意に指定するので、極限の結合の台はこの球面である。最初に式だけで与えられたCardyラベルを、半古典的なworldvolume $Q_J=\\mathcal C_{\\vartheta_J}$ の位置へ読み替える根拠が得られた。
 
 <details>
 <summary>分布の逆展開、式 (6.25) の係数、半径の確認</summary>
@@ -5278,9 +5325,9 @@ $$
 
 従って $\\beta<1/2$ では縮み、$\\beta=1/2$ では有限、$\\beta>1/2$ では増大する。$J/k\\to C\\in(0,1/2)$ なら有限角度にとどまり、$r_J/R\\to\\sin(2\\pi C)$ となる。角度、半径比、長さとしての半径を区別する必要がある。
 
-例えば固定 $J=1/2$ では $r_{1/2}\\sim2\\pi\\sqrt{\\alpha'/k}$。一方、$J=k/4$ を選べるレベルでは $\\vartheta_{k/4}=\\pi/2$、$r_{k/4}=R$ である。
-
 </details>
+
+この対応を使えば、ラベルから球面の位置と半径を選べる。例えば $J=k/4$ を選べるレベルでは $\\vartheta_{k/4}=\\pi/2$ なので、半古典的な球面は赤道にあり、半径は $r_{k/4}=R$ である。一方、固定 $J=1/2$ では $r_{1/2}\\sim2\\pi\\sqrt{\\alpha'/k}$ と北極へ縮む。同じ「大きな $k$」でも、ラベルの選び方によって見る位置は違う。位置は求まったが、その球面に沿って開弦の端点がどう動くかは、まだこの平均からは分からない。
 
 ## 2. gluing条件から端点の運動と非可換性を求める
 
@@ -5347,13 +5394,17 @@ $$
 
 と解ける。分母の逆は接空間上だけで取る。法線方向は既にDirichlet条件が決めている。
 
-この係数の意味を、開弦の作用の変分と比べる。$X^i$ を局所的な標的座標、$G$ をその計量、$B_{\\mathrm{bulk}}$ を内部の反対称場の局所2形式とする。さらに端点がブレーン上のゲージ接続 $a$ に結合すると、境界条件に入る2形式は
+この係数の意味を、開弦の作用の変分と比べる。$X^i$ を局所的な標的座標、$G$ をその計量とする。境界変分から共通係数を除くと、計量による運動項は $\\delta X^iG_{ij}\\partial_yX^j$ を残す。接方向に端点を動かせるなら、この項を含む境界変分の総和を消す必要がある。
+
+内部の反対称場を局所2形式 $B_{\\mathrm{bulk}}$ で表す。この項の変分は、同じ境界変分の括弧へ $-i\\delta X^i(B_{\\mathrm{bulk}}|_Q)_{ij}\\partial_xX^j$ を加える。端点に沿う微分が、法線方向の微分と同じ条件へ入る。
+
+さらに端点がブレーン上のゲージ接続 $a$ に結合すると、その曲率 $da$ も同じ反対称項へ加わる。境界条件に入る2形式を
 
 $$
 \\mathcal F:=B_{\\mathrm{bulk}}|_Q+2\\pi\\alpha'\\,da
 $$
 
-である。$B_{\\mathrm{bulk}}\\mapsto B_{\\mathrm{bulk}}+d\\Lambda$ の変化は $a\\mapsto a-\\Lambda|_Q/(2\\pi\\alpha')$ で相殺され、この和がゲージ不変になる。接方向の変分が消える条件は $G\\partial_yX-i\\mathcal F\\partial_xX=0$ なので、gluingから得た条件と比べると
+とまとめる。局所1形式 $\\Lambda$ による $B_{\\mathrm{bulk}}\\mapsto B_{\\mathrm{bulk}}+d\\Lambda$ の変化は $a\\mapsto a-\\Lambda|_Q/(2\\pi\\alpha')$ で相殺され、この和がゲージ不変になる。接方向の変分が消える条件は $G\\partial_yX-i\\mathcal F\\partial_xX=0$ なので、gluingから得た条件と比べると
 
 $$
 G^{-1}\\mathcal F=B_g.
@@ -5528,9 +5579,9 @@ $h=e^{i\\vartheta_J\\sigma_3}s$ を選べば上の移動した球面に一致す
 
 ## 3. 開弦OPEが球面上の関数を行列にする
 
-### 3.1 開弦の回転成分と行列の成分を比べる
+### 3.1 積の出力に使える開弦の回転成分を数える
 
-同じCardy境界 $J$ に両端をもつ開弦の状態空間は、6.2節のannulusから
+球面に沿う座標には、前節で非零のPoisson括弧が得られた。この球面上の境界場を二つ掛けると、どの場がどの係数で現れるのだろうか。まず、積の出力に使える回転成分を確定する。同じCardy境界 $J$ に両端をもつ開弦の状態空間は、6.2節のannulusから
 
 $$
 \\mathcal H_{JJ}=\\bigoplus_{j=0}^{j_{\\max}}N_{JJ}{}^j\\mathcal H_j,
@@ -5540,19 +5591,11 @@ $$
 
 と求まる。$\\mathcal H_j$ はアフィン表現、$N_{JJ}{}^j$ はそのfusion多重度で、この和では整数 $j$ が各一回ずつ現れる。各 $\\mathcal H_j$ の最低ウェイト部分は、零モードによるスピン $j$ の有限次元表現 $V_j$ である。対応する境界primaryを $\\psi_{j,m}$、$m=-j,\\ldots,j$ とする。
 
-ここからは **$J$ を固定して $k\\to\\infty$** とする。やがて $j_{\\max}=2J$ となり、primaryの空間は $\\bigoplus_{j=0}^{2J}V_j$ になる。同じ回転成分をもつ候補は、スピン $J$ の空間 $V_J$ 上の全行列である。行列単位 $|m\\rangle\\langle n|$ は $V_J\\otimes V_J^*$ として回転し、$SU(2)$ では双対が同じスピンなので
-
-$$
-\\operatorname{Mat}(2J+1)\\cong V_J\\otimes V_J^*
-\\cong\\bigoplus_{j=0}^{2J}V_j.
-\\tag{6.36}
-$$
-
-通常の角運動量合成が、開弦と同じ各一回の分解を与えた。次元も $\\sum_{j=0}^{2J}(2j+1)=(2J+1)^2$ と一致する。ただし状態数と回転の一致だけでは、場を掛けた際の係数は決まらない。次に積を比べる。
+ここからは **$J$ を固定して $k\\to\\infty$** とする。やがて $j_{\\max}=2J$ となり、primaryの空間は $\\bigoplus_{j=0}^{2J}V_j$ になる。使える回転成分は有限個である。普通の球面の関数をこの成分だけ残して使えばよさそうだが、そのまま掛けてよいかを小さい例で確かめる。
 
 ### 3.2 $J=1/2$ の四成分で、積の違いを見る
 
-$J=1/2$ ではprimaryはスカラー一成分とベクトル三成分になる。普通の単位球面上の関数 $1,n_1,n_2,n_3$ も同じように回るが、点ごとの積 $n_1^2$ にはスピン2の成分があり、四成分の中で閉じない。
+$J=1/2$ ではprimaryはスカラー一成分とベクトル三成分になる。これを普通の単位球面上の関数 $1,n_1,n_2,n_3$ で表し、点ごとに掛けてみる。すると $n_1^2=1/3+(n_1^2-1/3)$ の第二項はスピン2の成分であり、初めの四成分の中で閉じない。回転の成分を合わせただけでは、境界場の積を得られなかった。必要なのは、許された有限個の成分の中で閉じる積である。
 
 一方、$2\\times2$ 行列の基底 $\\mathbf1,\\sigma_1,\\sigma_2,\\sigma_3$ は同じスカラーとベクトルとして回り、
 
@@ -5561,11 +5604,21 @@ $$
 \\tag{spin-half-fuzzy-product}
 $$
 
-という積で四成分の中に閉じる。例えば $\\sigma_1\\sigma_2=i\\sigma_3$ と $\\sigma_2\\sigma_1=-i\\sigma_3$ では順序が区別される。この行列積が境界場の積であるかは、OPEの係数を計算して判定できる。
+という積で四成分の中に閉じる。例えば $\\sigma_1\\sigma_2=i\\sigma_3$ と $\\sigma_2\\sigma_1=-i\\sigma_3$ では順序が区別される。順序が違っても、出力は許された四成分から出ない。これなら先ほどの障害を避けられる。ただし、閉じる積を見つけたことと、それが境界場の積であることは別である。後者は同じ四成分のOPE係数を計算して判定する。
 
 ![スカラー一成分とベクトル三成分という回転の分解を、球面の模様と単位行列・Pauli行列で対応させる。](/diagrams/fuzzy-components.svg)
 
 図の対応は回転の成分を対応させている。三つの座標行列は同時対角化できず、球面上の各点に三つの同時固有値を割り当てる図ではない。
+
+同じ回転成分をもつ候補は、スピン $J$ の空間 $V_J$ 上の全行列である。行列単位 $|m\\rangle\\langle n|$ は $V_J\\otimes V_J^*$ として回転し、$SU(2)$ では双対が同じスピンなので
+
+$$
+\\operatorname{Mat}(2J+1)\\cong V_J\\otimes V_J^*
+\\cong\\bigoplus_{j=0}^{2J}V_j.
+\\tag{6.36}
+$$
+
+通常の角運動量合成が、開弦と同じ各一回の分解を与えた。次元も $\\sum_{j=0}^{2J}(2j+1)=(2J+1)^2$ と一致する。ただし状態数と回転の一致だけでは、場を掛けた際の係数は決まらない。この候補に対して、OPEの係数を照合する。
 
 <details>
 <summary>普通の球面の積から高い成分を削るだけでは結合則を保てない</summary>
@@ -5717,7 +5770,9 @@ $$
 \\tag{6.40}
 $$
 
-式 (6.37) と係数が一致したので、$\\psi_{j,m}\\leftrightarrow Y_m^j$ は、回転の対応に加えて **積を保つ対応**になる。有限 $k$ のまま点を重ねる場合や、$J$ を $k$ と同程度に増やす場合には、この極限の行列積へそのまま置き換えられない。
+式 (6.37) と係数が一致したので、$\\psi_{j,m}\\leftrightarrow Y_m^j$ は、回転の対応に加えて **積を保つ対応**になる。最初の $J=1/2$ へ戻ると、式 (spin-half-fuzzy-product) のPauli行列の積が、そのまま極限の境界場の積になる。二つのベクトル成分を掛けても、恒等場とベクトル成分だけが現れ、普通の積で生じたスピン2は現れない。例えば $\\sigma_1$ に対応する場を先に、$\\sigma_2$ に対応する場を後に掛ければ、$i\\sigma_3$ に対応する場を得る。順序を逆にすれば符号も逆になる。
+
+こうして、どの境界場が積から現れるかを、有限行列の掛け算で計算できるようになった。有限 $k$ のまま点を重ねる場合や、$J$ を $k$ と同程度に増やす場合には、この極限の行列積へそのまま置き換えられない。積の出力は求まったので、次はその出力の期待値を取り、円板の相関関数へ戻す。
 
 <details>
 <summary>行列要素から $6j$ の係数と場の規格化を求める</summary>
@@ -5846,7 +5901,15 @@ $$
 [N_a,N_b]=\\frac{if_{ab}{}^c}{\\sqrt{J(J+1)}}N_c.
 $$
 
-$N_a$ のノルムは1以下であり、隣り合う二因子を交換する誤差は $O(1/J)$ になる。固定次数の座標多項式なら並べ替える回数が有限なので、積の順序の違いは消える。球面調和関数はそのような座標多項式で表せるため、固定角運動量の範囲で行列積が古典球面の点ごとの積へ近づく。$J$ と同程度の高い角運動量まで同時に追う主張ではない。
+$N_a$ の作用素ノルムは1以下であり、隣り合う二因子を交換する誤差は $O(1/J)$ になる。比べる関数と行列も指定する。古典単位球面の座標を $n_a$ とし、球面調和関数をその対称トレースレス多項式で表す。各 $n_a$ を $N_a$ へ置き換えて全順序の平均を取り、有限個の調和成分へ線形に延ばす写像を $Q_J$ とする。定数は $Q_J(1)=\\mathbf1$ へ移る。
+
+固定次数の球面関数 $f,g$ に対し、$Q_J(f)Q_J(g)$ を対称順序へ並べ替える回数は有限である。球面の関係 $\\sum_an_a^2=1$ も行列のCasimirで再現されるため、作用素ノルムで
+
+$$
+\\|Q_J(f)Q_J(g)-Q_J(fg)\\|=O(1/J)\\longrightarrow0.
+$$
+
+この対応を通して、固定角運動量の範囲で行列積が古典球面の点ごとの積へ近づく。$J$ と同程度の高い角運動量まで同時に追う主張ではない。
 
 <details>
 <summary>関数を対称化行列へ移す写像と積の誤差</summary>
@@ -6287,6 +6350,8 @@ $S_a$ が既約ブロックの直和なら、各ブロックが一枚の球面�
 
 ### 6.1 同じ境界相互作用をもつKondo模型
 
+large-$k$ の作用では、$M$ 枚の点状ブレーンの端点にスピン $J_M=(M-1)/2$ の行列を結合すると、一枚の $J_M$ 球面を終点の候補として得た。有限 $k$ でも同じ境界条件へ流れるだろうか。その判定には、近似した球面の形より、終点の開弦スペクトルが欲しい。別の分野で、このスペクトルを求める同じ境界問題が現れる。
+
 一定の表現行列のcurrent摂動 $\\int dx\\,S_a\\mathcal J^a$ は、Kondo模型の境界相互作用と同じ形をもつ。Kondo模型では、伝導電子と一つの磁性不純物のスピンとの結合を扱う。不純物との散乱をs波へ制限すると空間依存が動径だけになり、Euclid時間 $x$ と動径 $y\\geq0$ の半平面上で、不純物を境界へ置いた問題になる。
 
 $k$ 個の独立な伝導チャネルのスピンカレントを足すと、各チャネルのレベル1の中心項も足され、$\\widehat{\\mathfrak{su}}(2)_k$ のカレントになる。不純物のスピン $J_M$ を $M=2J_M+1$ 次元表現の行列 $\\Lambda_a$ とすると、境界相互作用は
@@ -6345,7 +6410,9 @@ $$
 \\tag{6.54}
 $$
 
-の凝縮が有限レベルにも存続する。低エネルギー作用の漸近的な照合を、有限 $k$ の固定点スペクトルが支えた。
+の凝縮が有限レベルにも存続する。最初にlarge-$k$ の作用から得たラベル $J_M$ が、有限 $k$ の固定点スペクトルからも選ばれた。ただし今同定したのは共形境界条件であり、有限 $k$ のブレーンを厚みのない古典球面へ置き換えたわけではない。
+
+この方法なら、低エネルギー作用を有限 $k$ で求め直さなくても、指定したcurrent相互作用の終点を計算できる。必要なのは吸収するスピンと、元の境界ラベルのfusionである。
 
 同じ規則は $J$ 型の球面を $M=2J_M+1$ 枚重ねた配置にも使える。終点は
 
@@ -6353,7 +6420,7 @@ $$
 (M,J)\\longrightarrow\\bigoplus_lN_{J\\,J_M}{}^l(1,l)
 $$
 
-となり、fusionで現れる各ラベルの球面の重ね合わせになる。有限 $k$ のfusion切断もこの式に含まれる。
+となり、fusionで現れる各ラベルの境界条件の重ね合わせになる。$J=0$ を代入すれば $N_{0\\,J_M}{}^l=\\delta_{J_M,l}$ なので、初めの一枚への凝縮を再現する。有限 $k$ のfusion切断もこの式に含まれる。終点のラベルは求まった。では、枚数が変わるこのflowの前後で、何が保存されるのだろうか。
 
 <details>
 <summary>任意の試験境界とのannulusで終点を判定する</summary>
@@ -6374,21 +6441,32 @@ $$
 
 ## 7. RG flowが保存する電荷を数える
 
-球面へ凝縮しても、出発点の枚数を保存する量を割り当てられるだろうか。重ね合わせに対して加算され、許される境界RG flowで不変な量をブレーン電荷とする。式 (6.54) により、ラベル $J$ のブレーンには北極側の一枚の電荷 $q_0$ の $(2J+1)$ 倍を割り当てる必要がある。
+一枚ずつ数えた整数を、そのままブレーン電荷にできるだろうか。北極側の一枚の電荷を $q_0$ とすると、$M$ 枚には $Mq_0$ を割り当てるのが自然である。しかし、電荷には重ね合わせに対する加算性だけでなく、許される境界RG flowの前後で変わらないことも要求する。この二つを、いま求めた凝縮先と照合する。
 
 ここからは原著 pp.258–259 が扱う**超対称模型**の電荷を考える。$k$ は引き続きbosonicアフィン因子のレベルで、全超対称カレントのレベルは $\\kappa=k+2$ である。同じ向きのブレーン、共通のフェルミオン・外部因子、許容スピンの範囲で、bosonic境界ラベルが上のfusion則に従う結果を使う。R–R閉弦への結合だけを整数電荷とみなすと有限レベルでは適切に量子化されないため、原著はRG不変な電荷から調べている。
 
-最大の許容枚数 $M=k+1$ に吸収則を使うと、終点は $J=k/2$ である。従って電荷保存から $q_{k/2}=(k+1)q_0$ となる。一方、この南極側の境界条件は、向きまで含めると北極側の反ブレーンを移動したものに対応する（原著 p.258）。反ブレーンは電荷の符号を逆にし、移動は電荷を変えないので、同じ終点には $q_{k/2}=-q_0$ と割り当てる必要がある。球面の位置だけでは向きは分からず、この反ブレーンの同定は追加の入力である。
+式 (6.54) によれば、$M=2J+1$ 枚が一枚の $J$ 型へ流れる。従ってRG不変性は、その一枚の電荷を $(2J+1)q_0$ に指定する。最大の許容枚数 $M=k+1$ では、終点は $J=k/2$ なので $q_{k/2}=(k+1)q_0$ になる。
 
-両方を合わせると
+ここで、同じ終点を別の経路から見る。南極側のこの境界条件は、向きまで含めると北極側の反ブレーンを移動したものに対応する（原著 p.258）。反ブレーンは電荷の符号を逆にし、移動は電荷を変えないので、同じ終点には $q_{k/2}=-q_0$ と割り当てる必要がある。球面の位置だけでは向きは分からず、この反ブレーンの同定は追加の入力である。
+
+| 同じ終点 $J=k/2$ への到達の仕方 | 保存される電荷 |
+|---|---|
+| 北極側の $k+1$ 枚を凝縮する | $(k+1)q_0$ |
+| 北極側の反ブレーンを移動する | $-q_0$ |
+
+両方が同じ電荷を与える条件は
 
 $$
 (k+1)q_0=-q_0,\\qquad (k+2)q_0=0.
 $$
 
-非零の整数電荷では、この関係を満たせない。$q_0$ を繰り返し足すと零に戻る有限周期の電荷が必要であり、この関係だけなら周期は $k+2$ の約数と分かる。
+である。非零の整数 $q_0$ では、この関係を満たせない。必要なのは、$q_0$ を繰り返し足すと零に戻る有限周期の電荷である。この関係だけなら、周期は $k+2$ の約数と分かる。
 
-周期を正確に決める別の結果が、$S^3$ の $H$ 磁束を組み込んだtwisted K-theoryである。$\\kappa=k+2$ 単位の磁束をもつこの球面因子のtwisted K-groupは $\\mathbb Z_{k+2}$ となり、北極側の一枚が生成元になる。この結果を用いれば、枚数を $k+2$ で割った余りが電荷であると分かる。上で求めたRGの関係はこの分類と両立する。[SU(2)の電荷とtwisted K-group（Fredenhagen–Schomerus、§§4.1, 5）](https://arxiv.org/pdf/hep-th/0012164)
+周期を正確に決める別の結果が、$S^3$ の $H$ 磁束を組み込んだtwisted K-theoryである。ここで $H$ は、この超対称背景の反対称場から局所的に $H=dB_{\\mathrm{bulk}}$ と得られる3形式である。その球面上の積分をWZWの量子化単位で数えた整数磁束classが、twist $\\kappa$ を指定する。$\\kappa=k+2$ 単位の磁束をもつこの球面因子のtwisted K-groupは $\\mathbb Z_{k+2}$ となり、北極側の一枚が生成元になる。この外部結果を用い、電荷を枚数の $k+2$ による余りとして扱う。[SU(2)の電荷とtwisted K-group（Fredenhagen–Schomerus、§§2.3, 4.3）](https://arxiv.org/pdf/hep-th/0012164)
+
+同じ終点へ戻って検算すると、$k+1$ 枚の余りは $k+1$、反ブレーンの $-1$ も $k+2$ で割った余りは $k+1$ であり、二つの割り当てが一致する。整数としての枚数は変わっても、得られた周期の電荷は変わらない。任意の許容ラベル $J$ に対しても、式 (6.54) から一枚の電荷は $(2J+1)q_0$、すなわち $2J+1$ の余りとして読める。
+
+これで、冒頭の「枚数を数える」操作を、凝縮と反ブレーンの移動に両立する数え方へ修正できた。ただし、一つのflowの関係だけで完全な電荷群を証明したわけではない。周期が正確に $k+2$ であることには、この背景のtwisted K-groupとの照合を使った。すべての許容境界条件とflowを分類したという主張には進まない。
 
 <details>
 <summary>超対称模型への移行、南極側の位置、分類の射程</summary>
@@ -6402,6 +6480,8 @@ $$
 K理論では、ブレーンと反ブレーンの生成・消滅なども含めた電荷の同値類を扱い、twisted K理論はそこに背景の積分 $H$ 磁束を組み込む。原著は、すべての許容共形境界条件やすべてのRG flowが既知ではないことにも注意する。一つのflowから完全な電荷群を証明したわけではなく、RGで得た関係と、この背景の数学的なtwisted K-groupを照合している。一般の背景でどのK理論が全弦的な電荷を捉えるかは、別に判定する必要がある。
 
 </details>
+
+閉弦の一点関数からは共役球面の位置が、開弦OPEからは有限行列の積が得られた。さらに、その行列を境界currentへ結合すると別のCardy境界へ流れ、有限 $k$ でもfusion則で終点を選べた。同じラベル $J$ を、位置、積、凝縮先の三つの計算で使い直せるようになった。超対称背景では、その凝縮で変わる枚数から、保存される $k+2$ 周期の電荷も読み取れる。
 
 ## 参考文献
 
@@ -6598,16 +6678,7 @@ $$
 
 ### 1.3 赤道braneの二つのholonomyと開弦スペクトル
 
-閉弦の射影は、中心作用で変わらないbulk状態を選んだ。境界条件は、親braneとその像を合わせた配置を商へ降ろして作る。したがって、親brane一枚が単独で中心作用に不変である必要はない。ここでは親の $\\widehat{\\mathfrak{su}}(2)_k$ currentのgluingを保ち、拡張で加えた場のgluingまで一律に固定しない境界条件を含める。このため、整数spinのbulk sectorだけでなく、半整数を含む全ての親Cardy labelを出発点にする。[simple-current orbifoldの境界構成](https://arxiv.org/abs/hep-th/0108126)により、二要素orbitは
-
-$$
-[J]=\\{J,2n-J\\},
-\\qquad J=0,\\frac12,1,\\ldots,n-\\frac12
-$$
-
-というbraneを与える。半整数 $J$ のbraneも、その像と合わせて商の境界条件になる。
-
-赤道では、$\\mathbb{RP}^2$ 上の端点の運び方に選択がある。端点の複素一次元の自由度を各点へ付けたものをline bundleと呼び、loopを一周したときの位相をholonomyと呼ぶ。非可縮loopの被覆へのliftは反対点で終わるため、この位相は反対点を同一視する際の端点の変換である。flatなline bundleでは、可縮loopのholonomyは1である。非可縮loopを二周すると縮められるので、一周のholonomy $\\epsilon$ は $\\epsilon^2=1$ を満たす。従って $\\epsilon=\\pm1$ の二通りになる。
+赤道の商は一つの $\\mathbb{RP}^2$ である。それでも境界条件が二つに分かれるのは、何が違うからだろうか。まず幾何では、$\\mathbb{RP}^2$ 上の端点の運び方を指定する。端点の複素一次元の自由度を各点へ付けたものをline bundleと呼び、loopを一周したときの位相をholonomyと呼ぶ。非可縮loopの被覆へのliftは反対点で終わるため、この位相は反対点を同一視する際の端点の変換である。flatなline bundleでは、可縮loopのholonomyは1である。非可縮loopを二周すると縮められるので、一周のholonomy $\\epsilon$ は $\\epsilon^2=1$ を満たす。従って $\\epsilon=\\pm1$ の二通りになる。
 
 これはstabilizerの一次元表現 $W_\\epsilon=\\mathbb C$ に中心元を $\\gamma_\\epsilon=\\epsilon\\,\\operatorname{id}$ として作用させる選択である。対応する基本braneを $[n]_\\epsilon$ と書く。固定orbitからbraneを作る際にもこの端点表現を指定する必要があり、その二つの選択が、境界のfixed-point resolutionで得る二つのbraneである。bulk sectorの分解で現れたstabilizerと同じ群が、ここでは端点の同一視に作用している。large-volumeでの局在集合との対応は
 
@@ -6624,7 +6695,18 @@ $$
 
 ![北側と南側の共役二球面がSO(3)の一つの球面へ写る。赤道の反対点同一視はRP2を作り、同じRP2上で端点を同一視する符号がプラスまたはマイナスの二braneを区別する。](/diagrams/so3-conjugacy-quotient.svg)
 
-この端点の選択が有限levelの開弦にもたらす違いを求めよう。親の赤道brane間の開弦空間はfusion則から
+一方、CFTでは境界条件を、その両端を持つ開弦のsectorと重複度から調べられる。同じ $\\mathbb{RP}^2$ 上の端点同一視を開弦へ作用させ、holonomyの二択と状態の二つの射影が同じ選択を表すかを確かめよう。
+
+閉弦の射影は、中心作用で変わらないbulk状態を選んだ。境界条件は、親braneとその像を合わせた配置を商へ降ろして作る。したがって、親brane一枚が単独で中心作用に不変である必要はない。ここでは親の $\\widehat{\\mathfrak{su}}(2)_k$ currentのgluingを保ち、拡張で加えた場のgluingまで一律に固定しない境界条件を含める。このため、整数spinのbulk sectorだけでなく、半整数を含む全ての親Cardy labelを出発点にする。[simple-current orbifoldの境界構成](https://arxiv.org/abs/hep-th/0108126)により、二要素orbitは
+
+$$
+[J]=\\{J,2n-J\\},
+\\qquad J=0,\\frac12,1,\\ldots,n-\\frac12
+$$
+
+というbraneを与える。半整数 $J$ のbraneも、その像と合わせて商の境界条件になる。
+
+親の赤道brane間の開弦空間はfusion則から
 
 $$
 \\mathcal H_{nn}=\\bigoplus_{j=0}^{2n}\\mathcal H_j,
@@ -6667,7 +6749,9 @@ Z^{SO(3)}_{[n]_\\pm[n]_\\mp}(q)
 \\tag{6.56}
 $$
 
-となる。同符号の端点には偶数spin、異符号には奇数spinが残る。特に恒等場を含む $j=0$ のsectorは同符号の間だけにあり、同じ局在集合をもつ二つの境界条件を開弦の状態から区別できる。
+となる。同符号の端点には偶数spin、異符号には奇数spinが残る。holonomyの積 $\\epsilon\\epsilon'$ が、親のspin $j$ の符号を打ち消すかどうかで決まったのである。二つのbraneの局在集合は同じでも、この不変状態の選び方は異なる。従って、位置を測るだけでは得られない端点の情報を、開弦スペクトルから取り出せる。
+
+例えば恒等場を含む $j=0$ のsectorでは親の符号が $+1$ なので、射影係数は $(1+\\epsilon\\epsilon')/2$ となる。同じholonomyの両端ならこのsectorがあり、異なるholonomyの間では消える。これで、冒頭の「同じ $\\mathbb{RP}^2$ 上の二つの境界条件」を実際に区別できる。
 
 未分裂braneは $[n]=[n]_+\\oplus[n]_-$ である。両端を独立に選ぶ四つの振幅を足せば
 
@@ -6678,7 +6762,7 @@ Z^{SO(3)}_{[n][n]}(q)
 \\tag{6.55}
 $$
 
-を得る。親の境界OPEも群作用と両立するため、不変な場どうしの積は不変部分へ閉じる。この境界OPEの構成には [Matsubara–Schomerus–Smedbäck](https://arxiv.org/abs/hep-th/0108126) の結果を用いる。
+を得る。これで四種類の端点の組合せごとに状態数が決まった。次に必要なのは、それらの場を掛けたとき、途中の端点がどう接合するかである。親の境界OPEも群作用と両立するため、不変な場どうしの積は不変部分へ閉じる。この境界OPEの構成には [Matsubara–Schomerus–Smedbäck](https://arxiv.org/abs/hep-th/0108126) の結果を用いる。
 
 ### 1.4 赤道braneの境界OPEとcrossed product
 
@@ -6746,7 +6830,7 @@ $$
 
 ### 1.5 力学と電荷
 
-球面braneの力学には、ラベル $J$ を固定した $k\\to\\infty$ 極限を用いる。6.3では、この極限の低い開弦modeが行列代数 $\\operatorname{Mat}(2J+1)$ を作り、三つの行列値場のYang--Mills項とChern--Simons項を組み合わせた有効作用を得た。原著p.262によれば、この作用の計算は商の球面braneにも引き継がれる。6.3の凝縮結果を使うと、$M$ 枚のD0-braneの端点行列が既約spin $(M-1)/2$ 表現を作る解は、一枚の球面braneに対応する。行列サイズが元の枚数 $M$ であり、Casimir条件 $\\sum_a S_a^2=((M-1)/2)((M+1)/2)\\mathbf1$ が半径一定の行列球面を与える。これは停留点の形だけからの同定ではなく、6.3で開弦スペクトルと一点応答を照合した結果を引き継いだものである。前節の赤道代数では $J=k/4$ がレベルとともに増えており、この二つの極限は異なるスケーリングを用いている。
+球面braneの力学には、ラベル $J$ を固定した $k\\to\\infty$ 極限を用いる。6.3では、この極限の低い開弦modeが行列代数 $\\operatorname{Mat}(2J+1)$ を作り、三つの行列値場のYang--Mills項とChern--Simons項を組み合わせた有効作用を得た。原著p.262によれば、この作用の計算は商の球面braneにも引き継がれる。原点に重ねたD0-braneのstackは不安定で、一枚の球面braneへ膨張するという力学的結論も、同じ原著p.262の入力として用いる。6.3の凝縮結果を使うと、$M$ 枚のD0-braneの端点行列 $S_a$ が既約spin $(M-1)/2$ 表現を作る解は、一枚の球面braneに対応する。行列サイズが元の枚数 $M$ であり、Casimir条件 $\\sum_a S_a^2=((M-1)/2)((M+1)/2)\\mathbf1$ が半径一定の行列球面を与える。これは停留点の形だけからの同定ではなく、6.3で開弦スペクトルと一点応答を照合した結果を引き継いだものである。前節の赤道代数では $J=k/4$ がレベルとともに増えており、この二つの極限は異なるスケーリングを用いている。
 
 braneの電荷は、直和配置で加算でき、許された凝縮で保存される量として定める。$k=4n$ の未分裂braneについて、[Matsubara–Schomerus–Smedbäck §4.1](https://arxiv.org/abs/hep-th/0108126) は電荷群への寄与を
 
@@ -6837,18 +6921,20 @@ orbifoldとcosetの違いは、一点の近くに残る方向を比べると見�
 
 ### 2.1 cosetの対称代数とVirasoro生成子
 
-まず局所的なcurrent代数を定める。$G$のcurrent algebraのレベルを$k_G$とし、affine代数まで延びる埋め込み $\\mathfrak h\\hookrightarrow\\mathfrak g$ を選ぶ。不変内積$(\\ ,\\ )_G,(\\ ,\\ )_H$は、simple因子では長根の長さの二乗を2に、abelian因子ではcurrentの二点関数を固定するように選ぶ。以下のlevel式は $H$ の各simple因子または一つの $U(1)$ 因子ごとに用いる。複数因子では $T^H$ を各因子のSugawara tensorの和とし、高次元abelian部分では中心項の内積行列を使う。一因子について、**embedding index** $x_e$を
+まず局所的なcurrent代数を定める。$G$のcurrent algebraのレベルを$k_G$とし、affine代数まで延びる埋め込み $\\mathfrak h\\hookrightarrow\\mathfrak g$ を選ぶ。不変内積$(\\ ,\\ )_G,(\\ ,\\ )_H$は、simple因子では長根の長さの二乗を2に、abelian因子ではcurrentの二点関数を固定するように選ぶ。以下のlevel式は $H$ の各simple因子または一つの $U(1)$ 因子ごとに用いる。複数因子では $T^H$ を各因子のSugawara tensorの和とし、高次元abelian部分では中心項の内積行列を使う。一因子について、$G$ 側の内積を $\\mathfrak h$ へ制限すると、$H$ 側の内積の一定倍になる。この倍率を **embedding index** $x_e$ と呼ぶ。同じ内積がcurrentの中心項を定めるため、$H$ currentのレベル $k_H$ は
+
+$$
+\\boxed{k_H=x_ek_G.}
+$$
+
+となる。倍率の定義を二つの元 $X,Y$ で書けば
 
 $$
 (X,Y)_G=x_e(X,Y)_H,
 \\qquad X,Y\\in\\mathfrak h\\subset\\mathfrak g
 $$
 
-で定めると、$H$ currentの中心項は$x_e$倍になるので
-
-$$
-\\boxed{k_H=x_ek_G.}
-$$
+である。
 
 残る局所演算子を定めよう。親chiral algebra $\\mathcal A_G$ のうち、全ての $H$ current $K^a(z)$ とのOPEが正則な場を集め、
 
@@ -7013,9 +7099,11 @@ BRST記述では、ゲージ固定によって分母の補助currentとghostを�
 
 ### 2.3 cosetの$S$行列とfusion則
 
-境界状態を作るには、coset characterがmodular変換でどう混ざるかと、coset sectorどうしのfusionが必要になる。先に求めた分岐式 $\\chi^G=\\sum b\\chi^H$ にmodular変換を施すと、$G$側の変換を行い、$H$側の変換を逆に除く。このため一つのラベル対に対する係数は $S^G\\overline{S^H}$ となる。さらに同じcoset characterを表す $N_0$ 個のラベル対をまとめるので、係数は $N_0$ 倍される。
+境界状態を作るには、coset characterがmodular変換でどう混ざるかと、coset sectorどうしのfusionが必要になる。先に求めた分岐式 $\\chi^G=\\sum b\\chi^H$ にmodular変換を施すと、$G$側の変換を行い、$H$側の変換を逆に除く。このため一つのラベル対に対する係数は $S^G\\overline{S^H}$ となる。
 
-sector $i=[(\\lambda,\\lambda')]$ と $j=[(\\mu,\\mu')]$ に対して、その行列は
+sector $i=[(\\lambda,\\lambda')]$ と $j=[(\\mu,\\mu')]$ を使う。$H$の$S$行列はunitaryなので、逆変換を複素共役で書ける。orbitをまとめられるためには、同一orbitの係数も同じである必要がある。simple-current型のselection ruleは、同一視を生成する各対 $(a,a')$ について $Q^G_a(\\mu)=Q^H_{a'}(\\mu')\\pmod1$ を要求する。ここで $Q_a(\\mu)=h_a+h_\\mu-h_{a\\times\\mu}\\pmod1$ はmonodromy chargeである。simple-currentの標準関係 $S_{a\\times\\lambda,\\mu}=e^{2\\pi iQ_a(\\mu)}S_{\\lambda\\mu}$ を使うと、分子の位相と複素共役した分母の逆位相が相殺するため、積は同一orbitの代表によらない。
+
+同一視群が自由に作用するという先の条件の下では、同じcharacterと同じ係数をもつ $N_0$ 個の項をまとめられる。そのため係数は $N_0$ 倍され、cosetの行列は
 
 $$
 \\boxed{
@@ -7026,9 +7114,9 @@ S_{ij}
 \\tag{6.59}
 $$
 
-となる。$H$の$S$行列はunitaryなので、逆変換を複素共役で書ける。orbitをまとめられるためには、同一orbitの係数も同じである必要がある。simple-current型のselection ruleは、同一視を生成する各対 $(a,a')$ について $Q^G_a(\\mu)=Q^H_{a'}(\\mu')\\pmod1$ を要求する。ここで $Q_a(\\mu)=h_a+h_\\mu-h_{a\\times\\mu}\\pmod1$ はmonodromy chargeである。simple-currentの標準関係 $S_{a\\times\\lambda,\\mu}=e^{2\\pi iQ_a(\\mu)}S_{\\lambda\\mu}$ を使うと、分子の位相と複素共役した分母の逆位相が相殺するため、積は同一orbitの代表によらない。
+となる。
 
-次に、結果sectorを $r=[(\\kappa,\\kappa')]$ とする。上の$S$行列をVerlinde公式へ入れると、fusion係数は
+次に、結果sectorを $r=[(\\kappa,\\kappa')]$ とする。固定点を持たず、追加のsectorを要しないこのcoset構成では、上の$S$行列に対応するfusion則として原著の式 (6.58)（p.263）を用いる。以下のorbit和は、その外部結果として採用する：
 
 $$
 \\boxed{
@@ -7155,7 +7243,7 @@ $$
 
 分母label$\\Lambda'$が、射影する前に親braneを$H$共役類の全要素でずらす。その後で$H$共役方向を忘れる。式 (6.60) の$G$因子と共役$H$因子、式 (6.62) の$C^G$と$(C^H)^{-1}$は、代数と幾何で同じ二段階を表している。
 
-この候補の平均と一点関数を比較する。$G$の表現 $\\lambda$ を $H$ へ制限したときに現れる表現 $\\lambda'$ を選び、次元を $d_\\lambda:=\\dim V^G_\\lambda$、$d_{\\lambda'}:=\\dim V^H_{\\lambda'}$ とする。同じ $H$ 表現のコピーを $r,t$ で区別し、$H$ 添字 $\\mu$ だけを平均traceした関数を
+この候補の平均と一点関数を比較する。$G$の表現 $\\lambda$ を $H$ へ制限したときに現れる表現 $\\lambda'$ を選び、次元を $d_\\lambda:=\\dim V^G_\\lambda$、$d_{\\lambda'}:=\\dim V^H_{\\lambda'}$ とする。まず一つの $H$ 表現のコピーを選び、その内部の基底を $\\mu=1,\\ldots,d_{\\lambda'}$ で表す。この基底に沿って $D^\\lambda(g)$ の対角成分を足し、$d_{\\lambda'}$ で割る操作が、$H$ 添字だけの平均traceである。次に、同じ $H$ 表現が複数現れる場合のコピーを $r,t$ で区別する。二つのコピーの間でも同じ内部基底 $\\mu$ を対応させ、各blockの平均traceを
 
 $$
 F^{\\lambda\\lambda'}_{rt}(g)
@@ -7487,11 +7575,20 @@ $$
 
 であり、追加のfixed-point resolutionは要らない。
 
-境界では原著と同じくdiagonal bulk modular invariantと **A-type gluing** を選ぶ。A-typeは、左右の $N=2$ のR-currentを反対符号で貼り合わせ、二つのsupercurrentを $G^+\\leftrightarrow\\bar G^-$、$G^-\\leftrightarrow\\bar G^+$ の組で貼る条件である。この選択でCardy braneが構成でき、braneラベル $[L,M,S]$ もbulkと同じselection ruleとfield identificationを満たす（原著§6.4.3）。ここで $L$ は分子 $SU(2)$、$S$ は分子 $U(1)_2$、$M$ は分母のラベルである。以下で、この境界条件の一点関数をdisk上の位置へ翻訳する。
+境界では原著と同じくdiagonal bulk modular invariantと **A-type gluing** を選ぶ。A-typeは、左右の $N=2$ のR-currentを反対符号で貼り合わせ、二つのsupercurrentを $G^+\\leftrightarrow\\bar G^-$、$G^-\\leftrightarrow\\bar G^+$ の組で貼る条件である。この選択でCardy braneが構成でき、まず分子 $SU(2)$ のラベルを $L$、分子 $U(1)_2$ のラベルを $S$ とする。この二つの表現のtensor積が分子側の状態空間を指定する。次に分母のラベルを $M$ とし、braneラベルを $[L,M,S]$ とまとめる。このラベルもbulkと同じselection ruleとfield identificationを満たす（原著§6.4.3）。以下で、この境界条件の一点関数をdisk上の位置へ翻訳する。
 
 幾何とflowには、原著に合わせて $S=0$ のbraneを使う。比較のため $S=2$ も残すと、$S\\mapsto S+2$ は同じ線分の向きを反転し、braneとanti-braneを交換する。線分の位置は $L,M$ で決まる。この向きの規約は [Fredenhagen §4.7](https://arxiv.org/abs/hep-th/0301229) に従い、後にfield identificationとの整合を端点で確かめる。
 
-このラベルを式 (6.60) へ代入した一点係数は、$SU(2)$ のsine係数に二つのGaussian modelの位相を掛けたものになる：
+一点係数を計算するため、代入する三つの $S$ 行列要素をそろえる。整数スピンラベル $l=2j$ を使う分子 $SU(2)_k$ では
+
+$$
+S^{SU(2)_k}_{lL}=\\sqrt{\\frac{2}{k+2}}
+\\sin\\!\\left(\\frac{\\pi(l+1)(L+1)}{k+2}\\right).
+$$
+
+分子 $U(1)_2$ には $S^{U(1)_2}_{sS}=\\tfrac12 e^{-i\\pi sS/2}$、分母 $U(1)_{k+2}$ には $S^{U(1)_{k+2}}_{mM}=[2(k+2)]^{-1/2}e^{-i\\pi mM/(k+2)}$ を用いる。これらは各Gaussian modelのcharge基底のFourier変換であり、この符号規約を以下で保つ。
+
+式 (6.60) は二つの分子要素と分母要素の複素共役の積を、真空行の同じ積の平方根で割る。分子積の共通係数は $1/[2(k+2)]$、真空行の積はこれに $\\sin(\\pi(l+1)/(k+2))$ を掛けた値である。$0\\le l\\le k$ ではこの正弦は正なので平方根に正の値を取れる。従って一点係数は
 
 $$
 B^{[l,m,s]}_{[L,M,S]}
@@ -7644,7 +7741,9 @@ $$
 
 ### 3.2 球面の射影と線分状braneの端点
 
-位置分布を調べるには、large-$k$ で軽くなるbulk modeを選ぶ。分子 $U(1)_2$ の真空成分 $s=0$ と、$SU(2)$ のgrade 0にある $m=-l,-l+2,\\ldots,l$ を取ると、対角charge $m$ はCartan chargeに一致し、
+前節の境界条件 $[L,M,0]$ には、$SU(2)$ のsine係数と分母の位相 $e^{i\\pi mM/(k+2)}$ が付いた。一方、式 (6.62) は共役球面を $U(1)$ の点でずらして商へ写す。同じbraneの位置を表すこの二つの記述を結び、ラベル $L,M$ からdisk上の端点を計算しよう。
+
+両側を比較するのは、large-$k$ で軽くなるbulk modeへの相対応答である。分子 $U(1)_2$ の真空成分 $s=0$ と、$SU(2)$ のgrade 0にある $m=-l,-l+2,\\ldots,l$ を取ると、対角charge $m$ はCartan chargeに一致し、
 
 $$
 h_{[l,m,0]}=\\frac{l(l+2)-m^2}{4(k+2)}\\longrightarrow0
@@ -7653,7 +7752,7 @@ $$
 
 となる。固定レベルのフェルミオンを励起する成分には、そのウェイトが残る。そこで位置を読むmodeにはこの真空成分を用いる。その一点係数では $e^{-i\\pi sS/2}=1$ となり、真空への応答で割ると分子 $U(1)_2$ の共通係数も消える。残る $SU(2)$ の係数と $e^{i\\pi mM/(k+2)}$ が位置分布を定める。従ってdisk上の位置を読むには $SU(2)$ の $U(1)$ 共役不変な波動関数だけで足りる。これが、追加した $U(1)_2$ 因子をこのbraneの位置計算から外せる理由である。境界ラベル $S$ は、これらの位置modeへは結合せず、向きなどの境界情報を区別する。
 
-2節で求めた共役作用の商では、群要素の左上成分 $\\alpha$ がdisk上の位置を表す。同じ $\\alpha$ をもつ群要素は、$\\beta$ の位相が違っても一つの点へ写る。そこで球面brane上のすべての点について $\\alpha$ の取り得る値を集めれば、disk内でのbraneの形が求まる。
+2節で求めた共役作用の商では、群要素の左上成分 $\\alpha$ がdisk上の位置を表す。同じ $\\alpha$ をもつ群要素は、$\\beta$ の位相が違っても一つの点へ写る。一点係数も球面上の平均も、この共役不変modeへの応答を与えることは2.5節で確かめた。そこで式 (6.62) の「点でずらす操作」と「共役orbitへの射影」を実行し、球面上でdisk座標 $\\alpha$ の取り得る値を集めればよい。
 
 境界ラベル $L,M$ は、probeであるbulkラベル $l,m$ と区別する。有限 $L$ を固定して $k\\to\\infty$ とすると球面は端へ縮むので、disk内の有限な線分を残すには、以下の角度が有限に保たれるよう $L,M$ もlevelとともに動かす。各bulk probe $l,m$ は先の通り固定する。
 
@@ -7704,7 +7803,7 @@ $$
 }
 $$
 
-これは直線を単位diskの内部に制限した線分である。boundary stateの低エネルギー一点係数は、この線分に沿うmode profileを与える。単位円上で $\\alpha=e^{i\\theta}$ と置くと $\\cos(\\theta-\\phi_M)=\\cos\\psi_L$ なので、二端点は
+これは直線を単位diskの内部に制限した線分である。一点係数の $SU(2)$ 因子は共役球面上の平均へ、分母の位相はその射影像の回転角 $\\phi_M$ へ対応した。boundary stateの低エネルギー一点係数は、この線分に沿うmode profileを与える。単位円上で $\\alpha=e^{i\\theta}$ と置くと $\\cos(\\theta-\\phi_M)=\\cos\\psi_L$ なので、二端点は
 
 $$
 \\alpha_\\pm(L,M)
@@ -7744,7 +7843,13 @@ $$
 
 は $\\psi_L\\mapsto\\pi-\\psi_L$、$\\phi_M\\mapsto\\phi_M+\\pi$ を与える。線分の方程式の両辺がともに逆符号になるため、直線は同じであり、端点は $\\alpha'_+=\\alpha_-$、$\\alpha'_-=\\alpha_+$ と交換される。$S\\mapsto S+2$ も向きとchargeを反転するので、同時に変換した境界条件は向きまで含めて同じbraneを表す。
 
+この線分はlarge-levelでの低エネルギー位置分布を読む幾何であり、有限levelの全開弦sectorを線分上の関数と同一視したものではない。その範囲で、位置modeの一点係数を最初から平均し直すことなく、境界ラベルから二端点と向きを求められる。
+
+例えば $k=4$ では端点は正六角形の頂点である。$[2,2,0]$ を端点番号の式へ入れると $r_-=-1\\equiv5$、$r_+=2$ となり、線分は $v_5\\to v_2$ の直径になる。$[0,0,0]$ なら $r_-=-1\\equiv5$、$r_+=0$ なので、六角形の一辺 $v_5\\to v_0$ を得る。同じラベルの計算で長い線分と最短線分を描き分けられた。次には、この短い線分を並べた境界条件が、一本の線分へ流れるというRG則を調べる。
+
 ### 3.3 境界RG flowによる線分状braneの鎖の凝縮
+
+前節では、一つの境界ラベルを二端点へ写せるようになった。今度は式 (6.63) が与える初期・終境界条件を両方とも写し、spin吸収の代数的な変化が、どの短い線分をどの一本へ変えるかを求めよう。
 
 $SU(2)$ の $(P+1)$ 次元既約表現 $\\sigma_P$ はspin $P/2$ を持ち、$U(1)$ へ制限すると整数charge
 
@@ -7763,7 +7868,37 @@ $$
 
 を得る。左辺でも $M+2\\nu-P$ は偶数なので、すべて許容braneである。chargeは $2(k+2)$ を法として扱い、角括弧はfield-identification同値類を表す。
 
-この矢印の終点は式 (6.63) のRG則からの予測である。幾何で鎖が一本へ短くなることだけでは、境界摂動の存在を証明しない。まず、左辺の直和境界に隣り合うbraneを結ぶ境界変更場があり、その摂動がrelevantであることを確かめる。$P\\ge1$ とし、$B_\\nu:=[0,M+2\\nu-P,0]$ と置く。$B_\\nu$ から $B_{\\nu+1}$ への開弦では、式 (6.61) のcharge差が $m=2,s=0$、分子fusionが $0\\times0=0$ なので、sector $[0,2,0]$ が重複度1で現れる。逆向きには共役sector $[0,-2,0]$ が現れる。
+一方、diskでは各 $L=0$ braneが隣り合う二頂点を結び、$L=P$ braneは周に沿って $P+1$ 辺離れた二頂点を結ぶ。代数式の両辺に現れる境界条件が、その二つの幾何のどこに当たるかを、同じ端点公式で照合する。使う対応は
+
+$$
+[L,M,0]:\\quad v_a\\longrightarrow v_{a+L+1},\\qquad
+ a=\\frac{M-L-2}{2},\\qquad
+ v_a=e^{i\\pi(2a+1)/(k+2)}
+$$
+
+である。頂点番号は $k+2$ を法として読む。終状態 $[P,M,0]$ の始点番号を
+
+$$
+r:=\\frac{M-P-2}{2}
+$$
+
+とすると、その線分は $v_r\\to v_{r+P+1}$ である。初期状態の $\\nu$ 番目に同じ端点公式を用いると
+
+$$
+[0,M+2\\nu-P,0]:\\quad
+v_{r+\\nu}\\longrightarrow v_{r+\\nu+1}.
+$$
+
+従って $\\nu=0,1,\\ldots,P$ の順に並べれば
+
+$$
+\\boxed{v_r\\longrightarrow v_{r+1}\\longrightarrow\\cdots
+\\longrightarrow v_{r+P+1}}
+$$
+
+という $P+1$ 本の最短線分の鎖になる。初期鎖の始点は $v_r$、終点は $v_{r+P+1}$ であり、終状態の一本の二端点と一致する。$\\sigma_P|_{U(1)}$ の $P+1$ 個のweightが、鎖の $P+1$ 本へ一つずつ対応した。$P=k$ では正 $(k+2)$ 角形の $k+1$ 辺をたどり、残る一辺の両端へ到達する。
+
+この端点一致が確かめるのは、代数式と位置の対応である。矢印の終点は式 (6.63) のRG則からの予測であり、鎖が一本へ短くなる図形だけでは境界摂動の存在を証明しない。動力学の側で、左辺の直和境界に隣り合うbraneを結ぶ境界変更場があり、その摂動がrelevantであることを確かめる。$P\\ge1$ とし、$B_\\nu:=[0,M+2\\nu-P,0]$ と置く。$B_\\nu$ から $B_{\\nu+1}$ への開弦では、式 (6.61) のcharge差が $m=2,s=0$、分子fusionが $0\\times0=0$ なので、sector $[0,2,0]$ が重複度1で現れる。逆向きには共役sector $[0,-2,0]$ が現れる。
 
 分子の真空moduleでcharge $\\pm2$ を持つ最も低い状態は $J^\\pm_{-1}|0\\rangle$ である。grade 0の真空はcharge 0しか持たないので、ここではgrade 1を使う。分子ウェイト1から分母 $U(1)_{k+2}$ のウェイトを引くと
 
@@ -7772,7 +7907,7 @@ h_\\psi=1-\\frac{(\\pm2)^2}{4(k+2)}
 =1-\\frac1{k+2}<1
 $$
 
-となる。境界摂動の結合は長さに対して重み $1-h_\\psi$ を持つので、有限 $k\\ge1$ でこの場はrelevantである。ここではgrade 1の励起が $h=1$ に下側から近づく。幾何の抽出に使った $h\\to0$ の条件と、RGでの $h<1$ の条件は、異なるエネルギーの範囲を選んでいる。この計算により、鎖の隣接braneを結ぶ摂動の結合がRGで増えることは分かる。終点を指定するには、さらにspin吸収に対応する結合を選ぶ必要がある。その選択と端点行列の扱いは、次の補足に示す。
+となる。境界摂動の結合は長さに対して重み $1-h_\\psi$ を持つので、有限 $k\\ge1$ でこの場はrelevantである。ここではgrade 1の励起が $h=1$ に下側から近づく。幾何の抽出に使った $h\\to0$ の条件と、RGでの $h<1$ の条件は、異なるエネルギーの範囲を選んでいる。この計算により、鎖の隣接braneを結ぶ摂動の結合がRGで増えることは分かる。終点を指定するため、spin吸収に対応する枝を選ぶ。端点ラベル $\\nu=0,\\ldots,P$ の空間をスピン $P/2$ のweight基底とすると、隣り合う端点を結ぶ昇降行列の要素は $\\sqrt{(\\nu+1)(P-\\nu)}$ である。large-levelの記述では、$B_\\nu$ から $B_{\\nu+1}$ への場の結合を $u_\\nu=u\\sqrt{(\\nu+1)(P-\\nu)}$ とし、逆向きにはその複素共役を用いる。$u$ は共通の摂動強度である。この結合の比で吸収するスピンを指定し、端点行列の経路順序付き積と端点traceによって摂動展開を定める。有限levelでの赤外終点には下に明示するRG則の予測を使い、RGで生成される対角結合なども含めて発展させる。
 
 <details id="minimal-rg-perturbation">
 <summary>直和境界の端点行列と、spin吸収に対応する境界摂動</summary>
@@ -7798,41 +7933,13 @@ $$
 
 $[0,\\pm2,0]$ は、分子のadjointを分母へ制限したcharge $\\pm2$ に対応し、[Fredenhagen–Schomerusの式 (2)](https://arxiv.org/abs/hep-th/0205011) が指定する摂動sectorに含まれる。spinを吸収する枝の赤外終点 $[P,M,0]$ は、[Fredenhagen §4.7、式 (33)](https://arxiv.org/abs/hep-th/0301229) の有限levelでのRG-flow予測を用いる。上の計算は、必要な境界変更場が存在してrelevantであり、その吸収則に適合することを示している。$P=0$ では初期・終境界条件が同じで、凝縮を起こす隣接sectorはない。
 
-このflowをdisk上で読むには、brane labelと頂点の対応
-
-$$
-[L,M,0]:\\quad v_a\\longrightarrow v_{a+L+1},\\qquad
- a=\\frac{M-L-2}{2},\\qquad
- v_a=e^{i\\pi(2a+1)/(k+2)}
-$$
-
-を使う。頂点番号は $k+2$ を法として読む。終状態 $[P,M,0]$ の始点番号を
-
-$$
-r:=\\frac{M-P-2}{2}
-$$
-
-とすると、その線分は $v_r\\to v_{r+P+1}$ である。初期状態の $\\nu$ 番目に同じ端点公式を用いると
-
-$$
-[0,M+2\\nu-P,0]:\\quad
-v_{r+\\nu}\\longrightarrow v_{r+\\nu+1}.
-$$
-
-従って $\\nu=0,1,\\ldots,P$ の順に並べれば
-
-$$
-\\boxed{v_r\\longrightarrow v_{r+1}\\longrightarrow\\cdots
-\\longrightarrow v_{r+P+1}}
-$$
-
-という $P+1$ 本の最短線分の鎖になる。その二つの外端を終状態の一本が結ぶ。$P=k$ では正 $(k+2)$ 角形の $k+1$ 辺をたどり、残る一辺の両端へ到達する。
+両側を結ぶことで、RG則に与えられたlabelの直和を、どの辺がつながり、どの二点を終状態が結ぶかという配置へ変換できる。摂動の適用条件と位置の検算を区別したまま、一つのflowを両方の記述で追えるようになった。
 
 例えば $k=4,P=2,M=2$ では、許される頂点は正六角形上にある。初期配置の三本を順に並べると $[0,0,0]$、$[0,2,0]$、$[0,4,0]$ であり、$v_5\\to v_0\\to v_1\\to v_2$ の鎖になる。終状態 $[2,2,0]$ は同じ外端 $v_5,v_2$ を結ぶ直径である。図では、境界RG則が与える二つの境界条件に、この端点公式を適用している。
 
 ![正六角形の三辺をつなぐv5からv0、v1、v2への初期braneの鎖と、同じ外端v5とv2を直接結ぶ終状態braneの直径を比較する。k=4、P=2、M=2。](/diagrams/minimal-brane-flow.svg)
 
-代数では、$\\sigma_P|_{U(1)}$ の全weightを並べた可約境界条件が、分子側でspinを吸収した既約境界条件へ流れる。diskの幾何では、同じ外端を持つ短い線分の鎖と一本の線分に対応する。端点一致は、代数的flow則と位置の対応を検算する。有限levelでこのflowを予測する根拠は上で指定した境界RG則であり、図形の長さの比較だけからflowを導くものではない。
+この例では、三本の初期braneが共有する内側の頂点 $v_0,v_1$ は、終状態の端点ではなくなり、外側の $v_5,v_2$ が一本の直径の端点として残った。短い線分の鎖という幾何は、全weightを並べた可約境界条件を表し、一本の線分はspinを吸収した既約境界条件を表している。
 
 ## 4. orbifoldとcosetのbrane構成の比較
 
@@ -7852,7 +7959,11 @@ $$
 
 $SO(3)$ orbifoldでは、北側と南側の球面braneが一つのorbit braneになり、集合として不変な赤道$S^2$は商で$\\mathbb{RP}^2$へ降り、その上の二つのflat bundleが$[n]_\\pm$を与えた。$N=2$ minimal modelでは、$SU(2)$の共役二球面を$U(1)$点でずらし、$U(1)$共役方向を忘れるとdisk上の線分になった。
 
-代数側でも同じ操作が見える。orbifoldではsimple-current orbit、monodromy射影、stabilizer characterが必要になる。cosetでは分岐のselection rule、同じ分岐多重度空間をまとめるfield identification、分子と分母のfusion dataが必要になる。
+代数側では、orbifoldの群作用が開弦と端点へ同時に作用し、その不変部分を選んだ。同じ赤道 $\\mathbb{RP}^2$ 上でも、holonomyが同じ両端には偶数spin、異なる両端には奇数spinが残る。従って幾何の台が一致していても、例えば恒等sectorがあるかどうかで二つの境界条件を区別できる。
+
+cosetでは、分岐のselection ruleが存在する状態を選び、field identificationが同じ残りの状態空間の重複を除いた。このsectorとfusion dataから一点係数と開弦を求め、large-levelの位置modeへの応答を射影した共役類へ結んだ。minimal modelでは、その結果が $[L,M,0]\\mapsto v_{r_-}\\to v_{r_+}$ という端点公式になった。これを境界spin吸収則の両辺へ使えば、短い線分の鎖と一本の終状態が同じ外端を持つことまで計算できる。
+
+商空間のbraneを決めるには、親braneの位置を写すだけでなく、商へ残す弦の状態と端点の変換を定める必要があった。その情報が、orbifoldでは同じ形の二境界を見分け、cosetでは境界ラベルを位置とflowの配置へ変換する手段になった。
 
 ## 参考文献
 
