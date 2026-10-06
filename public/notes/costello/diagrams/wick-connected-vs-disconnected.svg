@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="240" viewBox="0 0 780 240" role="img" aria-labelledby="title description">
+  <title id="title">二つの頂点の縮約：別々の寄与とつながった寄与</title>
+  <desc id="description">左は各頂点の中だけで一組ずつ縮約し、頂点間の辺がない。右は二本の縮約辺が二つの頂点をつなぐ。どちらも外部線は四本。</desc>
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #263b32; }
+    .heading { font-size: 17px; font-weight: 650; }
+    .outcome { font-size: 15px; font-weight: 600; }
+    .panel { fill: none; stroke: #b5c2b9; stroke-width: 1.5; }
+    .line { fill: none; stroke: #34483e; stroke-width: 2.6; stroke-linecap: round; }
+    .connecting { fill: none; stroke: #17684b; stroke-width: 3.2; stroke-linecap: round; }
+    .vertex { fill: #34483e; }
+  </style>
+
+  <rect class="panel" x="12" y="10" width="370" height="218" rx="12"/>
+  <rect class="panel" x="398" y="10" width="370" height="218" rx="12"/>
+  <text class="heading" x="197" y="41" text-anchor="middle">各頂点の中だけで縮約</text>
+  <text class="heading" x="583" y="41" text-anchor="middle">頂点間で縮約</text>
+
+  <!-- Left: one self-contraction and two external ends at each quartic vertex. -->
+  <path class="line" d="M 107 127 C 72 57, 164 57, 129 127"/>
+  <path class="line" d="M 265 127 C 230 57, 322 57, 287 127"/>
+  <path class="line" d="M 105 148 L 66 177 M 131 148 L 170 177 M 263 148 L 224 177 M 289 148 L 328 177"/>
+  <circle class="vertex" cx="118" cy="139" r="13"/>
+  <circle class="vertex" cx="276" cy="139" r="13"/>
+  <text class="outcome" x="197" y="207" text-anchor="middle">平均の積を引くと消える</text>
+
+  <!-- Right: two cross-contractions and two external ends at each vertex. -->
+  <path class="connecting" d="M 526 127 C 566 108, 600 108, 640 127 M 526 151 C 566 170, 600 170, 640 151"/>
+  <path class="line" d="M 500 130 L 455 94 M 500 148 L 455 184 M 666 130 L 711 94 M 666 148 L 711 184"/>
+  <circle class="vertex" cx="513" cy="139" r="13"/>
+  <circle class="vertex" cx="653" cy="139" r="13"/>
+  <text class="outcome" x="583" y="207" text-anchor="middle">差を取っても残る</text>
+</svg>
