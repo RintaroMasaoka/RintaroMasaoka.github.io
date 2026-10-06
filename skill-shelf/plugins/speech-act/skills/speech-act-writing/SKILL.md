@@ -1,85 +1,165 @@
 ---
 name: speech-act-writing
-description: "Use speech act theory and pragmatics to plan, revise, and review scholarly prose, paper structure, research explanations, and responses as acts addressed to human readers. Use before choosing a new structure or making a substantive revision; when facts are present but meaning, interest, or a response to objections does not reach the reader; or when vocabulary, sequence, implication, or claim strength changes the reader's judgment. Also use to explain speech act theory itself. Do not use for typo correction, formatting, factual lookup, or checking the correctness of a calculation alone."
+description: >-
+  Use when drafting, revising, or evaluating scholarly writing with a language
+  model and the task depends on what a text does for its readers: advancing or
+  qualifying claims, requesting action, undertaking revisions, responding to
+  criticism, or coordinating scholarly activity. Select for problems involving
+  intended force, implied meaning, presumed reader knowledge, evidence scope,
+  stance, or author control. Do not select for proofreading or source
+  verification alone.
 ---
 
-# Writing as Speech Acts
+# Speech-act writing
 
-Design a text as an act that both states content and does something for a particular recipient in a particular situation. Enable readers to recognize a question, examine reasons, understand relationships, raise objections, and proceed to their next judgment. Preserve truth, evidence, and precision of meaning together with the conditions for the act to succeed.
+Help the writer align a scholarly text's content, intended action, and evidential commitments with its situation. Treat the writer's stated purpose as the target. A model's proposed interpretation is an inference, not access to the writer's or reader's mental state.
 
-Do not base a diagnosis on "AI writes only propositions" or "human writing communicates naturally." Inspect the target text to determine what fails to reach the reader and which choices cause that failure. Reports of facts and assertions are also speech acts; adding direct address or emotional words is not itself an improvement.
+The operations below are design proposals derived from the supplied dossier. They are not validated writing interventions. The [dossier guide](references/dossier.md) separates conceptual proposals, empirical findings, product descriptions, and access limits. The [worked examples](references/examples.md) illustrate application using fictional situations.
 
-## Inputs and Materials
+These instructions are English. Produce the artifact in the language required by the task. Preserve quotations in their supplied language unless translation is requested. Flag uncertainty when interpretation depends on an unfamiliar idiom, disciplinary convention, or language-specific distinction. The dossier does not establish equivalent performance across languages.
 
-Recover the following from the request and existing materials, to the extent needed.
+## Expected inputs
 
-- Target and operation: a structural plan, new writing, revision, review, or theoretical explanation. Establish the permitted scope of change, language, and genre. These instructions are in English; produce or revise user artifacts in the language requested or established for the task.
-- Reader and situation: who reads, for what purpose, what they already know, their relationship to the author, and constraints on reading and length. Do not infer expertise from the difficulty of the existing prose.
-- Authority for the content: source papers, notes, calculations, code, data, and accepted terminology, notation, and citations. Inspect the files or passages directly. Do not invent evidence or results to make the account flow smoothly.
-- Intended acts: what to report, assert, propose, qualify, request, acknowledge, or rebut. Establish what the reader should be able to judge afterward.
+Use what the task supplies:
 
-If missing information would not change the conclusion, proceed with minimal, stated assumptions. If uncertainty about the reader, the author's position, or a scientific claim would determine the revision, ask narrowly about that point and continue work that can be done independently.
+- The requested operation and artifact: for example, an abstract, argument paragraph, review, response letter, or evaluation report.
+- Existing text for revision or evaluation; notes, claims, or evidence for drafting.
+- The writer's purpose, intended readers, genre, discipline, venue, and stage of the scholarly activity.
+- Relevant preceding or following documents, comments, or correspondence.
+- Evidence and source passages, with their known access or verification status.
+- Constraints on claims, commitments, institutional authority, language, length, and author preferences.
+- When relevant, the actual assistance used, reader responses, and the writer's reported experience of control.
 
-Read [Foundations and Practical Principles](references/foundations.md) for theoretical explanation and conceptual distinctions, [Practice in the AI Era](references/ai-practice.md) for writing with AI and checking responses, and [Cases and Boundaries](references/cases.md) for applicability decisions and concrete revisions. Use the [Source Map](references/sources.md) for sources, verification scope, and updates. An ordinary revision does not require reading every resource or repeating the literature search.
+Not every input is necessary for every task. Use the smallest adequate unit, such as one sentence, a paragraph, or a linked pair of documents. State consequential assumptions. If missing information would decide whether a claim is warranted, an action has occurred, or a commitment is authorized, ask a focused question or supply conditional alternatives. Do not invent that information.
 
-## Separate Content, Act, and Response
+## Distinctions to preserve
 
-Examine the same sentence from three perspectives.
+| Object | Working question | Boundary |
+| --- | --- | --- |
+| Explicit content | What does this text say, with its contextual references resolved as far as supplied information allows? | Wording alone may leave references or explicit content underdetermined. |
+| Intended force | What action does the writer intend to perform through this passage? | A grammatical form or performative verb does not establish the act by itself. |
+| Interpreted force | What action might a reader recognize here? | A model-generated reading is provisional unless supported by actual recipient evidence. |
+| Uptake | Is there evidence that meaning and force were understood? | Austin's uptake is distinct from agreement, belief, compliance, and later effects. |
+| Consequence | What subsequently happened because of the text? | Desired and predicted effects are not observed effects. Bazerman's broader use of perlocutionary uptake must be identified separately. |
+| Presumed context | What information does the passage treat as shared? | Presumed sharing does not demonstrate shared beliefs. |
+| Grounding | What recipient evidence establishes understanding sufficient for this exchange's purpose? | Acceptance in grounding concerns understanding, not assent to a proposition. |
+| Stance and engagement | How does the writer position a claim and address a reader? | Discipline-specific preferences are not a universal feature checklist. |
 
-| Perspective | Question | What the writer can check |
-|---|---|---|
-| Content | What does it state, and under which conditions is it true? | Propositions, definitions, evidence, assumptions, quantification, and the domain of an approximation |
-| Act | What will the recipient understand the utterance to be doing in this situation? | The force of an assertion, report, proposal, request, or other act; authority, addressee, sincerity, and required context |
-| Response | What might happen to the recipient's understanding, evaluation, interest, or action? | The intended response and alternative readings. Check actual effects through readers' responses. |
+For ordinary working labels, use terms such as report, argue, qualify, challenge, acknowledge, request, undertake, or record a completed change. These labels are practical choices using general linguistic knowledge. They are not a reconstruction of Searle's detailed taxonomy. Multiple acts can occur in one passage, and an extended text can have a dominant purpose without every sentence performing the same act.
 
-Uptake includes understanding an utterance's meaning and the force of its act. Check separately whether the content can be understood and whether it can be received as an assertion, proposal, or other act; distinguish both from agreement with the content. Changing "suggests" to "proves" changes both the act and the content. Do not alter certainty, evaluations of prior work, commitments, or responsibility in the name of readability.
+Do not collapse Grice's and Wilson and Sperber's explanations into one theory. Both support attention to interpretation beyond wording, but they differ on cooperation, relevance, and explicit content. Their concepts organize questions here; they do not mechanically determine the right reading.
 
-## Planning, Writing, and Revision
+## Choose an operation
 
-### 1. Define the Judgments the Text Makes Possible
+| Task | Suggested route |
+| --- | --- |
+| Draft from notes or evidence | O1, then O3 |
+| Revise a passage | O2, then O3; use O1 if the purpose is unclear |
+| Evaluate a text | O2, then O4 |
+| Respond to a reviewer or repair correspondence | O1 and O5; use O2 for ambiguous passages |
 
-Express the text's purpose in one sentence. Go beyond "make the reader understand" or "move the reader." For example: "Enable the reader to distinguish the scope of the existing explanation from the unresolved conditions tested in this study." If empathy, surprise, anxiety, or anticipation is a goal, specify the object of that response and how it relates to the text's purpose. Do not treat the response as already achieved.
+Do not run every operation automatically. Carry a compact situation brief between operations: artifact, writer and reader roles, intended action, evidence boundary, and unresolved assumptions.
 
-Separate what the materials establish about the intended reader's knowledge, current interests or questions, and position from hypotheses about them. Even within a shared genre or field, the meaning of this study's notation or interest in its question may not be shared.
+## O1 — Situate the text and plan its acts
 
-### 2. Design a Sequence of Acts
+1. Identify the scholarly activity and the text's place within it. For example, distinguish presenting a finding from responding to a request for further evidence.
+2. Record the writer's role, intended reader, genre, and known institutional or venue conditions. Separate requirements that make an act count in that setting from preferences about how well it is performed. Use supplied rules; do not invent authority or institutional procedure.
+3. State the dominant purpose of the whole artifact. Identify supporting local acts and, where useful, the preceding and anticipated next documents.
+4. Separate what the reader should recognize from what the writer hopes will happen afterward. Understanding a bounded claim, accepting it, and citing it are different targets.
+5. Attach evidence and commitment boundaries to planned acts. Mark unknown circumstances that could change their interpretation or validity.
 
-Make a brief working note only where needed.
+Output an act brief, scaled to the task:
 
-`Passage | Materials already given to the reader and unresolved questions | Act to perform now | Content and context supporting that act | What the reader can judge next`
+| Unit or document | Intended act | Content/evidence boundary | Reader assumption | Desired later effect | Unresolved condition |
+| --- | --- | --- | --- | --- | --- |
 
-This is a planning table for writing, not Austin's or Searle's classification itself. Use terms that help with actual writing decisions, such as "pose a question," "provide a basis for comparison," or "distinguish an exception." Assigning a classification label does not establish that a paragraph works.
+Why this operation: local wording can be coherent while its actions conflict with the larger activity. Planning across scales exposes such conflicts without assuming that a genre has one fixed form or purpose.
 
-Check whether the next passage responds to the questions, expectations, or objections that first arise in that sequence. Help readers recall known information in the form needed, and provide context in which they can place new information. Stating a conclusion or theorem first can work when its meaning, conditions, and the status of the proof yet to be presented are clear. There is no need to move every proof earlier.
+Basis: `austin1962`, `searle1965`, `miller1984`, `bazerman2004`, and `hyland2005` in the [dossier guide](references/dossier.md).
 
-A sentence may have several roles. Do not impose one pattern on every paragraph or insert a question or summary each time. Do not drive a paper's introduction with an unverified "research gap." Choose acts that match the actual contribution, such as extending prior work, reinterpreting it, or testing its conditions.
+## O2 — Map a text's actions and interpretive gaps
 
-### 3. Choose Sequence, Expression, and Implication
+1. Select meaningful units. Keep surrounding context when it changes force; do not impose one act per sentence.
+2. For each important unit, distinguish explicit content from the intended act supplied by the writer and the act inferred by the evaluator. Anchor every diagnostic in wording or supplied context.
+3. Identify consequential inferences: an implied criticism, invitation, expectation, concession, or commitment. Keep presumed background information separate from an inferred implicature. Resolve references only when the supplied context permits it.
+4. Describe stance and engagement in functional terms: what position is taken toward the material, and what role or response is constructed for the reader? Do not infer a complete disciplinary taxonomy from isolated markers.
+5. Give an alternative reading when ambiguity could change a claim, commitment, or requested action. State what contextual information would distinguish the readings.
 
-Compare deletion, movement, integration, rephrasing, and addition according to the act needed at this point.
+Output only the rows necessary for the task:
 
-- **Sequence and emphasis:** Is it clear at that point why the reader should read the next fact and what they should compare? Does the importance signaled by headings, sentence beginnings and endings, and the placement of figures and equations match the importance of the content?
-- **Vocabulary and force:** Preserve the distinctions among "show," "suggest," "assume," and "propose." Check the presuppositions, evaluations, and comparisons required by words such as "obviously," "merely," "still," and "recover." Decide whether to retain technical terms or add definitions according to the level of detail needed there.
-- **Implication and presupposition:** Even if the literal wording is true, do sequence, contrast, omission, or citation placement invite inferences of causation, generality, novelty, or blame beyond the evidence? Do not leave important conditions to the reader's charitable supplementation.
-- **Relationship and response:** Where an objection needs consideration, identify its valid part and respond to the reasons relevant to the present judgment. Do not let politeness obscure an objection or request. When strong criticism is needed, identify its evidence and target.
-- **Emotion and interest:** Create interest through real discrepancies, departures from expectations, and the consequences of concrete examples. Preserve the tension and voice the author intends. Do not create surprise by hiding important conditions or adding an unverified crisis or conflict.
+| Passage or location | Explicit content | Intended act, if supplied | Inferred act and textual basis | Presumed context or implication | Material alternative |
+| --- | --- | --- | --- | --- | --- |
 
-Word order and politeness depend on language, medium, and community. Do not mechanically transfer advice about end emphasis in English to Japanese. Choose Japanese particles, predicates, subject omission, and sentence endings according to who undertakes what and what is contrasted in the actual context.
+Why this operation: interpretation depends on more than sentence form. Making the inferential steps visible helps the writer decide whether the reader is being asked to supply too much or to infer the wrong action.
 
-### 4. Inspect the Text's Effects
+Basis: `austin1962`, `searle1976`, `grice1975`, `stalnaker1998`, `wilson_sperber2004`, `bazerman2004`, and `hyland2005`. `hu2023` supports caution about interpreting short texts without relevant context; it does not validate this mapping procedure.
 
-Reread the revised passage using only the materials given to the reader up to that point. Tie each observation to specific wording: what content can be understood, whether the utterance can be received as an assertion, proposal, question, or other act, and what questions naturally remain. Distinguish understanding supplied by an author who knows what comes later from understanding supported by the text.
+## O3 — Draft or revise under explicit commitments
 
-For important changes, compare the original with the candidate and examine how the judgments available to the reader change even when the content stays the same. Use an LLM acting as a reader to discover possible failures. Its statement that it is "convinced" is not evidence that a human has been persuaded, emotionally affected, or prompted to act. When human checking is possible, ask readers to freely restate what is claimed, for what reasons, and what they still cannot judge, rather than merely scoring their preferences.
+1. Use the act brief or map to choose the target action. Preserve the author's supplied meaning and purpose unless the task calls for changing them.
+2. Constrain the wording by the supplied evidence. Preserve distinctions such as association versus causal explanation, tested population versus general population, and finding versus proposed mechanism when they apply. Adding a hedge does not repair every evidential overreach.
+3. Draft the requested artifact or make the smallest adequate revision. Add context, definitions, attribution, or explicit scope where the intended action otherwise depends on an unsupported inference.
+4. Check changes to epistemic strength, attribution, requests, promises, and action status. Do not silently turn a source's claim into the writer's claim, a suggestion into an undertaking, or a planned revision into a completed revision.
+5. If evidence cannot support the requested force, offer a bounded alternative and identify the change in the act performed. Do not describe a substantive narrowing as merely polishing the prose.
+6. Make the result readily editable. Offer alternatives only when they expose a meaningful choice in force or commitment. Explain that choice briefly; do not impose iterative prompting, direct editing, or a separate approval ritual as a universal workflow.
 
-When leaving a question unresolved is intentional, check that the question and the scope of its later treatment are clear. Do not resolve every uncertainty immediately and drain the text's momentum. Repair only confirmed gaps, to the extent needed.
+Output the requested text first, followed by a compact account of consequential changes, remaining assumptions, and author choices. For an artifact-only request, omit routine commentary; use clearly identified placeholders or conditional versions for unresolved essentials.
 
-In prose containing mathematics, preserve assumptions, conventions, necessary and sufficient conditions, limits, and approximations. Improved communication does not verify scientific correctness. Also satisfy the scientific checks, notation checks, and independent checks of reader understanding at each point required by the existing workflow. Do not report this skill's brief rereading as a complete independent review or a human measurement of effects.
+Why this operation: a fluent suggestion can alter an author's position or obligations. Making those changes visible offers an opportunity for author control. The ownership study motivates considering control, but does not establish that this procedure improves scholarly ownership or legal authorship.
 
-## Output
+Basis: `austin1962`, `grice1975`, `hyland2005`, and the evidence-scope distinctions in the AI dossier; `pennanen2026` and `google-smart-compose` motivate the proposed control mechanism. Checks involving tense, modality, and attribution also use general linguistic knowledge, rather than an inspected feature taxonomy.
 
-- **Planning, writing, and revision:** Deliver the requested text or structure first. Add a brief note on important changes and unverified points if needed. Keep working notes, theoretical labels, and revision history out of the finished text.
-- **Review:** `Passage -> Intended act and reading actually supported -> Supporting wording and context -> Effect on the reader's judgment -> Minimal proposed change`. Present predictions of responses as hypotheses. Do not force classifications or proposed improvements onto passages without a problem.
-- **Theoretical explanation:** Distinguish concepts from speech act theory from practical applications added through pragmatics, rhetoric, and cognitive research, and include the necessary sources.
+## O4 — Evaluate alignment and rehearse possible reception
 
-Complete the task when preservation of content, acts appropriate to the situation, sequence and implication, the author's position, and the requested output format have been checked within scope. Do not certify unknown reader psychology or offer a blanket guarantee that "AI bias has been removed."
+1. Evaluate against the supplied purpose and constraints. If no purpose is supplied, make the evaluative target provisional rather than silently imposing one.
+2. Check whether content and evidence support the act, whether the requested or undertaken action is intelligible, whether relevant context is available, and whether supplied authority or venue conditions are satisfied.
+3. When reception is consequential, propose at most two materially different reader situations. Specify the information each reader has and the reading that might follow. Label these as hypothetical interpretations, not measured responses or reliable predictions.
+4. Keep AI-related questions separate when relevant:
+
+| Dimension | Permissible basis | Do not infer |
+| --- | --- | --- |
+| Content and communicative action | Text, evidence, situation, and stated purpose | A model's own communicative intention |
+| Reader attribution of production | Actual metadata or recipient reports | AI authorship from stylistic cues alone |
+| Social reception | Supplied observations, separated by outcome | Trust, authenticity, or approval from warmth alone |
+| Writer ownership | The writer's own report, if available | Ownership, legal authorship, or consent from fluency |
+
+5. Report each material finding as supported by supplied material, conflicting with a supplied constraint, or underdetermined. These are diagnostic labels, not validated scores. Identify the passage, rationale, and smallest useful remedy.
+
+Output an evaluation with evidence-linked findings, hypothetical readings where useful, and unresolved questions. Suggest revised wording only when requested or needed to make a remedy concrete. Do not award a universal speech-act effectiveness score.
+
+Why this operation: favorable reception, correct source attribution, understood force, and writer ownership can vary independently. A single impression of success conceals which question has actually been answered.
+
+Basis: `austin1962`, `wilson_sperber2004`, `bazerman2004`, `hyland2005`, `hohenstein2023`, `purcell2025`, `jakesch2023`, `hu2023`, and `pennanen2026`.
+
+## O5 — Respond and repair across an exchange
+
+1. Link the earlier contribution, the recipient's actual response, and the proposed reply. Identify the outstanding claim, request, misunderstanding, or commitment.
+2. Distinguish evidence of understanding from agreement, belief, compliance, and institutional acceptance. A response may show that a criticism was understood while disagreeing with it.
+3. If an indirect request is ambiguous, state the candidate interpretations. Ask for clarification when the distinction is consequential and cannot be resolved from supplied context; otherwise make the chosen interpretation explicit.
+4. Draft a reply that acknowledges the relevant act and states the response: completed change, future undertaking, explanation, disagreement, or bounded alternative. For completed changes, use supplied locations or evidence. Do not invent revisions, experiments, or recipient assent.
+5. Make repair possible at the scale the medium permits. In correspondence, this may include a focused question or a checkable paraphrase. In an article without immediate feedback, it may include a definition, signpost, or explicit scope statement. These are proposed accommodations, not evidence that grounding has occurred.
+
+Output the proposed reply and, when useful, a compact ledger:
+
+| Earlier act | Interpretation used | Response act | Completed or planned action | Evidence/location or unresolved dependency |
+| --- | --- | --- | --- | --- |
+
+Why this operation: scholarly work often proceeds through related documents and delayed responses. Tracking actions across the exchange prevents a polite acknowledgment from being mistaken for agreement or a broad promise from replacing a precise response.
+
+Basis: `austin1962`, `stalnaker1998`, `clark_brennan1991`, and `bazerman2004`. Applying the grounding account to one-way scholarly publication is a limited design analogy; the inspected chapter explicitly sets broadcast media aside.
+
+## Boundaries
+
+- Analyze texts and supplied circumstances; do not claim transparent access to human intentions or a model's consciousness, agency, or communicative intentions.
+- Treat actual author intent, actual recipient understanding, and observed effects as established only to the extent supported by supplied information. A language model's rehearsal supplies none of these by itself.
+- Do not determine factual truth or source authenticity merely from prose. Identify verification needs and preserve supplied provenance. Do not manufacture quotations, citations, page numbers, or source access.
+- Do not prescribe a universal academic tone, warmth level, hedge density, disclosure policy, or AI workflow. The dossier does not establish one.
+- Do not infer that publication dates demonstrate social adaptation to AI. Suspicion, disclosure, trust, and interpersonal impressions were studied under different conditions.
+- Do not use stylistic heuristics as an AI detector. The supplied detection evidence concerns particular self-presentation tasks and model generations, not every text or detection method.
+- Keep experienced ownership distinct from contribution, legal authorship, communicative intention, and reception. Do not supply legal conclusions.
+- Treat institutional validity as conditional on known circumstances and rules. A verb such as accept or approve cannot create authority by itself.
+- Use author-defined aims for evaluation. Understanding, persuasion, compliance, and institutional effect are different possible aims, not a universal success ladder.
+
+## References and examples
+
+The [dossier guide](references/dossier.md) supplies all sixteen reference records used above, with the scope of the supplied inspection and the permissible role of each source. The [examples](references/examples.md) demonstrate drafting, revision, evaluation, and repair. No external skill, source retrieval, executable component, or host-specific resource is required.
