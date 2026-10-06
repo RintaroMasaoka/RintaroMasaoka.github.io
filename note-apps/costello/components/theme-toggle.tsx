@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(() => typeof document !== 'undefined' && document.documentElement.dataset.theme === 'dark');
   useEffect(() => {
     const system = window.matchMedia('(prefers-color-scheme: dark)');
     const sync = () => {
@@ -28,7 +28,6 @@ export function ThemeToggle() {
     try { localStorage.setItem('costello-notes-theme', next); } catch { /* Keep the in-memory selection. */ }
   };
   return <button className="theme-toggle" onClick={toggle} aria-label={dark ? 'ライトモードに切り替える' : 'ダークモードに切り替える'} title={dark ? 'ライトモード' : 'ダークモード'}>
-    <Moon className="theme-moon" size={18} aria-hidden="true" />
-    <Sun className="theme-sun" size={18} aria-hidden="true" />
+    {dark ? <Sun size={20} strokeWidth={1.7} aria-hidden="true" /> : <Moon size={20} strokeWidth={1.7} aria-hidden="true" />}
   </button>;
 }

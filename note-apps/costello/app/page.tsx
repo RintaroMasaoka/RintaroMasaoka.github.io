@@ -1,6 +1,6 @@
 'use client';
 
-import { isValidElement, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { isValidElement, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import config from '../note.config.json';
 import { type Components } from 'react-markdown';
 import { MathMarkdown } from '../components/math-markdown';
@@ -13,12 +13,12 @@ import { chapterIdFromPath, noteUrl } from '@/lib/note-urls';
 import { DerivationSequence, Supplement } from '../components/derivation-sequence';
 import { ThemeToggle } from '../components/theme-toggle';
 import { ReferencePopover } from '../components/reference-popover';
-import { ArrowLeft, ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen, PanelLeftClose, PanelLeftOpen, X } from 'lucide-react';
 
-type Chapter = { id: string; section: string; shortTitle: string; content: string };
+type Chapter = { id: string; section: string; shortTitle: string; description: string; content: string };
 type ChapterHeading = { id: string; depth: 2 | 3; label: string };
 const manuscripts = import.meta.glob('../content/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string,string>;
-const chapters: Chapter[] = config.chapters.map(c => ({ id:c.id, section:c.section, shortTitle:c.title, content:manuscripts['../'+c.file] }));
+const chapters: Chapter[] = config.chapters.map(c => ({ id:c.id, section:c.section, shortTitle:c.title, description:c.description, content:manuscripts['../'+c.file] }));
 
 function chapterNumber(section: string) {
   return /^\d+$/.test(section) ? `第${section}章` : null;
@@ -201,6 +201,10 @@ export function NotesReader({ initialId = chapterIdFromPath(window.location.path
 
   const [activeId, setActiveId] = useState(chapters.some((chapter) => chapter.id === initialId) ? initialId : config.chapters[0].id);
   const [mobileNav, setMobileNav] = useState(false);
+  const [desktopNav, setDesktopNav] = useState(true);
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 760px)').matches);
+  const navToggle = useRef<HTMLButtonElement>(null);
+  const navOpen = isMobile ? mobileNav : desktopNav;
   const [progress, setProgress] = useState(0);
   const activeIndex = chapters.findIndex((chapter) => chapter.id === activeId);
   const active = chapters[activeIndex];
@@ -211,6 +215,22 @@ export function NotesReader({ initialId = chapterIdFromPath(window.location.path
     () => createMarkdownComponents(equations, activeId),
     [activeId, equations],
   );
+
+  useEffect(() => {
+    const viewport = window.matchMedia('(max-width: 760px)');
+    const sync = () => { setIsMobile(viewport.matches); setMobileNav(false); };
+    viewport.addEventListener('change', sync);
+    return () => viewport.removeEventListener('change', sync);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile || !mobileNav) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setMobileNav(false); navToggle.current?.focus(); }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [isMobile, mobileNav]);
 
   useEffect(() => {
     const updateProgress = () => {
@@ -241,36 +261,53 @@ export function NotesReader({ initialId = chapterIdFromPath(window.location.path
     document.documentElement.lang = config.language;
     document.querySelector('meta[name="description"]')?.setAttribute('content',c.plainDescription);
   },[activeId]);
+  const closeMobileNav = () => { setMobileNav(false); navToggle.current?.focus(); };
   const chooseChapter = (id: string | undefined) => {
     if (!id) return;
     setActiveId(id);
     setMobileNav(false);
     window.history.pushState({}, "", noteUrl(`/${id}`));
     window.scrollTo(0,0);
+    if (isMobile && mobileNav) requestAnimationFrame(() => document.getElementById('article-top')?.focus({ preventScroll: true }));
   };
 
   const chooseHeading = (hash: string) => {
     setMobileNav(false);
-    requestAnimationFrame(() => revealFragment(hash));
+    requestAnimationFrame(() => {
+      revealFragment(hash);
+      if (isMobile && mobileNav) {
+        const target = document.getElementById(hash.slice(1));
+        if (target) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
+      }
+    });
   };
 
   return (
-    <div className="reader-shell">
+    <div className={`reader-shell ${desktopNav ? '' : 'nav-collapsed'}`}>
       <div className="progress-line" style={{ width: `${progress}%` }} />
 
       <header className="reader-header">
-        <button className="header-icon nav-toggle" onClick={() => setMobileNav(true)} aria-label="章一覧を開く"><Menu size={19} /></button>
-        <ThemeToggle />
+        <button ref={navToggle} className="header-icon nav-toggle" onClick={() => isMobile ? setMobileNav(!mobileNav) : setDesktopNav(!desktopNav)} aria-label={navOpen ? '目次を閉じる' : '目次を開く'} aria-expanded={navOpen} aria-controls="chapter-index">
+          {navOpen ? <PanelLeftClose size={20} aria-hidden="true" /> : <PanelLeftOpen size={20} aria-hidden="true" />}
+        </button>
+        <a className="reader-title" href="#article-top">{config.title}</a>
+        <div className="header-actions">
+          <details className="source-menu">
+            <summary><BookOpen size={17} aria-hidden="true" /><span>原典</span></summary>
+            <div className="source-panel"><p>{config.source.authors.join(', ')}</p><cite>{config.source.title}</cite><p>{config.source.locator}</p></div>
+          </details>
+          <ThemeToggle />
+        </div>
       </header>
 
-      <aside className={`chapter-index ${mobileNav ? 'is-open' : ''}`} aria-label="章一覧">
-        <div className="panel-mobile-head"><span>章一覧</span><button onClick={() => setMobileNav(false)} aria-label="章一覧を閉じる"><X size={18} /></button></div>
+      <aside id="chapter-index" className={`chapter-index ${mobileNav ? 'is-open' : ''}`} hidden={!navOpen} aria-label="章と節の目次">
+        <div className="panel-mobile-head"><span>章一覧</span><button onClick={closeMobileNav} aria-label="章一覧を閉じる"><X size={18} /></button></div>
         <nav className="chapter-list">
           {chapters.map((chapter) => {
             const isActive = chapter.id === activeId;
             return <div className="chapter-group" key={chapter.id}>
               <button className={isActive ? 'is-active' : ''} onClick={() => chooseChapter(chapter.id)} aria-expanded={isActive}>
-                <span className="chapter-label"><b>{chapter.section}</b><strong><MathMarkdown inline>{chapter.shortTitle}</MathMarkdown></strong></span>
+                <span className="chapter-label"><b>{chapter.section}</b><strong><MathMarkdown inline>{chapter.shortTitle}</MathMarkdown></strong><span className="chapter-description">{chapter.description}</span></span>
               </button>
               {isActive && <ol className="subsection-list" aria-label={`${chapter.section}の節`}>
                 {activeHeadings.map((heading) => <li key={heading.id} className={`depth-${heading.depth}`}>
@@ -284,21 +321,19 @@ export function NotesReader({ initialId = chapterIdFromPath(window.location.path
         </nav>
       </aside>
 
-      <main className="article-column" id="article-top">
+      <main className="article-column" id="article-top" tabIndex={-1} inert={isMobile && mobileNav}>
         <div className="article-inner">
           <article className="note-content">
             <MarkdownRenderer source={active.content} components={markdownComponents} />
           </article>
           <footer className="chapter-pager">
-            <div>
-              <button disabled={activeIndex === 0} onClick={() => chooseChapter(chapters[activeIndex - 1]?.id)} aria-label="前の章"><ArrowLeft size={17} /></button>
-              <button disabled={activeIndex === chapters.length - 1} onClick={() => chooseChapter(chapters[activeIndex + 1]?.id)} aria-label="次の章"><ArrowRight size={17} /></button>
-            </div>
+            <button className="previous-chapter" disabled={activeIndex === 0} onClick={() => chooseChapter(chapters[activeIndex - 1]?.id)}><span><ArrowLeft size={16} aria-hidden="true" /> 前の章</span><strong>{chapters[activeIndex - 1]?.shortTitle ?? 'ノートの先頭'}</strong></button>
+            <button className="next-chapter" disabled={activeIndex === chapters.length - 1} onClick={() => chooseChapter(chapters[activeIndex + 1]?.id)}><span>次の章 <ArrowRight size={16} aria-hidden="true" /></span><strong>{chapters[activeIndex + 1]?.shortTitle ?? 'ノートの末尾'}</strong></button>
           </footer>
         </div>
       </main>
 
-      {mobileNav && <button className="screen-backdrop" onClick={() => setMobileNav(false)} aria-label="章一覧を閉じる" />}
+      {isMobile && mobileNav && <button className="screen-backdrop" onClick={closeMobileNav} aria-label="章一覧を閉じる" />}
     </div>
   );
 }
