@@ -1,0 +1,19 @@
+{
+  "digest": "bd633655faa90103c803e3e91e9a28776e2026bb0ee938c1170a2078c4958985",
+  "raw_json": "{\"unit_id\": \"S1\", \"verdict\": \"PASS\", \"requirements\": [{\"need\": \"identify x\", \"source_id\": \"CURRENT\", \"quote\": \"Let x be real.\", \"reason\": \"Self-contained definition\"}], \"expression_checks\": [{\"span\": \"x\", \"rule\": \"Identify at use\", \"verdict\": \"PASS\", \"reason\": \"Explicit definition\"}], \"missing\": [\"missing relation\"], \"introduced\": [\"x is real\"], \"announced\": [], \"reader_state\": \"x real\"}",
+  "raw_sha256": "bb2b1b86cacb017eae31ea3894824e7c2c08150f914bf43e79597eda3464809e",
+  "schema_version": 3,
+  "signals": [
+    {
+      "field": "missing",
+      "needs": [
+        "missing relation"
+      ],
+      "verdict": "BLOCKED"
+    }
+  ],
+  "unit_id": "S1",
+  "unit_index": 0,
+  "validation_error": "PASS requires missing to be empty",
+  "verdict": "BLOCKED"
+}

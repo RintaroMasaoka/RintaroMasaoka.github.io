@@ -1,0 +1,31 @@
+{
+  "digest": "bd633655faa90103c803e3e91e9a28776e2026bb0ee938c1170a2078c4958985",
+  "record": {
+    "announced": [],
+    "expression_checks": [
+      {
+        "reason": "Explicit definition",
+        "rule": "Identify at use",
+        "span": "x",
+        "verdict": "PASS"
+      }
+    ],
+    "introduced": [
+      "x is real"
+    ],
+    "missing": [
+      "missing premise"
+    ],
+    "reader_state": "x real",
+    "requirements": [
+      {
+        "need": "identify x",
+        "quote": "Let x be real.",
+        "reason": "Self-contained definition",
+        "source_id": "CURRENT"
+      }
+    ],
+    "unit_id": "S1",
+    "verdict": "BLOCKED"
+  }
+}

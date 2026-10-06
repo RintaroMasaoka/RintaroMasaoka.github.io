@@ -1,0 +1,35 @@
+{
+  "revision_sha256": "c19b84ec8eaf2436c76a4d5d81bf5f685994135cf65cb06e3f04677d48ca5836",
+  "replay_digest": "25c0c2e89ce40dd9b21627abb38b5370d99ca38b1013c17e12bf51f9b322a467",
+  "scope": "entire orientation.md visible title, prose, inline math, headings and citation labels/links; link targets are citations, not external required reading",
+  "total_units": 91,
+  "recorded_units": 3,
+  "passed_units": 2,
+  "unreviewed_units": 88,
+  "mechanical_status": "BLOCKED; immutable records S1-S3 and no later reveal",
+  "semantic_status": "NEEDS_CHANGES; S3 earliest ambiguous operation operand",
+  "independence_status": "Fresh non-authoring reader, fork_turns none; visible execution contained conversational JSON replies only and no tools. Instructional prohibition of discovery, no OS isolation, not sealed. Coordinator retained suffix; reader received S1 then S2 then S3 only, with each preceding reply frozen/adjudicated before next reveal.",
+  "reader_identity": "/root/gate_orientation/prefix_reader",
+  "earliest_finding": {
+    "unit": "S3",
+    "line": 3,
+    "span": "揺らぎを先に平均してから四乗する計算",
+    "missing_relation": "Whether fourth power applies to mean fluctuation alone, or original value plus mean fluctuation; comparison needs common original-value treatment.",
+    "consequence": "0^4 and x^4 are different candidate computations.",
+    "repair_direction": "Explicitly identify summed value as the operand in both averaging/power orders."
+  },
+  "limits": [
+    "S4-S91 UNVERIFIED; required stop prevents whole-route PASS.",
+    "No scientific truth, source accuracy, rendering, other chapter, full notation-choice or publication certification.",
+    "Unit staging preserved full sentences; no within-sentence verdict needed before S3 stopping point. Later units have not undergone semantic unit-granularity review.",
+    "Coordinator calibration is not independent reader calibration."
+  ],
+  "hashes": {
+    "reader-order.md": "9f444ca478f292de31bfa6cbfea60f8c6a02c5a7e23da64cf508dd808d973491",
+    "calibration-cases.md": "77bb0822dc61700c107421c04b57f7766dd5846b630d138585e78a45bf199d15",
+    "snapshot.md": "c19b84ec8eaf2436c76a4d5d81bf5f685994135cf65cb06e3f04677d48ca5836",
+    "japanese-prose.md": "10bf745dba23c12a58fb5df133860c805fee6643a25d20e71a33964d1afb2802",
+    "prefix-protocol.md": "d04e8a230b89d46c795000d3f9a75d849936a12ea6a465034815fc183bcf3f3a",
+    "adversarial-reader.md": "8b782cefaafcc7cb1366cdaca0ba326dcff94a8f841aa70c4beb520f802f2a99"
+  }
+}

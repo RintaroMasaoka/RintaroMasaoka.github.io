@@ -1,0 +1,10 @@
+{
+  "unit_id": "S2",
+  "verdict": "UNVERIFIED",
+  "mechanical_status": "BLOCKED as submitted, frozen permanently",
+  "coordinator_disposition": "Reader objection retained, not accepted as established defect. A general setup may specify mean-zero without distribution because no numerical average is yet demanded. The completed addition ordinarily supplies the referent of その四乗; objection provides alternate attachment but does not establish an obstructive reading in context. No explanatory rebuttal or suffix supplied to reader, and run cannot continue after stopping verdict.",
+  "remaining_scope": "S3-S10 unreviewed; whole bounded acceptance UNVERIFIED",
+  "reader_identity": "/root/gate_orientation/bounded_reader",
+  "boundary": "fork_turns none; instructional no-tools; no discovery calls observed",
+  "manuscript_sha256": "972f8bb9b676a8b5e4a7166e00a61c7517b2221c169d77fe5b034761bafe424b"
+}

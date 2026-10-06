@@ -1,0 +1,30 @@
+{
+  "reader": "/root/gate_orientation/prefix_reader",
+  "fork_turns": "none",
+  "authorized_tools": [],
+  "baseline_file": "baseline.json",
+  "governing_guidelines": [
+    "reader-order.md",
+    "adversarial-reader.md",
+    "japanese-prose.md",
+    "governing-addendum.txt"
+  ],
+  "not_supplied": [
+    "manuscript path",
+    "session path",
+    "suffix",
+    "author rationale",
+    "repair goal",
+    "expected verdict",
+    "source papers",
+    "previous reviews"
+  ],
+  "initial_current_unit": "S1",
+  "revealed_sequence": [
+    "S1",
+    "S2",
+    "S3"
+  ],
+  "observed_reader_calls": "No tools observed; three JSON-only final replies.",
+  "boundary": "Instructional only; shared filesystem remained accessible."
+}
