@@ -53,6 +53,13 @@
       "description": "Recognize and correct recurring biases in AI reasoning, evidence use, writing, and revision.",
       "version": "0.4.3",
       "author": { "name": "Rintaro Masaoka" }
+    },
+    {
+      "name": "speech-act",
+      "source": "./plugins/speech-act",
+      "description": "Design scholarly writing and explanations around what they enable an intended reader to understand, judge, question, or do.",
+      "version": "0.1.1",
+      "author": { "name": "Rintaro Masaoka" }
     }
   ]
 }
