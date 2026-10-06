@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "source": "standalone:skill-stock-manager",
+  "source_path": "scripts/skill_dependencies.py",
+  "source_revision": "b734d8969cb45a0a6bb853f55ea95df24c288d87",
+  "source_sha256": "e8f61d995d06d098d8267aa28d4172524e05f644b09f7a68bc939f85c0d433f4",
+  "mode": "copy",
+  "update_policy": "frozen",
+  "reason": "Self-contained release dependency resolution without access to the private working stock."
+}

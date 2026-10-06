@@ -32,6 +32,9 @@ jobs:
       - name: Check Skill Shelf documentation language
         run: python3 skill-shelf/scripts/check_release_language.py
 
+      - name: Test Skill Shelf bundle delivery
+        run: python3 -m unittest discover -s skill-shelf/tests -v
+
       - name: Verify Skill Shelf download
         run: python3 skill-shelf/scripts/build_download.py --check
 

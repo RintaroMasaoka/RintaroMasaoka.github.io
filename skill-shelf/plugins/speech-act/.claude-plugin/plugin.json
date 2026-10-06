@@ -1,6 +1,6 @@
 {
   "name": "speech-act",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Instructional guidance for planning, revising, and evaluating scholarly writing through speech-act distinctions, with bounded use of language models.",
   "author": {
     "name": "Rintaro Masaoka"
