@@ -1,48 +1,48 @@
 const packages = {
   "physics-paper": {
-    version: "0.1.5",
+    version: "0.1.6",
     title: "Physics Paper",
     license: "MIT License",
     description: "Physics research-paper introductions grounded in the manuscript, literature, readership, and venue.",
     skills: ["introduction"],
   },
   "academic-writing": {
-    version: "0.2.3",
+    version: "0.2.4",
     title: "Academic Writing",
     license: "MIT License · includes CC BY 4.0 material",
     description: "Scoped authoring and review skills with shared evidence and reader conventions.",
     skills: ["abstract", "claim-audit", "exposition", "figures", "introduction", "notation", "prose-review", "sentence-revision", "terminology"],
   },
   nogap: {
-    version: "0.1.0",
+    version: "0.1.1",
     title: "Nogap",
     license: "MIT License",
     description: "Detect, repair, and verify reader-facing gaps in rigorous explanations.",
     skills: ["nogap-scan", "nogap-fill", "nogap-ja-friction", "nogap-verify", "nogap-run"],
   },
   manim: {
-    version: "0.1.0+codex.20260820030822",
+    version: "0.1.1",
     title: "Manim",
     license: "MIT License",
     description: "Source-grounded mathematical animation from requirements through verification.",
     skills: ["3b1b", "argument-clip-orchestrator", "argument-clip-requirements", "manim-asset-implementer", "manim-asset-system", "manim-audience-state-review", "manim-clip-implementer", "manim-clip-verifier", "manim-math-derivation", "manim-slides-deck", "manim-static-figures", "manim-visual-planner", "manim-visual-review"],
   },
   "research-workflow": {
-    version: "0.1.2",
+    version: "0.1.3",
     title: "Research Workflow",
     license: "MIT License",
     description: "A structured theoretical-physics research cycle with bounded investigation, independent checks, and research memory initialized as needed.",
     skills: ["auto-research", "research-planner", "direction-challenger", "researcher", "critic", "curator", "guide-writer"],
   },
   "study-notes": {
-    version: "0.1.1",
+    version: "0.1.2",
     title: "Study Notes",
     license: "MIT License",
     description: "Create and revise scholarly study notes. Includes an optional HTML manuscript specification; a renderer is not bundled.",
     skills: ["study-note"],
   },
   "ai-bias": {
-    version: "0.4.3",
+    version: "0.4.4",
     title: "AI Bias",
     license: "MIT License",
     description: "Recognize and correct recurring biases in AI reasoning, writing, and revision. Includes 23 patterns across five categories, with explanations, checks, and remedies for reasoning and phrasing—including invented terms, drafting residue, and unsupported rhetorical contrasts. English instructions; responses follow your requested language.",
@@ -67,7 +67,7 @@ const packages = {
     },
   },
   "speech-act": {
-    version: "0.2.0",
+    version: "0.2.1",
     title: "Speech Act",
     license: "MIT License",
     description: "Instructional guidance for planning, revising, and evaluating scholarly writing through speech-act distinctions, with bounded use of language models.",
@@ -229,6 +229,8 @@ async function openPackage(packageName, documentPath, fragment = '', moveToText 
   description.textContent = data.description;
   packageVersion.textContent = `Version ${data.version}`;
   licenseLabel.textContent = `License: ${data.license}`;
+  document.querySelector('#package-download').href = `./downloads/${packageName}.zip`;
+  document.querySelector('#package-download').setAttribute('aria-label', `Download ${data.title} with required shared packages`);
   skillList.replaceChildren();
   chapterBody.textContent = 'Opening chapters…';
   document.querySelector('#chapter-label').textContent = '';

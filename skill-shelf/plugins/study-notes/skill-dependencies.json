@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "owner": "package:study-notes",
+  "dependencies": [],
+  "bundled": [
+    {
+      "path": "skills/study-note/references/exposition.md",
+      "source": "package:academic-writing",
+      "source_path": "references/pedagogical-exposition.md",
+      "source_revision": "unknown",
+      "mode": "adapted",
+      "update_policy": "manual",
+      "reason": "Local study-note workflow adapted for independent use. The historical source revision was not recorded; compare deliberately during future maintenance."
+    },
+    {
+      "path": "skills/study-note/references/prose-review.md",
+      "source": "package:academic-writing",
+      "source_path": "references/audit-reader-state.md",
+      "source_revision": "unknown",
+      "mode": "adapted",
+      "update_policy": "manual",
+      "reason": "Local study-note workflow adapted for independent use. The historical source revision was not recorded; compare deliberately during future maintenance."
+    }
+  ]
+}

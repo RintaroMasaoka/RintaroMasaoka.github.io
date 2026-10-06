@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "owner": "package:academic-writing",
+  "dependencies": [
+    {
+      "target": "package:physics-paper",
+      "kind": "handoff",
+      "version": ">=0.1.5,<0.2.0",
+      "skills": [
+        "introduction"
+      ],
+      "used_by": [
+        "skills/introduction/SKILL.md"
+      ],
+      "reason": "Physics research-paper introductions are outside the expository authoring scope.",
+      "when": "The requested output is a physics research-paper introduction.",
+      "fallback": "Report that the specialized research-paper route is unavailable; continue only authoring tasks within this package scope."
+    }
+  ],
+  "bundled": []
+}

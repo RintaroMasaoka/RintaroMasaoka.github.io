@@ -9,57 +9,73 @@
       "name": "academic-writing",
       "source": "./plugins/academic-writing",
       "description": "Compose and review scholarly abstracts, expository introductions, explanations, figures, prose, terminology, notation, evidence, and sentence-level revisions.",
-      "version": "0.2.3",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.2.4",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     },
     {
       "name": "physics-paper",
       "source": "./plugins/physics-paper",
       "description": "Draft, revise, and audit physics research-paper introductions against the manuscript, literature, intended readership, and target venue.",
-      "version": "0.1.5",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.1.6",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     },
     {
       "name": "nogap",
       "source": "./plugins/nogap",
       "description": "Detect, repair, and verify reader-facing gaps in rigorous explanations.",
-      "version": "0.1.0",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.1.1",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     },
     {
       "name": "manim",
       "source": "./plugins/manim",
       "description": "Create and verify source-grounded mathematical animations with Manim.",
-      "version": "0.1.0+codex.20260820030822",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.1.1",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     },
     {
       "name": "research-workflow",
       "source": "./plugins/research-workflow",
       "description": "Coordinate theoretical-physics research with bounded roles, independent checks, and durable handoff.",
-      "version": "0.1.2",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.1.3",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     },
     {
       "name": "study-notes",
       "source": "./plugins/study-notes",
       "description": "Create and revise scholarly study notes with optional HTML manuscript conventions.",
-      "version": "0.1.1",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.1.2",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     },
     {
       "name": "ai-bias",
       "source": "./plugins/ai-bias",
       "description": "Recognize and correct recurring biases in AI reasoning, evidence use, writing, and revision.",
-      "version": "0.4.3",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.4.4",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     },
     {
       "name": "speech-act",
       "source": "./plugins/speech-act",
       "description": "Instructional guidance for planning, revising, and evaluating scholarly writing through speech-act distinctions, with bounded use of language models.",
-      "version": "0.2.0",
-      "author": { "name": "Rintaro Masaoka" }
+      "version": "0.2.1",
+      "author": {
+        "name": "Rintaro Masaoka"
+      }
     }
   ]
 }

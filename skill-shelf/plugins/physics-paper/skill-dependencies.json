@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "owner": "package:physics-paper",
+  "dependencies": [
+    {
+      "target": "package:academic-writing",
+      "kind": "optional",
+      "version": ">=0.2.3,<0.3.0",
+      "skills": [
+        "sentence-revision"
+      ],
+      "used_by": [
+        "skills/introduction/SKILL.md"
+      ],
+      "reason": "The sentence dossier can use a specialist editor; the local G7 procedure supplies the complete alternative.",
+      "when": "The sentence-revision provider is available for a scoped sentence dossier.",
+      "fallback": "Use the complete local G7 candidate, reader-state, alternatives, veto, rollback, and synchronization procedure."
+    }
+  ],
+  "bundled": []
+}

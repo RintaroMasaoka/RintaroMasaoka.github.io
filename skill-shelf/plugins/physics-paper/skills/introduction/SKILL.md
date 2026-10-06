@@ -202,8 +202,9 @@ Audit the line at four scales:
   by an illustrative example?
 
 When a sentence is understandable but chooses the wrong entry or narrowing
-line, use `BACK(READER)` through `$academic-writing:sentence-revision`. Return to the
-reader-line record and revise the earliest checkpoint that licensed the move.
+line, use `BACK(READER)` through `$academic-writing:sentence-revision` when
+available, or the complete local G7 procedure below. Return to the reader-line
+record and revise the earliest checkpoint that licensed the move.
 Do not repair the mismatch by adding definitions after the specialization has
 already occurred.
 
