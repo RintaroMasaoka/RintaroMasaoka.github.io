@@ -22,6 +22,15 @@ categories:
 # アイテムリスト
 items:
   - title:
+      en: "Costello's Perturbative Field Theory"
+      ja: "Costelloの摂動的場の理論"
+    category: notes
+    url: /notes/costello/
+    description:
+      en: Japanese reading notes on Gaussian averages, local renormalization, and the Batalin–Vilkovisky formalism, with worked calculations.
+      ja: ガウス平均、局所的な繰り込み、BV形式とスケール間の整合性を具体計算で学ぶ日本語ノート。
+
+  - title:
       en: "SU(2) WZW Model — Recknagel & Schomerus Chapter 6"
       ja: "SU(2) WZW模型 — Recknagel・Schomerus 第6章"
     category: notes

@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "node skill-shelf/scripts/build_reader.mjs && astro build",
     "preview": "astro preview",
-    "cv": "node cv/generate.mjs en && node cv/generate.mjs ja"
+    "cv": "node cv/generate.mjs en && node cv/generate.mjs ja",
+    "build:costello": "npm --prefix note-apps/costello run build"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",

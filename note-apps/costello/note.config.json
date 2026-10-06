@@ -1,0 +1,93 @@
+{
+  "specVersion": "1.0.0",
+  "id": "costello-notes",
+  "title": "Costelloの摂動的場の理論",
+  "description": "ガウス平均、局所的な繰り込み、BV方程式のスケール間の整合性を具体計算で学ぶ。",
+  "language": "ja",
+  "source": {
+    "title": "Renormalisation and the Batalin–Vilkovisky formalism; Renormalization and Effective Field Theory",
+    "authors": [
+      "Kevin Costello"
+    ],
+    "locator": "arXiv:0706.1533v3, §§1, 2, 6–12; AMS (2011)"
+  },
+  "chapters": [
+    {
+      "id": "orientation",
+      "section": "導入",
+      "title": "Costelloの構成と本ノートの目的",
+      "description": "研究の背景・構成の意義・計算の役割",
+      "plainTitle": "Costelloの構成と本ノートの目的",
+      "plainDescription": "研究の背景・構成の意義・計算の役割",
+      "file": "content/orientation.md"
+    },
+    {
+      "id": "gaussian",
+      "section": "1",
+      "title": "ガウス平均と有効相互作用",
+      "description": "四次相互作用を平均する",
+      "plainTitle": "ガウス平均と有効相互作用",
+      "plainDescription": "四次相互作用を平均する",
+      "file": "content/gaussian.md"
+    },
+    {
+      "id": "scales",
+      "section": "2",
+      "title": "段階的な積分と縮約演算子",
+      "description": "共分散の加法と繰り込み群",
+      "plainTitle": "段階的な積分と縮約演算子",
+      "plainDescription": "共分散の加法と繰り込み群",
+      "file": "content/scales.md"
+    },
+    {
+      "id": "renormalization",
+      "section": "3",
+      "title": "場の縮約と局所カウンター項",
+      "description": "一ループの発散を取り除く",
+      "plainTitle": "場の縮約と局所カウンター項",
+      "plainDescription": "一ループの発散を取り除く",
+      "file": "content/renormalization.md"
+    },
+    {
+      "id": "schemes",
+      "section": "4",
+      "title": "繰り込み方式と有効相互作用の族",
+      "description": "有限部分を変えて比較する",
+      "plainTitle": "繰り込み方式と有効相互作用の族",
+      "plainDescription": "有限部分を変えて比較する",
+      "file": "content/schemes.md"
+    },
+    {
+      "id": "bv",
+      "section": "5",
+      "title": "積分の恒等式とBV形式",
+      "description": "対称性を微分で表す",
+      "plainTitle": "積分の恒等式とBV形式",
+      "plainDescription": "対称性を微分で表す",
+      "file": "content/bv.md"
+    },
+    {
+      "id": "compatibility",
+      "section": "6",
+      "title": "熱核と量子マスター方程式",
+      "description": "スケール間の整合性を導く",
+      "plainTitle": "熱核と量子マスター方程式",
+      "plainDescription": "スケール間の整合性を導く",
+      "file": "content/compatibility.md"
+    },
+    {
+      "id": "theorems",
+      "section": "7",
+      "title": "局所性の定理と量子化の障害",
+      "description": "具体計算から一般的な構成へ",
+      "plainTitle": "局所性の定理と量子化の障害",
+      "plainDescription": "具体計算から一般的な構成へ",
+      "file": "content/theorems.md"
+    }
+  ],
+  "publication": {
+    "provider": "github-pages",
+    "url": "https://rintaromasaoka.github.io/notes/costello/",
+    "visibility": "public"
+  }
+}
