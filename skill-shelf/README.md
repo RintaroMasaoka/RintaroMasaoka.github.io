@@ -17,7 +17,7 @@ of the author's everyday development environment.
 | Research Workflow | 0.1.2 |
 | Study Notes | 0.1.1 |
 | AI Bias | 0.4.3 |
-| Speech Act | 0.1.1 |
+| Speech Act | 0.2.0 |
 
 Update these files only through a reviewed promotion with a package version
 change. The private working stock remains the authority for ongoing development.
@@ -43,9 +43,9 @@ changes. Research Workflow now follows the user's requested response language,
 defaulting to English, and the Study Notes example explicitly uses English.
 The study-note format retains its legacy language default for existing configs.
 
-Speech Act 0.1.1 is an English adaptation of the private working package 0.1.0,
-with its workflow and supporting references for designing scholarly prose as
-actions addressed to an intended reader.
+Speech Act 0.2.0 is a new design based on sixteen references about scholarly
+communication and AI mediation. The public and working releases use the same
+English package snapshot.
 
 ## License
 

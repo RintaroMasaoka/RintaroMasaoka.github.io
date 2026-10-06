@@ -58,7 +58,7 @@
       "name": "speech-act",
       "source": "./plugins/speech-act",
       "description": "Design scholarly writing and explanations around what they enable an intended reader to understand, judge, question, or do.",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "author": { "name": "Rintaro Masaoka" }
     }
   ]
