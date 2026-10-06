@@ -1,0 +1,29 @@
+{
+  "digest": "819abacbfac4fca6049c080124cbee5d33acfd92c733c449c4445e9bdf2c3845",
+  "record": {
+    "announced": [],
+    "expression_checks": [
+      {
+        "reason": "Explicit definition",
+        "rule": "Identify at use",
+        "span": "x",
+        "verdict": "PASS"
+      }
+    ],
+    "introduced": [
+      "x is real"
+    ],
+    "missing": [],
+    "reader_state": "x real",
+    "requirements": [
+      {
+        "need": "identify x",
+        "quote": "Let x be real.",
+        "reason": "Self-contained definition",
+        "source_id": "CURRENT"
+      }
+    ],
+    "unit_id": "S1",
+    "verdict": "PASS"
+  }
+}

@@ -1,0 +1,3 @@
+{"unit_id": "S1", "adjudication": "Semantic witnesses and expression coverage inspected; accepted as scoped introduction/report or available relation.", "verdict": "PASS"}
+{"unit_id": "S2", "adjudication": "Semantic witnesses and expression coverage inspected; accepted as scoped introduction/report or available relation.", "verdict": "PASS"}
+{"unit_id": "S3", "adjudication": "Semantic witnesses and expression coverage inspected; stopping need accepted; no suffix supplied.", "verdict": "BLOCKED"}

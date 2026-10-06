@@ -1,0 +1,22 @@
+[
+  {
+    "id": "B1",
+    "text": "The reader can use elementary algebra, including binomial expansion and powers of real numbers."
+  },
+  {
+    "id": "B2",
+    "text": "The reader can use elementary calculus, including derivatives and integrals."
+  },
+  {
+    "id": "B3",
+    "text": "The reader can use Taylor expansion."
+  },
+  {
+    "id": "B4",
+    "text": "The reader can use matrix quadratic forms."
+  },
+  {
+    "id": "B5",
+    "text": "The reader has no assumed QFT or BV knowledge. Paper-specific symbols and relations must be introduced in the visible route."
+  }
+]
