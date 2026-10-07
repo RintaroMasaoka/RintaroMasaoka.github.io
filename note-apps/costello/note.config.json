@@ -15,10 +15,10 @@
     {
       "id": "orientation",
       "section": "導入",
-      "title": "Costelloの構成と本ノートの目的",
-      "description": "研究の背景・構成の意義・計算の役割",
-      "plainTitle": "Costelloの構成と本ノートの目的",
-      "plainDescription": "研究の背景・構成の意義・計算の役割",
+      "title": "Costelloの構成に入る",
+      "description": "平均の結果を次の相互作用へ引き継ぐ",
+      "plainTitle": "Costelloの構成に入る",
+      "plainDescription": "平均の結果を次の相互作用へ引き継ぐ",
       "file": "content/orientation.md"
     },
     {
