@@ -57,21 +57,43 @@
       "kind": "concept_recognition",
       "criterion": "Known concepts remain recognizable from actual names/symbols without author-side reconstruction",
       "applicability": "applicable",
-      "target": "content/orientation.md:3",
+      "target": "content/orientation.md:3; content/renormalization.md:50,65-79; content/bv.md:3,176",
       "concept": "ultraviolet cutoff / カットオフ",
-      "visible_form": "短距離の制限",
-      "observed": "User reports generic restriction fails to connect to the familiar cutoff concept. Existing probe pass does not cover this mapping.",
-      "fit": "blocked"
+      "visible_form": "紫外カットオフ; 熱時間の下限 epsilon; 上限 L; ゲージ固定",
+      "observed": "Known names are visible; cutoff and effective scale have distinct roles and dimensions. Mathematical restriction of a quadratic form remains a separate valid use. Independent review of all eight chapters found no further recognition defect.",
+      "fit": "pass"
     }
   ],
   "reader_fit": {
-    "status": "blocked",
-    "method": "User-reported recognition failure; application of concept-recognition gate to unchanged source",
+    "status": "pass",
+    "method": "Independent isolated review of all eight current chapters and local conventions",
     "limit": "Textual fit only; no claim of observed human comprehension",
     "previous_assessment": {
       "status": "pass",
       "contract_version": "0.1.9",
       "scope": "Concept/detail/convention probes before concept-recognition incident"
+    },
+    "framework_version": "0.1.11",
+    "scope": [
+      "bv",
+      "compatibility",
+      "gaussian",
+      "orientation",
+      "renormalization",
+      "scales",
+      "schemes",
+      "theorems"
+    ],
+    "source_snapshot": {
+      "content/bv.md": "c17b66feb1f2bb77c2198dd2c482cdbfe8cfbfa1024813c601fdf4b515c2a7ee",
+      "content/compatibility.md": "c80179991460ff54602852f4dc65c7798de36aab95994bcb0cf89f37deaf3c4f",
+      "content/gaussian.md": "657e15fa6690f2d5c0fdddeb64224931471aac4cd9d73cc649a0ee41103ca83e",
+      "content/orientation.md": "64ab36f35b212c4fb987ab0b7a3b80af452538599b2374de9eca54423511f2b6",
+      "content/renormalization.md": "33c2103f5b48159bea5c56672e9412a230346a99eb7205b019fddde8262c990b",
+      "content/scales.md": "b6f6e557960c478badee2490757d2b29e5d90de8f71205ab83a5bedd81e38167",
+      "content/schemes.md": "718df4ba3296cb3f3d105927d3becfd8e4c856542c1d82f2f47dd10a1b14e2fc",
+      "content/theorems.md": "fb42efb6a8cffe76e7afa57e1f7bdf1c7af605d929d817b076edfa079bab4153",
+      "note.config.json": "ca640968865e96dcc3883cb6677bddeeadbee7f8429f6f2f402249d5b0d3b144"
     }
   },
   "inference": [
@@ -109,6 +131,111 @@
       "retained": "暗記を前提にしない",
       "use": "理解・計算に必要な時点で参照できる",
       "supply": "作用の符号、hbar、共分散、g/4!、cutoff、熱核時間、次数とgraded signsを初使用前に指定する"
+    }
+  ],
+  "assessment_history": [
+    {
+      "framework_version": "0.1.10",
+      "status": "blocked",
+      "probe": {
+        "kind": "concept_recognition",
+        "criterion": "Known concepts remain recognizable from actual names/symbols without author-side reconstruction",
+        "applicability": "applicable",
+        "target": "content/orientation.md:3; content/renormalization.md:50,65-79; content/bv.md:3,176",
+        "concept": "ultraviolet cutoff / カットオフ",
+        "visible_form": "紫外カットオフ; 熱時間の下限 epsilon; 上限 L; ゲージ固定",
+        "observed": "Known names are visible; cutoff and effective scale have distinct roles and dimensions. Mathematical restriction of a quadratic form remains a separate valid use. Independent review of all eight chapters found no further recognition defect.",
+        "fit": "pass"
+      },
+      "resolution": "Replaced in orientation/renormalization and reassessed against all current chapters"
+    }
+  ],
+  "recognition_application": [
+    {
+      "chapter": "orientation",
+      "decision": "repaired",
+      "concepts": [
+        "紫外カットオフ",
+        "繰り込み",
+        "ガウス平均"
+      ],
+      "evidence": "紫外カットオフを導入して"
+    },
+    {
+      "chapter": "gaussian",
+      "decision": "kept",
+      "concepts": [
+        "Wick縮約",
+        "共分散",
+        "伝播関数",
+        "有効相互作用",
+        "連結図"
+      ],
+      "evidence": "共分散の定義と縮約の係数を計算; 連結図の名称に先行する図と計算に対応がある"
+    },
+    {
+      "chapter": "scales",
+      "decision": "kept",
+      "concepts": [
+        "縮約演算子",
+        "繰り込み群",
+        "熱時間"
+      ],
+      "evidence": "各演算子の式と役割; 熱時間は長さの二乗、波数成分の滑らかな抑制"
+    },
+    {
+      "chapter": "renormalization",
+      "decision": "repaired",
+      "concepts": [
+        "汎関数微分",
+        "紫外カットオフ",
+        "局所カウンター項"
+      ],
+      "evidence": "epsilon is lower heat-time cutoff; L is upper effective scale; diagonal divergence explicitly computed"
+    },
+    {
+      "chapter": "schemes",
+      "decision": "kept",
+      "concepts": [
+        "繰り込み方式",
+        "繰り込み条件",
+        "漸近的局所性"
+      ],
+      "evidence": "名称・有限部分・係数条件・残差条件の対応が本文にある"
+    },
+    {
+      "chapter": "bv",
+      "decision": "repaired",
+      "concepts": [
+        "ゲージ固定",
+        "反場",
+        "BV括弧",
+        "量子マスター方程式",
+        "コホモロジー"
+      ],
+      "evidence": "ゲージ固定を冒頭で明示; 新しい演算・次数規約は使用前に構成; 二次形式の制限は変更不要"
+    },
+    {
+      "chapter": "compatibility",
+      "decision": "kept",
+      "concepts": [
+        "自由微分",
+        "ゲージ固定",
+        "熱核",
+        "ホモトピー"
+      ],
+      "evidence": "核・演算子の規約と式を先に与え、ホモトピーをその関係の名称として導入"
+    },
+    {
+      "chapter": "theorems",
+      "decision": "kept",
+      "concepts": [
+        "局所カウンター項",
+        "漸近的局所性",
+        "コホモロジー類",
+        "アノマリー"
+      ],
+      "evidence": "既出の計算への参照と局所的破れの役割から名称へ進む"
     }
   ]
 }
