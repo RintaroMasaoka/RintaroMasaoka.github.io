@@ -52,12 +52,27 @@
       "target": "content/gaussian.md:3-5,38-48; content/bv.md:31-62; content/compatibility.md:14-26,84-109",
       "observed": "Supplies covariance, normalization, exponent sign, formal parameter and graded conventions before calculations.",
       "fit": "pass"
+    },
+    {
+      "kind": "concept_recognition",
+      "criterion": "Known concepts remain recognizable from actual names/symbols without author-side reconstruction",
+      "applicability": "applicable",
+      "target": "content/orientation.md:3",
+      "concept": "ultraviolet cutoff / カットオフ",
+      "visible_form": "短距離の制限",
+      "observed": "User reports generic restriction fails to connect to the familiar cutoff concept. Existing probe pass does not cover this mapping.",
+      "fit": "blocked"
     }
   ],
   "reader_fit": {
-    "status": "pass",
-    "method": "Independent authored-source review against explicit user contract",
-    "limit": "Textual fit only; no claim of observed human comprehension"
+    "status": "blocked",
+    "method": "User-reported recognition failure; application of concept-recognition gate to unchanged source",
+    "limit": "Textual fit only; no claim of observed human comprehension",
+    "previous_assessment": {
+      "status": "pass",
+      "contract_version": "0.1.9",
+      "scope": "Concept/detail/convention probes before concept-recognition incident"
+    }
   },
   "inference": [
     {
