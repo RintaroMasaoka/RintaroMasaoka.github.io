@@ -141,11 +141,11 @@
         "kind": "concept_recognition",
         "criterion": "Known concepts remain recognizable from actual names/symbols without author-side reconstruction",
         "applicability": "applicable",
-        "target": "content/orientation.md:3; content/renormalization.md:50,65-79; content/bv.md:3,176",
+        "target": "content/orientation.md:3",
         "concept": "ultraviolet cutoff / カットオフ",
-        "visible_form": "紫外カットオフ; 熱時間の下限 epsilon; 上限 L; ゲージ固定",
-        "observed": "Known names are visible; cutoff and effective scale have distinct roles and dimensions. Mathematical restriction of a quadratic form remains a separate valid use. Independent review of all eight chapters found no further recognition defect.",
-        "fit": "pass"
+        "visible_form": "短距離の制限",
+        "observed": "User reports generic restriction fails to connect to the familiar cutoff concept. Existing probe pass does not cover this mapping.",
+        "fit": "blocked"
       },
       "resolution": "Replaced in orientation/renormalization and reassessed against all current chapters"
     }
@@ -237,5 +237,30 @@
       ],
       "evidence": "既出の計算への参照と局所的破れの役割から名称へ進む"
     }
-  ]
+  ],
+  "heading_assessment": {
+    "date": "2026-10-07",
+    "status": "pass",
+    "scope": "8 chapter headings, 39 H2 headings, 4 supplement summaries and chapter navigation descriptions",
+    "method": "Independent navigation-only reader before body disclosure; separate independent full-manuscript heading/body-fit review",
+    "framework": "nogap Japanese heading guide, reader-guard adversarial reader",
+    "criteria": [
+      "Recognizable subject and relation/task in exposed navigation",
+      "New topic labels do not assume mastery",
+      "Section fulfills heading promise",
+      "Natural Japanese and distinct retrieval value"
+    ],
+    "limits": "Editorial navigation and heading/body fit only. No claim of complete sequential clause-level prefix replay, independent mathematical verification or observed human comprehension. Historical reader_fit snapshot retained unchanged.",
+    "source_snapshot": {
+      "content/bv.md": "13e70d61dd3e2ebbeb4968546e3493295c9f0ff6658be18ba9f48b614139492a",
+      "content/compatibility.md": "b834bf20649c9cf9bd30929f5c7bbb4172a9aec679af36330e0b9aca890d7aee",
+      "content/gaussian.md": "1457ed54276138630bf899a2ca9d45097f9f19be8b9ce1c5d8d88966ac158a29",
+      "content/orientation.md": "964d816246a014c30e9334cb9d7f518a17ec13df2f48f7e59bb45601eff45270",
+      "content/renormalization.md": "f6b381d723ca7ac57f43a97e6a6dbc8a425cee1b90ab46fd3b86d0a60045dd16",
+      "content/scales.md": "8caf25fb43cc8df693098de4c9aa79188d893943e96cf98601e3b7bde5e0f7e3",
+      "content/schemes.md": "f694006a4434c28db8e148bfa434dafc2c58c06fc2bf958c87f150adea7cb8af",
+      "content/theorems.md": "7cdb7c0ceb7ee7dd25788c28361baab68632797ab7c166c63fcf0477bb477c2a",
+      "note.config.json": "545634589280c1ea984fff49c3ce24c51450f1c03338cfbf734c56cc791f3cb2"
+    }
+  }
 }
