@@ -262,5 +262,20 @@
       "content/theorems.md": "7cdb7c0ceb7ee7dd25788c28361baab68632797ab7c166c63fcf0477bb477c2a",
       "note.config.json": "545634589280c1ea984fff49c3ce24c51450f1c03338cfbf734c56cc791f3cb2"
     }
+  },
+  "entry_revision": {
+    "date": "2026-10-07",
+    "reason": "Qualitative familiarity with renormalization does not identify the integration variables, decomposition or interaction in a concrete question.",
+    "changes": [
+      "Define free action S0, interaction V and Euclidean exponential sign before Gaussian averaging",
+      "Identify integrated field components as fluctuations and held components as remaining variables",
+      "Define effective interaction through the averaged exponential",
+      "Defer scale-range comparison to its construction in scales chapter; define x,y,I and averaging before quartic question"
+    ],
+    "verification": "Author dependency reread and mathematical rendering checks. Earlier independent assessments retain their original snapshots and do not certify this revision.",
+    "source_snapshot": {
+      "content/orientation.md": "f70aea98810aafcd21683ea3efc14239f9db4fe22ea6df04cab3823c3fc0125d",
+      "content/gaussian.md": "74383a9323442dfa813842f11ee80446da01e7f98021974d1bf4ba4f8cde3ce2"
+    }
   }
 }
