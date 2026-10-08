@@ -1,6 +1,6 @@
 # Costelloの繰り込みと有効作用
 
-本ノートでは、Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）の議論を追う。この論文では、発散の差し引き方を変えると出発点の局所作用まで変わりうるのに、それでも同じ量子場理論と呼べるのはなぜかを問う。Costelloは、繰り込み方式によって変わる局所作用ではなく、スケールごとに整合する有効作用の一組を理論として捉える。
+繰り込み計算でファインマン図の数が増えると、図ごとの補正を追うこと自体が難しくなる。Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）は、ある種の量子場理論について、個々の図に有限な値を与える手順に頼らず繰り込みを構成する方法を示した。
 
 ## 想定読者と規約の扱い
 
