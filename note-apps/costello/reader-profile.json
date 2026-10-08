@@ -57,10 +57,10 @@
       "kind": "concept_recognition",
       "criterion": "Known concepts remain recognizable from actual names/symbols without author-side reconstruction",
       "applicability": "applicable",
-      "target": "content/orientation.md:3; content/renormalization.md:1,50,65-79; content/bv.md:3,176",
+      "target": "content/renormalization.md:1,50,65-79; content/bv.md:3,176",
       "concept": "ultraviolet cutoff / カットオフ",
       "visible_form": "紫外カットオフ (renormalization chapter); 熱時間の下限 ε; 上限 L",
-      "observed": "The current opening uses the familiar renormalisation-scheme vocabulary to pose a theory-identity question; the short-distance cutoff appears later with its conventional name. Earlier all-chapter recognition review predates this opening revision.",
+      "observed": "The opening now positions Costello against diagram-by-diagram renormalization. The ultraviolet cutoff appears later under its conventional name in the renormalization chapter; the earlier all-chapter recognition review predates this opening revision.",
       "fit": "pass"
     }
   ],
@@ -155,12 +155,12 @@
       "chapter": "orientation",
       "decision": "revised_opening",
       "concepts": [
-        "繰り込み方式",
-        "局所作用",
+        "ファインマン図",
+        "図ごとの補正",
         "有効作用",
-        "理論の同一性"
+        "図ごとの有限値付け"
       ],
-      "evidence": "繰り込み方式によって局所作用が変わりうるのに、同じ理論と呼べる理由を問う"
+      "evidence": "図ごとの補正を追う困難を、Costelloの図ごとの有限値付けに頼らない方法の位置づけに結ぶ"
     },
     {
       "chapter": "gaussian",
@@ -284,21 +284,26 @@
     "status": "pass",
     "scope": "content/orientation.md opening paragraph and content/gaussian.md opening two paragraphs",
     "reader_state_after_opening": {
-      "active": "The Costello paper asks how a change of renormalisation scheme can change the starting local action while still describing the same theory; a compatible system of effective actions supplies the criterion.",
-      "first_pass_signal": "A source-centered note offering a reason to inspect what remains the same when renormalisation prescriptions change."
+      "active": "The Costello paper offers a way to renormalize certain field theories without assigning a finite value to each Feynman graph; the finite-dimensional model then fixes x as the retained variable and y as the averaged variable.",
+      "first_pass_signal": "A source-centered note that positions Costello's method against the difficulty of tracking corrections graph by graph."
     },
-    "motivation": "A recognizable tension between scheme-dependent formulas and identity of the theory makes the paper relevant before the first technical exercise.",
-    "prior_defect": "The previous opening asserted a one-step/two-step averaging identity before showing why an uncommitted reader should care. A full-paragraph Luna baseline initially passed that sentence using later context; a prefix-frozen signal gate blocked it.",
+    "motivation": "The opening gives a recognizable cost of diagram-by-diagram bookkeeping before introducing Costello's different method; the finite-dimensional model is explicitly an explanation of the averaging operation, not the paper's theorem.",
+    "prior_defect": "The previous opening loaded the reader with scheme-dependent local actions and theory identity before locating the paper's value. A Luna baseline passed it by treating a compressed paper question as motivation; the revised referent, attention, and source-position gate blocked it.",
     "verification": [
-      "A blind Luna reviewer applied the six-part generic first-pass signal gate to the revised opening and the Gaussian chapter entry and found no block in the reviewed prefix.",
-      "Separate blind Luna tests blocked the previous opening at sentence one and an analogous unmotivated numerical-analysis fact, while provisionally passing a low-cost bibliographic orientation sentence.",
-      "A source-fidelity review checked the scheme-dependent local action and scheme-independent effective-action-system claims against Costello 2007 §§1.3–1.6; the wording was narrowed to the original paper’s terms."
+      "Fresh isolated Luna reviewers blocked the old opening and intermediate drafts at the first unlicensed referent or unmotivated technical sentence; the final reader-order pass found no stop through both Gaussian opening paragraphs.",
+      "A separate source-fidelity review checked the individual-graph distinction against Costello 2007 §1.7, the paper's limited scope against the abstract, and the Gaussian formulas and conventions.",
+      "A general numerical-analysis boundary example passed the same revised introduction gate, showing that it does not require a source position for non-source-centered prose."
     ],
     "limit": "Reader simulation and source checks, not observed human comprehension; this assessment covers the stated prefix rather than all eight chapters.",
+    "previous_assessment": {
+      "status": "superseded",
+      "scope": "Scheme-independence framing in the earlier orientation opening",
+      "source_snapshot": "19406d77facabe34e1b77c15a4bfa7c5dba64508e558fedeaf3d90bfd5fcba74"
+    },
     "source_snapshot": {
-      "content/orientation.md": "19406d77facabe34e1b77c15a4bfa7c5dba64508e558fedeaf3d90bfd5fcba74",
-      "content/gaussian.md": "377c713abd9f04bf07e75ec047ec72de990d86008ff302a00863eb92520555d5",
-      "note.config.json": "4ac0ccd412a288e1d72f14f14727db4289492569ef047070904b8d91fd1284ac"
+      "content/orientation.md": "e166da69dfa929c3cbf537e8ed9f436ff3949b4ee6ce1ceb712cc1ba756c5523",
+      "content/gaussian.md": "654fc43c3685d3b46baa849400027a280d0e821d8c3d213194f8e50c151e22bf",
+      "note.config.json": "9437ff2b8cde08f74d9e022447fec95c406a5cfe02883ea13cffcec62f2e2337"
     }
   }
 }

@@ -16,9 +16,9 @@
       "id": "orientation",
       "section": "導入",
       "title": "Costelloの繰り込みと有効作用",
-      "description": "繰り込み方式と有効作用の関係",
+      "description": "図ごとの繰り込み計算とCostelloの方法",
       "plainTitle": "Costelloの繰り込みと有効作用",
-      "plainDescription": "繰り込み方式と有効作用の関係",
+      "plainDescription": "図ごとの繰り込み計算とCostelloの方法",
       "file": "content/orientation.md"
     },
     {
