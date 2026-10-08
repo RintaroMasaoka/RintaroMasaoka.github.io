@@ -1,6 +1,6 @@
 # Costelloの繰り込みと有効相互作用
 
-本ノートでは、Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）の議論を追う。場を、固定して残す成分と積分する成分に分けると、元の相互作用を残す成分にそのまま使えるだろうか。まず有限次元の模型でガウス平均を計算し、積分の効果が相互作用にどう現れるかを調べる。
+本ノートでは、Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）の議論を追う。長い距離での振る舞いを長波長成分だけで記述したいとき、場を波長で分け、短波長成分を積分するという見方がある。その影響が残した側の相互作用にどう現れるかを、まず二変数のガウス平均という導入用の模型で確かめる。
 
 ## 想定読者と規約の扱い
 
