@@ -2,10 +2,10 @@
   "version": 3,
   "basis": {
     "kind": "explicit_user",
-    "date": "2026-10-07",
-    "statement": "量子力学・場の理論・繰り込みを一度学んだ、量子多体系・場の理論に関心のある大学院生。基本概念の定性的理解は残るが、規約と個別計算の細部は記憶に依存しない。"
+    "date": "2026-10-08",
+    "statement": "量子力学・場の理論・繰り込みを一度学んだ、量子多体系・場の理論に関心のある大学院生。基本概念の定性的理解は残るが、規約と個別計算の細部は記憶に依存しない。ノートを読む目的は、摂動論的場の理論の数学的に厳密な定式化の概略をつかむこと。"
   },
-  "purpose": "Understand the calculation and structure of Costello perturbative renormalization",
+  "purpose": "Understand the outline of a mathematically rigorous formulation of perturbative quantum field theory through Costello's construction",
   "concept_available": [
     "零点振動・量子揺らぎの定性的理解",
     "自由理論のガウス積分と相互作用の摂動展開という見方",
@@ -281,7 +281,7 @@
   },
   "opening_assessment": {
     "date": "2026-10-08",
-    "status": "pass",
+    "status": "superseded_by_explicit_reading_goal",
     "scope": "content/orientation.md opening paragraph and content/gaussian.md opening two paragraphs",
     "reader_state_after_opening": {
       "active": "The Costello paper offers a way to renormalize certain field theories without assigning a finite value to each Feynman graph; the finite-dimensional model then fixes x as the retained variable and y as the averaged variable.",
@@ -294,7 +294,7 @@
       "A separate source-fidelity review checked the individual-graph distinction against Costello 2007 §1.7, the paper's limited scope against the abstract, and the Gaussian formulas and conventions.",
       "A general numerical-analysis boundary example passed the same revised introduction gate, showing that it does not require a source position for non-source-centered prose."
     ],
-    "limit": "Reader simulation and source checks, not observed human comprehension; this assessment covers the stated prefix rather than all eight chapters.",
+    "limit": "Historical assessment of reader order and source fidelity only. It predates the explicit reading goal of understanding the mathematically rigorous formulation of perturbative field theory and cannot certify the opening's motivational fit.",
     "previous_assessment": {
       "status": "superseded",
       "scope": "Scheme-independence framing in the earlier orientation opening",
