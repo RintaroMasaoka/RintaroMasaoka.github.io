@@ -15,10 +15,10 @@
     {
       "id": "orientation",
       "section": "導入",
-      "title": "Costelloの繰り込みと有効相互作用",
-      "description": "ガウス平均から有効相互作用へ",
-      "plainTitle": "Costelloの繰り込みと有効相互作用",
-      "plainDescription": "ガウス平均から有効相互作用へ",
+      "title": "Costelloの繰り込みと有効作用",
+      "description": "繰り込み方式と有効作用の関係",
+      "plainTitle": "Costelloの繰り込みと有効作用",
+      "plainDescription": "繰り込み方式と有効作用の関係",
       "file": "content/orientation.md"
     },
     {

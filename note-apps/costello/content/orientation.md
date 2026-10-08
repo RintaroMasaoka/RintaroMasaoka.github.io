@@ -1,6 +1,6 @@
-# Costelloの繰り込みと有効相互作用
+# Costelloの繰り込みと有効作用
 
-場の量子論で短距離カットオフを置くと、異なるスケールの揺らぎを一度に平均しても、二段階に分けて平均しても、最終的な有効相互作用は同じになる。カットオフを外すと、計算には発散が現れうる。発散を差し引いた後も、二段階で平均する関係を保てるのか。Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）は、局所的なカウンター項を使い、スケール間で整合する有効相互作用を構成する。
+本ノートでは、Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）の議論を追う。この論文では、発散の差し引き方を変えると出発点の局所作用まで変わりうるのに、それでも同じ量子場理論と呼べるのはなぜかを問う。Costelloは、繰り込み方式によって変わる局所作用ではなく、スケールごとに整合する有効作用の一組を理論として捉える。
 
 ## 想定読者と規約の扱い
 
