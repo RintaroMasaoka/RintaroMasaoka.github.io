@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "basis": {
     "kind": "explicit_user",
     "date": "2026-10-07",
@@ -276,6 +276,26 @@
     "source_snapshot": {
       "content/orientation.md": "f70aea98810aafcd21683ea3efc14239f9db4fe22ea6df04cab3823c3fc0125d",
       "content/gaussian.md": "74383a9323442dfa813842f11ee80446da01e7f98021974d1bf4ba4f8cde3ce2"
+    }
+  },
+  "opening_assessment": {
+    "date": "2026-10-08",
+    "status": "pass",
+    "scope": "content/orientation.md opening paragraph and its entry into content/gaussian.md",
+    "reader_state_after_source_sentence": {
+      "active": "This note follows the identified Costello paper; no paper-specific method or convention has been acquired.",
+      "first_pass_signal": "A graduate-level study note tied to a dated primary source."
+    },
+    "technical_entry": "Long-distance description supplies the purpose; wavelength selects the parts; the short-wavelength part is integrated and the long-wavelength part retained. The two-variable Gaussian calculation is explicitly an introductory model.",
+    "prior_defect": "The former opening used 場 as a current operand without situating the discussion, named what happened to two parts without giving the partition axis, and asked whether the original interaction could be reused without a comparison criterion.",
+    "verification": [
+      "Independent prefix-only review froze PASS at heading, source sentence, technical setting, and model transition in sequence.",
+      "Independent source-aware review checked that the scale-splitting view is not attributed as Costello's exact definition and that the Gaussian chapter supplies the stated model."
+    ],
+    "limit": "Textual and source-framing checks of this opening only; not observed human comprehension or a fresh review of every chapter.",
+    "source_snapshot": {
+      "content/orientation.md": "c49826b35755f096502c627ebc78d40d9aa5c6685220f6a334f790e7e0d4fa63",
+      "content/gaussian.md": "a46c67172296bd686c2dc54da0043be0553e542e5ed254cdb60166e21bae13b1"
     }
   }
 }
