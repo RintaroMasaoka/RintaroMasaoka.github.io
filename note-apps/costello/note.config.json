@@ -42,9 +42,9 @@
     {
       "id": "renormalization",
       "section": "3",
-      "title": "四次相互作用の紫外発散と局所カウンター項",
+      "title": "四次相互作用の紫外発散と局所相殺項",
       "description": "熱核正則化と一ループ二点項",
-      "plainTitle": "四次相互作用の紫外発散と局所カウンター項",
+      "plainTitle": "四次相互作用の紫外発散と局所相殺項",
       "plainDescription": "熱核正則化と一ループ二点項",
       "file": "content/renormalization.md"
     },
@@ -78,9 +78,9 @@
     {
       "id": "theorems",
       "section": "7",
-      "title": "局所カウンター項の存在と量子化の障害",
+      "title": "局所相殺項の存在と量子化の障害",
       "description": "局所的な繰り込みとアノマリー",
-      "plainTitle": "局所カウンター項の存在と量子化の障害",
+      "plainTitle": "局所相殺項の存在と量子化の障害",
       "plainDescription": "局所的な繰り込みとアノマリー",
       "file": "content/theorems.md"
     }
