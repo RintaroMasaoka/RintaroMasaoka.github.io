@@ -57,16 +57,16 @@
       "kind": "concept_recognition",
       "criterion": "Known concepts remain recognizable from actual names/symbols without author-side reconstruction",
       "applicability": "applicable",
-      "target": "content/orientation.md:3; content/renormalization.md:50,65-79; content/bv.md:3,176",
+      "target": "content/orientation.md:3; content/renormalization.md:1,50,65-79; content/bv.md:3,176",
       "concept": "ultraviolet cutoff / カットオフ",
-      "visible_form": "紫外カットオフ; 熱時間の下限 epsilon; 上限 L; ゲージ固定",
-      "observed": "Known names are visible; cutoff and effective scale have distinct roles and dimensions. Mathematical restriction of a quadratic form remains a separate valid use. Independent review of all eight chapters found no further recognition defect.",
+      "visible_form": "紫外カットオフ (renormalization chapter); 熱時間の下限 ε; 上限 L",
+      "observed": "Familiar names remain visible at their uses. The opening begins from the remembered counterterm account and does not require a cutoff term before it becomes relevant. Historical all-chapter recognition review predates the current opening revision.",
       "fit": "pass"
     }
   ],
   "reader_fit": {
-    "status": "pass",
-    "method": "Independent isolated review of all eight current chapters and local conventions",
+    "status": "historical_pass",
+    "method": "Historical independent isolated review of the eight chapters at the source snapshot below and local conventions",
     "limit": "Textual fit only; no claim of observed human comprehension",
     "previous_assessment": {
       "status": "pass",
@@ -153,13 +153,14 @@
   "recognition_application": [
     {
       "chapter": "orientation",
-      "decision": "repaired",
+      "decision": "revised_opening",
       "concepts": [
-        "紫外カットオフ",
         "繰り込み",
+        "カウンター項",
+        "摂動計算",
         "ガウス平均"
       ],
-      "evidence": "紫外カットオフを導入して"
+      "evidence": "繰り込みを「発散をカウンター項で差し引く」と覚えていても; 有限次元の模型でガウス平均を摂動展開"
     },
     {
       "chapter": "gaussian",
@@ -281,21 +282,22 @@
   "opening_assessment": {
     "date": "2026-10-08",
     "status": "pass",
-    "scope": "content/orientation.md opening paragraph and its entry into content/gaussian.md",
+    "scope": "content/orientation.md opening paragraph and entry into content/gaussian.md",
     "reader_state_after_source_sentence": {
-      "active": "This note follows the identified Costello paper; no paper-specific method or convention has been acquired.",
+      "active": "This note follows the identified Costello paper; no paper-specific method has been acquired.",
       "first_pass_signal": "A graduate-level study note tied to a dated primary source."
     },
-    "technical_entry": "Long-distance description supplies the purpose; wavelength selects the parts; the short-wavelength part is integrated and the long-wavelength part retained. The two-variable Gaussian calculation is explicitly an introductory model.",
-    "prior_defect": "The former opening used 場 as a current operand without situating the discussion, named what happened to two parts without giving the partition axis, and asked whether the original interaction could be reused without a comparison criterion.",
+    "motivation": "The remembered counterterm slogan leaves the origin of generated perturbative terms and of the subset that diverges unexplained; the finite-dimensional model addresses the first part.",
+    "prior_defect": "The prior opening introduced long-distance behavior and scale splitting without establishing why this reader should follow that scene, and left several operands without discourse roles.",
     "verification": [
-      "Independent prefix-only review froze PASS at heading, source sentence, technical setting, and model transition in sequence.",
-      "Independent source-aware review checked that the scale-splitting view is not attributed as Costello's exact definition and that the Gaussian chapter supplies the stated model."
+      "An independent generic-skill authoring run produced a conceptually equivalent entry from the remembered renormalization summary to the first finite-dimensional calculation.",
+      "Independent prefix-only review froze PASS from heading through source sentence, motivation, finite-dimensional route, and first Gaussian setup.",
+      "Independent source-aware review checked that finite-dimensional Gaussian averaging is treated coefficientwise as a formal perturbative series, the later field-theory chapter supplies divergence, and the pedagogic model is not attributed to Costello as his exact construction."
     ],
-    "limit": "Textual and source-framing checks of this opening only; not observed human comprehension or a fresh review of every chapter.",
+    "limit": "Textual and source-framing checks of this opening only; no observed human comprehension or fresh all-chapter review.",
     "source_snapshot": {
-      "content/orientation.md": "c49826b35755f096502c627ebc78d40d9aa5c6685220f6a334f790e7e0d4fa63",
-      "content/gaussian.md": "a46c67172296bd686c2dc54da0043be0553e542e5ed254cdb60166e21bae13b1"
+      "content/orientation.md": "cabb5b984b0a91462b9722d6c88dc97c2c3d862f5af573da30b40b3f5bbeb059",
+      "content/gaussian.md": "2076d663619834219415a471269c522c5d7215d969180fc2c854cc1ce05300c6"
     }
   }
 }

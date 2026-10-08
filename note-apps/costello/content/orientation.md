@@ -1,6 +1,6 @@
 # Costelloの繰り込みと有効相互作用
 
-本ノートでは、Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）の議論を追う。長い距離での振る舞いを長波長成分だけで記述したいとき、場を波長で分け、短波長成分を積分するという見方がある。その影響が残した側の相互作用にどう現れるかを、まず二変数のガウス平均という導入用の模型で確かめる。
+本ノートでは、Kevin Costelloの論文 [*Renormalisation and the Batalin–Vilkovisky formalism*](https://arxiv.org/abs/0706.1533)（2007）の議論を追う。繰り込みを「発散をカウンター項で差し引く」と覚えていても、摂動計算でどんな項が生じ、そのうち何が発散するのかは、その一言だけでは見えない。まず有限次元の模型でガウス平均を摂動展開し、相互作用に新しい項が現れるところから確かめる。
 
 ## 想定読者と規約の扱い
 
