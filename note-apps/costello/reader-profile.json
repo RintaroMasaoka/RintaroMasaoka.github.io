@@ -283,21 +283,21 @@
     "date": "2026-10-08",
     "status": "pass",
     "scope": "content/orientation.md opening paragraph and entry into content/gaussian.md",
-    "reader_state_after_source_sentence": {
-      "active": "This note follows the identified Costello paper; no paper-specific method has been acquired.",
-      "first_pass_signal": "A graduate-level study note tied to a dated primary source."
+    "reader_state_after_opening": {
+      "active": "With a short-distance cutoff, one-step and two-step fluctuation averaging should agree; cutoff removal may introduce divergences; the Costello paper addresses scale consistency using local counterterms.",
+      "first_pass_signal": "A source-centered graduate note with a concrete mathematical tension, not a general refresher or a list of future techniques."
     },
-    "motivation": "The remembered counterterm slogan leaves the origin of generated perturbative terms and of the subset that diverges unexplained; the finite-dimensional model addresses the first part.",
-    "prior_defect": "The prior opening introduced long-distance behavior and scale splitting without establishing why this reader should follow that scene, and left several operands without discourse roles.",
+    "motivation": "The reader has a specific reason to inspect Costello: whether renormalization preserves the composition relation that makes scale-dependent interactions coherent.",
+    "prior_defect": "The previous source sentence was followed by generic background without an immediate link; then the route into a finite-dimensional calculation did not motivate reading this source. Earlier alternative openings merely restated a generic RG question.",
     "verification": [
-      "An independent generic-skill authoring run produced a conceptually equivalent entry from the remembered renormalization summary to the first finite-dimensional calculation.",
-      "Independent prefix-only review froze PASS from heading through source sentence, motivation, finite-dimensional route, and first Gaussian setup.",
-      "Independent source-aware review checked that finite-dimensional Gaussian averaging is treated coefficientwise as a formal perturbative series, the later field-theory chapter supplies divergence, and the pedagogic model is not attributed to Costello as his exact construction."
+      "A cold independent review passed the opening tension and immediate Costello relation at conceptual reader resolution; primary-source review checked the cutoff scope, possible divergence, local counterterms and scale consistency against Costello 2007 §§1.2–1.6.",
+      "A separate cold review identified ambiguity between directly averaging I and defining an effective interaction through the logarithm of an averaged exponential. The revised first chapter states the latter operation before the calculation; a fresh independent reader-order review passed the revised chapter entry.",
+      "Manuscript, math-rendering and URL checks passed after the prose revision."
     ],
-    "limit": "Textual and source-framing checks of this opening only; no observed human comprehension or fresh all-chapter review.",
+    "limit": "Independent prose and source checks only; no observed human comprehension, no new full-manuscript prefix review, and the Costello claims remain scoped to the class of theories treated in the source.",
     "source_snapshot": {
-      "content/orientation.md": "cabb5b984b0a91462b9722d6c88dc97c2c3d862f5af573da30b40b3f5bbeb059",
-      "content/gaussian.md": "2076d663619834219415a471269c522c5d7215d969180fc2c854cc1ce05300c6"
+      "content/orientation.md": "7638c52d131d536c0332f18c42852fa076141a7eb14d54a8d5fac099402ae9fa",
+      "content/gaussian.md": "02d3fdd78abe4550198ae2a119e7fd2ba667fe6e634bb46784af77a7865b4bad"
     }
   }
 }
