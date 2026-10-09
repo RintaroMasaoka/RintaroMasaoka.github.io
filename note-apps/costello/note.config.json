@@ -2,14 +2,14 @@
   "specVersion": "1.0.0",
   "id": "costello-notes",
   "title": "Costelloの摂動的場の理論",
-  "description": "ガウス平均、局所的な繰り込み、BV方程式のスケール間の整合性を具体計算で学ぶ。",
+  "description": "具体計算から有効相互作用の族と局所相殺項の構成をたどり、BV方程式の移送と量子化の障害を学ぶ。",
   "language": "ja",
   "source": {
-    "title": "Renormalisation and the Batalin–Vilkovisky formalism; Renormalization and Effective Field Theory",
+    "title": "Renormalisation and the Batalin–Vilkovisky formalism",
     "authors": [
       "Kevin Costello"
     ],
-    "locator": "arXiv:0706.1533v3, §§1, 2, 6–12; AMS (2011)"
+    "locator": "arXiv:0706.1533v3, §§1–2, 4.3, 6–12"
   },
   "chapters": [
     {
@@ -52,9 +52,9 @@
       "id": "schemes",
       "section": "4",
       "title": "繰り込み方式と有効相互作用の族",
-      "description": "有限部分の選択と繰り込み条件",
+      "description": "方式の具体例から定理A・B・Cと有効相互作用の族へ",
       "plainTitle": "繰り込み方式と有効相互作用の族",
-      "plainDescription": "有限部分の選択と繰り込み条件",
+      "plainDescription": "方式の具体例から定理A・B・Cと有効相互作用の族へ",
       "file": "content/schemes.md"
     },
     {
@@ -78,10 +78,10 @@
     {
       "id": "theorems",
       "section": "7",
-      "title": "局所相殺項の存在と量子化の障害",
-      "description": "局所的な繰り込みとアノマリー",
-      "plainTitle": "局所相殺項の存在と量子化の障害",
-      "plainDescription": "局所的な繰り込みとアノマリー",
+      "title": "有限な有効作用から量子化へ：局所的な障害",
+      "description": "局所的なQMEの破れと補正の可能性",
+      "plainTitle": "有限な有効作用から量子化へ：局所的な障害",
+      "plainDescription": "局所的なQMEの破れと補正の可能性",
       "file": "content/theorems.md"
     }
   ],

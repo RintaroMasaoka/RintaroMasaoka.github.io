@@ -9,11 +9,7 @@
 <details>
 <summary>補足：研究の背景とCostelloの位置づけ</summary>
 
-1940年代末の量子電磁力学では、質量や電荷を観測値と結び直す繰り込みによって、発散を含む計算から有限な予言を取り出す方法が整えられた。その後、BPHZやEpstein–Glaserの方法は、複雑な摂動計算でも各次数を有限に定義する厳密な構成を与えた。1970年代以降のWilsonの繰り込み群は、揺らぎの平均に合わせて相互作用を変え、異なるスケールの記述を結び付ける見方を発展させた。Polchinskiは1984年に、そのスケール変化の方程式を用いて繰り込み可能性を調べる方法を示した。[Dyson（1949）](https://journals.aps.org/pr/abstract/10.1103/PhysRev.75.1736)、[Epstein–Glaser（1973）](https://www.numdam.org/item/AIHPA_1973__19_3_211_0.pdf)、[Polchinski（1984）](https://doi.org/10.1016/0550-3213(84)90287-6)。
-
-1970年代のBRST形式、1980年代以降のBatalin–Vilkovisky（BV）形式は、ゲージ理論の重複を扱い、量子補正の後も対称性の関係を保つという条件を、代数的な演算や方程式で表す枠組みを発展させた。繰り込み群とゲージ対称性を組み合わせる研究も進んでいた。Costelloの仕事は、こうした繰り込みと対称性の研究を背景にしている。[Becchi–Rouet–Stora（1976）](https://www.sciencedirect.com/science/article/pii/0003491676901561)、[Batalin–Vilkovisky（1981）](https://www.sciencedirect.com/science/article/pii/0370269381902057)、[Becchi（1996）](https://arxiv.org/abs/hep-th/9607188)。
-
-Costello自身は、幾何学と量子場理論の接点で研究を進め、2006年には熱核を用いて曲面の幾何とゲージ理論を結ぶ構成を扱っている。2007年の論文と2011年の著書では、熱核を用いた摂動的な場の理論の構成が展開される。[Costello（2006）](https://arxiv.org/abs/math/0605647)、[Costello（2007）](https://arxiv.org/abs/0706.1533)。
+この論文には、異なるスケールの有効相互作用を結ぶ繰り込み群と、ゲージ理論の量子積分に整合性の条件を課すBV形式という二つの背景がある。Costelloは、熱核を使って局所相殺項から有効作用の族を構成し、その族に量子マスター方程式を課す方法を調べる。[Polchinski（1984）](https://doi.org/10.1016/0550-3213(84)90287-6)、[Batalin–Vilkovisky（1981）](https://www.sciencedirect.com/science/article/pii/0370269381902057)、[Costello（2007）](https://arxiv.org/abs/0706.1533)。
 
 </details>
 
