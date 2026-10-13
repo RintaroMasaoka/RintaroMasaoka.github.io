@@ -22,6 +22,15 @@ categories:
 # アイテムリスト
 items:
   - title:
+      en: "Non-invertible Symmetry-Protected Topological Phases"
+      ja: "非可逆対称性に保護されたトポロジカル相"
+    category: notes
+    url: /notes/non-invertible-spt/
+    description:
+      en: A Japanese overview of one-dimensional non-invertible SPT phases, with definitions, examples, and references.
+      ja: 非可逆対称性に保護されたトポロジカル相の分野地図と基礎事項。
+
+  - title:
       en: "Costello's Perturbative Field Theory"
       ja: "Costelloの摂動的場の理論"
     category: notes

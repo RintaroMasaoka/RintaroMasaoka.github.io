@@ -1,0 +1,40 @@
+{
+  "specVersion": "1.0.0",
+  "id": "non-invertible-spt",
+  "title": "非可逆SPT",
+  "description": "非可逆対称性に保護されたトポロジカル相の分野地図と基礎事項。",
+  "language": "ja",
+  "source": {
+    "title": "非可逆SPTに関する一次文献",
+    "authors": [],
+    "locator": "文献一覧に使用版と対応箇所を記載"
+  },
+  "chapters": [
+    {
+      "id": "overview",
+      "section": "本文",
+      "title": "分野の地図と基礎事項",
+      "description": "一次元の非可逆SPTの概観",
+      "plainTitle": "非可逆対称性に保護されたトポロジカル相",
+      "plainDescription": "非可逆対称性に保護されたトポロジカル相の分野地図と基礎事項。",
+      "file": "content/overview.md",
+      "readingTimeMinutes": 30
+    },
+    {
+      "id": "references",
+      "section": "文献",
+      "title": "参照文献と使用版",
+      "description": "一次文献と適用範囲",
+      "plainTitle": "参照文献と使用版",
+      "plainDescription": "ノートに用いた一次文献の使用版と対応箇所。",
+      "file": "content/references.md",
+      "readingTimeMinutes": 5
+    }
+  ],
+  "publication": {
+    "provider": "github-pages",
+    "projectId": "RintaroMasaoka/RintaroMasaoka.github.io",
+    "url": "https://rintaromasaoka.github.io/notes/non-invertible-spt/",
+    "visibility": "public"
+  }
+}

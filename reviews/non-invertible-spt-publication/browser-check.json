@@ -1,0 +1,27 @@
+{
+  "origin": "http://127.0.0.1:4185",
+  "main": {
+    "title": "非可逆対称性に保護されたトポロジカル相 | 非可逆SPT",
+    "math": 197,
+    "mathErrors": 0,
+    "literalMarkers": false,
+    "fonts": [
+      "KaTeX_AMS",
+      "KaTeX_Caligraphic",
+      "KaTeX_Main",
+      "KaTeX_Math",
+      "KaTeX_Size1",
+      "KaTeX_Size2",
+      "KaTeX_Size4"
+    ],
+    "overflow": false
+  },
+  "referencesRows": 9,
+  "chapterNavigation": true,
+  "directReferencesReload": true,
+  "darkPersistence": true,
+  "mobileOverflow": false,
+  "listing": true,
+  "errors": [],
+  "failures": []
+}
