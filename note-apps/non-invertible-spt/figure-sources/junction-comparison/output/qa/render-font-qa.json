@@ -1,0 +1,291 @@
+{
+  "playwrightVersion": "1.62.1",
+  "browserVersion": "155.0.8059.40",
+  "browserChannel": "chrome",
+  "figures": [
+    {
+      "id": "junction-comparison",
+      "asset": "assets/junction-comparison.png",
+      "assetSHA256": "a17e971bc7be026e1efc79e49b41bbf3e815bea9b17c8e809b5e854bed53b339",
+      "CSSSize": [
+        1100,
+        760
+      ],
+      "deviceScaleFactor": 2,
+      "loadedFontFamilies": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "labelCount": 21,
+      "allGlyphsUseKaTeX": true,
+      "clipped": [],
+      "mathErrors": 0,
+      "pageErrors": [],
+      "labels": [
+        {
+          "id": "top-title",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif",
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 231.09375,
+            "y": 21,
+            "width": 637.8125,
+            "height": 30
+          }
+        },
+        {
+          "id": "left-g",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 166.0625,
+            "y": 167.8046875,
+            "width": 13.859375,
+            "height": 31
+          }
+        },
+        {
+          "id": "left-d",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 295.4375,
+            "y": 152.8046875,
+            "width": 23.109375,
+            "height": 31
+          }
+        },
+        {
+          "id": "left-route",
+          "glyphFontFamilies": [
+            "KaTeX_Math",
+            "KaTeX_Main, \"Times New Roman\", serif"
+          ],
+          "bounds": {
+            "x": 187.265625,
+            "y": 291.8046875,
+            "width": 175.46875,
+            "height": 26
+          }
+        },
+        {
+          "id": "right-g",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 919.0625,
+            "y": 167.8046875,
+            "width": 13.859375,
+            "height": 31
+          }
+        },
+        {
+          "id": "right-d",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 780.4375,
+            "y": 152.8046875,
+            "width": 23.109375,
+            "height": 31
+          }
+        },
+        {
+          "id": "right-route",
+          "glyphFontFamilies": [
+            "KaTeX_Math",
+            "KaTeX_Main, \"Times New Roman\", serif"
+          ],
+          "bounds": {
+            "x": 729.59375,
+            "y": 291.8046875,
+            "width": 190.8125,
+            "height": 26
+          }
+        },
+        {
+          "id": "nu",
+          "glyphFontFamilies": [
+            "KaTeX_Math",
+            "KaTeX_Main, \"Times New Roman\", serif"
+          ],
+          "bounds": {
+            "x": 519.109375,
+            "y": 158,
+            "width": 61.765625,
+            "height": 30
+          }
+        },
+        {
+          "id": "compare",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif"
+          ],
+          "bounds": {
+            "x": 500.375,
+            "y": 236.40625,
+            "width": 99.234375,
+            "height": 18
+          }
+        },
+        {
+          "id": "bottom-title",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif",
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 373.28125,
+            "y": 377.6015625,
+            "width": 353.421875,
+            "height": 29
+          }
+        },
+        {
+          "id": "a-left",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif",
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 157.21875,
+            "y": 432.1015625,
+            "width": 65.5625,
+            "height": 22
+          }
+        },
+        {
+          "id": "b-left",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif",
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 358.65625,
+            "y": 432.1015625,
+            "width": 66.6875,
+            "height": 22
+          }
+        },
+        {
+          "id": "a-right",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif",
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 675.21875,
+            "y": 432.1015625,
+            "width": 65.5625,
+            "height": 22
+          }
+        },
+        {
+          "id": "b-right",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif",
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 874.65625,
+            "y": 432.1015625,
+            "width": 66.6875,
+            "height": 22
+          }
+        },
+        {
+          "id": "g-a",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 221.09375,
+            "y": 464.203125,
+            "width": 11.796875,
+            "height": 27
+          }
+        },
+        {
+          "id": "g-b",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 866.09375,
+            "y": 464.203125,
+            "width": 11.796875,
+            "height": 27
+          }
+        },
+        {
+          "id": "d-a",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 133.15625,
+            "y": 541.203125,
+            "width": 19.671875,
+            "height": 27
+          }
+        },
+        {
+          "id": "d-b",
+          "glyphFontFamilies": [
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 653.15625,
+            "y": 541.203125,
+            "width": 19.671875,
+            "height": 27
+          }
+        },
+        {
+          "id": "relative",
+          "glyphFontFamilies": [
+            "KaTeX_Math",
+            "KaTeX_Main, \"Times New Roman\", serif"
+          ],
+          "bounds": {
+            "x": 519.625,
+            "y": 464.65625,
+            "width": 60.75,
+            "height": 27
+          }
+        },
+        {
+          "id": "example",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif",
+            "KaTeX_Math"
+          ],
+          "bounds": {
+            "x": 439.65625,
+            "y": 639.90625,
+            "width": 220.6875,
+            "height": 23
+          }
+        },
+        {
+          "id": "scope",
+          "glyphFontFamilies": [
+            "KaTeX_Main, \"Times New Roman\", serif"
+          ],
+          "bounds": {
+            "x": 218.34375,
+            "y": 716.3046875,
+            "width": 663.296875,
+            "height": 20
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "source": "Meng et al., arXiv:2412.20546v2",
+  "sourceURL": "https://arxiv.org/pdf/2412.20546v2",
+  "conditions": [
+    "1D lattice point support; not a spacetime point event",
+    "the M-at-one-site construction is one microscopic realization, not a requirement to add a new site or degree of freedom",
+    "interfaces can join identical or different neighboring phases",
+    "defects are composable through their shared middle phase",
+    "coarse local representation; no continuous gapped Hamiltonian path is supplied",
+    "composite objects can decompose in the finite semisimple defect category; no particular types, dimensions or multiplicities asserted"
+  ],
+  "sourceLocators": [
+    {
+      "locator": "§V.C, printed pp20–21",
+      "role": "effective edge space and local boundary/interface algebra"
+    },
+    {
+      "locator": "§VI, printed pp21–23, Theorem VI.2 and surrounding discussion",
+      "role": "symmetry category versus charge/defect categories, and defect fusion as additional local data"
+    },
+    {
+      "locator": "Appendix G.2, printed p37",
+      "role": "explicit one-site interface realization: M at i=0, phases A/B on the two sides and altered adjacent interactions"
+    },
+    {
+      "locator": "Appendix F, Definition F.6, printed p34",
+      "role": "M (A–B) and N (B–C) compose by the relative product M tensor_B N, giving an A–C object"
+    }
+  ],
+  "mathematicalInference": {
+    "composition": "The matching middle phase supplies the relative-product constraint; the compound has the same outer phase labels.",
+    "decomposition": "Finite semisimplicity gives a direct sum of simple defect types with nonnegative integer multiplicities. The note explains this as types and how many of each, without selecting source-specific values.",
+    "worldline": "Following an object localized at a spatial point over time produces a line in (1+1)d; this geometric inference records persistence of defect data, not a claimed codimension-two insertion."
+  },
+  "notationCheck": {
+    "readerFacingNewFormalAliases": [],
+    "existingNotationReused": [
+      "mathcal C"
+    ],
+    "figure1And2": "local object identifiers only; not defect-type names or numerical scientific data"
+  },
+  "figureMathematicalCheck": "Two inputs and their middle region are replaced by one composite local object with retained left/right bulk roles; the whole composite is not claimed to be a single simple type."
+}

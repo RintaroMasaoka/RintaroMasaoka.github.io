@@ -1,0 +1,1210 @@
+{
+  "evidence_role": "Recorded evidence for the five current figure PNGs; superseded fusion excluded",
+  "renderer": "KaTeX in Chrome; Playwright screenshot at deviceScaleFactor 2",
+  "chrome": "155.0.8059.40",
+  "request_failures": [],
+  "figures": [
+    {
+      "id": "edge-phase-cancellation",
+      "dimensions": [
+        1120,
+        450
+      ],
+      "png_sha256": "0325f3a376937253d01b6cd716c7d93efc7a08efef65008e8b46b41c15ee3a03",
+      "html_sha256": "93bbf023028cfd92910e6bbdb2e136a9a20eea009ffe6a5377d72d31a3229714",
+      "labels_sha256": "554e0e326b438040355d622e33df47999ea3d7a43c7d559d40b750a7e8112af5",
+      "loaded_fonts": [
+        {
+          "family": "KaTeX_Main",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Math",
+          "status": "loaded",
+          "weight": "400",
+          "style": "italic"
+        }
+      ],
+      "out_of_canvas_labels": [],
+      "platform_font_evidence": [
+        {
+          "label": "title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 27
+            }
+          ]
+        },
+        {
+          "label": "left",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 9
+            }
+          ]
+        },
+        {
+          "label": "bulk",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 4
+            }
+          ]
+        },
+        {
+          "label": "right",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 10
+            }
+          ]
+        },
+        {
+          "label": "left-product",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "right-product",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "left-multiply",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 8
+            }
+          ]
+        },
+        {
+          "label": "right-multiply",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 8
+            }
+          ]
+        },
+        {
+          "label": "left-result",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "right-result",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "global-product",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "cancel",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "defect-orientations",
+      "dimensions": [
+        1120,
+        550
+      ],
+      "png_sha256": "a1728135e77872935a3f83996f50493bfd39355bd66ba036f9d7e911de971b8c",
+      "html_sha256": "a0aa55c4ea7fb9e9c8fc06aa58df540ef20a6398f181d3b18a944be19fd5faa6",
+      "labels_sha256": "36e548afd62ad693fb9f19e52244e690e7083a2cd3e4e5b06d9d58ea899a85bd",
+      "loaded_fonts": [
+        {
+          "family": "KaTeX_Main",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Math",
+          "status": "loaded",
+          "weight": "400",
+          "style": "italic"
+        }
+      ],
+      "out_of_canvas_labels": [],
+      "platform_font_evidence": [
+        {
+          "label": "left-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 20
+            }
+          ]
+        },
+        {
+          "label": "middle-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 24
+            }
+          ]
+        },
+        {
+          "label": "right-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 17
+            }
+          ]
+        },
+        {
+          "label": "tau-0",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "x-0",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "tau-1",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "x-1",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "tau-2",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "x-2",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "operator-left",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "operator-middle",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "time-shift",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 5
+            }
+          ]
+        },
+        {
+          "label": "commute",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "fixed-time",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 6
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "bond-label",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 27
+            }
+          ]
+        },
+        {
+          "label": "fixed-position",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fusion-associator",
+      "dimensions": [
+        1120,
+        590
+      ],
+      "png_sha256": "fa6dd59ab5cf424f7607fefc821ca4d7e08ef541176ef016d17bd4cae28f280a",
+      "html_sha256": "ad291e570340c659a07bc790bf8c9b78211f00d4a9fc0a55edf05f27a396d5ad",
+      "labels_sha256": "8d9b2ddf4532490a41e7e5e62707d9b5a148ef49273249ae92f286c1e67d31be",
+      "loaded_fonts": [
+        {
+          "family": "KaTeX_Main",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Math",
+          "status": "loaded",
+          "weight": "400",
+          "style": "italic"
+        },
+        {
+          "family": "KaTeX_Size2",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        }
+      ],
+      "out_of_canvas_labels": [],
+      "platform_font_evidence": [
+        {
+          "label": "scope",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 6
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "left-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 34
+            }
+          ]
+        },
+        {
+          "label": "right-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 32
+            }
+          ]
+        },
+        {
+          "label": "input-95",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "input-245",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "input-395",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "input-725",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "input-875",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "input-1025",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "e",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "mu",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "nu",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "left-output",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "f",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "mu-prime",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "nu-prime",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "right-output",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "F-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 15
+            }
+          ]
+        },
+        {
+          "label": "F-expansion",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Size2",
+              "postScriptName": "KaTeX_Size2-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "left-mu-range",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "left-nu-range",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "right-mu-range",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "right-nu-range",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vacuum-defect-sector",
+      "dimensions": [
+        1120,
+        525
+      ],
+      "png_sha256": "b0d95c93f549a6470d6d7fc8989129635de9d4d22050601cad1046b126e9fa19",
+      "html_sha256": "4b98dcad80562d9b8f562827fe8470a96c2e4d383373cee4e0465b9caeea7e1e",
+      "labels_sha256": "7ea255bb9294121c97274015ed40011780a52715c27617fd3a7bcdacdfb6bdbf",
+      "loaded_fonts": [
+        {
+          "family": "KaTeX_AMS",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Caligraphic",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Main",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Math",
+          "status": "loaded",
+          "weight": "400",
+          "style": "italic"
+        }
+      ],
+      "out_of_canvas_labels": [],
+      "platform_font_evidence": [
+        {
+          "label": "title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 22
+            }
+          ]
+        },
+        {
+          "label": "left-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 9
+            }
+          ]
+        },
+        {
+          "label": "right-title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 17
+            }
+          ]
+        },
+        {
+          "label": "time-265",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "circle-265",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 14
+            }
+          ]
+        },
+        {
+          "label": "time-855",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "circle-855",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 14
+            }
+          ]
+        },
+        {
+          "label": "a",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "left-space",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_AMS",
+              "postScriptName": "KaTeX_AMS-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "right-space",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tensor-coherence-routes",
+      "dimensions": [
+        1120,
+        500
+      ],
+      "png_sha256": "35c4ffa81a57abdac68111fdb9d9a600b7a293b1094f15ae44a1dae354e4a628",
+      "html_sha256": "71ead51d4761dae6b1cda5bd3e43392264a7c9301f224410fcfcd87fcbcf3269",
+      "labels_sha256": "373027b4c99c965a2b337cb4e8d357ad2ab0595b145dcf304565eba5d8ed199a",
+      "loaded_fonts": [
+        {
+          "family": "KaTeX_Caligraphic",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Main",
+          "status": "loaded",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "family": "KaTeX_Math",
+          "status": "loaded",
+          "weight": "400",
+          "style": "italic"
+        }
+      ],
+      "out_of_canvas_labels": [],
+      "platform_font_evidence": [
+        {
+          "label": "title",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 31
+            }
+          ]
+        },
+        {
+          "label": "source",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "first-left",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 2
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "first-right",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "intermediate-left",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "intermediate-right",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "second-left",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "second-right",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "assembled-left",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "target",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 2
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "associator-image",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Caligraphic",
+              "postScriptName": "KaTeX_Caligraphic-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 1
+            },
+            {
+              "familyName": "KaTeX_Math",
+              "postScriptName": "KaTeX_Math-Italic",
+              "isCustomFont": true,
+              "glyphCount": 1
+            }
+          ]
+        },
+        {
+          "label": "commutes",
+          "actual_fonts": [
+            {
+              "familyName": "KaTeX_Main",
+              "postScriptName": "KaTeX_Main-Regular",
+              "isCustomFont": true,
+              "glyphCount": 28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

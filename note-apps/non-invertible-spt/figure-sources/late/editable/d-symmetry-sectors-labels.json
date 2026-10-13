@@ -1,0 +1,134 @@
+[
+  {
+    "id": "d-symmetry-sectors-0",
+    "meaning": "factorized operator",
+    "tex": "D^2=(1+\\eta_e)(1+\\eta_o)",
+    "x": 340,
+    "y": 35,
+    "size": 30,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-1",
+    "meaning": "column operator",
+    "tex": "\\eta_o",
+    "x": 410,
+    "y": 82,
+    "size": 28,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-2",
+    "meaning": "row operator",
+    "tex": "\\eta_e",
+    "x": 75,
+    "y": 222,
+    "size": 28,
+    "width": 110,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-3",
+    "meaning": "D squared eigenvalue",
+    "tex": "D^2=4",
+    "x": 305,
+    "y": 174,
+    "size": 32,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-4",
+    "meaning": "D squared eigenvalue",
+    "tex": "D^2=0",
+    "x": 555,
+    "y": 174,
+    "size": 32,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-5",
+    "meaning": "D squared eigenvalue",
+    "tex": "D^2=0",
+    "x": 305,
+    "y": 289,
+    "size": 32,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-6",
+    "meaning": "D squared eigenvalue",
+    "tex": "D^2=0",
+    "x": 555,
+    "y": 289,
+    "size": 32,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-7",
+    "meaning": "eta o eigenvalue",
+    "tex": "+1",
+    "x": 305,
+    "y": 103,
+    "size": 28,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-8",
+    "meaning": "eta o eigenvalue",
+    "tex": "-1",
+    "x": 555,
+    "y": 103,
+    "size": 28,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-9",
+    "meaning": "eta e eigenvalue",
+    "tex": "+1",
+    "x": 143,
+    "y": 175,
+    "size": 28,
+    "width": 75,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-10",
+    "meaning": "eta e eigenvalue",
+    "tex": "-1",
+    "x": 143,
+    "y": 290,
+    "size": 28,
+    "width": 75,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "d-symmetry-sectors-11",
+    "meaning": "schematic, not dimension",
+    "tex": "\\text{Sector areas do not count states}",
+    "x": 340,
+    "y": 380,
+    "size": 25,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  }
+]

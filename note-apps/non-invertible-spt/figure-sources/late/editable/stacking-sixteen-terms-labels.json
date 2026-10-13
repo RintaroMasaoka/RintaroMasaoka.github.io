@@ -1,0 +1,145 @@
+[
+  {
+    "id": "stacking-sixteen-terms-0",
+    "meaning": "square of the naive diagonal action",
+    "tex": "(D\\otimes D)^2=D^2\\otimes D^2",
+    "x": 340,
+    "y": 37,
+    "size": 29,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-1",
+    "meaning": "second tensor factor",
+    "tex": "\\text{copy 2}",
+    "x": 396,
+    "y": 86,
+    "size": 26,
+    "width": 250,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-2",
+    "meaning": "first tensor factor",
+    "tex": "\\text{copy 1}",
+    "x": 63,
+    "y": 340,
+    "size": 26,
+    "width": 130,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-3",
+    "meaning": "copy 2 summand",
+    "tex": "1",
+    "x": 244.5,
+    "y": 128,
+    "size": 27,
+    "width": 130,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-4",
+    "meaning": "copy 2 summand",
+    "tex": "\\eta_e",
+    "x": 345.5,
+    "y": 128,
+    "size": 27,
+    "width": 130,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-5",
+    "meaning": "copy 2 summand",
+    "tex": "\\eta_o",
+    "x": 446.5,
+    "y": 128,
+    "size": 27,
+    "width": 130,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-6",
+    "meaning": "copy 2 summand",
+    "tex": "\\eta_e\\eta_o",
+    "x": 547.5,
+    "y": 128,
+    "size": 27,
+    "width": 130,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-7",
+    "meaning": "copy 1 summand",
+    "tex": "1",
+    "x": 137,
+    "y": 200.5,
+    "size": 27,
+    "width": 110,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-8",
+    "meaning": "copy 1 summand",
+    "tex": "\\eta_e",
+    "x": 137,
+    "y": 301.5,
+    "size": 27,
+    "width": 110,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-9",
+    "meaning": "copy 1 summand",
+    "tex": "\\eta_o",
+    "x": 137,
+    "y": 402.5,
+    "size": 27,
+    "width": 110,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-10",
+    "meaning": "copy 1 summand",
+    "tex": "\\eta_e\\eta_o",
+    "x": 137,
+    "y": 503.5,
+    "size": 27,
+    "width": 110,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-11",
+    "meaning": "number of all terms",
+    "tex": "4\\times4=16\\text{ terms}",
+    "x": 340,
+    "y": 590,
+    "size": 28,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "stacking-sixteen-terms-12",
+    "meaning": "highlighted diagonal",
+    "tex": "\\text{only 4 diagonal terms}",
+    "x": 383,
+    "y": 621,
+    "size": 26,
+    "width": 450,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  }
+]

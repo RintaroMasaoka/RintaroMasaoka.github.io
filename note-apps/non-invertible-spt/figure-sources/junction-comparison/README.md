@@ -1,0 +1,20 @@
+# Junction comparison figure
+
+## Project brief
+
+- **Reader and location:** condensed-matter reader of §§4.2–4.3, familiar with line operators and interfaces, without assumed category-theory diagram fluency. Intended as one schematic near the discussion of the phase signs and interface response.
+- **Inference:** a reversible line `g` can attach to either side of `D` and leave the twisted sector invariant. The two attachment maps are compared using the phase's compatibility datum `ν_X(g)`. When this comparison is carried across an `A`–`B` phase junction, the junction-local factor is `ν_A(g)/ν_B(g)`; for cluster versus odd at `g=o` it is `−1`.
+- **Scientific authority:** [Thorngren–Wang, §3.2.4–5, Fig. 6, Eqs. (3.51), (3.62)](https://arxiv.org/html/1912.02817v1#S3.SS2.SSS5); [Seifnashri–Shao, §IV](https://arxiv.org/html/2404.01369v2#S4). The same `g` appears on the left and right only for the identity involution `σ` used for the `Rep(D_8)` phases here. A generic TY action can send `g` to `σ(g)`.
+- **Representation:** blue denotes a `D` line, red a reversible `g` line, black the boundary between phases `A` and `B`, and an open circle a chosen attachment map. The first arrow means comparison of two maps after identifying both fusion sectors with `D`; it does not assert that bare left and right actions are identical. The second arrow means moving the attachment across the phase boundary; its scalar is a property of the *junction comparison*, not the whole blue or red line. Geometry is schematic and makes no metric or microscopic claim.
+- **Notation and limits:** `ν_X(g)` is the adopted phase-sign notation in the note. Its individual value depends on the coherent junction conventions; the ratio for two phases with common conventions is the interface datum. The diagram suppresses projective action and bicharacter details, which are handled by the equations and prose. It depicts one local interface, not the full periodic chain with two interfaces.
+- **Medium:** PNG at 2200 × 1520 pixels (CSS size 1100 × 760, device scale factor 2), expected to appear near full article width with horizontal scrolling on narrow screens. All in-figure lettering is English and rendered by KaTeX from editable TeX sources.
+
+## Rebuild
+
+`editable/junction-comparison-geometry.svg` holds text-free geometry. `editable/junction-comparison-labels.json` is the complete label inventory: each record gives the role (`id`), exact TeX, position and size. Ordinary words use `\\text{}` or `\\mathrm{}` as appropriate. `figures.json` gives the output dimensions and alt description.
+
+Use Node.js with KaTeX and Playwright available, then run `node generate.cjs` and `node render.cjs` in this directory. The current export used KaTeX 0.17.0, Playwright 1.62.1 and Chrome 155.0.8059.40. The scripts also accept `KATEX_ROOT` and `PLAYWRIGHT_ROOT` pointing to installed package directories. Chrome is the default renderer. `output/sources/junction-comparison.html` and its copied SVG/JSON/font assets are the self-contained editable rendering package. The PNG is `output/assets/junction-comparison.png`. Copy it to `../../public/diagrams/junction-comparison.png` after verification.
+
+## Revision-bound inspection
+
+`output/qa/generation.json` records source/HTML hashes, KaTeX version and copied font count. `output/qa/render-font-qa.json` records the PNG hash, loaded font families, computed glyph fonts, label bounds, browser version, and error/clipping checks. `output/qa/label-inventory.json` binds every label's English meaning and exact TeX source to the PNG hash and observed glyph fonts. I inspected the final PNG at the output size. The first panel keeps the two distinct attachment routes and labels their fusion isomorphisms. The second keeps the same `D` line and phase boundary in both views, moves only the `g` attachment, and places the relative factor on the comparison arrow. The cluster/odd sign is stated explicitly. No glyph is clipped; the label and line crossings remain legible at article width. This is a source-grounded schematic; it does not prove the interface algebra by itself.

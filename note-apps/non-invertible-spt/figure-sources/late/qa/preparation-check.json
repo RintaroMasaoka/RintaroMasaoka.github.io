@@ -1,0 +1,52 @@
+{
+  "portableGeneratorExecuted": true,
+  "PNGRendererExecutedDuringPreparation": false,
+  "manuscriptUnchanged": true,
+  "bundleNodeModulesPresent": false,
+  "figures": [
+    {
+      "id": "d-symmetry-sectors",
+      "generatedHTMLMatchesFrozen": true,
+      "generatedGeometryMatchesFrozen": true,
+      "generatedLabelsMatchFrozen": true,
+      "originalPNGUnchanged": true
+    },
+    {
+      "id": "cz-two-layers",
+      "generatedHTMLMatchesFrozen": true,
+      "generatedGeometryMatchesFrozen": true,
+      "generatedLabelsMatchFrozen": true,
+      "originalPNGUnchanged": true
+    },
+    {
+      "id": "string-end-cancellation",
+      "generatedHTMLMatchesFrozen": true,
+      "generatedGeometryMatchesFrozen": true,
+      "generatedLabelsMatchFrozen": true,
+      "originalPNGUnchanged": true
+    },
+    {
+      "id": "interface-charge-pair",
+      "generatedHTMLMatchesFrozen": true,
+      "generatedGeometryMatchesFrozen": true,
+      "generatedLabelsMatchFrozen": true,
+      "originalPNGUnchanged": true
+    },
+    {
+      "id": "symtft-interval",
+      "generatedHTMLMatchesFrozen": true,
+      "generatedGeometryMatchesFrozen": true,
+      "generatedLabelsMatchFrozen": true,
+      "originalPNGUnchanged": true
+    },
+    {
+      "id": "stacking-sixteen-terms",
+      "generatedHTMLMatchesFrozen": true,
+      "generatedGeometryMatchesFrozen": true,
+      "generatedLabelsMatchFrozen": true,
+      "originalPNGUnchanged": true
+    }
+  ],
+  "generatedOutputRemovedAfterVerification": true,
+  "reason": "Ship only generators, editable inputs and compact QA; the ordered commands recreate output/ locally."
+}

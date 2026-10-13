@@ -1,0 +1,36 @@
+{
+  "authority": "Only this bundle is the current five-figure editable authority; earlier reproduction bundles remain historical",
+  "replacement_text_sha256": "b9a591d47d75ba39ae1fb492139c65ca4383dcd0f9ebce722a857a2b8964a8d7",
+  "figures": {
+    "edge-phase-cancellation": {
+      "png_sha256": "0325f3a376937253d01b6cd716c7d93efc7a08efef65008e8b46b41c15ee3a03",
+      "geometry_sha256": "1447dccc12650aebbb070dd923da1e22ff5f966d3cb23b0ee1fdfce64432a5d8",
+      "labels_sha256": "554e0e326b438040355d622e33df47999ea3d7a43c7d559d40b750a7e8112af5",
+      "label_count": 12
+    },
+    "defect-orientations": {
+      "png_sha256": "a1728135e77872935a3f83996f50493bfd39355bd66ba036f9d7e911de971b8c",
+      "geometry_sha256": "d71678a6fb6f9a870c32cdccd0bc93447c4df3b5661a92cb160a4a46ff3dff07",
+      "labels_sha256": "36e548afd62ad693fb9f19e52244e690e7083a2cd3e4e5b06d9d58ea899a85bd",
+      "label_count": 16
+    },
+    "fusion-associator": {
+      "png_sha256": "fa6dd59ab5cf424f7607fefc821ca4d7e08ef541176ef016d17bd4cae28f280a",
+      "geometry_sha256": "fef07f4698682f5718de574af5c38eb3e69ada8d639099e7527b013a257285b9",
+      "labels_sha256": "8d9b2ddf4532490a41e7e5e62707d9b5a148ef49273249ae92f286c1e67d31be",
+      "label_count": 23
+    },
+    "vacuum-defect-sector": {
+      "png_sha256": "b0d95c93f549a6470d6d7fc8989129635de9d4d22050601cad1046b126e9fa19",
+      "geometry_sha256": "b8e0e34caf37b6504900ebc3c8b1b88391b49d8896527332dedaa13e4240f592",
+      "labels_sha256": "7ea255bb9294121c97274015ed40011780a52715c27617fd3a7bcdacdfb6bdbf",
+      "label_count": 10
+    },
+    "tensor-coherence-routes": {
+      "png_sha256": "35c4ffa81a57abdac68111fdb9d9a600b7a293b1094f15ae44a1dae354e4a628",
+      "geometry_sha256": "2a1352e940afde4c4bbe54dfe394c6003a2fd42fef9752a2061d6f2dae9df8c4",
+      "labels_sha256": "373027b4c99c965a2b337cb4e8d357ad2ab0595b145dcf304565eba5d8ed199a",
+      "label_count": 12
+    }
+  }
+}

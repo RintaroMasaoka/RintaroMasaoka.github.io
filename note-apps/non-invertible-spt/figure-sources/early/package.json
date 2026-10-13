@@ -1,0 +1,17 @@
+{
+  "name": "nispt-current-early-figures",
+  "private": true,
+  "version": "1.1.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate": "node generate.cjs",
+    "check:sources": "node check-sources.cjs",
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "katex": "0.16.22",
+    "playwright": "1.62.1"
+  }
+}

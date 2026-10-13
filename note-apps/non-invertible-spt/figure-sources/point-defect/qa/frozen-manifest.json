@@ -1,0 +1,14 @@
+{
+  "status": "Frozen point-defect chain diagram.",
+  "figures": [
+    {
+      "id": "point-defect-fusion",
+      "geometry": "editable/point-defect-fusion-geometry.svg",
+      "geometrySHA256": "12a922ec0904fdf1796b771a3f3c53b1b7b7fa24ba2dba613e0e0818b2f3b851",
+      "labels": "editable/point-defect-fusion-labels.json",
+      "labelsSHA256": "61ab0d629bc51b52acc9e8c0ba9c597d7ae9c87fb40968f61f6256cdcbb16ff4",
+      "frozenPNG": "point-defect-fusion.png",
+      "frozenPNGSHA256": "901598b75ca2a50876e56a9e68e0990bd5c72134f8ede989285b2df063525d85"
+    }
+  ]
+}

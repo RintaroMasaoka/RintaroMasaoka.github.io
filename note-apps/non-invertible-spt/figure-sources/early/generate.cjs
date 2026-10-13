@@ -1,0 +1,11 @@
+const fs=require('fs'),path=require('path');
+require('./generate-base.cjs');
+require('./generate-fusion.cjs');
+require('./generate-coherence.cjs');
+const assets=path.join(__dirname,'assets');
+const pieces=['base-figures.json','fusion-figure.json','coherence-figure.json'].flatMap(file=>JSON.parse(fs.readFileSync(path.join(assets,file),'utf8')));
+const order=['edge-phase-cancellation','defect-orientations','fusion-associator','vacuum-defect-sector','tensor-coherence-routes'];
+const byId=new Map(pieces.map(f=>[f.id,f]));
+if(byId.size!==5||order.some(id=>!byId.has(id)))throw new Error('Current five-figure manifest is incomplete.');
+fs.writeFileSync(path.join(assets,'figures.json'),JSON.stringify(order.map(id=>byId.get(id)),null,2));
+console.log('Generated the five current early figures. The fusion source is generate-fusion.cjs.');

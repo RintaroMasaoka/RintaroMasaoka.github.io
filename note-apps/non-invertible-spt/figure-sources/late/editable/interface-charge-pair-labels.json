@@ -1,0 +1,123 @@
+[
+  {
+    "id": "interface-charge-pair-0",
+    "meaning": "cluster region",
+    "tex": "\\text{cluster}",
+    "x": 340,
+    "y": 122,
+    "size": 27,
+    "width": 190,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-1",
+    "meaning": "odd region",
+    "tex": "\\text{odd}",
+    "x": 340,
+    "y": 188,
+    "size": 27,
+    "width": 190,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-2",
+    "meaning": "left interface",
+    "tex": "\\text{Left}",
+    "x": 100,
+    "y": 154,
+    "size": 26,
+    "width": 120,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-3",
+    "meaning": "right interface",
+    "tex": "\\text{Right}",
+    "x": 592,
+    "y": 154,
+    "size": 26,
+    "width": 125,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-4",
+    "meaning": "two local state spaces",
+    "tex": "2\\times 2=4",
+    "x": 340,
+    "y": 279,
+    "size": 31,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-5",
+    "meaning": "left local charge",
+    "tex": "\\eta_{o,L}\\text{ eigenvalue}",
+    "x": 340,
+    "y": 328,
+    "size": 27,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-6",
+    "meaning": "plus charge",
+    "tex": "+1",
+    "x": 183,
+    "y": 404,
+    "size": 31,
+    "width": 75,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-7",
+    "meaning": "minus charge",
+    "tex": "-1",
+    "x": 497,
+    "y": 404,
+    "size": 31,
+    "width": 75,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-8",
+    "meaning": "charge flipping local operator",
+    "tex": "D_L^{(2)}",
+    "x": 340,
+    "y": 367,
+    "size": 30,
+    "width": 150,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-9",
+    "meaning": "squared local operator",
+    "tex": "(D_L^{(2)})^2=1",
+    "x": 340,
+    "y": 463,
+    "size": 28,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "interface-charge-pair-10",
+    "meaning": "degeneracy claim",
+    "tex": "\\text{Same energy in the solvable interface model}",
+    "x": 340,
+    "y": 522,
+    "size": 25,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "frozen_replacement_text_and_png_unchanged": true,
+  "frozen_parent_artifacts_unchanged": true,
+  "current_canonical_bundle": "fusion-revision/reproduction/",
+  "current_figures": [
+    "edge-phase-cancellation",
+    "defect-orientations",
+    "fusion-associator",
+    "vacuum-defect-sector",
+    "tensor-coherence-routes"
+  ],
+  "current_fusion_labels": 23,
+  "canonical_source_equivalence_pass": true,
+  "superseded_fusion_absent_from_base_generator": true,
+  "hardcoded_user_or_browser_paths": [],
+  "png_files_in_canonical_bundle": [],
+  "node_modules_in_canonical_bundle": [],
+  "unchanged_png_renders_during_canonical_packaging": 0
+}

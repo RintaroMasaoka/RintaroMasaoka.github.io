@@ -1,0 +1,59 @@
+{
+  "status": "Frozen originals; geometry and label files copied byte for byte; PNGs retained outside this bundle.",
+  "figures": [
+    {
+      "id": "d-symmetry-sectors",
+      "geometry": "editable/d-symmetry-sectors-geometry.svg",
+      "geometrySHA256": "e25ffe0a947501fd8d3a32cc1dde9ad75d75b89b220f42f2f7af8de357c84077",
+      "labels": "editable/d-symmetry-sectors-labels.json",
+      "labelsSHA256": "df74ef15080aecf9c7fb2a8db925a1761844f5f598bfd882e73571066f80e675",
+      "frozenPNG": "d-symmetry-sectors.png",
+      "frozenPNGSHA256": "525435d1672eb4244cc020036aa8094769a1961187ffc3a48362c44b29acac12"
+    },
+    {
+      "id": "cz-two-layers",
+      "geometry": "editable/cz-two-layers-geometry.svg",
+      "geometrySHA256": "1ebd9efe7bc4862ac572fcd3d77449a73880c4b423566d872675ae5ecc140888",
+      "labels": "editable/cz-two-layers-labels.json",
+      "labelsSHA256": "c79c93a1aaa531f38b276ffa688e0cc1e06dee926572b3435f340f34a32e18ab",
+      "frozenPNG": "cz-two-layers.png",
+      "frozenPNGSHA256": "cccec2f8692e10599dc8beb5fcd69d482ddee4738ab6ef25d7fc8a726d55bc4d"
+    },
+    {
+      "id": "string-end-cancellation",
+      "geometry": "editable/string-end-cancellation-geometry.svg",
+      "geometrySHA256": "d233b0011f907589102e756b98bcc3b144ec124a33b8714d1961416ddcd29cc8",
+      "labels": "editable/string-end-cancellation-labels.json",
+      "labelsSHA256": "793d88e727b37259713b526d29f60187fbe0f8430bbb19088fdc0bcd9d4f63fe",
+      "frozenPNG": "string-end-cancellation.png",
+      "frozenPNGSHA256": "ba03ea8e04beb6f58d1bdb028f38f00f7b9ca8056e8e281a4fa48dd3346ce104"
+    },
+    {
+      "id": "interface-charge-pair",
+      "geometry": "editable/interface-charge-pair-geometry.svg",
+      "geometrySHA256": "f2af7e08d4847a21ebd04a3fae5a56ca05a3dea9974b739037120987036e8bff",
+      "labels": "editable/interface-charge-pair-labels.json",
+      "labelsSHA256": "9cc1cf3543cfcf5e93ac6cfbb5d42ca03f11897e1bbaf6cfe78d34cf64bcba0c",
+      "frozenPNG": "interface-charge-pair.png",
+      "frozenPNGSHA256": "c648f0f5b494f33983d428802e431ce5ab7afc0032bf1c7b3826a3a261be34e9"
+    },
+    {
+      "id": "symtft-interval",
+      "geometry": "editable/symtft-interval-geometry.svg",
+      "geometrySHA256": "00f605472f871043f1a1cf3ae123f5ffef1b63aec67f7bd51094d36fc5efe3fd",
+      "labels": "editable/symtft-interval-labels.json",
+      "labelsSHA256": "25e070c80651837ae9a2a90fa0e4d479ead38eff989d73643572f49e030aa6de",
+      "frozenPNG": "symtft-interval.png",
+      "frozenPNGSHA256": "7398342400513b778ebc09b45e2489f90033bea3a728121859de8dd72260c79a"
+    },
+    {
+      "id": "stacking-sixteen-terms",
+      "geometry": "editable/stacking-sixteen-terms-geometry.svg",
+      "geometrySHA256": "3430791f23e107b15a8b271b3700292c3af80a85c94d82c63e7fb047d2ac8915",
+      "labels": "editable/stacking-sixteen-terms-labels.json",
+      "labelsSHA256": "85f55266eb7c90be5d494665e4d5cc32ab625fb0940073c073d3ffbff28113e9",
+      "frozenPNG": "stacking-sixteen-terms.png",
+      "frozenPNGSHA256": "cfa7c4cbcdc7371858b71236b6d49a83efb0c0395fc34fbd9669cbf6b50e34eb"
+    }
+  ]
+}

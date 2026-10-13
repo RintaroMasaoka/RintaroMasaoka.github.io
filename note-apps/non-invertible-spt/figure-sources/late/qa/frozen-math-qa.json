@@ -1,0 +1,38 @@
+{
+  "status": "Existing mathematical check for the frozen geometry.",
+  "scope": "Illustrative 8-site periodic cluster calculation and scalar sector/cartesian-product checks; not a source-classification audit.",
+  "checks": {
+    "single_CZ_X_conjugation": true,
+    "K2_K4_K6_string_identity": true,
+    "CZ_layers_disjoint": true,
+    "CZ_layers_cover_periodic_bonds": true,
+    "all_CZ_conjugates_X_to_K": true,
+    "all_CZ_commutes_with_eta_e_and_eta_o": true,
+    "cluster_K_j_eigenvalues_plus_one": true,
+    "string_expectation": 1.0,
+    "D_squared_symmetry_sectors": [
+      {
+        "eta_e": 1,
+        "eta_o": 1,
+        "D_squared": 4
+      },
+      {
+        "eta_e": 1,
+        "eta_o": -1,
+        "D_squared": 0
+      },
+      {
+        "eta_e": -1,
+        "eta_o": 1,
+        "D_squared": 0
+      },
+      {
+        "eta_e": -1,
+        "eta_o": -1,
+        "D_squared": 0
+      }
+    ],
+    "stacking_summand_count": 16,
+    "diagonal_summand_count": 4
+  }
+}

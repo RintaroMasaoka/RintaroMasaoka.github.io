@@ -1,0 +1,33 @@
+const fs=require('fs'),path=require('path');
+const katex=require(process.env.KATEX_ROOT || 'katex');
+const katexRoot=process.env.KATEX_ROOT ? path.resolve(process.env.KATEX_ROOT) : path.dirname(require.resolve('katex/package.json'));
+const root=__dirname,assets=path.join(root,'assets'),id='tensor-coherence-routes',width=1120,height=500;
+fs.mkdirSync(assets,{recursive:true});
+fs.mkdirSync(path.join(assets,'katex'),{recursive:true});
+fs.copyFileSync(path.join(katexRoot,'dist/katex.min.css'),path.join(assets,'katex/katex.min.css'));
+fs.cpSync(path.join(katexRoot,'dist/fonts'),path.join(assets,'katex/fonts'),{recursive:true});
+fs.copyFileSync(path.join(katexRoot,'LICENSE'),path.join(assets,'katex/LICENSE'));
+const ink='#243746',line='#566672',accent='#a45119',labels=[];
+let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="${line}"/></marker></defs>`;
+function arrow(x1,y1,x2,y2){svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${line}" stroke-width="2.4" marker-end="url(#arrow)"/>`;}
+function label(key,tex,x,y,size,w,meaning,role,color=ink){labels.push({id:key,tex,x,y,size,width:w,color,english_meaning:meaning,role,renderer:'KaTeX',font_family:'KaTeX Main / Math / Caligraphic'});}
+label('title','\\text{Two orders of pairwise assembly}',560,32,28,1000,'Two orders of pairwise assembly','title');
+label('source','\\mathcal F(a)\\otimes\\mathcal F(b)\\otimes\\mathcal F(c)',560,92,29,1000,'Tensor product of the three assigned vector spaces','vector-space object');
+arrow(430,125,280,192);arrow(690,125,840,192);
+label('first-left','J_{a,b}\\otimes\\mathrm{id}',260,142,27,440,'Combine a and b while leaving F(c) unchanged','linear map');
+label('first-right','\\mathrm{id}\\otimes J_{b,c}',860,142,27,440,'Combine b and c while leaving F(a) unchanged','linear map');
+label('intermediate-left','\\mathcal F(a\\otimes b)\\otimes\\mathcal F(c)',280,230,28,540,'Vector space after assembling the first pair a and b','vector-space object');
+label('intermediate-right','\\mathcal F(a)\\otimes\\mathcal F(b\\otimes c)',840,230,28,540,'Vector space after assembling the first pair b and c','vector-space object');
+arrow(280,263,280,367);arrow(840,263,840,367);
+label('second-left','J_{a\\otimes b,c}',142,316,27,270,'Combine the a tensor b line with c','linear map');
+label('second-right','J_{a,b\\otimes c}',980,316,27,270,'Combine a with the b tensor c line','linear map');
+label('assembled-left','\\mathcal F((a\\otimes b)\\otimes c)',280,405,28,540,'Assigned space for the left-associated composite line','vector-space object');
+label('target','\\mathcal F(a\\otimes(b\\otimes c))',840,405,28,540,'Common target space for the right-associated composite line','vector-space object');
+arrow(445,405,675,405);
+label('associator-image','\\mathcal F(\\alpha_{a,b,c})',560,370,27,400,'Linear map assigned to the line associator','linear map',accent);
+label('commutes','\\text{The two composite maps agree}',560,470,25,1000,'The two complete routes from the same source to the same target agree','commutativity condition');
+svg+='</svg>';
+const letters=labels.map(l=>`<div class="label" data-label="${l.id}" style="left:${l.x}px;top:${l.y}px;font-size:${l.size}px;width:${l.width}px;color:${l.color}">${katex.renderToString(l.tex,{throwOnError:true})}</div>`).join('');
+const html=`<!doctype html><html lang="en"><meta charset="utf-8"><title>${id}</title><link rel="stylesheet" href="katex/katex.min.css"><style>html,body{margin:0;background:#fff}#figure{position:relative;width:${width}px;height:${height}px;overflow:hidden;background:#fff}svg{position:absolute;inset:0}.label{position:absolute;transform:translate(-50%,-50%);text-align:center;white-space:nowrap;line-height:1.2}.katex{font-size:1em}</style><div id="figure">${svg}${letters}</div></html>`;
+fs.writeFileSync(path.join(assets,id+'.html'),html);fs.writeFileSync(path.join(assets,id+'.geometry.svg'),svg);fs.writeFileSync(path.join(assets,id+'.labels.json'),JSON.stringify(labels,null,2));fs.writeFileSync(path.join(assets,'coherence-figure.json'),JSON.stringify([{id,width,height,labels}],null,2));
+console.log('Generated coherence diagram with '+labels.length+' TeX labels.');

@@ -1,0 +1,15 @@
+{
+  "katexVersion": "0.17.0",
+  "copiedFontCount": 60,
+  "cssSHA256": "a34ad8fc188e8f5a3af7ceaa2a58d7210c6c9171335a15bff2b48ebcd6a6f5b0",
+  "figures": [
+    {
+      "id": "junction-comparison",
+      "source": "sources/junction-comparison.html",
+      "geometrySHA256": "7ff3fd30efcb072509acaa759f9bd4177ca49aa8de0a899d5696f79a1d7df7fd",
+      "labelsSHA256": "73d33dc4b04a57ce061200be539894fd97fcad03575a18703b20c744a7c51923",
+      "htmlSHA256": "71e43f7bdbf1012e952bed17b6b413226ade6c3a7323b6d1687ceefaa1608e12",
+      "labelCount": 21
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "symtft-interval-0",
+    "meaning": "bulk theory",
+    "tex": "\\text{SymTFT: }(2+1)\\mathrm{d}",
+    "x": 340,
+    "y": 35,
+    "size": 29,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-1",
+    "meaning": "boundary fusion category",
+    "tex": "\\mathcal C",
+    "x": 124,
+    "y": 166,
+    "size": 29,
+    "width": 85,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-2",
+    "meaning": "boundary choice",
+    "tex": "\\text{phase}",
+    "x": 507,
+    "y": 229,
+    "size": 25,
+    "width": 100,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-3",
+    "meaning": "fixed symmetry boundary",
+    "tex": "\\text{Symmetry boundary}",
+    "x": 139,
+    "y": 402,
+    "size": 25,
+    "width": 270,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-4",
+    "meaning": "vary physical boundary",
+    "tex": "\\text{Physical boundary}",
+    "x": 511,
+    "y": 402,
+    "size": 25,
+    "width": 290,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-5",
+    "meaning": "fixed boundary role",
+    "tex": "\\text{fixed}",
+    "x": 139,
+    "y": 440,
+    "size": 25,
+    "width": 180,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-6",
+    "meaning": "chosen phase role",
+    "tex": "\\text{choose a phase}",
+    "x": 511,
+    "y": 440,
+    "size": 25,
+    "width": 260,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-7",
+    "meaning": "interval direction",
+    "tex": "\\text{auxiliary interval}",
+    "x": 325,
+    "y": 331,
+    "size": 25,
+    "width": 270,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-8",
+    "meaning": "dimensional reduction",
+    "tex": "\\text{shrink the interval}",
+    "x": 469,
+    "y": 480,
+    "size": 25,
+    "width": 300,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "symtft-interval-9",
+    "meaning": "effective theory",
+    "tex": "\\mathcal C\\text{-symmetric }(1+1)\\mathrm{d}",
+    "x": 340,
+    "y": 594,
+    "size": 27,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  }
+]

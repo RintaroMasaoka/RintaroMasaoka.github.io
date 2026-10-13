@@ -1,0 +1,111 @@
+{
+  "status": "Existing render evidence, not a new render.",
+  "katexVersion": "0.16.22",
+  "browserVersion": "155.0.8059.40",
+  "labelCount": 98,
+  "figures": [
+    {
+      "id": "d-symmetry-sectors",
+      "frozenPNGSHA256": "525435d1672eb4244cc020036aa8094769a1961187ffc3a48362c44b29acac12",
+      "CSSSize": [
+        680,
+        410
+      ],
+      "deviceScaleFactor": 2,
+      "labelCount": 12,
+      "loadedFontFamilies": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "allGlyphsUseKaTeX": true,
+      "clippedLabels": [],
+      "pageErrors": []
+    },
+    {
+      "id": "cz-two-layers",
+      "frozenPNGSHA256": "cccec2f8692e10599dc8beb5fcd69d482ddee4738ab6ef25d7fc8a726d55bc4d",
+      "CSSSize": [
+        680,
+        490
+      ],
+      "deviceScaleFactor": 2,
+      "labelCount": 22,
+      "loadedFontFamilies": [
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1"
+      ],
+      "allGlyphsUseKaTeX": true,
+      "clippedLabels": [],
+      "pageErrors": []
+    },
+    {
+      "id": "string-end-cancellation",
+      "frozenPNGSHA256": "ba03ea8e04beb6f58d1bdb028f38f00f7b9ca8056e8e281a4fa48dd3346ce104",
+      "CSSSize": [
+        680,
+        485
+      ],
+      "deviceScaleFactor": 2,
+      "labelCount": 30,
+      "loadedFontFamilies": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "allGlyphsUseKaTeX": true,
+      "clippedLabels": [],
+      "pageErrors": []
+    },
+    {
+      "id": "interface-charge-pair",
+      "frozenPNGSHA256": "c648f0f5b494f33983d428802e431ce5ab7afc0032bf1c7b3826a3a261be34e9",
+      "CSSSize": [
+        680,
+        560
+      ],
+      "deviceScaleFactor": 2,
+      "labelCount": 11,
+      "loadedFontFamilies": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "allGlyphsUseKaTeX": true,
+      "clippedLabels": [],
+      "pageErrors": []
+    },
+    {
+      "id": "symtft-interval",
+      "frozenPNGSHA256": "7398342400513b778ebc09b45e2489f90033bea3a728121859de8dd72260c79a",
+      "CSSSize": [
+        680,
+        620
+      ],
+      "deviceScaleFactor": 2,
+      "labelCount": 10,
+      "loadedFontFamilies": [
+        "KaTeX_Caligraphic",
+        "KaTeX_Main"
+      ],
+      "allGlyphsUseKaTeX": true,
+      "clippedLabels": [],
+      "pageErrors": []
+    },
+    {
+      "id": "stacking-sixteen-terms",
+      "frozenPNGSHA256": "cfa7c4cbcdc7371858b71236b6d49a83efb0c0395fc34fbd9669cbf6b50e34eb",
+      "CSSSize": [
+        680,
+        640
+      ],
+      "deviceScaleFactor": 2,
+      "labelCount": 13,
+      "loadedFontFamilies": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "allGlyphsUseKaTeX": true,
+      "clippedLabels": [],
+      "pageErrors": []
+    }
+  ]
+}

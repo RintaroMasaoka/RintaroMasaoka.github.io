@@ -1,0 +1,65 @@
+{
+  "scope": "A noncommuting finite-group matrix witness for the diagram; general cancellation uses h^{-1}h=1.",
+  "matrices": {
+    "g": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "h": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "hInverse": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ]
+  },
+  "checks": {
+    "groupChangeHasInverse": true,
+    "inverseDiffersFromForwardChange": true,
+    "testFactorsDoNotCommute": true,
+    "leftDiagramCommutes": true,
+    "rightDiagramCommutes": true,
+    "rightUndoRouteEqualsOriginalLink": true,
+    "replacingInverseWithHWouldFail": true
+  }
+}

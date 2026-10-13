@@ -1,0 +1,190 @@
+{
+  "pngSHA256": "a17e971bc7be026e1efc79e49b41bbf3e815bea9b17c8e809b5e854bed53b339",
+  "labelSourceSHA256": "73d33dc4b04a57ce061200be539894fd97fcad03575a18703b20c744a7c51923",
+  "renderer": "KaTeX 0.17.0 rendered to HTML; Playwright 1.62.1 / Chrome 155.0.8059.40 rasterized at device scale factor 2",
+  "fontFamilies": [
+    "KaTeX_Main",
+    "KaTeX_Math"
+  ],
+  "labels": [
+    {
+      "id": "top-title",
+      "englishMeaning": "Scope of the upper comparison",
+      "tex": "\\text{Attachment comparison in the }D\\text{-twisted sector of phase }X",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "left-g",
+      "englishMeaning": "Reversible line on the left",
+      "tex": "g",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "left-d",
+      "englishMeaning": "Duality line in the left route",
+      "tex": "D",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "left-route",
+      "englishMeaning": "Left fusion isomorphism",
+      "tex": "g\\otimes D\\simeq D\\quad(\\text{left})",
+      "glyphFontFamilies": [
+        "KaTeX_Math",
+        "KaTeX_Main, \"Times New Roman\", serif"
+      ]
+    },
+    {
+      "id": "right-g",
+      "englishMeaning": "Reversible line on the right",
+      "tex": "g",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "right-d",
+      "englishMeaning": "Duality line in the right route",
+      "tex": "D",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "right-route",
+      "englishMeaning": "Right fusion isomorphism",
+      "tex": "D\\otimes g\\simeq D\\quad(\\text{right})",
+      "glyphFontFamilies": [
+        "KaTeX_Math",
+        "KaTeX_Main, \"Times New Roman\", serif"
+      ]
+    },
+    {
+      "id": "nu",
+      "englishMeaning": "Phase-specific compatibility datum",
+      "tex": "\\nu_X(g)",
+      "glyphFontFamilies": [
+        "KaTeX_Math",
+        "KaTeX_Main, \"Times New Roman\", serif"
+      ]
+    },
+    {
+      "id": "compare",
+      "englishMeaning": "Meaning of the upper arrow",
+      "tex": "\\text{compare maps}",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif"
+      ]
+    },
+    {
+      "id": "bottom-title",
+      "englishMeaning": "Scope of the interface comparison",
+      "tex": "\\text{Transport across an }A\\text{--}B\\text{ junction}",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "a-left",
+      "englishMeaning": "Phase A in the before view",
+      "tex": "\\text{phase }A",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "b-left",
+      "englishMeaning": "Phase B in the before view",
+      "tex": "\\text{phase }B",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "a-right",
+      "englishMeaning": "Phase A in the after view",
+      "tex": "\\text{phase }A",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "b-right",
+      "englishMeaning": "Phase B in the after view",
+      "tex": "\\text{phase }B",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "g-a",
+      "englishMeaning": "Reversible line attached on A side",
+      "tex": "g",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "g-b",
+      "englishMeaning": "Reversible line attached on B side",
+      "tex": "g",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "d-a",
+      "englishMeaning": "Duality line across first junction",
+      "tex": "D",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "d-b",
+      "englishMeaning": "Duality line across second junction",
+      "tex": "D",
+      "glyphFontFamilies": [
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "relative",
+      "englishMeaning": "Junction-local relative factor",
+      "tex": "\\dfrac{\\nu_A(g)}{\\nu_B(g)}",
+      "glyphFontFamilies": [
+        "KaTeX_Math",
+        "KaTeX_Main, \"Times New Roman\", serif"
+      ]
+    },
+    {
+      "id": "example",
+      "englishMeaning": "Cluster/odd relative sign for g=o",
+      "tex": "\\text{Example: }\\dfrac{\\nu_{\\mathrm{cluster}}(o)}{\\nu_{\\mathrm{odd}}(o)}=-1",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "id": "scope",
+      "englishMeaning": "Schematic interpretation and factor extent",
+      "tex": "\\text{Schematic: lines mark attachment positions; the scalar belongs to the junction comparison.}",
+      "glyphFontFamilies": [
+        "KaTeX_Main, \"Times New Roman\", serif"
+      ]
+    }
+  ]
+}

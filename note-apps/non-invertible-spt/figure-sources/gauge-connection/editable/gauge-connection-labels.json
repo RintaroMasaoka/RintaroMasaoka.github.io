@@ -1,0 +1,222 @@
+[
+  {
+    "id": "gauge-connection-0",
+    "meaning": "local transformation being illustrated",
+    "tex": "\\text{Change left state}",
+    "x": 340,
+    "y": 35,
+    "size": 28,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-1",
+    "meaning": "left endpoint state",
+    "tex": "\\text{Left state}",
+    "x": 170,
+    "y": 77,
+    "size": 25,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-2",
+    "meaning": "right endpoint state",
+    "tex": "\\text{Right state}",
+    "x": 520,
+    "y": 77,
+    "size": 25,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-3",
+    "meaning": "before row",
+    "tex": "\\text{Before}",
+    "x": 62,
+    "y": 145,
+    "size": 24,
+    "width": 105,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-4",
+    "meaning": "after row",
+    "tex": "\\text{After}",
+    "x": 62,
+    "y": 260,
+    "size": 24,
+    "width": 105,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-5",
+    "meaning": "original right-to-left link",
+    "tex": "g",
+    "x": 340,
+    "y": 120,
+    "size": 30,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-6",
+    "meaning": "transformed right-to-left link",
+    "tex": "hg",
+    "x": 340,
+    "y": 235,
+    "size": 30,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-7",
+    "meaning": "left local group transformation",
+    "tex": "h",
+    "x": 128,
+    "y": 202.5,
+    "size": 29,
+    "width": 75,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-8",
+    "meaning": "right endpoint unchanged",
+    "tex": "\\mathrm{id}",
+    "x": 563,
+    "y": 202.5,
+    "size": 27,
+    "width": 90,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-9",
+    "meaning": "local transformation being illustrated",
+    "tex": "\\text{Change right state}",
+    "x": 340,
+    "y": 350,
+    "size": 28,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-10",
+    "meaning": "left endpoint state",
+    "tex": "\\text{Left state}",
+    "x": 170,
+    "y": 392,
+    "size": 25,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-11",
+    "meaning": "right endpoint state",
+    "tex": "\\text{Right state}",
+    "x": 520,
+    "y": 392,
+    "size": 25,
+    "width": 220,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-12",
+    "meaning": "before row",
+    "tex": "\\text{Before}",
+    "x": 62,
+    "y": 460,
+    "size": 24,
+    "width": 105,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-13",
+    "meaning": "after row",
+    "tex": "\\text{After}",
+    "x": 62,
+    "y": 575,
+    "size": 24,
+    "width": 105,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-14",
+    "meaning": "original right-to-left link",
+    "tex": "g",
+    "x": 340,
+    "y": 435,
+    "size": 30,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-15",
+    "meaning": "transformed right-to-left link",
+    "tex": "gh^{-1}",
+    "x": 340,
+    "y": 550,
+    "size": 30,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-16",
+    "meaning": "left endpoint unchanged",
+    "tex": "\\mathrm{id}",
+    "x": 213,
+    "y": 517.5,
+    "size": 27,
+    "width": 90,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-17",
+    "meaning": "right local group transformation",
+    "tex": "h",
+    "x": 477,
+    "y": 517.5,
+    "size": 29,
+    "width": 75,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-18",
+    "meaning": "inverse returning the right state to the original link input",
+    "tex": "h^{-1}",
+    "x": 630,
+    "y": 517.5,
+    "size": 28,
+    "width": 85,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "gauge-connection-19",
+    "meaning": "new right link cancels the right state change",
+    "tex": "(gh^{-1})\\,h=g",
+    "x": 340,
+    "y": 638,
+    "size": 31,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  }
+]

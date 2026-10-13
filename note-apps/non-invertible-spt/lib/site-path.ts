@@ -1,5 +1,8 @@
 /** Public files and native anchors need the deployment prefix explicitly. */
-export const siteBasePath = (import.meta.env.VITE_SITE_BASE_PATH ?? '').replace(/\/$/, '');
+const deploymentBase = import.meta.env.VITE_SITE_BASE_PATH
+  || (typeof process !== 'undefined' ? process.env.VITE_SITE_BASE_PATH : '')
+  || '';
+export const siteBasePath = deploymentBase.replace(/\/$/, '');
 
 export function sitePath(path: string | undefined) {
   if (!path || !path.startsWith('/') || path.startsWith('//')) return path;

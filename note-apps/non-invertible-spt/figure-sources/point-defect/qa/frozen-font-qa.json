@@ -1,0 +1,19 @@
+{
+  "status": "Existing final render evidence; inspect newly generated output after any future edit.",
+  "katexVersion": "0.16.22",
+  "browserVersion": "155.0.8059.40",
+  "pngSHA256": "901598b75ca2a50876e56a9e68e0990bd5c72134f8ede989285b2df063525d85",
+  "CSSSize": [
+    680,
+    500
+  ],
+  "deviceScaleFactor": 2,
+  "loadedFontFamilies": [
+    "KaTeX_Main"
+  ],
+  "labelCount": 11,
+  "allGlyphsUseKaTeX": true,
+  "clipped": [],
+  "mathErrors": 0,
+  "pageErrors": []
+}

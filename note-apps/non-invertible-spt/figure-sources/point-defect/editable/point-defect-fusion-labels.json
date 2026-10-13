@@ -1,0 +1,123 @@
+[
+  {
+    "id": "point-defect-fusion-0",
+    "meaning": "diagram title",
+    "tex": "\\text{Local defects on a 1D chain}",
+    "x": 340,
+    "y": 34,
+    "size": 28,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-1",
+    "meaning": "bulk position role",
+    "tex": "\\text{left bulk}",
+    "x": 102,
+    "y": 91,
+    "size": 25,
+    "width": 210,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-2",
+    "meaning": "bulk position role",
+    "tex": "\\text{middle bulk}",
+    "x": 340,
+    "y": 91,
+    "size": 25,
+    "width": 210,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-3",
+    "meaning": "bulk position role",
+    "tex": "\\text{right bulk}",
+    "x": 584,
+    "y": 91,
+    "size": 25,
+    "width": 210,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-4",
+    "meaning": "first local defect",
+    "tex": "\\text{defect 1}",
+    "x": 230,
+    "y": 194,
+    "size": 26,
+    "width": 240,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-5",
+    "meaning": "second local defect",
+    "tex": "\\text{defect 2}",
+    "x": 450,
+    "y": 194,
+    "size": 26,
+    "width": 240,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-6",
+    "meaning": "operation combining a local region",
+    "tex": "\\text{combine this region}",
+    "x": 505,
+    "y": 264,
+    "size": 25,
+    "width": 320,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-7",
+    "meaning": "retained left bulk",
+    "tex": "\\text{left bulk}",
+    "x": 102,
+    "y": 322,
+    "size": 25,
+    "width": 210,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-8",
+    "meaning": "retained right bulk",
+    "tex": "\\text{right bulk}",
+    "x": 584,
+    "y": 322,
+    "size": 25,
+    "width": 210,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-9",
+    "meaning": "one spatially localized composite object",
+    "tex": "\\text{composite defect}",
+    "x": 340,
+    "y": 422,
+    "size": 27,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  },
+  {
+    "id": "point-defect-fusion-10",
+    "meaning": "possible type decomposition without a fixed channel count",
+    "tex": "\\text{one or more defect types}",
+    "x": 340,
+    "y": 470,
+    "size": 26,
+    "width": 640,
+    "renderer": "KaTeX",
+    "fontFamily": "KaTeX Main / Math"
+  }
+]

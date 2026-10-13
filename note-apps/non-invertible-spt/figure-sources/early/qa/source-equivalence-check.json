@@ -1,0 +1,121 @@
+{
+  "scope": "Source equivalence only; this check does not launch a browser or render PNGs",
+  "pass": true,
+  "files_checked": 19,
+  "checks": [
+    {
+      "file": "assets/edge-phase-cancellation.geometry.svg",
+      "expected_sha256": "1447dccc12650aebbb070dd923da1e22ff5f966d3cb23b0ee1fdfce64432a5d8",
+      "actual_sha256": "1447dccc12650aebbb070dd923da1e22ff5f966d3cb23b0ee1fdfce64432a5d8",
+      "pass": true
+    },
+    {
+      "file": "assets/edge-phase-cancellation.labels.json",
+      "expected_sha256": "554e0e326b438040355d622e33df47999ea3d7a43c7d559d40b750a7e8112af5",
+      "actual_sha256": "554e0e326b438040355d622e33df47999ea3d7a43c7d559d40b750a7e8112af5",
+      "pass": true
+    },
+    {
+      "file": "assets/edge-phase-cancellation.html",
+      "expected_sha256": "93bbf023028cfd92910e6bbdb2e136a9a20eea009ffe6a5377d72d31a3229714",
+      "actual_sha256": "93bbf023028cfd92910e6bbdb2e136a9a20eea009ffe6a5377d72d31a3229714",
+      "pass": true
+    },
+    {
+      "file": "assets/defect-orientations.geometry.svg",
+      "expected_sha256": "d71678a6fb6f9a870c32cdccd0bc93447c4df3b5661a92cb160a4a46ff3dff07",
+      "actual_sha256": "d71678a6fb6f9a870c32cdccd0bc93447c4df3b5661a92cb160a4a46ff3dff07",
+      "pass": true
+    },
+    {
+      "file": "assets/defect-orientations.labels.json",
+      "expected_sha256": "36e548afd62ad693fb9f19e52244e690e7083a2cd3e4e5b06d9d58ea899a85bd",
+      "actual_sha256": "36e548afd62ad693fb9f19e52244e690e7083a2cd3e4e5b06d9d58ea899a85bd",
+      "pass": true
+    },
+    {
+      "file": "assets/defect-orientations.html",
+      "expected_sha256": "a0aa55c4ea7fb9e9c8fc06aa58df540ef20a6398f181d3b18a944be19fd5faa6",
+      "actual_sha256": "a0aa55c4ea7fb9e9c8fc06aa58df540ef20a6398f181d3b18a944be19fd5faa6",
+      "pass": true
+    },
+    {
+      "file": "assets/fusion-associator.geometry.svg",
+      "expected_sha256": "fef07f4698682f5718de574af5c38eb3e69ada8d639099e7527b013a257285b9",
+      "actual_sha256": "fef07f4698682f5718de574af5c38eb3e69ada8d639099e7527b013a257285b9",
+      "pass": true
+    },
+    {
+      "file": "assets/fusion-associator.labels.json",
+      "expected_sha256": "8d9b2ddf4532490a41e7e5e62707d9b5a148ef49273249ae92f286c1e67d31be",
+      "actual_sha256": "8d9b2ddf4532490a41e7e5e62707d9b5a148ef49273249ae92f286c1e67d31be",
+      "pass": true
+    },
+    {
+      "file": "assets/fusion-associator.html",
+      "expected_sha256": "ad291e570340c659a07bc790bf8c9b78211f00d4a9fc0a55edf05f27a396d5ad",
+      "actual_sha256": "ad291e570340c659a07bc790bf8c9b78211f00d4a9fc0a55edf05f27a396d5ad",
+      "pass": true
+    },
+    {
+      "file": "assets/vacuum-defect-sector.geometry.svg",
+      "expected_sha256": "b8e0e34caf37b6504900ebc3c8b1b88391b49d8896527332dedaa13e4240f592",
+      "actual_sha256": "b8e0e34caf37b6504900ebc3c8b1b88391b49d8896527332dedaa13e4240f592",
+      "pass": true
+    },
+    {
+      "file": "assets/vacuum-defect-sector.labels.json",
+      "expected_sha256": "7ea255bb9294121c97274015ed40011780a52715c27617fd3a7bcdacdfb6bdbf",
+      "actual_sha256": "7ea255bb9294121c97274015ed40011780a52715c27617fd3a7bcdacdfb6bdbf",
+      "pass": true
+    },
+    {
+      "file": "assets/vacuum-defect-sector.html",
+      "expected_sha256": "4b98dcad80562d9b8f562827fe8470a96c2e4d383373cee4e0465b9caeea7e1e",
+      "actual_sha256": "4b98dcad80562d9b8f562827fe8470a96c2e4d383373cee4e0465b9caeea7e1e",
+      "pass": true
+    },
+    {
+      "file": "assets/tensor-coherence-routes.geometry.svg",
+      "expected_sha256": "2a1352e940afde4c4bbe54dfe394c6003a2fd42fef9752a2061d6f2dae9df8c4",
+      "actual_sha256": "2a1352e940afde4c4bbe54dfe394c6003a2fd42fef9752a2061d6f2dae9df8c4",
+      "pass": true
+    },
+    {
+      "file": "assets/tensor-coherence-routes.labels.json",
+      "expected_sha256": "373027b4c99c965a2b337cb4e8d357ad2ab0595b145dcf304565eba5d8ed199a",
+      "actual_sha256": "373027b4c99c965a2b337cb4e8d357ad2ab0595b145dcf304565eba5d8ed199a",
+      "pass": true
+    },
+    {
+      "file": "assets/tensor-coherence-routes.html",
+      "expected_sha256": "71ead51d4761dae6b1cda5bd3e43392264a7c9301f224410fcfcd87fcbcf3269",
+      "actual_sha256": "71ead51d4761dae6b1cda5bd3e43392264a7c9301f224410fcfcd87fcbcf3269",
+      "pass": true
+    },
+    {
+      "file": "assets/base-figures.json",
+      "expected_sha256": "5c4d67a8eb51565a6b13fe1ef5b525be10d5e0778f9c2cb24d9294b70cf84a4a",
+      "actual_sha256": "5c4d67a8eb51565a6b13fe1ef5b525be10d5e0778f9c2cb24d9294b70cf84a4a",
+      "pass": true
+    },
+    {
+      "file": "assets/fusion-figure.json",
+      "expected_sha256": "2f27da403d9a81076370be8da810a8e9511d34789f3bdaf3a3c5780d6ca77ee0",
+      "actual_sha256": "2f27da403d9a81076370be8da810a8e9511d34789f3bdaf3a3c5780d6ca77ee0",
+      "pass": true
+    },
+    {
+      "file": "assets/coherence-figure.json",
+      "expected_sha256": "eb1ada95ab93eaadbb998da253db913cd279fdb1aeeeb5d6853cc2757e20b4ec",
+      "actual_sha256": "eb1ada95ab93eaadbb998da253db913cd279fdb1aeeeb5d6853cc2757e20b4ec",
+      "pass": true
+    },
+    {
+      "file": "assets/figures.json",
+      "expected_sha256": "3fb3fcd6bd3e6dcfc0aadaa0cba665929acc89ccd1b1a3cc5584819cb9763efd",
+      "actual_sha256": "3fb3fcd6bd3e6dcfc0aadaa0cba665929acc89ccd1b1a3cc5584819cb9763efd",
+      "pass": true
+    }
+  ]
+}

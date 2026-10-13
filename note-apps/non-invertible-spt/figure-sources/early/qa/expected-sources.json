@@ -1,0 +1,21 @@
+{
+  "assets/edge-phase-cancellation.geometry.svg": "1447dccc12650aebbb070dd923da1e22ff5f966d3cb23b0ee1fdfce64432a5d8",
+  "assets/edge-phase-cancellation.labels.json": "554e0e326b438040355d622e33df47999ea3d7a43c7d559d40b750a7e8112af5",
+  "assets/edge-phase-cancellation.html": "93bbf023028cfd92910e6bbdb2e136a9a20eea009ffe6a5377d72d31a3229714",
+  "assets/defect-orientations.geometry.svg": "d71678a6fb6f9a870c32cdccd0bc93447c4df3b5661a92cb160a4a46ff3dff07",
+  "assets/defect-orientations.labels.json": "36e548afd62ad693fb9f19e52244e690e7083a2cd3e4e5b06d9d58ea899a85bd",
+  "assets/defect-orientations.html": "a0aa55c4ea7fb9e9c8fc06aa58df540ef20a6398f181d3b18a944be19fd5faa6",
+  "assets/fusion-associator.geometry.svg": "fef07f4698682f5718de574af5c38eb3e69ada8d639099e7527b013a257285b9",
+  "assets/fusion-associator.labels.json": "8d9b2ddf4532490a41e7e5e62707d9b5a148ef49273249ae92f286c1e67d31be",
+  "assets/fusion-associator.html": "ad291e570340c659a07bc790bf8c9b78211f00d4a9fc0a55edf05f27a396d5ad",
+  "assets/vacuum-defect-sector.geometry.svg": "b8e0e34caf37b6504900ebc3c8b1b88391b49d8896527332dedaa13e4240f592",
+  "assets/vacuum-defect-sector.labels.json": "7ea255bb9294121c97274015ed40011780a52715c27617fd3a7bcdacdfb6bdbf",
+  "assets/vacuum-defect-sector.html": "4b98dcad80562d9b8f562827fe8470a96c2e4d383373cee4e0465b9caeea7e1e",
+  "assets/tensor-coherence-routes.geometry.svg": "2a1352e940afde4c4bbe54dfe394c6003a2fd42fef9752a2061d6f2dae9df8c4",
+  "assets/tensor-coherence-routes.labels.json": "373027b4c99c965a2b337cb4e8d357ad2ab0595b145dcf304565eba5d8ed199a",
+  "assets/tensor-coherence-routes.html": "71ead51d4761dae6b1cda5bd3e43392264a7c9301f224410fcfcd87fcbcf3269",
+  "assets/base-figures.json": "5c4d67a8eb51565a6b13fe1ef5b525be10d5e0778f9c2cb24d9294b70cf84a4a",
+  "assets/fusion-figure.json": "2f27da403d9a81076370be8da810a8e9511d34789f3bdaf3a3c5780d6ca77ee0",
+  "assets/coherence-figure.json": "eb1ada95ab93eaadbb998da253db913cd279fdb1aeeeb5d6853cc2757e20b4ec",
+  "assets/figures.json": "3fb3fcd6bd3e6dcfc0aadaa0cba665929acc89ccd1b1a3cc5584819cb9763efd"
+}

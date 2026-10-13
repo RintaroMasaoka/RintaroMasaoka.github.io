@@ -1,0 +1,14 @@
+{
+  "status": "Frozen gauge-connection inputs and image.",
+  "figures": [
+    {
+      "id": "gauge-connection",
+      "geometry": "editable/gauge-connection-geometry.svg",
+      "geometrySHA256": "42308f0bbcd1dbbe49058b8165799b17ebe954f0b2358b8adf603eb516191ef4",
+      "labels": "editable/gauge-connection-labels.json",
+      "labelsSHA256": "02c28a4eeb016c30df1d23bb929fb9b3cb5110ace5975fa19474b4ac0e6fea7c",
+      "frozenPNG": "gauge-connection.png",
+      "frozenPNGSHA256": "c38004b182e6a299392f00812017f351596b6351b6fb0aa51f1763141f1e1b33"
+    }
+  ]
+}

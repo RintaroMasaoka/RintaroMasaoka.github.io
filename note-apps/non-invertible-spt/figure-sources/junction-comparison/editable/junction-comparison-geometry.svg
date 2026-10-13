@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" aria-hidden="true">
+  <defs>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M 0 0 L 11 5.5 L 0 11 Z" fill="#455666"/></marker>
+  </defs>
+  <rect width="1100" height="760" fill="#fff"/>
+  <path d="M70 65 H1030" stroke="#d5dde2" stroke-width="2"/>
+  <rect x="86" y="102" width="378" height="235" rx="13" fill="#f8fafc" stroke="#d6dfe4" stroke-width="2"/>
+  <rect x="636" y="102" width="378" height="235" rx="13" fill="#f8fafc" stroke="#d6dfe4" stroke-width="2"/>
+  <path d="M275 150 V279" stroke="#2467a0" stroke-width="7" stroke-linecap="round"/>
+  <path d="M825 150 V279" stroke="#2467a0" stroke-width="7" stroke-linecap="round"/>
+  <path d="M149 211 H275" stroke="#bb4a3e" stroke-width="6" stroke-linecap="round"/>
+  <path d="M825 211 H951" stroke="#bb4a3e" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="275" cy="211" r="8" fill="#fff" stroke="#253848" stroke-width="3"/>
+  <circle cx="825" cy="211" r="8" fill="#fff" stroke="#253848" stroke-width="3"/>
+  <path d="M489 212 H611" stroke="#455666" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <path d="M70 370 H1030" stroke="#d5dde2" stroke-width="2"/>
+  <rect x="78" y="419" width="424" height="194" rx="12" fill="#fff" stroke="#d6dfe4" stroke-width="2"/>
+  <rect x="598" y="419" width="424" height="194" rx="12" fill="#fff" stroke="#d6dfe4" stroke-width="2"/>
+  <path d="M290 422 V610 M810 422 V610" stroke="#24313c" stroke-width="5"/>
+  <path d="M108 527 H472 M628 527 H992" stroke="#2467a0" stroke-width="7" stroke-linecap="round"/>
+  <path d="M251 455 V527 M849 455 V527" stroke="#bb4a3e" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="251" cy="527" r="8" fill="#fff" stroke="#253848" stroke-width="3"/>
+  <circle cx="849" cy="527" r="8" fill="#fff" stroke="#253848" stroke-width="3"/>
+  <path d="M517 527 H583" stroke="#455666" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <path d="M70 690 H1030" stroke="#d5dde2" stroke-width="2"/>
+</svg>

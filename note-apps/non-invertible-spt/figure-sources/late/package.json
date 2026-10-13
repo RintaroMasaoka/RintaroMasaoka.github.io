@@ -1,0 +1,13 @@
+{
+  "name": "non-invertible-spt-late-figures",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portable SVG and KaTeX figure regeneration; no manuscript editing or publication.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "verify-sources": "node verify-sources.cjs",
+    "generate": "node generate.cjs",
+    "render": "node render.cjs"
+  },
+  "dependencies": { "katex": "0.16.22", "playwright": "1.62.1" }
+}

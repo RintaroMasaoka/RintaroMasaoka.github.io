@@ -1,0 +1,15 @@
+{
+  "status": "Existing final render evidence for the frozen gauge image.",
+  "katexVersion": "0.16.22",
+  "browserVersion": "155.0.8059.40",
+  "pngSHA256": "c38004b182e6a299392f00812017f351596b6351b6fb0aa51f1763141f1e1b33",
+  "loadedFontFamilies": [
+    "KaTeX_Main",
+    "KaTeX_Math"
+  ],
+  "labelCount": 20,
+  "allGlyphsUseKaTeX": true,
+  "clipped": [],
+  "mathErrors": 0,
+  "pageErrors": []
+}

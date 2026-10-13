@@ -1,0 +1,18 @@
+{
+  "name": "non-invertible-spt-point-defect-fusion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portable local-defect chain composition diagram.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "verify-sources": "node verify-sources.cjs",
+    "generate": "node generate.cjs",
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "katex": "0.16.22",
+    "playwright": "1.62.1"
+  }
+}

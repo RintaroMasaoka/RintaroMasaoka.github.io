@@ -1,0 +1,19 @@
+{
+  "name": "non-invertible-spt-gauge-connection",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portable two-site gauge-connection figure generation.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate": "node generate.cjs",
+    "render": "node render.cjs",
+    "verify-sources": "node verify-sources.cjs",
+    "math-qa": "node math-qa.cjs"
+  },
+  "dependencies": {
+    "katex": "0.16.22",
+    "playwright": "1.62.1"
+  }
+}
