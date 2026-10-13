@@ -1,10 +1,10 @@
 {
   "sourceHashes": {
-    "content/overview.md": "a53bf34e6dece5254133e964e84ccaba4c25afd2cd3fde307cf500202b57acb6",
-    "content/references.md": "9a462d910622100761c21f19006dea275481fcddc7ba6c22dd358bbf56f94b6f",
+    "content/overview.md": "e7904be3d766d24ddb1910cf0f1cd06cace76569665bf5e7ec373674a4e08339",
+    "content/references.md": "cbf637f6d573963a27a2b86bc0060dbebedfdf3c70b32fe459651a6db8af61e5",
     "app/main.tsx": "c674587e9ea7aa75d364fee793893226fb61b9f1c71699dc0e13cbf74d47437b",
-    "app/page.tsx": "c66ecf5c9ffa08d814bac3606ce6d0bb99a515528f5335108d58e91af1b46b13",
-    "app/globals.css": "0f16992a05aa2b739fc7cf25ca6537b567fd9b1d9292a2db2074559fac0c4860",
+    "app/page.tsx": "6ad5764b67dbc1d2fd6c15d1d88b8dc76a62bf7e1e15587a81276a385bffa5bc",
+    "app/globals.css": "f7e1160360c73d62543980d9ca8d680b3ed758613c9ba959f390c02bf1b4cba4",
     "components/math-markdown.tsx": "09a790895d325d7b7c8ac7a1e5b99dda6d23c26913192a73ea418b9a30356a82",
     "components/use-preview-popover.ts": "dad442a798b4978f495319ebff509cafba44f352729a0f625780700cb3870f4d",
     "components/reference-popover.tsx": "9d3dda2296ebff1b13e34b733a48764317c94121168a0fc4f5a3368f68a5da06",
@@ -19,12 +19,14 @@
     "lib/utils.ts": "9304a861c8673bee09e0f12de31773abbde503b02e59dfd74763ddec2e37cf05",
     "lib/remark-math-hints.ts": "c1af9576efd8f401e0b773a9f403fdbc8f958b5ab190444bf8e254adb6dca1f8",
     "lib/note-references.ts": "105b90dc7080228562620d6fc3c2e9bb627ee643dcd88fa70b27b7a0bf09a985",
-    "lib/site-path.ts": "0973c9d81af6a6af90a00ca8749300cf8236904c8e56bf18e6340e907f73590b",
+    "lib/site-path.ts": "e6b754d1ede4996fe70496a2b22c342ab7ae438d56eb0fe3c028ece17aebd85e",
     "lib/remark-tex-dashes.ts": "e4955df125bc6816a9d9ce9f182e73d01ed605c09b3a65d25012f3498fb1563d",
     "lib/remark-equation-references.ts": "11447ed375dff69e5f716d715763bed69b05bed8bf4c9396a1fe8f40771d36a0",
     "lib/rehype-equation-layout.ts": "de333dd976153077eae62e169805b8153b87f0bab251cc014be376665094da03"
   },
   "base": "/notes/non-invertible-spt",
   "url": "https://rintaromasaoka.github.io/notes/non-invertible-spt/",
-  "textRevisionPolicy": "Scholarly wording and order preserved; one emphasis-delimiter spacing repair and deployment path handling."
+  "textRevisionPolicy": "Study canonical manuscript and figure assets are published as one revision. Section 3–4 derivations and section 6 stacking comparison were revised; fourteen TeX-lettered diagrams are included. Scientific and Japanese wording review limits are recorded in the Study workspace.",
+  "figureCount": 14,
+  "canonicalManuscriptSHA256": "e7904be3d766d24ddb1910cf0f1cd06cace76569665bf5e7ec373674a4e08339"
 }
