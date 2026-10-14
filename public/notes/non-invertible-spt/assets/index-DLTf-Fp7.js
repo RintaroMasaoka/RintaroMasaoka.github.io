@@ -217,35 +217,9 @@ $$
 
 群型の $\\mathrm{Vec}_G$ では各線の量子次元が1なので、$\\mathcal F(g)=\\mathbb C$ である。テンソル写像 $J_{g,h}$ は位相 $\\beta(g,h)$ となり、前節の整合式は§1.2の2コサイクル条件へ戻る。これが、ファイバー関手による分類が通常の $H^2(G,U(1))$ 分類を含む理由である。
 
-一方、群の積自体が同じでも、三本の欠陥線の括り方を $(gh)k$ から $g(hk)$ へ付け替える associator に位相 $\\omega(g,h,k)$ が現れる対称性作用がある。四本の線では、同じ始点と終点の括り方を、三回または二回の付け替えで結べる。
+一方、群の積自体が同じでも、三本の欠陥線の接合を付け替えたときに位相 $\\omega(g,h,k)$ が現れる対称性作用がある。四本の線の五角形関係を満たす $\\omega$ を**3コサイクル**と呼ぶ。二本をつなぐ接合の位相を選び直して消せる変更を3コバウンダリとし、その同値類を $H^3(G,U(1))$ と書く。
 
-![四本の欠陥線 g、h、k、l の五つの括り方を五角形の頂点に置く。一回の付け替えを表す矢印には位相 ω が付き、同じ始点から終点への三辺経路と二辺経路を比較する。](/diagrams/group-associator-pentagon.png)
-
-*頂点は四本の線の括り方、矢印は三本の線の括り方を一回変える associator を表す。矢印の位相を経路に沿って掛け、二つの経路で同じ変換になることを要求する。*
-
-三回の経路と二回の経路に沿う位相の積をそれぞれ書くと、
-
-$$
-\\omega(g,h,k)\\omega(g,hk,l)\\omega(h,k,l)
-=\\omega(gh,k,l)\\omega(g,h,kl).
-$$
-
-この五角形関係を満たす位相関数 $\\omega$ を**3コサイクル**と呼ぶ。次に、二本の線 $g,h$ をつなぐ接合基底を位相 $u(g,h)\\in U(1)$ 倍して選び直す。三本の線の左側の括り方には $u(g,h)u(gh,k)$、右側には $u(h,k)u(g,hk)$ が掛かる。
-
-![三本の線 g、h、k の二つの接合木。左の二つの接合点には u(g,h) と u(gh,k)、右の二つには u(h,k) と u(g,hk) が付き、接合基底の選び直しが associator の位相 ω を変える。](/diagrams/junction-rephasing.png)
-
-*点に記した $u$ は各二本の線をつなぐ接合基底の位相である。同じ三本の線の二通りの括り方を比べ、各側の二つの点の位相を掛け合わせる。*
-
-左と右の接合全体を、それぞれ括弧付きの三本の線から出力 $ghk$ への写像 $m_L,m_R$ と書く。associator の位相 $\\omega$ を $m_R\\circ\\alpha=\\omega m_L$ で定める。左側の接合を選び直した後は $m'_L=u(g,h)u(gh,k)m_L$、右側は $m'_R=u(h,k)u(g,hk)m_R$ となる。したがって、新しい基底で同じ対応を表す係数には、右側の位相の積を左側の位相の積で割った比が掛かる。
-
-$$
-\\omega'(g,h,k)
-=\\omega(g,h,k)\\frac{u(h,k)u(g,hk)}{u(g,h)u(gh,k)}.
-$$
-
-この比は3コバウンダリである。それだけ異なる3コサイクルを同一視して得る同値類全体を $H^3(G,U(1))$ と書く。
-
-§3.2の二経路の図と整合式に $\\mathcal F(g)=\\mathbb C$、$J_{g,h}=\\beta(g,h)$、$\\mathcal F(\\alpha_{g,h,k})=\\omega(g,h,k)$ を代入すると、
+この場合のファイバー関手の整合式は、ここで選んだ associator の向きでは
 
 $$
 \\omega(g,h,k)\\beta(g,h)\\beta(gh,k)
@@ -258,17 +232,9 @@ $$
 -\\beta(x,x)=\\beta(x,x)
 $$
 
-を要求する。ここで $J_{x,x}:\\mathbb C\\otimes\\mathbb C\\to\\mathbb C$ の係数が $\\beta(x,x)$ である。$J_{x,x}$ は可逆なので $\\beta(x,x)\\ne0$ であり、これは不可能である。§3.1–3.2のランク1の分類では、対称性を保ち真空が一つのギャップ相には、すべての線の接合について整合するファイバー関手が必要になる。この例では $(x,x,x)$ の接合だけでその整合条件が破れる。同じ抽象群 $\\mathbb Z_2$ でも、$\\omega=1$ の通常の作用なら $\\beta\\equiv1$ が整合式を満たす。障害を決めるのは群の名前だけでなく、線の接合に指定された $\\omega$ である。
+を要求する。$J_{x,x}$ は可逆なので $\\beta(x,x)\\ne0$ であり、これは不可能である。同じ抽象群 $\\mathbb Z_2$ でも、$\\omega=1$ の通常の作用にはこの障害がない。ここで問うているのは、**群の名前ではなく、線の融合に加えて指定した接合の実現**が、一意な対称的ギャップ状態と両立するかである。
 
-整合式を $\\omega$ について解くと、$\\omega=\\beta(h,k)\\beta(g,hk)/[\\beta(g,h)\\beta(gh,k)]$ となる。右辺は接合位相 $\\beta$ の3コバウンダリなので、整合する $\\beta$ を選べるのは $[\\omega]=0$ の場合に限る。この文脈では、$[\\omega]\\ne0$ の対称性線の実現を **’t Hooftアノマリー（anomaly）** を持つと呼ぶ。その実現の下では、対称性を保ち真空が一つの1+1次元ギャップ相は存在しない。
-
-通常のオンサイト作用 $U_g=\\bigotimes_j u_g^{(j)}$ では、領域 $R$ のサイトだけに作用する $U_g(R)=\\bigotimes_{j\\in R}u_g^{(j)}$ を考える。これを対称性線として描くと、領域の境界は $g$ とラベルされた線の端点になる。同じ領域に制限した $U_g(R)$ と $U_h(R)$ の端点を重ねる操作が線の接合に対応する。サイトごとの積 $u_g^{(j)}u_h^{(j)}=u_{gh}^{(j)}$ から $U_g(R)U_h(R)=U_{gh}(R)$ なので、接合を整合的に定められ、三本の線の付け替えに余分な位相は残らない。したがって $[\\omega]=0$ となる。一方、非零の $[\\omega]$ を持つ境界作用は、適切な2+1次元SPTバルクの境界として現れうる。向きとコサイクルの代表を揃えると、境界で接合を付け替えたときの位相 $\\omega$ に、バルクの時空過程からの寄与 $\\omega^{-1}$ が掛かり、全体の位相は1になる。[Kawagoe–Levin, §§I, III](https://arxiv.org/html/2105.02909#S1)。
-
-![左では同じ領域Rに制限した対称性線の一方の端点gとhを接合してghと表し、付け替え位相を1に選べる。右では1+1次元境界の付け替え位相ωに、隣接する2+1次元SPTの時空過程からの寄与ωの逆数が掛かり、全体が1になる。](/diagrams/anomaly-inflow-boundary.png)
-
-*左下の二つの帯は、同じ領域 $R$ に制限した $U_g$ と $U_h$ の一方の端点を描く。端点のラベル $g,h$ は接合によって $gh$ になる。右の橙色は、境界の付け替えに対応する2+1次元SPTの時空過程を表す。*
-
-$[\\omega]=0$ で代表元を $\\omega=1$ と選べば、整合式は§1.2の2コサイクル条件になる。接合の位相の選び直しを同一視した2コサイクルの類 $H^2(G,U(1))$ がSPT相を区別し、$H^3(G,U(1))$ は群型の対称性作用に対する障害を記録する。[Thorngren–Wang, §§2.2–2.3](https://arxiv.org/html/1912.02817v1#S2.SS3)、[Bhardwajほか, §3.3](https://arxiv.org/html/2310.03784v3#S3.SS3)。
+一般には、接合の位相 $\\beta$ によって $\\omega$ を吸収できるのは、$\\omega$ の同値類が零の場合に限る。非零の同値類が与える、一意な対称的ギャップ状態への障害を、この文脈では **’t Hooftアノマリー（anomaly）** と呼ぶ。上の非自明な $\\omega$ を持つ作用は、2+1次元の系の境界には現れうるが、1+1次元の鎖の通常のオンサイト $\\mathbb Z_2$ 作用と同一ではない。ここで $H^2$ は障害のない対称性の下で存在するSPT相の違い、$H^3$ は群型の対称性作用に対する障害を表す。[Thorngren–Wang, §§2.2–2.3](https://arxiv.org/html/1912.02817v1#S2.SS3)、[Bhardwajほか, §3.3](https://arxiv.org/html/2310.03784v3#S3.SS3)。
 
 一般のフュージョン圏でも「ファイバー関手が存在しない」を、一意な対称的ギャップ相に対するアノマリーと呼ぶことが多い。ゲージ化という操作との関係は、§5.1でその操作を導入した後に整理する。
 
@@ -523,17 +489,12 @@ $$
 参照文献の版と対応箇所は[文献一覧](../sources/references.md)にまとめる。
 `,x=`# 参照文献と使用した版
 
-<<<<<<<< HEAD:public/notes/non-invertible-spt/assets/index-DLTf-Fp7.js
 本文は、以下の一次文献の指定版に基づく。参照日は2026年10月12日。引用の節番号は、表に挙げたarXiv版に対応する。本文の次元方程式、射影表現の位相条件、クラスター状態のストリング期待値は、引用した定義・模型から本文内で導いた。
-========
-本文は、以下の一次文献の指定版に基づく。参照日は2026年10月12–14日。引用の節番号は、表に挙げたarXiv版に対応する。本文の次元方程式、射影表現の位相条件、クラスター状態のストリング期待値は、引用した定義・模型から本文内で導いた。
->>>>>>>> c10ec24 (Expand non-invertible SPT cocycle visualizations):public/notes/non-invertible-spt/assets/index-CU9iUxIF.js
 
 | 文献 | 使用版・本文へのリンク | 本文での役割・対応箇所 |
 | --- | --- | --- |
 | Xie Chen, Zheng-Cheng Gu, Xiao-Gang Wen, *Classification of Gapped Symmetric Phases in 1D Spin Systems* | [arXiv:1008.3745v2](https://arxiv.org/abs/1008.3745v2), 2010-09-05。Phys. Rev. B **83**, 035107 (2011) | 一次元の局所ユニタリ同値、対称性を外した積状態への帰着。概要および分類の枠組み |
 | Ryan Thorngren, Yifan Wang, *Fusion Category Symmetry I: Anomaly In-Flow and Gapped Phases* | [arXiv:1912.02817v1](https://arxiv.org/html/1912.02817v1), 2019-12-05 | §§2.3–2.4：モジュール圏、真空数、ランク1とファイバー関手。§3.2.4–3.2.5：二次形式の細分、符号和の条件、$\\mathrm{Rep}(D_8)$ の三つのファイバー関手と界面符号 |
-| Kyle Kawagoe, Michael Levin, *Anomalies in bosonic SPT edge theories: connection to F-symbols and a method for calculation* | [arXiv:2105.02909v1](https://arxiv.org/html/2105.02909), 2021-05-06 | §§I, III：2+1次元ボソンSPTバルクの $H^3$ 類と1+1次元境界のアノマリー、境界の欠陥接合の $F$ 記号 |
 | Kansei Inamura, *Topological field theories and symmetry protected topological phases with fusion category symmetries* | [arXiv:2103.15588v1](https://arxiv.org/html/2103.15588v1), 2021-03-29 | §2：線と融合圏。§3.2：時間反転を含まないボソンSPTのファイバー関手分類、ねじった空間の次元（式3.2）。§4：時間反転を含む拡張 |
 | Lakshya Bhardwaj, Lea E. Bottini, Daniel Pajer, Sakura Schafer-Nameki, *Gapped Phases with Non-Invertible Symmetries: (1+1)d* | [arXiv:2310.03784v3](https://arxiv.org/html/2310.03784v3), 2024-03-01 | §3.3：SPT、Vec_GとRep(G)、群の異常。§3.4：電荷と秩序変数。§3.5：SymTFTの二つの境界、分類への使用 |
 | Sahand Seifnashri, Shu-Heng Shao, *Cluster state as a non-invertible symmetry protected topological phase* | [arXiv:2404.01369v2](https://arxiv.org/html/2404.01369v2), 2024-09-26 | §I：クラスター状態と局所回路。§II, App. B.3：非可逆演算とRep(D8)の同定。§III：三相とKT変換。§IV, 式(23)–(27)：界面の射影代数と三相の符号。§V：積み重ねと基準の問題 |
