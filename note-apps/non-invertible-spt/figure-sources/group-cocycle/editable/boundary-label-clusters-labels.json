@@ -1,0 +1,8 @@
+[
+  {"id":"heading","tex":"\\text{Linked boundary components}","x":660,"y":55,"size":29,"width":730,"english_meaning":"The open boundary links adjacent components into effective boundary sites","role":"heading"},
+  {"id":"physical-site","tex":"\\text{one physical site}","x":605,"y":267,"size":26,"width":300,"english_meaning":"The central orange box is one bulk physical site","role":"physical site"},
+  {"id":"left-label","tex":"\\alpha_i","x":430,"y":504,"size":27,"width":100,"english_meaning":"One group value shared by the first linked pair","role":"effective boundary label"},
+  {"id":"right-label","tex":"\\alpha_{i+1}","x":780,"y":504,"size":27,"width":125,"english_meaning":"An independent group value shared by the second linked pair","role":"effective boundary label"},
+  {"id":"bond-label","tex":"(\\alpha_i,\\alpha_{i+1})","x":605,"y":430,"size":25,"width":260,"english_meaning":"The central site's bottom oriented edge joins adjacent effective boundary labels","role":"boundary bond"},
+  {"id":"rule","tex":"\\text{one value per linked cluster}","x":660,"y":546,"size":22,"width":580,"english_meaning":"The purple links impose equality only within each boundary cluster","role":"equality rule"}
+]

@@ -11,12 +11,12 @@ try {
   await server.ssrLoadModule('/tests/review-extraction.ts');
   const { extractReviewBody } = await server.ssrLoadModule('/lib/extract-review-body.ts');
   const directory = 'reviews/html-body-20261012';
-  await mkdir(directory);
+  await mkdir(directory, { recursive: true });
   for (const chapter of config.chapters) {
     const source = await readFile(chapter.file, 'utf8');
     const result = extractReviewBody(source);
     const output = directory + '/' + chapter.id;
-    await mkdir(output);
+    await mkdir(output, { recursive: true });
     await writeFile(output + '/body.md', result.markdown);
     await writeFile(output + '/units.json', JSON.stringify(result.units, null, 2));
     await writeFile(output + '/manifest.json', JSON.stringify({ source:chapter.file, sha256:createHash('sha256').update(source).digest('hex'), removed:result.removed, units:result.units.length }, null, 2));

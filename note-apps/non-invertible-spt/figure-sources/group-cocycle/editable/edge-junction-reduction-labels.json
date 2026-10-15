@@ -81,12 +81,12 @@
   },
   {
     "id": "remaining",
-    "tex": "\\prod_{e}r_{g,h}(e)=\\dfrac{\\lambda(a)}{\\lambda(c)}",
+    "tex": "\\dfrac{\\lambda(a)}{\\lambda(c)}",
     "x": 450,
     "y": 491,
     "size": 29,
-    "width": 560,
-    "english_meaning": "Only endpoint factors remain after multiplying across the interval",
+    "width": 240,
+    "english_meaning": "The phase left after multiplying the two neighboring bond ratios",
     "role": "interval result"
   },
   {
@@ -121,12 +121,12 @@
   },
   {
     "id": "junction",
-    "tex": "P_{g,h}(a)",
+    "tex": "\\text{junction at }a",
     "x": 1126,
     "y": 384,
     "size": 26,
-    "width": 175,
-    "english_meaning": "Chosen pair-line reduction at the endpoint a",
+    "width": 200,
+    "english_meaning": "The pair-line junction at the interval endpoint carrying input label a",
     "role": "junction label"
   },
   {

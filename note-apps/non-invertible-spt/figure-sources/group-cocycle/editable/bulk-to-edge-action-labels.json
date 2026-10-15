@@ -1,6 +1,6 @@
 [
   {"id":"before-heading","tex":"\\text{Fixed edge labels; interior summed}","x":310,"y":38,"size":27,"width":490,"english_meaning":"Before the bulk action, boundary labels are fixed and interior plaquette labels are summed","role":"panel heading"},
-  {"id":"after-heading","tex":"\\text{After the product onsite action}","x":1010,"y":38,"size":27,"width":490,"english_meaning":"The same open sample after the product of sitewise group actions","role":"panel heading"},
+  {"id":"after-heading","tex":"\\text{Output labels; phases from input}","x":1010,"y":38,"size":25,"width":500,"english_meaning":"Output labels after the action, with residual coefficients evaluated on the input labels","role":"panel heading"},
   {"id":"input-sum","tex":"\\sum_{\\beta,\\gamma,\\ldots\\in G}","x":310,"y":103,"size":29,"width":210,"english_meaning":"Sum over interior plaquette labels before the action","role":"interior summation"},
   {"id":"output-sum","tex":"\\sum_{\\beta',\\gamma',\\ldots\\in G}","x":1010,"y":103,"size":29,"width":230,"english_meaning":"The same interior sum after reindexing","role":"interior summation"},
   {"id":"site-r","tex":"\\text{site }r","x":158,"y":185,"size":18,"width":90,"english_meaning":"One physical site containing four distinct group-valued components","role":"site identifier"},

@@ -19,9 +19,9 @@
   },
   {
     "id": "bulk-edge-incidence",
-    "width": 1320,
-    "height": 650,
-    "caption": "A spatial symmetry cut joins two points on the edge of a two-dimensional bulk. Its continuous extrusion through time is a two-dimensional sheet whose two side edges lie on the physical boundary worldsheet; viewing only that worldsheet reveals two oppositely oriented defect lines."
+    "width": 520,
+    "height": 2070,
+    "caption": "A spatial symmetry cut joins the two endpoints of a boundary interval. Continuing it over I_t gives a two-dimensional bulk sheet. Its intersection with the boundary spacetime is precisely the two endpoint worldlines, {x_L,x_R} × I_t."
   },
   {
     "id": "bulk-plaquette-assembly",
@@ -34,6 +34,12 @@
     "width": 1320,
     "height": 620,
     "caption": "One physical bulk site has four group-valued components. Its onsite g action multiplies all four labels by g and carries four oriented cocycle edge factors: two direct factors and two inverse factors."
+  },
+  {
+    "id": "boundary-label-clusters",
+    "width": 1320,
+    "height": 570,
+    "caption": "At an open boundary, linked components across adjacent physical sites share one group value alpha_i. The neighboring linked cluster has independent value alpha_i+1. The oriented lower edge of the central physical site is the boundary bond with input labels (alpha_i, alpha_i+1)."
   },
   {
     "id": "bulk-to-edge-action",
@@ -51,7 +57,7 @@
     "id": "edge-interval-support",
     "width": 1320,
     "height": 650,
-    "caption": "On the boundary x–tau worldsheet, the full edge symmetry inserted at one time occupies a whole spatial slice. Restricting it to interval I leaves two spatial cuts. Continuing the g-glued interval through time makes the two oppositely oriented cuts into time-directed defect lines."
+    "caption": "On the boundary x–t worldsheet, the full edge symmetry inserted at one time occupies a whole spatial slice. Restricting it to interval I retains only its internal bonds and omits bonds crossing the endpoints. The shaded region marks where g acts; continuing the two endpoints over I_t gives their two worldlines."
   },
   {
     "id": "edge-junction-reduction",

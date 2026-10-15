@@ -97,6 +97,8 @@ button { cursor: pointer; }
 .concept-figure { display: block; max-width: 100%; overflow-x: auto; margin: 24px 0; }
 .concept-figure img { display: block; width: 100%; min-width: 760px; height: auto; }
 .concept-figure-compact img { min-width: 340px; }
+.concept-figure-fit { overflow-x: visible; }
+.concept-figure-fit img { width: min(100%, 520px); min-width: 0; margin-inline: auto; }
 .concept-figure:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .concept-figure-help { display: none; }
 @media (max-width: 900px) {
