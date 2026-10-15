@@ -1,0 +1,86 @@
+[
+  {
+    "id": "group-associator-pentagon",
+    "width": 1320,
+    "height": 590,
+    "caption": "The five parenthesizations of four group-type defect lines form a directed pentagon. Three associator steps from (((gh)k)l) to g(h(kl)) carry omega(g,h,k) omega(g,hk,l) omega(h,k,l); the two-step route carries omega(gh,k,l) omega(g,h,kl)."
+  },
+  {
+    "id": "junction-rephasing",
+    "width": 1320,
+    "height": 600,
+    "caption": "The two three-line fusion trees have rephasing factors u(g,h) and u(gh,k) on the left junctions, and u(h,k) and u(g,hk) on the right junctions. With each pair junction m-prime equal to u times m and F(alpha) equal to omega, omega prime equals omega times the product of right factors divided by the product of left factors."
+  },
+  {
+    "id": "onsite-region-product",
+    "width": 1320,
+    "height": 650,
+    "caption": "Three restricted sitewise symmetry operators act on the same spatial region R. The highlighted column is one site j; the vertical guides mark the same sites in all three rows. Multiplying g and h first or h and k first gives the same operator U_ghk(R), providing a coherent junction choice with trivial three-cocycle class. The drawn number and spacing of sites are schematic."
+  },
+  {
+    "id": "bulk-edge-incidence",
+    "width": 1320,
+    "height": 650,
+    "caption": "A spatial symmetry cut joins two points on the edge of a two-dimensional bulk. Its continuous extrusion through time is a two-dimensional sheet whose two side edges lie on the physical boundary worldsheet; viewing only that worldsheet reveals two oppositely oriented defect lines."
+  },
+  {
+    "id": "bulk-plaquette-assembly",
+    "width": 1320,
+    "height": 600,
+    "caption": "Four separate physical sites each contain four group-valued components. One highlighted component from each site enters the central plaquette state, where all four share a group value z and are summed over z. The open dots belong to other neighboring plaquettes."
+  },
+  {
+    "id": "bulk-onsite-unit",
+    "width": 1320,
+    "height": 620,
+    "caption": "One physical bulk site has four group-valued components. Its onsite g action multiplies all four labels by g and carries four oriented cocycle edge factors: two direct factors and two inverse factors."
+  },
+  {
+    "id": "bulk-to-edge-action",
+    "width": 1320,
+    "height": 650,
+    "caption": "The product onsite symmetry acts on an open six-site bulk patch. Interior labels are reindexed within their group sums, while inverse phase factors on matched internal edges cancel. On each rightward physical boundary bond a factor f_g=q_g inverse remains, evaluated on the input edge labels; the output edge labels are g alpha."
+  },
+  {
+    "id": "edge-effective-action",
+    "width": 1320,
+    "height": 570,
+    "caption": "The effective edge symmetry maps each boundary group label alpha_i to g alpha_i while also multiplying the state by a cocycle-dependent phase on each adjacent pair. Orange capsules on the input bonds show where the pair phases act; violet vertical arrows show the site-label transformation. The displayed fixed-point-basis formula summarizes these two simultaneous factors."
+  },
+  {
+    "id": "edge-interval-support",
+    "width": 1320,
+    "height": 650,
+    "caption": "On the boundary x–tau worldsheet, the full edge symmetry inserted at one time occupies a whole spatial slice. Restricting it to interval I leaves two spatial cuts. Continuing the g-glued interval through time makes the two oppositely oriented cuts into time-directed defect lines."
+  },
+  {
+    "id": "edge-junction-reduction",
+    "width": 1320,
+    "height": 600,
+    "caption": "For two adjacent boundary bonds the relative phases are lambda(a)/lambda(b) and lambda(b)/lambda(c), so the middle factor cancels and only endpoint factors remain. At endpoint a a local reduction junction for g and h carries the inverse phase, in the displayed convention."
+  },
+  {
+    "id": "edge-triple-reduction",
+    "width": 1320,
+    "height": 630,
+    "caption": "At one boundary endpoint the two orders of reducing three symmetry actions leave two lambda factors each before their inverse reduction maps act. The left residual product uses lambda_g,h(k a) and lambda_gh,k(a); the right uses lambda_h,k(a) and lambda_g,hk(a). The quotient of residual products equals the right-to-left quotient of the inverse junction maps, defining the boundary associator in the adopted convention."
+  },
+  {
+    "id": "bulk-edge-cocycles",
+    "width": 1320,
+    "height": 630,
+    "caption": "The left tetrahedron has successive vertex labels 1,g,gh,ghk and ordered edges g,h,k. On the right, the same ordered labels enter two boundary symmetry-tensor reduction trees. Their associator carries an edge phase; for the corresponding group-cohomology SPT the bulk and edge H3 classes agree."
+  },
+  {
+    "id": "module-vacuum-action",
+    "width": 1320,
+    "height": 560,
+    "caption": "The left panel draws the action of one symmetry line a on an input vacuum m_i as a direct sum of output sectors; branch labels n^a_ji and n^a_ki count independent junction channels. The right panel keeps one vacuum m on both sides while n^a_11 still counts a space of junction channels. The ellipsis denotes arbitrary further channels."
+  },
+  {
+    "id": "field-map",
+    "width": 1320,
+    "height": 700,
+    "caption": "Start with the full fusion category C, including symmetry lines, fusion, and junctions. A fiber functor C to Vec is the rank-one test: if one exists, it gives a single-vacuum symmetric gapped phase, and inequivalent functors distinguish SPT phases. Without one, a unique symmetric gap is obstructed while multiple-vacuum or gapless phases remain possible. A fixed microscopic symmetry action, local charges, and interfaces provide a further realization and diagnostic question."
+  }
+]

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="600" viewBox="0 0 1320 600" aria-hidden="true">
+  <defs>
+    <marker id="assoc-arrow" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0 L11 5.5 L0 11 Z" fill="#455666"/>
+    </marker>
+  </defs>
+  <rect width="1320" height="600" fill="#fff"/>
+  <g transform="translate(0,-15)">
+  <!-- Group-type defect lines are blue; the intermediate product lines are ochre, as in the earlier associator figure. -->
+  <g fill="none" stroke="#156391" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 145 V215 L250 295 L330 215 V145"/>
+    <path d="M530 145 V350 L415 470"/>
+    <path d="M415 470 V557"/>
+    <path d="M790 145 V350 L905 470"/>
+    <path d="M990 145 V215 L1070 295 L1150 215 V145"/>
+    <path d="M905 470 V557"/>
+  </g>
+  <g fill="none" stroke="#a45119" stroke-width="4" stroke-linecap="round">
+    <path d="M250 295 V350 L415 470"/>
+    <path d="M1070 295 V350 L905 470"/>
+  </g>
+  <g fill="#156391">
+    <circle cx="250" cy="295" r="6"/>
+    <circle cx="415" cy="470" r="6"/>
+    <circle cx="1070" cy="295" r="6"/>
+    <circle cx="905" cy="470" r="6"/>
+  </g>
+  <!-- Thin leaders attach each rephasing factor to the junction carrying it. -->
+  <g fill="none" stroke="#8c999f" stroke-width="1.8" stroke-linecap="round">
+    <path d="M218 313 L244 298"/>
+    <path d="M489 510 L422 476"/>
+    <path d="M1100 313 L1076 298"/>
+    <path d="M831 510 L898 476"/>
+  </g>
+  <path d="M600 385 H720" fill="none" stroke="#455666" stroke-width="3.5" marker-end="url(#assoc-arrow)"/>
+  </g>
+</svg>

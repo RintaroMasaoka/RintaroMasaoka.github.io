@@ -1,0 +1,12 @@
+[
+  {"id":"vertex-start","tex":"(((gh)k)l)","x":158,"y":411,"size":28,"width":260,"english_meaning":"Starting left-associated parenthesization","role":"pentagon vertex"},
+  {"id":"vertex-upper-left","tex":"((g(hk))l)","x":372,"y":73,"size":28,"width":270,"english_meaning":"Parenthesization after alpha(g,h,k)","role":"pentagon vertex"},
+  {"id":"vertex-upper-right","tex":"g((hk)l)","x":898,"y":73,"size":28,"width":260,"english_meaning":"Parenthesization after alpha(g,hk,l)","role":"pentagon vertex"},
+  {"id":"vertex-end","tex":"g(h(kl))","x":1162,"y":411,"size":28,"width":255,"english_meaning":"Final right-associated parenthesization","role":"pentagon vertex"},
+  {"id":"vertex-lower","tex":"((gh)(kl))","x":655,"y":553,"size":28,"width":270,"english_meaning":"Parenthesization after alpha(gh,k,l)","role":"pentagon vertex"},
+  {"id":"edge-top-left","tex":"\\omega(g,h,k)","x":193,"y":212,"size":25,"width":190,"english_meaning":"Phase of associator from the start to the upper-left vertex","role":"associator edge"},
+  {"id":"edge-top-middle","tex":"\\omega(g,hk,l)","x":635,"y":163,"size":25,"width":230,"english_meaning":"Phase of the middle edge of the three-step route","role":"associator edge"},
+  {"id":"edge-top-right","tex":"\\omega(h,k,l)","x":1084,"y":212,"size":25,"width":190,"english_meaning":"Phase of the final edge of the three-step route","role":"associator edge"},
+  {"id":"edge-bottom-left","tex":"\\omega(gh,k,l)","x":364,"y":465,"size":25,"width":205,"english_meaning":"Phase of the first edge of the two-step route","role":"associator edge"},
+  {"id":"edge-bottom-right","tex":"\\omega(g,h,kl)","x":945,"y":465,"size":25,"width":215,"english_meaning":"Phase of the second edge of the two-step route","role":"associator edge"}
+]

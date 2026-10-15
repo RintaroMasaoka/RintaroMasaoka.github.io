@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="650" viewBox="0 0 1320 650">
+<defs><marker id="step" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#526a7d"/></marker><marker id="axis" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#5b6d7b"/></marker></defs>
+<rect width="1320" height="650" fill="#fff"/>
+<path d="M65 95H407M478 95H852M920 95H1270" stroke="#cbd5dc" stroke-width="2"/>
+<path d="M443 126V578M886 126V578" stroke="#d3dce2" stroke-width="2"/>
+<g fill="#f8fbfd" stroke="#cbd5dc" stroke-width="2"><rect x="110" y="165" width="273" height="345"/><rect x="535" y="165" width="273" height="345"/><rect x="955" y="165" width="273" height="345"/></g>
+<g stroke="#e3e9ed" stroke-width="2"><path d="M110 235H383M110 305H383M110 375H383M110 445H383M535 235H808M535 305H808M535 375H808M535 445H808M955 235H1228M955 305H1228M955 375H1228M955 445H1228"/></g>
+<!-- Sites and bond phases on the full spatial edge. -->
+<path d="M130 376H370" stroke="#176d99" stroke-width="7" stroke-linecap="round"/>
+<g fill="#fff" stroke="#176d99" stroke-width="4"><circle cx="130" cy="376" r="8"/><circle cx="190" cy="376" r="8"/><circle cx="250" cy="376" r="8"/><circle cx="310" cy="376" r="8"/><circle cx="370" cy="376" r="8"/></g>
+<g fill="#bc7627"><circle cx="160" cy="376" r="5"/><circle cx="220" cy="376" r="5"/><circle cx="280" cy="376" r="5"/><circle cx="340" cy="376" r="5"/></g>
+<!-- Inside I the two bonds survive; the two bonds crossing its ends are omitted. -->
+<path d="M565 376H610M748 376H790" stroke="#9eaab2" stroke-width="5" stroke-dasharray="7 7"/>
+<path d="M610 376H748" stroke="#176d99" stroke-width="7" stroke-linecap="round"/>
+<g fill="#fff" stroke="#9eaab2" stroke-width="3"><circle cx="565" cy="376" r="7"/><circle cx="790" cy="376" r="7"/></g>
+<circle cx="679" cy="376" r="8" fill="#fff" stroke="#176d99" stroke-width="4"/>
+<g fill="#bc7627"><circle cx="645" cy="376" r="6"/><circle cx="714" cy="376" r="6"/></g>
+<g stroke="#ad5945" stroke-width="4" stroke-linecap="round"><path d="M582 362L594 390M594 362L582 390M763 362L775 390M775 362L763 390"/></g>
+<g fill="#fff" stroke="#bc7627" stroke-width="5"><circle cx="610" cy="376" r="11"/><circle cx="748" cy="376" r="11"/></g>
+<path d="M1008 170H1175V376H1008Z" fill="#e5d6ee" fill-opacity=".8"/>
+<path d="M1008 376H1175" stroke="#176d99" stroke-width="9" stroke-linecap="round"/>
+<path d="M1008 171V376M1175 171V376" stroke="#7c3c9a" stroke-width="8" stroke-linecap="round"/>
+<g fill="#fff" stroke="#bc7627" stroke-width="5"><circle cx="1008" cy="376" r="11"/><circle cx="1175" cy="376" r="11"/></g>
+<path d="M406 360H466M851 360H917" stroke="#526a7d" stroke-width="3" marker-end="url(#step)"/>
+<path d="M466 360 448 350V370Z" fill="#526a7d"/>
+<g stroke="#5b6d7b" stroke-width="2.5" marker-end="url(#axis)"><path d="M90 512V180M110 532H385M515 512V180M535 532H810M935 512V180M955 532H1230"/></g>
+</svg>

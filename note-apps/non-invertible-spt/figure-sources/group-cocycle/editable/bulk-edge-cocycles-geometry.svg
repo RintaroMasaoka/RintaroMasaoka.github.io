@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="630" viewBox="0 0 1320 630">
+<defs><marker id="assoc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#52677d"/></marker></defs>
+<rect width="1320" height="630" fill="#fff"/>
+<path d="M80 93H595M690 93H1240" stroke="#cbd5dc" stroke-width="2"/>
+<path d="M650 105V480" stroke="#d9e0e5" stroke-width="2"/>
+
+<!-- One oriented 3-simplex in a bulk triangulation. -->
+<path d="M180 405 375 405 325 162Z" fill="#f6dcae" fill-opacity=".74" stroke="#a87531" stroke-width="3"/>
+<path d="M180 405 375 405 548 306Z" fill="#f0ce93" fill-opacity=".42" stroke="#a87531" stroke-width="2"/>
+<path d="M375 405 325 162 548 306Z" fill="#f8e7c8" fill-opacity=".6" stroke="#a87531" stroke-width="2"/>
+<path d="M180 405 548 306" stroke="#a87531" stroke-width="2" stroke-dasharray="8 7"/>
+<path d="M180 405H375L325 162 548 306" fill="none" stroke="#9a5d19" stroke-width="5" stroke-linejoin="round"/>
+<g fill="#9a5d19" stroke="#fff" stroke-width="3">
+<circle cx="180" cy="405" r="10"/><circle cx="375" cy="405" r="10"/><circle cx="325" cy="162" r="10"/><circle cx="548" cy="306" r="10"/>
+</g>
+
+<!-- The two boundary fusion trees, with the same ordered inputs. -->
+<g fill="none" stroke="#176d99" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M720 190V285 Q720 305 751 316L773 325"/>
+<path d="M812 190V285 Q812 305 790 316L773 325"/>
+<path d="M773 325V358 Q773 375 807 391L835 405"/>
+<path d="M905 190V358 Q905 375 865 391L835 405"/>
+<path d="M835 405V449"/>
+<path d="M1015 190V358 Q1015 375 1055 391L1085 405"/>
+<path d="M1108 190V285 Q1108 305 1130 316L1147 325"/>
+<path d="M1200 190V285 Q1200 305 1169 316L1147 325"/>
+<path d="M1147 325V358 Q1147 375 1113 391L1085 405"/>
+<path d="M1085 405V449"/>
+</g>
+<g fill="#176d99"><circle cx="773" cy="325" r="9"/><circle cx="835" cy="405" r="9"/><circle cx="1147" cy="325" r="9"/><circle cx="1085" cy="405" r="9"/></g>
+<path d="M925 343H977" stroke="#52677d" stroke-width="3" marker-end="url(#assoc-arrow)"/>
+<path d="M80 505H1240" stroke="#cbd5dc" stroke-width="2"/>
+</svg>

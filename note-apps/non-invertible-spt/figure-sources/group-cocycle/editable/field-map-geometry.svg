@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="700" viewBox="0 0 1320 700">
+<defs><marker id="route" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#526a7d"/></marker></defs>
+<rect width="1320" height="700" fill="#fff"/>
+<path d="M42 84H1278M42 570H1278" stroke="#cbd5dc" stroke-width="2"/>
+
+<!-- Symmetry-line network: three inputs, one fusion output. -->
+<rect x="55" y="112" width="305" height="438" rx="20" fill="#f5f8fb" stroke="#b8cbd8" stroke-width="3"/>
+<g fill="none" stroke="#176d99" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M133 214V287Q133 303 175 325"/>
+ <path d="M205 214V287Q205 303 175 325"/>
+ <path d="M175 325V450"/>
+</g>
+<circle cx="175" cy="325" r="11" fill="#176d99"/>
+<circle cx="175" cy="392" r="9" fill="#b8792d"/>
+
+<!-- Existence decision. -->
+<path d="M361 331H438" stroke="#526a7d" stroke-width="4" marker-end="url(#route)"/>
+<path d="M545 170L654 331 545 492 436 331Z" fill="#ede6f4" stroke="#7c3c9a" stroke-width="4"/>
+
+<!-- Yes path: one vacuum and inequivalent fiber functors. -->
+<path d="M654 273H715V185H775" fill="none" stroke="#526a7d" stroke-width="4" marker-end="url(#route)"/>
+<rect x="778" y="110" width="486" height="225" rx="20" fill="#e9f4fa" stroke="#176d99" stroke-width="3"/>
+<circle cx="870" cy="194" r="26" fill="#176d99"/>
+<path d="M922 286H1220" stroke="#86aec4" stroke-width="3"/>
+
+<!-- No path: rank-one obstruction, alternatives not determined. -->
+<path d="M654 390H715V460H775" fill="none" stroke="#526a7d" stroke-width="4" marker-end="url(#route)"/>
+<rect x="778" y="366" width="486" height="193" rx="20" fill="#fff2df" stroke="#b8792d" stroke-width="3"/>
+<g fill="#b8792d"><circle cx="847" cy="446" r="15"/><circle cx="891" cy="446" r="15"/><circle cx="935" cy="446" r="15"/></g>
+<path d="M822 507Q838 486 854 507T886 507T918 507T950 507" fill="none" stroke="#b8792d" stroke-width="4"/>
+
+<!-- A second question after an abstract class is selected. -->
+<path d="M1264 250H1290V574H1190V587" fill="none" stroke="#7c3c9a" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#route)"/>
+<rect x="75" y="588" width="1175" height="96" rx="18" fill="#f5f8fb" stroke="#b8cbd8" stroke-width="2"/>
+<g stroke="#176d99" stroke-width="4" fill="#fff"><circle cx="150" cy="636" r="12"/><circle cx="205" cy="636" r="12"/><circle cx="260" cy="636" r="12"/></g>
+<path d="M162 636H193M217 636H248" stroke="#176d99" stroke-width="4"/>
+</svg>

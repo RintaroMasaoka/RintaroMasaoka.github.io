@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="570" viewBox="0 0 1320 570">
+<defs><marker id="site-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#6f56a4"/></marker></defs>
+<rect width="1320" height="570" fill="#fff"/>
+<path d="M100 91H1220" stroke="#cbd5dc" stroke-width="2"/>
+
+<!-- Three adjacent boundary variables before the effective symmetry action. -->
+<path d="M175 210H1045" stroke="#176d99" stroke-width="8" stroke-linecap="round"/>
+<g fill="#d9edf6" stroke="#176d99" stroke-width="5"><circle cx="175" cy="210" r="21"/><circle cx="465" cy="210" r="21"/><circle cx="755" cy="210" r="21"/><circle cx="1045" cy="210" r="21"/></g>
+
+<!-- Cocycle-dependent phase factors live on adjacent pairs. -->
+<g stroke="#b8792d" stroke-width="3" fill="#fff3df"><rect x="264" y="251" width="112" height="57" rx="28"/><rect x="554" y="251" width="112" height="57" rx="28"/><rect x="844" y="251" width="112" height="57" rx="28"/></g>
+<g stroke="#b8792d" stroke-width="2"><path d="M320 211V250M610 211V250M900 211V250"/></g>
+
+<!-- The group element transforms each site label. -->
+<g stroke="#6f56a4" stroke-width="4" fill="none" marker-end="url(#site-arrow)"><path d="M175 240V379"/><path d="M465 240V379"/><path d="M755 240V379"/><path d="M1045 240V379"/></g>
+
+<path d="M175 408H1045" stroke="#176d99" stroke-width="8" stroke-linecap="round"/>
+<g fill="#d9edf6" stroke="#176d99" stroke-width="5"><circle cx="175" cy="408" r="21"/><circle cx="465" cy="408" r="21"/><circle cx="755" cy="408" r="21"/><circle cx="1045" cy="408" r="21"/></g>
+<path d="M100 471H1220" stroke="#cbd5dc" stroke-width="2"/>
+</svg>

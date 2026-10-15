@@ -1,0 +1,16 @@
+[
+  {"id":"symmetry-head","tex":"\\mathcal C","x":210,"y":160,"size":42,"width":120,"english_meaning":"Fusion category of the symmetry lines","role":"source datum"},
+  {"id":"symmetry-data-1","tex":"\\text{lines and fusion}","x":207,"y":483,"size":23,"width":300,"english_meaning":"Lines and their fusion belong to the symmetry category","role":"source detail"},
+  {"id":"symmetry-data-2","tex":"\\text{junctions and associator}","x":207,"y":520,"size":22,"width":310,"english_meaning":"Junction spaces and reassociation data also belong to the symmetry category","role":"source detail"},
+  {"id":"functor-test","tex":"\\mathcal F:\\mathcal C\\to\\mathrm{Vec}?","x":545,"y":310,"size":28,"width":270,"english_meaning":"Existence test for a fiber functor","role":"decision"},
+  {"id":"test-subtitle","tex":"\\text{rank-one test}","x":545,"y":360,"size":25,"width":220,"english_meaning":"The question is whether a single-vacuum symmetric gap exists","role":"decision gloss"},
+  {"id":"yes","tex":"\\text{exists}","x":722,"y":150,"size":24,"width":120,"english_meaning":"Fiber functor exists","role":"branch label"},
+  {"id":"no","tex":"\\text{none}","x":700,"y":354,"size":24,"width":105,"english_meaning":"No fiber functor exists","role":"branch label"},
+  {"id":"one-vacuum","tex":"\\text{one vacuum}","x":1040,"y":170,"size":28,"width":245,"english_meaning":"Rank-one module category has one vacuum","role":"positive outcome"},
+  {"id":"spt","tex":"\\text{SPT phases}","x":1020,"y":224,"size":32,"width":255,"english_meaning":"One-vacuum symmetric gapped phases","role":"positive outcome"},
+  {"id":"distinct-functors","tex":"\\text{inequivalent }\\mathcal F\\text{ distinguish phases}","x":1015,"y":310,"size":24,"width":435,"english_meaning":"Inequivalent fiber functors distinguish SPT phases","role":"classification"},
+  {"id":"obstruction","tex":"\\text{no unique symmetric gap}","x":1045,"y":416,"size":27,"width":410,"english_meaning":"Absence of a fiber functor obstructs a unique symmetric gapped phase","role":"negative outcome"},
+  {"id":"alternatives","tex":"\\text{multiple vacua or gapless remain possible}","x":1030,"y":535,"size":23,"width":440,"english_meaning":"Other phases remain possible, not classified by this test","role":"scope of obstruction"},
+  {"id":"realization-question","tex":"\\text{Separate test: realizable for a fixed microscopic symmetry action?}","x":790,"y":618,"size":23,"width":940,"english_meaning":"Realizability for fixed microscopic action is a question separate from abstract fiber-functor existence","role":"separate decision"},
+  {"id":"realization-method","tex":"\\text{Compare local charges and interfaces}","x":790,"y":655,"size":22,"width":790,"english_meaning":"Local charges and interfaces help compare candidate realizations","role":"realization evidence"}
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "left-title",
+    "tex": "\\text{Two adjacent edge bonds}",
+    "x": 448,
+    "y": 57,
+    "size": 29,
+    "width": 660,
+    "english_meaning": "Two neighboring boundary bonds under the ratio of a pair of symmetry actions to their product",
+    "role": "panel heading"
+  },
+  {
+    "id": "right-title",
+    "tex": "\\text{One endpoint junction}",
+    "x": 1060,
+    "y": 57,
+    "size": 29,
+    "width": 370,
+    "english_meaning": "The residual endpoint phase is absorbed by a local pair-line junction",
+    "role": "panel heading"
+  },
+  {
+    "id": "site-a",
+    "tex": "a",
+    "x": 140,
+    "y": 204,
+    "size": 30,
+    "width": 45,
+    "english_meaning": "First site of the open interval",
+    "role": "site label"
+  },
+  {
+    "id": "site-b",
+    "tex": "b",
+    "x": 450,
+    "y": 204,
+    "size": 30,
+    "width": 45,
+    "english_meaning": "Shared middle site",
+    "role": "site label"
+  },
+  {
+    "id": "site-c",
+    "tex": "c",
+    "x": 760,
+    "y": 204,
+    "size": 30,
+    "width": 45,
+    "english_meaning": "Last site of the open interval",
+    "role": "site label"
+  },
+  {
+    "id": "bond-ab",
+    "tex": "\\dfrac{\\lambda(a)}{\\lambda(b)}",
+    "x": 295,
+    "y": 338,
+    "size": 26,
+    "width": 140,
+    "english_meaning": "First bond phase ratio",
+    "role": "bond factor"
+  },
+  {
+    "id": "bond-bc",
+    "tex": "\\dfrac{\\lambda(b)}{\\lambda(c)}",
+    "x": 605,
+    "y": 338,
+    "size": 26,
+    "width": 140,
+    "english_meaning": "Second bond phase ratio",
+    "role": "bond factor"
+  },
+  {
+    "id": "cancel",
+    "tex": "\\lambda(b)^{-1}\\lambda(b)=1",
+    "x": 450,
+    "y": 425,
+    "size": 28,
+    "width": 390,
+    "english_meaning": "The factor at the shared middle site cancels",
+    "role": "interior cancellation"
+  },
+  {
+    "id": "remaining",
+    "tex": "\\prod_{e}r_{g,h}(e)=\\dfrac{\\lambda(a)}{\\lambda(c)}",
+    "x": 450,
+    "y": 491,
+    "size": 29,
+    "width": 560,
+    "english_meaning": "Only endpoint factors remain after multiplying across the interval",
+    "role": "interval result"
+  },
+  {
+    "id": "line-g",
+    "tex": "g",
+    "x": 935,
+    "y": 204,
+    "size": 28,
+    "width": 55,
+    "english_meaning": "First symmetry-line input",
+    "role": "line label"
+  },
+  {
+    "id": "line-h",
+    "tex": "h",
+    "x": 935,
+    "y": 448,
+    "size": 28,
+    "width": 55,
+    "english_meaning": "Second symmetry-line input",
+    "role": "line label"
+  },
+  {
+    "id": "line-gh",
+    "tex": "gh",
+    "x": 1190,
+    "y": 284,
+    "size": 27,
+    "width": 80,
+    "english_meaning": "Fused symmetry-line output",
+    "role": "line label"
+  },
+  {
+    "id": "junction",
+    "tex": "P_{g,h}(a)",
+    "x": 1126,
+    "y": 384,
+    "size": 26,
+    "width": 175,
+    "english_meaning": "Chosen pair-line reduction at the endpoint a",
+    "role": "junction label"
+  },
+  {
+    "id": "endpoint",
+    "tex": "\\lambda_{g,h}(a)^{-1}",
+    "x": 1059,
+    "y": 475,
+    "size": 25,
+    "width": 200,
+    "english_meaning": "Inverse endpoint phase used in the reduction convention",
+    "role": "junction phase"
+  },
+  {
+    "id": "footer",
+    "tex": "\\text{The interior cancels; the endpoints carry the junction choice.}",
+    "x": 660,
+    "y": 570,
+    "size": 26,
+    "width": 1120,
+    "english_meaning": "Endpoint reduction rather than the global product carries the convention-dependent phase",
+    "role": "figure conclusion"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {"id":"head-input","tex":"\\text{One bulk site}","x":360,"y":58,"size":29,"width":420,"english_meaning":"Four components belong to one physical bulk site","role":"panel heading"},
+  {"id":"head-output","tex":"\\text{After the onsite }g\\text{ action}","x":970,"y":58,"size":29,"width":500,"english_meaning":"The same site's four components after one onsite group action","role":"panel heading"},
+  {"id":"a1","tex":"\\alpha_1","x":186,"y":142,"size":27,"width":100,"english_meaning":"First input group label","role":"input component"},
+  {"id":"a2","tex":"\\alpha_2","x":543,"y":142,"size":27,"width":100,"english_meaning":"Second input group label","role":"input component"},
+  {"id":"a3","tex":"\\alpha_3","x":543,"y":475,"size":27,"width":100,"english_meaning":"Third input group label","role":"input component"},
+  {"id":"a4","tex":"\\alpha_4","x":186,"y":475,"size":27,"width":100,"english_meaning":"Fourth input group label","role":"input component"},
+  {"id":"q12","tex":"q_g(\\alpha_1,\\alpha_2)","x":363,"y":220,"size":22,"width":175,"english_meaning":"First positive edge factor","role":"phase factor"},
+  {"id":"q23","tex":"q_g(\\alpha_2,\\alpha_3)","x":603,"y":306,"size":21,"width":160,"english_meaning":"Second positive edge factor","role":"phase factor"},
+  {"id":"q43","tex":"q_g(\\alpha_4,\\alpha_3)^{-1}","x":363,"y":395,"size":21,"width":177,"english_meaning":"First inverse edge factor","role":"phase factor"},
+  {"id":"q14","tex":"q_g(\\alpha_1,\\alpha_4)^{-1}","x":125,"y":306,"size":20,"width":160,"english_meaning":"Second inverse edge factor","role":"phase factor"},
+  {"id":"action","tex":"u_r(g)","x":740,"y":267,"size":29,"width":130,"english_meaning":"Onsite group action on the whole site","role":"action arrow"},
+  {"id":"ga1","tex":"g\\alpha_1","x":782,"y":142,"size":27,"width":105,"english_meaning":"First output group label","role":"output component"},
+  {"id":"ga2","tex":"g\\alpha_2","x":1161,"y":142,"size":27,"width":105,"english_meaning":"Second output group label","role":"output component"},
+  {"id":"ga3","tex":"g\\alpha_3","x":1161,"y":475,"size":27,"width":105,"english_meaning":"Third output group label","role":"output component"},
+  {"id":"ga4","tex":"g\\alpha_4","x":782,"y":475,"size":27,"width":105,"english_meaning":"Fourth output group label","role":"output component"},
+  {"id":"phase","tex":"F_g=\\frac{q_g(\\alpha_1,\\alpha_2)q_g(\\alpha_2,\\alpha_3)}{q_g(\\alpha_4,\\alpha_3)q_g(\\alpha_1,\\alpha_4)}","x":680,"y":562,"size":24,"width":920,"english_meaning":"The onsite phase is the product of the four indicated edge factors","role":"formula readout"}
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "spatial-head",
+    "tex": "\\text{Spatial slice}",
+    "x": 238,
+    "y": 62,
+    "size": 27,
+    "width": 370,
+    "english_meaning": "Two-dimensional bulk space at a fixed time",
+    "role": "panel heading"
+  },
+  {
+    "id": "sweep-head",
+    "tex": "\\text{Extrude through time}",
+    "x": 658,
+    "y": 62,
+    "size": 27,
+    "width": 395,
+    "english_meaning": "Continue the spatial cut through a finite time interval",
+    "role": "panel heading"
+  },
+  {
+    "id": "boundary-head",
+    "tex": "\\text{Boundary spacetime}",
+    "x": 1095,
+    "y": 62,
+    "size": 27,
+    "width": 380,
+    "english_meaning": "One-plus-one-dimensional boundary worldsheet",
+    "role": "panel heading"
+  },
+  {
+    "id": "spatial-bulk",
+    "tex": "\\Sigma",
+    "x": 122,
+    "y": 275,
+    "size": 30,
+    "width": 65,
+    "english_meaning": "Bulk spatial slice",
+    "role": "spatial region"
+  },
+  {
+    "id": "cut",
+    "tex": "C_g",
+    "x": 240,
+    "y": 276,
+    "size": 29,
+    "width": 80,
+    "english_meaning": "Spatial symmetry cut joining two edge points",
+    "role": "spatial cut"
+  },
+  {
+    "id": "spatial-edge",
+    "tex": "\\partial\\Sigma",
+    "x": 96,
+    "y": 540,
+    "size": 26,
+    "width": 95,
+    "english_meaning": "One-dimensional physical edge",
+    "role": "spatial edge"
+  },
+  {
+    "id": "left-end",
+    "tex": "x_L",
+    "x": 155,
+    "y": 535,
+    "size": 26,
+    "width": 90,
+    "english_meaning": "Left intersection of cut and spatial edge",
+    "role": "spatial endpoint"
+  },
+  {
+    "id": "right-end",
+    "tex": "x_R",
+    "x": 325,
+    "y": 535,
+    "size": 26,
+    "width": 90,
+    "english_meaning": "Right intersection of cut and spatial edge",
+    "role": "spatial endpoint"
+  },
+  {
+    "id": "interval",
+    "tex": "I=[x_L,x_R]",
+    "x": 240,
+    "y": 585,
+    "size": 25,
+    "width": 240,
+    "english_meaning": "Selected spatial boundary interval",
+    "role": "selected interval"
+  },
+  {
+    "id": "sheet",
+    "tex": "S_g=C_g\\times I_t",
+    "x": 657,
+    "y": 335,
+    "size": 25,
+    "width": 265,
+    "english_meaning": "Continuous two-dimensional sheet swept out by the spatial cut",
+    "role": "bulk symmetry sheet"
+  },
+  {
+    "id": "middle-boundary",
+    "tex": "\\partial M",
+    "x": 528,
+    "y": 475,
+    "size": 27,
+    "width": 100,
+    "english_meaning": "Boundary worldsheet at front of bulk spacetime",
+    "role": "boundary spacetime"
+  },
+  {
+    "id": "middle-time",
+    "tex": "t",
+    "x": 846,
+    "y": 210,
+    "size": 27,
+    "width": 45,
+    "english_meaning": "Increasing time direction",
+    "role": "time axis"
+  },
+  {
+    "id": "right-boundary",
+    "tex": "\\partial M",
+    "x": 963,
+    "y": 300,
+    "size": 28,
+    "width": 100,
+    "english_meaning": "Flattened boundary worldsheet",
+    "role": "boundary spacetime"
+  },
+  {
+    "id": "left-line",
+    "tex": "L_g",
+    "x": 1010,
+    "y": 140,
+    "size": 26,
+    "width": 115,
+    "english_meaning": "Boundary defect line at left endpoint",
+    "role": "defect line"
+  },
+  {
+    "id": "right-line",
+    "tex": "L_{g^{-1}}",
+    "x": 1180,
+    "y": 140,
+    "size": 26,
+    "width": 115,
+    "english_meaning": "Oppositely oriented boundary defect line at right endpoint",
+    "role": "defect line"
+  },
+  {
+    "id": "right-interval",
+    "tex": "I\\times I_t",
+    "x": 1095,
+    "y": 360,
+    "size": 27,
+    "width": 175,
+    "english_meaning": "Group-glued strip between the two time-directed lines",
+    "role": "interval worldsheet"
+  },
+  {
+    "id": "right-time",
+    "tex": "t",
+    "x": 1292,
+    "y": 205,
+    "size": 27,
+    "width": 45,
+    "english_meaning": "Increasing time direction",
+    "role": "time axis"
+  },
+  {
+    "id": "intersection",
+    "tex": "S_g\\cap\\partial M=L_g\\sqcup L_{g^{-1}}",
+    "x": 1092,
+    "y": 587,
+    "size": 22,
+    "width": 375,
+    "english_meaning": "Intersection of bulk sheet with boundary consists of two oppositely oriented defect lines",
+    "role": "intersection statement"
+  }
+]

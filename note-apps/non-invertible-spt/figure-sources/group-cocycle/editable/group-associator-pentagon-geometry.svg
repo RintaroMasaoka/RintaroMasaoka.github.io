@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="590" viewBox="0 0 1320 590" aria-hidden="true">
+  <defs>
+    <marker id="assoc-arrow" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#455666"/>
+    </marker>
+  </defs>
+  <rect width="1320" height="590" fill="#fff"/>
+  <g transform="translate(0,-35)">
+  <!-- Every directed edge is one left-to-right associator application. -->
+  <g fill="none" stroke="#455666" stroke-width="3.5" stroke-linecap="round" marker-end="url(#assoc-arrow)">
+    <path d="M123 370 L358 165"/>
+    <path d="M386 155 L883 155"/>
+    <path d="M913 164 L1195 369"/>
+    <path d="M128 386 L637 539"/>
+    <path d="M672 540 L1190 386"/>
+  </g>
+  <!-- Dots are the five parenthesizations, not physical junctions. -->
+  <g fill="#fff" stroke="#263c4d" stroke-width="3">
+    <circle cx="112" cy="380" r="10"/>
+    <circle cx="372" cy="155" r="10"/>
+    <circle cx="898" cy="155" r="10"/>
+    <circle cx="1208" cy="380" r="10"/>
+    <circle cx="655" cy="545" r="10"/>
+  </g>
+  </g>
+</svg>

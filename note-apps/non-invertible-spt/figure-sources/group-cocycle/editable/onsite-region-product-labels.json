@@ -1,0 +1,15 @@
+[
+  {"id":"title","tex":"\\text{Strictly 1D onsite symmetry}","x":660,"y":54,"size":31,"width":600,"english_meaning":"A standalone one-dimensional system with sitewise group symmetry","role":"figure title"},
+  {"id":"sites","tex":"\\text{same sites in }R","x":660,"y":127,"size":23,"width":300,"english_meaning":"All three restricted operators act on one common spatial region","role":"support label"},
+  {"id":"site-j","tex":"j","x":650,"y":142,"size":23,"width":45,"english_meaning":"One highlighted site shared by all three operators","role":"site label"},
+  {"id":"operator-g","tex":"U_g(R)","x":159,"y":206,"size":27,"width":130,"english_meaning":"Restricted action of g on R","role":"operator label"},
+  {"id":"operator-h","tex":"U_h(R)","x":159,"y":264,"size":27,"width":130,"english_meaning":"Restricted action of h on the same R","role":"operator label"},
+  {"id":"operator-k","tex":"U_k(R)","x":159,"y":322,"size":27,"width":130,"english_meaning":"Restricted action of k on the same R","role":"operator label"},
+  {"id":"local-g","tex":"u_g^{(j)}","x":650,"y":206,"size":24,"width":85,"english_meaning":"Local g action at highlighted site j","role":"local operator"},
+  {"id":"local-h","tex":"u_h^{(j)}","x":650,"y":264,"size":24,"width":85,"english_meaning":"Local h action at highlighted site j","role":"local operator"},
+  {"id":"local-k","tex":"u_k^{(j)}","x":650,"y":322,"size":24,"width":85,"english_meaning":"Local k action at highlighted site j","role":"local operator"},
+  {"id":"left-product","tex":"U_{gh}(R)U_k(R)","x":360,"y":421,"size":27,"width":300,"english_meaning":"First multiply g with h, then multiply by k on R","role":"left path"},
+  {"id":"right-product","tex":"U_g(R)U_{hk}(R)","x":960,"y":421,"size":27,"width":300,"english_meaning":"First multiply h with k, then multiply by g on R","role":"right path"},
+  {"id":"same-result","tex":"U_{ghk}(R)","x":660,"y":554,"size":30,"width":270,"english_meaning":"Both sitewise multiplication paths give the same restricted operator","role":"common output"},
+  {"id":"class-result","tex":"[\\omega]=0","x":1080,"y":569,"size":28,"width":170,"english_meaning":"The onsite realization has trivial associator obstruction class","role":"conclusion"}
+]

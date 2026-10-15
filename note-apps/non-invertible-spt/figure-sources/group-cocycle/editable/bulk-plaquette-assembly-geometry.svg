@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="600" viewBox="0 0 1320 600">
+<rect width="1320" height="600" fill="#fff"/>
+<path d="M73 82H718M771 82H1278" stroke="#d3dce2" stroke-width="2"/>
+<path d="M744 105V546" stroke="#dce3e8" stroke-width="2"/>
+<!-- Solid ochre boxes partition the four physical Hilbert spaces. -->
+<g fill="#fbf4e8" stroke="#a77736" stroke-width="3.5">
+  <rect x="105" y="112" width="270" height="200" rx="12"/>
+  <rect x="415" y="112" width="270" height="200" rx="12"/>
+  <rect x="105" y="342" width="270" height="200" rx="12"/>
+  <rect x="415" y="342" width="270" height="200" rx="12"/>
+</g>
+<!-- Violet dashed boundary partitions one plaquette across all four sites. -->
+<rect x="284" y="220" width="222" height="212" rx="28" fill="#e9def2" fill-opacity=".72" stroke="#714293" stroke-width="4" stroke-dasharray="11 8"/>
+<!-- Each site has four distinct G-valued components. Unselected components
+     continue into neighboring plaquette partitions outside this 2x2 window. -->
+<g fill="#fff" stroke="#287194" stroke-width="4">
+  <circle cx="143" cy="150" r="12"/><circle cx="337" cy="150" r="12"/><circle cx="143" cy="274" r="12"/>
+  <circle cx="453" cy="150" r="12"/><circle cx="647" cy="150" r="12"/><circle cx="647" cy="274" r="12"/>
+  <circle cx="143" cy="380" r="12"/><circle cx="143" cy="504" r="12"/><circle cx="337" cy="504" r="12"/>
+  <circle cx="647" cy="380" r="12"/><circle cx="453" cy="504" r="12"/><circle cx="647" cy="504" r="12"/>
+</g>
+<!-- The four selected dots remain separate physical degrees of freedom. -->
+<g fill="#714293" stroke="#fff" stroke-width="3.5">
+  <circle cx="337" cy="274" r="14"/><circle cx="453" cy="274" r="14"/>
+  <circle cx="337" cy="380" r="14"/><circle cx="453" cy="380" r="14"/>
+</g>
+<!-- Keys for the two partitions and selected/unselected component roles. -->
+<rect x="790" y="355" width="28" height="28" rx="4" fill="#fbf4e8" stroke="#a77736" stroke-width="3"/>
+<rect x="790" y="417" width="28" height="28" rx="5" fill="#e9def2" stroke="#714293" stroke-width="3" stroke-dasharray="6 4"/>
+<circle cx="805" cy="490" r="11" fill="#714293"/>
+<circle cx="805" cy="536" r="11" fill="#fff" stroke="#287194" stroke-width="3"/>
+</svg>

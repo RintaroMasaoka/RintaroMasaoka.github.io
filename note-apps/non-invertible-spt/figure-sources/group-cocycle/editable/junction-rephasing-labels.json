@@ -1,0 +1,192 @@
+[
+  {
+    "id": "left-title",
+    "tex": "\\text{Left basis: }((gh)k)",
+    "x": 340,
+    "y": 48,
+    "size": 26,
+    "width": 460,
+    "english_meaning": "The left-associated junction tree",
+    "role": "tree title"
+  },
+  {
+    "id": "right-title",
+    "tex": "\\text{Right basis: }g(hk)",
+    "x": 980,
+    "y": 48,
+    "size": 26,
+    "width": 460,
+    "english_meaning": "The right-associated junction tree",
+    "role": "tree title"
+  },
+  {
+    "id": "left-g",
+    "tex": "g",
+    "x": 150,
+    "y": 102,
+    "size": 27,
+    "width": 50,
+    "english_meaning": "Input group line g on the left tree",
+    "role": "input line"
+  },
+  {
+    "id": "left-h",
+    "tex": "h",
+    "x": 330,
+    "y": 102,
+    "size": 27,
+    "width": 50,
+    "english_meaning": "Input group line h on the left tree",
+    "role": "input line"
+  },
+  {
+    "id": "left-k",
+    "tex": "k",
+    "x": 530,
+    "y": 102,
+    "size": 27,
+    "width": 50,
+    "english_meaning": "Input group line k on the left tree",
+    "role": "input line"
+  },
+  {
+    "id": "right-g",
+    "tex": "g",
+    "x": 790,
+    "y": 102,
+    "size": 27,
+    "width": 50,
+    "english_meaning": "Input group line g on the right tree",
+    "role": "input line"
+  },
+  {
+    "id": "right-h",
+    "tex": "h",
+    "x": 990,
+    "y": 102,
+    "size": 27,
+    "width": 50,
+    "english_meaning": "Input group line h on the right tree",
+    "role": "input line"
+  },
+  {
+    "id": "right-k",
+    "tex": "k",
+    "x": 1150,
+    "y": 102,
+    "size": 27,
+    "width": 50,
+    "english_meaning": "Input group line k on the right tree",
+    "role": "input line"
+  },
+  {
+    "id": "left-intermediate",
+    "tex": "gh",
+    "x": 338,
+    "y": 345,
+    "size": 26,
+    "width": 75,
+    "english_meaning": "Intermediate product line gh",
+    "role": "intermediate line"
+  },
+  {
+    "id": "right-intermediate",
+    "tex": "hk",
+    "x": 982,
+    "y": 345,
+    "size": 26,
+    "width": 75,
+    "english_meaning": "Intermediate product line hk",
+    "role": "intermediate line"
+  },
+  {
+    "id": "left-first-phase",
+    "tex": "u(g,h)",
+    "x": 162,
+    "y": 316,
+    "size": 25,
+    "width": 130,
+    "english_meaning": "Rephasing factor on the g,h junction",
+    "role": "junction phase"
+  },
+  {
+    "id": "left-second-phase",
+    "tex": "u(gh,k)",
+    "x": 513,
+    "y": 502,
+    "size": 25,
+    "width": 165,
+    "english_meaning": "Rephasing factor on the gh,k junction",
+    "role": "junction phase"
+  },
+  {
+    "id": "right-first-phase",
+    "tex": "u(h,k)",
+    "x": 1158,
+    "y": 316,
+    "size": 25,
+    "width": 130,
+    "english_meaning": "Rephasing factor on the h,k junction",
+    "role": "junction phase"
+  },
+  {
+    "id": "right-second-phase",
+    "tex": "u(g,hk)",
+    "x": 807,
+    "y": 502,
+    "size": 25,
+    "width": 165,
+    "english_meaning": "Rephasing factor on the g,hk junction",
+    "role": "junction phase"
+  },
+  {
+    "id": "associator",
+    "tex": "\\alpha_{g,h,k}",
+    "x": 660,
+    "y": 334,
+    "size": 26,
+    "width": 150,
+    "english_meaning": "Associator points from the left tree to the right tree",
+    "role": "directed associator"
+  },
+  {
+    "id": "left-output",
+    "tex": "ghk",
+    "x": 415,
+    "y": 569,
+    "size": 25,
+    "width": 100,
+    "english_meaning": "Total product line on the left",
+    "role": "output line"
+  },
+  {
+    "id": "right-output",
+    "tex": "ghk",
+    "x": 905,
+    "y": 569,
+    "size": 25,
+    "width": 100,
+    "english_meaning": "Total product line on the right",
+    "role": "output line"
+  },
+  {
+    "id": "left-composite-map",
+    "tex": "m_L",
+    "x": 350,
+    "y": 524,
+    "size": 26,
+    "width": 85,
+    "english_meaning": "The complete left composite junction map to ghk",
+    "role": "composite map"
+  },
+  {
+    "id": "right-composite-map",
+    "tex": "m_R",
+    "x": 970,
+    "y": 524,
+    "size": 26,
+    "width": 85,
+    "english_meaning": "The complete right composite junction map to ghk",
+    "role": "composite map"
+  }
+]

@@ -1,0 +1,40 @@
+# Symmetry-line, bulk–boundary, and field-map figures
+
+## Figure contract
+
+These fourteen current figures serve §§3.1, 3.3, and 7.1 of `content/overview.md` for a condensed-matter expert who has read the earlier two-cocycle and associator figures. They are static PNGs for article-width display. The editable authority is the text-free SVG geometry and JSON TeX label inventories in `editable/`; `figures.json` gives size and alternative descriptions. All visible lettering is English rendered with KaTeX fonts.
+
+- `group-associator-pentagon`: each vertex is one parenthesization of ordered inputs `g,h,k,l`. Each arrow is one application of the adopted `α:((gh)k)→g(hk)`. The three-edge route is `(((gh)k)l) → ((g(hk))l) → g((hk)l) → g(h(kl))`, and the two-edge route is `(((gh)k)l) → ((gh)(kl)) → g(h(kl))`. Their ordered scalar products are exactly the two sides of the three-cocycle relation in the neighboring manuscript equation. Vertex placement is schematic and has no spatial-angle meaning for defect lines.
+- `junction-rephasing`: blue lines are group-type defect lines, ochre lines are intermediate products, and blue dots are pair-fusion junctions, matching the earlier associator figure. Thin gray leaders attach each `u` factor to the precise junction it rephases. The arrow applies `α` from the left-associated to right-associated tree. The labels `m_L` and `m_R` beside the output stems name the complete composite junction maps; `ghk` on both outputs denotes the same total product.
+- `onsite-region-product`: three restricted operators share each site in one spatial region `R`; a highlighted column shows their local factors at `j`. The two multiplication orders `U_{gh}(R)U_k(R)` and `U_g(R)U_{hk}(R)` converge on `U_{ghk}(R)`. This sitewise product supplies a coherent junction convention with `[ω]=0`; the depicted number of sites is schematic.
+- `bulk-edge-incidence`: a cut joins the two ends of a selected interval on the 1D edge of a 2D bulk slice. A continuous ribbon shows the cut extruded through time; its two vertical side edges lie on the boundary worldsheet. The third panel isolates that worldsheet and its two oppositely oriented lines.
+- `bulk-plaquette-assembly`: four separate physical sites each have four group-valued components. The highlighted central plaquette takes exactly one component from each site, with all four carrying a common summed group label; open components belong to other plaquettes.
+- `bulk-onsite-unit`: four group-valued components belong to one physical site. Its onsite action relabels all four and carries two direct and two inverse cocycle edge factors.
+- `bulk-to-edge-action`: the product onsite action on a six-site open patch relabels fixed edge and summed interior variables. Plaquette-matched labels on distinct site components give inverse internal factors that cancel; the interior sum is reindexed, and each rightward physical-edge bond retains f_g=q_g^{-1} on its input labels.
+- `edge-effective-action`: the boundary action relabels every site and multiplies each oriented neighboring pair by its cocycle-derived phase.
+- `edge-interval-support`: a full boundary operator is inserted across a spatial slice, then restricted to an interval. Continuing the two interval cuts through time gives oppositely oriented defect lines at the two endpoints.
+- `edge-junction-reduction`: two adjacent bond ratios telescope, leaving endpoint factors. The local pair-reduction map at the selected left endpoint carries the inverse remaining factor.
+- `edge-triple-reduction`: the two three-action reduction trees carry different *pre-reduction residual* endpoint products. Because the maps remove these factors, the left/right residual quotient equals the right/left map quotient.
+- `bulk-edge-cocycles`: the oriented bulk tetrahedron carries the group-cohomology representative, while two boundary fusion trees carry its corresponding associator. The bottom equality is between H³ classes, not a pointwise one-cell cancellation.
+- `module-vacuum-action`: the action of a symmetry line on one input vacuum can have several output sectors, each with an independent junction multiplicity; in the rank-one panel the vacuum count is one while the junction-channel count can exceed one. The arrows encode sector action and direct-sum decomposition, not spacetime motion.
+- `field-map`: the full symmetry-line data in a fusion category lead to a fiber-functor existence test. Its two branches distinguish rank-one SPT phases from the obstruction to a unique symmetric gap; a separate route from abstract SPT classes to UV realization points to lattice action, charges, and interfaces.
+
+The former combined `anomaly-inflow-boundary` and `boundary-inflow` diagrams, and the earlier separate `bulk-edge-cancellation` and `edge-state-restriction` figures, are superseded. Their editable sources remain for revision provenance but they are absent from `figures.json` and the current manuscript.
+
+The operative convention is `F(α)=ω`, `ωβ_L=β_R`, and `m'_{a,b}=u(a,b)m_{a,b}` (equivalently `J'_{a,b}=u(a,b)J_{a,b}`). Set `u_L=u(g,h)u(gh,k)` and `u_R=u(h,k)u(g,hk)`. Then `β'_L=u_Lβ_L` and `β'_R=u_Rβ_R`, so `ω'β'_L=β'_R` gives `ω'=ωu_R/u_L`. Thus the right-tree factors are in the numerator in this convention. This is the three-coboundary of `u` in the adopted direction. Full equations are left to the neighboring manuscript text; the figures show their carriers and paths. The tree angles carry no physical meaning.
+
+Source comparison for the mathematical setup: [Inamura §2.2](https://arxiv.org/html/2103.15588v1#S2.SS2), [Thorngren–Wang §2.2](https://arxiv.org/html/1912.02817v1#S2.SS2), [Chen et al. §VI.C and Appendices G.3/I](https://arxiv.org/pdf/1106.4772) for the onsite-to-boundary construction, and [Else–Nayak §I.B](https://arxiv.org/pdf/1409.5436) for interval restriction and endpoint factors. The exact rephasing ratio above follows the local §3.2 coherence equation, so it must be interpreted together with the stated basis convention.
+
+## Regeneration
+
+Use Node.js 20 or later, KaTeX, Playwright, and a compatible Chrome/Chromium. `package.json` pins the tested KaTeX and Playwright versions; run `npm install` when a local installation is needed. Set `KATEX_ROOT` and `PLAYWRIGHT_ROOT` to installed package directories if they are unavailable through ordinary Node resolution; optionally set `BROWSER_CHANNEL` or `BROWSER_EXECUTABLE`. From this folder:
+
+```sh
+node generate.cjs
+node render.cjs
+cp output/assets/*.png ../../public/diagrams/
+```
+
+`generate.cjs` copies only the KaTeX CSS, its referenced font files, and the license into `output/sources/katex/`. Each generated HTML is a view of its editable SVG and TeX label JSON. `render.cjs` takes 2× PNG screenshots and rejects math errors, clipped labels, request failures, page errors, and glyphs whose actual Chrome platform fonts are not custom KaTeX fonts. It writes full label, renderer, font, and hash evidence to `output/qa/render-font-qa.json`; `output/qa/generation.json` binds generated HTML to editable source hashes.
+
+The current export uses KaTeX 0.16.22 and the Playwright and Chrome versions recorded in the QA JSON. The thirteen CSS sizes are recorded in `figures.json` and exported at 2× resolution. Each label's English meaning, role, exact TeX, coordinates, and size is in its `editable/*-labels.json` source; the QA JSON records the observed KaTeX font families for every glyph-containing label. Inspect the PNGs at native resolution and at article width for arrow direction, phase attachment, map labels, clipping, and collisions; `output/qa/render-font-qa.json` records the mechanical checks. The current figure revision's visual inspection belongs in its project review record.

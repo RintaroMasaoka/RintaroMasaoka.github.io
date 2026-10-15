@@ -1,0 +1,17 @@
+[
+  {"id":"head-bulk","tex":"\\text{Open bulk: fix edge labels}","x":365,"y":52,"size":29,"width":540,"english_meaning":"An open bulk with specified boundary variables","role":"panel heading"},
+  {"id":"head-edge","tex":"\\text{Edge-labeled state}","x":995,"y":52,"size":29,"width":445,"english_meaning":"The state after summing internal group labels","role":"panel heading"},
+  {"id":"alpha-1","tex":"\\alpha_1","x":155,"y":497,"size":28,"width":95,"english_meaning":"First fixed boundary label","role":"edge input"},
+  {"id":"alpha-2","tex":"\\alpha_2","x":295,"y":497,"size":28,"width":95,"english_meaning":"Second fixed boundary label","role":"edge input"},
+  {"id":"alpha-3","tex":"\\alpha_3","x":435,"y":497,"size":28,"width":95,"english_meaning":"Third fixed boundary label","role":"edge input"},
+  {"id":"alpha-n","tex":"\\alpha_n","x":575,"y":497,"size":28,"width":95,"english_meaning":"Last displayed fixed boundary label","role":"edge input"},
+  {"id":"beta","tex":"\\beta","x":255,"y":260,"size":30,"width":60,"english_meaning":"First summed internal label","role":"bulk variable"},
+  {"id":"gamma","tex":"\\gamma","x":470,"y":299,"size":30,"width":60,"english_meaning":"Second summed internal label","role":"bulk variable"},
+  {"id":"sum","tex":"\\sum_{\\beta,\\gamma,\\ldots}","x":702,"y":265,"size":31,"width":150,"english_meaning":"Sum over internal group labels","role":"restriction operation"},
+  {"id":"out1","tex":"\\alpha_1","x":832,"y":268,"size":28,"width":95,"english_meaning":"First boundary label retained","role":"output label"},
+  {"id":"out2","tex":"\\alpha_2","x":950,"y":268,"size":28,"width":95,"english_meaning":"Second boundary label retained","role":"output label"},
+  {"id":"out3","tex":"\\alpha_3","x":1068,"y":268,"size":28,"width":95,"english_meaning":"Third boundary label retained","role":"output label"},
+  {"id":"outn","tex":"\\alpha_n","x":1186,"y":268,"size":28,"width":95,"english_meaning":"Last displayed boundary label retained","role":"output label"},
+  {"id":"state","tex":"|\\{\\alpha_i\\}\\rangle_0","x":1008,"y":427,"size":34,"width":320,"english_meaning":"Boundary state indexed by the retained edge variables","role":"output state"},
+  {"id":"meaning","tex":"\\text{interior summed, edge fixed}","x":995,"y":503,"size":26,"width":460,"english_meaning":"Interior variables are summed while edge variables label the state","role":"readout"}
+]

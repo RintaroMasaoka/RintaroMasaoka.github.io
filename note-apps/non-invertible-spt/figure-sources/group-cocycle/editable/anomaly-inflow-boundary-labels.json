@@ -1,0 +1,23 @@
+[
+  {"id":"onsite-heading","tex":"\\text{Onsite action}","x":332,"y":54,"size":27,"width":315,"english_meaning":"Title for strictly one-dimensional onsite realization","role":"panel heading"},
+  {"id":"boundary-heading","tex":"\\text{Bulk-boundary action}","x":988,"y":54,"size":27,"width":380,"english_meaning":"Title for anomalous boundary action with SPT bulk","role":"panel heading"},
+  {"id":"onsite-region","tex":"\\text{1+1D system}","x":332,"y":132,"size":23,"width":265,"english_meaning":"Spacetime sheet of the standalone onsite system","role":"region label"},
+  {"id":"boundary-region","tex":"\\text{1+1D boundary}","x":988,"y":132,"size":23,"width":290,"english_meaning":"Spacetime sheet at the bulk boundary","role":"region label"},
+  {"id":"onsite-left","tex":"(gh)k","x":183,"y":282,"size":29,"width":168,"english_meaning":"Left association of three group defects in onsite case","role":"association state"},
+  {"id":"onsite-right","tex":"g(hk)","x":465,"y":282,"size":29,"width":168,"english_meaning":"Right association of the same three group defects in onsite case","role":"association state"},
+  {"id":"boundary-left","tex":"(gh)k","x":839,"y":282,"size":29,"width":168,"english_meaning":"Left association of three boundary defects","role":"association state"},
+  {"id":"boundary-right","tex":"g(hk)","x":1121,"y":282,"size":29,"width":168,"english_meaning":"Right association of the same three boundary defects","role":"association state"},
+  {"id":"onsite-rebracket","tex":"\\text{rebracket}","x":326,"y":224,"size":20,"width":182,"english_meaning":"Association-changing operation for onsite defects","role":"arrow label"},
+  {"id":"boundary-rebracket","tex":"\\text{rebracket}","x":982,"y":224,"size":20,"width":182,"english_meaning":"Association-changing operation for boundary defects","role":"arrow label"},
+  {"id":"onsite-phase","tex":"\\omega\\sim 1","x":332,"y":372,"size":29,"width":215,"english_meaning":"Onsite associator is equivalent by junction rephasing to the unit phase","role":"phase result"},
+  {"id":"partial-g","tex":"U_g(R)","x":221,"y":432,"size":24,"width":125,"english_meaning":"Partial onsite action g supported on region R","role":"partial-action support"},
+  {"id":"partial-h","tex":"U_h(R)","x":221,"y":482,"size":24,"width":125,"english_meaning":"Partial onsite action h on the same region R","role":"partial-action support"},
+  {"id":"endpoint-g","tex":"g","x":395,"y":413,"size":24,"width":55,"english_meaning":"Group-type defect at the endpoint of partial action g","role":"defect endpoint"},
+  {"id":"endpoint-h","tex":"h","x":395,"y":486,"size":24,"width":55,"english_meaning":"Group-type defect at the endpoint of partial action h","role":"defect endpoint"},
+  {"id":"junction","tex":"\\text{junction}","x":514,"y":509,"size":20,"width":108,"english_meaning":"Local junction combining the two defect endpoints","role":"junction"},
+  {"id":"fused-endpoint","tex":"gh","x":508,"y":558,"size":24,"width":72,"english_meaning":"Endpoint defect of the product action on the same region","role":"fused defect endpoint"},
+  {"id":"boundary-phase","tex":"\\omega","x":982,"y":324,"size":30,"width":105,"english_meaning":"Boundary rebracketing factor","role":"boundary phase"},
+  {"id":"bulk-region","tex":"\\text{bulk spacetime}","x":1163,"y":412,"size":19,"width":180,"english_meaning":"Spacetime process in the adjacent 2+1D SPT bulk that contributes the compensating factor","role":"region label"},
+  {"id":"bulk-phase","tex":"\\omega^{-1}","x":982,"y":468,"size":29,"width":96,"english_meaning":"Inverse phase supplied by the adjoining bulk","role":"bulk phase"},
+  {"id":"total-phase","tex":"\\omega\\,\\omega^{-1}=1","x":1031,"y":550,"size":29,"width":270,"english_meaning":"Combined boundary and bulk phase equals one","role":"combined phase"}
+]

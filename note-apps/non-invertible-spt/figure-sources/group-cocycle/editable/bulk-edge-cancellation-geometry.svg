@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="580" viewBox="0 0 1320 580">
+<rect width="1320" height="580" fill="#fff"/>
+<path d="M80 95H610M710 95H1240" stroke="#cbd5dc" stroke-width="2"/>
+<path d="M660 115V545" stroke="#d3dce2" stroke-width="2"/>
+
+<!-- A shared internal bond with inverse phase contributions from its two sides. -->
+<path d="M120 172H335V402H120ZM335 172H550V402H335Z" fill="#f9e9cf" stroke="#a87531" stroke-width="4"/>
+<path d="M120 172 335 402M335 172 550 402" fill="none" stroke="#c69e64" stroke-width="2"/>
+<path d="M335 172V402" stroke="#bc7627" stroke-width="8"/>
+<rect x="171" y="255" width="136" height="64" rx="26" fill="#fff5e6" stroke="#bc7627" stroke-width="3"/>
+<rect x="363" y="255" width="136" height="64" rx="26" fill="#fff5e6" stroke="#bc7627" stroke-width="3"/>
+<path d="M307 287H330M340 287H363" stroke="#bc7627" stroke-width="3"/>
+
+<!-- A boundary bond has only one adjacent bulk plaquette. -->
+<path d="M814 174H1136V401H814Z" fill="#f9e9cf" stroke="#a87531" stroke-width="4"/>
+<path d="M814 174 1136 401" fill="none" stroke="#c69e64" stroke-width="2"/>
+<path d="M814 401H1136" stroke="#176d99" stroke-width="9" stroke-linecap="round"/>
+<g fill="#d9edf6" stroke="#176d99" stroke-width="4"><circle cx="814" cy="401" r="13"/><circle cx="1136" cy="401" r="13"/></g>
+<rect x="907" y="316" width="136" height="64" rx="26" fill="#fff5e6" stroke="#bc7627" stroke-width="3"/>
+<path d="M975 380V397" stroke="#bc7627" stroke-width="3"/>
+</svg>

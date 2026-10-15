@@ -1,0 +1,17 @@
+[
+  {"id":"multi-head","tex":"\\text{Action on vacuum sectors}","x":348,"y":55,"size":31,"width":420,"english_meaning":"A symmetry line can map one vacuum sector to a direct sum of sectors","role":"panel heading"},
+  {"id":"one-head","tex":"\\text{Rank one: one vacuum}","x":974,"y":55,"size":31,"width":420,"english_meaning":"Rank one refers to the number of distinct vacua","role":"panel heading"},
+  {"id":"input-i","tex":"m_i","x":145,"y":300,"size":29,"width":70,"english_meaning":"Input vacuum sector","role":"sector"},
+  {"id":"line-a-left","tex":"a","x":353,"y":300,"size":34,"width":60,"english_meaning":"Symmetry line acting on the input vacuum","role":"action label"},
+  {"id":"output-one","tex":"m_j","x":546,"y":220,"size":29,"width":70,"english_meaning":"One output vacuum sector","role":"sector"},
+  {"id":"output-two","tex":"m_k","x":546,"y":385,"size":29,"width":70,"english_meaning":"Another output vacuum sector","role":"sector"},
+  {"id":"multiplicity-one","tex":"n^a_{ji}","x":469,"y":172,"size":25,"width":100,"english_meaning":"Number of independent junctions to output vacuum j","role":"branch multiplicity"},
+  {"id":"multiplicity-two","tex":"n^a_{ki}","x":469,"y":432,"size":25,"width":100,"english_meaning":"Number of independent junctions to output vacuum k","role":"branch multiplicity"},
+  {"id":"direct-sum","tex":"a\\triangleright m_i\\cong\\bigoplus_j n^a_{ji}m_j","x":348,"y":515,"size":28,"width":500,"english_meaning":"Direct-sum action on vacuum sectors","role":"equation link"},
+  {"id":"rank-input","tex":"m","x":761,"y":300,"size":30,"width":60,"english_meaning":"The sole input vacuum","role":"sector"},
+  {"id":"line-a-right","tex":"a","x":958,"y":300,"size":34,"width":60,"english_meaning":"The same kind of symmetry-line action","role":"action label"},
+  {"id":"rank-output","tex":"m","x":1170,"y":300,"size":30,"width":60,"english_meaning":"The sole output vacuum","role":"sector"},
+  {"id":"channel-count","tex":"n^a_{11}","x":1080,"y":491,"size":26,"width":140,"english_meaning":"Number of independent junction channels at the one vacuum","role":"channel count"},
+  {"id":"many-channels","tex":"\\text{junction channels}","x":1080,"y":402,"size":22,"width":260,"english_meaning":"The channel space may have dimension greater than one","role":"channel explanation"},
+  {"id":"more-channels","tex":"\\cdots","x":1100,"y":449,"size":30,"width":50,"english_meaning":"Additional independent junction channels when the dimension exceeds two","role":"schematic continuation"}
+]

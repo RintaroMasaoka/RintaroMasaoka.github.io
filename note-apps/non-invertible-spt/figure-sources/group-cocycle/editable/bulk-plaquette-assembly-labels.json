@@ -1,0 +1,172 @@
+[
+  {
+    "id": "head-sites",
+    "tex": "\\text{Four physical sites}",
+    "x": 395,
+    "y": 48,
+    "size": 29,
+    "width": 570,
+    "english_meaning": "The four separate solid-box physical sites",
+    "role": "panel heading"
+  },
+  {
+    "id": "head-state",
+    "tex": "\\text{One plaquette state}",
+    "x": 1024,
+    "y": 48,
+    "size": 29,
+    "width": 485,
+    "english_meaning": "The state assembled from one component in each site",
+    "role": "panel heading"
+  },
+  {
+    "id": "site-nw",
+    "tex": "\\mathcal H_{r_1}",
+    "x": 240,
+    "y": 203,
+    "size": 27,
+    "width": 150,
+    "english_meaning": "Hilbert space of the northwest physical site",
+    "role": "physical site label"
+  },
+  {
+    "id": "site-ne",
+    "tex": "\\mathcal H_{r_2}",
+    "x": 550,
+    "y": 203,
+    "size": 27,
+    "width": 150,
+    "english_meaning": "Hilbert space of the northeast physical site",
+    "role": "physical site label"
+  },
+  {
+    "id": "site-sw",
+    "tex": "\\mathcal H_{r_3}",
+    "x": 240,
+    "y": 450,
+    "size": 27,
+    "width": 150,
+    "english_meaning": "Hilbert space of the southwest physical site",
+    "role": "physical site label"
+  },
+  {
+    "id": "site-se",
+    "tex": "\\mathcal H_{r_4}",
+    "x": 550,
+    "y": 450,
+    "size": 27,
+    "width": 150,
+    "english_meaning": "Hilbert space of the southeast physical site",
+    "role": "physical site label"
+  },
+  {
+    "id": "central-p",
+    "tex": "p",
+    "x": 395,
+    "y": 327,
+    "size": 28,
+    "width": 42,
+    "english_meaning": "Central plaquette with one selected component from each site",
+    "role": "plaquette identifier"
+  },
+  {
+    "id": "x-nw",
+    "tex": "z",
+    "x": 337,
+    "y": 240,
+    "size": 26,
+    "width": 36,
+    "english_meaning": "Northwest selected component takes group value z",
+    "role": "selected component value"
+  },
+  {
+    "id": "x-ne",
+    "tex": "z",
+    "x": 453,
+    "y": 240,
+    "size": 26,
+    "width": 36,
+    "english_meaning": "Northeast selected component takes group value z",
+    "role": "selected component value"
+  },
+  {
+    "id": "x-sw",
+    "tex": "z",
+    "x": 337,
+    "y": 416,
+    "size": 26,
+    "width": 36,
+    "english_meaning": "Southwest selected component takes group value z",
+    "role": "selected component value"
+  },
+  {
+    "id": "x-se",
+    "tex": "z",
+    "x": 453,
+    "y": 416,
+    "size": 26,
+    "width": 36,
+    "english_meaning": "Southeast selected component takes group value z",
+    "role": "selected component value"
+  },
+  {
+    "id": "state",
+    "tex": "|\\Phi_p\\rangle=\\sum_{z\\in G}|z,z,z,z\\rangle_p",
+    "x": 1025,
+    "y": 177,
+    "size": 31,
+    "width": 490,
+    "english_meaning": "The central plaquette superposes states where its four selected components share the group value z",
+    "role": "plaquette state formula"
+  },
+  {
+    "id": "site-count",
+    "tex": "\\text{one component from each of four sites}",
+    "x": 1025,
+    "y": 257,
+    "size": 23,
+    "width": 495,
+    "english_meaning": "Each of the four components in the plaquette state belongs to a different physical site",
+    "role": "interpretive callout"
+  },
+  {
+    "id": "site-key",
+    "tex": "\\text{one physical site: four components}",
+    "x": 1040,
+    "y": 369,
+    "size": 22,
+    "width": 420,
+    "english_meaning": "A solid ochre box encloses one physical site with four group-valued components",
+    "role": "partition key"
+  },
+  {
+    "id": "plaquette-key",
+    "tex": "\\text{central plaquette }p",
+    "x": 983,
+    "y": 431,
+    "size": 22,
+    "width": 300,
+    "english_meaning": "The dashed violet region selects one component from each of four sites",
+    "role": "partition key"
+  },
+  {
+    "id": "selected-key",
+    "tex": "\\text{component in }p",
+    "x": 969,
+    "y": 490,
+    "size": 22,
+    "width": 285,
+    "english_meaning": "A filled violet dot is a component selected for the central plaquette",
+    "role": "component key"
+  },
+  {
+    "id": "other-key",
+    "tex": "\\text{component in a neighboring plaquette}",
+    "x": 1045,
+    "y": 536,
+    "size": 21,
+    "width": 445,
+    "english_meaning": "An open blue dot belongs to another surrounding plaquette",
+    "role": "component key"
+  }
+]

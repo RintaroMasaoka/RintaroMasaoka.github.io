@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="650" viewBox="0 0 1320 650" aria-hidden="true">
+  <defs>
+    <g id="site-before">
+      <rect x="0" y="0" width="124" height="92" rx="9" fill="#faecd7" stroke="#a87531" stroke-width="2.6"/>
+      <g fill="#fff" stroke="#7b6b59" stroke-width="2.4">
+        <circle cx="0" cy="0" r="7"/><circle cx="124" cy="0" r="7"/>
+        <circle cx="0" cy="92" r="7"/><circle cx="124" cy="92" r="7"/>
+      </g>
+    </g>
+    <g id="site-after">
+      <rect x="0" y="0" width="124" height="92" rx="9" fill="#faecd7" stroke="#a87531" stroke-width="2.6"/>
+      <g fill="#e9dcf3" stroke="#75469b" stroke-width="2.4">
+        <circle cx="0" cy="0" r="7"/><circle cx="124" cy="0" r="7"/>
+        <circle cx="0" cy="92" r="7"/><circle cx="124" cy="92" r="7"/>
+      </g>
+    </g>
+    <marker id="action-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#75509b"/>
+    </marker>
+    <marker id="edge-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#176d99"/>
+    </marker>
+  </defs>
+  <rect width="1320" height="650" fill="#fff"/>
+  <path d="M66 65H550M770 65H1254" stroke="#cbd5dc" stroke-width="2"/>
+
+  <!-- Six isolated squares in each view are six physical sites. Each corner dot is a separate component. -->
+  <g id="input-sites">
+    <use href="#site-before" x="96" y="145"/><use href="#site-before" x="248" y="145"/><use href="#site-before" x="400" y="145"/>
+    <use href="#site-before" x="96" y="284"/><use href="#site-before" x="248" y="284"/><use href="#site-before" x="400" y="284"/>
+  </g>
+  <g id="output-sites">
+    <use href="#site-after" x="796" y="145"/><use href="#site-after" x="948" y="145"/><use href="#site-after" x="1100" y="145"/>
+    <use href="#site-after" x="796" y="284"/><use href="#site-after" x="948" y="284"/><use href="#site-after" x="1100" y="284"/>
+  </g>
+
+  <!-- Dashed loops mark equality constraints among distinct components of neighboring sites. -->
+  <g fill="none" stroke="#687984" stroke-width="2.1" stroke-dasharray="5 5">
+    <ellipse cx="234" cy="260.5" rx="34" ry="34"/><ellipse cx="386" cy="260.5" rx="34" ry="34"/>
+    <ellipse cx="934" cy="260.5" rx="34" ry="34"/><ellipse cx="1086" cy="260.5" rx="34" ry="34"/>
+  </g>
+
+  <!-- The two highlighted internal edges belong to different sites; they have matched endpoint labels. -->
+  <path d="M248 237H372" stroke="#b8792d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M248 284H372" stroke="#b8792d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M310 239V282" stroke="#b8792d" stroke-width="2.4" stroke-dasharray="4 4"/>
+  <circle cx="310" cy="260.5" r="8.5" fill="#fff6e9" stroke="#b8792d" stroke-width="2.2"/>
+
+  <!-- Boundary labels index correlated components but are not themselves shared site factors. -->
+  <g fill="none" stroke="#63a5c7" stroke-width="2" stroke-dasharray="3 4">
+    <path d="M96 376V400M220 376 234 400M248 376 234 400M372 376 386 400M400 376 386 400M524 376V400"/>
+    <path d="M796 376V400M920 376 934 400M948 376 934 400M1072 376 1086 400M1100 376 1086 400M1224 376V400"/>
+  </g>
+  <g fill="none" stroke="#176d99" stroke-width="5.4" stroke-linecap="round" marker-end="url(#edge-arrow)">
+    <path d="M98 408H220"/><path d="M236 408H372"/><path d="M388 408H510"/>
+    <path d="M798 408H920"/><path d="M936 408H1072"/><path d="M1088 408H1210"/>
+  </g>
+  <g fill="#d9edf6" stroke="#176d99" stroke-width="3.2">
+    <circle cx="96" cy="408" r="10"/><circle cx="234" cy="408" r="10"/>
+    <circle cx="386" cy="408" r="10"/><circle cx="524" cy="408" r="10"/>
+    <circle cx="796" cy="408" r="10"/><circle cx="934" cy="408" r="10"/>
+    <circle cx="1086" cy="408" r="10"/><circle cx="1224" cy="408" r="10"/>
+  </g>
+
+  <!-- The product action is one map from the complete open sample to the complete relabeled sample. -->
+  <path d="M578 318H738" fill="none" stroke="#75509b" stroke-width="6" stroke-linecap="round" marker-end="url(#action-arrow)"/>
+
+  <!-- On every oriented physical-edge bond, a surviving inverse q factor is attached. -->
+  <g fill="#fff4e4" stroke="#b8792d" stroke-width="2.3">
+    <rect x="840" y="389" width="44" height="38" rx="17"/>
+    <rect x="987" y="389" width="46" height="38" rx="17"/>
+    <rect x="1138" y="389" width="44" height="38" rx="17"/>
+  </g>
+  <path d="M1010 428V488" stroke="#b8792d" stroke-width="2.4" fill="none"/>
+  <path d="M70 478H545M775 478H1250M190 564H1130" stroke="#d7e0e5" stroke-width="2"/>
+</svg>

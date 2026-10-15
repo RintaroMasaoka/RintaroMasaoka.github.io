@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="650" viewBox="0 0 1320 650" aria-hidden="true">
+  <defs>
+    <marker id="assoc-arrow" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#455666"/></marker>
+  </defs>
+  <rect width="1320" height="650" fill="#fff"/>
+  <rect x="38" y="85" width="588" height="520" rx="17" fill="#fff" stroke="#becbd2" stroke-width="2"/>
+  <rect x="694" y="85" width="588" height="520" rx="17" fill="#fff" stroke="#becbd2" stroke-width="2"/>
+  <rect x="65" y="170" width="534" height="407" rx="10" fill="#eaf3f8"/>
+  <rect x="721" y="170" width="534" height="184" rx="10" fill="#eaf3f8"/>
+  <rect x="721" y="354" width="534" height="223" rx="0" fill="#faefe3"/>
+  <path d="M904 354 H1060 L1120 516 H844 Z" fill="#f2dac1" stroke="#a45119" stroke-width="2.5"/>
+  <path d="M721 354 H1255" stroke="#156391" stroke-width="5"/>
+  <g fill="none" stroke="#455666" stroke-width="3.5" marker-end="url(#assoc-arrow)">
+    <path d="M274 285 H378"/>
+    <path d="M930 285 H1034"/>
+  </g>
+  <path d="M982 360 V425" fill="none" stroke="#a45119" stroke-width="2.6" stroke-dasharray="8 7"/>
+  <circle cx="982" cy="354" r="7" fill="#156391"/>
+  <g fill="#d2e7f3" stroke="#156391" stroke-width="2.5">
+    <rect x="102" y="415" width="246" height="34" rx="6"/>
+    <rect x="102" y="465" width="246" height="34" rx="6"/>
+  </g>
+  <g fill="#156391">
+    <circle cx="348" cy="432" r="6"/>
+    <circle cx="348" cy="482" r="6"/>
+    <circle cx="457" cy="525" r="7"/>
+  </g>
+  <g fill="none" stroke="#156391" stroke-width="3.2" stroke-linecap="round">
+    <path d="M353 434 L457 525"/>
+    <path d="M354 480 L457 525"/>
+    <path d="M457 525 V562"/>
+  </g>
+</svg>

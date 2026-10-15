@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="650" viewBox="0 0 1320 650">
+<defs><marker id="step" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#526a7d"/></marker><marker id="time" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#405669"/></marker></defs>
+<rect width="1320" height="650" fill="#fff"/>
+<path d="M50 94H420M464 94H864M904 94H1280" stroke="#ced9df" stroke-width="2"/>
+<path d="M440 125V586M884 125V586" stroke="#dbe3e8" stroke-width="2"/>
+<rect x="70" y="160" width="340" height="330" fill="#f8e7c8" stroke="#ac7635" stroke-width="3"/>
+<path d="M155 490 Q240 230 325 490Z" fill="#e8d9ed" fill-opacity=".78"/>
+<path d="M155 490 Q240 230 325 490" fill="none" stroke="#7c3c9a" stroke-width="9"/>
+<path d="M70 490H410" stroke="#176d99" stroke-width="12" stroke-linecap="round"/>
+<g fill="#7c3c9a" stroke="#fff" stroke-width="3"><circle cx="155" cy="490" r="12"/><circle cx="325" cy="490" r="12"/></g>
+<rect x="500" y="260" width="320" height="250" fill="#b8ddef" fill-opacity=".30" stroke="#176d99" stroke-width="3"/>
+<path d="M575 260 Q660 95 745 260 L745 510 Q660 345 575 510Z" fill="#b88bc9" fill-opacity=".64" stroke="#7c3c9a" stroke-width="4"/>
+<path d="M575 260 Q660 95 745 260" fill="none" stroke="#7c3c9a" stroke-width="8"/>
+<path d="M575 510 Q660 345 745 510" fill="none" stroke="#7c3c9a" stroke-opacity=".52" stroke-width="6" stroke-dasharray="12 9"/>
+<path d="M500 260H820M500 510H820" stroke="#176d99" stroke-width="8"/>
+<path d="M575 260V510M745 260V510" stroke="#7c3c9a" stroke-width="9"/>
+<g fill="#7c3c9a" stroke="#fff" stroke-width="3"><circle cx="575" cy="260" r="9"/><circle cx="745" cy="260" r="9"/></g>
+<path d="M844 505V225" stroke="#405669" stroke-width="3" marker-end="url(#time)"/>
+<rect x="920" y="180" width="350" height="345" fill="#b8ddef" fill-opacity=".76" stroke="#176d99" stroke-width="3"/>
+<rect x="1010" y="180" width="170" height="345" fill="#e8d9ed" fill-opacity=".8"/>
+<path d="M1010 180V525M1180 180V525" stroke="#7c3c9a" stroke-width="9"/>
+<path d="M920 525H1270" stroke="#176d99" stroke-width="8"/>
+<path d="M1292 485V220" stroke="#405669" stroke-width="3" marker-end="url(#time)"/>
+<path d="M427 345H459" stroke="#526a7d" stroke-width="3"/>
+<path d="M452 336L468 345 452 354Z" fill="#526a7d"/>
+<path d="M867 345H897" stroke="#526a7d" stroke-width="3" marker-end="url(#step)"/>
+</svg>

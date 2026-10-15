@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="630" viewBox="0 0 1320 630">
+<defs><marker id="compare-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#52677d"/></marker></defs>
+<rect width="1320" height="630" fill="#fff"/>
+<path d="M75 92H610M710 92H1245M660 112V530" stroke="#cbd5dc" stroke-width="2"/>
+
+<!-- Left order: first g with h, then gh with k. -->
+<g fill="none" stroke="#176d99" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M145 180V282Q145 299 187 315L238 334"/>
+<path d="M285 180V282Q285 299 263 315L238 334"/>
+<path d="M238 334V372Q238 393 283 408L350 430"/>
+<path d="M480 180V371Q480 393 415 408L350 430"/>
+<path d="M350 430V475"/>
+</g>
+<g fill="#176d99"><circle cx="238" cy="334" r="10"/><circle cx="350" cy="430" r="10"/></g>
+<g stroke="#b8792d" stroke-width="2"><path d="M251 333H325"/><path d="M362 430H445"/></g>
+
+<!-- Right order: first h with k, then g with hk. -->
+<g fill="none" stroke="#176d99" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M790 180V371Q790 393 855 408L920 430"/>
+<path d="M985 180V282Q985 299 1010 315L1032 334"/>
+<path d="M1125 180V282Q1125 299 1083 315L1032 334"/>
+<path d="M1032 334V372Q1032 393 987 408L920 430"/>
+<path d="M920 430V475"/>
+</g>
+<g fill="#176d99"><circle cx="1032" cy="334" r="10"/><circle cx="920" cy="430" r="10"/></g>
+<g stroke="#b8792d" stroke-width="2"><path d="M1020 334H940"/><path d="M908 430H825"/></g>
+<path d="M605 350H710" stroke="#52677d" stroke-width="3" marker-end="url(#compare-arrow)"/>
+<path d="M75 545H1245" stroke="#cbd5dc" stroke-width="2"/>
+</svg>

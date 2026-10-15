@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="590" viewBox="0 0 1320 590">
+<defs><marker id="reduce" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#526a7d"/></marker></defs>
+<rect width="1320" height="590" fill="#fff"/>
+<path d="M80 92H626M748 92H1240" stroke="#cbd5dc" stroke-width="2"/>
+<rect x="105" y="148" width="520" height="306" rx="6" fill="#f9e9cf" stroke="#a87531" stroke-width="4"/>
+<path d="M105 454H625" stroke="#176d99" stroke-width="10" stroke-linecap="round"/>
+<g fill="#d9edf6" stroke="#176d99" stroke-width="4"><circle cx="155" cy="454" r="13"/><circle cx="295" cy="454" r="13"/><circle cx="435" cy="454" r="13"/><circle cx="575" cy="454" r="13"/></g>
+<g fill="#eef1f3" stroke="#7b8791" stroke-width="3"><circle cx="255" cy="260" r="21"/><circle cx="470" cy="299" r="21"/></g>
+<path d="M647 310H756" stroke="#526a7d" stroke-width="4" marker-end="url(#reduce)"/>
+<path d="M810 320H1205" stroke="#176d99" stroke-width="9" stroke-linecap="round"/>
+<g fill="#d9edf6" stroke="#176d99" stroke-width="4"><circle cx="832" cy="320" r="13"/><circle cx="950" cy="320" r="13"/><circle cx="1068" cy="320" r="13"/><circle cx="1186" cy="320" r="13"/></g>
+<path d="M830 387H1188" stroke="#cbd5dc" stroke-width="2"/>
+</svg>

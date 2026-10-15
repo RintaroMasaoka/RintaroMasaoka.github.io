@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="560" viewBox="0 0 1320 560">
+<defs><marker id="action-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#176d99"/></marker></defs>
+<rect width="1320" height="560" fill="#fff"/>
+<path d="M70 90H625M695 90H1250M660 105V510" stroke="#d3dce2" stroke-width="2"/>
+
+<!-- A defect a acts on one input vacuum. The output is a direct sum of sectors. -->
+<circle cx="145" cy="300" r="34" fill="#e9f4fa" stroke="#176d99" stroke-width="4"/>
+<path d="M180 300H295" stroke="#176d99" stroke-width="5" marker-end="url(#action-arrow)"/>
+<rect x="305" y="257" width="96" height="86" rx="16" fill="#ede6f4" stroke="#7c3c9a" stroke-width="4"/>
+<path d="M402 300H439M439 220V385" fill="none" stroke="#176d99" stroke-width="5"/>
+<path d="M439 220H496" fill="none" stroke="#176d99" stroke-width="5" marker-end="url(#action-arrow)"/>
+<path d="M439 385H496" fill="none" stroke="#176d99" stroke-width="5" marker-end="url(#action-arrow)"/>
+<circle cx="546" cy="220" r="33" fill="#e9f4fa" stroke="#176d99" stroke-width="4"/>
+<circle cx="546" cy="385" r="33" fill="#e9f4fa" stroke="#176d99" stroke-width="4"/>
+
+<!-- Rank one retains one vacuum but can have several independent junctions. -->
+<circle cx="761" cy="300" r="34" fill="#e9f4fa" stroke="#176d99" stroke-width="4"/>
+<path d="M797 300H899" stroke="#176d99" stroke-width="5" marker-end="url(#action-arrow)"/>
+<rect x="910" y="257" width="96" height="86" rx="16" fill="#ede6f4" stroke="#7c3c9a" stroke-width="4"/>
+<path d="M1007 300H1135" stroke="#176d99" stroke-width="5" marker-end="url(#action-arrow)"/>
+<circle cx="1170" cy="300" r="34" fill="#e9f4fa" stroke="#176d99" stroke-width="4"/>
+<path d="M1080 300V375" fill="none" stroke="#b8792d" stroke-width="3"/>
+<rect x="929" y="375" width="304" height="145" rx="16" fill="#fff2df" stroke="#b8792d" stroke-width="3"/>
+<g fill="#b8792d"><circle cx="1000" cy="449" r="11"/><circle cx="1045" cy="449" r="11"/></g>
+</svg>

@@ -1,0 +1,15 @@
+[
+  {"id":"title","tex":"\\text{Effective edge symmetry}","x":660,"y":53,"size":30,"width":620,"english_meaning":"The symmetry induced on boundary degrees of freedom","role":"figure heading"},
+  {"id":"in1","tex":"\\alpha_{i-1}","x":175,"y":147,"size":30,"width":105,"english_meaning":"First input boundary group label","role":"site label"},
+  {"id":"in2","tex":"\\alpha_i","x":465,"y":147,"size":30,"width":105,"english_meaning":"Second input boundary group label","role":"site label"},
+  {"id":"in3","tex":"\\alpha_{i+1}","x":755,"y":147,"size":30,"width":120,"english_meaning":"Third input boundary group label","role":"site label"},
+  {"id":"in4","tex":"\\alpha_{i+2}","x":1045,"y":147,"size":30,"width":120,"english_meaning":"Fourth input boundary group label","role":"site label"},
+  {"id":"bond1","tex":"f_g","x":320,"y":279,"size":27,"width":75,"english_meaning":"Cocycle phase on the first adjacent pair","role":"bond factor"},
+  {"id":"bond2","tex":"f_g","x":610,"y":279,"size":27,"width":75,"english_meaning":"Cocycle phase on the second adjacent pair","role":"bond factor"},
+  {"id":"bond3","tex":"f_g","x":900,"y":279,"size":27,"width":75,"english_meaning":"Cocycle phase on the third adjacent pair","role":"bond factor"},
+  {"id":"out1","tex":"g\\alpha_{i-1}","x":175,"y":449,"size":30,"width":130,"english_meaning":"First transformed group label","role":"site label"},
+  {"id":"out2","tex":"g\\alpha_i","x":465,"y":449,"size":30,"width":130,"english_meaning":"Second transformed group label","role":"site label"},
+  {"id":"out3","tex":"g\\alpha_{i+1}","x":755,"y":449,"size":30,"width":140,"english_meaning":"Third transformed group label","role":"site label"},
+  {"id":"out4","tex":"g\\alpha_{i+2}","x":1045,"y":449,"size":30,"width":140,"english_meaning":"Fourth transformed group label","role":"site label"},
+  {"id":"rule","tex":"U_g^{\\partial}|\\{\\alpha_i\\}\\rangle=\\left[\\prod_i f_g(\\alpha_i,\\alpha_{i+1})\\right]|\\{g\\alpha_i\\}\\rangle","x":660,"y":521,"size":28,"width":1150,"english_meaning":"The effective boundary symmetry multiplies by a phase depending on adjacent labels and transforms each label by g","role":"operator rule"}
+]

@@ -1,0 +1,11 @@
+[
+  {"id":"interior-title","tex":"\\text{Shared bond in the bulk}","x":345,"y":55,"size":28,"width":520,"english_meaning":"An internal bond has two adjacent local contributions","role":"panel heading"},
+  {"id":"boundary-title","tex":"\\text{Bond at the physical edge}","x":975,"y":55,"size":28,"width":530,"english_meaning":"A boundary bond has only one adjacent local contribution","role":"panel heading"},
+  {"id":"left-weight","tex":"q_g(e)","x":239,"y":287,"size":28,"width":116,"english_meaning":"Cocycle phase from the first adjacent bulk plaquette","role":"internal phase"},
+  {"id":"right-weight","tex":"q_g(e)^{-1}","x":431,"y":287,"size":28,"width":128,"english_meaning":"Inverse cocycle phase from the second adjacent bulk plaquette","role":"internal phase"},
+  {"id":"cancel","tex":"q_g(e)q_g(e)^{-1}=1","x":335,"y":489,"size":30,"width":450,"english_meaning":"The internal bond phase cancels","role":"cancellation rule"},
+  {"id":"boundary-weight","tex":"f_g","x":975,"y":348,"size":30,"width":90,"english_meaning":"Surviving cocycle phase on the boundary bond","role":"boundary phase"},
+  {"id":"alpha-left","tex":"\\alpha_i","x":814,"y":447,"size":29,"width":110,"english_meaning":"First group label of the boundary bond","role":"boundary variable"},
+  {"id":"alpha-right","tex":"\\alpha_{i+1}","x":1136,"y":447,"size":29,"width":130,"english_meaning":"Second group label of the boundary bond","role":"boundary variable"},
+  {"id":"survive","tex":"q_g(e)=f_g(\\alpha_i,\\alpha_{i+1})","x":975,"y":510,"size":29,"width":500,"english_meaning":"One local cocycle contribution survives on the boundary bond and depends on its endpoints","role":"boundary rule"}
+]

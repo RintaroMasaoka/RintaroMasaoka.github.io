@@ -1,11 +1,12 @@
 # 参照文献と使用した版
 
-本文は、以下の一次文献の指定版に基づく。参照日は2026年10月12日。arXivの版番号を固定し、節番号はその版に対応させる。本文の次元方程式、射影表現の位相条件、クラスター状態のストリング期待値は、引用した定義・模型から本文内で導いた。
+本文は、以下の一次文献の指定版に基づく。参照日は2026年10月12–14日。引用の節番号は、表に挙げたarXiv版に対応する。本文の次元方程式、射影表現の位相条件、クラスター状態のストリング期待値は、引用した定義・模型から本文内で導いた。
 
 | 文献 | 使用版・本文へのリンク | 本文での役割・対応箇所 |
 | --- | --- | --- |
 | Xie Chen, Zheng-Cheng Gu, Xiao-Gang Wen, *Classification of Gapped Symmetric Phases in 1D Spin Systems* | [arXiv:1008.3745v2](https://arxiv.org/abs/1008.3745v2), 2010-09-05。Phys. Rev. B **83**, 035107 (2011) | 一次元の局所ユニタリ同値、対称性を外した積状態への帰着。概要および分類の枠組み |
 | Ryan Thorngren, Yifan Wang, *Fusion Category Symmetry I: Anomaly In-Flow and Gapped Phases* | [arXiv:1912.02817v1](https://arxiv.org/html/1912.02817v1), 2019-12-05 | §§2.3–2.4：モジュール圏、真空数、ランク1とファイバー関手。§3.2.4–3.2.5：二次形式の細分、符号和の条件、$\mathrm{Rep}(D_8)$ の三つのファイバー関手と界面符号 |
+| Kyle Kawagoe, Michael Levin, *Anomalies in bosonic SPT edge theories: connection to F-symbols and a method for calculation* | [arXiv:2105.02909v1](https://arxiv.org/html/2105.02909), 2021-05-06 | §§I, III：2+1次元ボソンSPTバルクの $H^3$ 類と1+1次元境界のアノマリー、境界の欠陥接合の $F$ 記号 |
 | Kansei Inamura, *Topological field theories and symmetry protected topological phases with fusion category symmetries* | [arXiv:2103.15588v1](https://arxiv.org/html/2103.15588v1), 2021-03-29 | §2：線と融合圏。§3.2：時間反転を含まないボソンSPTのファイバー関手分類、ねじった空間の次元（式3.2）。§4：時間反転を含む拡張 |
 | Lakshya Bhardwaj, Lea E. Bottini, Daniel Pajer, Sakura Schafer-Nameki, *Gapped Phases with Non-Invertible Symmetries: (1+1)d* | [arXiv:2310.03784v3](https://arxiv.org/html/2310.03784v3), 2024-03-01 | §3.3：SPT、Vec_GとRep(G)、群の異常。§3.4：電荷と秩序変数。§3.5：SymTFTの二つの境界、分類への使用 |
 | Sahand Seifnashri, Shu-Heng Shao, *Cluster state as a non-invertible symmetry protected topological phase* | [arXiv:2404.01369v2](https://arxiv.org/html/2404.01369v2), 2024-09-26 | §I：クラスター状態と局所回路。§II, App. B.3：非可逆演算とRep(D8)の同定。§III：三相とKT変換。§IV, 式(23)–(27)：界面の射影代数と三相の符号。§V：積み重ねと基準の問題 |

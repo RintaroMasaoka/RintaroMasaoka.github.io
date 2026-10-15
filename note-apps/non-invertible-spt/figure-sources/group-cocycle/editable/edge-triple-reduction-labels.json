@@ -1,0 +1,19 @@
+[
+  {"id":"left-title","tex":"\\text{Reduce }g,h\\text{ first}","x":337,"y":56,"size":29,"width":520,"english_meaning":"Left path reduces g with h before k","role":"panel heading"},
+  {"id":"right-title","tex":"\\text{Reduce }h,k\\text{ first}","x":983,"y":56,"size":29,"width":520,"english_meaning":"Right path reduces h with k before g","role":"panel heading"},
+  {"id":"lg","tex":"g","x":145,"y":146,"size":28,"width":45,"english_meaning":"First left input","role":"line label"},
+  {"id":"lh","tex":"h","x":285,"y":146,"size":28,"width":45,"english_meaning":"Second left input","role":"line label"},
+  {"id":"lk","tex":"k","x":480,"y":146,"size":28,"width":45,"english_meaning":"Third left input","role":"line label"},
+  {"id":"rg","tex":"g","x":790,"y":146,"size":28,"width":45,"english_meaning":"First right input","role":"line label"},
+  {"id":"rh","tex":"h","x":985,"y":146,"size":28,"width":45,"english_meaning":"Second right input","role":"line label"},
+  {"id":"rk","tex":"k","x":1125,"y":146,"size":28,"width":45,"english_meaning":"Third right input","role":"line label"},
+  {"id":"l-first","tex":"\\lambda_{g,h}(ka)","x":413,"y":333,"size":24,"width":175,"english_meaning":"Endpoint factor when g and h are reduced after k has transformed the input label a","role":"first left junction phase"},
+  {"id":"l-second","tex":"\\lambda_{gh,k}(a)","x":537,"y":430,"size":24,"width":175,"english_meaning":"Endpoint factor for the second left reduction","role":"second left junction phase"},
+  {"id":"r-first","tex":"\\lambda_{h,k}(a)","x":851,"y":333,"size":24,"width":165,"english_meaning":"Endpoint factor when h and k are reduced first","role":"first right junction phase"},
+  {"id":"r-second","tex":"\\lambda_{g,hk}(a)","x":733,"y":430,"size":24,"width":185,"english_meaning":"Endpoint factor for the second right reduction","role":"second right junction phase"},
+  {"id":"l-intermediate","tex":"gh","x":210,"y":377,"size":24,"width":65,"english_meaning":"Intermediate product of g and h","role":"intermediate line"},
+  {"id":"r-intermediate","tex":"hk","x":1060,"y":377,"size":24,"width":65,"english_meaning":"Intermediate product of h and k","role":"intermediate line"},
+  {"id":"l-output","tex":"ghk","x":350,"y":501,"size":25,"width":80,"english_meaning":"Left path output","role":"output line"},
+  {"id":"r-output","tex":"ghk","x":920,"y":501,"size":25,"width":80,"english_meaning":"Right path output","role":"output line"},
+  {"id":"comparison","tex":"\\dfrac{\\lambda_{g,h}(ka)\\lambda_{gh,k}(a)}{\\lambda_{h,k}(a)\\lambda_{g,hk}(a)}=\\omega_{\\partial}(g,h,k)","x":660,"y":588,"size":29,"width":1040,"english_meaning":"The quotient of the two ordered endpoint-factor products is the boundary associator in the adopted convention","role":"path comparison"}
+]

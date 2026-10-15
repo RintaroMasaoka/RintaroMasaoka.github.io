@@ -26,4 +26,4 @@ Studyの採用版1.0.0に従う。正本仕様1.0.1の互換な表示方針を�
 
 HTML化の検証記録と基準実装の対応表は、作業用のStudyワークスペースで管理する。
 
-本文に14枚の説明図を埋め込んでいる。図の編集元と再生成手順は [figure-sources/README.md](figure-sources/README.md)、公開画像は `public/diagrams/`。図中の文字は英語とTeX組版を使用する。
+本文に28枚の説明図を埋め込んでいる。図の編集元と再生成手順は [figure-sources/README.md](figure-sources/README.md)、公開画像は `public/diagrams/`。図中の文字は英語とTeX組版を使用する。

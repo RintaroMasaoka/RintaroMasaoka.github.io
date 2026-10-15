@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="600" viewBox="0 0 1320 600">
+<rect width="1320" height="600" fill="#fff"/>
+<path d="M75 94H825M875 94H1250M850 110V515" stroke="#cbd5dc" stroke-width="2"/>
+
+<!-- Two adjacent boundary bonds and their endpoint phases. -->
+<path d="M140 250H760" stroke="#176d99" stroke-width="8" stroke-linecap="round"/>
+<g fill="#d9edf6" stroke="#176d99" stroke-width="5"><circle cx="140" cy="250" r="19"/><circle cx="450" cy="250" r="19"/><circle cx="760" cy="250" r="19"/></g>
+<g fill="#fff3df" stroke="#b8792d" stroke-width="3"><rect x="215" y="304" width="160" height="66" rx="30"/><rect x="525" y="304" width="160" height="66" rx="30"/></g>
+<g stroke="#b8792d" stroke-width="2"><path d="M295 251V302M605 251V302"/></g>
+<path d="M450 385V415" stroke="#b8792d" stroke-width="2"/>
+<path d="M135 452H765" stroke="#cbd5dc" stroke-width="2"/>
+
+<!-- Left-to-right pair-line reduction, separate from the spacetime time axis. -->
+<path d="M925 240H987Q1010 240 1038 319M925 413H987Q1010 413 1038 333" fill="none" stroke="#176d99" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1038 326H1200" fill="none" stroke="#176d99" stroke-width="6" stroke-linecap="round"/>
+<path d="M1194 315L1214 326 1194 337Z" fill="#176d99"/>
+<circle cx="1038" cy="326" r="11" fill="#176d99"/>
+<rect x="954" y="447" width="210" height="57" rx="26" fill="#fff3df" stroke="#b8792d" stroke-width="3"/>
+<path d="M1038 338V445" stroke="#b8792d" stroke-width="2"/>
+<path d="M75 537H1250" stroke="#cbd5dc" stroke-width="2"/>
+</svg>
