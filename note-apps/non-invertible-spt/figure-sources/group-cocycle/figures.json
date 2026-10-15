@@ -18,10 +18,22 @@
     "caption": "Three restricted sitewise symmetry operators act on the same spatial region R. The highlighted column is one site j; the vertical guides mark the same sites in all three rows. Multiplying g and h first or h and k first gives the same operator U_ghk(R), providing a coherent junction choice with trivial three-cocycle class. The drawn number and spacing of sites are schematic."
   },
   {
-    "id": "bulk-edge-incidence",
-    "width": 520,
-    "height": 2070,
-    "caption": "A spatial symmetry cut joins the two endpoints of a boundary interval. Continuing it over I_t gives a two-dimensional bulk sheet. Its intersection with the boundary spacetime is precisely the two endpoint worldlines, {x_L,x_R} × I_t."
+    "id": "bulk-edge-slice",
+    "width": 440,
+    "height": 595,
+    "caption": "At one time, the spatial symmetry cut C_g meets the boundary of Sigma at x_L and x_R, the endpoints of interval I."
+  },
+  {
+    "id": "bulk-edge-sheet",
+    "width": 444,
+    "height": 595,
+    "caption": "Continuing the same cut C_g over I_t gives a two-dimensional sheet S_g. It meets the boundary spacetime along two vertical edges."
+  },
+  {
+    "id": "bulk-edge-boundary",
+    "width": 436,
+    "height": 595,
+    "caption": "The isolated boundary spacetime contains exactly the two endpoint worldlines, {x_L,x_R} × I_t."
   },
   {
     "id": "bulk-plaquette-assembly",

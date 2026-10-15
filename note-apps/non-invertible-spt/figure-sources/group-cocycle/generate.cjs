@@ -26,13 +26,15 @@ for (const relative of fontRefs) {
 }
 
 const figures = JSON.parse(fs.readFileSync(path.join(bundle, 'figures.json'), 'utf8'));
-const incidence = require('./precision-incidence-vertical.cjs');
+const incidence = require('./precision-incidence-panels.cjs');
 const horizontalIncidenceLabels = JSON.parse(fs.readFileSync(
   path.join(bundle, 'editable', 'bulk-edge-incidence-horizontal-labels.json'), 'utf8'));
-fs.writeFileSync(path.join(bundle, 'editable', 'bulk-edge-incidence-geometry.svg'),
-  incidence.buildGeometry());
-fs.writeFileSync(path.join(bundle, 'editable', 'bulk-edge-incidence-labels.json'),
-  JSON.stringify(incidence.verticalLabels(horizontalIncidenceLabels), null, 2) + '\n');
+for (const panel of incidence.panels) {
+  fs.writeFileSync(path.join(bundle, 'editable', `${panel.id}-geometry.svg`),
+    incidence.geometryFor(panel));
+  fs.writeFileSync(path.join(bundle, 'editable', `${panel.id}-labels.json`),
+    JSON.stringify(incidence.labelsFor(panel, horizontalIncidenceLabels), null, 2) + '\n');
+}
 fs.writeFileSync(path.join(bundle, 'editable', 'boundary-label-clusters-geometry.svg'),
   require('./precision-boundary-clusters.cjs').buildGeometry());
 const records = [];

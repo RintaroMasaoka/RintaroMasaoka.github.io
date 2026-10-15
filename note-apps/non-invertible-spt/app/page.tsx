@@ -10,6 +10,7 @@ import remarkEquationReferences from '@/lib/remark-equation-references';
 import remarkNoteReferences from '@/lib/remark-note-references';
 import { collectNoteReferences, resolveNoteReference, type NoteReference } from '@/lib/note-references';
 import { DerivationSequence, Supplement } from '../components/derivation-sequence';
+import { IncidenceSequence } from '../components/incidence-sequence';
 import { ThemeToggle } from '../components/theme-toggle';
 import { ReferencePopover } from '../components/reference-popover';
 import { ArrowLeft, ArrowRight, Menu, X } from 'lucide-react';
@@ -135,11 +136,11 @@ function createMarkdownComponents(equations: Map<string, string>, chapterId: str
   h4: ({ children }) => <h4 id={preview ? undefined : slugify(plainText(children))}>{children}</h4>,
   img: ({ src, alt, title }) => {
     if (typeof src === 'string' && src.startsWith('/diagrams/')) {
+      if (src === '/diagrams/bulk-edge-slice.png') return <IncidenceSequence />;
       const compact = ['d-symmetry-sectors', 'cz-two-layers', 'string-end-cancellation', 'interface-charge-pair', 'gauge-connection', 'symtft-interval', 'stacking-sixteen-terms', 'point-defect-fusion'].some(id => src === `/diagrams/${id}.png`);
-      const fit = src === '/diagrams/bulk-edge-incidence.png';
       // Keep phrasing content valid inside Markdown paragraphs; keyboard focus enables scrolling.
       // oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex, jsx-a11y/prefer-tag-over-role, next/no-img-element
-      return <span className={`concept-figure${compact ? ' concept-figure-compact' : ''}${fit ? ' concept-figure-fit' : ''}`} tabIndex={0} role="region" aria-label={fit ? '説明図。三段の図を上から下へたどります。' : '説明図。画面幅が狭い場合は横にスクロールできます。'}>{!compact && !fit && <span className="concept-figure-help" aria-hidden="true">左右にスクロールして図全体を見る</span>}<img src={sitePath(src)} alt={alt ?? ''} title={title} loading="lazy" width={fit ? 520 : undefined} height={fit ? 2070 : undefined} /></span>;
+      return <span className={`concept-figure${compact ? ' concept-figure-compact' : ''}`} tabIndex={0} role="region" aria-label="説明図。画面幅が狭い場合は横にスクロールできます。">{!compact && <span className="concept-figure-help" aria-hidden="true">左右にスクロールして図全体を見る</span>}<img src={sitePath(src)} alt={alt ?? ''} title={title} loading="lazy" /></span>;
     }
     // Preserve the native Markdown image behavior for other authored images.
     // oxlint-disable-next-line next/no-img-element

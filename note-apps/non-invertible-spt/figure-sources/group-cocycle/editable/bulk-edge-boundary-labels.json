@@ -1,0 +1,82 @@
+[
+  {
+    "id": "boundary-head",
+    "tex": "\\text{Boundary spacetime}",
+    "x": 211,
+    "y": 32,
+    "size": 27,
+    "width": 380,
+    "english_meaning": "One-plus-one-dimensional boundary worldsheet",
+    "role": "panel heading"
+  },
+  {
+    "id": "right-boundary",
+    "tex": "\\partial M",
+    "x": 79,
+    "y": 270,
+    "size": 28,
+    "width": 100,
+    "english_meaning": "Flattened boundary worldsheet",
+    "role": "boundary spacetime"
+  },
+  {
+    "id": "left-line",
+    "tex": "\\{x_L\\}\\times I_t",
+    "x": 126,
+    "y": 110,
+    "size": 26,
+    "width": 115,
+    "english_meaning": "The left endpoint continued over the time interval",
+    "role": "defect line"
+  },
+  {
+    "id": "right-line",
+    "tex": "\\{x_R\\}\\times I_t",
+    "x": 296,
+    "y": 110,
+    "size": 26,
+    "width": 115,
+    "english_meaning": "The right endpoint continued over the time interval",
+    "role": "defect line"
+  },
+  {
+    "id": "right-left-endpoint",
+    "tex": "x_L",
+    "x": 126,
+    "y": 520,
+    "size": 23,
+    "width": 70,
+    "english_meaning": "Left endpoint under its time-directed defect line",
+    "role": "boundary endpoint"
+  },
+  {
+    "id": "right-right-endpoint",
+    "tex": "x_R",
+    "x": 296,
+    "y": 520,
+    "size": 23,
+    "width": 70,
+    "english_meaning": "Right endpoint under its time-directed defect line",
+    "role": "boundary endpoint"
+  },
+  {
+    "id": "right-time",
+    "tex": "t",
+    "x": 408,
+    "y": 175,
+    "size": 27,
+    "width": 45,
+    "english_meaning": "Increasing time direction",
+    "role": "time axis"
+  },
+  {
+    "id": "intersection",
+    "tex": "S_g\\cap\\partial M=\\{x_L,x_R\\}\\times I_t",
+    "x": 208,
+    "y": 557,
+    "size": 22,
+    "width": 375,
+    "english_meaning": "Intersection of the bulk sheet with boundary is the time-continuation of the two endpoints",
+    "role": "intersection statement"
+  }
+]

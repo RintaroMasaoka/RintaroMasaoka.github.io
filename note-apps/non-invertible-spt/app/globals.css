@@ -97,8 +97,13 @@ button { cursor: pointer; }
 .concept-figure { display: block; max-width: 100%; overflow-x: auto; margin: 24px 0; }
 .concept-figure img { display: block; width: 100%; min-width: 760px; height: auto; }
 .concept-figure-compact img { min-width: 340px; }
-.concept-figure-fit { overflow-x: visible; }
-.concept-figure-fit img { width: min(100%, 520px); min-width: 0; margin-inline: auto; }
+.incidence-sequence { max-width: min(100%, 520px); margin-inline: auto; overflow: visible; }
+.incidence-sequence-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 12px; }
+.incidence-sequence-controls button { min-height: 44px; padding: 8px 4px; border: 1px solid var(--strong-line); border-radius: 3px; background: var(--surface); color: var(--secondary); font: 600 12px/1.35 Inter, sans-serif; }
+.incidence-sequence-controls button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #fff; }
+.incidence-sequence-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.incidence-sequence-panel { display: block; overflow: hidden; background: var(--surface); }
+.incidence-sequence-panel img { display: block; width: min(100%, 444px); min-width: 0; height: auto; margin-inline: auto; }
 .concept-figure:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .concept-figure-help { display: none; }
 @media (max-width: 900px) {

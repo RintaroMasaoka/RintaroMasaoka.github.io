@@ -1,0 +1,72 @@
+[
+  {
+    "id": "spatial-head",
+    "tex": "\\text{Spatial slice}",
+    "x": 238,
+    "y": 32,
+    "size": 27,
+    "width": 370,
+    "english_meaning": "Two-dimensional bulk space at a fixed time",
+    "role": "panel heading"
+  },
+  {
+    "id": "spatial-bulk",
+    "tex": "\\Sigma",
+    "x": 122,
+    "y": 245,
+    "size": 30,
+    "width": 65,
+    "english_meaning": "Bulk spatial slice",
+    "role": "spatial region"
+  },
+  {
+    "id": "cut",
+    "tex": "C_g",
+    "x": 240,
+    "y": 246,
+    "size": 29,
+    "width": 80,
+    "english_meaning": "Spatial symmetry cut joining two edge points",
+    "role": "spatial cut"
+  },
+  {
+    "id": "spatial-edge",
+    "tex": "\\partial\\Sigma",
+    "x": 96,
+    "y": 510,
+    "size": 26,
+    "width": 95,
+    "english_meaning": "One-dimensional physical edge",
+    "role": "spatial edge"
+  },
+  {
+    "id": "left-end",
+    "tex": "x_L",
+    "x": 155,
+    "y": 505,
+    "size": 26,
+    "width": 90,
+    "english_meaning": "Left intersection of cut and spatial edge",
+    "role": "spatial endpoint"
+  },
+  {
+    "id": "right-end",
+    "tex": "x_R",
+    "x": 325,
+    "y": 505,
+    "size": 26,
+    "width": 90,
+    "english_meaning": "Right intersection of cut and spatial edge",
+    "role": "spatial endpoint"
+  },
+  {
+    "id": "interval",
+    "tex": "I=[x_L,x_R]",
+    "x": 240,
+    "y": 555,
+    "size": 25,
+    "width": 240,
+    "english_meaning": "Selected spatial boundary interval",
+    "role": "selected interval"
+  }
+]

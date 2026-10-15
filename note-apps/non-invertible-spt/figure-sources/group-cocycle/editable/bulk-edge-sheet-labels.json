@@ -1,0 +1,52 @@
+[
+  {
+    "id": "sweep-head",
+    "tex": "\\text{Extrude through time}",
+    "x": 218,
+    "y": 32,
+    "size": 27,
+    "width": 395,
+    "english_meaning": "Continue the spatial cut through a finite time interval",
+    "role": "panel heading"
+  },
+  {
+    "id": "sheet",
+    "tex": "S_g",
+    "x": 151,
+    "y": 310,
+    "size": 29,
+    "width": 75,
+    "english_meaning": "Continuous two-dimensional sheet swept out by the spatial cut",
+    "role": "bulk symmetry sheet"
+  },
+  {
+    "id": "sheet-definition",
+    "tex": "S_g=C_g\\times I_t",
+    "x": 245,
+    "y": 532,
+    "size": 23,
+    "width": 270,
+    "english_meaning": "The bulk sheet is the product of the spatial cut and a finite time interval",
+    "role": "sheet definition"
+  },
+  {
+    "id": "middle-boundary",
+    "tex": "\\partial M",
+    "x": 290,
+    "y": 389,
+    "size": 27,
+    "width": 100,
+    "english_meaning": "Boundary worldsheet at front of bulk spacetime",
+    "role": "boundary spacetime"
+  },
+  {
+    "id": "middle-time",
+    "tex": "t",
+    "x": 406,
+    "y": 180,
+    "size": 27,
+    "width": 45,
+    "english_meaning": "Increasing time direction",
+    "role": "time axis"
+  }
+]
