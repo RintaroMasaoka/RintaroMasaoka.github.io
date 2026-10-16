@@ -5,105 +5,112 @@
       "location": "§1",
       "feedback": "一人の体系",
       "repair_condition": "人物と体系の関係を明示する",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F2",
       "location": "§1→§2",
       "feedback": "ラッセルの型制限から公理・推論の検査へ飛躍",
       "repair_condition": "導入を証明の形式化から再構成する",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F3",
       "location": "全体の説明経路",
       "feedback": "局所修正では沼る。流れを考える",
       "repair_condition": "変更単位の目的と後続への接続を整える",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F4",
       "location": "§2",
       "feedback": "二つ目の式は：なぜ二つ目？例えばが抜けている",
       "repair_condition": "列挙から選んだ具体例だと明示する",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F5",
       "location": "§3",
       "feedback": "しかし「この文は証明できない」は文についての文：ネタバレ",
       "repair_condition": "自己言及する証明不能文は構成する場面まで出さない",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F6",
       "location": "§4",
       "feedback": "ここにずれが生じる／文法上の禁止：分かりにくい",
       "repair_condition": "符号化と算術的性質の表現の関係を明示する",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F7",
       "location": "§4",
       "feedback": "これと同じ形を数だけで作ると：形が未定義",
       "repair_condition": "共通する出発点・操作・到達の関係を直接述べる",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F8",
       "location": "§5",
       "feedback": "真理を形式的な記号検査だけでは尽くせない：分かりにくい",
       "repair_condition": "証明の各行の検査と等式の内容の確認を既出例で区別する",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F9",
       "location": "§6",
       "feedback": "sub(n)の脳内演算を展開し具体例を使う",
       "repair_condition": "x=xを実際に2430へ符号化し、復号・2430の数項の代入・再符号化を段階表示する",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F10",
       "location": "§10",
       "feedback": "コラッツが唐突。前の例を忘れている",
       "repair_condition": "1から27への到達問題を短く再提示して例の役割を思い出せるようにする",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F11",
       "location": "§1",
       "feedback": "イントロが唐突・突き放した。§1はリバートし局所修正にする",
       "repair_condition": "最初の公開版を戻し、一人の体系と接続段落だけ局所修正する",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F12",
       "location": "§6",
       "feedback": "§4の割当ては覚えていない。詳細を増やす代理目標を追うな",
       "repair_condition": "記号番号の記憶や素数の積の計算を外し、式と番号の対応・代入結果・新しい式の番号を直読できる例にする",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F13",
       "location": "§§5–6",
       "feedback": "記号が多く覚え切れない。ゲーデル数の記法を活用していない",
       "repair_condition": "f等の記憶だけを要求する別名をなくし、式の番号を既存のゲーデル数記法で直接示す",
-      "status": "edited-awaiting-publication"
+      "status": "published"
     },
     {
       "id": "F14",
       "location": "定義式",
       "feedback": "定義はequivでなくcoloneqq",
       "repair_condition": "定義の区切り記号をcoloneqqへ統一する",
+      "status": "published"
+    },
+    {
+      "id": "F15",
+      "location": "§1 型→形式化→ヒルベルトの接続",
+      "feedback": "まだつながっていない",
+      "repair_condition": "特定のパラドックスの回避→体系全体の無矛盾性という未解決の問い→証明そのものを数学の対象とする目的を明示する",
       "status": "edited-awaiting-publication"
     }
   ],
-  "source_sha256": "5191c93d33e81c44d3d714a68b0cd59645ed7b017b47b9b0dda409d1c5b75a15",
+  "source_sha256": "d9792d4f15395cd8e87b23c7671510c5f7edef768f70a93c6013d43c1e847902",
   "publication": {
     "url": "https://rintaromasaoka.github.io/notes/godel-incompleteness/",
-    "commit": "cc2fcc248735766365864709d7449b4d3ce24daa",
-    "run": 38901299241,
+    "commit": "3c002972e9e2909b748bf1797428b8487a03ff7c",
+    "run": 38902893129,
     "status": "success",
     "liveHttpStatus": 200
   }

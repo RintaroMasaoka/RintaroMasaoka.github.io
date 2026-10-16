@@ -1,0 +1,46 @@
+{
+  "source_sha256": "d9792d4f15395cd8e87b23c7671510c5f7edef768f70a93c6013d43c1e847902",
+  "scope": "§1 transition after Russell through section end",
+  "perspective": "explanatory continuity only",
+  "method": "fresh no-history local readers; one paragraph released at a time; verdict frozen before next paragraph; no reviewer discovery tools",
+  "earlier_candidate": {
+    "verdict": "FAIL at third new paragraph",
+    "reason": "Jump from consistency aim back to self-reference lacked a visible purpose",
+    "preserved_checkpoint": [
+      "Russell type restriction",
+      "question of other contradictions",
+      "Hilbert aim and proof-as-string approach"
+    ]
+  },
+  "current_records": [
+    {
+      "unit": "question_after_type_restriction",
+      "verdict": "PASS",
+      "evidence": "このパラドックスを書けないようにしただけで、ほかの矛盾も起こらないと保証できるだろうか。",
+      "reviewer": "transition_prefix_reader"
+    },
+    {
+      "unit": "hilbert_proof_object",
+      "verdict": "PASS",
+      "evidence": "証明の出発点として何を認め、どんな規則で次の式を導いてよいかを明示すれば",
+      "reviewer": "transition_prefix_reader"
+    },
+    {
+      "unit": "godel_uses_formalization",
+      "verdict": "PASS",
+      "evidence": "証明を記号列として調べられるという、この形式化の仕組みを使って",
+      "reviewer": "transition_repaired_reader"
+    },
+    {
+      "unit": "ordinary_arithmetic_language",
+      "verdict": "PASS",
+      "evidence": "文法どおりに自然数について述べている文が、同時に自分自身の証明可能性についての文にもなる。",
+      "reviewer": "transition_repaired_reader"
+    }
+  ],
+  "limits": [
+    "Local continuity diagnostic, not whole-manuscript scientific or formal sequential acceptance.",
+    "How the construction works and its consequences are deferred to later sections."
+  ],
+  "supporting_context": "https://plato.stanford.edu/entries/hilbert-program/#InflPrinMath"
+}
