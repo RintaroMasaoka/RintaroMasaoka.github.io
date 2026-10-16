@@ -1,0 +1,146 @@
+---
+import ContentCard from './ContentCard.astro';
+import { localize, type Lang } from '../i18n/utils';
+
+interface Props {
+  groups: { id: string; label: string; icon?: string; items: any[] }[];
+  lang: Lang;
+}
+const { groups, lang } = Astro.props;
+const total = groups.reduce((sum, group) => sum + group.items.length, 0);
+const ja = lang === 'ja';
+---
+
+<div data-notes-index data-lang={lang} data-total={total}>
+  <div data-note-controls hidden class="mb-8 space-y-4">
+    <div>
+      <label for="note-search" class="block text-sm font-medium mb-2">
+        {ja ? 'ノートを検索' : 'Search notes'}
+      </label>
+      <input id="note-search" type="search" autocomplete="off"
+        placeholder={ja ? 'タイトル・説明文から検索' : 'Search titles and descriptions'}
+        aria-controls="note-results"
+        class="w-full rounded-xl border border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 px-4 py-3 text-primary-900 dark:text-primary-50 placeholder:text-primary-500 focus:outline-none focus:ring-2 focus:ring-accent" />
+    </div>
+    <div role="group" aria-label={ja ? '分野で絞り込む' : 'Filter by topic'} class="flex flex-wrap gap-2">
+      <button type="button" data-note-topic="all" aria-pressed="true" class="topic-button">
+        {ja ? 'すべて' : 'All'} <span class="ml-1 opacity-70">{total}</span>
+      </button>
+      {groups.map(group => (
+        <button type="button" data-note-topic={group.id} aria-pressed="false" class="topic-button">
+          {group.label} <span class="ml-1 opacity-70">{group.items.length}</span>
+        </button>
+      ))}
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-2 text-sm">
+      <p data-note-count role="status" aria-live="polite" aria-atomic="true" class="text-primary-500 dark:text-primary-400">
+        {ja ? `${total}件のノート` : `${total} notes`}
+      </p>
+      <button type="button" data-note-reset hidden class="text-accent underline underline-offset-4">
+        {ja ? '絞り込みを解除' : 'Clear filters'}
+      </button>
+    </div>
+  </div>
+
+  <div id="note-results" class="space-y-10">
+    {groups.map(group => (
+      <section id={group.id} data-note-group class="scroll-mt-24">
+        <h2 class="font-serif text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-4 flex items-center gap-3">
+          <span class="w-6 h-1 bg-accent rounded-full" aria-hidden="true"></span>
+          {group.label}
+        </h2>
+        <div class="grid gap-3">
+          {group.items.map(item => (
+            <div data-note-item data-note-search={JSON.stringify([item.title, item.description, group.label])}>
+              <ContentCard title={localize(item.title, lang)}
+                description={item.description ? localize(item.description, lang) : undefined}
+                filename={item.filename} url={item.url} icon={item.icon || group.icon}
+                tags={item.tags ? localize(item.tags, lang) : undefined} />
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+  <p data-note-empty hidden class="rounded-xl border border-dashed border-primary-300 dark:border-primary-600 px-6 py-10 text-center text-primary-500 dark:text-primary-400">
+    {ja ? '一致するノートがありません。検索語や分野を変えてみてください。' : 'No matching notes. Try another search or topic.'}
+  </p>
+</div>
+
+<style>
+  .topic-button {
+    @apply rounded-full border border-primary-200 dark:border-primary-600 bg-white dark:bg-primary-800 px-3 py-2 text-sm text-primary-600 dark:text-primary-300 transition-colors;
+  }
+  .topic-button:hover, .topic-button:focus-visible {
+    @apply border-accent outline outline-2 outline-offset-2 outline-accent;
+  }
+  .topic-button[aria-pressed='true'] {
+    @apply border-accent bg-accent text-white;
+  }
+  [hidden] { display: none !important; }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-notes-index]');
+  if (root) {
+    const input = root.querySelector<HTMLInputElement>('#note-search')!;
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-note-topic]')];
+    const groups = [...root.querySelectorAll<HTMLElement>('[data-note-group]')];
+    const count = root.querySelector<HTMLElement>('[data-note-count]')!;
+    const reset = root.querySelector<HTMLButtonElement>('[data-note-reset]')!;
+    const empty = root.querySelector<HTMLElement>('[data-note-empty]')!;
+    const total = Number(root.dataset.total);
+    const ja = root.dataset.lang === 'ja';
+    const normalize = (value: string) => value.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().trim();
+    const searchable = new Map([...root.querySelectorAll<HTMLElement>('[data-note-item]')]
+      .map(item => [item, normalize(item.dataset.noteSearch || '')]));
+    let topic = 'all';
+
+    function update(writeUrl = true) {
+      const words = normalize(input.value).split(/\s+/).filter(Boolean);
+      let matches = 0;
+      for (const group of groups) {
+        let visible = 0;
+        for (const item of group.querySelectorAll<HTMLElement>('[data-note-item]')) {
+          const show = (topic === 'all' || group.id === topic)
+            && words.every(word => searchable.get(item)!.includes(word));
+          item.hidden = !show;
+          if (show) visible++;
+        }
+        group.hidden = visible === 0;
+        matches += visible;
+      }
+      for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.noteTopic === topic));
+      count.textContent = ja ? `${matches} / ${total}件のノート` : `${matches} of ${total} notes`;
+      empty.hidden = matches !== 0;
+      reset.hidden = !input.value && topic === 'all';
+      if (writeUrl) {
+        const url = new URL(location.href);
+        input.value ? url.searchParams.set('q', input.value) : url.searchParams.delete('q');
+        topic === 'all' ? url.searchParams.delete('topic') : url.searchParams.set('topic', topic);
+        history.replaceState(null, '', url);
+      }
+    }
+    function readUrl() {
+      const params = new URL(location.href).searchParams;
+      input.value = params.get('q') || '';
+      const requested = params.get('topic');
+      topic = buttons.some(button => button.dataset.noteTopic === requested) ? requested! : 'all';
+      update(false);
+    }
+    input.addEventListener('input', () => update());
+    for (const button of buttons) button.addEventListener('click', () => {
+      topic = button.dataset.noteTopic!;
+      update();
+    });
+    reset.addEventListener('click', () => {
+      input.value = '';
+      topic = 'all';
+      update();
+      input.focus();
+    });
+    window.addEventListener('popstate', readUrl);
+    readUrl();
+    root.querySelector<HTMLElement>('[data-note-controls]')!.hidden = false;
+  }
+</script>

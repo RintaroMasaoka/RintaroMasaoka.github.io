@@ -13,10 +13,30 @@ page:
 
 # カテゴリの定義
 categories:
-  - id: notes
+  - id: field-theory
     label:
-      en: Notes
-      ja: ノート
+      en: Field Theory & CFT
+      ja: 場の理論・共形場理論
+    icon: document
+  - id: condensed-matter
+    label:
+      en: Condensed Matter & Statistical Physics
+      ja: 物性・統計物理
+    icon: document
+  - id: mathematical-physics
+    label:
+      en: Mathematical Physics
+      ja: 数理物理
+    icon: document
+  - id: mathematics
+    label:
+      en: Mathematics & Logic
+      ja: 数学・論理
+    icon: document
+  - id: exams
+    label:
+      en: Entrance Exams
+      ja: 院試解答
     icon: document
 
 # アイテムリスト
@@ -24,7 +44,7 @@ items:
   - title:
       en: "Gödel's Incompleteness Theorems"
       ja: "ゲーデルの不完全性定理"
-    category: notes
+    category: mathematics
     url: /notes/godel-incompleteness/
     description:
       en: A Japanese note on self-reference, Gödel numbering, and incompleteness.
@@ -33,7 +53,7 @@ items:
   - title:
       en: "Non-invertible Symmetry-Protected Topological Phases"
       ja: "非可逆対称性に保護されたトポロジカル相"
-    category: notes
+    category: condensed-matter
     url: /notes/non-invertible-spt/
     description:
       en: A Japanese overview of one-dimensional non-invertible SPT phases, with definitions, examples, and references.
@@ -42,7 +62,7 @@ items:
   - title:
       en: "Costello's Perturbative Field Theory"
       ja: "Costelloの摂動的場の理論"
-    category: notes
+    category: field-theory
     url: /notes/costello/
     description:
       en: Japanese reading notes on Gaussian averages, local renormalization, and the Batalin–Vilkovisky formalism, with worked calculations.
@@ -51,7 +71,7 @@ items:
   - title:
       en: "SU(2) WZW Model — Recknagel & Schomerus Chapter 6"
       ja: "SU(2) WZW模型 — Recknagel・Schomerus 第6章"
-    category: notes
+    category: field-theory
     url: /wzw-notes/
     description:
       en: Japanese reading notes connecting current algebra, boundary CFT, D-brane geometry, fuzzy spheres, cosets, and orbifolds.
@@ -60,7 +80,7 @@ items:
   - title:
       en: Graduate Entrance Exam Solutions (Applied Physics)
       ja: 物理工学専攻院試解答
-    category: notes
+    category: exams
     url: /notes/physics-engineering-entrance-exam/
     description:
       en: AI-generated entrance exam solutions for 2011–2026, with a year-by-year index.
@@ -69,7 +89,7 @@ items:
   - title:
       en: Introduction to Conformal Bootstrap
       ja: 共形ブートストラップ入門
-    category: notes
+    category: field-theory
     filename: conformal_bootstrap/統計班_政岡凜太郎.pdf
     description:
       en: An introductory note on conformal bootstrap
@@ -78,7 +98,7 @@ items:
   - title:
       en: Construction of Anyons using PEPS
       ja: PEPSによるエニオンの構成
-    category: notes
+    category: condensed-matter
     filename: Note_on_PEPS/main/main.pdf
     description:
       en: A note on the construction of anyons using PEPS
@@ -87,7 +107,7 @@ items:
   - title:
       en: Six-vertex Model and Yang-Baxter Equation
       ja: 6頂点模型とYang-Baxter方程式
-    category: notes
+    category: mathematical-physics
     url: /notes/aba/
     description:
       en: A note on the six-vertex model and Yang-Baxter equation
@@ -96,7 +116,7 @@ items:
   - title:
       en: Supersymmetric Quantum Mechanics
       ja: 超対称量子力学
-    category: notes
+    category: mathematical-physics
     filename: SUSYQM/SUSY_index.pdf
     description:
       en: An introductory note on supersymmetric quantum mechanics
@@ -105,7 +125,7 @@ items:
   - title:
       en: XY Model and Renormalization Group
       ja: XY模型とくりこみ群
-    category: notes
+    category: condensed-matter
     filename: XY model/XY.pdf
     description:
       en: A note on the XY model and renormalization group
@@ -114,7 +134,7 @@ items:
   - title:
       en: KdV Equation
       ja: KdV方程式
-    category: notes
+    category: mathematical-physics
     filename: KdV/source/数理班_政岡凜太郎.pdf
     description:
       en: A note on the KdV equation
@@ -123,7 +143,7 @@ items:
   - title:
       en: "Introduction to Fuzzy Sphere Regularization"
       ja: "Fuzzy sphere regularization 入門"
-    category: notes
+    category: field-theory
     url: /notes/fuzzy-sphere-3d-cft/
     description:
       en: From spherical lowest Landau levels to conformal data in 3d CFT
@@ -132,7 +152,7 @@ items:
   - title:
       en: c-theorem and g-theorem
       ja: c定理とg定理
-    category: notes
+    category: field-theory
     url: /notes/c-theorem/
     description:
       en: A note on c-theorem and g-theorem
@@ -141,7 +161,7 @@ items:
   - title:
       en: Tomonaga-Luttinger Liquid
       ja: 朝永-Luttinger液体
-    category: notes
+    category: condensed-matter
     filename: Tomonaga-Luttinger liquid/TL_liquid.pdf
     description:
       en: A note on Tomonaga-Luttinger liquid
@@ -150,7 +170,7 @@ items:
   - title:
       en: Exact Solution of 2D Ising Model via Dimer Model
       ja: ダイマー模型による2次元Ising模型の厳密解
-    category: notes
+    category: condensed-matter
     filename: Ising_Dimer/Ising_Dimer.pdf
     description:
       en: Exact solution of 2D Ising model using dimer model
@@ -159,7 +179,7 @@ items:
   - title:
       en: Dimer Model and Gauge Theory (Fradkin Ch.9)
       ja: ダイマー模型とゲージ理論 (Fradkin 9章)
-    category: notes
+    category: condensed-matter
     filename: Fradkin/chap9/main/fradkin_chap9_v3.pdf
     description:
       en: Notes on Chapter 9 of Fradkin's textbook

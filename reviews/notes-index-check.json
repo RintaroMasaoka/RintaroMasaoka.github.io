@@ -1,0 +1,94 @@
+{
+  "results": [
+    {
+      "lang": "en",
+      "width": 1440,
+      "theme": "light",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "en",
+      "width": 1440,
+      "theme": "dark",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "theme": "light",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "theme": "dark",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "ja",
+      "width": 1440,
+      "theme": "light",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "ja",
+      "width": 1440,
+      "theme": "dark",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "ja",
+      "width": 390,
+      "theme": "light",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "ja",
+      "width": 390,
+      "theme": "dark",
+      "all": 16,
+      "groups": 5,
+      "topicSearchAndUrlRestoration": "pass",
+      "overflow": false,
+      "errors": []
+    }
+  ],
+  "noJavaScript": "all notes accessible",
+  "scope": "Notes index /notes/ and /ja/notes/",
+  "categories": [
+    "Field Theory & CFT",
+    "Condensed Matter & Statistical Physics",
+    "Mathematical Physics",
+    "Mathematics & Logic",
+    "Entrance Exams"
+  ],
+  "preserved": "All 16 published titles, descriptions and destinations unchanged; no note body changes."
+}

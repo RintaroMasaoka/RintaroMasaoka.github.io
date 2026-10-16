@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentCard from '../../components/ContentCard.astro';
+import NotesIndex from '../../components/NotesIndex.astro';
 import { localize, type Lang } from '../../i18n/utils';
 import { getPageData, getPageTypes } from '../../utils/data';
 
@@ -32,6 +33,7 @@ const grouped = data.categories.map((cat: any) => ({
     <p class="text-primary-500 dark:text-primary-400">{pageData.description[lang]}</p>
   </div>
 
+  {type === 'notes' ? <NotesIndex groups={grouped} lang={lang} /> : <>
   <nav class="mb-8 py-3 -mx-6 px-6 border-b border-primary-100 dark:border-primary-700">
     <ul class="flex flex-wrap gap-2">
       {grouped.map((cat: any) => (
@@ -75,4 +77,5 @@ const grouped = data.categories.map((cat: any) => ({
       </section>
     ))}
   </div>
+  </>}
 </BaseLayout>
