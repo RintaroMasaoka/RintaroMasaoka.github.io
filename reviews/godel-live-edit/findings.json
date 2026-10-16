@@ -62,7 +62,49 @@
       "feedback": "sub(n)の脳内演算を展開し具体例を使う",
       "repair_condition": "x=xを実際に2430へ符号化し、復号・2430の数項の代入・再符号化を段階表示する",
       "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F10",
+      "location": "§10",
+      "feedback": "コラッツが唐突。前の例を忘れている",
+      "repair_condition": "1から27への到達問題を短く再提示して例の役割を思い出せるようにする",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F11",
+      "location": "§1",
+      "feedback": "イントロが唐突・突き放した。§1はリバートし局所修正にする",
+      "repair_condition": "最初の公開版を戻し、一人の体系と接続段落だけ局所修正する",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F12",
+      "location": "§6",
+      "feedback": "§4の割当ては覚えていない。詳細を増やす代理目標を追うな",
+      "repair_condition": "記号番号の記憶や素数の積の計算を外し、式と番号の対応・代入結果・新しい式の番号を直読できる例にする",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F13",
+      "location": "§§5–6",
+      "feedback": "記号が多く覚え切れない。ゲーデル数の記法を活用していない",
+      "repair_condition": "f等の記憶だけを要求する別名をなくし、式の番号を既存のゲーデル数記法で直接示す",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F14",
+      "location": "定義式",
+      "feedback": "定義はequivでなくcoloneqq",
+      "repair_condition": "定義の区切り記号をcoloneqqへ統一する",
+      "status": "edited-awaiting-publication"
     }
   ],
-  "source_sha256": "1eb4ba6e1a665c96f9afcc59bf5fd54cf00f46bc23c607264fc6ed4863b906a6"
+  "source_sha256": "5191c93d33e81c44d3d714a68b0cd59645ed7b017b47b9b0dda409d1c5b75a15",
+  "publication": {
+    "url": "https://rintaromasaoka.github.io/notes/godel-incompleteness/",
+    "commit": "cc2fcc248735766365864709d7449b4d3ce24daa",
+    "run": 38901299241,
+    "status": "success",
+    "liveHttpStatus": 200
+  }
 }

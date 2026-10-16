@@ -1,0 +1,37 @@
+{
+  "perspective": "mathematical preservation under notation simplification only",
+  "source": "src/content/notes/godel-incompleteness.md",
+  "source_sha256": "5191c93d33e81c44d3d714a68b0cd59645ed7b017b47b9b0dda409d1c5b75a15",
+  "range": "sections 5–6",
+  "baseline": "git HEAD sections 5–6",
+  "baseline_range_sha256": "633a631d62d29d5c64155ae97b9d896bc8ab0ede3d99f0c550483c6f92e76efe",
+  "verdict": "pass",
+  "findings": [],
+  "evidence": [
+    {
+      "change": "Proof/Prov formula-code notation",
+      "assessment": "Proof retains proof-code first and formula-code second arguments. Prov retains existential quantification over m; the arbitrary formula phi supplies a schematic formula code, consistent with the existing predicate shorthand."
+    },
+    {
+      "change": "f replaced by code numeral of F(x)",
+      "assessment": "G := F(code-numeral of F(x)) substitutes a closed numeral for the free x. The x appearing inside the corner notation is part of the quoted formula, not a remaining free variable."
+    },
+    {
+      "change": "sub relation",
+      "assessment": "sub(code-numeral of F(x)) denotes the code of exactly the substituted sentence G, so its equality to the code numeral of G preserves the old relation at the stipulated representational shorthand level."
+    },
+    {
+      "change": "definition signs",
+      "assessment": "coloneqq appears for the definitions of Prov, F, and G. The sub/code relation uses equality; no new definitional/equivalence conflation was found."
+    },
+    {
+      "change": "x=x concrete substitution",
+      "assessment": "Both free x occurrences become the closed numeral of the original formula code. The result is that numeral equated to itself, and its new formula code is distinct from the original formula code under the existing injective coding convention."
+    }
+  ],
+  "limitations": [
+    "No scientific, historical, prose, reader-order, visual, or overall conformance verdict.",
+    "Existing corner-as-numeral convention and arithmetically represented substitution shorthand accepted as assigned; no renewed representability proof or full object-language formalization was required.",
+    "Only sections 5–6 changes were adjudicated."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "source_sha256": "5191c93d33e81c44d3d714a68b0cd59645ed7b017b47b9b0dda409d1c5b75a15",
+  "scope": [
+    "§1 restored with two local corrections",
+    "§§5–6 formula-code notation and simpler self-substitution table",
+    "§10 Collatz recall"
+  ],
+  "verified": [
+    "feedback source checks",
+    "production build",
+    "desktop/mobile light/dark browser checks",
+    "no math rendering errors",
+    "bounded independent mathematical notation preservation"
+  ],
+  "limits": {
+    "independent_sequential_reader": "UNVERIFIED",
+    "whole_manuscript_science": "not audited",
+    "previous_memory_review": "predates final notation change; narrow record only"
+  }
+}

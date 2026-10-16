@@ -1,0 +1,80 @@
+{
+  "perspective": "working-memory burden at a resumed example / operation",
+  "source": "/private/tmp/godel-personal-site-20261016/src/content/notes/godel-incompleteness.md",
+  "sha256": "cce435aaf1e8d4f1ed41a9dda6e79ddc8f960c47b0a559fabe9df24a3b9ea857",
+  "audience": "Mathematically interested novice; no memorized arbitrary symbol assignments assumed.",
+  "scope": [
+    {
+      "range": [
+        121,
+        131
+      ],
+      "unit": "Section 6 concrete substitution example through general sub(n) definition"
+    },
+    {
+      "range": [
+        231,
+        231
+      ],
+      "unit": "Section 10 Collatz return"
+    }
+  ],
+  "context_inspected": [
+    [
+      71,
+      95
+    ],
+    [
+      97,
+      117
+    ],
+    [
+      133,
+      139
+    ],
+    [
+      229,
+      233
+    ]
+  ],
+  "limits": "Bounded retention and integration review only. Not scientific truth, style, spec conformance, or first-encounter prefix acceptance. No edits or delegates.",
+  "verdict": "pass",
+  "findings": [],
+  "coverage": [
+    {
+      "range": [
+        121,
+        131
+      ],
+      "question": "Can the reader track the input number, recovered formula, substituted formula, and output number without retaining arbitrary assignments?",
+      "inputs": "Line 121 locally binds x=x to 2430 and explains numeral shorthand; rows 125–127 keep each input beside its result.",
+      "combining_relation": "Recover x=x from 2430, replace both free x occurrences with the numeral for 2430, and encode the resulting formula.",
+      "result": "The output is the number of 2430=2430, named sub(2430), rather than the original number 2430. Line 129 locally contrasts the two roles; line 131 changes 2430 to n while retaining the same operation.",
+      "evidence": [
+        "具体例として、$x=x$ という式に2430という番号が付いている場合を考えよう。",
+        "自由変数に、その式の番号を代入する",
+        "出発点の2430は、元の式 $x=x$ の番号である。最後の $\\mathrm{sub}(2430)$ は、代入後の式 $2430=2430$ の番号である。"
+      ],
+      "burden_assessment": "No material avoidable reconstruction found. The arbitrary example binding is supplied at use, kept visible through the table, and explicitly disambiguated before generalization."
+    },
+    {
+      "range": [
+        231,
+        231
+      ],
+      "question": "Can the reader retrieve the earlier reachability example and its relation to proof search without remembering the original operation dictionary?",
+      "earlier_introduction": [
+        89,
+        91
+      ],
+      "intervening_material": "Sections 5–9 introduce arithmetized proof checking, substitution, incompleteness, truth, and consistency.",
+      "retrieval_support": "The return supplies section number, start 1, target 27, doubling as an operation cue, and the proof-search/path-search correspondence in the next sentence.",
+      "result": "The reader can recognize which example is resumed and follow its role in the claim that simple iteration rules need not make decision problems tractable.",
+      "evidence": [
+        "§4では、1から出発し、2倍する操作などを使って27へ到達できるかを問う、コラッツ予想に関連する問題を見た。",
+        "公理から目標の式を導く証明探索と、出発点から目標の数へ進む経路の探索を重ねた例である。"
+      ],
+      "burden_assessment": "No material avoidable reconstruction found for this use. The paragraph does not require calculating a path or reapplying the second original rule; recalling that rule is therefore not an input to the present inference."
+    }
+  ]
+}
