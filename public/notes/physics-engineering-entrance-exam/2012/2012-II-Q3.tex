@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2012ap_exam.pdf, PDF pp. 9--10.
+% Source problem: 2012ap_exam.pdf, PDF pp. 9--10.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,7 +10,7 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2012年 物理学II 第3問}
+\title{物理工学専攻 院試解答集\\2012年 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -93,7 +93,7 @@ $B>0$ だから $\arctan B$ は $(-\pi/2,\pi/2)$ にあり、$\tan A=B$ は
 \end{equation}
 等号では $F=\pi$ は $\beta=k_0n_1$ という許容区間外の端でしか達しないため、追加の減衰束縛モードはない。
 
-単一モード時はコア内に節のない偶関数形となり、両クラッドへ指数関数的に減衰する。図では横座標を $\xi=x/d$ とし、例として $kd=\kappa d=\pi/4$ を選ぶ。この組は界面条件 $k\tan(kd)=\kappa$ を満たし、上で定めた $A=kd=\pi/4$、$B=\kappa/k=1$ に対応する（例えば $\beta d=2$ とすれば、対応する屈折率比も $n_1<n_2$ となる）。図は [5] の区分解を $E_y(0)$ で規格化し、この $kd,\kappa d$ を代入して直接描く。
+単一モード時はコア内に節のない偶関数形となり、両クラッドへ指数関数的に減衰する。図では横座標を $x/d$、縦座標を $E_y/E_y(0)$ とし、例として $kd=\kappa d=\pi/4$ を選ぶ。この組は界面条件 $k\tan(kd)=\kappa$ を満たし、上で定めた $A=kd=\pi/4$、$B=\kappa/k=1$ に対応する（例えば $\beta d=2$ とすれば、対応する屈折率比も $n_1<n_2$ となる）。
 \begin{center}
 \begin{tikzpicture}[x=1.4cm,y=1.15cm,>=Stealth]
   \draw[->] (-3.4,0)--(3.6,0) node[right] {$x/d$};

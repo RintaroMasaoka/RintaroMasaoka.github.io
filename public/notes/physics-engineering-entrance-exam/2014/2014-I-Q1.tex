@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2014ap_exam.pdf, PDF pp. 2--3.
+% Source problem: 2014ap_exam.pdf, PDF pp. 2--3.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,7 +10,7 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2014年 物理学I 第1問}
+\title{物理工学専攻 院試解答集\\2014年 物理学I 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -20,7 +20,6 @@
 
 \begin{center}
 \begin{tikzpicture}[>=Stealth,scale=0.9]
-  % The contact constraint fixes the sphere-center height to its radius.
   \pgfmathsetmacro{\sphereR}{0.85}
   \coordinate (C) at (0,\sphereR);
   \coordinate (K) at (0,0);
@@ -89,7 +88,7 @@ $n$ 回目の衝突について、床からの水平力積を符号付きで $P_
   =-\left(\frac{I}{a}+am\right)v_F
   =-\frac75ma v_F,
 \end{equation}
-最後の等号では $I=2ma^2/5$ を使った。従って、指定された $m,a,l$ を用いると
+最後の等号では $I=2ma^2/5$ を使った。従って
 \begin{equation}
  \boxed{v_F=-\frac{5l}{7ma}}.
 \end{equation}

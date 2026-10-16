@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source; standard commands and distributed packages only.
 % Source: public/notes/物工/問題/2021ap_exam.pdf, PDF pp. 6--7.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -10,7 +9,7 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2021年 物理学 第3問}
+\title{物理工学専攻 院試解答集\\2021年 物理学 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -131,7 +130,6 @@ $0<T<T_{c0}$ では中心で $f'(1/2)=0$、$f''(1/2)<0$ なので、$x=1/2$ は�
 \begin{tikzpicture}[x=5.2cm,y=1.8cm]
 \draw[->] (0,0)--(1.04,0) node[right] {$x$};
 \draw[->] (0,0)--(0,1.08) node[above] {$T/T_{c0}$};
-% u parametrizes 2 delta_0=tanh u, T/Tc0=tanh u/u; both sides are one reflection.
 \foreach \sgn in {-1,1} {
  \draw[thick] plot[domain=0.001:50,samples=501,variable=\u] ({(1+\sgn*(1-exp(-2*\u))/(1+exp(-2*\u)))/2},{(1-exp(-2*\u))/((1+exp(-2*\u))*\u)});
  \draw[dashed] plot[domain=0:1,samples=121] ({(1+\sgn*sqrt(1-\x))/2},\x);
@@ -144,7 +142,7 @@ $0<T<T_{c0}$ では中心で $f'(1/2)=0$、$f''(1/2)<0$ なので、$x=1/2$ は�
 \node at (0.23,0.87) {$\delta_0$};\node at (0.35,0.72) {$\delta_1$};
 \end{tikzpicture}
 \end{center}
-実線は $u>0$ に対し $2\delta_0=\tanh u$、$T/T_{c0}=\tanh u/u$ で構成した。表示区間は $0.001\le u\le50$ とし、臨界点は $u\to0$ の極限で補う。実線は外側極小の組成 $x=1/2\pm\delta_0$、点線は $f''=0$ となる組成 $x=1/2\pm\delta_1$ を表す。これらの曲線と図中の領域 (I)–(III) の安定性を、以下で相分離後の自由エネルギーと比較して判定する。
+実線は $u>0$ に対し $2\delta_0=\tanh u$、$T/T_{c0}=\tanh u/u$ で表せ、臨界点は $u\to0$ の極限にあたる。実線は外側極小の組成 $x=1/2\pm\delta_0$、点線は $f''=0$ となる組成 $x=1/2\pm\delta_1$ を表す。これらの曲線と図中の領域 (I)–(III) の安定性を、以下で相分離後の自由エネルギーと比較して判定する。
 
 \section*{[10] 相分離のレバー則}
 A 原子数保存より $x_0N=sx_1N+(1-s)x_2N$ なので

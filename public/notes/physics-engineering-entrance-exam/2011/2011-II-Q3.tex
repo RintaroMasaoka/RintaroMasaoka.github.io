@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2011ap_exam.pdf, PDF pp. 8--9.
+% Source problem: 2011ap_exam.pdf, PDF pp. 8--9.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -11,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2011年 物理学II 第3問}
+\title{物理工学専攻 院試解答集\\2011年 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -111,8 +111,6 @@ $|\epsilon_2|>\epsilon_0$ なので
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[>=Stealth,scale=1.0]
-  % Illustrative incidence angle; compute the reflected ray by reversing its
-  % interface-normal component and preserving its tangential component.
   \pgfmathsetmacro{\incidenceAngle}{55}
   \pgfmathsetmacro{\rayLength}{1.05}
   \pgfmathsetmacro{\hitX}{3.3}
@@ -136,7 +134,7 @@ $|\epsilon_2|>\epsilon_0$ なので
   \node[anchor=west] at (\metalX+0.3,0.25) {界面に沿う表面波};
   \draw[<->] (\hitX,-1.85) -- (\metalX,-1.85) node[midway,below] {狭い隙間};
 \end{tikzpicture}
-\caption{全反射によるエバネッセント場を介したプリズム結合の模式図。点線はギャップ内にしみ出す場、青い矢印は重なりを避けて真空側に置いた表示で、金属界面に平行な表面波の進行方向を表す。入射角と長さは説明用で、臨界角や寸法を表さない。}
+\caption{全反射によるエバネッセント場を介したプリズム結合の模式図。点線はギャップ内にしみ出す場、青い矢印は金属界面に平行な表面波の進行方向を表す。入射角と長さは説明用で、臨界角や寸法を表さない。}
 \end{figure}
 
 \end{document}

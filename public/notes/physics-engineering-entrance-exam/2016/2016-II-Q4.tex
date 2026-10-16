@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source. Uses standard commands and distributed packages.
 % Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF pages 11–12.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -12,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2016年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2016年 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -57,7 +56,7 @@ $\lambda=0.01\,\mathrm{nm}=1.0\times10^{-11}\,\mathrm m$を代入すると
    \draw (3.142,0.15)--(3.142,-0.15) node[below=3pt] {$\pi$};
    \draw (6.283,0.15)--(6.283,-0.15) node[below=3pt] {$2\pi$};
  \end{scope}
- \begin{scope}[yshift=-12.5cm]
+ \begin{scope}[yshift=-15cm]
    \draw[->] (0,0)--(7.0,0) node[right] {$aK_x$};
    \draw[->] (0,0)--(0,10) node[above] {$|L|^2$};
    \draw[thick,blue,domain=0:6.283,samples=120] plot (\x,{4*cos(\x r/2)^2});
@@ -66,11 +65,11 @@ $\lambda=0.01\,\mathrm{nm}=1.0\times10^{-11}\,\mathrm m$を代入すると
    \draw (3.142,0.15)--(3.142,-0.15) node[below=3pt] {$\pi$};
    \draw (6.283,0.15)--(6.283,-0.15) node[below=3pt] {$2\pi$};
  \end{scope}
- \begin{scope}[yshift=-25cm]
+ \begin{scope}[yshift=-30cm]
    \draw[->] (0,0)--(7.0,0) node[right] {$aK_x$};
    \draw[->] (0,0)--(0,10) node[above] {$|L|^2$};
    \draw[thick,blue,domain=0:6.283,samples=120] plot (\x,{(1+2*cos(\x r))^2});
-   \node[anchor=west] at (5.0,8.1) {$N_x=3$};
+   \node[anchor=west] at (3.0,7.5) {$N_x=3$};
    \draw (0,0.15)--(0,-0.15) node[below=3pt] {$0$};
    \draw (3.142,0.15)--(3.142,-0.15) node[below=3pt] {$\pi$};
    \draw (6.283,0.15)--(6.283,-0.15) node[below=3pt] {$2\pi$};
@@ -111,8 +110,6 @@ $\lambda=0.01\,\mathrm{nm}=1.0\times10^{-11}\,\mathrm m$を代入すると
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[scale=0.56]
- % Detector coordinates are the reciprocal vectors, normalized by the
- % first-shell radius.  The integer-index condition selects each full shell.
  \pgfmathsetmacro{\shellscale}{sqrt(3)/2}
  \begin{scope}[xshift=-5.0cm]
    \draw[->] (-3.4,0)--(3.3,0) node[right] {$x$};

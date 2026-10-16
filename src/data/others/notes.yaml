@@ -54,8 +54,8 @@ items:
     category: notes
     url: /notes/physics-engineering-entrance-exam/
     description:
-      en: AI-generated entrance exam solutions for 2011–2026, with a year-by-year index. Independent final verification is ongoing.
-      ja: AI生成の大学院入試解答（2011–2026年）。年度別の目次付き。全問の最終的な独立検証は未完了です。
+      en: AI-generated entrance exam solutions for 2011–2026, with a year-by-year index.
+      ja: AI生成の大学院入試解答（2011–2026年）。年度別の目次付き。
 
   - title:
       en: Introduction to Conformal Bootstrap

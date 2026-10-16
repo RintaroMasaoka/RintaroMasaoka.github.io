@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source. Uses standard commands and distributed packages.
 % Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF page 8.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -12,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2016年 物理学II 第2問}
+\title{物理工学専攻 院試解答集\\2016年 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -28,7 +27,6 @@
 \begin{tikzpicture}[>=Stealth,scale=0.85]
  \draw[->] (0,0)--(7.2,0) node[right] {$x$};
  \fill (0,0) circle (2pt) node[below left] {始点 $0$};
- % Each bar contributes +a or -a.  The drawing scale is 2 units per a.
  \pgfmathsetmacro{\xsum}{0}
  \pgfmathsetmacro{\ystart}{0.2}
  \draw[dashed,gray] (0,0)--(\xsum,\ystart);
@@ -51,7 +49,7 @@
  \node[blue] at (5.0,0.85) {右向き};
  \node[red] at (5.0,1.45) {左向き};
 \end{tikzpicture}
-\caption{右向き3本、左向き2本の変位を順に足した例。縦方向のずれは見やすさのため。}
+\caption{右向き3本、左向き2本の変位を順に足した例。縦方向に並べた各矢印は、左右いずれかの変位 $\pm a$ を表す。}
 \end{figure}
 
 \section*{[1] 終点の確率とエントロピー}

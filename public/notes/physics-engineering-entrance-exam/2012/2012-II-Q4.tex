@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2012ap_exam.pdf, PDF pp. 11--12.
+% Source problem: 2012ap_exam.pdf, PDF pp. 11--12.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,7 +10,7 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2012年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2012年 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -50,7 +50,7 @@ $\omega_-(k)$ が音響枝、$\omega_+(k)$ が光学枝である。
  \omega_a(\pi/a)&=\sqrt{\frac{2C_2}{m}},&
  \omega_o(\pi/a)&=\sqrt{\frac{2C_1}{m}},
 \end{align}
-ここで $C_1>C_2$ を用いた。図は上の分散式を第一ブリルアン領域で直接評価したもの。表示例では $C_1=4,C_2=1,m=1$ とし、横軸は $ka$ で表す（ばね定数と質量は同じ単位系）。
+ここで $C_1>C_2$ を用いた。図では $C_1=4,C_2=1,m=1$ とし、横軸は $ka$ で表す（ばね定数と質量は同じ単位系）。
 \begin{center}
 \begin{tikzpicture}[x=0.85cm,y=0.85cm,>=Stealth]
  \draw[->] (-3.8,0)--(3.8,0) node[right] {$ka$};
@@ -94,7 +94,7 @@ $k=0$ で[1]の固有行列に音響枝の $\omega_a=0$ を代入すると $-(C_
  \coordinate (O) at (0,0); \coordinate (I) at (3.2,0); \coordinate (F) at (1.2,-1.5);
  \draw[->,thick] (O)--(I) node[midway,above] {$\boldsymbol K_i$};
  \draw[->,thick] (O)--(F) node[midway,left] {$\boldsymbol K_f$};
- \draw[->,thick] (F)--(I) node[midway,right] {$\boldsymbol q_B$};
+ \draw[->,thick] (F)--(I) node[midway,below right,xshift=4pt,yshift=-2pt] {$\boldsymbol q_B$};
  \draw (0.75,0) arc (0:-51:0.75);
  \node at (0.9,-0.45) {$\theta$};
 \end{tikzpicture}

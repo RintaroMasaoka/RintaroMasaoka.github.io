@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source; standard commands and distributed packages only.
 % Source: public/notes/物工/問題/2019ap_exam.pdf, PDF pp. 4--5.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -12,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2019年 物理学 第2問}
+\title{物理工学専攻 院試解答集\\2019年 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -190,12 +189,10 @@ $\tan\alpha=\tan[(\theta+\alpha)-\theta]$ の公式を用いると
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[scale=1.0,>=Stealth,font=\small]
-  % Shared projection frame: z=(0.4,1), +y=(0.5,-0.2) in the side view.
   \pgfmathsetmacro{\zUnitX}{0.4}
   \pgfmathsetmacro{\zUnitY}{1.0}
   \pgfmathsetmacro{\yUnitX}{0.5*\zUnitY}
   \pgfmathsetmacro{\yUnitY}{-0.5*\zUnitX}
-  % Side view: the normal to side A points right; optic axis z is tilted above it.
   \draw[fill=gray!12] (0,0) rectangle (4,3.3);
   \draw[thick] (0,0)--(0,3.3) node[above left] {側面A};
   \draw[thick] (4,0)--(4,3.3);
@@ -210,7 +207,6 @@ $\tan\alpha=\tan[(\theta+\alpha)-\theta]$ の公式を用いると
   \coordinate (Zaxis) at ({\zUnitX},{1.55+\zUnitY});
   \coordinate (Sdir) at (1,1.4);
   \draw[->] (O)--(Zaxis) node[above] {$z$};
-  % This side view is in the y-z plane; +x points out of the page.
   \draw (-0.9,-0.65) circle (1.5pt);
   \fill (-0.9,-0.65) circle (0.45pt) node[below left] {$+x$};
   \coordinate (LegendOrigin) at (-0.9,-0.65);
@@ -220,8 +216,9 @@ $\tan\alpha=\tan[(\theta+\alpha)-\theta]$ の公式を用いると
   \draw[->] (LegendOrigin)--(LegendY) node[below] {$+y$};
   \pic[draw,angle radius=0.45cm,"$\theta$",angle eccentricity=1.25]
     {angle=Kdir--O--Zaxis};
-  \pic[draw,angle radius=0.5cm,"$\alpha$",angle eccentricity=1.3]
+  \pic[draw,angle radius=0.5cm]
     {angle=Sdir--O--Kdir};
+  \node[anchor=east] at (-0.13,1.25) {$\alpha$};
   \draw[<->] (4.25,0.95)--(4.25,1.55)
     node[midway,right] {$d\tan\alpha$};
   \draw[<->] (0,-0.25)--(4,-0.25) node[midway,below] {$d$};
@@ -237,7 +234,7 @@ $\tan\alpha=\tan[(\theta+\alpha)-\theta]$ の公式を用いると
   \node[red,font=\Large] at (7.8,0.95) {$Q$};
   \node[anchor=west,blue] at (8.2,1.55) {$x$偏光};
   \node[anchor=west,red] at (8.2,0.95) {$yz$偏光};
-  \node[below] at (4,0) {出射面};
+  \node[anchor=west] at (4.15,0.2) {Exit face};
 \end{tikzpicture}
 \caption{紙上の同じ点から出た二つの光線。赤い破線は出射光線の逆延長を示し、紙面との交点は元の点より下にある。$x$偏光の逆延長は元の点を通る。右の文字は正面から見た二つの像の相対位置を示し、実際の像面の位置は表していない。}
 \label{fig:split-rays}

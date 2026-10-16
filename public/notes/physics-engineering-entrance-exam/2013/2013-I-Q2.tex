@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2013ap_exam.pdf, PDF pp. 4--5.
+% Source problem: 2013ap_exam.pdf, PDF pp. 4--5.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=22mm]{geometry}
 \usepackage{fontspec}
@@ -9,13 +9,13 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2013年 物理学I 第2問}
+\title{物理工学専攻 院試解答集\\2013年 物理学I 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-真空中で、途中計算と向きを明示して解く。
+以下、真空中を考える。
 
 \section*{[1] 電流が作る磁場}
 \subsection*{[1.1] 円環電流}
@@ -40,7 +40,7 @@
 中心磁場はソレノイド軸方向である。有限長の結果であり、$l\gg a$ の極限では $B_z(0)\simeq\mu_0NI/l$ となる。
 
 \subsection*{[1.3] 自己インダクタンス}
-ここでは指定どおり $l\gg a$ とし、内部磁場を一様とみなす。各巻線を貫く磁束は
+自己インダクタンスの計算では $l\gg a$ とし、内部磁場を一様とみなす。各巻線を貫く磁束は
 \begin{equation}
  \Phi=B\pi a^2\simeq\frac{\mu_0NI}{l}\pi a^2.
 \end{equation}
@@ -99,8 +99,8 @@ $\cos(\omega_0t)>0$ のとき $\boldsymbol B$ は $+z$ 軸から見て反時計�
  \draw[gray!50] (0,1)--(\period,1);
  \draw[thick,blue,samples=120] plot[domain=0:360] ({\x*pi/180},{cos(\x)^2});
  \draw[thick,red,dashed,samples=120] plot[domain=0:360] ({\x*pi/180},{sin(\x)^2});
- \node[blue,anchor=west] at (4.1,0.8) {$U_C/E_0$};
- \node[red,anchor=west] at (1.8,0.8) {$U_L/E_0$};
+ \node[blue,anchor=south] at (4.9,1.12) {$U_C/E_0$};
+ \node[red,anchor=south] at (1.7,1.12) {$U_L/E_0$};
 \end{tikzpicture}
 \end{center}
 
@@ -130,8 +130,8 @@ $\cos(\omega_0t)>0$ のとき $\boldsymbol B$ は $+z$ 軸から見て反時計�
  \draw[gray!50] (0,2)--(\period,2);
  \draw[thick,blue,samples=150] plot[domain=0:360] ({\x*pi/180},{2*cos(\frequencyRatio*\x)^2});
  \draw[thick,red,dashed,samples=150] plot[domain=0:360] ({\x*pi/180},{2*sin(\frequencyRatio*\x)^2});
- \node[blue,anchor=west] at (4.3,1.65) {$U'_C/E_0$};
- \node[red,anchor=west] at (3.5,0.45) {$U'_L/E_0$};
+ \node[blue,anchor=south] at (4.9,2.18) {$U'_C/E_0$};
+ \node[red,anchor=south] at (1.7,2.18) {$U'_L/E_0$};
 \end{tikzpicture}
 \end{center}
 極板間隔を増すには、極板間の引力に逆らって外力が仕事をする必要がある。理想的な容量モデルで損失を無視し、極板を静止させた前後の状態を比べると、外力の仕事は電気エネルギーの増加 $U'_0-E_0=Q^2/(2C')-Q^2/(2C)=E_0$ に等しい。接続後はその増えた全エネルギーがコンデンサーとソレノイドの間を移る。

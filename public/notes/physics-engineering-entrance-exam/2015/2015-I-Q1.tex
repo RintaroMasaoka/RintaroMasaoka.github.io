@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source. Uses standard commands and distributed packages.
 % Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF pages 2–3.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -12,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2015年 物理学I 第1問}
+\title{物理工学専攻 院試解答集\\2015年 物理学I 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -84,7 +83,6 @@ $-m_1gl_1\sin\theta_1$、慣性モーメントは$m_1l_1^2$なので、
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[scale=1.25,>=Stealth,font=\small]
-  % Display choices: equal scaled lengths and nonzero, nonspecial angles.
   \pgfmathsetmacro{\ell}{1.3}
   \pgfmathsetmacro{\thetaOne}{25}
   \pgfmathsetmacro{\thetaTwo}{40}
@@ -101,11 +99,11 @@ $-m_1gl_1\sin\theta_1$、慣性モーメントは$m_1l_1^2$なので、
   \draw[dashed] (O)--(0,-\ell);
   \draw[dashed] (A)--++({\ell*sin(\thetaOne)},{-\ell*cos(\thetaOne)});
   \draw[->] (0,-0.7) arc[start angle=-90,end angle={-90+\thetaOne},radius=0.7];
-  \node at (0.25,-0.72) {$\theta_1$};
+  \node at (0.53,-0.64) {$\theta_1$};
   \draw[->] (A) ++({0.33*cos(-90+\thetaOne)},{0.33*sin(-90+\thetaOne)})
     arc[start angle={-90+\thetaOne},end angle={-90+\thetaAbsTwo},radius=0.33];
   \node at ($(A)+(0.43,-0.35)$) {$\theta_2$};
-  \node at ({0.5*\ell*sin(\thetaOne)+0.12},{-0.5*\ell*cos(\thetaOne)}) {$l$};
+  \node at ({0.5*\ell*sin(\thetaOne)+0.35},{-0.5*\ell*cos(\thetaOne)}) {$l$};
   \node at ({\ell*sin(\thetaOne)+0.5*\ell*sin(\thetaAbsTwo)+0.12},{-\ell*cos(\thetaOne)-0.5*\ell*cos(\thetaAbsTwo)}) {$l$};
 \end{tikzpicture}
 \caption{等質量・等長二重振り子。$\theta_2$は第1棒から測る相対角である。}

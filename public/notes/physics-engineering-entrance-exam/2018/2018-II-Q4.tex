@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source. Uses standard commands and distributed packages.
 % Source problem: public/notes/物工/問題/2018ap_exam.pdf, pages 13–14.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -8,7 +7,7 @@
 \usepackage{amsmath,amssymb,tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2018年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2018年 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -72,7 +71,6 @@
 これは半導体内部から界面までの伝導帯端の上昇である。$E_F$ から界面伝導帯端までの障壁は $\Delta_s+(\phi_s-\chi_c)=W-\chi_c$。図ではこの二つの差を分けて示し、同じ静電シフトを価電子帯端にも適用した。図の縦横の長さは縮尺を表さず、異なるエネルギー差の大小比較には用いない。破線は端点を結ぶ案内で、空乏領域内の詳細な電位分布は原問で定まらない。
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=0.62cm]
- % Display parameters carry only ordering, equal shifts, and gap addition.
  \pgfmathsetmacro{\bulkEc}{0.8}
  \pgfmathsetmacro{\shiftE}{1.4}
  \pgfmathsetmacro{\gapE}{3.4}
@@ -83,7 +81,6 @@
  \draw[->] (-1.5,-0.8) -- (5.3,-0.8) node[right] {$x$};
  \draw[thick] (-1.3,0) -- (0,0);
  \draw[dashed] (-1.3,0) -- (5,0) node[right] {$E_F$};
- % The source fixes the interface and bulk energies, but gives no spatial potential profile.
  \draw[thick] (0,{\interfaceEc}) -- (0.65,{\interfaceEc});
  \draw[densely dashed,thick] (0.65,{\interfaceEc}) -- (1.35,{\bulkEc});
  \draw[thick] (1.35,{\bulkEc}) -- (4.8,{\bulkEc});
@@ -93,7 +90,7 @@
  \draw[<->] (2.2,0) -- (2.2,{\bulkEc}) node[midway,right] {$\phi_s-\chi_c$};
  \draw[dashed] (0,{\interfaceEc})--(0.62,{\interfaceEc});
  \draw[dashed] (0.62,{\bulkEc})--(1.35,{\bulkEc});
- \draw[<->] (0.62,{\bulkEc}) -- (0.62,{\interfaceEc}) node[midway,right] {$\Delta_s$};
+ \draw[<->] (0.62,{\bulkEc}) -- (0.62,{\interfaceEc}) node[midway,left,xshift=-2pt] {$\Delta_s$};
  \draw[<->] (2.2,{\bulkEv}) -- (2.2,{\interfaceEv}) node[midway,right] {$\Delta_s$};
  \node at (3.6,1.12) {伝導帯端 $E_c$};
  \node[anchor=west] at (2.8,-2.3) {価電子帯端 $E_v$};

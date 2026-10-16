@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source. Uses standard commands and distributed packages.
 % Source problem: public/notes/物工/問題/2017ap_exam.pdf, pages 9–10.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -10,7 +9,7 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2017年 物理学II 第3問}
+\title{物理工学専攻 院試解答集\\2017年 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -78,7 +77,6 @@ Planck分布を代入して温度依存性が消え、
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[>=Stealth,thick]
- % Display heights encode energy ordering only; the spacings are schematic.
  \pgfmathsetmacro{\eOne}{0}
  \pgfmathsetmacro{\eTwo}{1.5}
  \pgfmathsetmacro{\eThree}{4.5}
@@ -89,7 +87,7 @@ Planck分布を代入して温度依存性が消え、
  \draw[->] (2,\eTwo-0.12)--(2,\eOne+0.12) node[midway,left] {$A$};
  \draw[<->] (3,\eOne+0.12)--(3,\eThree-0.12) node[midway,right] {$P$};
  \draw[->] (4,\eThree-0.12)--(4,\eOne+0.12) node[midway,right] {$A'$};
- \draw[->] (5.2,\eThree-0.12)--(5.2,\eTwo+0.12) node[midway,right] {$C$};
+ \draw[->] (5.7,\eThree-0.12)--(5.7,\eTwo+0.12) node[midway,right] {$C$};
 \end{tikzpicture}
 \caption{三準位系で考える遷移。上下位置はエネルギーの順序を示し、準位間隔は縮尺を表さない。}
 \end{figure}

@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2011ap_exam.pdf, PDF p. 6.
+% Source problem: 2011ap_exam.pdf, PDF p. 6.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -11,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2011年 物理学II 第1問}
+\title{物理工学専攻 院試解答集\\2011年 物理学II 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -21,7 +21,7 @@
 \begin{equation}
   \bigl(|1,1\rangle,|1,0\rangle,|1,-1\rangle\bigr)
 \end{equation}
-の順に並べる。原本[3]の回転因子では $\hbar$ による除算が抜けている。指数を無次元にするため、以下では $J_z/\hbar$ を含む因子として読む。これは、固有値定義とシュレーディンガー方程式に照らして確認された原本の誤植である。
+の順に並べる。原本[3]の回転因子では $\hbar$ による除算が抜けている。指数を無次元にするため、以下では $J_z/\hbar$ を含む因子として読む。
 
 \section*{[1] スピン角運動量の行列}
 昇降演算子の作用を $J=1$ に適用すると
@@ -132,7 +132,6 @@ $H_M$ は $B>0$ で非縮退なので、一次のエネルギー補正は各 $|1
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[>=Stealth,scale=1.0]
-  % Normalize energies by Delta=gamma B hbar; eta is an illustrative weak shift.
   \pgfmathsetmacro{\energyScale}{1}
   \pgfmathsetmacro{\eta}{1/5}
   \pgfmathsetmacro{\lowerUnperturbed}{-\energyScale}
@@ -153,9 +152,9 @@ $H_M$ は $B>0$ で非縮退なので、一次のエネルギー補正は各 $|1
   \draw[thick] (3.8,\lowerPerturbed) -- (5.2,\lowerPerturbed);
   \draw[thick] (3.8,\middlePerturbed) -- (5.2,\middlePerturbed);
   \draw[thick] (3.8,\upperPerturbed) -- (5.2,\upperPerturbed);
-  \node[align=left,anchor=west] at (5.35,\lowerPerturbed) {$m=+1$\\$\Delta E=-A\hbar^2/2$};
-  \node[align=left,anchor=west] at (5.35,\middlePerturbed) {$m=0$\\$\Delta E=+A\hbar^2$};
-  \node[align=left,anchor=west] at (5.35,\upperPerturbed) {$m=-1$\\$\Delta E=-A\hbar^2/2$};
+  \node[anchor=west] at (5.35,\lowerPerturbed) {$m=+1,\quad\Delta E=-A\hbar^2/2$};
+  \node[anchor=west] at (5.35,\middlePerturbed) {$m=0,\quad\Delta E=+A\hbar^2$};
+  \node[anchor=west] at (5.35,\upperPerturbed) {$m=-1,\quad\Delta E=-A\hbar^2/2$};
 \end{tikzpicture}
 \caption{未摂動準位と相互作用による一次の準位移動。縦軸は $\gamma B\hbar$ で規格化した模式図で、表示例は $A\hbar/(\gamma B)=1/5$ とする。}
 \end{figure}

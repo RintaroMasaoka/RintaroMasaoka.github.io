@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source. Source: 2024ap_exam.pdf, PDF p. 3.
+% Source: 2024ap_exam.pdf, PDF p. 3.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
@@ -11,7 +11,7 @@
 \pgfplotsset{compat=1.18}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2024年 物理学 第2問}
+\title{物理工学専攻 院試解答集\\2024年 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -75,14 +75,13 @@ $\sinh^2(2\gamma a)\simeq e^{4\gamma a}/4$ を式\eqref{eq:T1} に入れる。�
 
 \section*{[2] 障壁より高いエネルギー $\mathcal E>V_0$}
 \subsection*{[2.1] 透過率 $T_2(\mathcal E)$}
-障壁の内部も進行波となる。その波数を $q=\sqrt{2m(\mathcal E-V_0)}/\hbar$ と置く。これはこの節だけで使う、障壁内の波数である。両境界を連続につないで得た式\eqref{eq:T1}で $\gamma=iq$ と置いてもよい。$\sinh(2iqa)=i\sin(2qa)$ と $k^2-q^2=2mV_0/\hbar^2$ から
+障壁の内部も進行波となり、その波数は $q=\sqrt{2m(\mathcal E-V_0)}/\hbar$ である。両境界を連続につないで得た式\eqref{eq:T1}で $\gamma=iq$ と置いてもよい。$\sinh(2iqa)=i\sin(2qa)$ と $k^2-q^2=2mV_0/\hbar^2$ から
 \begin{equation}
  \boxed{T_2(\mathcal E)=\left[1+
  \frac{V_0^2}{4\mathcal E(\mathcal E-V_0)}
  \sin^2\!\left(\frac{2a\sqrt{2m(\mathcal E-V_0)}}{\hbar}\right)
  \right]^{-1}},\qquad \mathcal E>V_0.\label{eq:T2}
 \end{equation}
-$q$ は導出用であり、最終式は指定通り $\mathcal E,V_0$ で記した。
 
 \subsection*{[2.2] 概形と極大}
 式\eqref{eq:T2} の角括弧内で正弦二乗以外の因子は正である。従って $T_2\leq1$ であり、全ての透過率1の極大は

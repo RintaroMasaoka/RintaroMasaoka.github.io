@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source. Uses standard commands and distributed packages.
 % Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF pages 11–12.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -12,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2015年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2015年 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -69,10 +68,10 @@
  \draw[->,thick] plot[domain=20:48,samples=16] ({cos(\x)},{\kb*sin(\x)});
  \fill (1,0) circle (1.4pt) node[below right] {$t=0$};
  \draw (1,-0.06)--(1,0.06); \node[above right] at (1,0) {$k_{0x}$};
- \draw (-0.06,\kb)--(0.06,\kb); \node[right] at (0,\kb) {$\sqrt{m_2/m_1}\,k_{0x}$};
+ \draw (-0.06,\kb)--(0.06,\kb); \node[above left] at (-0.08,\kb) {$\sqrt{m_2/m_1}\,k_{0x}$};
  \node[below left] at (0,0) {$O$};
 \end{tikzpicture}
-\caption{放物線バンドの波数軌道。$m_2=2m_1$の例を描いた。軸上のラベルは一般の半軸長であり、矢印は時間の増加方向を示す。}
+\caption{放物線バンドの波数軌道。図では$m_2=2m_1$とし、軸上のラベルには一般の半軸長を示す。矢印は時間の増加方向を示す。}
 \label{fig:parabolic-k}
 \end{figure}
 

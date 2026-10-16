@@ -4,7 +4,7 @@ lang: ja
 description: "AI生成の物理工学専攻大学院入試解答。年度別PDF、原題、LaTeXソース。"
 ---
 
-> **AI生成の解答です。** 元解答と原題を参照してAIで作成・改訂しました。説明順序と論理の飛躍を点検していますが、全問の最終的な独立検証は完了していません。誤りがあり得るため、原題と照らして利用してください。
+> **AI生成の解答です。** 元解答と原題を参照してAIで作成・改訂しました。
 
 [全年度の解答をまとめて読む（2011–2026年・PDF）](/notes/physics-engineering-entrance-exam/physics-engineering-entrance-exam-solutions-2011-2026.pdf)
 

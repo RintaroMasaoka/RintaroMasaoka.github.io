@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2014ap_exam.pdf, PDF pp. 7--9.
+% Source problem: 2014ap_exam.pdf, PDF pp. 7--9.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,7 +10,7 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2014年 物理学II 第1問}
+\title{物理工学専攻 院試解答集\\2014年 物理学II 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -81,7 +81,7 @@
 \begin{equation}
  \boxed{T=\frac{\pi\hbar}{J}}.
 \end{equation}
-概形を一周期について描く。
+一周期の概形は次のとおりである。
 \begin{center}
 \begin{tikzpicture}[x=1.55cm,y=1.35cm,>=Stealth]
  \draw[->] (0,0)--(2.15,0) node[right] {$t/T$};
@@ -118,7 +118,7 @@ $A\gg J$ で展開すると
  E_a=-A,\quad E_+=\frac{4J^2}{A}+O(J^4/A^3).}
 \end{equation}
 \subsection*{[5.3] 引力の場合の粒子数確率}
-有限の $A$ での式も確認するため、同一井戸状態の相互作用エネルギーを一般の符号付き $u$ とし、そのハミルトニアンを $H(u)$ と書く。引力の場合は $u=-A$ である。端状態の対称・反対称な組合せを
+有限の $A$ に対する確率を求める。同一井戸状態の相互作用エネルギーを一般の符号付き $u$ とし、そのハミルトニアンを $H(u)$ と書く。引力の場合は $u=-A$ である。端状態の対称・反対称な組合せを
 \begin{equation}
  |s\rangle=\frac{|0\rangle+|2\rangle}{\sqrt2},\qquad
  |a\rangle=\frac{|0\rangle-|2\rangle}{\sqrt2}
@@ -147,7 +147,7 @@ $A\gg J$ で展開すると
  P_1(t)&=\frac{8J^2}{\Delta^2}\sin^2x,\\
  P_2(t)&=\frac14\left|e^{-iy}\left(\cos x-i\frac u\Delta\sin x\right)-e^{-2iy}\right|^2.
 \end{align}
-従って有限 $A$ では中間状態 $|1\rangle$ も一般に占有される。$A/J\gg1$ ではその振幅は小さく、高速の微小振動を図の概形では省いて、二つの同一井戸状態間の遅いペア移動を描く。初期状態 $|0\rangle$ は対称状態 $|s\rangle$ と反対称状態 $|a\rangle$ を等重みで含む。$|s\rangle$ を主成分とする低エネルギー固有状態と $|a\rangle$ のエネルギー差は $4J^2/A$ であり、その相対位相から
+従って有限 $A$ では中間状態 $|1\rangle$ も一般に占有される。$A/J\gg1$ ではその振幅は小さく、主要な時間変化は二つの同一井戸状態間の遅いペア移動となる。初期状態 $|0\rangle$ は対称状態 $|s\rangle$ と反対称状態 $|a\rangle$ を等重みで含む。$|s\rangle$ を主成分とする低エネルギー固有状態と $|a\rangle$ のエネルギー差は $4J^2/A$ であり、その相対位相から
 \begin{equation}
  P_0(t)\simeq\cos^2\!\left(\frac{2J^2t}{A\hbar}\right),\qquad
  P_2(t)\simeq\sin^2\!\left(\frac{2J^2t}{A\hbar}\right),\qquad P_1\ll1.
@@ -156,7 +156,7 @@ $A\gg J$ で展開すると
 \begin{equation}
  \boxed{T_A=\frac{2\pi\hbar}{4J^2/A}=\frac{\pi\hbar A}{2J^2}}.
 \end{equation}
-図2(b)の概形を描く。点線が $P_0$、実線が $P_2$、一点鎖線が小さい $P_1$ である。
+図2(b)に対応する概形は次のとおりである。点線が $P_0$、実線が $P_2$、一点鎖線が小さい $P_1$ である。
 \begin{center}
 \begin{tikzpicture}[x=1.15cm,y=1.25cm,>=Stealth]
  \draw[->] (0,0)--(4.3,0) node[right] {$t/T_A$};

@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2013ap_exam.pdf, PDF p. 7.
+% Source problem: 2013ap_exam.pdf, PDF p. 7.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
@@ -9,7 +9,7 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2013年 物理学II 第1問}
+\title{物理工学専攻 院試解答集\\2013年 物理学II 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -53,18 +53,18 @@ $\sigma_y$ 固有値を $s=\pm1$ とし、$|y,+1\rangle=|+y\rangle$、$|y,-1\ran
 
 $k_*=|m\gamma E|/\hbar^2$、$E_*=m\gamma^2E^2/(2\hbar^2)$、$x=k/k_*$ と置けば $E_s/E_*=x^2+2sx$ である。分散を図示する。
 \begin{center}
-\begin{tikzpicture}[x=0.8cm,y=0.42cm]
+\begin{tikzpicture}[x=0.8cm,y=0.32cm]
  \draw[->] (-2.4,0)--(2.8,0) node[right] {$k/k_*$};
  \draw[->] (0,-1.35)--(0,5.2) node[above] {$E_s/E_*$};
  \draw[gray!40] (-2.2,-1)--(2.5,-1);
- \draw[thick,blue,domain=-2.2:2.4,samples=100] plot (\x,{\x*\x+2*\x});
- \draw[thick,red,dashed,domain=-2.2:2.4,samples=100] plot (\x,{\x*\x-2*\x});
+ \draw[thick,blue,domain=-2.2:1.4,samples=100] plot (\x,{\x*\x+2*\x});
+ \draw[thick,red,dashed,domain=-1.4:2.4,samples=100] plot (\x,{\x*\x-2*\x});
  \draw[dotted] (0,-1.15)--(0,4.8);
- \node[blue,anchor=west] at (0.55,4.65) {$s=+1$};
- \node[red,anchor=east] at (-0.55,4.65) {$s=-1$};
+ \node[blue,anchor=west] at (1.65,4.65) {$s=+1$};
+ \node[red,anchor=east] at (-1.65,4.65) {$s=-1$};
  \node[below left] at (0,0) {$0$};
- \node[below] at (1,0) {$1$};
- \node[below] at (-1,0) {$-1$};
+ \node[above] at (1,0) {$1$};
+ \node[above] at (-1,0) {$-1$};
 \end{tikzpicture}
 \end{center}
 青実線と赤破線は $\sigma_y$ の固有値 $+1,-1$ に対応する。放物線の頂点はそれぞれ $k/k_*=-1,+1$ にあり、エネルギーは $-E_*$ である。
@@ -90,17 +90,17 @@ $k=0$ の準位差は $2\Delta=g\mu_BB$ で、電場のみの交差が有限の�
 
 固有エネルギーの概略は次のようになる。$q=k/k_0$, $k_0=\Delta/(|\gamma|E)$ とし、二次項の無次元係数 $c=\hbar^2k_0^2/(2m\Delta)$ を表示例として $c=1$ に選ぶ。したがって曲線は $E_\pm/\Delta=q^2\pm\sqrt{1+q^2}$ で、$q=0$ のギャップは $2\Delta=g\mu_BB$ である。曲率は $c$ に依存する。
 \begin{center}
-\begin{tikzpicture}[x=0.7cm,y=0.33cm]
+\begin{tikzpicture}[x=0.7cm,y=0.24cm]
  \draw[->] (-3.2,0)--(3.8,0) node[right] {$k/k_0$};
  \draw[->] (0,-1.9)--(0,10.0) node[above] {$E/\Delta$};
  \draw[gray!45] (-2.8,1)--(3.1,1);
- \draw[thick,red,domain=-2.8:3.1,samples=140] plot (\x,{\x*\x-sqrt(1+\x*\x)});
- \draw[thick,blue,domain=-2.8:3.1,samples=140] plot (\x,{\x*\x+sqrt(1+\x*\x)});
+ \draw[thick,red,domain=-2.6:2.6,samples=140] plot (\x,{\x*\x-sqrt(1+\x*\x)});
+ \draw[thick,blue,domain=-2.6:2.6,samples=140] plot (\x,{\x*\x+sqrt(1+\x*\x)});
  \draw[dashed] (0,-1.1)--(0,1.1);
  \draw[<->,thick] (0,-1)--(0,1);
- \node[red,anchor=west] at (2.25,3.6) {$E_-(k)$};
- \node[blue,anchor=west] at (2.0,9.0) {$E_+(k)$};
- \node[anchor=west] at (0.15,0.3) {$2\Delta=g\mu_BB$};
+ \node[red,anchor=west] at (2.6,3.0) {$E_-(k)$};
+ \node[blue,anchor=west] at (2.8,9.5) {$E_+(k)$};
+ \node[anchor=west] at (1.0,-1.35) {$2\Delta=g\mu_BB$};
 \end{tikzpicture}
 \end{center}
 

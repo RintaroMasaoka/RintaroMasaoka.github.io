@@ -1,4 +1,3 @@
-% Standalone XeLaTeX source; standard commands and distributed packages only.
 % Source: public/notes/物工/問題/2022ap_exam.pdf, PDF pp. 4--5.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
@@ -10,7 +9,7 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2022年 物理学 第2問}
+\title{物理工学専攻 院試解答集\\2022年 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -19,7 +18,6 @@
 図の幾何では $y$ は下向き正で、棒の方向単位ベクトルは $(\sin\theta,\cos\theta)$ である。振動する支点の変位は鉛直成分だけに加わる。
 \begin{center}
 \begin{tikzpicture}[scale=0.95]
-% Illustration parameters at t=0: theta=30 degrees, a/L=0.20.
 \def\L{2.0}
 \def\amp{0.4}
 \def\ang{30}
@@ -28,7 +26,8 @@
 \draw[->] (-1.0,0)--(2.0,0) node[right] {$x$};
 \draw[->] (0,0.25)--(0,-2.8) node[below] {$y$};
 \fill (0,0) circle (2pt) node[above left] {$(0,0)$};
-\fill (0,-\amp) circle (2pt) node[above right] {$O(t)$};
+\fill (0,-\amp) circle (2pt);
+\node[anchor=west] at (0.2,{-\amp-0.13}) {$O(t)$};
 \draw[densely dashed] (0,0)--(0,-2.35);
 \draw[->] (0,-0.03)--(0,{-\amp+0.03}) node[midway,left] {$a\cos\Omega t$};
 \draw[very thick] (0,-\amp)--(\px,\py);
@@ -37,7 +36,7 @@
 \pgfmathsetmacro{\arcx}{0.62*\L*cos(285)}
 \pgfmathsetmacro{\arcy}{-\amp+0.62*\L*sin(285)}
 \node at (\arcx,\arcy) {$\theta$};
-\node at ({0.55*\px+0.10},{-\amp+0.55*(\py+\amp)}) {$L$};
+\node at ({0.55*\px+0.32},{-\amp+0.55*(\py+\amp)}) {$L$};
 \end{tikzpicture}
 \end{center}
 

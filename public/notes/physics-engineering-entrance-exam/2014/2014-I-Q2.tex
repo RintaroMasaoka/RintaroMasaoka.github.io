@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2014ap_exam.pdf, PDF pp. 4--5.
+% Source problem: 2014ap_exam.pdf, PDF pp. 4--5.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,7 +10,7 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集 ver2\\2014年 物理学I 第2問}
+\title{物理工学専攻 院試解答集\\2014年 物理学I 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -70,7 +70,6 @@ $r=R$ では分子と分母が等しく、対数の中身が1となるため、�
 
 \begin{center}
 \begin{tikzpicture}[>=Stealth,scale=0.9]
- % Illustration ratio d/R=0.32; D is calculated from the boundary condition.
  \def\R{1.35}
  \def\eta{0.32}
  \pgfmathsetmacro{\d}{\eta*\R}
@@ -87,7 +86,7 @@ $r=R$ では分子と分母が等しく、対数の中身が1となるため、�
  \draw[<->] (0,-0.3)--(\d,-0.3) node[midway,below] {$d$};
  \draw[->] (0,0)--(\rx,\ry) node[midway,above left] {$R$};
  \node[anchor=north] at ({(\R+\D)/2},-0.28) {$D=R^2/d$};
- \node at ({1.18*\rx},{1.18*\ry}) {$r=R$};
+ \node[above left] at ({1.4*\rx},{1.4*\ry}) {$r=R$};
 \end{tikzpicture}
 \end{center}
 

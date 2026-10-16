@@ -1,4 +1,4 @@
-% Standalone XeLaTeX source; source problem: 2011ap_exam.pdf, PDF pp. 10--11.
+% Source problem: 2011ap_exam.pdf, PDF pp. 10--11.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -11,7 +11,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集 ver2\\2011年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2011年 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
@@ -50,7 +50,6 @@
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[>=Stealth,x=1.1cm,y=0.7cm]
-  % Plot in ka and |gamma| units. The displayed beta ratio is illustrative.
   \pgfmathsetmacro{\gammaVal}{-1}
   \pgfmathsetmacro{\betaVal}{-0.5}
   \pgfmathsetmacro{\gammaMagnitude}{abs(\gammaVal)}
@@ -61,7 +60,7 @@
   \draw[->] (-3.35,\axisBase) -- (\axisRight,\axisBase) node[right] {$k$};
   \draw[dashed] (-pi,0) -- (pi,0);
   \draw[dash dot] (-pi,\atomicLevel) -- (pi,\atomicLevel);
-  \node[anchor=west] at (0.2,\atomicLevel+0.15) {$E_A$};
+  \node[anchor=west] at (0.2,\atomicLevel+0.45) {$E_A$};
   \draw[->] (-2.2,\atomicLevel) -- (-2.2,0) node[midway,left] {$2\beta<0$};
   \draw[<->] (pi+0.12,-2) -- (pi+0.12,2) node[midway,right] {$4|\gamma|$};
   \draw[thick,samples=100] plot[domain=-180:180] ({\x*pi/180},{2*\gammaVal*cos(\x)});
@@ -208,8 +207,8 @@ $\delta\ne0$ はAとBの混成を生む。交差点近傍では固有値が分�
     ({\x*pi/180},{(\detuning+2*\gammaVal*cos(\x))/2+sqrt(((\detuning+2*\gammaVal*cos(\x))/2)^2+\mixing^2)});
   \pgfmathsetmacro{\crossing}{-acos(-\detuning/(2*\gammaVal))*pi/180}
   \draw[<->] (\crossing,-\mixing)--(\crossing,\mixing);
-  \draw[thin] (\crossing,0)--(-0.7,-0.45);
-  \node[below] at (-0.7,-0.45) {$2|\delta|$};
+  \draw[thin] (\crossing,\mixing+0.04)--(-0.4,0.35);
+  \node[above] at (-0.4,0.35) {$2|\delta|$};
   \node[above] at (2.65,\aTop+0.02) {$E_+$};
   \node[below] at (-0.1,\aBottom-0.02) {$E_-$};
 \end{scope}
@@ -273,12 +272,11 @@ $\delta\ne0$ はAとBの混成を生む。交差点近傍では固有値が分�
     ({\x*pi/180},{(\detuning+2*\gammaVal*cos(\x))/2+sqrt(((\detuning+2*\gammaVal*cos(\x))/2)^2+\mixing^2)});
   \node[above] at (0,\aBottom+0.08) {$E_+$};
   \node[below] at (1.5,-0.08) {$E_-$};
-  % Magnify the exact downward shift of the B-like state at ka=0.
   \pgfmathsetmacro{\bShift}{sqrt((\detuning+2*\gammaVal)^2/4+\mixing^2)-(\detuning+2*\gammaVal)/2}
   \pgfmathsetmacro{\zoom}{200}
   \pgfmathsetmacro{\zoomTop}{-3.4}
   \pgfmathsetmacro{\zoomBottom}{\zoomTop-\zoom*\bShift}
-  \draw[gray] (-2.1,-5.7) rectangle (3.8,-2.75);
+  \draw[gray] (-2.8,-5.7) rectangle (3.8,-2.75);
   \node[above] at (0.85,-2.75) {$ka=0$; shift $\times200$};
   \draw[gray,dashed] (-0.95,\zoomTop)--(0.35,\zoomTop);
   \node[left] at (-0.95,\zoomTop) {$E_B$};
