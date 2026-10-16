@@ -22,6 +22,15 @@ categories:
 # アイテムリスト
 items:
   - title:
+      en: "Gödel's Incompleteness Theorems"
+      ja: "ゲーデルの不完全性定理"
+    category: notes
+    url: /notes/godel-incompleteness/
+    description:
+      en: A Japanese note on self-reference, Gödel numbering, and incompleteness.
+      ja: 自己言及、ゲーデル数化、不完全性定理についてのノート。
+
+  - title:
       en: "Non-invertible Symmetry-Protected Topological Phases"
       ja: "非可逆対称性に保護されたトポロジカル相"
     category: notes
