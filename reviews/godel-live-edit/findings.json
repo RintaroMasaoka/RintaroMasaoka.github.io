@@ -103,14 +103,28 @@
       "location": "§1 型→形式化→ヒルベルトの接続",
       "feedback": "まだつながっていない",
       "repair_condition": "特定のパラドックスの回避→体系全体の無矛盾性という未解決の問い→証明そのものを数学の対象とする目的を明示する",
+      "status": "published"
+    },
+    {
+      "id": "F16",
+      "location": "§1より前",
+      "feedback": "そもそもこのノートがどういうものであるかの導入を最初に入れる",
+      "repair_condition": "主題・説明の方法・概説としての範囲が分かる短い導入を追加する",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F17",
+      "location": "§1末尾",
+      "feedback": "番号づけ・翻訳・自己言及の要約は分かる人にしか分からない",
+      "repair_condition": "未習の技術的要約を外し、読み始めた時点で分かる問いと次節へ進む理由を示す",
       "status": "edited-awaiting-publication"
     }
   ],
-  "source_sha256": "d9792d4f15395cd8e87b23c7671510c5f7edef768f70a93c6013d43c1e847902",
+  "source_sha256": "8523ecf0550e2d714c64551d4a6d05678f9a81f409376e12989e15a7e94398f1",
   "publication": {
     "url": "https://rintaromasaoka.github.io/notes/godel-incompleteness/",
-    "commit": "3c002972e9e2909b748bf1797428b8487a03ff7c",
-    "run": 38902893129,
+    "commit": "7704e2a0f01d7c58f6aa10a9ee5e3ca5f5aaab3f",
+    "run": 38905391136,
     "status": "success",
     "liveHttpStatus": 200
   }

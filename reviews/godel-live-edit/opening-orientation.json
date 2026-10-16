@@ -1,0 +1,35 @@
+{
+  "source_sha256": "8523ecf0550e2d714c64551d4a6d05678f9a81f409376e12989e15a7e94398f1",
+  "scope": [
+    "paragraph before section 1",
+    "last paragraph of section 1"
+  ],
+  "purpose": "Orient reader to note genre/scope and give an intelligible next step without a premature technical synopsis",
+  "goal_evidence": "User explicitly requests an initial explanation of what the note is and flags technical synopsis as accessible only to knowledgeable readers.",
+  "reader": "Mathematically interested, no formal-logic expertise licensed",
+  "perspective": "orientation intelligibility only",
+  "reviewer": "opening_orientation_reader",
+  "method": "fresh no-history reviewer; first paragraph frozen before separate local ending excerpt; no tools",
+  "verdicts": [
+    {
+      "unit": "note_description",
+      "verdict": "PASS",
+      "evidence": "ゲーデルの不完全性定理が何を述べ、どんな考え方で証明されるのかをたどる概説"
+    },
+    {
+      "unit": "section_1_exit",
+      "verdict": "PASS",
+      "evidence": "まず、規則に従って証明するとはどういうことかを、短い例で確かめよう。"
+    }
+  ],
+  "limits": [
+    "Not a scientific or full-route acceptance audit",
+    "Section-1 ending reviewed as a contextual excerpt with specified actual prior state"
+  ],
+  "checks": [
+    "Unchanged manuscript from section 2 onwards",
+    "Unchanged historical opening within section 1",
+    "Production build",
+    "175 rendered formula instances, no KaTeX error"
+  ]
+}
