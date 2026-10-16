@@ -127,7 +127,7 @@ $$\mathrm{Prov}(\ulcorner\varphi\urcorner)\coloneqq \exists m\,\mathrm{Proof}(m,
 
 ここでは、自由変数が $x$ だけの式を扱う。それに当たる式の番号でない入力に対しては、出力を $0$ と決めておく。これで、どの自然数を入力しても出力が一つ決まる。
 
-具体例として、$x=0$ の番号を入力してみよう。まず復号すると $x=0$ が得られる。この入力番号を表す数項は、既存の記法で $\ulcorner x=0\urcorner$ と書ける。これを $x$ の位置へ入れると、次の文になる。
+具体例として、$\ulcorner x=0\urcorner$ を入力してみよう。まず復号すると $x=0$ が得られる。この入力番号を表す数項は、既存の記法で $\ulcorner x=0\urcorner$ と書ける。これを $x$ の位置へ入れると、次の文になる。
 
 $$\ulcorner x=0\urcorner=0$$
 
