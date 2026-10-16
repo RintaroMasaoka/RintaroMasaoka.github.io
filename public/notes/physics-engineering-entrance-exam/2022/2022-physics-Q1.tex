@@ -1,0 +1,112 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2022ap_exam.pdf, PDF pp. 2--3.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2022年 物理学 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 1次元無限深井戸の固有状態}
+井戸の内部 $-a<x<a$ では $-\hbar^2\psi''/(2m)=E\psi$、壁では $\psi(\pm a)=0$ である。規格化された非零の固有状態について、部分積分と壁の条件から
+\begin{equation}
+ E=\int_{-a}^a\psi^*\!\left(-\frac{\hbar^2}{2m}\psi''\right)dx
+ =\frac{\hbar^2}{2m}\int_{-a}^a|\psi'|^2dx>0.
+\end{equation}
+従って$k=\sqrt{2mE}/\hbar>0$は実数である。内部の一般解は正弦と余弦の線形結合であり、左端の条件を満たす形は$\psi(x)=C\sin[k(x+a)]$となる。右端の条件は
+\begin{equation}
+ \psi(a)=C\sin(2ka)=0.
+\end{equation}
+非零状態では$C\ne0$なので、$2ka=n\pi$、すなわち$k_n=n\pi/(2a)$ ($n=1,2,\ldots$) を得る。奇数 $n=2l+1$ ($l=0,1,\ldots$) では余弦、偶数 $n=2l$ ($l=1,2,\ldots$) では正弦が境界条件を満たす。規格化を行うと
+\[
+\boxed{\psi_{2l+1}(x)=\frac1{\sqrt a}\cos\!\left(\frac{(2l+1)\pi x}{2a}\right)\quad(l=0,1,\ldots)},\qquad
+\boxed{\psi_{2l}(x)=\frac1{\sqrt a}\sin\!\left(\frac{l\pi x}{a}\right)\quad(l=1,2,\ldots)}.
+\]
+したがって全準位のエネルギーは
+\[
+\boxed{E_n=\frac{\hbar^2 k_n^2}{2m}=\frac{\hbar^2\pi^2n^2}{8ma^2}},\quad n=1,2,\ldots.
+\]
+特に $\psi_1(x)=a^{-1/2}\cos(\pi x/2a)$ を含む。
+
+\section*{[1.2] 反転パリティ}
+奇数準位の余弦は偶関数、偶数準位の正弦は奇関数なので
+\[
+\hat P\psi_n(x)=\psi_n(-x)=\boxed{(-1)^{n+1}\psi_n(x)}.
+\]
+固有値は $n$ が奇数なら $+1$、偶数なら $-1$ である。
+
+\section*{[2.1] 座標交換}
+分離解のエネルギーは $E_{n_x,n_y}=E_{n_x}+E_{n_y}=\hbar^2\pi^2(n_x^2+n_y^2)/(8ma^2)$ である。座標を交換すると
+\[
+\hat M\Psi_{1,1}=\psi_1(y)\psi_1(x)=\Psi_{1,1},\qquad
+\hat M\Psi_{2,2}=\psi_2(y)\psi_2(x)=\Psi_{2,2}.
+\]
+両状態の $\hat M$ 固有値は $+1$ である。
+
+\section*{[2.2] $\hat H$ と $\hat M$ の同時固有状態}
+第一励起部分空間の二つの直交した積状態は縮退している。交換演算子はこれらを入れ替えるので、正の実係数の規約に従う規格化同時固有状態は
+\[
+\boxed{|\Psi_+\rangle=\frac{\Psi_{2,1}+\Psi_{1,2}}{\sqrt2},\quad \hat M|\Psi_+\rangle=+|\Psi_+\rangle},\qquad
+\boxed{|\Psi_-\rangle=\frac{\Psi_{2,1}-\Psi_{1,2}}{\sqrt2},\quad \hat M|\Psi_-\rangle=-|\Psi_-\rangle}.
+\]
+
+\section*{[2.3] 交換固有状態の角運動量}
+$x\leftrightarrow y$ は $\hat L=-i\hbar(x\partial_y-y\partial_x)$ の符号を反転するため
+\[
+\hat M\hat L\hat M=-\hat L.
+\]
+$\hat M|\Psi_\pm\rangle=\pm|\Psi_\pm\rangle$ より
+\[
+\langle\Psi_\pm|\hat L|\Psi_\pm\rangle
+=\langle\Psi_\pm|\hat M(-\hat L)\hat M|\Psi_\pm\rangle
+=-\langle\Psi_\pm|\hat L|\Psi_\pm\rangle,
+\qquad \boxed{\langle\hat L\rangle_\pm=0}.
+\]
+
+\section*{[2.4] 四回回転の固有値}
+$\psi_1$ は偶関数、$\psi_2$ は奇関数であり、$\hat C_4\Psi(x,y)=\Psi(-y,x)$ だから
+\[
+\hat C_4\Psi_{1,1}=\psi_1(-y)\psi_1(x)=\Psi_{1,1},\qquad
+\hat C_4\Psi_{2,2}=\psi_2(-y)\psi_2(x)=-\Psi_{2,2}.
+\]
+固有値はそれぞれ $+1,-1$ である。
+
+\section*{[2.5] $\hat H$ と $\hat C_4$ の同時固有状態}
+第一励起部分空間では
+\[
+\hat C_4\Psi_{2,1}=-\Psi_{1,2},\qquad \hat C_4\Psi_{1,2}=\Psi_{2,1}.
+\]
+従って、正の実係数の規約で規格化された回転固有状態は
+\[
+\boxed{|\Psi'_+\rangle=\frac{\Psi_{2,1}+i\Psi_{1,2}}{\sqrt2},\quad \hat C_4|\Psi'_+\rangle=+i|\Psi'_+\rangle},\qquad
+\boxed{|\Psi'_-\rangle=\frac{\Psi_{2,1}-i\Psi_{1,2}}{\sqrt2},\quad \hat C_4|\Psi'_-\rangle=-i|\Psi'_-\rangle}.
+\]
+
+\section*{[2.6] 回転固有状態の角運動量}
+$A=\langle\psi_2|x|\psi_1\rangle$ と $B=\langle\psi_1|\hat p|\psi_2\rangle$ とおく。問題の積分公式を用いると
+\[
+A=\frac1a\int_{-a}^{a}x\sin\!\left(\frac{\pi x}{a}\right)\cos\!\left(\frac{\pi x}{2a}\right)dx
+=\frac{32a}{9\pi^2},\qquad
+B=-\frac{i\hbar\pi}{a^2}\int_{-a}^{a}\cos\!\left(\frac{\pi x}{2a}\right)\cos\!\left(\frac{\pi x}{a}\right)dx
+=-\frac{4i\hbar}{3a}.
+\]
+ここで $\hat L=x\hat p_y-y\hat p_x$ である。異なる積状態間の行列要素は
+\[
+\langle\Psi_{2,1}|\hat L|\Psi_{1,2}\rangle
+=A B-\langle\psi_2|\hat p|\psi_1\rangle A
+=A(B-B^*)=-\frac{256i\hbar}{27\pi^2}.
+\]
+対角要素は実の積状態の運動量平均がゼロなので消える。$C=\langle\Psi_{2,1}|\hat L|\Psi_{1,2}\rangle=-256i\hbar/(27\pi^2)$と書けば、$\Psi'_+$の交差項は$i(C-C^*)/2=256\hbar/(27\pi^2)$であり、$\Psi'_-$ではその符号が反転する。従って
+\[
+\boxed{\langle\Psi'_\pm|\hat L|\Psi'_\pm\rangle=\pm\frac{256\hbar}{27\pi^2}}.
+\]
+回転固有値 $\pm i$ の状態が反対符号の角運動量を持つ。
+\end{document}

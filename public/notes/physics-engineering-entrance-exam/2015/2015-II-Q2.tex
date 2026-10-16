@@ -1,0 +1,161 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF pages 8–9.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2015年 物理学II 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 可逆断熱膨張}
+エントロピーを$P,T$の関数とみると、全微分は
+\begin{equation}
+  \mathrm dS=\left(\frac{\partial S}{\partial P}\right)_T\mathrm dP
+   +\left(\frac{\partial S}{\partial T}\right)_P\mathrm dT.
+\end{equation}
+マクスウェル関係と$C_P=T(\partial S/\partial T)_P$、熱膨張率
+$\alpha=V^{-1}(\partial V/\partial T)_P$を使うと
+\begin{equation}
+  \mathrm dS=-\alpha V\,\mathrm dP+\frac{C_P}{T}\,\mathrm dT.
+\end{equation}
+可逆断熱過程では$\mathrm dS=0$だから、
+\begin{equation}
+  \boxed{\left(\frac{\partial T}{\partial P}\right)_S
+  =\frac{TV\alpha}{C_P}}.
+\end{equation}
+理想気体は$V=RT/P$なので、一定圧力で$\partial V/\partial T=R/P=V/T$となり
+\begin{equation}
+  \boxed{\alpha_{\mathrm{ideal}}=\frac1T}.
+\end{equation}
+
+\section*{[2] ジュール・トムソン膨張のエンタルピー}
+多孔栓を通る定常流を、栓の両側を含む断熱制御体積として考える。外部との熱交換はなく、軸仕事もなく、流速と高さの変化による運動・位置エネルギーの差を無視する。入口側が流体を押す圧力仕事は$P_1V_1$、出口側で流体がする仕事は$P_2V_2$なので、単位モル当たりの第一法則は$U_2-U_1=P_1V_1-P_2V_2$となる。従って$H=U+PV$とおけば入口・出口で
+\begin{equation}
+  H_1=H_2
+\end{equation}
+となる。これは等エンタルピー条件であり、栓を通る過程を等エントロピーとする主張ではない。断熱でも、不可逆過程ではエントロピーは生成されうる。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,font=\small]
+ % Schematic layout: symmetric chamber, end pistons and a centered porous plug.
+ \pgfmathsetmacro{\halfLength}{4}
+ \pgfmathsetmacro{\halfHeight}{0.65}
+ \pgfmathsetmacro{\pistonInset}{1.5}
+ \pgfmathsetmacro{\pistonHalfWidth}{0.1}
+ \pgfmathsetmacro{\plugHalfWidth}{0.16}
+ \pgfmathsetmacro{\leftPiston}{-\halfLength+\pistonInset}
+ \pgfmathsetmacro{\rightPiston}{\halfLength-\pistonInset}
+ \draw[thick] (-\halfLength,\halfHeight)--(\halfLength,\halfHeight);
+ \draw[thick] (-\halfLength,-\halfHeight)--(\halfLength,-\halfHeight);
+ \draw[thick,fill=gray!35] ({\leftPiston-\pistonHalfWidth},-\halfHeight) rectangle ({\leftPiston+\pistonHalfWidth},\halfHeight);
+ \draw[thick,fill=gray!35] ({\rightPiston-\pistonHalfWidth},-\halfHeight) rectangle ({\rightPiston+\pistonHalfWidth},\halfHeight);
+ \draw[thick,fill=gray!20] (-\plugHalfWidth,-\halfHeight) rectangle (\plugHalfWidth,\halfHeight);
+ \foreach \y in {-0.45,-0.15,0.15,0.45}
+   \draw[fill=white] (0,\y) circle (0.035);
+ \node at ({(\leftPiston-\plugHalfWidth)/2},0.2) {$P_1,V_1,T_1$};
+ \node at ({(\rightPiston+\plugHalfWidth)/2},0.2) {$P_2,V_2,T_2$};
+ \draw[->,thick] (-3.8,0)--(-2.9,0);
+ \draw[->,thick] (2.9,0)--(3.8,0);
+ \draw[->,thick] (-0.65,-0.3)--(0.65,-0.3);
+ \draw[thin] (\leftPiston,-\halfHeight)--({\leftPiston-0.3},-1.1);
+ \node[below] at ({\leftPiston-0.3},-1.1) {ピストン1};
+ \draw[thin] (\rightPiston,-\halfHeight)--({\rightPiston+0.3},-1.1);
+ \node[below] at ({\rightPiston+0.3},-1.1) {ピストン2};
+ \draw[thin] (0,-\halfHeight)--(0,-1.5);
+ \node[below] at (0,-1.5) {細孔栓};
+\end{tikzpicture}
+\caption{断熱された細孔栓の入口・出口状態。}
+\label{fig:throttle}
+\end{figure}
+
+\section*{[3] ジュール・トムソン係数}
+エンタルピーを$P,T$の関数として微分する。
+\begin{equation}
+  \mathrm dH=C_P\,\mathrm dT+
+  \left(\frac{\partial H}{\partial P}\right)_T\mathrm dP.
+\end{equation}
+$\mathrm dH=\mathrm dU+P\,\mathrm dV+V\,\mathrm dP=T\,\mathrm dS+V\,\mathrm dP$ とマクスウェル関係から
+$(\partial H/\partial P)_T=V-T(\partial V/\partial T)_P=V(1-T\alpha)$。
+従って等エンタルピー条件$\mathrm dH=0$では
+\begin{equation}
+  \boxed{\left(\frac{\partial T}{\partial P}\right)_H
+    =\frac{V(T\alpha-1)}{C_P}}.
+\end{equation}
+[1]の係数との差は
+\begin{equation}
+  \left(\frac{\partial T}{\partial P}\right)_H
+  -\left(\frac{\partial T}{\partial P}\right)_S
+  =-\frac{V}{C_P}<0,
+\end{equation}
+ここで$V>0,C_P>0$を用いた。理想気体では$T\alpha=1$なので、
+\begin{equation}
+  \boxed{\left(\frac{\partial T}{\partial P}\right)_{H,\mathrm{ideal}}=0}.
+\end{equation}
+
+\section*{[4] 低密度での状態方程式}
+この小問で用いる van der Waals の状態方程式は
+\begin{equation}
+  \left(P+\frac{a}{V^2}\right)(V-b)=RT.
+\end{equation}
+これを$P$について解くと
+\begin{equation}
+  P=\frac{RT}{V-b}-\frac{a}{V^2},
+  \qquad
+  PV=\frac{RT}{1-b/V}-\frac{a}{V}.
+\end{equation}
+$b/V\ll1$で$1/(1-b/V)\simeq1+b/V$と展開する。
+\begin{align}
+  PV&\simeq RT+\frac{RTb-a}{V}\\
+    &=RT\left[1+\left(1-\frac{a}{bRT}\right)\frac bV\right].
+\end{align}
+従って
+\begin{equation}
+  \boxed{B(T)=1-\frac{a}{bRT}}.
+\end{equation}
+ボイル温度$T_B=a/(Rb)$では$B(T_B)=0$となり、低密度での一次の非理想補正が消える。これは密度の一次の範囲で理想気体に近づくという意味である。
+
+\section*{[5] 逆転温度}
+ここでも原問題の$V\gg b$、$T\ge T_B$の範囲で近似を用いる。与えられた近似を$T$で微分すると
+\begin{equation}
+  V\simeq\frac{RT}{P}+b-\frac{a}{RT},
+  \qquad
+  \left(\frac{\partial V}{\partial T}\right)_P
+  \simeq\frac RP+\frac{a}{RT^2}.
+\end{equation}
+一般式$\mu_{\mathrm{JT}}=[T(\partial V/\partial T)_P-V]/C_P$に代入して
+\begin{equation}
+  \boxed{\mu_{\mathrm{JT}}
+  =\left(\frac{\partial T}{\partial P}\right)_H
+  \simeq\frac1{C_P}\left(\frac{2a}{RT}-b\right)}.
+\end{equation}
+係数がゼロとなる逆転温度は
+\begin{equation}
+  \boxed{T_{\mathrm{inv}}=\frac{2a}{Rb}=2T_B}.
+\end{equation}
+この近似の範囲で、$T_B\le T<T_{\mathrm{inv}}$では$\mu_{\mathrm{JT}}>0$なので減圧時に冷え、$T>T_{\mathrm{inv}}$では$\mu_{\mathrm{JT}}<0$なので減圧時に温まる。
+
+\section*{[6] 排除体積だけがある場合}
+$a$の寄与を無視したとき、相互作用は排除体積だけであり、粒子間ポテンシャルエネルギーは温度に依存しない定数として扱える。従って内部エネルギー$U$は運動エネルギーで決まり、温度だけに依存する。一方、状態方程式は$P(V-b)=RT$なので
+\begin{equation}
+  H=U+PV=U+RT\frac{V}{V-b}
+   =U+RT\left(1+\frac{b}{V-b}\right).
+\end{equation}
+温度を固定して体積を増やすと$V/(V-b)=1+b/(V-b)$は減少する。$C_V=(\partial U/\partial T)_V>0$を用いて$H$の全微分を取ると
+\begin{equation}
+ dH=\left(C_V+\frac{RV}{V-b}\right)dT-\frac{RTb}{(V-b)^2}dV.
+\end{equation}
+したがってジュール・トムソン過程の$dH=0$で$dV>0$なら$dT>0$となる。これは$\mu_{\mathrm{JT}}=-b/C_P<0$と減圧時の$\mathrm dP<0$から$\mathrm dT>0$となることにも一致する。
+
+\end{document}

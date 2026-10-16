@@ -1,0 +1,156 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2020ap_exam.pdf, PDF pp. 5--6.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2020年 物理学 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 時間発展演算子}
+時間に依らない $\hat H$ に対し、シュレーディンガー方程式の形式解は
+\begin{equation}
+ \boxed{\hat U(t-t_0)=
+       \exp\!\left[-\frac{i}{\hbar}\hat H(t-t_0)\right]}.
+ \label{eq:U-general}
+\end{equation}
+指数中は無次元であり、$\hat U(0)=\hat I$ を満たす。$\hat H$ は時間に
+依存しないので、時間順序積は必要ない。
+
+\section*{[2] ユニタリー性}
+$\hat H^\dagger=\hat H$ より
+\[
+ \hat U(t-t_0)^\dagger=
+ \exp\!\left[+\frac{i}{\hbar}\hat H(t-t_0)\right].
+\]
+指数の中身は同じ演算子のスカラー倍なので互いに可換であり、
+\begin{equation}
+ \hat U^\dagger\hat U
+ =\exp\!\left[+\frac{i}{\hbar}\hat H(t-t_0)\right]
+  \exp\!\left[-\frac{i}{\hbar}\hat H(t-t_0)\right]
+ =\hat I.
+\end{equation}
+従って $\hat U$ はユニタリーである。
+
+\section*{[3] 状態ベクトルの内積}
+時間発展した状態について
+\begin{align}
+ \langle\psi(t)|\psi(t)\rangle
+ &=\langle\psi_0|\hat U(t-t_0)^\dagger
+                     \hat U(t-t_0)|\psi_0\rangle\\
+ &=\langle\psi_0|\hat I|\psi_0\rangle
+ =\langle\psi_0|\psi_0\rangle,
+\end{align}
+となり、ノルムは保存される。
+
+\section*{[4] $z$ 軸周りの発展}
+$\hat H=a\hat\sigma_z$ なので、$\hat\sigma_z$ の固有値 $+1,-1$ に
+対応して時間発展演算子は
+\begin{equation}
+ \boxed{\hat U(\tau)=
+ \begin{pmatrix}
+  e^{-ia\tau/\hbar}&0\\
+  0&e^{ia\tau/\hbar}
+ \end{pmatrix}}.
+\end{equation}
+
+\section*{[5] 位相シフト}
+一つの選択として
+\begin{equation}
+ \hat H=\begin{pmatrix}
+  0&0\\[2pt]0&-\hbar\phi/\tau
+ \end{pmatrix}
+\end{equation}
+とすれば、$\exp(-i\hat H\tau/\hbar)
+=\operatorname{diag}(1,e^{i\phi})=\hat U_\phi$ となる。
+$c\hat I_2$ を加えると時間発展全体に $e^{-ic\tau/\hbar}$ が掛かるため、
+絶対位相を無視する場合にはそのようなハミルトニアンも同じ相対位相を実現する。
+
+\section*{[6] NOT ゲート}
+パウリ行列は $\hat\sigma_x^2=\hat I_2$ を満たす。この関係で指数級数を偶数次と奇数次に分けると、任意の実数$x$について
+\begin{equation}
+ e^{ix\hat\sigma_x}=\sum_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}\hat I_2
+ +i\sum_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!}\hat\sigma_x
+ =\cos x\,\hat I_2+i\sin x\,\hat\sigma_x
+\end{equation}
+となる。従って
+\begin{equation}
+ \hat H=\frac{\pi\hbar}{2\tau}(\hat I_2-\hat\sigma_x)
+ =\frac{\pi\hbar}{2\tau}
+ \begin{pmatrix}1&-1\\-1&1\end{pmatrix}
+\end{equation}
+とすると
+\begin{align}
+ \hat U(\tau)
+ &=e^{-i\pi(\hat I_2-\hat\sigma_x)/2}
+ =e^{-i\pi/2}e^{i\pi\hat\sigma_x/2}
+ =(-i)(i\hat\sigma_x)=\hat\sigma_x.
+\end{align}
+
+\section*{[7] 任意方向のパウリ演算子}
+\[
+ \boldsymbol n=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta),
+ \qquad \hat N=\boldsymbol n\cdot\hat{\boldsymbol\sigma}
+\]
+とおく。$|\boldsymbol n|=1$ であり、パウリの積
+$\hat\sigma_j\hat\sigma_k=\delta_{jk}\hat I_2+
+i\sum_l\epsilon_{jkl}\hat\sigma_l$ の反対称項は $n_jn_k$ と縮約すると消える。
+よって $\hat N^2=\hat I_2$ である。$c=\cos(a\tau/\hbar)$、$s=\sin(a\tau/\hbar)$とこの節で略記する。$\hat N$ と $\hat I_2$ は可換で、[6]と同じ偶奇分離を$\hat N$に適用すると
+\begin{align}
+ \hat U(\tau)
+ &=e^{-ib\tau/\hbar}
+   e^{-ia\tau\hat N/\hbar}\\
+ &=e^{-ib\tau/\hbar}
+   \left[\cos\!\left(\frac{a\tau}{\hbar}\right)\hat I_2
+   -i\sin\!\left(\frac{a\tau}{\hbar}\right)\hat N\right]\\
+ &=e^{-ib\tau/\hbar}
+ \begin{pmatrix}
+  c-is\cos\theta&-is\sin\theta e^{-i\phi}\\
+  -is\sin\theta e^{i\phi}&c+is\cos\theta
+ \end{pmatrix},
+ \label{eq:general-pauli-U}
+\end{align}
+
+
+\section*{[8] アダマールゲート}
+与えられた $\hat U_H$ はエルミートかつ $\hat U_H^2=\hat I_2$ である。
+従って
+\begin{equation}
+ \hat H=\frac{\pi\hbar}{2\tau}(\hat I_2-\hat U_H)
+ =\frac{\pi\hbar}{2\sqrt2\tau}
+ \begin{pmatrix}\sqrt2-1&-1\\-1&\sqrt2+1\end{pmatrix}
+\end{equation}
+と選べば、$\exp[-i\hat H\tau/\hbar]=\hat U_H$ である。
+
+\section*{[9] 制御位相シフト}
+計算基底の順を $(|00\rangle,|01\rangle,|10\rangle,|11\rangle)$ とする。
+対角ハミルトニアン
+\begin{equation}
+ \hat H=\operatorname{diag}
+ \left(0,0,0,-\frac{\hbar\phi}{\tau}\right)
+\end{equation}
+を用いると
+$\exp(-i\hat H\tau/\hbar)=\operatorname{diag}(1,1,1,e^{i\phi})$
+となり、指定された $\hat U_{C-\phi}$ を得る。
+
+\section*{[10] 制御 NOT}
+指定された $\hat U_{\rm CNOT}$ はエルミートで、
+$\hat U_{\rm CNOT}^2=\hat I_4$ である。従って
+\begin{equation}
+ \hat H=\frac{\pi\hbar}{2\tau}
+       (\hat I_4-\hat U_{\rm CNOT})
+ =\frac{\pi\hbar}{2\tau}
+ \begin{pmatrix}
+  0&0&0&0\\0&0&0&0\\0&0&1&-1\\0&0&-1&1
+ \end{pmatrix}
+\end{equation}
+とすれば $\exp(-i\hat H\tau/\hbar)=\hat U_{\rm CNOT}$ となる。
+\end{document}

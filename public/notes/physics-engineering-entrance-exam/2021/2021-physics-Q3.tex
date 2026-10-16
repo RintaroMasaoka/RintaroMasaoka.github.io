@@ -1,0 +1,223 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2021ap_exam.pdf, PDF pp. 6--7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2021年 物理学 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 異種最近接対と内部エネルギー}
+一つの A 原子には $z$ 個の最近接サイトがあり、その B 原子占有確率は $(1-x)$ と近似する。A 原子を持つサイトから数えれば異種対を重複なく数えるため
+\[
+N_{AB}=N_Az\frac{N_B}{N}=zNx(1-x),\qquad
+\boxed{E=zNVx(1-x)}.
+\]
+
+\section*{[2] 配置エントロピー}
+$N_A=xN$, $N_B=(1-x)N$ の配置数は $N!/(N_A!N_B!)$ である。Stirling 近似より
+\begin{align*}
+S&=k_B\log\frac{N!}{N_A!N_B!}\\
+&\simeq k_B[N\log N-N_A\log N_A-N_B\log N_B]\\
+&=\boxed{-k_BN[x\log x+(1-x)\log(1-x)]}.
+\end{align*}
+
+\section*{[3] 自由エネルギー}
+\[
+\boxed{F=E-TS=N\left\{zVx(1-x)+k_BT[x\log x+(1-x)\log(1-x)]\right\}},
+\qquad f(x)=F/N.
+\]
+したがって
+\[
+f(x)=zVx(1-x)+k_BT[x\log x+(1-x)\log(1-x)].
+\]
+微分すると
+\[
+f'(x)=zV(1-2x)+k_BT\log\frac{x}{1-x}.
+\]
+
+\section*{[4] 停留条件関数}
+$f'(x)=0$ を問題の形に整理すると
+\[
+\frac{zV}{k_BT}(2x-1)=g(x),\qquad \boxed{g(x)=\log\frac{x}{1-x}}.
+\]
+$g(1-x)=-g(x)$ で、$g'(x)=1/[x(1-x)]$、特に $g'(1/2)=4$。
+
+\section*{[5] 臨界温度}
+中心近傍で交点の個数が変わるのは、直線と$g(x)$の傾きの差$g'(x)-2zV/(k_BT)$が中心でゼロになるときである。$g'(x)=1/[x(1-x)]$は中心で最小値4を取るため、臨界点では直線の傾き $2zV/(k_BT)$ と $g'(1/2)=4$ が一致する。従って
+\[
+\boxed{T_{c0}=\frac{zV}{2k_B}}.
+\]
+
+\section*{[6] 交点による臨界温度の判定}
+以下の図では同じ $g(x)$ と、傾き $zV/(k_BT)$ に比例する直線を比較する。$T>T_{c0}$ では中心 $x=1/2$ でのみ交わる。$T<T_{c0}$ では中心に加えて二つの対称な交点 $x=1/2\pm\delta_0$ が生じる。
+\begin{center}
+\begin{tikzpicture}[x=5.4cm,y=0.54cm]
+\draw[->] (0,-4.4)--(1.04,-4.4) node[right] {$x$};
+\draw[->] (0,-4.5)--(0,4.5) node[above] {$y$};
+\draw[thick] plot[domain=0.02:0.98,samples=181] (\x,{ln(\x/(1-\x))});
+\draw[blue,dashed] plot[domain=0:1,samples=2] (\x,{(2/2)*(2*\x-1)});
+\draw[red,thick] plot[domain=0:1,samples=2] (\x,{(2/0.5)*(2*\x-1)});
+\draw[dashed] (0.5,-4.2)--(0.5,4.2);
+\node at (0.76,2.8) {$g(x)$};
+\node[blue] at (0.82,0.4) {$T/T_{c0}=2$};
+\node[red] at (0.81,3.65) {$T/T_{c0}=1/2$};
+\node[below] at (0.5,-4.4) {$1/2$};
+\end{tikzpicture}
+\end{center}
+図の直線の傾きは高温側で $2zV/(k_BT)<4$、低温側で $2zV/(k_BT)>4$ である。ここで青・赤の直線はそれぞれ代表温度を表す。
+
+\section*{[7] 変曲点の位置}
+\[
+f''(x)=-2zV+k_BT\left(\frac1x+\frac1{1-x}\right)
+=-2zV+\frac{k_BT}{x(1-x)}.
+\]
+$f''(x)=0$ から
+\[
+x(1-x)=\frac{k_BT}{2zV},\qquad
+\boxed{\delta_1(T)=\sqrt{\frac14-\frac{k_BT}{2zV}}
+=\frac12\sqrt{1-\frac{T}{T_{c0}}}}.
+\]
+$T<T_{c0}$ なら二つの実変曲点がある。原問は $T=T_{c0}$ も変曲点の範囲に含めるが、この極限では $\delta_1=0$ かつ $f''(1/2)=0$ で、$f''$ はその両側で正となる。したがって臨界組成は曲率がゼロになる退化点であり、厳密には変曲点ではない。
+
+\section*{[8] 低温の自由エネルギー曲線}
+$0<T<T_{c0}$ では中心で $f'(1/2)=0$、$f''(1/2)<0$ なので、$x=1/2$ は局所最大である。右側では
+\[
+ f''(x)<0\quad\left(\frac12<x<\frac12+\delta_1\right),
+ \qquad
+ f'\!\left(\frac12+\delta_1\right)<0.
+\]
+その外側では $f''(x)>0$ であり、$f'(x)$ は増加して $x\to1$ で $+\infty$ に発散する。従って再び $f'(x)=0$ となる点は変曲点より外側に一つだけあり、これが $x=1/2+\delta_0$ の極小である。対称性 $f(1-x)=f(x)$ より左側にも同じ高さの極小があり、
+\[
+ \boxed{0<\delta_1<\delta_0<\frac12}.
+\]
+この符号変化から、二つの外側極小が全区間での最小値を与える。変曲点は各極小と中心極大の間にある。端点で $f'(x)$ は対数発散するが $f(x)$ 自体は有限である。
+\begin{center}
+\begin{tikzpicture}[x=5.1cm,y=18cm]
+\pgfmathsetmacro{\t}{0.5}
+\pgfmathsetmacro{\xmin}{0.02124798796136563}
+\pgfmathsetmacro{\xspin}{(1-sqrt(1-\t))/2}
+\draw[->] (0,-0.055)--(1.04,-0.055) node[right] {$x$};
+\draw[->] (0,-0.055)--(0,0.11) node[above] {$f(x)/(zV)$};
+\draw[thick] plot[domain=0.0001:0.9999,samples=301] (\x,{\x*(1-\x)+(\t/2)*(\x*ln(\x)+(1-\x)*ln(1-\x))});
+\foreach \v in {\xmin,\xspin,0.5} {\draw[dashed] (\v,0.02)--(\v,-0.055);\pgfmathsetmacro{\mirror}{1-\v}\draw[dashed] (\mirror,0.02)--(\mirror,-0.055);}
+\node[above right] at (\xmin,0.025) {\small $\frac12-\delta_0$};
+\node[above left] at (\xspin,0.050) {\small $\frac12-\delta_1$};
+\node[above] at (0.5,0.025) {\small $\frac12$};
+\node[above right] at ({1-\xspin},0.050) {\small $\frac12+\delta_1$};
+\node[above left] at ({1-\xmin},0.025) {\small $\frac12+\delta_0$};
+\end{tikzpicture}
+\end{center}
+この図は $T/T_{c0}=1/2$ の例で、$\delta_1=\sqrt{2}/4$、$\delta_0\simeq0.478752$ である。
+
+\section*{[9] 停留点の温度依存}
+外側停留点は
+\[
+\frac{4\delta_0}{T/T_{c0}}=
+\log\frac{1+2\delta_0}{1-2\delta_0}
+\quad(0<\delta_0<1/2)
+\]
+を満たす。これは $\delta_0=0$ という中心解を除いた正の解である。温度曲線は左右対称で、$\delta_0,\delta_1$ はともに $T\to T_{c0}$ で0、$T\to0$ で $1/2$ に近づき、$0<T<T_{c0}$ では $\delta_0>\delta_1$ となる。
+\begin{center}
+\begin{tikzpicture}[x=5.2cm,y=1.8cm]
+\draw[->] (0,0)--(1.04,0) node[right] {$x$};
+\draw[->] (0,0)--(0,1.08) node[above] {$T/T_{c0}$};
+% u parametrizes 2 delta_0=tanh u, T/Tc0=tanh u/u; both sides are one reflection.
+\foreach \sgn in {-1,1} {
+ \draw[thick] plot[domain=0.001:50,samples=501,variable=\u] ({(1+\sgn*(1-exp(-2*\u))/(1+exp(-2*\u)))/2},{(1-exp(-2*\u))/((1+exp(-2*\u))*\u)});
+ \draw[dashed] plot[domain=0:1,samples=121] ({(1+\sgn*sqrt(1-\x))/2},\x);
+}
+\fill (0.5,1) circle(0.5pt);
+\draw[dashed] (0.5,0)--(0.5,1);
+\node at (0.12,0.45) {I};\node at (0.28,0.45) {II};\node at (0.5,0.45) {III};\node at (0.72,0.45) {II};\node at (0.88,0.45) {I};
+\node[above] at (0.5,1) {$1$};
+\node[below] at (0.5,0) {$1/2$};\node[below] at (0,0) {$0$};\node[below] at (1,0) {$1$};
+\node at (0.23,0.87) {$\delta_0$};\node at (0.35,0.72) {$\delta_1$};
+\end{tikzpicture}
+\end{center}
+実線は $u>0$ に対し $2\delta_0=\tanh u$、$T/T_{c0}=\tanh u/u$ で構成した。表示区間は $0.001\le u\le50$ とし、臨界点は $u\to0$ の極限で補う。実線は外側極小の組成 $x=1/2\pm\delta_0$、点線は $f''=0$ となる組成 $x=1/2\pm\delta_1$ を表す。これらの曲線と図中の領域 (I)–(III) の安定性を、以下で相分離後の自由エネルギーと比較して判定する。
+
+\section*{[10] 相分離のレバー則}
+A 原子数保存より $x_0N=sx_1N+(1-s)x_2N$ なので
+\[
+\boxed{s=\frac{x_2-x_0}{x_2-x_1}},\qquad 1-s=\frac{x_0-x_1}{x_2-x_1}.
+\]
+
+\section*{[11] 相分離後の自由エネルギー}
+二相のサイト比で平均した自由エネルギーは
+\[
+\boxed{f^*=sf(x_1)+(1-s)f(x_2)
+=\frac{x_2-x_0}{x_2-x_1}f(x_1)+\frac{x_0-x_1}{x_2-x_1}f(x_2)}.
+\]
+この式は、$f(x_1)$ と $f(x_2)$ を結ぶ直線の $x=x_0$ での高さである。組成 $x_0$ を保つ二相分離で一様相の自由エネルギーを下げられるかどうかは、この高さと $f(x_0)$ の比較で決まる。
+
+$0<T<T_{c0}$ では [8] の対称な二極小について
+\[
+ f\!\left(\frac12-\delta_0\right)
+ =f\!\left(\frac12+\delta_0\right),\qquad
+ f'\!\left(\frac12-\delta_0\right)
+ =f'\!\left(\frac12+\delta_0\right)=0.
+\]
+従って両極小を結ぶ水平線は、両点で曲線に接し、全組成で曲線より下にある共通接線である。$|x_0-1/2|<\delta_0$ のとき、$x_1=1/2-\delta_0$、$x_2=1/2+\delta_0$ と選べばレバー則で $0<s<1$ となり、
+\[
+ f^*=f\!\left(\frac12-\delta_0\right)<f(x_0).
+\]
+どの相の $f$ もこの極小値以上なので、この二相の組成で固定組成の最小自由エネルギーに達する。
+
+一方、$x_0\le1/2-\delta_0$ の外側枝では $f''>0$、$f'(x_0)\le0$ である。凸な左側枝は $x_0$ での接線より上にあり、その接線は $x\ge1/2-\delta_0$ でも極小値以下にとどまる。従って全区間で
+\[
+ f(x)\ge f(x_0)+f'(x_0)(x-x_0).
+\]
+これを $x_1,x_2$ に適用し、レバー則の重みで足すと
+\begin{align*}
+ f^*&\ge f(x_0)+f'(x_0)\{sx_1+(1-s)x_2-x_0\}\\
+ &=f(x_0).
+\end{align*}
+右側の $x_0\ge1/2+\delta_0$ も対称性から同じであり、外側では一様相が最小自由エネルギーを与える。相分離を許した最小自由エネルギーの曲線は、外側の $f(x)$ を残し、二極小の間を共通接線で置き換えた形となる。この曲線は $f$ の下側凸包であり、二極小の組成 $x=1/2\pm\delta_0$ が共存境界を与える。
+
+\section*{[12] 微小ゆらぎに対する局所安定性}
+$x_1=x_0-\delta$, $x_2=x_0+\delta$ ($0<\delta<\min(x_0,1-x_0)$) のとき、二相の組成比は $s=1/2$ となる。Taylor展開を両側で足すと奇数次項が相殺し、
+\begin{equation}
+ f^*-f(x_0)=\frac12f''(x_0)\delta^2
+ +\frac1{24}f''''(x_0)\delta^4+O(\delta^6).
+\end{equation}
+従って二次の自由エネルギー変化が正となる条件は
+\[
+ \boxed{f''(x_0)>0}.
+\]
+これが二次で判定する局所安定条件であり、$f''(x_0)<0$なら十分小さいゆらぎで自由エネルギーが下がる。$f''(x_0)=0$では二次の判定だけでは結論できず、高次項が必要となる。ここで
+\begin{align}
+ f'''(x)&=k_BT\left[-\frac1{x^2}+\frac1{(1-x)^2}\right],\\
+ f''''(x)&=2k_BT\left[\frac1{x^3}+\frac1{(1-x)^3}\right]>0\qquad(T>0).
+\end{align}
+特に臨界点$x_0=1/2$, $T=T_{c0}$では$f''=f'''=0$、$f''''=16zV$なので、
+\begin{equation}
+ f^*-f(1/2)=\frac23zV\delta^4+O(\delta^6)>0.
+\end{equation}
+二次項がゼロでも、この対称ゆらぎに対して一様相は安定である。
+
+\section*{[13] 安定・準安定・不安定領域}
+$T<T_{c0}$ において $|x-1/2|<\delta_1$ では $f''(x)<0$ であり、微小ゆらぎでも相分離するので領域 (III)。$\delta_1<|x-1/2|<\delta_0$ では局所安定だが全体として一様相が最安定ではなく、準安定領域 (II)。$|x-1/2|>\delta_0$ では一様相が最安定で領域 (I) である。これらの開領域は [9] の $\delta_0$ と $\delta_1$ の曲線の間隔に対応する。
+
+低温のスピノーダル境界$|x_0-1/2|=\delta_1$では$f''(x_0)=0$だが、$f'''(x_0)\ne0$である。左右の組成変化を$x_1=x_0-\delta_-$、$x_2=x_0+\delta_+$ ($\delta_-,\delta_+>0$) とすると、レバー則から$s=\delta_+/(\delta_-+\delta_+)$となり、Taylor展開の三次までの平均は
+\begin{equation}
+ f^*-f(x_0)=\frac{\delta_-\,\delta_+(\delta_+-\delta_-)}6f'''(x_0)
+ +O\!\left((\delta_-+\delta_+)^4\right).
+\end{equation}
+$\delta_+-\delta_-$を$f'''(x_0)$と逆符号に選び、固定した比で両方を小さくすれば自由エネルギーを下げられる。従ってこの境界は、一般の非対称な微小相分離に対して局所安定ではない。対称ゆらぎだけの四次項が正であることとは区別する。
+
+一方、臨界温度では
+\begin{equation}
+ f''(x)=zV\left[\frac1{2x(1-x)}-2\right]\ge0,
+\end{equation}
+等号は$x=1/2$の一点だけである。$T>T_{c0}$なら$f''(x)\ge4k_BT-2zV>0$となる。いずれも傾き$f'$は厳密に増加するため、異なる二組成を結ぶ直線は中間の自由エネルギー曲線より上にある。従って任意の非自明な二相分離に対して$f(x_0)<f^*$となり、臨界点を含めて$T\ge T_{c0}$では全組成が (I) である。低温の共存境界$|x-1/2|=\delta_0$上の組成も一様相が最安定である。
+\end{document}

@@ -1,0 +1,148 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2021ap_exam.pdf, PDF pp. 4--5.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2021年 物理学 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 一様な無限鎖}
+$n$ 番目の質点は左右のばねから $k(x_{n+1}-x_n)$, $k(x_{n-1}-x_n)$ の力を受けるため
+\[
+\boxed{m\ddot x_n=k(x_{n+1}-2x_n+x_{n-1})}.
+\]
+
+\section*{[1.2] 平面波の分散関係}
+$x_n=e^{iqn}c_q(t)$ と置くと
+\[
+\boxed{\ddot c_q+\frac{2k}{m}(1-\cos q)c_q=0}
+\quad\left(=\ddot c_q+\frac{4k}{m}\sin^2\frac q2\,c_q=0\right).
+\]
+物理変位はこの複素解の実部である。
+
+\section*{[1.3] 固有振動数}
+$0<q<2\pi$ では
+\[
+\boxed{\omega_q=2\sqrt{\frac{k}{m}}\left|\sin\frac q2\right|},
+\qquad c_q(t)=C_+e^{i\omega_qt}+C_-e^{-i\omega_qt}.
+\]
+$k/m$ の次元は $\mathrm{s}^{-2}$ であり、$\omega_q$ は角振動数の次元を持つ。
+
+\section*{[1.4] 一様変位モード}
+$q=0$ では復元力が消え、$\ddot c_0=0$ より
+\[
+\boxed{c_0(t)=At+B}.
+\]
+定数項は鎖全体の並進、時間一次項は一様速度の並進に対応する。
+
+\section*{[2.1] 質量欠陥を含む運動方程式}
+質量が変わる原点と通常のサイトでは
+\[
+M\ddot x_0=k(x_1-2x_0+x_{-1}),\qquad
+m\ddot x_n=k(x_{n+1}-2x_n+x_{n-1})\quad(n\ne0).
+\]
+隣り合うばねは両質点に等大反対向きの力を及ぼすので、原点の質量だけを $M$ に置き換える。
+
+\section*{[2.2] バルクの振動数}
+欠陥から離れた $n\le-2$ と $n\ge1$ では質量は $m$ である。$e^{\pm iqn-i\omega_qt}$ を代入すれば
+\[
+\boxed{m\omega_q^2=2k(1-\cos q)=4k\sin^2\frac q2},
+\]
+すなわち [1.3] の分散関係が両側で成り立つ。
+
+\section*{[2.3] 界面での連立方程式}
+入射・反射・透過波を
+\[
+x_n(t)=\begin{cases}(e^{iqn}+R_qe^{-iqn})e^{-i\omega_qt},&n\le-1,\\T_qe^{iqn}e^{-i\omega_qt},&n\ge0\end{cases}
+\]
+とする。原点では $x_0=T_qe^{-i\omega_qt}$, $x_1=T_qe^{iq}e^{-i\omega_qt}$, $x_{-1}=(e^{-iq}+R_qe^{iq})e^{-i\omega_qt}$. これを質量 $M$ の運動方程式に代入すると
+\[
+\left(2-\frac{M\omega_q^2}{k}-e^{iq}\right)T_q-e^{iq}R_q=e^{-iq}.
+\]
+$n=-1$ の式には $x_{-2}=(e^{-2iq}+R_qe^{2iq})e^{-i\omega_qt}$ を代入し、バルク分散を使うと
+\[
+2\cos q(e^{-iq}+R_qe^{iq})=e^{-2iq}+R_qe^{2iq}+T_q
+\quad\Longrightarrow\quad \boxed{T_q-R_q=1}.
+\]
+従って
+\[
+\boxed{\left(2-e^{iq}-\frac{4M}{m}\sin^2\frac q2\right)T_q-e^{iq}R_q=e^{-iq},\qquad R_q=T_q-1}.
+\]
+
+\section*{[2.4] 透過・反射振幅}
+$R_q=T_q-1$ を界面式へ代入し、$m\omega_q^2/k=2-2\cos q$ を用いると
+\[
+\boxed{T_q=\frac{e^{-iq}-e^{iq}}
+{2(1-M/m)+(M/m)e^{-iq}-(2-M/m)e^{iq}}},\qquad
+\boxed{R_q=T_q-1}.
+\]
+この複素振幅には界面の位相も含まれる。
+
+\section*{[2.5] 質量極限の解釈}
+$M=m$ では分子・分母が等しく $T_q=1,R_q=0$ となり、鎖は一様で散乱しない。$M\to\infty$ では有限な $0<q<\pi$ に対して $T_q\to0$, $R_q\to-1$ であり、原点が動かない固定端から位相反転して反射する。
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\pgfmathsetmacro{\spacing}{1.2}
+\foreach \n in {-3,...,2} {\draw[thick] ({\n*\spacing},0)--({(\n+1)*\spacing},0);}
+\foreach \n in {-2,...,2} {\filldraw[fill=gray!25] ({\n*\spacing},0) circle(0.18);
+ \ifnum\n=0 \node[above] at (0,0.22) {$M$};\else \node[above] at ({\n*\spacing},0.22) {$m$};\fi}
+\draw[->,very thick] (-3.7,0.65)--(-2.9,0.65) node[midway,above] {入射};
+\draw[->,very thick] (-0.5,0.95)--(-1.3,0.95) node[midway,above] {反射};
+\draw[->,very thick] (0.5,0.65)--(1.3,0.65) node[midway,above] {透過};
+\node[below] at (0,-0.2) {$n=0$};
+\end{tikzpicture}
+\end{center}
+
+\section*{[3.1] 周期境界条件}
+周期条件 $A_q=C_qe^{iqL}$, $B_q=D_qe^{-iqL}$ は $C_q=A_qe^{-iqL}$, $B_q=D_qe^{-iqL}$ と同値である。$\binom{C_q}{B_q}=S_q\binom{A_q}{D_q}$ と合わせると、入射係数ベクトルは $S_q$ の固有ベクトルで固有値 $e^{-iqL}$ を持つ。従って
+\[
+\det(S_q-e^{-iqL}I)=0
+\quad\Longleftrightarrow\quad
+\boxed{e^{-iqL}=T_q+R_q\quad\text{or}\quad e^{-iqL}=T_q-R_q}.
+\]
+$S_q$は$(1,1)^{\mathsf T}$と$(1,-1)^{\mathsf T}$にそれぞれ固有値$T_q+R_q$と$T_q-R_q$で作用する。二固有値が異なれば、各根は独立な一つの振動モードを与える。
+
+\section*{[3.2] 一様質量 $M=m$}
+このとき $T_q=1,R_q=0$ なので
+\[
+e^{-iqL}=1,\qquad \boxed{q=\frac{2\pi l}{L}}.
+\]
+$0<q<\pi$ では $l=1,\ldots,L/2-1$。各許容 $q$ で二方向の平面波が独立なので正の内部モードは $L-2$ 個で、
+\[
+\boxed{\omega_l=2\sqrt{\frac{k}{m}}\sin\frac{l\pi}{L}}.
+\]
+開区間に含めない $q=0$ は一様並進、$q=\pi$ は隣り合う質点が逆向きに動く帯域端モードであり、合わせて一様鎖の $L$ 個の座標自由度を満たす。
+
+\section*{[3.3] 質量 $M=2m$}
+透過振幅は
+\[
+T_q=\frac{e^{-iq}-e^{iq}}{2(e^{-iq}-1)},\qquad T_q-R_q=1,\qquad T_q+R_q=2T_q-1=e^{iq}.
+\]
+従って二つの固有値条件から
+\[
+q=\frac{2\pi l}{L}\quad(l=1,\ldots,L/2-1),\qquad
+q=\frac{2\pi l}{L+1}\quad(l=1,\ldots,L/2),
+\]
+いずれも $0<q<\pi$ を満たす。対応する振動数は両系列について
+\[
+\boxed{\omega_q=2\sqrt{\frac{k}{m}}\sin\frac q2}.
+\]
+系列間に重複はなく、式(2)型の伝搬モード数は $(L/2-1)+L/2=L-1$ 個となる。残り1個は $q=0$ の一様並進モードである。これら$L$個で全座標自由度を満たすため、別の局在高周波モードは加わらない。
+
+\section*{[3.4] 固定質点極限 $M\to\infty$}
+この極限では $T_q\to0$, $R_q\to-1$ となり、周期条件の固有値は $\pm1$。従って
+\[
+e^{-iqL}=\pm1,\qquad \boxed{q_j=\frac{j\pi}{L}\quad(j=1,\ldots,L-1)}.
+\]
+固有振動数は $\boxed{\omega_j=2\sqrt{k/m}\sin(j\pi/(2L))}$. 中央の質点は動かないため、有限質量の自由度は他の $L-1$ 個だけであり、上の解が全ての正の振動モードを数え尽くす。
+\end{document}

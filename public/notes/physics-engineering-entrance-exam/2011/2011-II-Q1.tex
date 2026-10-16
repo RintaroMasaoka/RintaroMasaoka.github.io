@@ -1,0 +1,163 @@
+% Standalone XeLaTeX source; source problem: 2011ap_exam.pdf, PDF p. 6.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2011年 物理学II 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+以下、計算基底を
+\begin{equation}
+  \bigl(|1,1\rangle,|1,0\rangle,|1,-1\rangle\bigr)
+\end{equation}
+の順に並べる。原本[3]の回転因子では $\hbar$ による除算が抜けている。指数を無次元にするため、以下では $J_z/\hbar$ を含む因子として読む。これは、固有値定義とシュレーディンガー方程式に照らして確認された原本の誤植である。
+
+\section*{[1] スピン角運動量の行列}
+昇降演算子の作用を $J=1$ に適用すると
+\begin{equation}
+  J_+=\sqrt{2}\hbar
+  \begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix},\qquad
+  J_-=\sqrt{2}\hbar
+  \begin{pmatrix}0&0&0\\1&0&0\\0&1&0\end{pmatrix}.
+\end{equation}
+$J_x=(J_++J_-)/2$、$J_y=(J_+-J_-)/(2i)$、および $J_z|1,m\rangle=m\hbar|1,m\rangle$ から
+\begin{equation}
+  \boxed{J_x=\frac{\hbar}{\sqrt{2}}
+  \begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix}},\qquad
+  \boxed{J_y=\frac{\hbar}{\sqrt{2}}
+  \begin{pmatrix}0&-i&0\\i&0&-i\\0&i&0\end{pmatrix}},\qquad
+  \boxed{J_z=\hbar
+  \begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix}}.
+\end{equation}
+これらはHermite行列であり、例えば $[J_x,J_y]=i\hbar J_z$ を満たす。さらに $J_x^2+J_y^2+J_z^2=2\hbar^2 I$ なので、全状態で $J^2=1(1+1)\hbar^2$ となる。
+
+\section*{[2] 静磁場中のエネルギー準位}
+$\boldsymbol{B}=B\boldsymbol{e}_z$ だから、
+\begin{equation}
+  H_M=-\gamma BJ_z
+  =-\gamma B\hbar
+  \begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix}.
+\end{equation}
+従って磁気量子数 $m$ ごとの固有エネルギーは
+\begin{equation}
+  \boxed{E_m=-\gamma Bm\hbar\quad(m=1,0,-1)}.
+\end{equation}
+順に $-\gamma B\hbar,0,+\gamma B\hbar$ であり、最低状態は $|1,1\rangle$ である。隣り合う準位間隔は $\gamma B\hbar$ なので、共鳴条件は $\omega=\gamma B$。
+
+\section*{[3] 共鳴交流磁場中の状態}
+問題が与える回転系の近似Hamiltonianは $H_{\mathrm{RF}}=-\gamma B_{\mathrm{RF}}J_x$ である。原本の記号に従い、回転系の状態を $|\Psi(t)\rangle$、実験室系の状態を $|\phi(t)\rangle$ とする。原本[3]の回転変換を次元の合う形に直すと
+\begin{equation}
+  |\Psi(t)\rangle=\exp\!\left(-\frac{i}{\hbar}\omega tJ_z\right)|\phi(t)\rangle.
+\end{equation}
+以下で解くのは $H_{\mathrm{RF}}$ による回転系の状態 $|\Psi(t)\rangle$ である。$\Omega=\gamma B_{\mathrm{RF}}$、$\theta=\Omega t$ と置くと、時間発展演算子は
+\begin{equation}
+  U(t)=\exp\!\left(-\frac{i}{\hbar}H_{\mathrm{RF}}t\right)
+  =\exp\!\left(i\theta\frac{J_x}{\hbar}\right).
+\end{equation}
+[1]の行列を掛けると $J_x^3=\hbar^2J_x$ となる。従って指数関数の級数で奇数次と偶数次の項をそれぞれまとめれば
+\begin{equation}
+  U(t)=I+i\sin\theta\,\frac{J_x}{\hbar}
+       +(\cos\theta-1)\left(\frac{J_x}{\hbar}\right)^2.
+\end{equation}
+最低状態 $|1,1\rangle$ はこの基底で $(1,0,0)^{\mathsf T}$ なので、
+\begin{equation}
+  U(t)\begin{pmatrix}1\\0\\0\end{pmatrix}
+  =\begin{pmatrix}
+      (1+\cos\theta)/2\\
+      i\sin\theta/\sqrt{2}\\
+      (\cos\theta-1)/2
+    \end{pmatrix}.
+\end{equation}
+よって回転系の状態は
+\begin{equation}
+  \boxed{|\Psi(t)\rangle=
+    \frac{1+\cos\theta}{2}|1,1\rangle
+    +\frac{i\sin\theta}{\sqrt{2}}|1,0\rangle
+    +\frac{\cos\theta-1}{2}|1,-1\rangle.}
+\end{equation}
+実験室系の状態は $|\phi(t)\rangle=\exp(i\omega tJ_z/\hbar)|\Psi(t)\rangle$ から得る。回転変換は $J_z$ と可換なので、$J_z$ の期待値は両系で一致する。実際、回転系振幅の絶対値二乗は
+\begin{equation}
+  \frac{(1+\cos\theta)^2}{4}+\frac{\sin^2\theta}{2}
+  +\frac{(\cos\theta-1)^2}{4}=1
+\end{equation}
+となる。各磁気量子数の確率はこの三項であり、$J_z$ の期待値は
+\begin{align}
+  \langle J_z\rangle
+  &=\hbar\bigl(|c_1|^2-|c_{-1}|^2\bigr)\\
+  &=\boxed{\hbar\cos(\gamma B_{\mathrm{RF}}t)}.
+\end{align}
+初期値は $+\hbar$、周期は $2\pi/(\gamma B_{\mathrm{RF}})$ である。
+
+\section*{[4] 相互作用による一次のエネルギー補正}
+演算子は
+\begin{equation}
+  H_Q=A(2J_x^2-J_y^2-J_z^2)=A(3J_x^2-J^2).
+\end{equation}
+設問[1]の行列から
+\begin{equation}
+  J_x^2=\frac{\hbar^2}{2}
+  \begin{pmatrix}1&0&1\\0&2&0\\1&0&1\end{pmatrix},\qquad
+  J^2=2\hbar^2 I,
+\end{equation}
+従って
+\begin{equation}
+  H_Q=A\hbar^2
+  \begin{pmatrix}-1/2&0&3/2\\0&1&0\\3/2&0&-1/2\end{pmatrix}.
+\end{equation}
+$H_M$ は $B>0$ で非縮退なので、一次のエネルギー補正は各 $|1,m\rangle$ における対角成分である。
+\begin{equation}
+  \Delta E_{1}= -\frac{A\hbar^2}{2},\qquad
+  \Delta E_{0}= A\hbar^2,\qquad
+  \Delta E_{-1}= -\frac{A\hbar^2}{2}.
+\end{equation}
+よって一次近似の準位は
+\begin{equation}
+  \boxed{E_{1}=-\gamma B\hbar-\frac{A\hbar^2}{2},\quad
+  E_{0}=A\hbar^2,\quad
+  E_{-1}=+\gamma B\hbar-\frac{A\hbar^2}{2}.}
+\end{equation}
+問題の弱摂動条件 $A\hbar^2\ll\gamma B\hbar$ のもとでは準位の順序は変わらない。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,scale=1.0]
+  % Normalize energies by Delta=gamma B hbar; eta is an illustrative weak shift.
+  \pgfmathsetmacro{\energyScale}{1}
+  \pgfmathsetmacro{\eta}{1/5}
+  \pgfmathsetmacro{\lowerUnperturbed}{-\energyScale}
+  \pgfmathsetmacro{\middleUnperturbed}{0}
+  \pgfmathsetmacro{\upperUnperturbed}{\energyScale}
+  \pgfmathsetmacro{\lowerPerturbed}{-\energyScale-\eta/2}
+  \pgfmathsetmacro{\middlePerturbed}{\eta}
+  \pgfmathsetmacro{\upperPerturbed}{\energyScale-\eta/2}
+  \draw[->] (-0.3,-2.8) -- (-0.3,2.8) node[above] {$E$};
+  \node at (1.2,3.05) {$H_Q=0$};
+  \draw[thick] (0.4,\lowerUnperturbed) -- (1.8,\lowerUnperturbed);
+  \draw[thick] (0.4,\middleUnperturbed) -- (1.8,\middleUnperturbed);
+  \draw[thick] (0.4,\upperUnperturbed) -- (1.8,\upperUnperturbed);
+  \node[align=left,anchor=west] at (1.95,\lowerUnperturbed) {$m=+1$\\$\Delta E=0$};
+  \node[align=left,anchor=west] at (1.95,\middleUnperturbed) {$m=0$\\$\Delta E=0$};
+  \node[align=left,anchor=west] at (1.95,\upperUnperturbed) {$m=-1$\\$\Delta E=0$};
+  \node at (5,3.05) {$H_Q$あり（一次）};
+  \draw[thick] (3.8,\lowerPerturbed) -- (5.2,\lowerPerturbed);
+  \draw[thick] (3.8,\middlePerturbed) -- (5.2,\middlePerturbed);
+  \draw[thick] (3.8,\upperPerturbed) -- (5.2,\upperPerturbed);
+  \node[align=left,anchor=west] at (5.35,\lowerPerturbed) {$m=+1$\\$\Delta E=-A\hbar^2/2$};
+  \node[align=left,anchor=west] at (5.35,\middlePerturbed) {$m=0$\\$\Delta E=+A\hbar^2$};
+  \node[align=left,anchor=west] at (5.35,\upperPerturbed) {$m=-1$\\$\Delta E=-A\hbar^2/2$};
+\end{tikzpicture}
+\caption{未摂動準位と相互作用による一次の準位移動。縦軸は $\gamma B\hbar$ で規格化した模式図で、表示例は $A\hbar/(\gamma B)=1/5$ とする。}
+\end{figure}
+
+\end{document}

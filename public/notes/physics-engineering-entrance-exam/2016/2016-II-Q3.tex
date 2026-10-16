@@ -1,0 +1,176 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF pages 9–10.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2016年 物理学II 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 磁場中の束縛電子}
+電子の電荷は$-e$であるから、電場とローレンツ力を含む運動方程式は
+\begin{equation}
+ m\ddot{\boldsymbol u}=-e(\boldsymbol E_{\rm ex}+\dot{\boldsymbol u}\times\boldsymbol B_{\rm ex})-m\omega_0^2\boldsymbol u.
+\end{equation}
+時間因子$e^{-i\omega t}$を取り出すと$\dot{\boldsymbol u}=-i\omega\boldsymbol u$、$\ddot{\boldsymbol u}=-\omega^2\boldsymbol u$であり、$\boldsymbol B_{\rm ex}=B\boldsymbol e_z$より
+\begin{align}
+ m(\omega^2-\omega_0^2)u_x+i e\omega B u_y&=eE_x,\\
+ -i e\omega B u_x+m(\omega^2-\omega_0^2)u_y&=eE_y.
+\end{align}
+$D=m(\omega^2-\omega_0^2)$、$\Omega=e\omega B$とおくと
+\begin{equation}
+ \begin{pmatrix}D&i\Omega\\-i\Omega&D\end{pmatrix}
+ \begin{pmatrix}u_x\\u_y\end{pmatrix}
+ =e\begin{pmatrix}E_x\\E_y\end{pmatrix}.
+\end{equation}
+行列式は$D^2-\Omega^2$だから、その逆行列を用いて
+\begin{equation}
+ \boxed{u_x=\frac{e(DE_x-i\Omega E_y)}{D^2-\Omega^2},\qquad
+ u_y=\frac{e(i\Omega E_x+DE_y)}{D^2-\Omega^2}}.
+\end{equation}
+
+\section*{[2] 複素比誘電率}
+分極は$\boldsymbol P=-ne\boldsymbol u$である。$\boldsymbol P=\varepsilon_0(\tilde{\boldsymbol\varepsilon}-\mathbf I)\boldsymbol E_{\rm ex}$と比較すると
+\begin{align}
+ \varepsilon_{xx}&=1-\frac{ne^2D}{\varepsilon_0(D^2-\Omega^2)},&
+ \gamma&=\frac{ne^2\Omega}{\varepsilon_0(D^2-\Omega^2)}
+ =\frac{ne^3\omega B}{\varepsilon_0(D^2-\Omega^2)},\\
+ \varepsilon_{zz}&=1-\frac{ne^2}{\varepsilon_0D}.
+\end{align}
+最後の式は$z$方向の運動方程式$D u_z=eE_z$から得る。条件$\omega_0\gg\omega>0$、$\omega_0\gg eB/m$では$D<0$かつ$|D|>\Omega$であり、よって
+\begin{equation}
+ D^2-\Omega^2>0,\qquad \gamma>0,\qquad \varepsilon_{xx}>1.
+\end{equation}
+ここでは$\varepsilon_{xx}$と$\gamma$が実数となる近似範囲を考えている。
+
+\section*{[3] 平面波の波動方程式}
+式(3)の第1式を$\boldsymbol k$と外積し、第2式で$\boldsymbol H_0$を消去すると
+\begin{equation}
+ \boldsymbol k\times(\boldsymbol k\times\boldsymbol E_0)
+ =-\mu_0\varepsilon_0\omega^2\tilde{\boldsymbol\varepsilon}\boldsymbol E_0.
+\end{equation}
+ベクトル恒等式$\boldsymbol a\times(\boldsymbol b\times\boldsymbol c)=\boldsymbol b(\boldsymbol a\cdot\boldsymbol c)-\boldsymbol c(\boldsymbol a\cdot\boldsymbol b)$を使い、$c^{-2}=\mu_0\varepsilon_0$とすれば
+\begin{equation}
+ \boxed{(\boldsymbol E_0\cdot\boldsymbol k)\boldsymbol k-|\boldsymbol k|^2\boldsymbol E_0
+ +\left(\frac{\omega}{c}\right)^2\tilde{\boldsymbol\varepsilon}\boldsymbol E_0=0}.
+\end{equation}
+
+\section*{[4] 固有モード}
+$\boldsymbol k=k_z\boldsymbol e_z$とする。$x,y$成分は
+\begin{equation}
+ \begin{pmatrix}
+ (\omega/c)^2\varepsilon_{xx}-k_z^2&i(\omega/c)^2\gamma\\
+ -i(\omega/c)^2\gamma&(\omega/c)^2\varepsilon_{xx}-k_z^2
+ \end{pmatrix}
+ \begin{pmatrix}E_{0,x}\\E_{0,y}\end{pmatrix}=0.
+\end{equation}
+非零の解には行列式がゼロであることが必要だから
+\begin{equation}
+ \left[(\omega/c)^2\varepsilon_{xx}-k_z^2\right]^2
+ -\left[(\omega/c)^2\gamma\right]^2=0.
+\end{equation}
+$0<\gamma<\varepsilon_{xx}$より二つの正の波数は
+\begin{equation}
+ \boxed{k_\pm=\frac{\omega}{c}\sqrt{\varepsilon_{xx}\pm\gamma}},\qquad k_+>k_->0.
+\end{equation}
+$k_z=k_+$のとき$x$成分の式から$E_{0,y}=-iE_{0,x}$、$k_z=k_-$では$E_{0,y}=iE_{0,x}$となる。$|\boldsymbol E_{0\pm}|=E$で規格化すると
+\begin{equation}
+ \boxed{\boldsymbol E_{0+}=\frac{E}{\sqrt2}\begin{pmatrix}1\\-i\\0\end{pmatrix},\qquad
+ \boldsymbol E_{0-}=\frac{E}{\sqrt2}\begin{pmatrix}1\\i\\0\end{pmatrix}}.
+\end{equation}
+$z$成分の式は$(\omega/c)^2\varepsilon_{zz}E_{0,z}=0$を与える。この振動子モデルの条件では$\varepsilon_{zz}>0$なので$E_{0,z}=0$である。
+
+\section*{[5] 円偏光モードの時間変化}
+正の波数側モードについて
+\begin{equation}
+ \boldsymbol E_+(z,t)=\frac{E}{\sqrt2}
+ \begin{pmatrix}1\\-i\\0\end{pmatrix}e^{ik_+z-i\omega t}
+\end{equation}
+である。$z=0$で実部を取れば
+\begin{equation}
+ \Re E_{+,x}(0,t)=\frac{E}{\sqrt2}\cos\omega t,\qquad
+ \Re E_{+,y}(0,t)=-\frac{E}{\sqrt2}\sin\omega t.
+\end{equation}
+二成分は同じ振幅で位相が$\pi/2$ずれているので、合成電場の先端は円を描く。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[xscale=0.92,yscale=0.82,>=Stealth]
+ \draw[->] (-0.25,0)--(6.8,0) node[right] {$\omega t$};
+ \draw[->] (0,-1.35)--(0,2.4) node[above] {成分（$E/\sqrt2$単位）};
+ \draw[thick,blue,domain=0:6.283,samples=120] plot (\x,{cos(\x r)});
+ \draw[thick,red,domain=0:6.283,samples=120] plot (\x,{-sin(\x r)});
+ \foreach \x/\lab in {0/0,1.571/{\pi/2},3.142/{\pi},4.712/{3\pi/2},6.283/{2\pi}} {
+   \draw (\x,0.04)--(\x,-0.04) node[below=3pt] {$\lab$};
+ }
+ \node[blue,anchor=west] at (0.35,2.15) {$\sqrt2\,\Re E_{+,x}/E=\cos\omega t$};
+ \node[red,anchor=west] at (0.35,1.72) {$\sqrt2\,\Re E_{+,y}/E=-\sin\omega t$};
+\end{tikzpicture}
+\caption{二つの直交成分の位相差。}
+\end{figure}
+
+\section*{[6] 媒質を通過した偏光面}
+境界で$x$偏光になるよう、二つの固有モードを等しい振幅で重ねる。
+\begin{equation}
+ \boldsymbol E(z,t)=\frac{\boldsymbol E_{0+}}{\sqrt2}e^{ik_+z-i\omega t}
+ +\frac{\boldsymbol E_{0-}}{\sqrt2}e^{ik_-z-i\omega t}.
+\end{equation}
+$z=0$では$\boldsymbol E_{0+}+\boldsymbol E_{0-}=\sqrt2(E,0,0)^{\mathsf T}$なので条件(5)を満たす。$\bar k=(k_++k_-)/2$、$\delta=(k_+-k_-)z/2$と置くと、複素振幅は
+\begin{equation}
+ \boldsymbol E(z,t)=E\begin{pmatrix}\cos\delta\\\sin\delta\\0\end{pmatrix}
+ e^{i\bar k z-i\omega t}.
+\end{equation}
+従って$z=l$では
+\begin{equation}
+ \boxed{\boldsymbol F=E\begin{pmatrix}\cos\theta\\\sin\theta\\0\end{pmatrix},\qquad
+ \theta=\frac{(k_+-k_-)l}{2}}.
+\end{equation}
+実電場は共通の伝搬位相を持つ直線偏光で、その振動方向が$x$軸から$\theta$回転している。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,scale=0.95]
+ \draw[thick] (0,0)--(0,1.6);
+ \draw[thick] (4,0)--(4,1.6);
+ \node[above] at (2,1.6) {媒質 $0\le z\le l$};
+ \draw[->,blue,thick] (-1,0.8)--(0,0.8) node[midway,above] {$\boldsymbol E\parallel x$};
+ \draw[->,thick] (0,1.25)--(4,1.25) node[midway,above] {$+z$};
+ \draw[->,purple,thick] (0.35,0.08)--(3.65,0.08) node[midway,below] {$\boldsymbol B_{\rm ex}\parallel +z$};
+ \coordinate (M) at (5.4,0.8);
+ \draw[->,thick] (4,0.8)--(M) node[midway,above] {入射光};
+ \draw[thick] (5.4,0.15)--(5.4,1.45);
+ \node[right] at (5.4,0.8) {鏡};
+ \draw[->,thick] (M)--(0.2,0.8) node[midway,below] {戻り光};
+ \node[red] at (2,0.42) {媒質内で偏光面が $\theta$ 回転};
+ \draw[->] (-0.9,-0.65)--(0.0,-0.65) node[right] {$z$};
+ \draw[->] (-0.9,-0.65)--(-0.9,0.25) node[above] {$x$};
+ \fill (-0.55,-0.65) circle (2pt) node[below] {$+y$};
+\end{tikzpicture}
+\caption{磁場の向きを保ったまま鏡で戻す往復伝搬。}
+\end{figure}
+
+\section*{[7] 鏡による往復}
+鏡は偏光を反射するが、外部磁場$\boldsymbol B_{\rm ex}$は反転しない。[4]の固有方程式は$k_z^2$で決まるため、戻り光では同じ固定$x,y$座標の固有ベクトル$\boldsymbol E_{0\pm}$に、それぞれ$k_z=-k_\pm$を対応させる。鏡の反射係数を両成分に共通な$r$とすると、$z=l$から$z=0$へ戻る各成分にも$e^{i(-k_\pm)(0-l)}=e^{ik_\pm l}$の位相が加わる。従って戻った電場は
+\begin{equation}
+ \boldsymbol E_{\rm ret}(0,t)
+ =\frac{r}{\sqrt2}\left(\boldsymbol E_{0+}e^{2ik_+l}
+ +\boldsymbol E_{0-}e^{2ik_-l}\right)e^{-i\omega t}
+ =rE\begin{pmatrix}\cos2\theta\\\sin2\theta\\0\end{pmatrix}
+ e^{2i\bar k l-i\omega t}.
+\end{equation}
+このように往路と復路の相対位相差が加算され、$x$軸に対する最終角は
+\begin{equation}
+ \boxed{\theta_{\rm round}=2\theta=(k_+-k_-)l}.
+\end{equation}
+これは媒質表面での反射を無視し、鏡の反射自体が偏光面の向きを変えないという問題の設定による。鏡までの真空中の往復位相も両成分に共通なので、回転角には影響しない。
+\end{document}

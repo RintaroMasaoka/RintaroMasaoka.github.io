@@ -1,0 +1,126 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF page 7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2016年 物理学II 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 井戸型ポテンシャルの固有状態}
+井戸の外で波動関数はゼロであり、境界条件は$\psi(\pm a/2)=0$である。井戸の内部では定常シュレーディンガー方程式
+\begin{equation}
+ -\frac{\hbar^2}{2m}\frac{\mathrm{d}^2\psi}{\mathrm{d}x^2}=E\psi
+\end{equation}
+を満たす。$k=\sqrt{2mE}/\hbar$と置くと一般解は$A\sin kx+B\cos kx$である。井戸の中心に関する偶奇性で解を分けると、偶関数の境界条件は$\cos(ka/2)=0$、奇関数の境界条件は$\sin(ka/2)=0$となる。両者を合わせて
+\begin{equation}
+ k_n=\frac{n\pi}{a},\qquad E_n=\frac{\hbar^2 k_n^2}{2m}
+ =\frac{n^2\pi^2\hbar^2}{2ma^2},\quad n=1,2,\ldots
+\end{equation}
+を得る。区間内で規格化した固有関数は
+\begin{equation}
+ \psi_n(x)=\begin{cases}
+ \sqrt{2/a}\cos(n\pi x/a),&n\text{ が奇数},\\
+ \sqrt{2/a}\sin(n\pi x/a),&n\text{ が偶数},
+ \end{cases}\quad (|x|<a/2),
+\end{equation}
+であり、区間外では$\psi_n(x)=0$である。従って後で使う基底状態と第一励起状態は
+\begin{equation}
+ g(x)=\sqrt{\frac2a}\cos\frac{\pi x}{a},\quad E_g=\frac{\pi^2\hbar^2}{2ma^2};\qquad
+ e(x)=\sqrt{\frac2a}\sin\frac{2\pi x}{a},\quad E_e=\frac{4\pi^2\hbar^2}{2ma^2}.
+\end{equation}
+$g$は偶関数、$e$は奇関数である。
+
+\section*{[2] 2粒子の軌道状態}
+$g_1=g(x_1)$、$e_1=e(x_1)$などと略記する。粒子を交換する演算子は$x_1\leftrightarrow x_2$を行うので、基底状態どうしと第一励起状態どうしは対称で、混合状態には対称・反対称の二通りがある。規格化された4状態は
+\begin{align}
+ \Phi_{gg}&=g_1g_2,& \Phi_{ee}&=e_1e_2,\\
+ \Phi_+&=\frac{g_1e_2+e_1g_2}{\sqrt2},&
+ \Phi_-&=\frac{g_1e_2-e_1g_2}{\sqrt2}.
+\end{align}
+前3つは粒子交換に対称、$\Phi_-$は反対称である。直交する一粒子状態から作られているため、混合状態の係数$1/\sqrt2$が規格化を与える。
+
+\section*{[3] 全スピンの固有状態}
+$S_z=s_{1z}+s_{2z}$の固有状態を作る。三重項は
+\begin{align}
+ |1,1\rangle&=|\uparrow\rangle_1|\uparrow\rangle_2,&
+ |1,0\rangle&=\frac{|\uparrow\rangle_1|\downarrow\rangle_2+|\downarrow\rangle_1|\uparrow\rangle_2}{\sqrt2},&
+ |1,-1\rangle&=|\downarrow\rangle_1|\downarrow\rangle_2,
+\end{align}
+で、$S^2$の固有値は$S(S+1)\hbar^2=2\hbar^2$、$S_z$の固有値は$M\hbar$である。残る状態は一重項
+\begin{equation}
+ |0,0\rangle=\frac{|\uparrow\rangle_1|\downarrow\rangle_2-|\downarrow\rangle_1|\uparrow\rangle_2}{\sqrt2},
+\end{equation}
+であり、$S^2=0$、$S_z=0$である。交換に対して三重項は対称、一重項は反対称となる。
+
+\section*{[4] フェルミ粒子の全波動関数とエネルギー}
+全波動関数は粒子交換で反対称でなければならない。従って、対称軌道には一重項スピン、反対称軌道には三重項スピンを組み合わせる。6状態を
+\begin{align}
+ \Psi_1&=\Phi_{gg}|0,0\rangle,&
+ \Psi_2&=\Phi_{ee}|0,0\rangle,&
+ \Psi_3&=\Phi_+|0,0\rangle,\\
+ \Psi_4&=\Phi_-|1,1\rangle,&
+ \Psi_5&=\Phi_-|1,-1\rangle,&
+ \Psi_6&=\Phi_-|1,0\rangle
+\end{align}
+と書ける。相互作用がないとき全エネルギーは軌道エネルギーの和なので
+\begin{equation}
+ E_1=2E_g=\frac{\pi^2\hbar^2}{ma^2},\quad
+ E_2=2E_e=\frac{4\pi^2\hbar^2}{ma^2},\quad
+ E_3=E_4=E_5=E_6=E_g+E_e=\frac{5\pi^2\hbar^2}{2ma^2}.
+\end{equation}
+
+\section*{[5] 粒子間距離の二乗の期待値}
+井戸の外で$g=e=0$として積分を全実数に拡張してよい。偶奇性から
+\begin{equation}
+ \int xg^2\,\mathrm{d}x=\int xe^2\,\mathrm{d}x=\int x^2ge\,\mathrm{d}x=0,
+\end{equation}
+一方、$\int xge\,\mathrm{d}x=C$である。積状態$\Phi_{gg}$では$x_1x_2$の期待値は$\langle x\rangle_g^2=0$で、$x_1^2+x_2^2$の期待値は$2A$となる。$\Phi_{ee}$も同様に$2B$である。
+
+混合状態では$(x_1-x_2)^2=x_1^2+x_2^2-2x_1x_2$を使う。対称状態$\Phi_+$では、二つの対角項が$A+B$を与え、交差項は
+\begin{equation}
+ \langle\Phi_+|x_1x_2|\Phi_+\rangle
+ =\frac12\left(\langle ge|x_1x_2|ge\rangle+\langle eg|x_1x_2|eg\rangle
+ +2\langle ge|x_1x_2|eg\rangle\right)=C^2
+\end{equation}
+となる。ここで対角項は$\langle g|x|g\rangle\langle e|x|e\rangle=0$、交差項は$\langle g|x|e\rangle^2=C^2$である。$\Phi_-$では交差項の符号が逆になる。スピン因子は座標演算子に影響しないため、
+\begin{align}
+ \langle\Psi_1|(x_1-x_2)^2|\Psi_1\rangle&=2A,&
+ \langle\Psi_2|(x_1-x_2)^2|\Psi_2\rangle&=2B,\\
+ \langle\Psi_3|(x_1-x_2)^2|\Psi_3\rangle&=A+B-2C^2,&
+ \langle\Psi_j|(x_1-x_2)^2|\Psi_j\rangle&=A+B+2C^2\quad(j=4,5,6).
+\end{align}
+確認として積分を実行すると
+\begin{equation}
+ A=a^2\left(\frac1{12}-\frac1{2\pi^2}\right),\quad
+ B=a^2\left(\frac1{12}-\frac1{8\pi^2}\right),\quad
+ C=\frac{16a}{9\pi^2}.
+\end{equation}
+これらはそれぞれ長さ二乗、長さ二乗、長さの次元を持つので、すべての期待値は長さ二乗となる。
+
+\section*{[6] $V_0x_1x_2$による一次補正}
+一次補正は縮退がある場合、その縮退部分空間で摂動行列を対角化して得る。$\Psi_3,\ldots,\Psi_6$は同じ無摂動エネルギーを持つが、摂動はスピンに作用しない。よって一重項と三重項の間の行列要素はスピンの直交性でゼロであり、異なる三重項成分どうしもスピン状態の直交性で結ばれない。残る対角要素は
+\begin{align}
+ \langle\Psi_1|V_0x_1x_2|\Psi_1\rangle&=0,&
+ \langle\Psi_2|V_0x_1x_2|\Psi_2\rangle&=0,\\
+ \langle\Psi_3|V_0x_1x_2|\Psi_3\rangle&=V_0C^2,&
+ \langle\Psi_j|V_0x_1x_2|\Psi_j\rangle&=-V_0C^2\quad(j=4,5,6).
+\end{align}
+例えば$\Phi_+$の期待値では、対角軌道項がパリティでゼロになり、二つの交差項から$C^2$が残る。反対称軌道$\Phi_-$では同じ交差項に負号が付く。したがって一次までのエネルギーは
+\begin{align}
+ E_1^{(1)}&=\frac{\pi^2\hbar^2}{ma^2},&
+ E_2^{(1)}&=\frac{4\pi^2\hbar^2}{ma^2},\\
+ E_3^{(1)}&=\frac{5\pi^2\hbar^2}{2ma^2}+V_0C^2,&
+ E_j^{(1)}&=\frac{5\pi^2\hbar^2}{2ma^2}-V_0C^2\quad(j=4,5,6).
+\end{align}
+補正の次元は$[V_0]a^2$でエネルギーとなり、$V_0\to0$で[4]の結果へ戻る。
+\end{document}

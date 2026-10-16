@@ -1,0 +1,105 @@
+% Standalone XeLaTeX source; source problem: 2014ap_exam.pdf, PDF pp. 2--3.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2014年 物理学I 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+図の $+x$ 方向を右向きとし、$\omega>0$ は球底面の点が球中心に対して $+x$ 方向へ動く回転とする。球に働く床からの水平力積は符号付きで $P<0$ である。
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  % The contact constraint fixes the sphere-center height to its radius.
+  \pgfmathsetmacro{\sphereR}{0.85}
+  \coordinate (C) at (0,\sphereR);
+  \coordinate (K) at (0,0);
+  \draw[thick] (-2.6,0)--(2.6,0);
+  \draw[thick] (C) circle (\sphereR);
+  \fill (C) circle (1.4pt);
+  \fill (K) circle (1.2pt);
+  \draw[->,thick] (0,0.19)--(\sphereR,0.19) node[midway,above] {$a\omega$};
+  \draw[->,thick] (0,-0.32)--(-0.9,-0.32) node[midway,below] {$P<0$};
+  \draw[->] (1.0,0.02)--(2.0,0.02) node[right] {$+x$};
+  \node[below] at (1.35,-0.3) {床};
+\end{tikzpicture}
+\end{center}
+
+\section*{[1] 慣性モーメント}
+球の一様密度は $\rho=3m/(4\pi a^3)$ である。回転軸から距離 $r\sin\theta$ にある体積要素を積分すると
+\begin{align}
+ I&=\rho\int_0^a r^4\,dr\int_0^{2\pi}d\phi\int_0^\pi\sin^3\theta\,d\theta\\
+ &=\frac{3m}{4\pi a^3}\cdot\frac{a^5}{5}\cdot2\pi\cdot\frac43
+ =\boxed{\frac25ma^2}.
+\end{align}
+
+\section*{[2] 衝突直後の滑りなし条件}
+接触点の速度は、球中心の並進速度 $v'$ と回転による速度 $a\omega'$ の和である。この符号規約では
+\begin{equation}
+ \boxed{v'+a\omega'=0}.
+\end{equation}
+
+\section*{[3] 1回の衝突}
+衝突前の水平方向速度は0である。床から球への力積が $P$ なので、水平運動量の式は
+\begin{equation}
+ mv'=P.
+\end{equation}
+球底面に働く左向き力積は正回転を弱める。球中心まわりの角運動量変化は
+\begin{equation}
+ I(\omega'-\omega)=aP.
+\end{equation}
+$P=mv'$ と $v'=-a\omega'$ を代入し、$I=2ma^2/5$ を使うと
+\begin{align}
+ \frac25ma^2(\omega'-\omega)&=-ma^2\omega',\\
+ \boxed{\omega'=\frac27\omega},\qquad
+ \boxed{v'=-\frac27a\omega}.
+\end{align}
+
+\section*{[4] 反跳ごとの保存量}
+$n$ 回目の衝突について、床からの水平力積を符号付きで $P_n$ とすると
+\begin{equation}
+ m(v_n-v_{n-1})=P_n,\qquad
+ I(\omega_n-\omega_{n-1})=aP_n.
+\end{equation}
+ここで $l_n=I\omega_n-amv_n$ と置く。従って
+\begin{align}
+ l_n-l_{n-1}
+ &=I(\omega_n-\omega_{n-1})-am(v_n-v_{n-1})\\
+ &=aP_n-aP_n=0.
+\end{align}
+よって
+\begin{equation}
+ \boxed{l=I\omega_n-amv_n\quad\text{は反跳回数 }n\text{ によらず一定}.}
+\end{equation}
+
+\section*{[5] 最終的な転がり速度}
+反跳が終わると接触点速度が0なので $v_F=-a\omega_F$ である。従って保存量は
+\begin{equation}
+ l=I\omega_F-amv_F
+  =-\left(\frac{I}{a}+am\right)v_F
+  =-\frac75ma v_F,
+\end{equation}
+最後の等号では $I=2ma^2/5$ を使った。従って、指定された $m,a,l$ を用いると
+\begin{equation}
+ \boxed{v_F=-\frac{5l}{7ma}}.
+\end{equation}
+初期値 $l=I\omega_0-amv_0$ と等置すると
+\begin{equation}
+ \boxed{v_F=\frac57v_0-\frac27a\omega_0}.
+\end{equation}
+したがって反跳終了時に並進しない条件は
+\begin{equation}
+ \boxed{v_F=0\quad\Longleftrightarrow\quad v_0=\frac25a\omega_0}.
+\end{equation}
+
+\end{document}

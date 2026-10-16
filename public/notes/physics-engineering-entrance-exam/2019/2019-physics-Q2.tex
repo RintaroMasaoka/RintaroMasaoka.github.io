@@ -1,0 +1,245 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2019ap_exam.pdf, PDF pp. 4--5.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,angles,quotes}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2019年 物理学 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 平面波とマクスウェル方程式}
+共通因子 $\exp\{i(\boldsymbol{k}\cdot\boldsymbol{r}-\omega t)\}$ を省略すると、
+空間微分は $i\boldsymbol{k}$、時間微分は $-i\omega$ を掛けることに対応する。
+したがって
+\begin{equation}
+  \boldsymbol{k}\times\boldsymbol{E}_0=\omega\boldsymbol{B}_0,
+  \qquad
+  \boldsymbol{k}\times\boldsymbol{H}_0=-\omega\boldsymbol{D}_0.
+  \label{eq:maxwell-wave}
+\end{equation}
+ここで $\boldsymbol{B}_0=\mu_0\boldsymbol{H}_0$,
+$\boldsymbol{D}_0=\tilde{\varepsilon}\boldsymbol{E}_0$ である。第1式の両辺に
+左から $\boldsymbol{k}\times$ を作用させ、第2式を用いると
+\begin{align}
+ \boldsymbol{k}\times(\boldsymbol{k}\times\boldsymbol{E}_0)
+ &=\omega\boldsymbol{k}\times\boldsymbol{B}_0\\
+ &=\omega\mu_0\boldsymbol{k}\times\boldsymbol{H}_0
+ =-\omega^2\mu_0\tilde{\varepsilon}\boldsymbol{E}_0.
+\end{align}
+よって
+\begin{equation}
+  \boldsymbol{k}\times(\boldsymbol{k}\times\boldsymbol{E}_0)
+  +\omega^2\mu_0\tilde{\varepsilon}\boldsymbol{E}_0=0.
+  \label{eq:wave-vector-equation}
+\end{equation}
+
+\section*{[2] 行列表示}
+恒等式 $\boldsymbol{a}\times(\boldsymbol{b}\times\boldsymbol{c})
+=\boldsymbol{b}(\boldsymbol{a}\cdot\boldsymbol{c})-\boldsymbol{c}(\boldsymbol{a}\cdot\boldsymbol{b})$
+により、式\eqref{eq:wave-vector-equation}の左辺は
+$[\boldsymbol{k}\boldsymbol{k}^{\mathsf T}-|\boldsymbol{k}|^2I+\omega^2\mu_0\tilde{\varepsilon}]\boldsymbol{E}_0$
+である。したがって
+\begin{equation}
+ \tilde X=
+ \begin{pmatrix}
+  \omega^2\mu_0\varepsilon_1-k_y^2-k_z^2&k_xk_y&k_xk_z\\
+  k_xk_y&\omega^2\mu_0\varepsilon_1-k_x^2-k_z^2&k_yk_z\\
+  k_xk_z&k_yk_z&\omega^2\mu_0\varepsilon_2-k_x^2-k_y^2
+ \end{pmatrix},
+ \qquad \tilde X\boldsymbol{E}_0=0.
+ \label{eq:X}
+\end{equation}
+
+\section*{[3] 2つの波数}
+$\boldsymbol{k}=(0,k\sin\theta,k\cos\theta)^{\mathsf T}$ を代入すると、
+\begin{equation}
+ \tilde X=
+ \begin{pmatrix}
+  \omega^2\mu_0\varepsilon_1-k^2&0&0\\
+  0&\omega^2\mu_0\varepsilon_1-k^2\cos^2\theta&k^2\sin\theta\cos\theta\\
+  0&k^2\sin\theta\cos\theta&\omega^2\mu_0\varepsilon_2-k^2\sin^2\theta
+ \end{pmatrix}.
+ \label{eq:X-special}
+\end{equation}
+非零の $\boldsymbol{E}_0$ があるためには行列式がゼロである。
+式\eqref{eq:X-special}の行列式は、1つの成分と $yz$ ブロックの行列式に
+分かれる。前者から
+\begin{equation}
+ \omega^2\mu_0\varepsilon_1-k^2=0
+ \quad\Longrightarrow\quad
+ k_1=\omega\sqrt{\mu_0\varepsilon_1}.
+\end{equation}
+後者は
+\begin{align}
+ &(\omega^2\mu_0\varepsilon_1-k^2\cos^2\theta)
+   (\omega^2\mu_0\varepsilon_2-k^2\sin^2\theta)
+   -k^4\sin^2\theta\cos^2\theta\\
+ &=\omega^4\mu_0^2\varepsilon_1\varepsilon_2
+   -k^2\omega^2\mu_0(\varepsilon_1\sin^2\theta
+                      +\varepsilon_2\cos^2\theta)=0.
+\end{align}
+$k>0$ より
+\begin{equation}
+ k_2=\omega\sqrt{
+ \frac{\mu_0\varepsilon_1\varepsilon_2}
+ {\varepsilon_1\sin^2\theta+\varepsilon_2\cos^2\theta}}.
+ \label{eq:k2}
+\end{equation}
+$\varepsilon_1>\varepsilon_2>0$ と $0<\theta<\pi/2$ のもとでは2つの波数は
+正で、互いに異なる。
+
+\section*{[4] 各波数に対する電場}
+$k=k_1$ では第1成分の係数がゼロとなり、$\tilde X$ の核は $x$ 方向に
+向く。$|\boldsymbol{E}_0|=E_0$ とする規格化解は
+\begin{equation}
+ \boldsymbol{E}_0=E_0\begin{pmatrix}1\\0\\0\end{pmatrix}.
+ \label{eq:E1}
+\end{equation}
+一方 $k=k_2$ では $yz$ ブロックが特異となる。その第1行
+$\tilde X_{yy}E_y+\tilde X_{yz}E_z=0$ に式\eqref{eq:k2}を代入し、$k_2^2\sin\theta$で割って$\varepsilon_2$を掛けると
+$\varepsilon_1\sin\theta\,E_y+\varepsilon_2\cos\theta\,E_z=0$ となる。したがって
+$E_z/E_y=-(\varepsilon_1/\varepsilon_2)\tan\theta$ である。$k_1\ne k_2$ なので $E_x=0$ となり、核のベクトルは
+$(0,\varepsilon_2\cos\theta,-\varepsilon_1\sin\theta)^{\mathsf T}$ に
+比例する。従って
+\begin{equation}
+ \boldsymbol{E}_0=\frac{E_0}{\sqrt{\varepsilon_1^2\sin^2\theta+
+                                     \varepsilon_2^2\cos^2\theta}}
+ \begin{pmatrix}0\\\varepsilon_2\cos\theta\\-\varepsilon_1\sin\theta\end{pmatrix}.
+ \label{eq:E2}
+\end{equation}
+分母はこのベクトルのユークリッド長なので、いずれも指定された大きさを
+もつ。
+
+\section*{[5] $x$ 偏光のエネルギー流}
+式\eqref{eq:maxwell-wave}から磁場振幅は
+\begin{equation}
+ \boldsymbol{H}_0=\frac{\boldsymbol{k}\times\boldsymbol{E}_0}{\omega\mu_0}.
+ \label{eq:H0}
+\end{equation}
+と定まる。複素振幅に対する時間平均ポインティングベクトルは
+$\langle\boldsymbol{S}\rangle=\tfrac12\operatorname{Re}
+(\boldsymbol{E}_0\times\boldsymbol{H}_0^*)$ である。各固有偏光は線形偏光なので、
+実数の偏光ベクトルを代表として方向を調べればよい。一般に
+\begin{equation}
+ \boldsymbol{E}_0\times(\boldsymbol{k}\times\boldsymbol{E}_0)
+ =|\boldsymbol{E}_0|^2\boldsymbol{k}
+  -(\boldsymbol{E}_0\cdot\boldsymbol{k})\boldsymbol{E}_0.
+ \label{eq:poynting-identity}
+\end{equation}
+式\eqref{eq:E1}では $\boldsymbol{E}_0\cdot\boldsymbol{k}=0$ であるから、
+$\langle\boldsymbol{S}\rangle$ は $\boldsymbol{k}$ と平行である。この偏光は
+$k=k_1$ に対応し、波数ベクトルも光線の進行方向も側面Aの法線方向のまま
+なので、入射後に向きを変えない。
+
+\section*{[6] $yz$ 偏光のエネルギー流}
+式\eqref{eq:E2}を $\boldsymbol{k}$ と外積すると
+\begin{equation}
+ \boldsymbol{k}\times\boldsymbol{E}_0
+ =-\frac{kE_0(\varepsilon_1\sin^2\theta+
+                      \varepsilon_2\cos^2\theta)}
+        {\sqrt{\varepsilon_1^2\sin^2\theta+
+                      \varepsilon_2^2\cos^2\theta}}
+ \begin{pmatrix}1\\0\\0\end{pmatrix}.
+\end{equation}
+よって磁場は $x$ 成分だけをもち、式\eqref{eq:H0}から
+$\langle\boldsymbol{S}\rangle$ の向きは
+\begin{equation}
+ \langle\boldsymbol{S}\rangle\ \parallel
+ \begin{pmatrix}0\\\varepsilon_1\sin\theta\\
+                       \varepsilon_2\cos\theta\end{pmatrix}.
+ \label{eq:S2}
+\end{equation}
+このベクトルが $z$ 軸となす角を $\theta+\alpha$ とする。両成分は正なので
+角は第1象限にあり、
+\begin{equation}
+ \tan(\theta+\alpha)=
+ \frac{\varepsilon_1\sin\theta}{\varepsilon_2\cos\theta}
+ =\frac{\varepsilon_1}{\varepsilon_2}\tan\theta.
+ \label{eq:sum-angle}
+\end{equation}
+$\tan\alpha=\tan[(\theta+\alpha)-\theta]$ の公式を用いると
+\begin{align}
+ \tan\alpha
+ &=\frac{\tan(\theta+\alpha)-\tan\theta}
+         {1+\tan(\theta+\alpha)\tan\theta}\\
+ &=\frac{(\varepsilon_1/\varepsilon_2-1)\tan\theta}
+         {1+(\varepsilon_1/\varepsilon_2)\tan^2\theta}\\
+ &=\frac{(\varepsilon_1-\varepsilon_2)\sin\theta\cos\theta}
+         {\varepsilon_2\cos^2\theta+\varepsilon_1\sin^2\theta}>0.
+ \label{eq:alpha}
+\end{align}
+したがってこの枝ではエネルギー流が波数方向から $+y$ 側へ $\alpha$ だけ
+傾く。
+
+\section*{[7] 紙の文字に生じる二重像}
+側面Aの反対側から、その法線方向に紙の文字を見る場合を考える。側面Aから反対面までの法線方向の距離を$d$とする。紙上の同じ点を出た光のうち、$x$偏光の光線は法線に沿って進む。$yz$偏光のエネルギー流は結晶内で法線から$\alpha>0$だけ傾くため、出射点は側面Aに平行な$yz$面内方向へ$d\tan\alpha$だけずれる。この向きは$+y$成分をもち、図\ref{fig:split-rays}では下向きである。
+
+二つの出射面は平行であり、界面で波数の接線成分が保存される。結晶内の波数は法線方向だから、出射後の波数も法線方向となる。空気中では光線もこの方向に進む。出射光線を紙面までまっすぐ逆延長すると、$x$偏光の光線は元の点に戻り、$yz$偏光の光線はそこから図の下向きに$d\tan\alpha$だけずれた位置に達する。従って、紙面に投影した見かけの位置が偏光によって異なり、文字の「Q」は上下にずれた二つの像として見える。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.0,>=Stealth,font=\small]
+  % Shared projection frame: z=(0.4,1), +y=(0.5,-0.2) in the side view.
+  \pgfmathsetmacro{\zUnitX}{0.4}
+  \pgfmathsetmacro{\zUnitY}{1.0}
+  \pgfmathsetmacro{\yUnitX}{0.5*\zUnitY}
+  \pgfmathsetmacro{\yUnitY}{-0.5*\zUnitX}
+  % Side view: the normal to side A points right; optic axis z is tilted above it.
+  \draw[fill=gray!12] (0,0) rectangle (4,3.3);
+  \draw[thick] (0,0)--(0,3.3) node[above left] {側面A};
+  \draw[thick] (4,0)--(4,3.3);
+  \node at (2,3.05) {結晶};
+  \draw[->] (-0.45,1.55)--(4.7,1.55) node[right] {$\boldsymbol{k}$};
+  \draw[->,blue,thick] (0,1.55)--(4.65,1.55);
+  \node[blue] at (2,1.95) {$x$偏光: $\langle\boldsymbol{S}\rangle\parallel\boldsymbol{k}$};
+  \draw[->,red,thick] (0,1.55)--(4,0.95)
+    node[pos=0.66,below] {$yz$偏光: $\langle\boldsymbol{S}\rangle$};
+  \coordinate (O) at (0,1.55);
+  \coordinate (Kdir) at (1,1.55);
+  \coordinate (Zaxis) at ({\zUnitX},{1.55+\zUnitY});
+  \coordinate (Sdir) at (1,1.4);
+  \draw[->] (O)--(Zaxis) node[above] {$z$};
+  % This side view is in the y-z plane; +x points out of the page.
+  \draw (-0.9,-0.65) circle (1.5pt);
+  \fill (-0.9,-0.65) circle (0.45pt) node[below left] {$+x$};
+  \coordinate (LegendOrigin) at (-0.9,-0.65);
+  \coordinate (LegendZ) at ({-0.9+0.5*\zUnitX},{-0.65+0.5*\zUnitY});
+  \coordinate (LegendY) at ({-0.9+\yUnitX},{-0.65+\yUnitY});
+  \draw[->] (LegendOrigin)--(LegendZ) node[above] {$z$};
+  \draw[->] (LegendOrigin)--(LegendY) node[below] {$+y$};
+  \pic[draw,angle radius=0.45cm,"$\theta$",angle eccentricity=1.25]
+    {angle=Kdir--O--Zaxis};
+  \pic[draw,angle radius=0.5cm,"$\alpha$",angle eccentricity=1.3]
+    {angle=Sdir--O--Kdir};
+  \draw[<->] (4.25,0.95)--(4.25,1.55)
+    node[midway,right] {$d\tan\alpha$};
+  \draw[<->] (0,-0.25)--(4,-0.25) node[midway,below] {$d$};
+  \fill (0,1.55) circle (1.7pt);
+  \node[anchor=south east] at (-0.08,1.6) {紙上の点 $Q$};
+  \draw[->,red,thick] (4,0.95)--(4.65,0.95);
+  \draw[red,dashed] (4,0.95)--(0,0.95);
+  \draw[red,fill=white] (0,0.95) circle (1.7pt);
+  \draw[->,gray] (5.1,2.55)--(4.35,2.55) node[pos=0,above right] {観察方向};
+  \draw[densely dotted] (6.6,0.4)--(6.6,2.2);
+  \node at (7.8,2.15) {正面から見た相対位置};
+  \node[blue,font=\Large] at (7.8,1.55) {$Q$};
+  \node[red,font=\Large] at (7.8,0.95) {$Q$};
+  \node[anchor=west,blue] at (8.2,1.55) {$x$偏光};
+  \node[anchor=west,red] at (8.2,0.95) {$yz$偏光};
+  \node[below] at (4,0) {出射面};
+\end{tikzpicture}
+\caption{紙上の同じ点から出た二つの光線。赤い破線は出射光線の逆延長を示し、紙面との交点は元の点より下にある。$x$偏光の逆延長は元の点を通る。右の文字は正面から見た二つの像の相対位置を示し、実際の像面の位置は表していない。}
+\label{fig:split-rays}
+\end{figure}
+\end{document}

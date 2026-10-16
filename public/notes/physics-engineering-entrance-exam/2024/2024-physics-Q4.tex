@@ -1,0 +1,148 @@
+% Standalone XeLaTeX source; source PDF pp. 6--7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb,tikz}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2024年 物理学 第4問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+以下では $e>0$ とし、電子の電荷は $-e$ である。$N$は電子数密度、$m$は電子質量、$\varepsilon_0$は真空の誘電率、$c$は光速である。複素表示した電場の実部を物理的な電場とする。原題と同じく時間依存は $e^{-i\omega t}$ であり、$\omega_p^2=Ne^2/(\varepsilon_0m)$ とおく。
+
+\section*{[1] 静磁場がないときの電子の運動方程式}
+電磁波の磁場による力と他粒子との相互作用は仮定により無視する。電子に働く力は電気力 $-e\boldsymbol E(z,t)$ だけなので、横方向の速度 $\boldsymbol v(z,t)$ は
+\[
+\boxed{m\frac{\partial\boldsymbol v(z,t)}{\partial t}
+=-e\boldsymbol E(z,t)}
+\]
+に従う。電子の熱運動は平均電流に寄与しない。
+
+\section*{[2] 電流密度の時間微分}
+正イオンは静止しているので、電流密度は $\boldsymbol J=-Ne\boldsymbol v$ である。$N$ は一様で時間に依存しないから、[1] を用いて
+\[
+\boxed{\frac{\partial\boldsymbol J}{\partial t}
+=-Ne\frac{\partial\boldsymbol v}{\partial t}
+=\frac{Ne^2}{m}\boldsymbol E
+=\varepsilon_0\omega_p^2\boldsymbol E.}
+\]
+負電荷をもつ電子の速度と電流の向きが逆になるため、最後の係数は正である。
+
+\section*{[3] 無磁場での分散関係と伝搬条件}
+使用する波動方程式と平面波は
+\begin{equation}
+ \partial_z^2\boldsymbol E-\frac1{c^2}\partial_t^2\boldsymbol E=\frac1{c^2\varepsilon_0}\partial_t\boldsymbol J,\qquad \boldsymbol E=\boldsymbol E_0e^{i(kz-\omega t)}
+\end{equation}
+である。代入すると、$\partial_z^2\boldsymbol E=-k^2\boldsymbol E$、$\partial_t^2\boldsymbol E=-\omega^2\boldsymbol E$ となる。[2] も代入して
+\[
+\left(-k^2+\frac{\omega^2}{c^2}\right)\boldsymbol E
+=\frac{\omega_p^2}{c^2}\boldsymbol E.
+\]
+従って
+\[
+\boxed{k^2=\frac{\omega^2-\omega_p^2}{c^2}.}
+\]
+$\omega>\omega_p$ なら正の実波数 $k=\sqrt{\omega^2-\omega_p^2}/c$ を選べ、$+z$ 方向の進行波は減衰せず長距離を伝搬する。$0<\omega<\omega_p$ では $k$ が純虚数となり、$+z$ 側で有限な解は指数的に減衰する。$\omega=\omega_p$ では $k=0$ で進行しない。よって条件は $\boxed{\omega>\omega_p}$ である。
+
+\section*{[4] 静磁場中の電子の運動方程式}
+以下は原題後半の追加条件 $B_z>0$、$\omega>\omega_c$、$\omega_p>\omega_c$ のもとで考える。静磁場を $B_z\boldsymbol e_z$ と書く。横方向速度と静磁場の外積は $\boldsymbol v\times B_z\boldsymbol e_z=(B_zv_y,-B_zv_x,0)$ であり、電子に働く力は $-e(\boldsymbol E+\boldsymbol v\times B_z\boldsymbol e_z)$ となる。$\omega_c=eB_z/m$ を用いれば
+\[
+\boxed{\begin{aligned}
+\frac{\partial v_x}{\partial t}&=-\frac em E_x-\omega_c v_y,\\
+\frac{\partial v_y}{\partial t}&=-\frac em E_y+\omega_c v_x.
+\end{aligned}}
+\]
+ここで $\boldsymbol e_z$ は $+z$ 方向の単位ベクトルであり、各量の引数は $(z,t)$ である。
+
+\section*{[5] 導電率行列}
+$\boldsymbol J=-Ne\boldsymbol v$ を [4] の両式に代入し、$e^{-i\omega t}$ に比例する量の時間微分を $-i\omega$ 倍に置き換えると
+\[
+\begin{pmatrix}-i\omega&\omega_c\\-\omega_c&-i\omega\end{pmatrix}
+\begin{pmatrix}J_x\\J_y\end{pmatrix}
+=\varepsilon_0\omega_p^2
+\begin{pmatrix}E_x\\E_y\end{pmatrix}.
+\]
+左の行列の行列式は $\omega_c^2-\omega^2\ne0$ である。逆行列を掛けて原題の式(4)の行列を求めると
+\[
+\boxed{\boldsymbol\sigma
+=\frac{\varepsilon_0\omega_p^2}{\omega^2-\omega_c^2}
+\begin{pmatrix}i\omega&\omega_c\\-\omega_c&i\omega\end{pmatrix}.}
+\]
+例えば第1行は $J_x=\varepsilon_0\omega_p^2(i\omega E_x+\omega_c E_y)/(\omega^2-\omega_c^2)$ となる。$B_z$ をゼロに近づけると $\boldsymbol\sigma=i\varepsilon_0\omega_p^2\mathbf I/\omega$ に戻り、[2] の $-i\omega\boldsymbol J=\varepsilon_0\omega_p^2\boldsymbol E$ と一致する。
+
+\section*{[6] 波動方程式の行列}
+式(1)に式(2)と $\boldsymbol J=\boldsymbol\sigma\boldsymbol E$ を代入すれば
+\[
+\boldsymbol A=\frac{\omega^2}{c^2}\mathbf I
++\frac{i\omega}{c^2\varepsilon_0}\boldsymbol\sigma,
+\qquad \boldsymbol A\boldsymbol E=k^2\boldsymbol E.
+\]
+[5] の $\boldsymbol\sigma$ を入れて整理すると
+\[
+\boldsymbol A=\left(\frac\omega c\right)^2
+\left[\left(1-\frac{\omega_p^2}{\omega^2-\omega_c^2}\right)\mathbf I
+-\frac{\omega_p^2\omega_c}{\omega(\omega^2-\omega_c^2)}
+\begin{pmatrix}0&-i\\i&0\end{pmatrix}\right].
+\]
+原題の式(6)と比べて
+\[
+\boxed{\alpha=\frac{\omega_p^2}{\omega^2-\omega_c^2},\qquad
+\beta=\frac{\omega_p^2\omega_c}{\omega(\omega^2-\omega_c^2)}.}
+\]
+仮定 $\omega>\omega_c>0$ により $\beta>0$ である。
+
+\section*{[7] 固有波数、固有ベクトル、二モードの伝搬}
+式(6)の非対角行列を $\boldsymbol H=\begin{pmatrix}0&-i\\i&0\end{pmatrix}$ と書く。直接掛け算すると、$\boldsymbol H(1,-i)^{\mathsf T}=-(1,-i)^{\mathsf T}$、$\boldsymbol H(1,i)^{\mathsf T}=(1,i)^{\mathsf T}$ である。$\beta>0$ より前者の $k^2$ が大きい。各固有空間の代表ベクトルと対応する固有値は
+\[
+\boxed{\begin{array}{c|c}
+\text{固有ベクトル}&k^2\\ \hline
+\displaystyle\frac1{\sqrt2}\begin{pmatrix}1\\-i\end{pmatrix}&
+\displaystyle k_+^2=\frac{\omega^2}{c^2}
+\left(1-\frac{\omega_p^2}{\omega(\omega+\omega_c)}\right)\\[3mm]
+\displaystyle\frac1{\sqrt2}\begin{pmatrix}1\\i\end{pmatrix}&
+\displaystyle k_-^2=\frac{\omega^2}{c^2}
+\left(1-\frac{\omega_p^2}{\omega(\omega-\omega_c)}\right)
+\end{array}}
+\]
+であり、それぞれの非零スカラー倍も固有ベクトルである。$\omega>\omega_c$ では $k_+^2>k_-^2$ なので、二つとも $+z$ 方向へ長距離伝搬する条件は、より小さい $k_-^2$ が正になることである。すなわち
+\[
+\omega(\omega-\omega_c)>\omega_p^2
+\quad\Longleftrightarrow\quad
+\boxed{\omega>\frac{\omega_c+\sqrt{\omega_c^2+4\omega_p^2}}2.}
+\]
+等号では $k_-=0$ となり進行波ではない。条件を満たす場合、以後 $k_+,k_-$ は上の固有値の正の平方根とし、$k_+>k_->0$ である。
+
+\section*{[8] 直線偏光の回転}
+位置 $z=0$ の $x$ 方向の電場を$\boldsymbol E(0,t)=E_0(1,0)^{\mathsf T}e^{-i\omega t}$とする。これは[7] の二つの固有ベクトルを等しい係数で重ねたものである。$+z$ へ進む各モードにはそれぞれ $e^{ik_+z}$、$e^{ik_-z}$ を掛ける。従って
+\[
+\boxed{\boldsymbol E(z,t)=\frac{E_0}{2}e^{-i\omega t}
+\left[e^{ik_+z}\begin{pmatrix}1\\-i\end{pmatrix}
++e^{ik_-z}\begin{pmatrix}1\\i\end{pmatrix}\right].}
+\]
+ここで $\bar k=(k_++k_-)/2$、$\theta(z)=(k_+-k_-)z/2$ と書けば、和と差の公式によって同じ電場は
+\[
+\boxed{\boldsymbol E(z,t)=E_0e^{i(\bar k z-\omega t)}
+\begin{pmatrix}\cos\theta(z)\\\sin\theta(z)\end{pmatrix}.}
+\]
+$z=0$ では $\theta=0$ で原題の式(7)に戻る。二成分には共通の時間位相しか残らないため、実電場はどの $z$ でも直線偏光である。その偏光方向は $z$ が増すにつれ $+x$ から $+y$ へ向けて回転し、角度は $\theta(z)=(k_+-k_-)z/2$ だけ増える。偏光軸を向きの区別なしで見れば、長さ $2\pi/(k_+-k_-)$ ごとに同じ向きに戻る。
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1,>=stealth]
+  \draw[->] (-0.2,0)--(3.2,0) node[right] {$x$};
+  \draw[->] (0,-0.2)--(0,2.35) node[above] {$y$};
+  \draw[->,thick,gray] (0,0)--(2.35,0) node[below right] {$z=0$};
+  \draw[->,thick] (0,0)--(1.85,1.55) node[above right] {$z>0$};
+  \draw (0.65,0) arc[start angle=0,end angle=40,radius=0.65];
+  \node at (0.95,0.35) {$\theta(z)$};
+  \node[align=left] at (2.15,2.12) {偏光方向};
+\end{tikzpicture}
+\end{center}
+図は $0<\theta(z)<\pi/2$ の一例を示す。一般の $z$ ではこの向きが連続して回転する。
+
+\end{document}

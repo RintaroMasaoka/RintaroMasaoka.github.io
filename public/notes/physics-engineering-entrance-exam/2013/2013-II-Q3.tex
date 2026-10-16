@@ -1,0 +1,122 @@
+% Standalone XeLaTeX source; source problem: 2013ap_exam.pdf, PDF p. 10.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2013年 物理学II 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 電束密度}
+球の全電荷は $Q=4\pi a^2\sigma$ である。Gauss則を半径 $r>a$ の球面に適用すると
+\begin{equation}
+ \boxed{\boldsymbol D(\boldsymbol r,t)=\sigma\frac{a^2}{r^2}\hat{\boldsymbol r},\qquad
+ D(r,t)=|\sigma|\left(\frac{a}{r}\right)^2.}
+\end{equation}
+ここでは球中心を原点とする瞬間座標を用いた。
+
+\section*{[2] 移動電荷の磁場}
+速度が $c$ より十分小さいとき、動く微小電荷 $dq$ による磁場は
+$d\boldsymbol H=(dq/4\pi)\,\boldsymbol v\times\hat{\boldsymbol R}/R^2$ である。電束密度への寄与は
+$d\boldsymbol D=(dq/4\pi)\hat{\boldsymbol R}/R^2$ なので、重ね合わせれば球外で
+\begin{equation}
+ \boxed{\boldsymbol H=\boldsymbol v\times\boldsymbol D.}
+\end{equation}
+移動する場は $\partial_t\boldsymbol D=-(\boldsymbol v\cdot\boldsymbol\nabla)\boldsymbol D$ を満たし、外部では $\boldsymbol\nabla\cdot\boldsymbol D=0$ である。一定ベクトル $\boldsymbol v$ に対し
+$\boldsymbol\nabla\times(\boldsymbol v\times\boldsymbol D)
+=\boldsymbol v(\boldsymbol\nabla\cdot\boldsymbol D)-(\boldsymbol v\cdot\boldsymbol\nabla)\boldsymbol D
+=\partial_t\boldsymbol D$ となり、Maxwell--Amp\`ere則とも整合する。
+
+\section*{[3] 円Cに沿う積分}
+$\boldsymbol v=v\boldsymbol e_x$ とし、$\theta$ を $\boldsymbol r$ と $+x$ 軸のなす角とする。球面座標の方位方向を $\boldsymbol e_\phi$ とすると
+\begin{equation}
+ \boldsymbol H=H_\phi\boldsymbol e_\phi,\qquad
+ H_\phi=\frac{\sigma a^2v\sin\theta}{r^2}.
+\end{equation}
+円Cの半径は $d=r\sin\theta$ で、$\boldsymbol H$ は円周に接する。周回方向を $\boldsymbol e_\phi$ とする。積分面 $S$ は、瞬間的な球中心を中心とする半径 $r>a$ の球面上で、極角 $0\leq\vartheta\leq\theta$ の球冠とし、法線を外向きに選ぶ。その境界は円Cであり、正の周回方向は $\boldsymbol e_\phi$ となる。この面は球殻を横切らないので
+\begin{align}
+ \oint_C\boldsymbol H\cdot d\boldsymbol\ell
+ &=2\pi dH_\phi\\
+ &=\int_S\frac{\partial\boldsymbol D}{\partial t}\cdot d\boldsymbol S
+ =\boxed{\frac{2\pi\sigma a^2v\sin^2\theta}{r}}.
+\end{align}
+円周積分と面積分を結ぶ等号はMaxwell--Amp\`ere則の積分形である。$S$ 上には伝導電流がなく、変位電流だけが寄与する。
+
+\section*{[4] 円Cを縁とする面を貫く電束の変化}
+基準時刻に[3]の球冠面 $S$ を選び、その後は実験室に固定して電束の時間変化を求める。球冠面上では $\boldsymbol D=\sigma a^2\boldsymbol e_r/r^2$ なので、基準時刻の電束は
+\begin{equation}
+ \Psi=\int_S\boldsymbol D\cdot d\boldsymbol S
+ =\sigma a^2\int_0^{2\pi}d\phi\int_0^\theta\sin\vartheta\,d\vartheta
+ =2\pi\sigma a^2(1-\cos\theta).
+\end{equation}
+微分するときに球冠面を球と一緒に動かしてはならない。実験室に固定した点では球中心からの位置が $\partial_t\boldsymbol r=-v\boldsymbol e_x$ と変わる。その長さの時間微分は $\partial_t r=\boldsymbol e_r\cdot\partial_t\boldsymbol r=-v\cos\vartheta$ である。$\boldsymbol D=\sigma a^2\boldsymbol r/r^3$ に積の微分を適用すると
+\begin{align}
+ \partial_t\boldsymbol D
+ &=\sigma a^2\left(\frac{\partial_t\boldsymbol r}{r^3}
+       -\frac{3\boldsymbol r}{r^4}\partial_t r\right)\\
+ &=\frac{\sigma a^2v}{r^3}
+ \left(3\cos\vartheta\,\boldsymbol e_r-\boldsymbol e_x\right),\\
+ \partial_t\boldsymbol D\cdot\boldsymbol e_r
+ &=\frac{2\sigma a^2v\cos\vartheta}{r^3}.
+\end{align}
+従って、固定面を貫く電束の時間変化は
+\begin{align}
+ \frac{d\Psi}{dt}
+ &=\int_S\partial_t\boldsymbol D\cdot d\boldsymbol S\\
+ &=\frac{2\sigma a^2v}{r^3}
+   \int_0^{2\pi}d\phi\int_0^\theta r^2\cos\vartheta\sin\vartheta\,d\vartheta
+ =\frac{2\pi\sigma a^2v\sin^2\theta}{r}.
+\end{align}
+よって $\Delta t$ の一次までで
+\begin{equation}
+ \boxed{\Delta\Psi=\frac{2\pi\sigma a^2v\sin^2\theta}{r}\Delta t
+ =\frac{2\pi\sigma a^2v\sin^3\theta}{d}\Delta t.}
+\end{equation}
+この面の選び方なら、$r>a$ の全ての極角で導出できる。円Cの平面円板を選ぶと球殻を横切る場合があり、その場合は伝導電流も含める必要がある。軸上の $\theta=0,\pi$ では円が縮み、上の値は0となる。
+
+\section*{[5] 磁場の大きさ}
+[3]の円周積分を $2\pi d$ で割るか、[4]の電束変化率を使う。ここで割り算は円が縮まない $0<\theta<\pi$ で行い、軸上は連続極限で評価すると
+\begin{equation}
+ \boxed{H(r,t)=\frac{|\Delta\Psi|}{2\pi d\Delta t}
+ =\frac{|\sigma|a^2v\sin\theta}{r^2}.}
+\end{equation}
+磁場は $\sigma>0$ なら $+\boldsymbol e_\phi$、$\sigma<0$ なら $-\boldsymbol e_\phi$ を向く。軸上では上式の極限が $H=0$ を与える。
+
+\section*{[6] 磁気エネルギー密度}
+真空中では $\boldsymbol B=\mu_0\boldsymbol H$ なので
+\begin{equation}
+ \boxed{u(\boldsymbol r,t)=\frac{B^2}{2\mu_0}
+ =\frac12\mu_0H^2
+ =\frac12\mu_0\sigma^2a^4v^2\frac{\sin^2\theta}{r^4}.}
+\end{equation}
+
+\section*{[7] 球外の磁気エネルギー}
+球外 $r>a$ の全空間で積分する。体積要素は $r^2\sin\theta\,dr\,d\theta\,d\phi$ なので
+\begin{align}
+ U_{\rm mag}
+ &=\frac12\mu_0\sigma^2a^4v^2
+   \int_a^\infty\frac{dr}{r^2}
+   \int_0^{2\pi}d\phi\int_0^\pi\sin^3\theta\,d\theta\\
+ &=\frac12\mu_0\sigma^2a^4v^2\left(\frac1a\right)(2\pi)\left(\frac43\right)
+ =\boxed{\frac{4\pi}{3}\mu_0\sigma^2a^3v^2}.
+\end{align}
+
+\section*{[8] 運動に伴う全エネルギー}
+磁気エネルギーを運動エネルギーに加えると
+\begin{equation}
+ \boxed{E_{\rm tot}=\frac12m_0v^2+U_{\rm mag}
+ =\frac12\left(m_0+\frac{8\pi}{3}\mu_0\sigma^2a^3\right)v^2.}
+\end{equation}
+したがって、この近似で運動に伴う有効質量は
+$m_{\rm eff}=m_0+8\pi\mu_0\sigma^2a^3/3$ と書ける。
+
+球が動くと電束密度の時間変化が磁場を作り、その磁場はエネルギーを持つ。この磁気エネルギーは速さの二乗に比例するので、運動エネルギーへ加えると質量の増加分として表せる。外力は物質の球だけでなく、運動に伴う磁場も作る仕事をする。ここでは問題の指示どおり電気的自己エネルギーは含めない。
+
+\end{document}

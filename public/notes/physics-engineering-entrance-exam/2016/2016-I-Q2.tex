@@ -1,0 +1,135 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF pages 4–5.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2016年 物理学I 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 二点電荷のポテンシャル}
+ポテンシャルの重ね合わせから
+\begin{equation}
+  \boxed{\phi(P)=\frac{q}{4\pi\varepsilon_0}
+    \left(\frac1{r_+}-\frac1{r_-}\right)}.
+\end{equation}
+
+\section*{[2] 遠方での双極子ポテンシャル}
+$\boldsymbol p$の向きを極軸に取ると、正負電荷の位置はそれぞれ$+\boldsymbol d/2$、$-\boldsymbol d/2$であり、
+\begin{equation}
+  r_\pm=\sqrt{r^2+\frac{d^2}{4}\mp rd\cos\theta}.
+\end{equation}
+$d/r$の一次まで二項展開すると
+\begin{equation}
+  \frac1{r_+}=\frac1r+\frac{d\cos\theta}{2r^2}+O\!\left(\frac{d^2}{r^3}\right),\qquad
+  \frac1{r_-}=\frac1r-\frac{d\cos\theta}{2r^2}+O\!\left(\frac{d^2}{r^3}\right).
+\end{equation}
+単極子項は差を取ると消える。$p=qd$より
+\begin{equation}
+  \boxed{\phi(r,\theta)=\frac{p\cos\theta}{4\pi\varepsilon_0r^2}}
+  \qquad (r\gg d).
+\end{equation}
+
+\section*{[3] 双極子電場}
+軸対称な球座標で$\nabla\phi=\boldsymbol e_r\partial_r\phi+
+(\boldsymbol e_\theta/r)\partial_\theta\phi$だから
+\begin{equation}
+  \boldsymbol E=-\nabla\phi=\frac{p}{4\pi\varepsilon_0r^3}
+    \left(2\cos\theta\,\boldsymbol e_r+\sin\theta\,\boldsymbol e_\theta\right).
+\end{equation}
+これは問題文に示された電場の式である。
+\begin{equation}
+  \boxed{\boldsymbol E(r,\theta)=\frac{p}{4\pi\varepsilon_0r^3}
+    \left(2\cos\theta\,\boldsymbol e_r+\sin\theta\,\boldsymbol e_\theta\right)}.
+\end{equation}
+
+\section*{[4] 双極子2の回転方向}
+位置1から2への方向を$x$軸とすると、双極子1が位置2につくる電場は
+\begin{equation}
+  \boldsymbol E_1=\frac{p_1}{4\pi\varepsilon_0l^3}
+    (2\cos\theta_1\,\boldsymbol e_x-\sin\theta_1\,\boldsymbol e_y).
+\end{equation}
+(a)では$\theta_1=\pi/2$なので$\boldsymbol E_1$は$-y$方向、$\boldsymbol p_2$は$+x$方向である。トルク$\boldsymbol\tau_2=\boldsymbol p_2\times\boldsymbol E_1$は紙面の裏向きとなるから、紙面を正面から見て時計回りに回り始める。(b)では$\boldsymbol p_2$も$-y$方向で$\boldsymbol E_1$と平行なのでトルクはゼロであり、回転しない。
+
+\section*{[5] 二つの双極子の相互作用エネルギー}
+$U=-\boldsymbol p_2\cdot\boldsymbol E_1$に上の電場と$\boldsymbol p_2=p_2(\cos\theta_2\boldsymbol e_x+\sin\theta_2\boldsymbol e_y)$を代入すると
+\begin{align}
+  U&=-\frac{p_1p_2}{4\pi\varepsilon_0l^3}
+       (2\cos\theta_1\cos\theta_2-\sin\theta_1\sin\theta_2)\\
+   &=-\frac{p_1p_2}{8\pi\varepsilon_0l^3}
+       [3\cos(\theta_1+\theta_2)+\cos(\theta_1-\theta_2)].
+\end{align}
+
+\section*{[6] 安定な相対配置}
+$u=\theta_1+\theta_2$、$v=\theta_1-\theta_2$は独立に変えられる角度である。エネルギーを最小にするには$\cos u=\cos v=1$が必要で、
+\begin{equation}
+  \theta_1+\theta_2=2m\pi,\qquad
+  \theta_1-\theta_2=2n\pi\qquad(m,n\in\mathbb Z).
+\end{equation}
+したがって角度を$2\pi$を法として表すと、安定配置は$(\theta_1,\theta_2)=(0,0)$および$(\pi,\pi)$であり、いずれも
+\begin{equation}
+  \boxed{U_{\min}=-\frac{p_1p_2}{2\pi\varepsilon_0l^3}}.
+\end{equation}
+
+\section*{[7] 接地導体面と双極子のエネルギー}
+図3の実双極子の法線成分は$p\cos\alpha$、面に平行な成分は$-p\sin\alpha\,\boldsymbol e_y$である。双極子を$-q$から$+q$へ向かう微小な電荷対とみなす。接地面の鏡像では各電荷を$z\mapsto-z$で反射し、電荷の符号も反転する。像の$-q$から$+q$への変位をたどると、法線成分は元の向きのまま、面に平行な成分は反転する。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,font=\small,scale=0.85]
+  % Schematic display parameters; image reflection preserves p_z and reverses p_parallel.
+  \pgfmathsetmacro{\height}{1.15}
+  \pgfmathsetmacro{\pLength}{1.15}
+  \pgfmathsetmacro{\alpha}{45}
+  \pgfmathsetmacro{\px}{\pLength*sin(\alpha)}
+  \pgfmathsetmacro{\pz}{\pLength*cos(\alpha)}
+  \draw[thick] (-2.2,0)--(2.2,0);
+  \node[below] at (1.65,0) {接地導体 ($z=0$)};
+  \draw[->] (0,0)--(0,2.5) node[above] {$z$};
+  \fill (0,\height) circle (2pt);
+  \fill (0,-\height) circle (2pt);
+  \node[right] at (0,\height) {実双極子};
+  \node[right] at (0,-\height) {像双極子};
+  \draw[->,blue,thick] (0,\height)--({-\px},{\height+\pz}) node[above left] {$\boldsymbol p$};
+  \draw[->,red,thick] (0,-\height)--({\px},{-\height+\pz}) node[below right] {$\boldsymbol p'$};
+  \draw[dashed] (0,0)--(0,\height);
+  \draw[<->] (0.18,0)--(0.18,\height) node[midway,right] {$h$};
+\end{tikzpicture}
+\caption{導体面に対する実双極子と鏡像双極子。接線成分は反転し、法線成分は同じ向きである。}
+\end{figure}
+実双極子と像双極子の距離は$2h$である。像双極子が実双極子の位置につくる電場は
+\begin{equation}
+  \boldsymbol E_{\mathrm{im}}=\frac{1}{4\pi\varepsilon_0(2h)^3}
+  (-p\sin\alpha\,\boldsymbol e_y+2p\cos\alpha\,\boldsymbol e_z).
+\end{equation}
+従って両者の相互作用エネルギーは
+\begin{equation}
+  U_{\mathrm{pair}}=-\boldsymbol p\cdot\boldsymbol E_{\mathrm{im}}
+  =-\frac{p^2(1+\cos^2\alpha)}{32\pi\varepsilon_0h^3}.
+\end{equation}
+像は実双極子によって誘起されるので、この相互作用エネルギー全体を系のエネルギーとはしない。$h,\alpha$ を固定して実双極子を $\boldsymbol p(s)=s\boldsymbol p$（$0\le s\le1$）と徐々に立ち上げると、導体の線形応答により像の電場は $\boldsymbol E_{\mathrm{im}}(s)=s\boldsymbol E_{\mathrm{im}}$ となる。実双極子を増やす増分仕事のうち導体に由来する分は $dU'=-\boldsymbol E_{\mathrm{im}}(s)\cdot d\boldsymbol p(s)=-s\boldsymbol p\cdot\boldsymbol E_{\mathrm{im}}\,ds$ である。従って $\int_0^1s\,ds=1/2$ から
+\begin{equation}
+  \boxed{U'=\frac12U_{\mathrm{pair}}
+  =-\frac{p^2(1+\cos^2\alpha)}{64\pi\varepsilon_0h^3}
+  =-\frac{p^2(3+\cos2\alpha)}{128\pi\varepsilon_0h^3}}.
+\end{equation}
+これは$h\to\infty$でゼロとなる。
+
+\section*{[8] 最も安定な双極子の向き}
+$U'$を最小にするには$\cos^2\alpha=1$であればよい。従って
+\begin{equation}
+  \boxed{\alpha=n\pi\quad(n\in\mathbb Z)}
+\end{equation}
+であり、双極子モーメントが導体面の法線に平行または反平行なとき最も安定である。
+
+\end{document}

@@ -1,0 +1,128 @@
+% Standalone XeLaTeX source; source problem: 2014ap_exam.pdf, PDF pp. 12--13.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2014年 物理学II 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+原問の時間依存を $e^{-i\omega t}$ とし、媒質は $z>0$、波の伝播方向を $+z$ とする。電場は $x$ 方向で、複素波数 $\widetilde k=k_1+ik_2$ を用いて
+\begin{equation}
+ \boldsymbol E(z,t)=\operatorname{Re}\!\left[\widetilde E_0\,\boldsymbol e_x
+ e^{i(\widetilde kz-\omega t)}\right]
+ =|\widetilde E_0|e^{-k_2z}\cos(k_1z-\omega t+\delta)\,\boldsymbol e_x
+\end{equation}
+と書く（$\delta=\arg\widetilde E_0$）。媒質中で減衰する解を選ぶので $k_2>0$ である。
+
+\section*{[1] 分散関係と位相速度}
+波動方程式に $e^{i(\widetilde kz-\omega t)}$ を代入すると
+\begin{equation}
+ -\widetilde k^2+\epsilon\mu\omega^2+i\mu\sigma\omega=0,
+ \qquad \boxed{\widetilde k^2=\epsilon\mu\omega^2+i\mu\sigma\omega}.
+\end{equation}
+位相一定条件 $k_1z-\omega t+\delta=\text{const.}$ から、位相速度は振幅減衰を決める $k_2$ ではなく
+\begin{equation}
+ \boxed{v_{\rm ph}=\frac{\omega}{k_1}}.
+\end{equation}
+
+\section*{[2] 振幅減衰距離}
+振幅は $z$ とともに $e^{-k_2z}$ 倍される。$e^{-k_2d}=e^{-1}$ より
+\begin{equation}
+ \boxed{d=\frac{1}{k_2}}.
+\end{equation}
+これは振幅の $1/e$ 距離であり、時間平均二乗場や強度の $1/e$ 距離は $1/(2k_2)$ である。
+
+\section*{[3] 実部・虚部}
+$
+(k_1+ik_2)^2=(k_1^2-k_2^2)+2ik_1k_2
+=\mu\omega(\epsilon\omega+i\sigma).
+$
+よって $k_1^2-k_2^2=\epsilon\mu\omega^2$、$2k_1k_2=\mu\sigma\omega$。$k_1,k_2>0$ の減衰・前進波の枝を選ぶと
+\begin{align}
+ k_1&=\boxed{\sqrt{\frac{\mu\omega}{2}
+ \left(\sqrt{\epsilon^2\omega^2+\sigma^2}+\epsilon\omega\right)}},\\
+ k_2&=\boxed{\sqrt{\frac{\mu\omega}{2}
+ \left(\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\right)}}.
+\end{align}
+
+\section*{[4] 伝導率による減衰距離}
+\begin{equation}
+ d=\sqrt{\frac{2}{\mu\omega\left(\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\right)}}.
+\end{equation}
+高伝導率 $\sigma\gg\epsilon\omega$ では平方根の内側の根号を $\sigma$ と近似できるため
+\begin{equation}
+ \boxed{d\simeq\sqrt{\frac{2}{\mu\sigma\omega}}\propto\sigma^{-1/2}}.
+\end{equation}
+低伝導率 $\sigma\ll\epsilon\omega$ では
+$\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\simeq\sigma^2/(2\epsilon\omega)$ なので
+\begin{equation}
+ \boxed{d\simeq\frac{2}{\sigma}\sqrt{\frac{\epsilon}{\mu}}\propto\sigma^{-1}}.
+\end{equation}
+
+\section*{[5] 電場・磁場の位相差}
+Faraday則から複素振幅は
+\begin{equation}
+ \widetilde{\boldsymbol B}(z)=\frac{\widetilde k}{\omega}
+ \boldsymbol e_z\times\widetilde{\boldsymbol E}(z)
+ =\frac{\widetilde k}{\omega}\widetilde E_0\boldsymbol e_y
+ e^{i\widetilde kz}.
+\end{equation}
+位相 $\Theta=k_1z-\omega t+\delta$ と書くと、実電場は $E_x\propto\cos\Theta$、実磁束密度は $B_y\propto\cos(\Theta+\phi)$ である。同じ山に注目すれば磁束密度の山は電場より $\phi/\omega$ だけ遅い時刻に現れる。従って磁束密度は電場に対して $\widetilde k$ の偏角だけ遅れ、
+\begin{equation}
+ \boxed{\phi=\arg(k_1+ik_2)=\tan^{-1}\!\left(\frac{k_2}{k_1}\right)},
+ \qquad 0<\phi<\frac{\pi}{2}.
+\end{equation}
+高伝導率極限では $k_1/k_2\to1$ より $\boxed{\phi\to\pi/4}$。低伝導率極限では $k_2/k_1\to0$ より $\boxed{\phi\to0}$。
+
+\section*{[6] 平均ポインティング流束}
+$z=0$ で $\widetilde{\boldsymbol B}_0=(\widetilde k/\omega)\widetilde E_0\boldsymbol e_y$ である。実場の時間平均を複素振幅で計算すると
+\begin{align}
+ \langle\boldsymbol S\rangle
+ &=\frac{1}{2\mu}\operatorname{Re}
+ \left(\widetilde{\boldsymbol E}_0\times\widetilde{\boldsymbol B}_0^{\,*}\right)
+ =\frac{|\widetilde E_0|^2}{2\mu\omega}\operatorname{Re}(\widetilde k^{\,*})\boldsymbol e_z\\
+ &=\frac{|\widetilde E_0|^2 k_1}{2\mu\omega}\boldsymbol e_z.
+\end{align}
+従って
+\begin{equation}
+ \boxed{|\langle\boldsymbol S\rangle|=
+ \frac{|\widetilde E_0|^2 k_1}{2\mu\omega}
+ =\frac{|\widetilde E_0|^2}{2}
+ \sqrt{\frac{\epsilon}{2\mu}
+ \left(\sqrt{1+\frac{\sigma^2}{\epsilon^2\omega^2}}+1\right)}}.
+\end{equation}
+流束は媒質内へ向かう $+z$ 方向である。
+
+\section*{[7] 媒質に及ぼす単位体積あたりの仕事率}
+電磁場が電荷にする仕事率密度は電流密度との内積である。オーム則を用いれば
+\begin{equation}
+ \boxed{Q(\boldsymbol r,t)=\boldsymbol E(\boldsymbol r,t)\cdot\boldsymbol J(\boldsymbol r,t)
+ =\sigma|\boldsymbol E(\boldsymbol r,t)|^2\geq0}.
+\end{equation}
+電場は $x$ 方向なのでここでの絶対値二乗は実場の成分の二乗を表す。
+
+\section*{[8] Joule熱と侵入エネルギー}
+媒質中の電場振幅が $|\widetilde E_0|e^{-k_2z}$ であるから
+\begin{equation}
+ \langle Q(z,t)\rangle=\frac{\sigma}{2}|\widetilde E_0|^2e^{-2k_2z}.
+\end{equation}
+従って単位界面面積あたり、単位時間に媒質内で消費される平均仕事は
+\begin{align}
+ \int_0^{+\infty}\langle Q(z,t)\rangle dz
+ &=\frac{\sigma|\widetilde E_0|^2}{4k_2}
+ =\frac{|\widetilde E_0|^2k_1}{2\mu\omega}
+ =|\langle\boldsymbol S(0)\rangle|,
+\end{align}
+ここで $2k_1k_2=\mu\sigma\omega$ を用いた。媒質の奥では流束がゼロに減衰するため、境界から流入した平均電磁エネルギーは全て媒質内のJoule熱に変わる。
+
+\end{document}

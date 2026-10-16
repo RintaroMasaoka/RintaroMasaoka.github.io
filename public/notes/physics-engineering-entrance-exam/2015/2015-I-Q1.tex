@@ -1,0 +1,151 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF pages 2–3.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2015年 物理学I 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 単振り子の運動方程式}
+角度$\theta_1$を鉛直下向きから測る。支点まわりの重力のモーメントは
+$-m_1gl_1\sin\theta_1$、慣性モーメントは$m_1l_1^2$なので、
+\begin{equation}
+  m_1l_1^2\ddot{\theta}_1=-m_1gl_1\sin\theta_1,
+  \qquad \ddot{\theta}_1+\frac{g}{l_1}\sin\theta_1=0.
+\end{equation}
+小振幅では$\sin\theta_1\simeq\theta_1$だから、
+\begin{equation}
+  \ddot{\theta}_1+\omega_0^2\theta_1=0,
+  \qquad \boxed{\omega_0=\sqrt{\frac{g}{l_1}}}.
+\end{equation}
+
+\section*{[2] 質量の影響}
+運動方程式では慣性項と重力による復元項の両方が$m_1$に比例するため、質量を約すと固有角周波数には$m_1$が残らない。一方、平衡位置で同じ大きさの水平撃力$J$を加えると、角運動量の変化から角速度の初期値は$\dot{\theta}_1=J/(m_1l_1)$となる。小振幅での角振幅はこの初期角速度を$\omega_0$で割った
+\begin{equation}
+  \theta_{\max}\simeq\frac{J}{m_1\sqrt{gl_1}}.
+\end{equation}
+したがって同じ撃力なら、質量が大きいほど振幅は小さいが、振動の角周波数は変わらない。
+
+\section*{[3] 水平力を受けるときの平衡}
+第2棒の鉛直下向きからの絶対角を$\phi=\theta_1+\theta_2$とする。質点の位置は
+\begin{equation}
+  \boldsymbol r_1=\begin{pmatrix}l_1\sin\theta_1\\-l_1\cos\theta_1\end{pmatrix},
+  \qquad
+  \boldsymbol r_2=\boldsymbol r_1+
+  \begin{pmatrix}l_2\sin\phi\\-l_2\cos\phi\end{pmatrix}.
+\end{equation}
+独立な一般化座標を$(\theta_1,\phi)$とし、$\theta_1$の仮想変位では$\phi$を固定する。仮想変位に対する外力と重力の仕事がゼロとなる条件を用いる。$\theta_1$の変位は両質点の高さを変え、$\phi$の変位は質点$m_2$の位置だけを変えるので、
+\begin{align}
+  F_xl_1\cos\theta_1-(m_1+m_2)gl_1\sin\theta_1&=0,\\
+  F_xl_2\cos\phi-m_2gl_2\sin\phi&=0.
+\end{align}
+図2のように各棒が鉛直下向きから$-\pi/2$と$\pi/2$の間にある平衡枝では、
+\begin{equation}
+  \boxed{\theta_1=\arctan\frac{F_x}{(m_1+m_2)g}},\qquad
+  \boxed{\phi=\arctan\frac{F_x}{m_2g}},\qquad
+  \boxed{\theta_2=\phi-\theta_1}.
+\end{equation}
+
+\section*{[4] 等質量・等長二重振り子のラグランジアン}
+以後$m_1=m_2=m$、$l_1=l_2=l$、$F_x=0$とする。$\theta_1$は第1棒の角度、$\theta_2$は第1棒に対する第2棒の相対角であり、$\phi=\theta_1+\theta_2$は第2棒の絶対角である。位置は
+\begin{equation}
+  \boldsymbol r_1=l\begin{pmatrix}\sin\theta_1\\-\cos\theta_1\end{pmatrix},
+  \qquad
+  \boldsymbol r_2=l\begin{pmatrix}\sin\theta_1+\sin\phi\\-\cos\theta_1-\cos\phi\end{pmatrix}.
+\end{equation}
+時間微分すると、質点2の速さの二乗に交差項が生じる。
+\begin{align}
+  T&=\frac{m}{2}|\dot{\boldsymbol r}_1|^2+\frac{m}{2}|\dot{\boldsymbol r}_2|^2\\
+   &=\frac{ml^2}{2}\left[2\dot{\theta}_1^2+\dot{\phi}^{2}
+       +2\cos\theta_2\,\dot{\theta}_1\dot{\phi}\right],\\
+  U&=mg(y_1+y_2)=-mgl\left(2\cos\theta_1+\cos\phi\right).
+\end{align}
+よって$L=T-U$は
+\begin{equation}
+  \boxed{L=\frac{ml^2}{2}\left[2\dot{\theta}_1^2+
+    (\dot{\theta}_1+\dot{\theta}_2)^2+
+    2\cos\theta_2\,\dot{\theta}_1(\dot{\theta}_1+\dot{\theta}_2)\right]
+    +mgl\left[2\cos\theta_1+\cos(\theta_1+\theta_2)\right].}
+\end{equation}
+第2質点の重力位置エネルギーにも第1棒による高さ$-l\cos\theta_1$が含まれるため、$2\cos\theta_1$の項が現れる。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.25,>=Stealth,font=\small]
+  % Display choices: equal scaled lengths and nonzero, nonspecial angles.
+  \pgfmathsetmacro{\ell}{1.3}
+  \pgfmathsetmacro{\thetaOne}{25}
+  \pgfmathsetmacro{\thetaTwo}{40}
+  \pgfmathsetmacro{\thetaAbsTwo}{\thetaOne+\thetaTwo}
+  \coordinate (O) at (0,0);
+  \coordinate (A) at ({\ell*sin(\thetaOne)},{-\ell*cos(\thetaOne)});
+  \coordinate (B) at ({\ell*sin(\thetaOne)+\ell*sin(\thetaAbsTwo)},{-\ell*cos(\thetaOne)-\ell*cos(\thetaAbsTwo)});
+  \draw[->] (-0.5,0)--(3.1,0) node[right] {$x$};
+  \draw[->] (0,-2.8)--(0,0.6) node[above] {$y$};
+  \draw[thick] (O)--(A)--(B);
+  \fill (O) circle (1.5pt) node[above left] {$O$};
+  \fill (A) circle (2pt) node[below left] {$m$};
+  \fill (B) circle (2pt) node[right] {$m$};
+  \draw[dashed] (O)--(0,-\ell);
+  \draw[dashed] (A)--++({\ell*sin(\thetaOne)},{-\ell*cos(\thetaOne)});
+  \draw[->] (0,-0.7) arc[start angle=-90,end angle={-90+\thetaOne},radius=0.7];
+  \node at (0.25,-0.72) {$\theta_1$};
+  \draw[->] (A) ++({0.33*cos(-90+\thetaOne)},{0.33*sin(-90+\thetaOne)})
+    arc[start angle={-90+\thetaOne},end angle={-90+\thetaAbsTwo},radius=0.33];
+  \node at ($(A)+(0.43,-0.35)$) {$\theta_2$};
+  \node at ({0.5*\ell*sin(\thetaOne)+0.12},{-0.5*\ell*cos(\thetaOne)}) {$l$};
+  \node at ({\ell*sin(\thetaOne)+0.5*\ell*sin(\thetaAbsTwo)+0.12},{-\ell*cos(\thetaOne)-0.5*\ell*cos(\thetaAbsTwo)}) {$l$};
+\end{tikzpicture}
+\caption{等質量・等長二重振り子。$\theta_2$は第1棒から測る相対角である。}
+\label{fig:double-pendulum}
+\end{figure}
+
+\section*{[5] 小振幅の運動方程式}
+小さい$\theta_1,\theta_2$に対して、速度項の$\cos\theta_2$を$1$、ポテンシャルの余弦を2次まで展開する。ラグランジアンの定数を除けば
+\begin{equation}
+  L^{(2)}=\frac{ml^2}{2}
+  \begin{pmatrix}\dot\theta_1&\dot\theta_2\end{pmatrix}
+  \begin{pmatrix}5&2\\2&1\end{pmatrix}
+  \begin{pmatrix}\dot\theta_1\\\dot\theta_2\end{pmatrix}
+  -\frac{mgl}{2}
+  \begin{pmatrix}\theta_1&\theta_2\end{pmatrix}
+  \begin{pmatrix}3&1\\1&1\end{pmatrix}
+  \begin{pmatrix}\theta_1\\\theta_2\end{pmatrix}.
+\end{equation}
+したがって、オイラー・ラグランジュ方程式は
+\begin{equation}
+  \boxed{\begin{pmatrix}5&2\\2&1\end{pmatrix}
+  \begin{pmatrix}\ddot\theta_1\\\ddot\theta_2\end{pmatrix}
+  +\frac{g}{l}\begin{pmatrix}3&1\\1&1\end{pmatrix}
+  \begin{pmatrix}\theta_1\\\theta_2\end{pmatrix}=\boldsymbol 0.}
+\end{equation}
+
+\section*{[6] 基準振動}
+$\boldsymbol\theta=\boldsymbol A e^{i\omega t}$とおく。$\lambda=\omega^2/(g/l)$とすると、非自明な振幅ベクトルがある条件は
+\begin{equation}
+  0=\det\left[
+  \begin{pmatrix}3&1\\1&1\end{pmatrix}
+  -\lambda\begin{pmatrix}5&2\\2&1\end{pmatrix}\right]
+  =(3-5\lambda)(1-\lambda)-(1-2\lambda)^2
+  =\lambda^2-4\lambda+2.
+\end{equation}
+よって$\lambda=2\pm\sqrt{2}$であり、正の二つの固有角周波数は
+\begin{equation}
+  \boxed{\omega=\sqrt{\frac{g}{l}}\sqrt{2\pm\sqrt{2}}
+  =\omega_0\sqrt{2\pm\sqrt{2}},\qquad \omega_0=\sqrt{\frac{g}{l}}.}
+\end{equation}
+固有値$\lambda$は無次元で、$g/l$は角周波数の二乗の次元をもつ。
+
+\end{document}

@@ -1,0 +1,92 @@
+% Standalone XeLaTeX source; source problem: 2012ap_exam.pdf, PDF pp. 4--5.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2012年 物理学I 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+陰極を $x=0$、陽極を $x=L$ とし、電位差を $V>0$ とする。電子は陰極から陽極へ進む一方、慣用電流は逆向きである。原本の装置を一次元で表すと次のようになる。
+\begin{center}
+\begin{tikzpicture}[>=Stealth]
+  \pgfmathsetmacro{\gapLength}{5}
+  \pgfmathsetmacro{\electrodeHeight}{1.8}
+  \pgfmathsetmacro{\electrodeInset}{0.3}
+  \pgfmathsetmacro{\electrodeMidpoint}{\electrodeHeight/2}
+  \pgfmathsetmacro{\dimensionY}{-0.7*\electrodeHeight}
+  \draw[very thick] (0,0)--(0,\electrodeHeight) node[above] {陰極};
+  \draw[very thick] (\gapLength,0)--(\gapLength,\electrodeHeight) node[above] {陽極};
+  \draw[->,thick] (\electrodeInset,\electrodeMidpoint)--(\gapLength-\electrodeInset,\electrodeMidpoint) node[midway,above] {電子 $v>0$};
+  \draw[->,thick] (\gapLength-\electrodeInset,\electrodeHeight/5)--(\electrodeInset,\electrodeHeight/5) node[midway,below] {$i=-i_0$};
+  \node[below=3pt,align=center] at (0,0) {$x=0$\\$\phi=0$};
+  \node[below=3pt,align=center] at (\gapLength,0) {$x=L$\\$\phi=V$};
+  \draw[<->] (0,\dimensionY)--(\gapLength,\dimensionY) node[midway,below] {$L$};
+\end{tikzpicture}
+\end{center}
+
+\section*{[1] 電子の速度}
+電子が陰極を出るときの運動エネルギーを無視できる。電荷 $-e$ の電位エネルギーは $-e\phi$ なので、陰極から $x$ までのエネルギー保存は
+\begin{equation}
+  \frac12 m v(x)^2-e\phi(x)=0.
+\end{equation}
+従って陽極向きを正とする速度は
+\begin{equation}
+  \boxed{v(x)=\sqrt{\frac{2e\phi(x)}{m}}}.
+\end{equation}
+
+\section*{[2] 定常電流}
+電荷保存則は $\partial\rho/\partial t+\partial i/\partial x=0$ である。定常状態では $\partial\rho/\partial t=0$ だから $\partial i/\partial x=0$、すなわち $i$ は一定である。電子数密度を $n>0$、速度を $v>0$ とすると電子の電荷は $-e$ なので
+\begin{equation}
+  i=-env=-i_0,\qquad i_0>0.
+\end{equation}
+
+\section*{[3] 電位の微分方程式}
+定常電流から $n=i_0/(ev)$ であり、これをPoisson方程式 $\epsilon_0\phi''=en$ に代入すると
+\begin{align}
+  \phi''(x)
+  &=\frac{i_0}{\epsilon_0 v(x)}
+   =\frac{i_0}{\epsilon_0}\sqrt{\frac{m}{2e}}\,\phi(x)^{-1/2}.
+\end{align}
+従って
+\begin{equation}
+  \boxed{A=\frac{i_0}{\epsilon_0}\sqrt{\frac{m}{2e}},\qquad \alpha=-\frac12.}
+\end{equation}
+
+\section*{[4] 電位分布}
+$A>0$ であり、$x>0$ では $\phi$ は増加する。右辺の $\phi^{-1/2}$ は陰極端 $\phi=0$ で定義されないので、微分方程式は $x>0$ で積分し、$x\to0^+$ で $\phi,\phi'\to0$ を課して積分定数を定める。微分方程式に $\phi'$ を掛けると
+\begin{equation}
+  \frac12\bigl(\phi'(x)\bigr)^2
+  =2A\sqrt{\phi(x)},\qquad
+  \phi'(x)=2\sqrt{A}\,\phi(x)^{1/4}.
+\end{equation}
+この式をさらに積分して
+\begin{equation}
+  \frac43\phi(x)^{3/4}=2\sqrt{A}\,x
+\end{equation}
+を得る。よって陰極境界を満たす電位は
+\begin{equation}
+  \boxed{\phi(x)=\left(\frac{9A}{4}\right)^{2/3}x^{4/3}
+  =\left[\frac{9i_0}{4\epsilon_0}\sqrt{\frac{m}{2e}}\right]^{2/3}x^{4/3}.}
+\end{equation}
+実際、この解は $\phi(0)=0$ および $\phi'(0)=0$ を満たし、$x>0$ で $\phi''>0$ となる。
+ただし $\phi''(x)=\frac49(9A/4)^{2/3}x^{-2/3}$ は $x\to0^+$ で発散する。したがって微分方程式は $x>0$ で用い、陰極での電位と電場の条件は $x\to0^+$ の極限として課している。
+
+\section*{[5] 電流電圧則}
+陽極で $\phi(L)=V$ とおくと、電位分布を $i_0$ について解いて
+\begin{equation}
+  \boxed{i_0=\frac49\epsilon_0\sqrt{\frac{2e}{m}}\,
+    \frac{V^{3/2}}{L^2}.}
+\end{equation}
+これは平板真空ダイオードの空間電荷制限電流密度である。$i_0$ は電圧の $3/2$ 乗に比例し、電極間隔の二乗に反比例する。符号付き慣用電流は $i=-i_0$ である。
+
+\end{document}

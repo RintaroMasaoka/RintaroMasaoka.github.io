@@ -1,0 +1,86 @@
+% Standalone XeLaTeX source; source problem: 2011ap_exam.pdf, PDF p. 7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2011年 物理学II 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 相互作用のない一次元気体}
+まず粒子1個の分配関数を求める。長さ $L$ の一次元箱では状態数を位相空間体積 $h$ ごとに数えるので、運動量積分から
+\begin{align}
+  Z_1
+  &=\frac{1}{h}\int_0^L\mathrm{d}x
+      \int_{-\infty}^{\infty}\mathrm{d}p\,
+      \exp\!\left(-\frac{p^2}{2mk_BT}\right)\\
+  &=\frac{L}{h}\sqrt{2\pi m k_BT}
+   =\frac{L}{\lambda},
+  \qquad
+  \lambda=\frac{h}{\sqrt{2\pi m k_BT}}
+  =\sqrt{\frac{2\pi\hbar^2}{mk_BT}}.
+\end{align}
+$N$ 個は同種粒子なので、同じ配置を粒子ラベルの $N!$ 通りだけ重複して数えないようにする。従って気体Aの分配関数は
+\begin{equation}
+  \boxed{Z_A=\frac{Z_1^N}{N!}
+    =\frac{1}{N!}\left(\frac{L}{\lambda}\right)^N.}
+\end{equation}
+
+\section*{[2] 自由エネルギー}
+Helmholtz自由エネルギーは $F=-k_BT\ln Z_A$ だから
+\begin{align}
+  F(T,L)
+  &=-Nk_BT\ln\frac{L}{\lambda}+k_BT\ln N!\\
+  &\simeq -Nk_BT\ln\frac{L}{\lambda}
+      +Nk_BT\ln N-Nk_BT\\
+  &=\boxed{Nk_BT\left[\ln\!\left(\frac{N\lambda}{L}\right)-1\right].}
+\end{align}
+ここでは原本の $N\gg1$ とStirling近似を用いた。
+
+\section*{[3] 化学ポテンシャル}
+温度と長さを固定して粒子数で微分する。$N$ は巨視的な系の連続変数として扱うため、
+\begin{equation}
+  \boxed{\mu(T,L)=\left(\frac{\partial F}{\partial N}\right)_{T,L}
+  =k_BT\ln\!\left(\frac{N\lambda}{L}\right).}
+\end{equation}
+
+\section*{[4] Boltzmann統計の希薄条件}
+並進運動のエネルギーは $E=p^2/(2m)\ge0$ であるため、Boltzmann占有数は最も低いエネルギーで最大となる。基準を $E_0=0$ とすれば
+\begin{equation}
+  \bar n_{\mathrm{max}}
+  =\exp\!\left(\frac{\mu}{k_BT}\right)
+  =\frac{N\lambda}{L}.
+\end{equation}
+したがって全ての一粒子準位の占有数が十分小さいための条件は
+\begin{equation}
+  \boxed{\frac{N\lambda}{L}\ll1,\qquad
+  \frac{L}{N}\gg\lambda.}
+\end{equation}
+$\lambda$ は長さの次元を持ち、温度 $T$ における熱的de Broglie波長を表す。$L/N$ は1粒子あたりの平均間隔なので、条件は粒子間隔が波長より十分大きいことを意味する。波動性が粒子の重なりに強く影響しない希薄な領域で、各量子状態の平均占有数を小さく保てる。
+
+\section*{[5] 剛体斥力のある一次元気体}
+粒子中心を $x_1<\cdots<x_N$ の順に並べる。壁との条件は $d/2\le x_1$、$x_N\le L-d/2$、隣り合う粒子には $x_{i+1}-x_i\ge d$ を課す。隣接粒子ごとに重なる排除長を取り除く座標
+\begin{equation}
+  y_i=x_i-(i-1)d
+\end{equation}
+を導入すると、壁と粒子間の条件は $d/2\le y_1\le\cdots\le y_N\le L-Nd+d/2$ となる。この区間の長さは $L-Nd$ で、座標変換のJacobianは1である。順序付き領域は長さ $L-Nd$ の直積領域の $1/N!$ を占めるので、配置積分は $(L-Nd)^N/N!$ となる。同じ順序を既に選んでいるため、さらに $N!$ で割ることはしない。運動量積分は気体Aと同じだから
+\begin{equation}
+  \boxed{Z_B=\frac{1}{N!}\left(\frac{L-Nd}{\lambda}\right)^N.}
+\end{equation}
+この結果から
+\begin{align}
+  F_B&=-k_BT\ln Z_B
+  \simeq Nk_BT\left[\ln\!\left(\frac{N\lambda}{L-Nd}\right)-1\right],\\
+  P&=-\left(\frac{\partial F_B}{\partial L}\right)_{T,N}
+   =\boxed{\frac{Nk_BT}{L-Nd}}.
+\end{align}
+気体Aでは $P_A=Nk_BT/L$ である。斥力のある気体Bでは使える長さが $L-Nd$ に減るため、同じ $T,N,L$ でも圧力は大きい。得た古典的な剛体棒模型の式を設問の希薄条件 $L\gg Nd$ の外まで形式的に延ばすと、$L\to Nd+0$ で圧力が発散する。ただしこの高密度極限では古典近似自体の適用も別途確かめる必要がある。$d\to0$ の極限では気体Aの状態方程式を再現する。
+
+\end{document}

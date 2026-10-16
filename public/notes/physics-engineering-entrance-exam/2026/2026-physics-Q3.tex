@@ -1,0 +1,154 @@
+% Standalone XeLaTeX source; original: 2026ap_exam.pdf, Japanese pp. 6--7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2026年 物理学 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 正方格子の平均場ハミルトニアン}
+周期的境界条件を課した正方格子では各サイトに隣接サイトが四つあり、隣接ペアを一度ずつ数えると結合数は $4N/2=2N$ である。$s_i=m+\delta s_i$ を代入し、$\delta s_i\delta s_j$ を捨てると
+\begin{align}
+H_{\mathrm{MF}}
+&=-J\sum_{\langle i,j\rangle}
+\{m^2+m(\delta s_i+\delta s_j)\}\notag\\
+&=-J\left(2Nm^2+4m\sum_{i=1}^N(s_i-m)\right)
+=2JNm^2-4Jm\sum_{i=1}^N s_i.
+\end{align}
+よって (1) の空欄は $\boxed{(\mathrm a)=2JN}$、$\boxed{(\mathrm b)=-4Jm}$ である。
+
+\section*{[1.2] 分配関数と自由エネルギー}
+$m$ を固定すると $H_{\mathrm{MF}}$ では各スピンの和が独立になる。$s_i=\pm1$ の和は $e^{4\beta Jm}+e^{-4\beta Jm}=2\cosh(4\beta Jm)$ なので
+\begin{equation}
+\boxed{Z=e^{-2\beta JNm^2}[2\cosh(4\beta Jm)]^N},\qquad
+\boxed{f=-\frac{1}{\beta N}\log Z
+=2Jm^2-\frac1\beta\log[2\cosh(4\beta Jm)]}.
+\end{equation}
+
+\section*{[1.3] 自己無撞着方程式}
+上の $f$ を $m$ で微分すると
+\begin{equation}
+\frac{\partial f}{\partial m}
+=4Jm-4J\tanh(4\beta Jm).
+\end{equation}
+従って極値条件は $\boxed{m=\tanh(4\beta Jm)}$ となる。右辺は平均場中の一つのスピンの平均値でもあり、$m$ の定義と一致する。
+
+\section*{[1.4] 臨界温度と磁化の立ち上がり}
+常に $m=0$ は解である。$\tanh(4\beta Jm)$ の原点での傾きが 1 になると非零解が現れるため
+\begin{equation}
+\boxed{T_c=4J}.
+\end{equation}
+実際、$f''(0)=4J(1-4J/T)$ なので、$T>T_c$ では $m=0$ が極小、$T<T_c$ では極大になる。$T<T_c$ で $m$ が小さいとき、$\tanh y=y-y^3/3+O(y^5)$ を自己無撞着方程式に入れる。$r=T/T_c<1$ と置くと
+\begin{equation}
+0=\left(\frac1r-1\right)m-\frac{m^3}{3r^3}+O(m^5),
+\qquad m^2=3r^2(1-r)+O((1-r)^2).
+\end{equation}
+従って二つの対称な磁化枝は
+\begin{equation}
+\boxed{m(T)=\pm\sqrt{3\left(1-\frac{T}{T_c}\right)}
++O\!\left(\left(1-\frac{T}{T_c}\right)^{3/2}\right)}
+\qquad(T\uparrow T_c)
+\end{equation}
+である。符号は外場のない系での対称な二つの平衡状態を表す。
+
+\section*{[2.1] 重なりによるハミルトニアン}
+(2) を $H$ に代入し、元の和から除外された $i=j$ の項を差し引くと、$\xi_{i,\mu}^2=s_i^2=1$ より
+\begin{align}
+H&=-\frac{1}{2N}\sum_{\mu=1}^2
+\left[\left(\sum_{i=1}^N\xi_{i,\mu}s_i\right)^2
+-\sum_{i=1}^N(\xi_{i,\mu}s_i)^2\right]\notag\\
+&=-\frac N2(m_1^2+m_2^2)+1.
+\end{align}
+従って指定された $N\to\infty$ の主要項は
+\begin{equation}
+\boxed{H=-\frac N2(m_1^2+m_2^2)+O(1)}.
+\end{equation}
+$+1$ は $N$ によらない項だが、有限 $N$ の分配関数の前因子には残る。
+
+\section*{[2.2] 補助変数による分配関数}
+原題の (3) で $a=\beta N>0$ とし、$\mu=1,2$ にそれぞれ適用する。まず [2.1] の主要項で計算すると
+\begin{align}
+Z&\simeq\frac{\beta N}{2\pi}\int_{\mathbb R^2}
+e^{-\frac{\beta N}{2}(x_1^2+x_2^2)}
+\sum_{\boldsymbol{s}}
+\exp\!\left[\beta\sum_{i=1}^N s_i
+(x_1\xi_{i,1}+x_2\xi_{i,2})\right]
+\,\mathrm dx_1\mathrm dx_2\notag\\
+&=\frac{\beta N}{2\pi}\int_{\mathbb R^2}
+e^{-\frac{\beta N}{2}(x_1^2+x_2^2)}
+\prod_{i=1}^N
+2\cosh[\beta(x_1\xi_{i,1}+x_2\xi_{i,2})]
+\,\mathrm dx_1\mathrm dx_2.
+\end{align}
+各 $s_i$ の和が積の一因子に変わった。これを (4)、(5) の形にまとめると
+\begin{equation}
+\boxed{(\mathrm c)=\frac{\beta N}{2\pi}},\qquad
+\boxed{(\mathrm d)=\frac12},\qquad
+\boxed{(\mathrm e)=-\frac{1}{\beta N}
+\log\!\left\{2\cosh[\beta(x_1\xi_{i,1}+x_2\xi_{i,2})]\right\}}.
+\end{equation}
+ここで (3) の $a$ はガウス積分の係数であり、[1.1] の空欄 (a) とは別である。元の $H$ の定数 $+1$ まで保持する場合、積分表示は厳密になり、同じ $f$ に対して前因子だけが $e^{-\beta}\beta N/(2\pi)$ に変わる。この差は 1 スピンあたりの自由エネルギーと後の極小条件には熱力学的極限で影響しない。
+
+\section*{[2.3] ランダムパターンの平均}
+各サイトの $(\xi_{i,1},\xi_{i,2})$ は四通りの符号の組を確率 $1/4$ でとり、サイト間で独立である。大数の法則により (5) のサイト平均をこの四通りの平均に置き換える。$\cosh$ の偶関数性で同じ値が二組ずつ現れるから、熱力学的極限ではほとんど確実に
+\begin{equation}
+\boxed{f(x_1,x_2)=\frac{x_1^2+x_2^2}{2}
+-\frac{1}{2\beta}
+\left\{\log[2\cosh\beta(x_1+x_2)]
++\log[2\cosh\beta(x_1-x_2)]\right\}}.
+\end{equation}
+図 1 は $N=4$ の一実現例であり、この平均で各符号組が等頻度になるという追加条件ではない。
+
+\section*{[2.4] 極小点の数と熱平衡の類似度}
+$u=x_1+x_2$、$v=x_1-x_2$ と置き、$g(y)=y^2/2-T\log[2\cosh(y/T)]$ と定義する。$x_1^2+x_2^2=(u^2+v^2)/2$ なので
+\begin{equation}
+f(x_1,x_2)=\frac{g(u)+g(v)}2,
+\qquad g'(y)=y-\tanh(y/T),\quad
+g''(y)=1-\frac1T\operatorname{sech}^2(y/T).
+\end{equation}
+$T\ge1$ では $y>0$ で $\tanh(y/T)<y/T\le y$ だから、$g$ の唯一の極小点は $y=0$ である。$T=1$ でも $g(y)=g(0)+y^4/12+O(y^6)$ であり原点は極小である。従って $\boxed{T\ge1:\ (x_1,x_2)=(0,0)\text{ の1個}}$。
+
+$0<T<1$ では $g''(0)=1-1/T<0$ で原点は極大である。$y>0$ で
+\begin{equation}
+\frac{\mathrm d}{\mathrm dy}\frac{\tanh(y/T)}{y}
+=\frac{(y/T)\operatorname{sech}^2(y/T)-\tanh(y/T)}{y^2}.
+\end{equation}
+分子に負号を付けた $\tanh(y/T)-(y/T)\operatorname{sech}^2(y/T)$ は $y=0$ で $0$、$y$ で微分すると $(2y/T^2)\allowbreak\operatorname{sech}^2(y/T)\allowbreak\tanh(y/T)>0$ となる。従って $\tanh(y/T)/y$ は $1/T>1$ から $0$ へ単調に減り、$q=\tanh(q/T)$ を満たす $q>0$ がただ一つ存在する。$g'(y)=y[1-\tanh(y/T)/y]$ は $0<y<q$ で負、$y>q$ で正だから $q$ は極小点である。$g$ は偶関数なので $-q$ も極小点となる。独立な $u,v$ の各々が $\pm q$ を選ぶ $2\times2=4$ 通りに対し、逆変換 $x_1=(u+v)/2$、$x_2=(u-v)/2$ から
+\begin{equation}
+\boxed{0<T<1:\ (x_1,x_2)=(q,0),(-q,0),(0,q),(0,-q)\text{ の4個}}.
+\end{equation}
+なお $T=1$ の $f-f(0,0)$ の最低次は $(u^4+v^4)/24>0$（原点以外）で、温度境界で極小数が曖昧になることはない。
+
+\begin{center}
+\begin{tikzpicture}[scale=1.15]
+\draw[->] (-2.1,0)--(2.25,0) node[right] {$x_1$};
+\draw[->] (0,-1.75)--(0,1.9) node[above] {$x_2$};
+\fill (1.25,0) circle (2.5pt) node[below right] {$(q,0)$};
+\fill (-1.25,0) circle (2.5pt) node[below left] {$(-q,0)$};
+\fill (0,1.25) circle (2.5pt) node[above right] {$(0,q)$};
+\fill (0,-1.25) circle (2.5pt) node[below right] {$(0,-q)$};
+\draw[thick] (-0.075,-0.075)--(0.075,0.075);
+\draw[thick] (-0.075,0.075)--(0.075,-0.075);
+\node[align=left] at (2.85,1.45) {$0<T<1$};
+\end{tikzpicture}
+
+{\small $0<T<1$ の四つの極小点。$\times$ の原点はこの温度域では極大である。}
+\end{center}
+
+最後に、有限 $N$ の積分表示に現れる関数 $f$ の式 (5) を $x_\mu$ で微分する。$x_1,x_2$ を固定した独立スピン分布では $\langle s_i\rangle_{x_1,x_2}=\tanh[\beta(x_1\xi_{i,1}+x_2\xi_{i,2})]$ だから、停留条件は
+\begin{equation}
+x_\mu=\frac1N\sum_{i=1}^N\xi_{i,\mu}
+\tanh[\beta(x_1\xi_{i,1}+x_2\xi_{i,2})]
+=\frac1N\sum_{i=1}^N\xi_{i,\mu}\langle s_i\rangle_{x_1,x_2}.
+\end{equation}
+熱力学的極限で一つの極小に対応する平衡相を選ぶと、この固定補助変数での平均がその相のスピン平均となり、極小点の $x_\mu$ は熱平衡の類似度 $m_\mu$ と一致する。有限 $N$ の無条件のGibbs平均はスピン反転対称性により零であり、ここでの条件付き平均とは区別する。従って四極小は二つのパターンとその符号反転を想起する状態である。[1] の $T_c=4J$ とこの模型の境界 $T=1$ は別のハミルトニアンの値である。
+\end{document}

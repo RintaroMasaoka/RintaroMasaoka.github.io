@@ -1,0 +1,82 @@
+% Standalone XeLaTeX source; source problem: 2013ap_exam.pdf, PDF pp. 11--12.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2013年 物理学II 第4問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 低周波の状態密度}
+$d$ 次元の波数空間で、半径 $k$ の球（円）に含まれる状態数は体積に比例し、$N(k)\propto k^d$ である。線形分散 $\omega=vk$ から $k=\omega/v$ なので
+\begin{equation}
+ D(\omega)=\frac{dN}{d\omega}\propto\omega^{d-1}.
+\end{equation}
+従って3次元立方格子では $p=2$、2次元正方格子では $p=1$ である。
+
+\section*{[2] 低温比熱}
+低周波の状態密度を $D(\omega)=A\omega^p$ と書く。Debye近似では、このべき則を有限個のモード数に合う上限角周波数 $\omega_D$ まで延長する。この近似での内部エネルギーは
+\begin{equation}
+ U=\int_0^{\omega_D}d\omega\,D(\omega)
+ \frac{\hbar\omega}{e^{\hbar\omega/(k_BT)}-1}.
+\end{equation}
+十分低温では寄与する周波数は $k_BT/\hbar\ll\omega_D$ であり、上限を無限大まで延ばせる。$x=\hbar\omega/(k_BT)$ と置換すると
+\begin{equation}
+ U\propto T^{p+2}\int_0^\infty\frac{x^{p+1}}{e^x-1}\,dx,
+ \qquad C_V=\frac{dU}{dT}\propto T^{p+1}.
+\end{equation}
+よって3次元では $q=3$、2次元では $q=2$ となる。
+
+\section*{[3] 層状系の伝搬方向}
+図3(i)の帯域幅は $\omega_a$、(ii)は $\omega_b$ であり、$\omega_a\ll\omega_b$ である。面内では結合が強いため復元力と音速が大きく、面内方向の分散は広い帯域を持つ。従って(ii)が面内、分散の狭い(i)が弱く結合した面間方向である。
+
+\section*{[4] 等エネルギー面}
+面内波数を $k_\parallel=\sqrt{k_x^2+k_y^2}$、面間波数を $k_z$ とする。両方向で線形分散が成り立つ $\omega_0\ll\omega_a$ では、長波長の音響分散は
+\begin{equation}
+ \omega^2\simeq v_\parallel^2k_\parallel^2+v_\perp^2k_z^2.
+\end{equation}
+従って $\omega=\omega_0$ 面は
+\begin{equation}
+ v_\parallel^2(k_x^2+k_y^2)+v_\perp^2k_z^2=\omega_0^2,
+\end{equation}
+すなわち異方的な楕円体である。
+
+$\omega_a\ll\omega_0\ll\omega_b$ では、面内分散は線形の範囲にある。弱い面間方向の分散は $k_z$ に依存するが、その $\omega^2$ への寄与を $f(k_z)$ と書けば、通常の弱結合近似では $0\le f(k_z)\lesssim\omega_a^2\ll\omega_0^2$ である。したがって主項では
+\begin{equation}
+ v_\parallel^2(k_x^2+k_y^2)=\omega_0^2-f(k_z)\simeq\omega_0^2.
+\end{equation}
+面内波数の大きさは $k_\parallel\simeq\omega_0/v_\parallel$ でほぼ一定となり、等エネルギー面は $k_z$ 方向に第一ブリルアン領域全体へ延びる円筒面に近い。
+
+\section*{[5] 層状系の状態密度}
+低周波では楕円体の体積が $\omega^3$ に比例する。状態数 $N(\omega)\propto\omega^3$ を微分すれば
+\begin{equation}
+ D(\omega)\propto\omega^2,\qquad r=2\quad(\omega\ll\omega_a).
+\end{equation}
+中間域の円筒では、面間方向の波数幅はほぼ一定で、囲まれる状態数は面内円の面積に比例する。主項の半径は $k_\parallel\simeq\omega/v_\parallel$ なので、$\omega\gg\omega_a$ では $N(\omega)\propto\omega^2$、従って
+\begin{equation}
+ D(\omega)\propto\omega,\qquad r=1\quad(\omega_a\ll\omega\ll\omega_b).
+\end{equation}
+
+\section*{[6] 層状系の比熱}
+熱的に寄与する周波数域全体で状態密度を $D(\omega)\propto\omega^r$ と近似できる場合、比熱積分で $x=\hbar\omega/(k_BT)$ と置けば
+\begin{equation}
+ C_V\propto T^{r+1}\int_0^\infty dx\,x^{r+2}\frac{e^x}{(e^x-1)^2}.
+\end{equation}
+この積分は温度によらない。$k_BT\ll\hbar\omega_a$ では熱的周波数域が低周波の $D(\omega)\propto\omega^2$ に収まるので $s=3$ となる。
+
+中間温度 $\hbar\omega_a\ll k_BT\ll\hbar\omega_b$ では、$D(\omega)\propto\omega$ が成り立つ領域の寄与は主項として
+\begin{equation}
+ C_{V,\mathrm{mid}}\propto T^2
+ \int_{\hbar\omega_a/(k_BT)}^{\hbar\omega_b/(k_BT)}
+ dx\,x^3\frac{e^x}{(e^x-1)^2}
+\end{equation}
+である。下端を0へ延ばす相対誤差は、被積分関数が $x\to0$ で $x$ に近づくため $O((\hbar\omega_a/k_BT)^2)$ となる。ただし実際の低周波モードをこの延長で置き換えたわけではない。[4] の非負で有界な面間寄与をもつ分散では、$\omega\lesssim\omega_a$ の状態数は面内半径 $\omega_a/v_\parallel$ の円筒内の状態数以下であり、熱的半径 $k_BT/(\hbar v_\parallel)$ の状態数に比べて $O((\hbar\omega_a/k_BT)^2)$ である。低周波の各モードの比熱は高々 $k_B$ なので、この部分も主項には影響しない。上端側は熱的占有の指数因子で抑えられる。従って面内線形分散が熱的周波数域で有効なこの温度範囲では $C_V\propto T^2$、すなわち $s=2$ である。$\hbar\omega_b\ll k_BT$ では全フォノンモードが古典極限に入り、各モードの比熱は温度によらず一定なので $s=0$ となる。
+
+\end{document}

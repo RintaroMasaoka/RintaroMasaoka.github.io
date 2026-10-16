@@ -1,0 +1,118 @@
+% Standalone XeLaTeX source; no custom macros.
+% Source: public/notes/物工/問題/2023ap_exam.pdf, PDF pp. 8--9.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2023年 物理学 第4問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 観測量の交換関係}
+式(3)の定義と $[\hat a,\hat a^\dagger]=1$ を使う。$[\hat a^\dagger,\hat a]=-1$ なので
+\[
+[\hat x,\hat p]
+=\frac{i}{2}[\hat a^\dagger+\hat a,\hat a^\dagger-\hat a]
+=\frac{i}{2}\{-[\hat a^\dagger,\hat a]+[\hat a,\hat a^\dagger]\}
+=\boxed{i}.
+\]
+$\hat x,\hat p$ は無次元の共役な観測量である。
+
+\section*{[1.2] 真空のゆらぎ}
+$\hat a|0\rangle=0$ と交換関係から、$\langle0|\hat a^\dagger\hat a|0\rangle=0$、$\langle0|\hat a\hat a^\dagger|0\rangle=1$ である。$\hat a^2$ と $(\hat a^\dagger)^2$ の真空期待値もゼロであり、$\langle\hat x\rangle=\langle\hat p\rangle=0$ だから
+\[
+\sigma_x^2=\langle\hat x^2\rangle=\frac12,
+\qquad
+\sigma_p^2=\langle\hat p^2\rangle=\frac12.
+\]
+従って $\boxed{\sigma_x\sigma_p=1/2}$。右辺も $\frac12|\langle[\hat x,\hat p]\rangle|=1/2$ なので、不確定性関係の等号が成立する。
+
+\section*{[2.1] スクイーズ変換後の係数}
+式(5)で $\hat S^\dagger\hat a\hat S$ と $\hat S^\dagger\hat a^\dagger\hat S$ を式(1)へ代入する。$\hat a\hat a^\dagger=\hat a^\dagger\hat a+1$ に注意すると
+\begin{align*}
+\hat S^\dagger\hat a^\dagger\hat a\hat S
+&=\cosh(2r)\hat a^\dagger\hat a+\sinh^2r
+-\frac{\sinh(2r)}2\bigl((\hat a^\dagger)^2+\hat a^2\bigr),\\
+\hat S^\dagger\bigl((\hat a^\dagger)^2+\hat a^2\bigr)\hat S
+&=\cosh(2r)\bigl((\hat a^\dagger)^2+\hat a^2\bigr)
+-2\sinh(2r)\hat a^\dagger\hat a-\sinh(2r).
+\end{align*}
+よって式(6)の各係数は
+\begin{align*}
+\boxed{\omega(r)}&=\boxed{\omega\cosh(2r)-\Delta\sinh(2r)},\\
+\boxed{\Delta(r)}&=\boxed{\Delta\cosh(2r)-\omega\sinh(2r)},\\
+\boxed{E(r)}&=\boxed{\hbar\omega\sinh^2r-\frac{\hbar\Delta}{2}\sinh(2r)}.
+\end{align*}
+$r=0$ を入れると元の $\omega,\Delta,E=0$ に戻る。
+
+\section*{[2.2] 基底状態と偶数光子}
+$\omega>\Delta>0$ のとき $\Delta(r)=0$ とする実数 $r$ は
+\[
+\tanh(2r)=\frac{\Delta}{\omega},\qquad
+\boxed{r=\frac14\log\frac{\omega+\Delta}{\omega-\Delta}}>0.
+\]
+この値で $\Omega=\sqrt{\omega^2-\Delta^2}>0$ とおけば $\omega(r)=\Omega$、$E(r)=\hbar(\Omega-\omega)/2$ であり、
+\[
+\hat S^\dagger(r)\hat H\hat S(r)
+=\hbar\Omega\hat a^\dagger\hat a+\frac{\hbar}{2}(\Omega-\omega).
+\]
+右辺では $\hat a^\dagger\hat a\geq0$ なので $|0\rangle$ が基底状態である。元のハミルトニアンの基底状態とそのエネルギーは、それぞれ $\boxed{\hat S(r)|0\rangle}$、$\hbar(\Omega-\omega)/2$ となる。
+
+$\hat S(r)$ の指数の各項 $\hat a^2,(\hat a^\dagger)^2$ は光子数を2だけ変える。真空は光子数0から始まるため、指数を展開して作用させても偶数光子の部分空間から出ない。従って $\hat S(r)|0\rangle$ には奇数光子成分がない。
+
+\section*{[2.3] スクイーズされた基底状態のゆらぎ}
+式(5)と観測量の定義から
+\[
+\hat S^\dagger\hat x\hat S=e^{-r}\hat x,
+\qquad \hat S^\dagger\hat p\hat S=e^{r}\hat p.
+\]
+$\hat S|0\rangle$ での期待値を真空期待値に移すと、平均値はどちらもゼロであり、[1.2]の分散から
+\[
+\boxed{\sigma_x^2=\frac{e^{-2r}}2
+=\frac12\sqrt{\frac{\omega-\Delta}{\omega+\Delta}}},
+\qquad
+\boxed{\sigma_p^2=\frac{e^{2r}}2
+=\frac12\sqrt{\frac{\omega+\Delta}{\omega-\Delta}}}.
+\]
+$\Delta>0$ では真空に比べて $x$ の分散が小さく、$p$ の分散が大きい。一方、積は $\sigma_x\sigma_p=1/2=\frac12|\langle[\hat x,\hat p]\rangle|$ であり、等号は保たれる。$\Delta\to0$ では両分散は $1/2$ に戻る。
+
+\section*{[3.1] ハイゼンベルク方程式の行列}
+交換関係を積に適用すると
+\[
+[\hat a^\dagger\hat a,\hat a]=-\hat a,
+\quad [(\hat a^\dagger)^2,\hat a]=-2\hat a^\dagger,
+\quad [\hat a^2,\hat a^\dagger]=2\hat a.
+\]
+式(7)から $\dot{\hat a}=-i(\omega\hat a+\Delta\hat a^\dagger)$、$\dot{\hat a}^\dagger=i(\Delta\hat a+\omega\hat a^\dagger)$ となる。従って式(8)の行列は
+\[
+\boxed{M=\begin{pmatrix}\omega&\Delta\\-\Delta&-\omega\end{pmatrix}}.
+\]
+
+\section*{[3.2] 固有値と安定性}
+$M^2=(\omega^2-\Delta^2)I$ なので固有値は
+\[
+\boxed{\lambda_\pm=\pm\sqrt{\omega^2-\Delta^2}}.
+\]
+$\omega>\Delta$ なら実数の $\lambda_\pm=\pm\Omega$ である。$M^2=\Omega^2I$を指数級数の偶数次と奇数次に適用すると、$e^{-iMt}=I\cos(\Omega t)-i(M/\Omega)\sin(\Omega t)$となり振動的かつ有界である。$\omega<\Delta$ なら$\gamma=\sqrt{\Delta^2-\omega^2}>0$として$M^2=-\gamma^2I$なので、同じ展開から$e^{-iMt}=I\cosh(\gamma t)-i(M/\gamma)\sinh(\gamma t)$となる。一方のモードは指数的に増大するので不安定である。境界 $\omega=\Delta$ では固有値がともにゼロでも $M^2=0$ かつ $M\ne0$ なので $e^{-iMt}=I-iMt$ は時間に比例して増大する。この意味でも有界な安定領域には含まれない。
+
+\section*{[3.3] 境界での光子数}
+$\omega=\Delta$ で $M^2=0$ を使い、初期条件 $\hat a(0)=\hat a$、$\hat a^\dagger(0)=\hat a^\dagger$ を式(8)に適用する。
+\[
+\begin{pmatrix}\hat a(t)\\\hat a^\dagger(t)\end{pmatrix}
+=(I-iMt)\begin{pmatrix}\hat a\\\hat a^\dagger\end{pmatrix},
+\qquad
+\hat a(t)=(1-i\Delta t)\hat a-i\Delta t\hat a^\dagger.
+\]
+初期真空では $\langle\hat a^\dagger\hat a\rangle=0$、$\langle\hat a\hat a^\dagger\rangle=1$ である。従って $\hat a(t)$ の生成演算子の係数だけが $\langle0|\hat a^\dagger(t)\hat a(t)|0\rangle$ に寄与し、
+\[
+\boxed{\langle\hat n(t)\rangle=|{-i\Delta t}|^2=\Delta^2t^2}.
+\]
+$t=0$ でゼロに戻り、$\Delta t$ は無次元である。
+\end{document}

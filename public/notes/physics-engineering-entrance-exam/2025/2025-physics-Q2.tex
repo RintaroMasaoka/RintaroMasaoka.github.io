@@ -1,0 +1,128 @@
+% Standalone XeLaTeX source. Source: 2025ap_exam.pdf, Japanese PDF pp. 4--5.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2025年 物理学 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 調和振動子の幅}
+$V_0=0$ のハミルトニアンを $\hat H_0$ と書く。式 (2) の Gaussian を微分すると
+\[
+\psi_0''(x)=(\alpha^2x^2-\alpha)\psi_0(x).
+\]
+これを $\hat H_0\psi_0=E_0\psi_0$ に代入し、$x^2$ の係数を比較すると
+\[
+-\frac{\hbar^2\alpha^2}{2m}+\frac{m\omega^2}{2}=0.
+\]
+$\alpha>0$ は波動関数が無限遠で減衰する条件だから、
+\[
+\boxed{\alpha=\frac{m\omega}{\hbar}}.
+\]
+このとき定数項も $E_0=\hbar^2\alpha/(2m)=\hbar\omega/2$ となる。
+
+\section*{[1.2] 小さい段差によるエネルギーの変化}
+段差の摂動は $x<0$ で $V_0$、$x\geq0$ で0である。有限の $V_0$ に対する基底エネルギーを $E_0(V_0)$ と書く。非縮退基底状態の一次補正は、左半直線に粒子を見いだす確率を $V_0$ に掛けたものになる。$|\psi_0(x)|^2$ は偶関数で規格化されているため、この確率は $1/2$。したがって
+\[
+\boxed{E_0(V_0)-E_0
+=V_0\int_{-\infty}^{0}|\psi_0(x)|^2\,\mathrm dx+O(V_0^2)
+=\frac{V_0}{2}+O\!\left(\frac{V_0^2}{\hbar\omega}\right)}.
+\]
+ここでは $V_0\ll\hbar\omega$ とし、二次以上の項を省いた。
+
+\section*{[2.1] 無限壁と許される固有関数}
+$V_0\to\infty$ では、有限のエネルギーをもつ束縛状態は $x<0$ に確率振幅をもてない。無限壁の境界条件は $\phi_k(0)=0$ である。$x>0$ の Schrödinger 方程式は $\hat H_0$ と同じである。正の半直線で減衰する解を $x<0$ へ $-\phi_k(-x)$ として奇拡張すると、$\phi_k(0)=0$ により原点で関数値がつながり、左右の導関数も一致する。調和振動子のポテンシャルは偶関数なので、拡張した関数は両半直線で同じ固有値の Schrödinger 方程式を満たし、全直線の奇固有関数となる。問題文のパリティ条件によれば、それは奇数番号の $\psi_{2k+1}$ に比例する。負の半直線を0とし、正の半直線で $\psi_{2k+1}$ を定数倍したものが式 (4) になる。
+
+\section*{[2.2] 規格化とエネルギー}
+$\psi_{2k+1}$ は奇関数で全直線上で規格化されている。その確率密度は偶関数だから
+\[
+1=\int_{-\infty}^{\infty}|\psi_{2k+1}|^2\,\mathrm dx
+=2\int_0^{\infty}|\psi_{2k+1}|^2\,\mathrm dx.
+\]
+式 (4) の規格化条件 $N^2\int_0^\infty|\psi_{2k+1}|^2\,\mathrm dx=1$ と $N>0$ より
+\[
+\boxed{N=\sqrt2},\qquad
+\boxed{\epsilon_k=E_{2k+1}=\left(2k+\frac32\right)\hbar\omega}
+\quad(k=0,1,\ldots).
+\]
+特に、無限壁の基底状態は全直線振動子の第1励起状態の右半分である。
+
+\section*{[3.1] 壁を取り去った直後の展開}
+ポテンシャルを瞬間的に変えても、その瞬間の波動関数は変わらない。したがって $\Psi(x,0)=\phi_0(x)$ を新しいハミルトニアン $\hat H_0$ の完全な固有関数系で展開し、係数は $c_j=\langle\psi_j|\phi_0\rangle$ とする。$c_0$ は実で正であり、式 (2)、(3) と $N=\sqrt2$ を使うと
+\begin{align*}
+c_0&=\sqrt2\int_0^\infty\psi_0(x)\psi_1(x)\,\mathrm dx\\
+&=2\sqrt\alpha\left(\frac\alpha\pi\right)^{1/2}
+\int_0^\infty x e^{-\alpha x^2}\,\mathrm dx
+=2\sqrt\alpha\left(\frac\alpha\pi\right)^{1/2}\frac1{2\alpha}.
+\end{align*}
+よって
+\[
+\boxed{c_0=\frac1{\sqrt\pi}}.
+\]
+ここで用いた積分は $u=\alpha x^2$ と置けば直ちに得られる。
+
+\section*{[3.2] 壁を取り去った後のエネルギー期待値}
+$t>0$ では $\hat H_0$ が時間に依存しないため、エネルギー期待値は時刻0の値に等しい。初期波動関数は原点で0となるが、導関数には跳びがある。そこで、エネルギーを運動エネルギーとポテンシャルエネルギーの積分で評価する。各半直線で部分積分すると
+\begin{equation}
+ -\int_0^\infty\psi_1^*\psi_1''\,dx
+ =-[\psi_1^*\psi_1']_0^\infty+\int_0^\infty|\psi_1'|^2\,dx
+ =\int_0^\infty|\psi_1'|^2\,dx
+\end{equation}
+となる。原点では$\psi_1(0)=0$、無限遠では波動関数が減衰するので境界項は消える。$\phi_0=\sqrt2\psi_1$ ($x>0$) だから
+\begin{align*}
+E(t)&=\int_{-\infty}^{\infty}\left[
+\frac{\hbar^2}{2m}|\phi_0'(x)|^2
++\frac{m\omega^2x^2}{2}|\phi_0(x)|^2\right]\mathrm dx\\
+&=2\int_0^\infty\left[
+\frac{\hbar^2}{2m}|\psi_1'(x)|^2
++\frac{m\omega^2x^2}{2}|\psi_1(x)|^2\right]\mathrm dx.
+\end{align*}
+角括弧の中は偶関数なので、最後の式は全直線上の $\psi_1$ のエネルギー期待値である。したがって
+\[
+\boxed{E(t)=E_1=\frac32\hbar\omega\qquad(t>0)}.
+\]
+この値は壁を取り去った後の $\hat H_0$ に関する期待値であり、$\phi_0$ 自体が $\hat H_0$ の固有状態だという意味ではない。
+
+\section*{[3.3] 一周期後の波動関数}
+急変後の展開の各成分は、$\hat H_0$ の固有エネルギー $E_j=(j+1/2)\hbar\omega$ に従い
+\[
+\Psi(x,t)=\sum_{j=0}^{\infty}c_j
+e^{-i(j+1/2)\omega t}\psi_j(x)
+\]
+と進む。$t=2\pi/\omega$ では全ての $j$ で位相が $e^{-i(2j+1)\pi}=-1$ となるので、$\Psi(x,2\pi/\omega)=-\phi_0(x)$。式 (3) と $\alpha=m\omega/\hbar$ を使って明示すると
+\[
+\boxed{\Psi\!\left(x,\frac{2\pi}{\omega}\right)=
+\begin{cases}
+0 &(x<0),\\[2pt]
+-2\sqrt\alpha\left(\dfrac\alpha\pi\right)^{1/4}
+x e^{-\alpha x^2/2} &(x\geq0).
+\end{cases}}
+\]
+位相 $-1$ は確率密度を変えないが、波動関数の値としては残る。
+
+\section*{[3.4] 半周期後の波動関数}
+$t=\pi/\omega$ では各成分の位相は $e^{-i(j+1/2)\pi}=-i(-1)^j$ となる。問題文で与えられたパリティ $\psi_j(-x)=(-1)^j\psi_j(x)$ を項ごとに使うと
+\[
+\Psi\!\left(x,\frac\pi\omega\right)
+=-i\sum_{j=0}^{\infty}c_j\psi_j(-x)
+=-i\phi_0(-x).
+\]
+右半直線にあった初期波動関数は左半直線へ鏡映される。$\psi_1$ が奇関数であることにも注意して書き下すと
+\[
+\boxed{\Psi\!\left(x,\frac\pi\omega\right)=
+\begin{cases}
+2i\sqrt\alpha\left(\dfrac\alpha\pi\right)^{1/4}
+x e^{-\alpha x^2/2} &(x<0),\\[2pt]
+0 &(x\geq0).
+\end{cases}}
+\]
+原点ではどちらの枝も0であり、鏡映と位相因子は規格化を保つ。
+\end{document}

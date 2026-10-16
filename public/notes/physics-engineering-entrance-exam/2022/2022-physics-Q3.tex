@@ -1,0 +1,151 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2022ap_exam.pdf, PDF pp. 6--7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2022年 物理学 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 静止円柱内の1粒子分配関数}
+確率密度の規格化は
+\[
+1=\frac1{h^3L\widetilde Z_1}\int_{-L/2}^{L/2}dz
+\int_{x^2+y^2\le R^2}dx\,dy\int_{\mathbb R^3}d^3p\,
+e^{-p^2/(2mkT)}.
+\]
+運動量積分は $(2\pi mkT)^{3/2}$、断面積は $\pi R^2$、高さ積分は $L$ なので
+\[
+\widetilde Z_1(T,R)=\frac{\pi R^2}{h^3}(2\pi mkT)^{3/2}
+=\boxed{\gamma R^2(kT)^{3/2}},\qquad
+\gamma=\frac{\pi^{5/2}(2m)^{3/2}}{h^3}.
+\]
+
+\section*{[1.2] 自由エネルギー密度}
+古典的な同種粒子の分配関数は $Z_N=[L\widetilde Z_1]^N/N!$ である。Stirling 近似から
+\[
+F=-kT\log Z_N\simeq -NkT\left[\log\left(\frac{L\widetilde Z_1}{N}\right)+1\right].
+\]
+$\nu=N/L$ を固定して割り算すると
+\[
+\boxed{\widetilde F=\frac FL=-\nu kT\left[\log\left(\frac{\widetilde Z_1}{\nu}\right)+1\right]
+=-\nu kT(\log\widetilde Z_1-\log\nu+1)}.
+\]
+
+\section*{[1.3] 静止容器の側圧}
+半径を $dR$ だけ準静的に増やすと体積変化は $dV=2\pi RL\,dR$。したがって
+\[
+P=-\frac1{2\pi R}\left(\frac{\partial\widetilde F}{\partial R}\right)_{T,\nu}
+=\boxed{\frac{\nu kT}{2\pi R\widetilde Z_1}\left(\frac{\partial\widetilde Z_1}{\partial R}\right)_T}.
+\]
+ここで [1.1] の $\widetilde Z_1\propto R^2$ を使うと
+\[
+\boxed{P=\frac{\nu kT}{\pi R^2}}.
+\]
+
+\section*{[2.1] 回転系ハミルトニアンの最小値}
+$r^2=x^2+y^2$ とし平方完成すると
+\[
+H_1-\omega M_1
+=\frac{(p_x+m\omega y)^2+(p_y-m\omega x)^2+p_z^2}{2m}
+-\frac{m\omega^2r^2}{2}.
+\]
+$r\le R$ のもとでは二乗項をゼロにし、$r=R$ としたとき最小になる。よって
+\[
+\boxed{\min(H_1-\omega M_1)=-\frac{m\omega^2R^2}{2}=-\epsilon},\qquad
+\epsilon=\frac{mR^2\omega^2}{2}.
+\]
+$\omega=0$ では最小値は $0$ である。
+
+\section*{[2.2] 平衡流の速度場}
+位置 $\boldsymbol r$ を固定した運動量分布は
+\[
+\exp\!\left[-\frac{(p_x+m\omega y)^2+(p_y-m\omega x)^2+p_z^2}{2mkT}\right]
+\]
+に比例するガウス分布である。その中心運動量を $m$ で割れば局所平均速度となる：
+\[
+\boxed{v_x(\boldsymbol r)=-\omega y,\qquad v_y(\boldsymbol r)=\omega x,\qquad v_z(\boldsymbol r)=0}.
+\]
+これは $z$ 軸周りの剛体回転 $\boldsymbol v=\boldsymbol\omega\times\boldsymbol r$ である。
+
+\section*{[2.3] 回転系の規格化定数}
+平方完成した運動量積分は通常の Gaussian と同じであり、位置に残る重みは $e^{m\omega^2r^2/(2kT)}$ である。$\lambda=\epsilon/(kT)$ とすると
+\begin{align*}
+\widetilde Z_1(T,R,\omega)
+&=\frac{(2\pi mkT)^{3/2}}{h^3}\,2\pi\int_0^Rr\,e^{m\omega^2r^2/(2kT)}dr\\
+&=\frac{(2\pi mkT)^{3/2}}{h^3}\frac{2\pi kT}{m\omega^2}(e^\lambda-1)\\
+&=\boxed{\gamma R^2(kT)^{3/2}\frac{e^\lambda-1}{\lambda}}
+=\boxed{\frac{2\gamma(kT)^{5/2}}{m\omega^2}(e^{\epsilon/(kT)}-1)}.
+\end{align*}
+ここでは $\omega\ne0$ とした。$\lambda\to0$ で $(e^\lambda-1)/\lambda\to1$ となり、[1.1] の非回転極限に戻る。
+
+\section*{[2.4] 回転容器の側圧}
+全粒子の角運動量を $M=\sum_jM_{1,j}$ とし、逆温度を $\beta=1/(kT)$ と書く。角速度 $\omega$ の容器が粒子に及ぼすトルクの仕事率は $\omega\,d\langle M\rangle/dt$ なので、準静的な変化での第一法則は
+\[
+ d\langle H\rangle=T\,dS+\omega\,d\langle M\rangle-P\,dV
+ \qquad(N\text{ 固定})
+\]
+である。回転分布 $e^{-\beta(H-\omega M)}$ から得る熱力学ポテンシャルを $F_\omega$ と書くと、[1.2] と同じ粒子数の数え上げにより
+\begin{align*}
+ F_\omega&=-kT\log\frac{[L\widetilde Z_1(T,R,\omega)]^N}{N!}
+ =\langle H\rangle-TS-\omega\langle M\rangle\\
+ &\simeq-NkT\left[\log\left(\frac{L\widetilde Z_1(T,R,\omega)}N\right)+1\right],\\
+ dF_\omega&=-S\,dT-\langle M\rangle\,d\omega-P\,dV.
+\end{align*}
+従って側圧は $T,\omega,N,L$ 固定での半径微分から得られる。$dV=2\pi RL\,dR$ と [2.3] を用いると
+\[
+P=\frac{\nu kT}{2\pi R}\left(\frac{\partial\log\widetilde Z_1}{\partial R}\right)_{T,\omega}
+=\boxed{\frac{\nu m\omega^2}{2\pi(1-e^{-\lambda})}},\qquad \lambda=\frac{mR^2\omega^2}{2kT}.
+\]
+角速度固定で $T\to0$、すなわち $\lambda\to\infty$ とすると
+\[
+\boxed{P\longrightarrow\frac{\nu m\omega^2}{2\pi}}.
+\]
+また $\lambda\to0$ では $P\to\nu kT/(\pi R^2)$ となり、静止容器の式と一致する。
+
+\section*{[2.5] 慣性モーメント}
+既に得た局所平均速度は$\langle\boldsymbol v\mid r\rangle=(-\omega y,\omega x,0)$である。よって一粒子の軸まわり角運動量は$\langle M_1\mid r\rangle=x(m\omega x)-y(-m\omega y)=m\omega r^2$、全粒子について$\langle M\rangle=Nm\omega\langle r^2\rangle$となる。ここで$I=Nm\langle r^2\rangle$が質量分布の慣性モーメントである。回転分配関数は $e^{\beta\omega M_1}$ を含むため
+\[
+I=\frac{\langle M\rangle}{\omega}
+=\frac{NkT}{\omega}\left(\frac{\partial\log\widetilde Z_1}{\partial\omega}\right)_{T,R}.
+\]
+\[
+\log\widetilde Z_1=\text{(terms independent of $\omega$)}-2\log|\omega|+\log(e^\lambda-1),
+\qquad \partial_\omega\lambda=\frac{2\lambda}{\omega}.
+\]
+従って $\omega\ne0$ で
+\[
+\boxed{I=\frac{2N}{\omega^2}\left[\frac{\epsilon}{1-e^{-\epsilon/(kT)}}-kT\right]}.
+\]
+極限 $\omega\to0$ では $I\to NmR^2/2$、$T\to0$ では $I\to NmR^2$ で、後者は粒子が側壁近くに集まることに対応する。
+
+\section*{[2.6] 固定角速度の熱容量}
+固定した $R,L,N,\omega$ のもとで加熱すると、[2.4] の第一法則から、加えた熱は回転仕事を差し引いた
+\[
+ \delta Q=d\langle H\rangle-\omega\,d\langle M\rangle
+ =d\langle H-\omega M\rangle
+\]
+となる。従って固定角速度の熱容量では共回転系の平均 $U_\omega=\langle H-\omega M\rangle$ を温度微分する。回転分布の逆温度微分もこの同じ平均を与え、
+\[
+U_\omega=\langle H-\omega M\rangle=-N\left(\frac{\partial\log\widetilde Z_1}{\partial\beta}\right)_{\omega,R}.
+\]
+同じ式は $\langle H\rangle=\tfrac32NkT+\tfrac12I\omega^2$ と $\langle M\rangle=I\omega$ から $U_\omega=\tfrac32NkT-\tfrac12I\omega^2$ としても得られる。$\widetilde Z_1\propto\beta^{-5/2}(e^{\beta\epsilon}-1)$ より
+\[
+U_\omega=\frac52NkT-\frac{N\epsilon}{1-e^{-\epsilon/(kT)}}.
+\]
+よって $\omega$ 固定の熱容量は
+\[
+\boxed{C_\omega=\left(\frac{\partial U_\omega}{\partial T}\right)_\omega
+=\frac52Nk-\frac{N\epsilon^2}{kT^2}\frac{e^{-\epsilon/(kT)}}{\left(1-e^{-\epsilon/(kT)}\right)^2}}.
+\]
+上式の減算項を$Nk\lambda^2e^{-\lambda}/(1-e^{-\lambda})^2$と書けば、高温の$\lambda\to0$では$1-e^{-\lambda}\sim\lambda$から$Nk$に、低温の$\lambda\to\infty$では0に近づく。従って非零の $\omega$ を固定した高温極限では $C_\omega\to\tfrac32Nk$、低温極限では $C_\omega\to\tfrac52Nk$ である。$\omega=0$ では式の連続極限から $C_0=\tfrac32Nk$ がすべての $T$ で得られる。
+\end{document}

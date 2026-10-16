@@ -1,0 +1,140 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2017ap_exam.pdf, pages 11–12.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2017年 物理学II 第4問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 電子の伝導率テンソル}
+$x=\omega_c\tau$とする。定常状態の運動方程式は
+\begin{equation}
+ \boldsymbol v=-\frac{e\tau}{m}(\boldsymbol E+\boldsymbol v\times\boldsymbol B),\qquad
+ v_x=-\frac{e\tau}{m}(E_x+Bv_y),\quad
+ v_y=-\frac{e\tau}{m}(E_y-Bv_x).
+\end{equation}
+電流密度は$\boldsymbol J=-ne\boldsymbol v$なので
+\begin{equation}
+ \begin{pmatrix}1&x\\-x&1\end{pmatrix}\begin{pmatrix}j_x\\j_y\end{pmatrix}
+ =\frac{ne^2\tau}{m}\begin{pmatrix}E_x\\E_y\end{pmatrix}.
+\end{equation}
+行列を反転すると、問題の形式
+\begin{equation}
+ \boxed{\widetilde{\sigma}=\frac{\sigma_0}{1+x^2}
+ \begin{pmatrix}1&-x\\x&1\end{pmatrix}},\qquad
+ \boxed{\sigma_0=\frac{ne^2\tau}{m}}
+\end{equation}
+を得る。
+
+\section*{[1.2] Hall係数と縦伝導率}
+$\boldsymbol j=\widetilde{\sigma}\boldsymbol E$を反転し、$j_y=0$とすると
+\begin{equation}
+ E_x=\frac{j_x}{\sigma_0},\qquad E_y=-\frac{xj_x}{\sigma_0}.
+\end{equation}
+従って
+\begin{equation}
+ \boxed{R_H=-\frac{x}{\sigma_0B}=-\frac{1}{ne}},\qquad
+ \boxed{\sigma=\frac{j_x}{E_x}=\sigma_0=\frac{ne^2\tau}{m}}.
+\end{equation}
+Hall係数が負なのは、担い手の電荷が$-e$であることを反映している。
+
+\section*{[2.1] 電子・正孔の伝導率テンソル}
+電子のテンソルは[1.1]の結果であり、正孔は反対符号の電荷を持つのでHall成分の符号が反転する。両者の電流を加えると
+\begin{equation}
+ \boxed{\widetilde{\sigma}=\frac{e^2\tau/m}{1+x^2}
+ \begin{pmatrix}n+p&-(n-p)x\\(n-p)x&n+p\end{pmatrix}}.
+\end{equation}
+ここで$x=\omega_c\tau$は正の量である。
+
+\section*{[2.2] Hall係数と縦伝導率}
+$u=n+p$、$d=n-p$とおく。伝導率行列の逆は
+\begin{equation}
+ \widetilde{\sigma}^{-1}=\frac{m(1+x^2)}{e^2\tau}
+ \frac{1}{u^2+d^2x^2}
+ \begin{pmatrix}u&dx\\-dx&u\end{pmatrix}.
+\end{equation}
+$j_y=0$では$\boldsymbol E=\widetilde{\sigma}^{-1}(j_x,0)^T$なので
+\begin{align}
+ R_H&=\frac{E_y}{j_xB}
+ =-\frac{d}{e}\frac{1+x^2}{u^2+d^2x^2}\\
+ &=\boxed{-\frac{n-p}{e}\frac{1+(\omega_c\tau)^2}{(n+p)^2+(n-p)^2(\omega_c\tau)^2}},\\
+ \sigma&=\frac{j_x}{E_x}
+ =\boxed{\frac{(n+p)e^2\tau}{m}
+ \frac{1+[(n-p)/(n+p)]^2x^2}{1+x^2}}.
+\end{align}
+
+\section*{[2.3] 低磁場・高磁場Hall係数}
+式の$x\to0$および$x\to\infty$の極限は
+\begin{equation}
+ R_H^{(0)}=-\frac{n-p}{e(n+p)^2},\qquad
+ R_H^{(\infty)}=-\frac{1}{e(n-p)}.
+\end{equation}
+従って
+\begin{equation}
+ n-p=-\frac{1}{eR_H^{(\infty)}},\qquad
+ n+p=\frac{1}{e\sqrt{R_H^{(0)}R_H^{(\infty)}}},
+\end{equation}
+ここで平方根は正の枝を取った。よって
+\begin{equation}
+ \boxed{n=\frac{1}{2e}\left[\frac{1}{\sqrt{R_H^{(0)}R_H^{(\infty)}}}-\frac{1}{R_H^{(\infty)}}\right]},\quad
+ \boxed{p=\frac{1}{2e}\left[\frac{1}{\sqrt{R_H^{(0)}R_H^{(\infty)}}}+\frac{1}{R_H^{(\infty)}}\right]}.
+\end{equation}
+非負密度を持つこのモデルの極限値は、同符号であることに加え
+\begin{equation}
+ 0<\frac{R_H^{(0)}}{R_H^{(\infty)}}
+ =\frac{d^2}{u^2}\le1
+\end{equation}
+を満たす。従って復元した$u$と$d$には$u\ge|d|$が成り立ち、$n=(u+d)/2$、$p=(u-d)/2$はともに非負となる。二つのHall係数を入力として使う場合にも、同符号と$|R_H^{(0)}|\le|R_H^{(\infty)}|$の両方が、このモデルとの適合条件である。
+
+\section*{[2.4] 縦伝導率の磁場依存性}
+\begin{equation}
+ \sigma(0)=\frac{(n+p)e^2\tau}{m},\qquad
+ \sigma(\infty)=\frac{(n-p)^2e^2\tau}{m(n+p)}.
+\end{equation}
+$n,p\ge0$なら$|(n-p)/(n+p)|\le1$なので、$p=0$では$\sigma$は一定、両種が存在し$n\ne p$なら単調に減少して正の高磁場極限へ近づく。代表的な曲線を規格化して示す（混合担体の曲線は$|n-p|/(n+p)=1/2$の例）。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[xscale=0.95,yscale=0.75,>=Stealth]
+ \begin{scope}
+  \draw[->] (0,0)--(5.6,0) node[right] {$x=\omega_c\tau$};
+  \draw[->] (0,0)--(0,3.0) node[above] {$\sigma/\sigma(0)$};
+  \draw (0,1)--(5.1,1);
+  \draw (0,0.08)--(0,-0.08) node[below] {$0$};
+  \node at (2.7,-0.55) {(a) $p/n=0$};
+  \node[left] at (0,1) {$1$};
+ \end{scope}
+ \begin{scope}[xshift=8.4cm]
+  \draw[->] (0,0)--(5.6,0) node[right] {$x=\omega_c\tau$};
+  \draw[->] (0,0)--(0,3.0) node[above] {$\sigma/\sigma(0)$};
+  \draw[dashed] (0,0.25)--(5.1,0.25);
+  \draw[thick,domain=0:5,samples=100] plot (\x,{(1+0.25*\x*\x)/(1+\x*\x)});
+  \draw (0,0.08)--(0,-0.08) node[below] {$0$};
+  \node at (2.7,-0.55) {(b) $p/n>0,\ p\ne n$};
+  \node[left] at (0,1) {$1$};
+ \end{scope}
+\end{tikzpicture}
+\caption{縦伝導率の代表的な磁場依存性。右図では$[(n-p)/(n+p)]^2=1/4$の例を示す。}
+\end{figure}
+
+\section*{[2.5] 電子・正孔密度が等しい場合}
+$p=n>0$では伝導率テンソルのHall成分が相殺する。[2.1]の行列から$j_y=2ne^2\tau E_y/[m(1+x^2)]$なので、全電流の条件$j_y=0$よりHall電場は$E_y=0$となる。このとき縦伝導率は
+\begin{equation}
+ \sigma=\frac{2ne^2\tau/m}{1+x^2}\longrightarrow0\qquad(x\to\infty).
+\end{equation}
+$E_y=0$で各担体の定常運動方程式を解くと、縦速度は
+\begin{equation}
+ \text{電子：}\quad v_x=-\frac{e\tau E_x}{m(1+x^2)},\qquad
+ \text{正孔：}\quad v_x=\frac{e\tau E_x}{m(1+x^2)},
+\end{equation}
+横速度はともに$v_y=-e\tau xE_x/[m(1+x^2)]$である。横速度は同方向だが電荷の符号が逆なので、等密度では横電流が相殺する。そのため、単一担体の場合のように横のローレンツ力を補償するHall電場が生じない。高磁場では縦速度が$1/(1+x^2)$の因子で抑えられ、電場方向の電流と縦伝導率がゼロへ近づく。
+\end{document}

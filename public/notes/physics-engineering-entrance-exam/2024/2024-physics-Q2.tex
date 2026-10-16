@@ -1,0 +1,181 @@
+% Standalone XeLaTeX source. Source: 2024ap_exam.pdf, PDF p. 3.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2024年 物理学 第2問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 障壁より低いエネルギー $0<\mathcal E<V_0$}
+原題の $A$ は左から入射する波の振幅、$B$ は反射波、$E$ は右へ透過する波の振幅である。障壁の左右でポテンシャルは同じなので両側の進行波数は $k$、障壁内の減衰定数は $\gamma$ である。
+
+\subsection*{[1.1] $x=-a$ の接続}
+有限の段差では波動関数とその一階導関数が連続する。左側の $Ae^{ikx}+Be^{-ikx}$ と内部の $Ce^{\gamma x}+De^{-\gamma x}$ を $x=-a$ に代入して
+\begin{align}
+ Ae^{-ika}+Be^{ika}&=Ce^{-\gamma a}+De^{\gamma a},\label{eq:left-psi}\\
+ ik\bigl(Ae^{-ika}-Be^{ika}\bigr)&=\gamma\bigl(Ce^{-\gamma a}-De^{\gamma a}\bigr).\label{eq:left-der}
+\end{align}
+この二式が求める関係である。
+
+\subsection*{[1.2] $x=a$ の接続}
+内部解と右側の $Ee^{ikx}$ に同じ条件を課すと
+\begin{align}
+ Ce^{\gamma a}+De^{-\gamma a}&=Ee^{ika},\label{eq:right-psi}\\
+ \gamma\bigl(Ce^{\gamma a}-De^{-\gamma a}\bigr)&=ikEe^{ika}.\label{eq:right-der}
+\end{align}
+これが残る二式である。以下ではこれらを使って $A/E$ と $B/E$ を得る。
+
+\subsection*{[1.3] 透過率 $T_1$}
+式\eqref{eq:right-psi}, \eqref{eq:right-der} を加減すると
+\[
+ Ce^{\gamma a}=\frac{E e^{ika}}2\left(1+\frac{ik}{\gamma}\right),\qquad
+ De^{-\gamma a}=\frac{E e^{ika}}2\left(1-\frac{ik}{\gamma}\right).
+\]
+これを式\eqref{eq:left-psi}, \eqref{eq:left-der} に代入し、二式の和と差を取る。反射波については原題の式(3)に一致する
+\begin{align}
+ \frac BE&=\frac{(ik-\gamma)(ik+\gamma)}{4ik\gamma}e^{-2\gamma a}
+ -\frac{(ik+\gamma)(ik-\gamma)}{4ik\gamma}e^{2\gamma a}\notag\\
+ &=-i\frac{k^2+\gamma^2}{2k\gamma}\sinh(2\gamma a).\label{eq:BE}
+\end{align}
+同じ計算で
+\begin{equation}
+ \frac AE=e^{2ika}\left[\cosh(2\gamma a)
+ +i\frac{\gamma^2-k^2}{2k\gamma}\sinh(2\gamma a)\right].\label{eq:AE}
+\end{equation}
+左右の波数が等しいため、入射・透過確率流の比は $T_1=|E/A|^2$ である。式\eqref{eq:AE} の絶対値を取って $\cosh^2u-\sinh^2u=1$ を使えば
+\begin{equation}
+ \boxed{T_1=\left[1+\frac{(k^2+\gamma^2)^2}{4k^2\gamma^2}\sinh^2(2\gamma a)\right]^{-1}}.\label{eq:T1}
+\end{equation}
+実際、式\eqref{eq:BE}から $|B/A|^2=|B/E|^2T_1$ となり、式\eqref{eq:T1}は反射率と透過率の和が1であることとも一致する。
+
+\subsection*{[1.4] $\gamma/k\ll1$ かつ $a\gamma\ll1$}
+$\sinh(2\gamma a)=2\gamma a+O((\gamma a)^3)$ であり、$(k^2+\gamma^2)^2/k^4=1+O((\gamma/k)^2)$ である。式\eqref{eq:T1} の角括弧内の増分は、相対誤差 $O((\gamma/k)^2+(a\gamma)^2)$ で $k^2a^2$ となる。従って
+\[
+ \boxed{T_1\simeq\frac{1}{1+k^2a^2}}\qquad(\gamma/k\ll1,\ a\gamma\ll1).
+\]
+ここでは $ka$ の大小は指定されておらず、この因子をさらに展開しない。
+
+\subsection*{[1.5] $a\gamma\gg1$}
+$\sinh^2(2\gamma a)\simeq e^{4\gamma a}/4$ を式\eqref{eq:T1} に入れる。指数項が支配的になるので
+\[
+ \boxed{T_1\simeq\frac{16k^2\gamma^2}{(k^2+\gamma^2)^2}e^{-4\gamma a}}\qquad(a\gamma\gg1).
+\]
+指数 $4\gamma a$ は障壁の幅 $2a$ を確率（振幅二乗）で評価した結果である。
+
+\section*{[2] 障壁より高いエネルギー $\mathcal E>V_0$}
+\subsection*{[2.1] 透過率 $T_2(\mathcal E)$}
+障壁の内部も進行波となる。その波数を $q=\sqrt{2m(\mathcal E-V_0)}/\hbar$ と置く。これはこの節だけで使う、障壁内の波数である。両境界を連続につないで得た式\eqref{eq:T1}で $\gamma=iq$ と置いてもよい。$\sinh(2iqa)=i\sin(2qa)$ と $k^2-q^2=2mV_0/\hbar^2$ から
+\begin{equation}
+ \boxed{T_2(\mathcal E)=\left[1+
+ \frac{V_0^2}{4\mathcal E(\mathcal E-V_0)}
+ \sin^2\!\left(\frac{2a\sqrt{2m(\mathcal E-V_0)}}{\hbar}\right)
+ \right]^{-1}},\qquad \mathcal E>V_0.\label{eq:T2}
+\end{equation}
+$q$ は導出用であり、最終式は指定通り $\mathcal E,V_0$ で記した。
+
+\subsection*{[2.2] 概形と極大}
+式\eqref{eq:T2} の角括弧内で正弦二乗以外の因子は正である。従って $T_2\leq1$ であり、全ての透過率1の極大は
+\begin{equation}
+ \boxed{\frac{2a\sqrt{2m(\mathcal E-V_0)}}{\hbar}=n\pi
+ \quad\Longleftrightarrow\quad
+ \mathcal E=V_0+\frac{n^2\pi^2\hbar^2}{8ma^2}},\qquad n=1,2,\ldots.\label{eq:resonance}
+\end{equation}
+これら以外に局所極大もない。$z=2aq$、$\beta=8ma^2V_0/\hbar^2>0$ と置くと、逆透過率の正の増分は
+\begin{equation}
+ T_2^{-1}-1=\frac{\beta^2\sin^2z}{4z^2(z^2+\beta)}.
+\end{equation}
+$0<z<\pi$では$\sin z/z$も$1/(z^2+\beta)$も減少するため、$T_2$に内部の極大はない。$n\pi<z<(n+1)\pi$（$n\ge1$）では、この正の増分の対数微分の半分は
+\begin{equation}
+ h(z)=\cot z-\frac1z-\frac{z}{z^2+\beta},\qquad
+ h'(z)=-\csc^2z+\frac1{z^2}+\frac{z^2-\beta}{(z^2+\beta)^2}
+ <-1+\frac2{\pi^2}<0.
+\end{equation}
+$h$は区間の左端で$+\infty$、右端で$-\infty$へ向かうので、零点は一つだけである。その点は逆透過率の極大、すなわち$T_2$の谷である。従って共鳴点以外に局所極大はない。
+
+$n=0$ は $\mathcal E=V_0$ であり、指定された $\mathcal E>V_0$ の範囲外である。境界の片側極限は $\sin z\sim z$ から
+\[
+ \lim_{\mathcal E\downarrow V_0}T_2
+ =\left(1+\frac{2mV_0a^2}{\hbar^2}\right)^{-1}.
+\]
+また $\mathcal E\gg V_0$ では振動する項の係数が $O(V_0^2/\mathcal E^2)$ となるため、$T_2\to1$ である。つまり共鳴の谷も高エネルギーでは1へ近づく。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+ width=0.86\linewidth,height=61mm,
+ xmin=1,xmax=5.45,ymin=0,ymax=1.08,
+ xlabel={$\mathcal E/V_0$},ylabel={$T_2$},
+ xtick={1,2,3,4,5},
+ ytick={0,0.5,1},grid=major,
+ tick label style={font=\small},
+ label style={font=\normalsize},
+ clip=false]
+\addplot[black,thick,samples=500,domain=1.001:5.45]
+ {1/(1+(sin(deg(2*pi*sqrt(x-1)))^2)/(4*x*(x-1)))};
+\addplot[only marks,mark=o,mark size=1.6pt,black]
+ coordinates {(1,0.0919997)};
+\addplot[only marks,mark=*,mark size=1.5pt,black]
+ coordinates {(1.25,1) (2,1) (3.25,1) (5,1)};
+\end{axis}
+\end{tikzpicture}
+\caption{$2a\sqrt{2mV_0}/\hbar=2\pi$ と選んだ場合の式\eqref{eq:T2} の概形。白丸は $\mathcal E=V_0$ の片側極限で、定義域には含まれない。黒点は透過率1の共鳴である。}
+\label{fig:T2}
+\end{figure}
+図\ref{fig:T2}は障壁の幅を一例に固定している。一般の幅ではピークの横位置は式\eqref{eq:resonance} に従う。
+
+\section*{[3] 右側が $V(x)=-V_1$ の場合}
+\subsection*{[3.1] 透過率 $T_3$ と反射率 $R_3$}
+$0<\mathcal E<V_0$、$V_1>0$の範囲を保つ。左側と障壁内の解は [1] と同じで、右側の透過波は $Ee^{ik_1x}$ と書く。$k_1=\sqrt{2m(\mathcal E+V_1)}/\hbar$ である。右境界 $x=a$ では $\psi(a)=Ee^{ik_1a}$、$\psi'(a)=ik_1Ee^{ik_1a}$。障壁内では任意の点$x$で
+\begin{align*}
+ \psi(x)&=\psi(a)\cosh[\gamma(x-a)]+\frac{\psi'(a)}\gamma\sinh[\gamma(x-a)],\\
+ \psi'(x)&=\gamma\psi(a)\sinh[\gamma(x-a)]+\psi'(a)\cosh[\gamma(x-a)].
+\end{align*}
+この二式に$x=-a$を代入して右境界の値を幅$2a$だけ左境界まで運ぶと
+\begin{align*}
+ \psi(-a)&=Ee^{ik_1a}\left[\cosh(2\gamma a)-i\frac{k_1}{\gamma}\sinh(2\gamma a)\right],\\
+ \psi'(-a)&=Ee^{ik_1a}\left[-\gamma\sinh(2\gamma a)+ik_1\cosh(2\gamma a)\right].
+\end{align*}
+一方、左境界では $\psi(-a)=Ae^{-ika}+Be^{ika}$、$\psi'(-a)=ik(Ae^{-ika}-Be^{ika})$ である。和と差を解くと
+\begin{align}
+ \frac{2Ae^{-ika}}{Ee^{ik_1a}}
+ &=\left(1+\frac{k_1}{k}\right)\cosh(2\gamma a)
+ +i\left(\frac{\gamma}{k}-\frac{k_1}{\gamma}\right)\sinh(2\gamma a),\label{eq:den3}\\
+ \frac{2Be^{ika}}{Ee^{ik_1a}}
+ &=\left(1-\frac{k_1}{k}\right)\cosh(2\gamma a)
+ -i\left(\frac{\gamma}{k}+\frac{k_1}{\gamma}\right)\sinh(2\gamma a).\label{eq:num3}
+\end{align}
+進行波 $Fe^{ipx}$ の確率流は $\hbar p|F|^2/m$ である。右側の速度が違うため、透過率には $k_1/k$ が掛かる。式\eqref{eq:den3}, \eqref{eq:num3} の絶対値から
+\begin{equation}
+ \boxed{T_3=\frac{k_1}{k}\left|\frac EA\right|^2
+ =\frac{4kk_1}{(k+k_1)^2\cosh^2(2\gamma a)
+ +(\gamma-kk_1/\gamma)^2\sinh^2(2\gamma a)}}.\label{eq:T3}
+\end{equation}
+\begin{equation}
+ \boxed{R_3=\left|\frac BA\right|^2
+ =\frac{(k-k_1)^2\cosh^2(2\gamma a)
+ +(\gamma+kk_1/\gamma)^2\sinh^2(2\gamma a)}
+ {(k+k_1)^2\cosh^2(2\gamma a)
+ +(\gamma-kk_1/\gamma)^2\sinh^2(2\gamma a)}}.\label{eq:R3}
+\end{equation}
+二式の分母から $R_3$ の分子を引くと $4kk_1(\cosh^2-\sinh^2)=4kk_1$ となり、$R_3+T_3=1$ が確かめられる。また $k_1=k$ とすれば式\eqref{eq:T1}に戻る。
+
+\subsection*{[3.2] $\mathcal E$ 固定で $V_1\to\infty$}
+$V_1$ を大きくすると $k_1\to\infty$ だが、$k,\gamma,a$ は固定される。式\eqref{eq:T3} の分母の主要項は $k_1^2[\cosh^2(2\gamma a)+(k/\gamma)^2\sinh^2(2\gamma a)]$ なので
+\[
+ T_3\sim\frac{4k}{k_1\{\cosh^2(2\gamma a)+(k/\gamma)^2\sinh^2(2\gamma a)\}}
+ \propto V_1^{-1/2}.
+\]
+従って求める漸近値は $\boxed{\lim_{V_1\to\infty}T_3=0}$ である。右側への速度は増すが、その速度差に伴う反射が強くなる。
+\end{document}

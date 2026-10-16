@@ -1,0 +1,71 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2017ap_exam.pdf, pages 6–7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2017年 物理学II 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 引力型デルタポテンシャル}
+$x\ne0$では$-\hbar^2\phi''/(2m)=E\phi$である。負の固有値に対する減衰解を$\phi(x)=Ne^{-\xi|x|}$、$E=-\hbar^2\xi^2/(2m)$と置く。原点を含む微小区間でシュレーディンガー方程式を積分すると
+\begin{equation}
+ \phi'(0^+)-\phi'(0^-)=-\frac{2mv}{\hbar^2}\phi(0).
+\end{equation}
+左辺は$-2N\xi$だから$\xi=mv/\hbar^2$。規格化条件より$1=N^2\int_{-\infty}^{\infty}e^{-2\xi|x|}dx=N^2/\xi$であり
+\begin{equation}
+ \boxed{N=\sqrt{\frac{mv}{\hbar^2}}},\qquad
+ \boxed{\xi=\frac{mv}{\hbar^2}},\qquad
+ \boxed{E=-\frac{mv^2}{2\hbar^2}}.
+\end{equation}
+
+\section*{[2.1] 試行状態のエネルギー期待値}
+二つの局在配置を$\Phi_1=\phi_s(x_1+R/2)\phi_s(x_2-R/2)$、$\Phi_2=\phi_s(x_1-R/2)\phi_s(x_2+R/2)$と置く。ソースの定義は$\langle\Phi_1|H|\Phi_1\rangle=\langle\Phi_2|H|\Phi_2\rangle=A$、$\langle\Phi_2|H|\Phi_1\rangle=B$、$\langle\Phi_2|\Phi_1\rangle=S$である。対角規格化は1なので
+\begin{equation}
+ \boxed{E(c_1,c_2)=\frac{A(c_1^2+c_2^2)+2Bc_1c_2}{c_1^2+c_2^2+2Sc_1c_2}}.
+\end{equation}
+
+\section*{[2.2] 変分方程式}
+エネルギーの停留条件を、分母を含めて変分する。すなわち、$E(c_1,c_2)$の候補値$E$について
+\begin{equation}
+ \mathcal L=A(c_1^2+c_2^2)+2Bc_1c_2
+ -E(c_1^2+c_2^2+2Sc_1c_2)
+\end{equation}
+の偏微分をゼロと置く。両式を2で割ると
+\begin{equation}
+ \boxed{\begin{pmatrix}A&B\\B&A\end{pmatrix}
+ \begin{pmatrix}c_1\\c_2\end{pmatrix}
+ =E\begin{pmatrix}1&S\\S&1\end{pmatrix}
+ \begin{pmatrix}c_1\\c_2\end{pmatrix}}.
+\end{equation}
+交差項の係数は各行列要素そのものではなく、二つの対称な交差項の和となるため、行列の非対角要素は$B-ES$である。
+
+\section*{[2.3] 固有値と空間波動関数}
+両行列は交換対称なので、固有ベクトルは$(1,1)^T$または$(1,-1)^T$である。各ベクトルを同じ符号の分子・分母に代入すると
+\begin{equation}
+ E_+=\frac{A+B}{1+S},\quad (c_1,c_2)\propto(1,1),\qquad
+ E_-=\frac{A-B}{1-S},\quad (c_1,c_2)\propto(1,-1).
+\end{equation}
+従って規格化を除く空間波動関数は
+\begin{equation}
+ \boxed{\Phi_\pm(x_1,x_2)=\phi_s(x_1+R/2)\phi_s(x_2-R/2)
+ \pm\phi_s(x_1-R/2)\phi_s(x_2+R/2)}.
+\end{equation}
+粒子交換$x_1\leftrightarrow x_2$で$\Phi_+$は対称、$\Phi_-$は反対称となる。
+
+\section*{[2.4] スピンを含むフェルミ状態}
+二粒子フェルミ状態はスピンと軌道の積全体が反対称でなければならない。$\alpha,\beta$をそれぞれスピン上向き・下向きの状態、$\omega_i$を粒子$i$のスピン座標とする。スピン一重項$\chi_{00}=(\alpha(\omega_1)\beta(\omega_2)-\beta(\omega_1)\alpha(\omega_2))/\sqrt2$は反対称なので、$\Phi_+$と組み合わせる。三重項は対称なので、$\Phi_-$と組み合わせる。よって全状態と近似エネルギーは
+\begin{align}
+ &\boxed{\Phi_+\chi_{00},\quad E_+},\\
+ &\boxed{\Phi_-\alpha(\omega_1)\alpha(\omega_2),\quad E_-},\\
+ &\boxed{\Phi_-\frac{\alpha(\omega_1)\beta(\omega_2)+\beta(\omega_1)\alpha(\omega_2)}{\sqrt2},\quad E_-},\\
+ &\boxed{\Phi_-\beta(\omega_1)\beta(\omega_2),\quad E_-}.
+\end{align}
+\end{document}

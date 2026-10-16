@@ -1,0 +1,159 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2019ap_exam.pdf, PDF pp. 6--7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2019年 物理学 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 単原子理想気体の分配関数}
+古典気体では、$N$ 個の同種粒子の分配関数は位相空間積分を
+$N!(2\pi\hbar)^{3N}$ で割ったものである。運動量を
+$\boldsymbol{p}_j=(p_{jx},p_{jy},p_{jz})$ とすると、
+\begin{align}
+ Z^{(g)}(V,\beta,N)
+ &=\frac{1}{N!(2\pi\hbar)^{3N}}
+   \int_{V^N}\mathrm{d}^{3N}r\int_{\mathbb{R}^{3N}}\mathrm{d}^{3N}p\,
+   \exp\!\left[-\beta\sum_{j=1}^{N}\frac{\boldsymbol{p}_j^2}{2m}\right]\\
+ &=\frac{V^N}{N!(2\pi\hbar)^{3N}}
+   \left(\int_{-\infty}^{\infty}
+        \exp\!\left(-\frac{\beta p^2}{2m}\right)\mathrm{d}p\right)^{3N}\\
+ &=\frac{V^N}{N!(2\pi\hbar)^{3N}}
+   \left(\frac{2\pi m}{\beta}\right)^{3N/2}\\
+ &=\frac{V^N}{N!}
+   \left(\frac{m}{2\pi\hbar^2\beta}\right)^{3N/2}.
+ \label{eq:canonical}
+\end{align}
+ここで1成分ごとのガウス積分
+$\int_{-\infty}^{\infty}e^{-ap^2}\mathrm{d}p=\sqrt{\pi/a}$
+を用いた。
+
+\section*{[2] 気体の大分配関数}
+\begin{equation}
+ z(\beta,\mu)=e^{\beta\mu}
+     \left(\frac{m}{2\pi\hbar^2\beta}\right)^{3/2}
+\end{equation}
+とおけば、式\eqref{eq:canonical}より
+\begin{align}
+ Z_G^{(g)}(V,\beta,\mu)
+ &=\sum_{N=0}^{\infty}\frac{[Vz(\beta,\mu)]^N}{N!}\\
+ &=\exp\!\left[V e^{\beta\mu}
+        \left(\frac{m}{2\pi\hbar^2\beta}\right)^{3/2}\right].
+ \label{eq:grand-gas}
+\end{align}
+これは指数関数の級数展開そのものである。
+
+\section*{[3] 圧力}
+式\eqref{eq:grand-gas}を問題で与えられた式に代入すると
+\begin{align}
+ P(\beta,\mu)
+ &=\frac{1}{\beta}\frac{\partial}{\partial V}
+       \log Z_G^{(g)}(V,\beta,\mu)\\
+ &=\frac{e^{\beta\mu}}{\beta}
+       \left(\frac{m}{2\pi\hbar^2\beta}\right)^{3/2}
+ =e^{\beta\mu}\left(\frac{m}{2\pi\hbar^2}\right)^{3/2}\beta^{-5/2}.
+ \label{eq:pressure}
+\end{align}
+
+\section*{[4] 1サイトの大分配関数}
+大分配重みは $e^{-\beta(E-\mu N)}$ である。空サイトは $(E,N)=(0,0)$
+なので重みは $1$、吸着状態は $(E,N)=(-\epsilon,1)$ なので重みは
+$e^{\beta(\epsilon+\mu)}$ となる。従って
+\begin{equation}
+ \xi_G^{(a)}=1+e^{\beta(\epsilon+\mu)}.
+ \label{eq:site-partition}
+\end{equation}
+
+\section*{[5] 吸着原子密度}
+サイトは独立なので全体の大分配関数は
+$Z_G^{(a)}=(\xi_G^{(a)})^{N_a}$ である。大分配関数の化学ポテンシャル
+微分から平均粒子数を求めると
+\begin{align}
+ n_a
+ &=\frac{1}{N_a\beta}\frac{\partial}{\partial\mu}
+             \log Z_G^{(a)}\\
+ &=\frac{1}{\beta}\frac{\partial}{\partial\mu}
+             \log\!\left(1+e^{\beta(\epsilon+\mu)}\right)\\
+ &=\frac{e^{\beta(\epsilon+\mu)}}{1+e^{\beta(\epsilon+\mu)}}
+ =\frac{1}{1+e^{-\beta(\epsilon+\mu)}}.
+ \label{eq:occupancy-mu}
+\end{align}
+この値は1サイトあたりの平均占有数なので、$0<n_a<1$ である。
+
+\section*{[6] 圧力と温度による表示}
+式\eqref{eq:pressure}から
+\begin{equation}
+ e^{-\beta\mu}
+ =\frac{1}{P}\left(\frac{m}{2\pi\hbar^2}\right)^{3/2}
+                  \beta^{-5/2}.
+\end{equation}
+これを式\eqref{eq:occupancy-mu}に代入し、$\beta=1/(k_BT)$ とすれば
+\begin{align}
+ n_a(P,T)
+ &=\frac{1}{1+\displaystyle\frac{1}{P}
+       \left(\frac{m}{2\pi\hbar^2}\right)^{3/2}
+       (k_BT)^{5/2}e^{-\epsilon/(k_BT)}}\\
+ &=\frac{P}{P+P_*(T)},\\
+ P_*(T)&=\left(\frac{m}{2\pi\hbar^2}\right)^{3/2}
+       (k_BT)^{5/2}e^{-\epsilon/(k_BT)}.
+ \label{eq:occupancy-PT}
+\end{align}
+$P_*(T)$ は、密度を $1/2$ にする圧力の尺度である。
+
+\section*{[7] 圧力・温度依存性}
+温度一定では $P_*(T)$ は定数だから、$n_a=P/[P+P_*(T)]$ は圧力とともに
+単調増加する。$P\to0$ で0、$P\to\infty$ で1に近づく。
+
+温度依存性は $P_*(T)$ の変化で決まる。その対数微分は
+\begin{equation}
+ \frac{\mathrm{d}}{\mathrm{d}T}\log P_*(T)
+ =\frac{5}{2T}+\frac{\epsilon}{k_BT^2}>0,
+ \qquad T>0.
+\end{equation}
+従って一定圧力では $P_*(T)$ が厳密に増加し、$n_a$ は厳密に減少する。
+$T\to0^+$ では $P_*(T)\to0$ なので $n_a\to1$、$T\to\infty$ では
+$P_*(T)\to\infty$ なので $n_a\to0$ である。グラフを見やすくするため、
+$T_*=\epsilon/k_B$ および $P_{\mathrm{ref}}=P_*(T_*)$ を基準に取る。
+式\eqref{eq:occupancy-PT}より
+$P_{\mathrm{ref}}=(m/(2\pi\hbar^2))^{3/2}\epsilon^{5/2}e^{-1}$ である。
+左図は $T=T_*$、右図は $P=P_{\mathrm{ref}}$ の例である。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1.05cm,y=3.0cm,>=Stealth,font=\small]
+  \draw[->] (0,0)--(5.1,0) node[right] {$P/P_{\mathrm{ref}}$};
+  \draw[->] (0,0)--(0,1.14) node[above] {$n_a$};
+  \draw[dashed,gray] (0,1)--(4.8,1);
+  \draw[thick,blue,domain=0:4.8,samples=100,variable=\p]
+    plot (\p,{\p/(1+\p)});
+  \draw (1,0.02)--(1,-0.02) node[below=2pt] {$1$};
+  \draw (0.04,0.5)--(-0.04,0.5) node[left=2pt] {$1/2$};
+  \node at (2.8,0.29) {$T=T_*$};
+\end{tikzpicture}
+\hspace{1.2cm}
+\begin{tikzpicture}[x=1.05cm,y=3.0cm,>=Stealth,font=\small]
+  \draw[->] (0,0)--(5.1,0) node[right] {$T/T_*$};
+  \draw[->] (0,0)--(0,1.14) node[above] {$n_a$};
+  \draw[dashed,gray] (0,1)--(4.8,1);
+  \draw[thick,red,domain=0.06:4.8,samples=140,variable=\t]
+    plot (\t,{1/(1+(\t^2.5)*exp(1-1/\t))});
+  \draw (1,0.02)--(1,-0.02) node[below=2pt] {$1$};
+  \draw (0.04,0.5)--(-0.04,0.5) node[left=2pt] {$1/2$};
+  \node at (2.65,0.72) {$P=P_{\mathrm{ref}}$};
+\end{tikzpicture}
+\caption{吸着密度の圧力・温度依存性。左では $T=T_*$、右では $P=P_{\mathrm{ref}}$ を固定した。}
+\label{fig:adsorption}
+\end{figure}
+\end{document}

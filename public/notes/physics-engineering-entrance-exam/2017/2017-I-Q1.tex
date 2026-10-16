@@ -1,0 +1,87 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2017ap_exam.pdf, page 2.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2017年 物理学I 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 質点の速さ}
+頂点を位置エネルギーの基準にする。角度$\theta$まで降りたときの高さの減少は$R(1-\cos\theta)$なので、力学的エネルギー保存から
+\begin{equation}
+ \frac12 mv^2=mgR(1-\cos\theta),\qquad
+ \boxed{v(\theta)=\sqrt{2gR(1-\cos\theta)}}.
+\end{equation}
+
+\section*{[1.2] 質点の離脱}
+半径方向内向きを正に取ると、接触中は$mg\cos\theta-N=mv^2/R$である。離脱時は$N=0$だから、$v_c^2=gR\cos\theta_{c1}$。これとエネルギー式を合わせると
+\begin{equation}
+ 2(1-\cos\theta_{c1})=\cos\theta_{c1},\qquad
+ \boxed{\cos\theta_{c1}=\frac23},\quad
+ \boxed{v_{c1}=\sqrt{\frac{2gR}{3}}}.
+\end{equation}
+
+\section*{[2.1] 一様球の慣性モーメント}
+球の密度は$\rho_m=3m/(4\pi r^3)$である。球座標で極角を$\vartheta$とすると
+\begin{align}
+ I&=\int (s\sin\vartheta)^2\rho_m\,s^2\sin\vartheta\,ds\,d\vartheta\,d\phi\\
+ &=\rho_m\left(\int_0^r s^4ds\right)
+   \left(\int_0^\pi\sin^3\vartheta\,d\vartheta\right)(2\pi)
+ =\boxed{\frac25mr^2}.
+\end{align}
+
+\section*{[2.2] 転がり条件}
+球中心の軌道半径は$R+r$である。接触点の速度がゼロだから、$v=r\omega$（角速度の大きさ）となる。
+
+\section*{[2.3] 転がる球の離脱}
+重心の位置エネルギー減少は$mg(R+r)(1-\cos\theta)$である。$I=2mr^2/5$および$\omega=v/r$を使うと
+\begin{equation}
+ mg(R+r)(1-\cos\theta)=\frac12mv^2+\frac12I\omega^2
+ =\frac7{10}mv^2,
+\quad v^2=\frac{10}{7}g(R+r)(1-\cos\theta).
+\end{equation}
+離脱時の半径方向の式は$mg\cos\theta_{c2}=mv_{c2}^2/(R+r)$である。二式を連立して
+\begin{equation}
+ \boxed{\cos\theta_{c2}=\frac{10}{17}},\qquad
+ \boxed{v_{c2}=\sqrt{\frac{10}{17}g(R+r)}}.
+\end{equation}
+
+\section*{[2.4] 離脱角の違い}
+同じ角度$\theta$での向心加速度を、各中心軌道の半径を使って比較すると
+\begin{equation}
+ \text{質点：}\quad\frac{v^2}{R}=2g(1-\cos\theta),\qquad
+ \text{球：}\quad\frac{v^2}{R+r}=\frac{10}{7}g(1-\cos\theta).
+\end{equation}
+転がる球では位置エネルギーの一部が回転エネルギーに入るため、向心加速度の係数が小さい。接触中の法線抗力は、質点では$N=m[g\cos\theta-v^2/R]$、球では$N=m[g\cos\theta-v^2/(R+r)]$であり、球のほうが同じ角度で大きい。そのため球はより大きな角度まで接触を保つ。実際、$10/17<2/3$より$\theta_{c2}>\theta_{c1}$である。
+
+\section*{[3.1] 撃力の作用高さ}
+撃力の作用時間を十分短く取り、その間の重力と接触摩擦の力積を無視する。頂点で水平方向に打つので、支持面へ向かう法線方向の衝突も生じない。この局所的な撃力モデルでは、並進の力積収支から$mv_0=P$、重心まわりの角力積収支から$I\omega_0=P(h-r)$となる。接触点の水平速度がゼロとなるためには、撃力直後の重心速度$v_0=P/m$と角速度$\omega_0$が$v_0=r\omega_0$を満たす必要がある。従って
+\begin{equation}
+ \omega_0=\frac{P(h-r)}{I}=\frac{5P(h-r)}{2mr^2}.
+\end{equation}
+これを転がり条件に代入すると
+\begin{equation}
+ \boxed{h=\frac75r},\qquad v_0=\frac{P}{m},\quad \omega_0=\frac{P}{mr}.
+\end{equation}
+
+\section*{[3.2] 撃力後の離脱}
+撃力後は力学的エネルギーが保存される。最初の並進・回転運動エネルギーは$(7/10)P^2/m$なので
+\begin{equation}
+ v^2=\frac{10}{7}g(R+r)(1-\cos\theta)+\frac{P^2}{m^2}.
+\end{equation}
+離脱条件$v_c^2=g(R+r)\cos\theta_{c3}$と連立すると
+\begin{equation}
+ \boxed{\cos\theta_{c3}=\frac{10}{17}
+ +\frac{7P^2}{17m^2g(R+r)}},\qquad
+ \boxed{v_{c3}=\sqrt{\frac{10}{17}g(R+r)+\frac{7P^2}{17m^2}}}.
+\end{equation}
+この離脱角が実現するには、右辺が$0$以上$1$以下でなければならない。
+\end{document}

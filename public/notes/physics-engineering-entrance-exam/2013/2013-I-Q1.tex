@@ -1,0 +1,123 @@
+% Standalone XeLaTeX source; source problem: 2013ap_exam.pdf, PDF pp. 2--3.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2013年 物理学I 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 重心運動と相対運動}
+全質量を $M=m_1+m_2$ とすると、定義から
+\begin{equation}
+ \boldsymbol r_1=\boldsymbol R-\frac{m_2}{M}\boldsymbol r,
+ \qquad \boldsymbol r_2=\boldsymbol R+\frac{m_1}{M}\boldsymbol r.
+\end{equation}
+従って運動エネルギーは
+\begin{align}
+ \frac12m_1\dot{\boldsymbol r}_1^2+\frac12m_2\dot{\boldsymbol r}_2^2
+ &=\frac12m_1\left(\dot{\boldsymbol R}-\frac{m_2}{M}\dot{\boldsymbol r}\right)^2
+  +\frac12m_2\left(\dot{\boldsymbol R}+\frac{m_1}{M}\dot{\boldsymbol r}\right)^2\\
+ &=\frac12M\dot{\boldsymbol R}^2+
+   \frac12\frac{m_1m_2}{M}\dot{\boldsymbol r}^2.
+\end{align}
+交差項 $\dot{\boldsymbol R}\cdot\dot{\boldsymbol r}$ の係数は $-m_1m_2/M+m_2m_1/M=0$ なので相殺する。よって
+\begin{equation}
+ \boxed{\mathcal L=\frac12M\dot{\boldsymbol R}^2+
+ \frac12\mu\dot{\boldsymbol r}^2-U(\boldsymbol r),\qquad
+ M=m_1+m_2,\quad \mu=\frac{m_1m_2}{m_1+m_2}.}
+\end{equation}
+重心座標と相対座標の運動は独立に分離された。
+
+以下では $U=U(r)$ とし、相対運動だけを考える。
+
+\section*{[2] 極座標でのラグランジアン}
+平面極座標 $\boldsymbol r=(r\cos\phi,r\sin\phi,0)$ の速度の大きさの二乗は
+\begin{equation}
+ \dot{\boldsymbol r}^{\,2}=\dot r^{\,2}+r^2\dot\phi^{\,2}.
+\end{equation}
+従って
+\begin{equation}
+ \boxed{L=\frac12\mu(\dot r^{\,2}+r^2\dot\phi^{\,2})-U(r).}
+\end{equation}
+
+\section*{[3] 角運動量と有効ポテンシャル}
+$L$ は $\phi$ に陽に依存しないので $\phi$ は循環座標である。Euler--Lagrange方程式より
+\begin{equation}
+ \frac{d}{dt}\frac{\partial L}{\partial\dot\phi}
+ =\frac{d}{dt}(\mu r^2\dot\phi)=0,
+ \qquad \boxed{l=\mu r^2\dot\phi=\text{一定}.}
+\end{equation}
+$r$ に関する方程式は
+\begin{equation}
+ \mu\ddot r=\mu r\dot\phi^{\,2}-\frac{dU}{dr}
+ =\frac{l^2}{\mu r^3}-\frac{dU}{dr}
+ =-\frac{d}{dr}\left(U(r)+\frac{l^2}{2\mu r^2}\right).
+\end{equation}
+したがって半径方向の運動は、有効ポテンシャル
+\begin{equation}
+ U_{\rm eff}(r)=U(r)+\frac{l^2}{2\mu r^2}
+\end{equation}
+中の一次元運動と同じである。$l\ne0$ のとき第二項は角運動量による遠心障壁と呼ばれ、半径方向の運動方程式に外向きの力 $l^2/(\mu r^3)$ を加える。
+
+\section*{[4] エネルギー保存}
+半径方向の運動方程式に $\dot r$ を掛けると
+\begin{equation}
+ \mu\dot r\ddot r=-\frac{dU_{\rm eff}}{dr}\dot r
+ =-\frac{dU_{\rm eff}}{dt}.
+\end{equation}
+よって
+\begin{equation}
+ \boxed{E=\frac12\mu\dot r^{\,2}+U(r)+\frac{l^2}{2\mu r^2}
+ =\text{一定}.}
+\end{equation}
+
+\section*{[5] Laplace--Runge--Lenzベクトル}
+$U(r)=-k/r$（$k>0$）の運動方程式は $\ddot{\boldsymbol r}=-k\hat{\boldsymbol r}/(\mu r^2)$、ただし $\hat{\boldsymbol r}=\boldsymbol r/r$ である。角運動量 $\boldsymbol l=\mu\boldsymbol r\times\dot{\boldsymbol r}$ は一定。
+原本で与えられたベクトルを
+\begin{equation}
+ \boldsymbol A=\mu\dot{\boldsymbol r}\times\boldsymbol l-\mu k\hat{\boldsymbol r}
+\end{equation}
+と書く。
+\begin{align}
+ \dot{\boldsymbol A}
+ &=\mu\ddot{\boldsymbol r}\times\boldsymbol l-\mu k\dot{\hat{\boldsymbol r}}\\
+ &=-\frac{k}{r^2}\hat{\boldsymbol r}\times\boldsymbol l-\mu k\dot{\hat{\boldsymbol r}}=0,
+\end{align}
+ここでは、$\dot r=\hat{\boldsymbol r}\cdot\dot{\boldsymbol r}$ として
+\begin{equation}
+ \hat{\boldsymbol r}\times\boldsymbol l
+ =\mu\hat{\boldsymbol r}\times(\boldsymbol r\times\dot{\boldsymbol r})
+ =\mu r(\dot r\hat{\boldsymbol r}-\dot{\boldsymbol r})
+ =-\mu r^2\dot{\hat{\boldsymbol r}}
+\end{equation}
+を用いた。最後の等号は $\dot{\hat{\boldsymbol r}}=(\dot{\boldsymbol r}-\dot r\hat{\boldsymbol r})/r$ による。したがって $\boldsymbol A$ も保存する。
+
+ベクトル積 $\dot{\boldsymbol r}\times\boldsymbol l$ と $\boldsymbol r$ はともに $\boldsymbol l$ と垂直なので
+\begin{equation}
+ \boxed{\boldsymbol A\cdot\boldsymbol l=0.}
+\end{equation}
+またスカラー三重積を使うと
+\begin{align}
+ \boldsymbol A\cdot\boldsymbol r
+ &=\mu(\dot{\boldsymbol r}\times\boldsymbol l)\cdot\boldsymbol r-\mu k r\\
+ &=\mu\boldsymbol l\cdot(\boldsymbol r\times\dot{\boldsymbol r})-\mu k r
+ =l^2-\mu k r.
+\end{align}
+$A=|\boldsymbol A|$ とする。$l\ne0$、$A\ne0$ の場合には、$\boldsymbol A$ と $\boldsymbol r$ のなす角 $\alpha$ を使って $\boldsymbol A\cdot\boldsymbol r=Ar\cos\alpha$ と等置し、
+\begin{equation}
+ \boxed{\frac1r=\frac{\mu k}{l^2}
+ \left(1+\frac{A}{\mu k}\cos\alpha\right),\qquad A=|\boldsymbol A|.}
+\end{equation}
+を得る。これは焦点を中心力の中心に持つ円錐曲線の極座標表示である。
+
+$A=0$ の円軌道では $\alpha$ は定義できないが、上の内積恒等式から直接 $r=l^2/(\mu k)$ が得られる。一方、$l=0$ の直線軌道では $l^2$ で除算できないため、この軌道式を使わず、半径方向の運動方程式 $\mu\ddot r=-k/r^2$（$r>0$）で扱う。
+
+\end{document}

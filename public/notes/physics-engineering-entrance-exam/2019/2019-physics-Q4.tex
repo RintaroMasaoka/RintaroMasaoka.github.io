@@ -1,0 +1,173 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2019ap_exam.pdf, PDF p. 8.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2019年 物理学 第4問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] ハミルトニアン}
+各方向の運動は一次元調和振動子である。定義された昇降演算子について
+\[
+ \frac{\hat p_x^2}{2m}+\frac12m\omega^2\hat x^2
+ =\hbar\omega\left(\hat a_x^\dagger\hat a_x+\frac12\right),
+ \qquad
+ \frac{\hat p_y^2}{2m}+\frac12m\omega^2\hat y^2
+ =\hbar\omega\left(\hat a_y^\dagger\hat a_y+\frac12\right).
+\]
+従って全ハミルトニアンは
+\begin{equation}
+ \hat H=\hbar\omega\left(\hat a_x^\dagger\hat a_x+
+                         \hat a_y^\dagger\hat a_y+1\right).
+ \label{eq:H-cart}
+\end{equation}
+
+\section*{[2] エネルギーと縮退度}
+直積状態 $|n_x,n_y\rangle$ では各数演算子の固有値が $n_x,n_y$ なので、
+\begin{equation}
+ E_{n_x,n_y}=\hbar\omega(n_x+n_y+1),\qquad n_x,n_y=0,1,2,\ldots.
+ \label{eq:E-cart}
+\end{equation}
+低い方から $N$ 番目の準位は $n_x+n_y=N-1$ に対応する。非負整数解は
+$(n_x,n_y)=(0,N-1),(1,N-2),\ldots,(N-1,0)$ の $N$ 通りであり、
+\begin{equation}
+ E_N=N\hbar\omega,\qquad g_N=N\quad(N=1,2,3,\ldots).
+\end{equation}
+
+\section*{[3] 角運動量と保存}
+昇降演算子の定義を足し引きすると
+\[
+ \hat x=\sqrt{\frac{\hbar}{2m\omega}}(\hat a_x+\hat a_x^\dagger),
+ \qquad
+ \hat p_x=i\sqrt{\frac{m\hbar\omega}{2}}
+                   (\hat a_x^\dagger-\hat a_x),
+\]
+であり、$y$ 成分も同様である。直交する方向の演算子は互いに可換なので、
+\begin{align}
+ \hat l_z&=\hat x\hat p_y-\hat y\hat p_x\\
+ &=i\hbar(\hat a_y^\dagger\hat a_x-
+                   \hat a_x^\dagger\hat a_y).
+ \label{eq:l-cart}
+\end{align}
+$[\hat a_j,\hat a_j^\dagger]=1$ と異なる方向間の可換性から
+\begin{align}
+ [\hat a_x^\dagger\hat a_x,\hat a_y^\dagger\hat a_x]&=-\hat a_y^\dagger\hat a_x,
+ & [\hat a_y^\dagger\hat a_y,\hat a_y^\dagger\hat a_x]&=\hat a_y^\dagger\hat a_x,\\
+ [\hat a_x^\dagger\hat a_x,\hat a_x^\dagger\hat a_y]&=\hat a_x^\dagger\hat a_y,
+ & [\hat a_y^\dagger\hat a_y,\hat a_x^\dagger\hat a_y]&=-\hat a_x^\dagger\hat a_y.
+\end{align}
+それぞれの和はゼロとなるため、式\eqref{eq:H-cart}より
+\begin{equation}
+ [\hat H,\hat l_z]=0.
+\end{equation}
+従って $\hat l_z$ は時間に依らない保存量である。
+
+\section*{[4] 交換関係による固有値の移動}
+仮定された交換関係を $|l_z\rangle$ に作用させると
+\begin{align}
+ \hat l_z\hat A|l_z\rangle
+ &=([\hat l_z,\hat A]+\hat A\hat l_z)|l_z\rangle\\
+ &=(\alpha+l_z)\hat A|l_z\rangle.
+\end{align}
+したがって $\hat A|l_z\rangle\ne0$ ならば、これは固有値
+$l_z+\alpha$ をもつ $\hat l_z$ の固有状態である。
+
+\section*{[5] 角運動量を一単位ずつ上げ下げする演算子}
+式\eqref{eq:l-cart}から
+\begin{equation}
+ [\hat l_z,\hat a_x^\dagger]=i\hbar\hat a_y^\dagger,
+ \qquad
+ [\hat l_z,\hat a_y^\dagger]=-i\hbar\hat a_x^\dagger.
+\end{equation}
+よって $\hat b^\dagger=C\hat a_x^\dagger+D\hat a_y^\dagger$ が
+$[\hat l_z,\hat b^\dagger]=\alpha\hat b^\dagger$ を満たす条件は
+\begin{equation}
+ -i\hbar D=\alpha C,\qquad i\hbar C=\alpha D.
+ \label{eq:CD}
+\end{equation}
+非自明解では $\alpha^2=\hbar^2$ である。$\alpha=+\hbar$ なら
+$D=iC$、$\alpha=-\hbar$ なら $D=-iC$ となる。$C\ge0$ と
+$|C|^2+|D|^2=1$ を用いると、二組は
+\begin{align}
+ \hat b_1^\dagger&=\frac{1}{\sqrt2}
+       (\hat a_x^\dagger+i\hat a_y^\dagger),&
+ \hat b_1&=\frac{1}{\sqrt2}(\hat a_x-i\hat a_y),&\alpha_1&=+\hbar,\\
+ \hat b_2^\dagger&=\frac{1}{\sqrt2}
+       (\hat a_x^\dagger-i\hat a_y^\dagger),&
+ \hat b_2&=\frac{1}{\sqrt2}(\hat a_x+i\hat a_y),&\alpha_2&=-\hbar.
+\end{align}
+\section*{[6] 円偏光型演算子の交換関係}
+異なる Cartesian 方向間の交換子はゼロであるから、上の定義を展開して
+\begin{align}
+ [\hat b_1,\hat b_1^\dagger]
+ &=\tfrac12\bigl([\hat a_x,\hat a_x^\dagger]+(-i)i[\hat a_y,\hat a_y^\dagger]\bigr)=1,\\
+ [\hat b_1,\hat b_2^\dagger]
+ &=\tfrac12\bigl([\hat a_x,\hat a_x^\dagger]+(-i)(-i)[\hat a_y,\hat a_y^\dagger]\bigr)=0.
+\end{align}
+同様にもう一つの対角交換子は1で、混合交換子の共役も0である。従って
+\begin{equation}
+ [\hat b_1,\hat b_1^\dagger]=1,\quad
+ [\hat b_2,\hat b_2^\dagger]=1,\quad
+ [\hat b_1,\hat b_2^\dagger]=0,\quad
+ [\hat b_2,\hat b_1^\dagger]=0.
+\end{equation}
+従って $\hat b_1,\hat b_2$ は互いに独立な二つのボース昇降演算子である。
+
+\section*{[7] 円偏光型演算子での表示}
+逆変換は
+\[
+ \hat a_x=\frac{\hat b_1+\hat b_2}{\sqrt2},
+ \qquad
+ \hat a_y=\frac{i(\hat b_1-\hat b_2)}{\sqrt2}
+\]
+である。これを式\eqref{eq:H-cart}, \eqref{eq:l-cart}に代入すると、整理前の積は
+\begin{align}
+ \hat a_x^\dagger\hat a_x+\hat a_y^\dagger\hat a_y
+ &=\frac12\Bigl[(\hat b_1^\dagger+\hat b_2^\dagger)(\hat b_1+\hat b_2)
+ +(\hat b_1^\dagger-\hat b_2^\dagger)(\hat b_1-\hat b_2)\Bigr],\\
+ \hat l_z&=\frac{\hbar}{2}\Bigl[(\hat b_1^\dagger-\hat b_2^\dagger)(\hat b_1+\hat b_2)
+ +(\hat b_1^\dagger+\hat b_2^\dagger)(\hat b_1-\hat b_2)\Bigr].
+\end{align}
+いずれも括弧を展開すると、$\hat b_1^\dagger\hat b_2$と$\hat b_2^\dagger\hat b_1$の交差項がそれぞれ相殺する。従って
+\begin{align}
+ \hat H&=\hbar\omega(\hat b_1^\dagger\hat b_1+
+                      \hat b_2^\dagger\hat b_2+1),\\
+ \hat l_z&=\hbar(\hat b_1^\dagger\hat b_1-
+                      \hat b_2^\dagger\hat b_2).
+ \label{eq:l-b}
+\end{align}
+元の直積真空$|0,0\rangle$は$\hat a_x,\hat a_y$に消されるので、上の定義から$\hat b_1|0,0\rangle=\hat b_2|0,0\rangle=0$である。交換関係を用いて$(\hat b_1^\dagger)^{n_1}(\hat b_2^\dagger)^{n_2}|0,0\rangle$を作ると、$\hat b_j^\dagger\hat b_j$の固有値はそれぞれ$n_j=0,1,2,\ldots$となる。同じ状態に式\eqref{eq:l-b}の二つの演算子を作用させれば、エネルギーと角運動量が同時に対角化される。
+
+\section*{[8] 第 $N$ 準位の角運動量}
+式\eqref{eq:l-b}から第 $N$ 準位では $n_1+n_2=N-1$ であり、
+$l_z=\hbar(n_1-n_2)$ となる。$n_1=0,1,\ldots,N-1$ を順に選ぶと
+\begin{equation}
+ l_z=\hbar\bigl(-(N-1),-(N-3),\ldots,N-3,N-1\bigr),
+\end{equation}
+すなわち同じ集合を大きい順に書けば
+\begin{equation}
+ \boxed{l_z=\hbar(N-1),\ \hbar(N-3),\ \ldots,\ -\hbar(N-1)}.
+\end{equation}
+値は $N$ 個で、隣り合う値の差は $2\hbar$ である。例えば基底準位 $N=1$
+では $l_z=0$ だけとなり、エネルギーと縮退度の結果にも一致する。
+
+\section*{[9] スピン軌道相互作用}
+$\sigma_z=s=\pm1$ は $\hat l_z$ と可換であるため、状態
+$|n_1,n_2;s\rangle$ は全ハミルトニアンの固有状態である。固有エネルギーは
+\begin{equation}
+ \boxed{E_{n_1,n_2,s}=\hbar\omega(n_1+n_2+1)
+       +\lambda\hbar s(n_1-n_2)},
+ \qquad n_1,n_2=0,1,2,\ldots,\quad s=\pm1.
+\end{equation}
+この表示は各量子数に対する準位を与える。$\lambda$ の値や符号によって
+準位の順序や縮退の一部が変わりうるため、ここでは特定の順序は仮定しない。
+\end{document}

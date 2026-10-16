@@ -1,0 +1,136 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF page 7.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2015年 物理学II 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1] 数演算子と消滅演算子}
+交換子の積の公式$[AB,C]=A[B,C]+[A,C]B$を用いると
+\begin{equation}
+  [\hat N,\hat a]=[\hat a^\dagger\hat a,\hat a]
+  =\hat a^\dagger[\hat a,\hat a]+[\hat a^\dagger,\hat a]\hat a
+  =-\hat a.
+\end{equation}
+このため
+\begin{equation}
+  \hat N(\hat a|n+1\rangle)
+  =\hat a\hat N|n+1\rangle-\hat a|n+1\rangle
+  =n\hat a|n+1\rangle.
+\end{equation}
+従って$\hat a|n+1\rangle$は固有値$n$の固有状態に比例する。規格化された固有状態の位相を適当に選び、$\hat a|n+1\rangle=c_n|n\rangle$（$c_n\ge0$）と書く。係数はノルムの二乗から
+\begin{equation}
+  c_n^2=\langle n+1|\hat a^\dagger\hat a|n+1\rangle=n+1
+\end{equation}
+なので、
+\begin{equation}
+  \boxed{\hat a|n+1\rangle=\sqrt{n+1}|n\rangle.}
+\end{equation}
+同様に
+\begin{equation}
+  \|\hat a|0\rangle\|^2=\langle0|\hat N|0\rangle=0
+\end{equation}
+だから$\boxed{\hat a|0\rangle=0}$である。
+
+\section*{[2] コヒーレント状態の固有値}
+互いに直交規格化された数状態を使うと
+\begin{equation}
+  \langle\Psi(\alpha)|\Psi(\alpha)\rangle
+  =e^{-|\alpha|^2}\sum_{n=0}^{\infty}\frac{|\alpha|^{2n}}{n!}=1.
+\end{equation}
+消滅演算子を級数に作用させ、[1]を使って添字をずらすと
+\begin{align}
+  \hat a|\Psi(\alpha)\rangle
+  &=e^{-|\alpha|^2/2}\sum_{n=1}^{\infty}
+    \frac{\alpha^n}{\sqrt{n!}}\sqrt n\,|n-1\rangle\\
+  &=\alpha e^{-|\alpha|^2/2}\sum_{j=0}^{\infty}
+    \frac{\alpha^j}{\sqrt{j!}}|j\rangle
+   =\boxed{\alpha|\Psi(\alpha)\rangle}.
+\end{align}
+
+\section*{[3] エネルギー期待値}
+[2]の固有値式と規格化を、$\hat N=\hat a^\dagger\hat a$ の期待値に用いると
+\begin{equation}
+ \langle\hat N\rangle
+ =\|\hat a|\Psi(\alpha)\rangle\|^2
+ =|\alpha|^2\langle\Psi(\alpha)|\Psi(\alpha)\rangle
+ =|\alpha|^2.
+\end{equation}
+従って
+\begin{equation}
+  \boxed{\langle\hat H\rangle
+  =\hbar\omega\left(|\alpha|^2+\frac12\right).}
+\end{equation}
+
+\section*{[4] 平均値と不確定性}
+生成・消滅演算子の定義を足し引きすると
+\begin{equation}
+  \hat x=\sqrt{\frac{\hbar}{2m\omega}}(\hat a+\hat a^\dagger),
+  \qquad
+  \hat p=-i\sqrt{\frac{m\hbar\omega}{2}}(\hat a-\hat a^\dagger).
+\end{equation}
+固有状態の性質から$\langle\hat a\rangle=\alpha$、$\langle\hat a^\dagger\rangle=\alpha^*$なので
+\begin{equation}
+  \boxed{\langle\hat x\rangle=\sqrt{\frac{2\hbar}{m\omega}}\,\Re\alpha},
+  \qquad
+  \boxed{\langle\hat p\rangle=\sqrt{2m\hbar\omega}\,\Im\alpha}.
+\end{equation}
+また$\langle\hat a^2\rangle=\alpha^2$、$\langle\hat a^{\dagger2}\rangle=(\alpha^*)^2$、$\langle\hat a^\dagger\hat a\rangle=|\alpha|^2$、$\langle\hat a\hat a^\dagger\rangle=|\alpha|^2+1$より
+\begin{align}
+  \langle\hat x^2\rangle
+  &=\frac{\hbar}{2m\omega}\left[(\alpha+\alpha^*)^2+1\right],\\
+  \langle\hat p^2\rangle
+  &=-\frac{m\hbar\omega}{2}\left[(\alpha-\alpha^*)^2-1\right].
+\end{align}
+平均値の二乗をそれぞれ引くと、
+\begin{equation}
+  \boxed{\Delta x=\sqrt{\frac{\hbar}{2m\omega}}},
+  \qquad
+  \boxed{\Delta p=\sqrt{\frac{m\hbar\omega}{2}}},
+  \qquad
+  \boxed{\Delta x\Delta p=\frac{\hbar}{2}}.
+\end{equation}
+各標準偏差は正であり、積はハイゼンベルクの下限に等しい。
+
+\section*{[5] 時間発展}
+数状態ごとの時間発展は
+\begin{equation}
+  e^{-i\hat Ht/\hbar}|n\rangle
+  =e^{-i\omega t(n+1/2)}|n\rangle.
+\end{equation}
+これを状態の級数に適用すると
+\begin{align}
+  e^{-i\hat Ht/\hbar}|\Psi(\alpha_0)\rangle
+  &=e^{-i\omega t/2}e^{-|\alpha_0|^2/2}
+    \sum_{n=0}^{\infty}\frac{(\alpha_0e^{-i\omega t})^n}{\sqrt{n!}}|n\rangle\\
+  &=e^{-i\omega t/2}|\Psi(\alpha_0e^{-i\omega t})\rangle.
+\end{align}
+従って
+\begin{equation}
+  \boxed{\alpha(t)=\alpha_0e^{-i\omega t}
+  =Ae^{i(\theta-\omega t)}}.
+\end{equation}
+前の因子$e^{-i\omega t/2}$は全ての数状態に共通する全体位相であり、期待値には影響しない。
+
+\section*{[6] 古典的な運動と準古典状態}
+時刻$t$で$\alpha(t)=Ae^{i(\theta-\omega t)}$を位置・運動量の平均式に代入すると
+\begin{align}
+  \boxed{\langle\hat x\rangle_t
+  =\sqrt{\frac{2\hbar}{m\omega}}A\cos(\omega t-\theta)},\\
+  \boxed{\langle\hat p\rangle_t
+  =-\sqrt{2m\hbar\omega}A\sin(\omega t-\theta)}.
+\end{align}
+これらは古典調和振動子の位置・運動量の時間変化そのものである。振幅は$A$に比例する一方、$\Delta x$と$\Delta p$は$A$に依存しない。それぞれの振動振幅に対する標準偏差の比は$1/(2A)$であり、$A\gg1$では波束の広がりが古典軌道の振幅より十分小さくなる。この意味で準古典状態と呼ばれる。
+
+\end{document}

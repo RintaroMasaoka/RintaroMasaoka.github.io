@@ -1,0 +1,148 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2022ap_exam.pdf, PDF pp. 8--9.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻院試解答集 ver2\\2022年 物理学 第4問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] Laplace 方程式の制約}
+真空中では $\nabla\cdot\boldsymbol E=0$ である。$\boldsymbol E=-\nabla\phi$ と
+$\phi=ax^2+by^2+cz^2$ を代入すると
+\[
+0=\nabla\cdot\boldsymbol E=-\nabla^2\phi=-2(a+b+c),
+\qquad \boxed{a+b+c=0}.
+\]
+
+\section*{[1.2] Newton--Lorentz 方程式}
+電場力は $-q\nabla\phi$、磁場力は $q\dot{\boldsymbol r}\times\boldsymbol B$ だから
+\[
+\boxed{m\ddot{\boldsymbol r}(t)=-q\nabla\phi(\boldsymbol r(t))
++q\dot{\boldsymbol r}(t)\times\boldsymbol B}.
+\]
+以降 $a=b=-c/2<0$ なので $c>0$ である。$\boldsymbol B=(0,0,B)$ とすると
+\[
+m\ddot x=qc x+qB\dot y,\qquad
+m\ddot y=qc y-qB\dot x,\qquad
+m\ddot z=-2qc z.
+\]
+
+\section*{[1.3] $z$ 方向の単振動}
+$m\ddot z=-2qc z$ は復元力をもつ調和振動子であり、角振動数は
+\[
+\boxed{\omega_z=\sqrt{\frac{2qc}{m}}}.
+\]
+
+\section*{[1.4] $xy$ 面内の複素方程式}
+$u=x+iy$ とおく。上の $x,y$ 方程式の第2式に $i$ を掛けて第1式に加えると
+\[
+m\ddot u=qc(x+iy)+qB(\dot y-i\dot x)
+=qc u-iqB\dot u,
+\]
+したがって
+\[
+\boxed{m\ddot u+iqB\dot u-qc u=0}.
+\]
+
+\section*{[1.5] 横方向の束縛条件}
+固有解 $u(t)=u_0e^{-i\sigma t}$ を代入すると
+\[
+m\sigma^2-qB\sigma+qc=0,
+\qquad
+\boxed{\sigma_\pm=\frac{qB\pm\sqrt{q^2B^2-4mqc}}{2m}}.
+\]
+初期値によらず有界な振動解を得るには、2根が実数かつ異なる必要がある。判別式が正なら両根は実数で解は2つの振動の重ね合わせとなる。判別式が負なら指数的に増大する解があり、ゼロなら重根に伴う $t e^{-i\sigma t}$ 型の解があり、いずれも全初期条件で有界とはならない。$q>0$ を用いると条件は
+\[
+q^2B^2-4mqc>0
+\quad\Longleftrightarrow\quad
+\boxed{qB^2>4mc}.
+\]
+
+\section*{[2.1] Mathieu 方程式の係数}
+磁場を無視した $x$ 方向の運動方程式は
+\[
+m\frac{d^2x}{dt^2}=-2q\alpha x\cos\omega t.
+\]
+$\tau=\omega t/2$ とすると $d^2/dt^2=(\omega^2/4)d^2/d\tau^2$ かつ
+$\cos\omega t=\cos2\tau$ だから
+\[
+\frac{d^2x}{d\tau^2}+\frac{8q\alpha}{m\omega^2}x\cos2\tau=0.
+\]
+式 (3) と係数を比較して
+\[
+\boxed{\lambda=\frac{4q\alpha}{m\omega^2}}.
+\]
+
+\section*{[2.2] Fourier 係数の漸化式}
+式 (4) の各項を2回微分すると係数は $-(2n+\Omega)^2C_n$ となる。また
+\[
+2\lambda\cos2\tau\cos[(2n+\Omega)\tau]
+=\lambda\cos[(2(n+1)+\Omega)\tau]
++\lambda\cos[(2(n-1)+\Omega)\tau].
+\]
+同じ周波数ごとに係数を比べると
+\[
+\boxed{(2n+\Omega)^2C_n=\lambda(C_{n-1}+C_{n+1})}.
+\]
+
+\section*{[2.3] 小さい $\lambda$ での周波数}
+$C_{\pm2}$ を無視した $n=\pm1$ の式と、$n=0$ の式は
+\[
+\frac{C_1}{C_0}=\frac{\lambda}{(2+\Omega)^2},\qquad
+\frac{C_{-1}}{C_0}=\frac{\lambda}{(\Omega-2)^2},\qquad
+\Omega^2=\lambda\frac{C_{-1}+C_1}{C_0}
+=\lambda^2\left[\frac1{(2-\Omega)^2}+\frac1{(2+\Omega)^2}\right].
+\]
+$0<\Omega<1$の枝では角括弧内の分母がゼロにならず、$\lambda\to0$で上の中心式から$\Omega^2/\lambda^2\to1/2$を得る。従って$\Omega=O(\lambda)$であり、分母の $\Omega$ 依存を1次近似の係数比で落とすと
+\[
+\frac{C_1}{C_0}=\frac{\lambda}{4}+O(\lambda^2),\qquad
+\frac{C_{-1}}{C_0}=\frac{\lambda}{4}+O(\lambda^2).
+\]
+中心式の右辺は $\lambda^2[1/2+O(\Omega^2)]$ であり
+\[
+\Omega^2=\frac{\lambda^2}{2}+O(\lambda^4),\qquad
+\Omega=\frac{\lambda}{\sqrt2}+O(\lambda^3).
+\]
+問題の $0<\Omega<1$ と $\lambda>0$ に合う枝を選ぶと、求める1次の定数は
+\[
+\boxed{\frac{C_{-1}}{C_0}=\epsilon\lambda,\quad
+\frac{C_1}{C_0}=\epsilon\lambda,\quad \Omega=\delta\lambda,
+\qquad \epsilon=\frac14,\quad\delta=\frac1{\sqrt2}}.
+\]
+
+\section*{[2.4] 近似解と概形}
+3つのモードを残すと
+\begin{align*}
+x(\tau)
+&=C_0\left[\cos(\Omega\tau)
++\frac{\lambda}{4}\cos((2+\Omega)\tau)
++\frac{\lambda}{4}\cos((2-\Omega)\tau)\right]+O(\lambda^2)\\
+&=\boxed{C_0\left(1+\frac{\lambda}{2}\cos2\tau\right)
+\cos\!\left(\frac{\lambda\tau}{\sqrt2}\right)}+O(\lambda^2).
+\end{align*}
+ここで $O(\lambda^2)$ の精度は、図に示す緩やかな振動の一周期程度、すなわち $\tau=O(\lambda^{-1})$ までを対象とする。さらに長時間では $\Omega$ の省略項による位相誤差が蓄積する。
+緩やかな余弦が長周期振動を表し、因子 $1+(\lambda/2)\cos2\tau$ が小さな速い変調を加える。下図は例として $\lambda=0.2$ とした $x/C_0$ の概形で、横軸は $\tau$ である。
+\begin{center}
+\begin{tikzpicture}[x=0.15cm,y=1.15cm]
+  \draw[->] (0,-1.25) -- (48,-1.25) node[right] {$\tau$};
+  \draw[->] (0,-1.25) -- (0,1.25) node[above] {$x/C_0$};
+  \pgfmathsetmacro{\lam}{0.2}
+  \pgfmathsetmacro{\slow}{\lam/sqrt(2)}
+  \draw[gray!65,dashed] plot[domain=0:46,samples=180] (\x,{cos(deg(\slow*\x))});
+  \draw[thick] plot[domain=0:46,samples=550] (\x,{(1+\lam/2*cos(deg(2*\x)))*cos(deg(\slow*\x))});
+  \draw (0,0) node[left] {$0$};
+  \draw ({2*pi/\slow},-1.25) -- ({2*pi/\slow},-1.19) node[below=4pt] {$2\pi\sqrt2/\lambda$};
+\end{tikzpicture}
+\end{center}
+破線は緩やかな振動のみ、実線は1次の速い変調も含む。
+\end{document}

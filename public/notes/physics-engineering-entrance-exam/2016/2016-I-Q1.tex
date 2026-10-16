@@ -1,0 +1,132 @@
+% Standalone XeLaTeX source. Uses standard commands and distributed packages.
+% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF pages 2–3.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集 ver2\\2016年 物理学I 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] Bが動き出す時刻}
+Cが動き始めてから$t$秒後、Bが静止している間は右側のばねの伸びが$v_0t$である。Bを右へ引く力は$kv_0t$。これが最大静止摩擦力$\mu mg$に達した時にBが動き始めるので
+\begin{equation}
+  kv_0t_0=\mu mg,\qquad
+  \boxed{t_0=\frac{\mu mg}{kv_0}}.
+\end{equation}
+
+\section*{[1.2] Bの運動方程式}
+Bが動き始めた時刻を$t=0$とする。このときCは初期位置から$v_0t_0$だけ進んでおり、その後$t$秒間にさらに$v_0t$進む。Aは静止しているため、左のばねは$x_B$だけ伸び、右のばねは$v_0(t+t_0)-x_B$だけ伸びる。Bは右向きに滑るので動摩擦力は左向きである。よって
+\begin{align}
+  m\ddot x_B
+  &=k\{v_0(t+t_0)-x_B\}-kx_B-\frac23\mu mg\\
+  &=-2kx_B+kv_0t+\frac13\mu mg
+   =-2kx_B+kv_0t+\frac13kv_0t_0.
+\end{align}
+ここでは$x_B(0)=0$に加えて、滑り始める直前まで静止していたことから$\dot x_B(0)=0$である。
+
+\section*{[1.3] Bの位置}
+角振動数$\omega=\sqrt{2k/m}$を導入すると
+\begin{equation}
+  \ddot x_B+\omega^2x_B=\frac{k v_0}{m}t+\frac{k v_0t_0}{3m}.
+\end{equation}
+右辺に対する一次式の特解を$x_p=v_0t/2+v_0t_0/6$とおける。一般解に初期条件を適用すると
+\begin{equation}
+  \boxed{x_B(t)=\frac{v_0t}{2}+\frac{v_0t_0}{6}
+    -\frac{v_0t_0}{6}\cos(\omega t)
+    -\frac{v_0}{2\omega}\sin(\omega t)}.
+\end{equation}
+この式は$t=0$で$x_B=\dot x_B=0$を満たす。
+
+\section*{[1.4] Aが静止を保つ条件}
+$\omega t_0\ll1$のもとで、解の二つの差をそれぞれ展開する。
+\begin{align}
+  x_B(t_0)
+  &=\frac{v_0}{2}\left(t_0-\frac{\sin(\omega t_0)}{\omega}\right)
+    +\frac{v_0t_0}{6}\left[1-\cos(\omega t_0)\right]\\
+  &=\frac{v_0\omega^2t_0^3}{12}
+    +\frac{v_0\omega^2t_0^3}{12}
+    +O(v_0\omega^4t_0^5)\\
+  &=\boxed{\frac{v_0\omega^2t_0^3}{6}
+    =\frac{k v_0t_0^3}{3m}}+O(v_0\omega^4t_0^5).
+\end{align}
+このときAに働くばね力の大きさは
+\begin{equation}
+  kx_B(t_0)\simeq\frac{\mu mg}{6}(\omega t_0)^2\ll\mu mg,
+\end{equation}
+である。従ってAを動かすのに必要な力は最大静止摩擦力より小さく、Aは静止を保つ。
+
+\section*{[2.1] 微小振動の運動方程式と固有振動数}
+外部ポテンシャルの曲率は
+\begin{equation}
+  U''(x)=k_1\left[-1+3\left(\frac{x}{l}\right)^2\right].
+\end{equation}
+従って中央のBでは$U''(0)=-k_1$、両端のA,Cでは$U''(\pm l)=2k_1$である。ばね力と外力を一次まで残すと
+\begin{equation}
+  m\begin{pmatrix}\ddot q_A\\\ddot q_B\\\ddot q_C\end{pmatrix}
+  =\begin{pmatrix}
+    -k_0-2k_1&k_0&0\\
+    k_0&-2k_0+k_1&k_0\\
+    0&k_0&-k_0-2k_1
+  \end{pmatrix}
+  \begin{pmatrix}q_A\\q_B\\q_C\end{pmatrix}.
+  \label{eq:linearized}
+\end{equation}
+式\eqref{eq:linearized}の右辺の行列を$K$とおく。これを$(1,0,-1)^T$に作用させると
+\begin{equation}
+  K\begin{pmatrix}1\\0\\-1\end{pmatrix}
+  =-(k_0+2k_1)\begin{pmatrix}1\\0\\-1\end{pmatrix}.
+\end{equation}
+運動方程式は$m\ddot{\boldsymbol q}=K\boldsymbol q$なので、左右反対称モードの角振動数は
+\begin{equation}
+  \boxed{\omega_a^2=\frac{k_0+2k_1}{m}}.
+\end{equation}
+対称な変位$(a,b,a)$では、力の係数行列$K$は$(a,b)$に対して
+\begin{equation}
+  K_s=\begin{pmatrix}-k_0-2k_1&k_0\\2k_0&-2k_0+k_1\end{pmatrix}
+\end{equation}
+と作用する。$K_s$の固有値を$-m\omega^2$と書くと
+\begin{equation}
+  m^2\omega^4-m(3k_0+k_1)\omega^2+(3k_0k_1-2k_1^2)=0,
+\end{equation}
+したがって対称モードの二つの周波数は
+\begin{equation}
+  \boxed{\omega_{\pm}^2=
+  \frac{3k_0+k_1\pm\sqrt{9k_0^2-6k_0k_1+9k_1^2}}{2m}}.
+\end{equation}
+$\omega_-$が小さい方の周波数である。三つのモードが正の固有角振動数を持つ安定な微小振動となるのは $0<k_1<3k_0/2$ である。等号の $k_1=3k_0/2$ では $\omega_-=0$ となり、線形化した零モードは $\ddot q=0$ であって振動しない。これを不安定化の臨界点として区別する。
+
+\section*{[2.2] 不安定になる基準振動}
+$k_1$を増すと、最初にゼロになるのは対称モードの低周波数$\omega_-$である。二つの対称モードの積は
+\begin{equation}
+  \omega_-^2\omega_+^2=\frac{k_1(3k_0-2k_1)}{m^2}.
+\end{equation}
+従って臨界値では$3k_0-2k_c=0$となり
+\begin{equation}
+  \boxed{k_c=\frac32 k_0}.
+\end{equation}
+$k_1>k_c$では$\omega_-^2<0$となるため、この対称な低周波数モードが不安定である。
+
+\section*{[2.3] 不安定化するモードの変位比}
+$k_1=4k_c/9=2k_0/3$では
+\begin{equation}
+  \omega_-^2=\frac{k_0}{3m}.
+\end{equation}
+このとき
+\begin{equation}
+  K_s=k_0\begin{pmatrix}-7/3&1\\2&-4/3\end{pmatrix}.
+\end{equation}
+固有値$-k_0/3=-m\omega_-^2$の固有ベクトルは$(a,b)=(1,2)$であり、全三質点では$(q_A,q_B,q_C)\propto(1,2,1)$となる。よって
+\begin{equation}
+  \boxed{q_A:q_B:q_C=1:2:1}.
+\end{equation}
+
+\end{document}

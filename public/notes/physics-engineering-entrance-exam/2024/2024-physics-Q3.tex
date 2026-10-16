@@ -1,0 +1,167 @@
+% Standalone XeLaTeX source; standard commands and distributed packages only.
+% Source: public/notes/物工/問題/2024ap_exam.pdf, PDF pp. 4--5.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb,booktabs}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集 ver2\\2024年 物理学 第3問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+各スピンは$\sigma_\alpha\in\{+1,-1\}$、結合定数は$J\ne0$である。$N$個のスピンのエネルギーは$E=-(J/N)\sum_{\alpha<\beta}\sigma_\alpha\sigma_\beta$とし、各異なるペアを一度ずつ数える。
+
+\section*{[1.1] $N=2$ のエネルギーと縮退度}
+原題の式(2)は $E=-J\sigma_1\sigma_2/2$ である。同じ向きなら積は $+1$ で、$(+,+),(-,-)$ の2通りがある。逆向きなら積は $-1$ で、$(+,-),(-,+)$ の2通りがある。従って $J\ne0$ のもとで、取りうる値をすべて挙げると
+\[
+\begin{array}{c|cc}
+ & E & W\\ \hline
+\sigma_1=\sigma_2 & -J/2 & 2\\
+\sigma_1=-\sigma_2 & J/2 & 2
+\end{array}
+\]
+である。縮退度の和 $2+2=2^2$ は全配置数と一致する。
+
+\section*{[1.2] $N=3$ のエネルギーと縮退度}
+3スピンでは$E=-(J/3)(\sigma_1\sigma_2+\sigma_2\sigma_3+\sigma_1\sigma_3)$である。すべて同じ向きなら括弧内の三つの積はすべて $+1$ となる。配置は全上向きと全下向きの2通りである。1個だけ他の2個と逆向きなら、同じ向きのペアが1組、逆向きのペアが2組なので、積の和は $1-1-1=-1$ となる。逆向きの1個の選び方が3通り、その向きが2通りある。よって
+\[
+\begin{array}{c|cc}
+ & E & W\\ \hline
+\text{全スピンが同じ向き} & -J & 2\\
+\text{1個だけ逆向き} & J/3 & 6
+\end{array}
+\]
+を得る。$2+6=2^3$ で全配置を数え尽くしている。
+
+\section*{[1.3] $N=3$ の基底状態}
+$J>0$ なら $-J<J/3$ なので全スピンが同じ向きの配置が基底状態であり、$\boxed{W=2}$。$J<0$ なら $J/3<-J$ なので1個だけ逆向きの配置が基底状態であり、$\boxed{W=6}$ である。
+
+\section*{[2.1] 一般の $N$ に対するエネルギー}
+$M$を$-1$向きのスピン数とすると、総スピンは $\sum_{\alpha=1}^N\sigma_\alpha=N-2M$ である。その二乗を展開すると、$\sigma_\alpha^2=1$ から
+\[
+(N-2M)^2
+=\sum_{\alpha=1}^N\sigma_\alpha^2
+ +2\sum_{\alpha<\beta}\sigma_\alpha\sigma_\beta
+=N+2\sum_{\alpha<\beta}\sigma_\alpha\sigma_\beta.
+\]
+二つ目の和は、順序の異なる同一ペアを重複して含まない。これを式(1)に入れて
+\[
+\boxed{E(M)=-\frac{J}{2N}\bigl[(N-2M)^2-N\bigr]},
+\qquad M=0,1,\ldots,N
+\]
+を得る。指定した $M$ に対して $-1$ スピンの位置を選ぶ状態数は $\binom{N}{M}$ である。ただし、$M$ と $N-M$ のように異なる値が同じエネルギーを与えるとき、エネルギーの縮退度はそれぞれの状態数を加えたものになる。
+
+\section*{[2.2] 一般の $N$ に対する基底状態}
+$J>0$ では $E(M)$ を最小にするには $|N-2M|$ を最大にする。$M=0,N$ が該当し、$N\geq1$ で
+\[
+\boxed{E=-\frac{J}{2}(N-1),\qquad W=2\quad(J>0)}.
+\]
+$J<0$ では逆に $|N-2M|$ を最小にする。偶数 $N$ では $M=N/2$ のみ、奇数 $N$ では $M=(N-1)/2,(N+1)/2$ の二つが該当する。従って
+\[
+\boxed{\begin{array}{ll}
+N\text{ が偶数}:& E=J/2,\quad W=\displaystyle\binom{N}{N/2},\\[2mm]
+N\text{ が奇数}:& E=\displaystyle\frac{J(N-1)}{2N},\quad
+ W=\displaystyle 2\binom{N}{(N-1)/2}
+\end{array}\qquad(J<0).}
+\]
+ここで奇数 $N$ の二つの $M$ は異なる配置集合を表す。$N=1$ でも式は $E=0,W=2$ を与える。また $N=2,3$ を代入すると [1.1]–[1.3] の結果に戻る。
+
+\section*{[3.1] エネルギー密度}
+以下は原題に従い $N\gg1,J>0$、$m=M/N$、$0<m<1/2$ とする。[2.1] の厳密式を $N$ で割れば
+\[
+\frac{E}{N}=-\frac{J}{2}(1-2m)^2+\frac{J}{2N}.
+\]
+最後の項は有限 $N$ の補正である。大 $N$ で求める関数の主項は
+\[
+\boxed{\frac{E}{N}\simeq-\frac{J}{2}(1-2m)^2.}
+\]
+
+\section*{[3.2] エントロピー密度}
+$M=Nm$ 個の $-1$ スピンを $N$ 箇所から選ぶので、式(4)で指定した磁化の配置数は $W=\binom{N}{M}$ である。$S=k_B\log W$ とし、原題の式(5)を $N,M,N-M$ に適用すると
+\begin{align*}
+\frac{S}{N}
+&=\frac{k_B}{N}\bigl(\log N!-\log M!-\log(N-M)!\bigr)\\
+&\simeq-k_B\bigl[m\log m+(1-m)\log(1-m)\bigr].
+\end{align*}
+従って
+\[
+\boxed{\frac{S}{N}\simeq-k_B\bigl[m\log m+(1-m)\log(1-m)\bigr].}
+\]
+この主項は $N\to\infty$ で $m$ を固定し、$M$ と $N-M$ がともに十分大きいときに得られる。$J>0$ の同じエネルギーには $m$ と $1-m$ の両方が対応するが、二枝を合算してもエントロピー密度に加わるのは高々 $k_B\log2/N$ であり、この主項は変わらない。
+
+\section*{[3.3] 温度と $m$ の関係}
+$m$ を変化させると、[3.1] と [3.2] の主項の微分は
+\[
+\frac{1}{N}\frac{\mathrm dE}{\mathrm dm}=2J(1-2m),\qquad
+\frac{1}{N}\frac{\mathrm dS}{\mathrm dm}=k_B\log\frac{1-m}{m}.
+\]
+$0<m<1/2$ ではどちらも正である。式(6)をこの曲線に沿って用い、
+\[
+\frac1T=\frac{\mathrm dS/\mathrm dm}{\mathrm dE/\mathrm dm}
+=\frac{k_B\log[(1-m)/m]}{2J(1-2m)}
+\]
+から
+\[
+\boxed{T(m)=\frac{2J(1-2m)}{k_B\log[(1-m)/m]}}\qquad(0<m<1/2)
+\]
+を得る。分母は正なので $T>0$ であり、$m\to0$ で $T\to0$ となる。
+
+\section*{[3.4] 低温の $m$}
+$k_BT\ll J$ のとき原題の条件どおり $m\ll1$ とする。[3.3] を
+\[
+\log\frac{1-m}{m}=\frac{2J}{k_BT}(1-2m)
+\]
+と書けば、左辺は先頭で $-\log m$、右辺は先頭で $2J/(k_BT)$ である。従って、熱力学極限を先に取った低温の支配項は
+\[
+\boxed{m\sim\exp\!\left(-\frac{2J}{k_BT}\right)}\qquad(k_BT/J\to0).
+\]
+等号ではなく漸近等価を用いるのは、元の式には $m$ に依存する補正が残るためである。
+
+\section*{[3.5] 低温のエントロピー}
+$m\ll1$ に対して $-(1-m)\log(1-m)=m+O(m^2)$ なので、[3.2] は
+\[
+\frac{S}{N}=k_B\bigl[m(1-\log m)+O(m^2)\bigr].
+\]
+[3.4] の $-\log m\sim2J/(k_BT)$ を代入すると
+\[
+\boxed{\frac{S}{N}\sim k_B\left(1+\frac{2J}{k_BT}\right)
+\exp\!\left(-\frac{2J}{k_BT}\right)}\qquad(k_BT/J\to0).
+\]
+括弧内の $1$ は $-(1-m)\log(1-m)$ からの寄与である。さらに厳密な最先頭だけなら、括弧内は $2J/(k_BT)$ に置き換えられる。
+
+\section*{[3.6] 低温の熱容量}
+体積や外場など他の外部条件は変えていないので、$C=T\,\mathrm dS/\mathrm dT$ を用いる。[3.5] で使ったエントロピーを温度で微分するため、$x=2J/(k_BT)$ とおき、[3.3] の関係を微分する。
+\[
+\log\frac{1-m}{m}=x(1-2m),\qquad
+\frac{\mathrm dm}{\mathrm dx}
+=-\frac{m(1-m)(1-2m)}{1-2xm(1-m)}\sim-m.
+\]
+ここで [3.4] より $m\sim e^{-x}$ であり、$xm\to0$ を用いた。[3.2] のエントロピーから $\mathrm d(S/N)/\mathrm dm=k_B\log[(1-m)/m]$ なので、$T\,\mathrm d/\mathrm dT=-x\,\mathrm d/\mathrm dx$ により
+\[
+\frac{C}{N}=-k_Bx\log\frac{1-m}{m}\frac{\mathrm dm}{\mathrm dx}
+\sim k_Bx^2e^{-x}.
+\]
+従って
+\[
+\boxed{\frac{C}{N}\sim k_B\left(\frac{2J}{k_BT}\right)^2
+\exp\!\left(-\frac{2J}{k_BT}\right)}\qquad(k_BT/J\to0).
+\]
+同じ結果は、$E/N\simeq-J/2+2Jm$ と上の $\mathrm dm/\mathrm dx$ を使い、$C/N=\mathrm d(E/N)/\mathrm dT$ を計算しても得られる。正の値で、$T\to0$ では指数的にゼロになる。
+
+\section*{[4] 臨界温度}
+原題では $T\geq T_c$ の平衡状態が $m=1/2$ である。[3.3] の式はこの点で分子と分母がともにゼロになるため、$0<m<1/2$ からの極限を取る。$\log[(1-m)/m]$ の $m=1/2$ での一次微分は $-4$ だから、$m\to1/2$ では
+\[
+\log\frac{1-m}{m}=2(1-2m)+O\bigl((1-2m)^3\bigr).
+\]
+従って
+\[
+\boxed{T_c=\lim_{m\to1/2^-}T(m)=\frac{J}{k_B}.}
+\]
+これは $N\gg1$ の熱力学的な臨界温度である。有限 $N$ の [2] に臨界特異点を主張するものではない。
+\end{document}
