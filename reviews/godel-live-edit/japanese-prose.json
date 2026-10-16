@@ -1,0 +1,52 @@
+{
+  "perspective": "Japanese prose naturalness and determinate subject/predicate/relations only",
+  "source": "/private/tmp/godel-personal-site-20261016/src/content/notes/godel-incompleteness.md",
+  "source_sha256": "1eb4ba6e1a665c96f9afcc59bf5fd54cf00f46bc23c607264fc6ed4863b906a6",
+  "criteria": "/Users/rintaromasaoka/.codex/plugins/cache/local-skill-stock/academic-writing/0.2.32/references/audit-japanese-prose.md",
+  "coverage": [
+    {
+      "range": "sections 1–6 including headings, list items, prose adjoining equations",
+      "start_line": 6,
+      "end_line": 155
+    },
+    {
+      "range": "section 10 concluding paragraph",
+      "start_line": 233,
+      "end_line": 233
+    }
+  ],
+  "method": "Full-range contextual scan of all sentences in requested ranges for recoverable agent, object, complement, modifier scope and Japanese collocation; not a prefix or scientific review.",
+  "verdict": "No actionable Japanese-expression defect found in the stated ranges.",
+  "findings": [],
+  "evidence": [
+    {
+      "span": "§3 final paragraph",
+      "quote": "式や証明に番号をつけ、その番号からもとの記号列を復元できるようにする",
+      "observation": "The operation and its object are explicit; the antecedent of その番号 is recoverable."
+    },
+    {
+      "span": "§4 first paragraph",
+      "quote": "この数から指数を読み出せば、もとの記号列を復元できる",
+      "observation": "The preceding encoding formula fixes この数 and the relation between exponent extraction and reconstruction."
+    },
+    {
+      "span": "§5 penultimate paragraph",
+      "quote": "数論の中に表せたのは、この証明の検査と、検査に通る証明が存在するという性質である",
+      "observation": "The two objects of 表せた and the existence condition are grammatically determinate."
+    },
+    {
+      "span": "§6 numbered items 3–4",
+      "quote": "これは2430を代入してできた式の番号であり、代入した数2430そのものとは区別する",
+      "observation": "The demonstrative refers to sub(2430), and the distinction between input number and output code remains recoverable."
+    },
+    {
+      "span": "§10 concluding paragraph",
+      "quote": "ゲーデルの定理では、証明を機械的に検査できることが、その体系の限界を示す手がかりにもなる。記号列を数で表し、証明の検査を数論の式へ翻訳し、さらに自分の番号を代入する。この手順を通じて、自然数についての文が、自分自身の証明可能性についても述べるようになる。そこから、その体系では証明できない文が得られる。",
+      "observation": "The action sequence and この手順/そこから references are recoverable from the adjacent clauses."
+    }
+  ],
+  "limits": [
+    "No verdict on scientific truth, technical sufficiency, terminology admission, reader-order acceptance, conformance, or unchanged proof sections 7–10 beyond the requested concluding paragraph.",
+    "No manuscript edits."
+  ]
+}

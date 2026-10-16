@@ -1,0 +1,68 @@
+{
+  "findings": [
+    {
+      "id": "F1",
+      "location": "§1",
+      "feedback": "一人の体系",
+      "repair_condition": "人物と体系の関係を明示する",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F2",
+      "location": "§1→§2",
+      "feedback": "ラッセルの型制限から公理・推論の検査へ飛躍",
+      "repair_condition": "導入を証明の形式化から再構成する",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F3",
+      "location": "全体の説明経路",
+      "feedback": "局所修正では沼る。流れを考える",
+      "repair_condition": "変更単位の目的と後続への接続を整える",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F4",
+      "location": "§2",
+      "feedback": "二つ目の式は：なぜ二つ目？例えばが抜けている",
+      "repair_condition": "列挙から選んだ具体例だと明示する",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F5",
+      "location": "§3",
+      "feedback": "しかし「この文は証明できない」は文についての文：ネタバレ",
+      "repair_condition": "自己言及する証明不能文は構成する場面まで出さない",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F6",
+      "location": "§4",
+      "feedback": "ここにずれが生じる／文法上の禁止：分かりにくい",
+      "repair_condition": "符号化と算術的性質の表現の関係を明示する",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F7",
+      "location": "§4",
+      "feedback": "これと同じ形を数だけで作ると：形が未定義",
+      "repair_condition": "共通する出発点・操作・到達の関係を直接述べる",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F8",
+      "location": "§5",
+      "feedback": "真理を形式的な記号検査だけでは尽くせない：分かりにくい",
+      "repair_condition": "証明の各行の検査と等式の内容の確認を既出例で区別する",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F9",
+      "location": "§6",
+      "feedback": "sub(n)の脳内演算を展開し具体例を使う",
+      "repair_condition": "x=xを実際に2430へ符号化し、復号・2430の数項の代入・再符号化を段階表示する",
+      "status": "edited-awaiting-publication"
+    }
+  ],
+  "source_sha256": "1eb4ba6e1a665c96f9afcc59bf5fd54cf00f46bc23c607264fc6ed4863b906a6"
+}

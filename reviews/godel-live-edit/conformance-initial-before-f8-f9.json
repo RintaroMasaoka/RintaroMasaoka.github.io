@@ -1,0 +1,121 @@
+{
+  "reviewer": "independent",
+  "perspective": "active writing spec conformance only",
+  "artifact": "/private/tmp/godel-personal-site-20261016/src/content/notes/godel-incompleteness.md",
+  "source_sha256": "1ab78b1adb052d8723bf3b3eeb186a9ba0d2d0f883a039f2757fee5c193a9ccb",
+  "spec": "/private/tmp/godel-personal-site-20261016/reviews/godel-live-edit/note.spec.md",
+  "spec_sha256": "6789ddacdec850f0dc34668314f61ecb02d1cb04cc94722bf7b6a4d6fd894b44",
+  "actual_ranges": [
+    {
+      "lines": [
+        6,
+        80
+      ],
+      "scope": "Sections 1–4 entire realization unit"
+    },
+    {
+      "lines": [
+        103,
+        139
+      ],
+      "scope": "Section 6 downstream compatibility"
+    },
+    {
+      "lines": [
+        191,
+        217
+      ],
+      "scope": "Section 10 downstream compatibility"
+    }
+  ],
+  "preservation_scope": "Full git diff against 579f999076da6198321ec4b3bc4a506bcbf0904e; unchanged later mathematical content checked for preservation only, not correctness",
+  "verdict": "pass",
+  "requirement_checks": [
+    {
+      "requirement": "Active scope and approval migration",
+      "result": "pass",
+      "evidence": "Spec heading declares active writing spec; Published source names reviewed artifact; Approval migration: not-applicable; Current realization boundary names §§1–4, §6 and conclusion."
+    },
+    {
+      "requirement": "Purpose → proof inspection → need for numerical representation → separate arithmetic translation",
+      "result": "pass",
+      "evidence": [
+        {
+          "lines": [
+            8,
+            14
+          ],
+          "quote": "この検査を徹底するために、使う記号と式の書き方、出発点として認める公理、式から式を導く推論規則を明示する。"
+        },
+        {
+          "lines": [
+            52,
+            58
+          ],
+          "quote": "私たちが外から行っている証明の検査を、そのまま数論の式として書けるわけではない。"
+        },
+        {
+          "lines": [
+            72,
+            72
+          ],
+          "quote": "番号をつけることと、その記号列の性質を数論の式で述べることは別の作業である。"
+        }
+      ]
+    },
+    {
+      "requirement": "Examples make demonstrated operation and selection explicit",
+      "result": "pass",
+      "evidence": [
+        {
+          "lines": [
+            28,
+            28
+          ],
+          "quote": "たとえば、二つ目の式は、$a+(b+1)$ を $(a+b)+1$ に戻す規則である。"
+        },
+        {
+          "lines": [
+            66,
+            66
+          ],
+          "quote": "最初の記号 $S$ の番号 7 を 2 の指数に、次の記号 $0$ の番号 6 を 3 の指数に使う。"
+        }
+      ]
+    },
+    {
+      "requirement": "Proof example retained and coding correspondence concretely traceable",
+      "result": "pass",
+      "evidence": "Existing PA axiom list and 1+1=2 proof equations retained. Section 4 assigns symbol numbers, positions them as prime exponents, states decoding, then distinguishes the separate translation task."
+    },
+    {
+      "requirement": "Self-referential unprovable sentence first appears in §6 construction",
+      "result": "pass",
+      "evidence": "Sections 1–5 contain no self-referential unprovable sentence. §6 first constructs F(x), G and its unprovability reading at lines 119–137."
+    },
+    {
+      "requirement": "Historical response not substituted for logical need; omitted relation resolved",
+      "result": "pass",
+      "evidence": "The historical opening including the 一人の体系 passage is removed; §§1–4 motivate inspection and number representation directly."
+    },
+    {
+      "requirement": "Only necessary downstream repairs; preserve theorem assumptions, equations, proofs, references",
+      "result": "pass",
+      "evidence": "Git diff changes §§1–4 and only one paragraph each in §§6 and 10 thereafter. §6 introduces the liar sentence locally because its old introduction disappeared; §10 conclusion restates the new route. All equations, theorem assumptions, proofs and bibliography from §5 onward are unchanged."
+    },
+    {
+      "requirement": "Production/independent-reader acceptance",
+      "result": "not-assessed",
+      "evidence": "This bounded conformance gate does not certify build, rendering, Japanese wording, scientific correctness, or independent sequential reader acceptance."
+    }
+  ],
+  "artifact_nonconformance": [],
+  "spec_defect_locators": [],
+  "boundary_checks": [
+    "No prose edits performed.",
+    "No source correctness verdict issued.",
+    "No prefix-reader acceptance claimed.",
+    "Pass applies only to the stated artifact SHA256 and conformance ranges."
+  ],
+  "next_route": "accept bounded conformance; coordinator must close separate production and reader gates"
+}

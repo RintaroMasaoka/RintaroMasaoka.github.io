@@ -1,0 +1,2842 @@
+{
+  "input": "/private/tmp/godel-personal-site-20261016/reviews/godel-live-edit/wording-projection.md",
+  "input_sha256": "4096d6dbb55e44f0e6ae9652a8d41aa7ce32a5a6fa79dd4ccaead688188bab35",
+  "review_lines": [
+    1,
+    85
+  ],
+  "kind": "surface_candidates_not_terms_or_defects",
+  "repeated_candidates": [
+    {
+      "id": "s1",
+      "surface": "いである",
+      "occurrences": [
+        {
+          "line": 70,
+          "column": 22
+        },
+        {
+          "line": 74,
+          "column": 24
+        },
+        {
+          "line": 74,
+          "column": 73
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "surface": "がある",
+      "occurrences": [
+        {
+          "line": 13,
+          "column": 113
+        },
+        {
+          "line": 66,
+          "column": 72
+        },
+        {
+          "line": 66,
+          "column": 155
+        }
+      ]
+    },
+    {
+      "id": "s35",
+      "surface": "これは",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 26
+        },
+        {
+          "line": 50,
+          "column": 58
+        },
+        {
+          "line": 50,
+          "column": 67
+        },
+        {
+          "line": 72,
+          "column": 211
+        }
+      ]
+    },
+    {
+      "id": "s37",
+      "surface": "された",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 99
+        },
+        {
+          "line": 72,
+          "column": 61
+        },
+        {
+          "line": 72,
+          "column": 89
+        }
+      ]
+    },
+    {
+      "id": "s62",
+      "surface": "すると",
+      "occurrences": [
+        {
+          "line": 78,
+          "column": 41
+        },
+        {
+          "line": 78,
+          "column": 58
+        },
+        {
+          "line": 84,
+          "column": 47
+        }
+      ]
+    },
+    {
+      "id": "s77",
+      "surface": "たとえば",
+      "occurrences": [
+        {
+          "line": 13,
+          "column": 54
+        },
+        {
+          "line": 17,
+          "column": 187
+        },
+        {
+          "line": 24,
+          "column": 1
+        },
+        {
+          "line": 56,
+          "column": 13
+        },
+        {
+          "line": 60,
+          "column": 36
+        },
+        {
+          "line": 64,
+          "column": 65
+        },
+        {
+          "line": 66,
+          "column": 43
+        },
+        {
+          "line": 70,
+          "column": 27
+        },
+        {
+          "line": 72,
+          "column": 127
+        },
+        {
+          "line": 84,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "id": "s101",
+      "surface": "である",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 75
+        },
+        {
+          "line": 7,
+          "column": 62
+        },
+        {
+          "line": 15,
+          "column": 96
+        },
+        {
+          "line": 17,
+          "column": 51
+        },
+        {
+          "line": 17,
+          "column": 161
+        },
+        {
+          "line": 24,
+          "column": 40
+        },
+        {
+          "line": 48,
+          "column": 30
+        },
+        {
+          "line": 48,
+          "column": 55
+        },
+        {
+          "line": 48,
+          "column": 120
+        },
+        {
+          "line": 50,
+          "column": 17
+        },
+        {
+          "line": 50,
+          "column": 62
+        },
+        {
+          "line": 50,
+          "column": 72
+        },
+        {
+          "line": 60,
+          "column": 32
+        },
+        {
+          "line": 60,
+          "column": 145
+        },
+        {
+          "line": 62,
+          "column": 10
+        },
+        {
+          "line": 66,
+          "column": 39
+        },
+        {
+          "line": 72,
+          "column": 135
+        },
+        {
+          "line": 78,
+          "column": 15
+        },
+        {
+          "line": 78,
+          "column": 99
+        },
+        {
+          "line": 80,
+          "column": 90
+        },
+        {
+          "line": 84,
+          "column": 63
+        },
+        {
+          "line": 84,
+          "column": 119
+        }
+      ]
+    },
+    {
+      "id": "s105",
+      "surface": "できる",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 123
+        },
+        {
+          "line": 11,
+          "column": 17
+        },
+        {
+          "line": 38,
+          "column": 67
+        },
+        {
+          "line": 40,
+          "column": 38
+        },
+        {
+          "line": 60,
+          "column": 135
+        },
+        {
+          "line": 80,
+          "column": 12
+        },
+        {
+          "line": 84,
+          "column": 135
+        }
+      ]
+    },
+    {
+      "id": "s118",
+      "surface": "という",
+      "occurrences": [
+        {
+          "line": 56,
+          "column": 42
+        },
+        {
+          "line": 60,
+          "column": 1
+        },
+        {
+          "line": 66,
+          "column": 76
+        },
+        {
+          "line": 68,
+          "column": 23
+        },
+        {
+          "line": 68,
+          "column": 41
+        },
+        {
+          "line": 78,
+          "column": 19
+        },
+        {
+          "line": 78,
+          "column": 94
+        }
+      ]
+    },
+    {
+      "id": "s120",
+      "surface": "として",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 41
+        },
+        {
+          "line": 5,
+          "column": 28
+        },
+        {
+          "line": 11,
+          "column": 12
+        },
+        {
+          "line": 15,
+          "column": 10
+        },
+        {
+          "line": 17,
+          "column": 12
+        },
+        {
+          "line": 48,
+          "column": 91
+        },
+        {
+          "line": 50,
+          "column": 122
+        },
+        {
+          "line": 64,
+          "column": 54
+        },
+        {
+          "line": 64,
+          "column": 191
+        },
+        {
+          "line": 82,
+          "column": 29
+        }
+      ]
+    },
+    {
+      "id": "s131",
+      "surface": "について",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 57
+        },
+        {
+          "line": 17,
+          "column": 137
+        },
+        {
+          "line": 42,
+          "column": 77
+        },
+        {
+          "line": 44,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "id": "s132",
+      "surface": "についての",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 32
+        },
+        {
+          "line": 48,
+          "column": 49
+        },
+        {
+          "line": 52,
+          "column": 22
+        },
+        {
+          "line": 52,
+          "column": 31
+        },
+        {
+          "line": 66,
+          "column": 131
+        },
+        {
+          "line": 66,
+          "column": 141
+        },
+        {
+          "line": 68,
+          "column": 64
+        }
+      ]
+    },
+    {
+      "id": "s144",
+      "surface": "のような",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 192
+        },
+        {
+          "line": 84,
+          "column": 67
+        },
+        {
+          "line": 84,
+          "column": 123
+        }
+      ]
+    },
+    {
+      "id": "s159",
+      "surface": "められる",
+      "occurrences": [
+        {
+          "line": 13,
+          "column": 19
+        },
+        {
+          "line": 17,
+          "column": 200
+        },
+        {
+          "line": 24,
+          "column": 72
+        }
+      ]
+    },
+    {
+      "id": "s179",
+      "surface": "ゲーデル数",
+      "occurrences": [
+        {
+          "line": 64,
+          "column": 27
+        },
+        {
+          "line": 64,
+          "column": 127
+        },
+        {
+          "line": 84,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "id": "s185",
+      "surface": "一",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 40
+        },
+        {
+          "line": 24,
+          "column": 53
+        },
+        {
+          "line": 42,
+          "column": 41
+        },
+        {
+          "line": 60,
+          "column": 4
+        },
+        {
+          "line": 60,
+          "column": 157
+        },
+        {
+          "line": 70,
+          "column": 1
+        },
+        {
+          "line": 72,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "id": "s188",
+      "surface": "三番目",
+      "occurrences": [
+        {
+          "line": 84,
+          "column": 21
+        },
+        {
+          "line": 84,
+          "column": 32
+        },
+        {
+          "line": 84,
+          "column": 51
+        }
+      ]
+    },
+    {
+      "id": "s193",
+      "surface": "主張",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 8
+        },
+        {
+          "line": 7,
+          "column": 65
+        },
+        {
+          "line": 9,
+          "column": 20
+        }
+      ]
+    },
+    {
+      "id": "s194",
+      "surface": "二",
+      "occurrences": [
+        {
+          "line": 24,
+          "column": 6
+        },
+        {
+          "line": 68,
+          "column": 85
+        },
+        {
+          "line": 70,
+          "column": 80
+        },
+        {
+          "line": 72,
+          "column": 160
+        }
+      ]
+    },
+    {
+      "id": "s202",
+      "surface": "体系",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 74
+        },
+        {
+          "line": 26,
+          "column": 3
+        },
+        {
+          "line": 46,
+          "column": 10
+        },
+        {
+          "line": 64,
+          "column": 36
+        }
+      ]
+    },
+    {
+      "id": "s204",
+      "surface": "作",
+      "occurrences": [
+        {
+          "line": 15,
+          "column": 41
+        },
+        {
+          "line": 72,
+          "column": 123
+        },
+        {
+          "line": 82,
+          "column": 117
+        }
+      ]
+    },
+    {
+      "id": "s206",
+      "surface": "使",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 60
+        },
+        {
+          "line": 5,
+          "column": 14
+        },
+        {
+          "line": 13,
+          "column": 8
+        },
+        {
+          "line": 38,
+          "column": 8
+        },
+        {
+          "line": 46,
+          "column": 62
+        },
+        {
+          "line": 48,
+          "column": 26
+        },
+        {
+          "line": 50,
+          "column": 29
+        },
+        {
+          "line": 60,
+          "column": 97
+        },
+        {
+          "line": 64,
+          "column": 46
+        },
+        {
+          "line": 66,
+          "column": 91
+        },
+        {
+          "line": 66,
+          "column": 118
+        }
+      ]
+    },
+    {
+      "id": "s212",
+      "surface": "公理",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 34
+        },
+        {
+          "line": 15,
+          "column": 22
+        },
+        {
+          "line": 15,
+          "column": 62
+        },
+        {
+          "line": 17,
+          "column": 196
+        },
+        {
+          "line": 24,
+          "column": 81
+        },
+        {
+          "line": 26,
+          "column": 32
+        },
+        {
+          "line": 34,
+          "column": 9
+        },
+        {
+          "line": 72,
+          "column": 52
+        },
+        {
+          "line": 80,
+          "column": 28
+        },
+        {
+          "line": 84,
+          "column": 163
+        }
+      ]
+    },
+    {
+      "id": "s218",
+      "surface": "出発点",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 38
+        },
+        {
+          "line": 5,
+          "column": 25
+        },
+        {
+          "line": 15,
+          "column": 7
+        },
+        {
+          "line": 72,
+          "column": 7
+        },
+        {
+          "line": 72,
+          "column": 84
+        },
+        {
+          "line": 72,
+          "column": 139
+        }
+      ]
+    },
+    {
+      "id": "s219",
+      "surface": "分",
+      "occurrences": [
+        {
+          "line": 66,
+          "column": 58
+        },
+        {
+          "line": 66,
+          "column": 103
+        },
+        {
+          "line": 70,
+          "column": 148
+        },
+        {
+          "line": 74,
+          "column": 151
+        }
+      ]
+    },
+    {
+      "id": "s222",
+      "surface": "列",
+      "occurrences": [
+        {
+          "line": 42,
+          "column": 51
+        },
+        {
+          "line": 60,
+          "column": 144
+        },
+        {
+          "line": 74,
+          "column": 91
+        },
+        {
+          "line": 78,
+          "column": 46
+        },
+        {
+          "line": 78,
+          "column": 70
+        },
+        {
+          "line": 84,
+          "column": 153
+        }
+      ]
+    },
+    {
+      "id": "s224",
+      "surface": "別",
+      "occurrences": [
+        {
+          "line": 34,
+          "column": 7
+        },
+        {
+          "line": 48,
+          "column": 119
+        },
+        {
+          "line": 66,
+          "column": 35
+        }
+      ]
+    },
+    {
+      "id": "s225",
+      "surface": "到達",
+      "occurrences": [
+        {
+          "line": 72,
+          "column": 30
+        },
+        {
+          "line": 72,
+          "column": 101
+        },
+        {
+          "line": 72,
+          "column": 241
+        }
+      ]
+    },
+    {
+      "id": "s230",
+      "surface": "割",
+      "occurrences": [
+        {
+          "line": 56,
+          "column": 8
+        },
+        {
+          "line": 70,
+          "column": 65
+        },
+        {
+          "line": 70,
+          "column": 124
+        },
+        {
+          "line": 84,
+          "column": 96
+        },
+        {
+          "line": 84,
+          "column": 210
+        }
+      ]
+    },
+    {
+      "id": "s237",
+      "surface": "各行",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 95
+        },
+        {
+          "line": 15,
+          "column": 59
+        },
+        {
+          "line": 38,
+          "column": 52
+        },
+        {
+          "line": 40,
+          "column": 10
+        },
+        {
+          "line": 46,
+          "column": 32
+        },
+        {
+          "line": 80,
+          "column": 25
+        }
+      ]
+    },
+    {
+      "id": "s240",
+      "surface": "同",
+      "occurrences": [
+        {
+          "line": 13,
+          "column": 86
+        },
+        {
+          "line": 24,
+          "column": 84
+        },
+        {
+          "line": 42,
+          "column": 31
+        },
+        {
+          "line": 60,
+          "column": 152
+        }
+      ]
+    },
+    {
+      "id": "s242",
+      "surface": "呼",
+      "occurrences": [
+        {
+          "line": 13,
+          "column": 51
+        },
+        {
+          "line": 15,
+          "column": 25
+        },
+        {
+          "line": 15,
+          "column": 51
+        },
+        {
+          "line": 15,
+          "column": 125
+        },
+        {
+          "line": 64,
+          "column": 33
+        },
+        {
+          "line": 64,
+          "column": 110
+        }
+      ]
+    },
+    {
+      "id": "s243",
+      "surface": "問",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 22
+        },
+        {
+          "line": 52,
+          "column": 27
+        },
+        {
+          "line": 52,
+          "column": 36
+        },
+        {
+          "line": 68,
+          "column": 69
+        },
+        {
+          "line": 70,
+          "column": 21
+        },
+        {
+          "line": 72,
+          "column": 37
+        },
+        {
+          "line": 72,
+          "column": 81
+        },
+        {
+          "line": 72,
+          "column": 108
+        },
+        {
+          "line": 74,
+          "column": 23
+        },
+        {
+          "line": 74,
+          "column": 72
+        }
+      ]
+    },
+    {
+      "id": "s252",
+      "surface": "定理",
+      "occurrences": [
+        {
+          "line": 15,
+          "column": 122
+        },
+        {
+          "line": 68,
+          "column": 37
+        },
+        {
+          "line": 74,
+          "column": 55
+        }
+      ]
+    },
+    {
+      "id": "s254",
+      "surface": "対応",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 109
+        },
+        {
+          "line": 64,
+          "column": 14
+        },
+        {
+          "line": 66,
+          "column": 115
+        },
+        {
+          "line": 68,
+          "column": 57
+        },
+        {
+          "line": 72,
+          "column": 221
+        },
+        {
+          "line": 82,
+          "column": 69
+        }
+      ]
+    },
+    {
+      "id": "s256",
+      "surface": "導",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 75
+        },
+        {
+          "line": 5,
+          "column": 42
+        },
+        {
+          "line": 72,
+          "column": 76
+        },
+        {
+          "line": 74,
+          "column": 86
+        }
+      ]
+    },
+    {
+      "id": "s258",
+      "surface": "式",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 19
+        },
+        {
+          "line": 5,
+          "column": 37
+        },
+        {
+          "line": 5,
+          "column": 40
+        },
+        {
+          "line": 13,
+          "column": 49
+        },
+        {
+          "line": 13,
+          "column": 102
+        },
+        {
+          "line": 15,
+          "column": 20
+        },
+        {
+          "line": 15,
+          "column": 33
+        },
+        {
+          "line": 15,
+          "column": 39
+        },
+        {
+          "line": 15,
+          "column": 86
+        },
+        {
+          "line": 15,
+          "column": 102
+        },
+        {
+          "line": 15,
+          "column": 120
+        },
+        {
+          "line": 24,
+          "column": 10
+        },
+        {
+          "line": 38,
+          "column": 14
+        },
+        {
+          "line": 42,
+          "column": 76
+        },
+        {
+          "line": 42,
+          "column": 125
+        },
+        {
+          "line": 46,
+          "column": 23
+        },
+        {
+          "line": 46,
+          "column": 76
+        },
+        {
+          "line": 48,
+          "column": 29
+        },
+        {
+          "line": 48,
+          "column": 54
+        },
+        {
+          "line": 48,
+          "column": 90
+        },
+        {
+          "line": 50,
+          "column": 61
+        },
+        {
+          "line": 50,
+          "column": 121
+        },
+        {
+          "line": 52,
+          "column": 59
+        },
+        {
+          "line": 60,
+          "column": 139
+        },
+        {
+          "line": 60,
+          "column": 142
+        },
+        {
+          "line": 64,
+          "column": 1
+        },
+        {
+          "line": 64,
+          "column": 25
+        },
+        {
+          "line": 66,
+          "column": 27
+        },
+        {
+          "line": 66,
+          "column": 52
+        },
+        {
+          "line": 66,
+          "column": 67
+        },
+        {
+          "line": 66,
+          "column": 122
+        },
+        {
+          "line": 68,
+          "column": 20
+        },
+        {
+          "line": 68,
+          "column": 35
+        },
+        {
+          "line": 72,
+          "column": 74
+        },
+        {
+          "line": 74,
+          "column": 84
+        },
+        {
+          "line": 78,
+          "column": 44
+        },
+        {
+          "line": 78,
+          "column": 61
+        },
+        {
+          "line": 78,
+          "column": 68
+        },
+        {
+          "line": 78,
+          "column": 80
+        },
+        {
+          "line": 82,
+          "column": 72
+        },
+        {
+          "line": 84,
+          "column": 155
+        }
+      ]
+    },
+    {
+      "id": "s259",
+      "surface": "形",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 116
+        },
+        {
+          "line": 38,
+          "column": 16
+        },
+        {
+          "line": 66,
+          "column": 124
+        },
+        {
+          "line": 68,
+          "column": 26
+        },
+        {
+          "line": 72,
+          "column": 194
+        },
+        {
+          "line": 74,
+          "column": 39
+        },
+        {
+          "line": 82,
+          "column": 74
+        },
+        {
+          "line": 84,
+          "column": 166
+        }
+      ]
+    },
+    {
+      "id": "s260",
+      "surface": "形式体系",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 71
+        },
+        {
+          "line": 7,
+          "column": 43
+        },
+        {
+          "line": 13,
+          "column": 1
+        },
+        {
+          "line": 13,
+          "column": 92
+        },
+        {
+          "line": 17,
+          "column": 4
+        }
+      ]
+    },
+    {
+      "id": "s264",
+      "surface": "従",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 105
+        },
+        {
+          "line": 9,
+          "column": 69
+        },
+        {
+          "line": 40,
+          "column": 16
+        },
+        {
+          "line": 46,
+          "column": 41
+        }
+      ]
+    },
+    {
+      "id": "s265",
+      "surface": "得",
+      "occurrences": [
+        {
+          "line": 15,
+          "column": 31
+        },
+        {
+          "line": 15,
+          "column": 82
+        },
+        {
+          "line": 34,
+          "column": 2
+        },
+        {
+          "line": 34,
+          "column": 45
+        },
+        {
+          "line": 80,
+          "column": 42
+        },
+        {
+          "line": 84,
+          "column": 188
+        }
+      ]
+    },
+    {
+      "id": "s266",
+      "surface": "復元",
+      "occurrences": [
+        {
+          "line": 52,
+          "column": 83
+        },
+        {
+          "line": 60,
+          "column": 133
+        },
+        {
+          "line": 74,
+          "column": 33
+        }
+      ]
+    },
+    {
+      "id": "s267",
+      "surface": "復号",
+      "occurrences": [
+        {
+          "line": 78,
+          "column": 39
+        },
+        {
+          "line": 78,
+          "column": 56
+        },
+        {
+          "line": 80,
+          "column": 21
+        }
+      ]
+    },
+    {
+      "id": "s269",
+      "surface": "必要",
+      "occurrences": [
+        {
+          "line": 26,
+          "column": 26
+        },
+        {
+          "line": 52,
+          "column": 53
+        },
+        {
+          "line": 66,
+          "column": 153
+        },
+        {
+          "line": 80,
+          "column": 69
+        },
+        {
+          "line": 80,
+          "column": 75
+        }
+      ]
+    },
+    {
+      "id": "s270",
+      "surface": "性質",
+      "occurrences": [
+        {
+          "line": 66,
+          "column": 21
+        },
+        {
+          "line": 66,
+          "column": 79
+        },
+        {
+          "line": 82,
+          "column": 27
+        }
+      ]
+    },
+    {
+      "id": "s271",
+      "surface": "意味",
+      "occurrences": [
+        {
+          "line": 26,
+          "column": 19
+        },
+        {
+          "line": 38,
+          "column": 38
+        },
+        {
+          "line": 80,
+          "column": 62
+        }
+      ]
+    },
+    {
+      "id": "s272",
+      "surface": "戻",
+      "occurrences": [
+        {
+          "line": 24,
+          "column": 36
+        },
+        {
+          "line": 24,
+          "column": 120
+        },
+        {
+          "line": 72,
+          "column": 203
+        }
+      ]
+    },
+    {
+      "id": "s277",
+      "surface": "指数",
+      "occurrences": [
+        {
+          "line": 60,
+          "column": 70
+        },
+        {
+          "line": 60,
+          "column": 94
+        },
+        {
+          "line": 60,
+          "column": 117
+        },
+        {
+          "line": 84,
+          "column": 28
+        },
+        {
+          "line": 84,
+          "column": 103
+        }
+      ]
+    },
+    {
+      "id": "s279",
+      "surface": "掛",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 37
+        },
+        {
+          "line": 17,
+          "column": 177
+        },
+        {
+          "line": 24,
+          "column": 77
+        },
+        {
+          "line": 50,
+          "column": 25
+        },
+        {
+          "line": 66,
+          "column": 87
+        },
+        {
+          "line": 84,
+          "column": 206
+        }
+      ]
+    },
+    {
+      "id": "s282",
+      "surface": "推論規則",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 44
+        },
+        {
+          "line": 15,
+          "column": 46
+        },
+        {
+          "line": 15,
+          "column": 77
+        },
+        {
+          "line": 72,
+          "column": 64
+        },
+        {
+          "line": 80,
+          "column": 37
+        }
+      ]
+    },
+    {
+      "id": "s284",
+      "surface": "操作",
+      "occurrences": [
+        {
+          "line": 72,
+          "column": 11
+        },
+        {
+          "line": 72,
+          "column": 92
+        },
+        {
+          "line": 72,
+          "column": 119
+        },
+        {
+          "line": 72,
+          "column": 157
+        }
+      ]
+    },
+    {
+      "id": "s285",
+      "surface": "数",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 70
+        },
+        {
+          "line": 17,
+          "column": 160
+        },
+        {
+          "line": 24,
+          "column": 51
+        },
+        {
+          "line": 44,
+          "column": 6
+        },
+        {
+          "line": 50,
+          "column": 32
+        },
+        {
+          "line": 52,
+          "column": 30
+        },
+        {
+          "line": 54,
+          "column": 6
+        },
+        {
+          "line": 60,
+          "column": 114
+        },
+        {
+          "line": 64,
+          "column": 190
+        },
+        {
+          "line": 66,
+          "column": 50
+        },
+        {
+          "line": 66,
+          "column": 109
+        },
+        {
+          "line": 66,
+          "column": 140
+        },
+        {
+          "line": 70,
+          "column": 83
+        },
+        {
+          "line": 72,
+          "column": 28
+        },
+        {
+          "line": 72,
+          "column": 114
+        },
+        {
+          "line": 72,
+          "column": 166
+        },
+        {
+          "line": 72,
+          "column": 183
+        },
+        {
+          "line": 74,
+          "column": 3
+        },
+        {
+          "line": 74,
+          "column": 53
+        },
+        {
+          "line": 74,
+          "column": 80
+        },
+        {
+          "line": 84,
+          "column": 82
+        }
+      ]
+    },
+    {
+      "id": "s287",
+      "surface": "数論",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 1
+        },
+        {
+          "line": 50,
+          "column": 1
+        },
+        {
+          "line": 50,
+          "column": 118
+        },
+        {
+          "line": 66,
+          "column": 24
+        }
+      ]
+    },
+    {
+      "id": "s290",
+      "surface": "文",
+      "occurrences": [
+        {
+          "line": 13,
+          "column": 70
+        },
+        {
+          "line": 13,
+          "column": 80
+        },
+        {
+          "line": 54,
+          "column": 8
+        }
+      ]
+    },
+    {
+      "id": "s299",
+      "surface": "書",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 21
+        },
+        {
+          "line": 34,
+          "column": 55
+        },
+        {
+          "line": 48,
+          "column": 97
+        },
+        {
+          "line": 50,
+          "column": 125
+        },
+        {
+          "line": 64,
+          "column": 57
+        },
+        {
+          "line": 64,
+          "column": 82
+        },
+        {
+          "line": 64,
+          "column": 168
+        },
+        {
+          "line": 64,
+          "column": 194
+        },
+        {
+          "line": 66,
+          "column": 96
+        },
+        {
+          "line": 82,
+          "column": 32
+        }
+      ]
+    },
+    {
+      "id": "s304",
+      "surface": "条件",
+      "occurrences": [
+        {
+          "line": 66,
+          "column": 136
+        },
+        {
+          "line": 66,
+          "column": 146
+        },
+        {
+          "line": 84,
+          "column": 75
+        },
+        {
+          "line": 84,
+          "column": 198
+        }
+      ]
+    },
+    {
+      "id": "s305",
+      "surface": "検査",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 3
+        },
+        {
+          "line": 5,
+          "column": 121
+        },
+        {
+          "line": 7,
+          "column": 8
+        },
+        {
+          "line": 9,
+          "column": 72
+        },
+        {
+          "line": 11,
+          "column": 15
+        },
+        {
+          "line": 38,
+          "column": 65
+        },
+        {
+          "line": 40,
+          "column": 53
+        },
+        {
+          "line": 42,
+          "column": 9
+        },
+        {
+          "line": 46,
+          "column": 56
+        },
+        {
+          "line": 46,
+          "column": 71
+        },
+        {
+          "line": 50,
+          "column": 110
+        },
+        {
+          "line": 68,
+          "column": 28
+        },
+        {
+          "line": 82,
+          "column": 20
+        }
+      ]
+    },
+    {
+      "id": "s309",
+      "surface": "機械的",
+      "occurrences": [
+        {
+          "line": 40,
+          "column": 56
+        },
+        {
+          "line": 42,
+          "column": 5
+        },
+        {
+          "line": 42,
+          "column": 18
+        },
+        {
+          "line": 80,
+          "column": 6
+        },
+        {
+          "line": 82,
+          "column": 16
+        }
+      ]
+    },
+    {
+      "id": "s310",
+      "surface": "次",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 20
+        },
+        {
+          "line": 13,
+          "column": 24
+        },
+        {
+          "line": 17,
+          "column": 68
+        },
+        {
+          "line": 17,
+          "column": 158
+        },
+        {
+          "line": 17,
+          "column": 191
+        },
+        {
+          "line": 60,
+          "column": 74
+        },
+        {
+          "line": 68,
+          "column": 83
+        },
+        {
+          "line": 72,
+          "column": 131
+        }
+      ]
+    },
+    {
+      "id": "s311",
+      "surface": "正",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 11
+        },
+        {
+          "line": 13,
+          "column": 99
+        },
+        {
+          "line": 42,
+          "column": 53
+        },
+        {
+          "line": 48,
+          "column": 94
+        },
+        {
+          "line": 78,
+          "column": 82
+        }
+      ]
+    },
+    {
+      "id": "s314",
+      "surface": "決",
+      "occurrences": [
+        {
+          "line": 13,
+          "column": 18
+        },
+        {
+          "line": 17,
+          "column": 199
+        },
+        {
+          "line": 24,
+          "column": 71
+        },
+        {
+          "line": 72,
+          "column": 14
+        },
+        {
+          "line": 72,
+          "column": 95
+        }
+      ]
+    },
+    {
+      "id": "s325",
+      "surface": "番号",
+      "occurrences": [
+        {
+          "line": 52,
+          "column": 64
+        },
+        {
+          "line": 52,
+          "column": 72
+        },
+        {
+          "line": 56,
+          "column": 5
+        },
+        {
+          "line": 56,
+          "column": 59
+        },
+        {
+          "line": 60,
+          "column": 60
+        },
+        {
+          "line": 60,
+          "column": 84
+        },
+        {
+          "line": 64,
+          "column": 43
+        },
+        {
+          "line": 64,
+          "column": 187
+        },
+        {
+          "line": 66,
+          "column": 5
+        },
+        {
+          "line": 66,
+          "column": 54
+        },
+        {
+          "line": 84,
+          "column": 117
+        }
+      ]
+    },
+    {
+      "id": "s329",
+      "surface": "目標",
+      "occurrences": [
+        {
+          "line": 9,
+          "column": 33
+        },
+        {
+          "line": 72,
+          "column": 25
+        },
+        {
+          "line": 72,
+          "column": 71
+        },
+        {
+          "line": 72,
+          "column": 98
+        },
+        {
+          "line": 72,
+          "column": 146
+        }
+      ]
+    },
+    {
+      "id": "s334",
+      "surface": "真",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 61
+        },
+        {
+          "line": 9,
+          "column": 18
+        },
+        {
+          "line": 48,
+          "column": 112
+        }
+      ]
+    },
+    {
+      "id": "s345",
+      "surface": "算",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 35
+        },
+        {
+          "line": 17,
+          "column": 39
+        },
+        {
+          "line": 17,
+          "column": 175
+        },
+        {
+          "line": 17,
+          "column": 179
+        },
+        {
+          "line": 24,
+          "column": 67
+        },
+        {
+          "line": 24,
+          "column": 79
+        },
+        {
+          "line": 38,
+          "column": 36
+        },
+        {
+          "line": 48,
+          "column": 21
+        },
+        {
+          "line": 50,
+          "column": 23
+        },
+        {
+          "line": 50,
+          "column": 27
+        },
+        {
+          "line": 66,
+          "column": 85
+        },
+        {
+          "line": 66,
+          "column": 89
+        },
+        {
+          "line": 84,
+          "column": 204
+        },
+        {
+          "line": 84,
+          "column": 208
+        }
+      ]
+    },
+    {
+      "id": "s351",
+      "surface": "素数",
+      "occurrences": [
+        {
+          "line": 60,
+          "column": 30
+        },
+        {
+          "line": 70,
+          "column": 37
+        },
+        {
+          "line": 70,
+          "column": 144
+        },
+        {
+          "line": 84,
+          "column": 25
+        }
+      ]
+    },
+    {
+      "id": "s355",
+      "surface": "翻訳",
+      "occurrences": [
+        {
+          "line": 66,
+          "column": 149
+        },
+        {
+          "line": 68,
+          "column": 3
+        },
+        {
+          "line": 84,
+          "column": 133
+        }
+      ]
+    },
+    {
+      "id": "s356",
+      "surface": "考",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 22
+        },
+        {
+          "line": 68,
+          "column": 6
+        },
+        {
+          "line": 78,
+          "column": 25
+        }
+      ]
+    },
+    {
+      "id": "s357",
+      "surface": "自然数",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 29
+        },
+        {
+          "line": 7,
+          "column": 54
+        },
+        {
+          "line": 17,
+          "column": 29
+        },
+        {
+          "line": 48,
+          "column": 15
+        },
+        {
+          "line": 48,
+          "column": 43
+        },
+        {
+          "line": 48,
+          "column": 62
+        },
+        {
+          "line": 50,
+          "column": 14
+        },
+        {
+          "line": 52,
+          "column": 10
+        },
+        {
+          "line": 60,
+          "column": 7
+        },
+        {
+          "line": 60,
+          "column": 160
+        },
+        {
+          "line": 64,
+          "column": 18
+        },
+        {
+          "line": 64,
+          "column": 51
+        },
+        {
+          "line": 64,
+          "column": 90
+        },
+        {
+          "line": 68,
+          "column": 61
+        },
+        {
+          "line": 82,
+          "column": 23
+        },
+        {
+          "line": 82,
+          "column": 106
+        }
+      ]
+    },
+    {
+      "id": "s359",
+      "surface": "行",
+      "occurrences": [
+        {
+          "line": 15,
+          "column": 74
+        },
+        {
+          "line": 15,
+          "column": 107
+        },
+        {
+          "line": 50,
+          "column": 102
+        },
+        {
+          "line": 80,
+          "column": 34
+        },
+        {
+          "line": 84,
+          "column": 161
+        },
+        {
+          "line": 84,
+          "column": 177
+        }
+      ]
+    },
+    {
+      "id": "s360",
+      "surface": "表",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 72
+        },
+        {
+          "line": 52,
+          "column": 14
+        },
+        {
+          "line": 64,
+          "column": 59
+        },
+        {
+          "line": 64,
+          "column": 101
+        },
+        {
+          "line": 64,
+          "column": 133
+        },
+        {
+          "line": 74,
+          "column": 9
+        },
+        {
+          "line": 74,
+          "column": 58
+        },
+        {
+          "line": 74,
+          "column": 82
+        },
+        {
+          "line": 78,
+          "column": 78
+        }
+      ]
+    },
+    {
+      "id": "s361",
+      "surface": "見",
+      "occurrences": [
+        {
+          "line": 42,
+          "column": 22
+        },
+        {
+          "line": 42,
+          "column": 86
+        },
+        {
+          "line": 46,
+          "column": 16
+        },
+        {
+          "line": 68,
+          "column": 74
+        },
+        {
+          "line": 70,
+          "column": 130
+        },
+        {
+          "line": 74,
+          "column": 101
+        },
+        {
+          "line": 74,
+          "column": 113
+        }
+      ]
+    },
+    {
+      "id": "s362",
+      "surface": "規則",
+      "occurrences": [
+        {
+          "line": 1,
+          "column": 9
+        },
+        {
+          "line": 3,
+          "column": 57
+        },
+        {
+          "line": 5,
+          "column": 62
+        },
+        {
+          "line": 5,
+          "column": 79
+        },
+        {
+          "line": 9,
+          "column": 66
+        },
+        {
+          "line": 15,
+          "column": 43
+        },
+        {
+          "line": 24,
+          "column": 38
+        },
+        {
+          "line": 38,
+          "column": 55
+        },
+        {
+          "line": 40,
+          "column": 13
+        },
+        {
+          "line": 46,
+          "column": 38
+        },
+        {
+          "line": 66,
+          "column": 129
+        },
+        {
+          "line": 72,
+          "column": 233
+        },
+        {
+          "line": 72,
+          "column": 270
+        },
+        {
+          "line": 82,
+          "column": 84
+        },
+        {
+          "line": 84,
+          "column": 185
+        }
+      ]
+    },
+    {
+      "id": "s366",
+      "surface": "言語",
+      "occurrences": [
+        {
+          "line": 44,
+          "column": 13
+        },
+        {
+          "line": 46,
+          "column": 78
+        },
+        {
+          "line": 50,
+          "column": 4
+        }
+      ]
+    },
+    {
+      "id": "s367",
+      "surface": "記号",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 16
+        },
+        {
+          "line": 5,
+          "column": 113
+        },
+        {
+          "line": 13,
+          "column": 13
+        },
+        {
+          "line": 50,
+          "column": 83
+        },
+        {
+          "line": 60,
+          "column": 52
+        },
+        {
+          "line": 60,
+          "column": 76
+        },
+        {
+          "line": 84,
+          "column": 55
+        }
+      ]
+    },
+    {
+      "id": "s368",
+      "surface": "記号列",
+      "occurrences": [
+        {
+          "line": 11,
+          "column": 9
+        },
+        {
+          "line": 13,
+          "column": 29
+        },
+        {
+          "line": 13,
+          "column": 107
+        },
+        {
+          "line": 46,
+          "column": 19
+        },
+        {
+          "line": 50,
+          "column": 47
+        },
+        {
+          "line": 52,
+          "column": 6
+        },
+        {
+          "line": 52,
+          "column": 19
+        },
+        {
+          "line": 52,
+          "column": 79
+        },
+        {
+          "line": 56,
+          "column": 51
+        },
+        {
+          "line": 60,
+          "column": 129
+        },
+        {
+          "line": 64,
+          "column": 103
+        },
+        {
+          "line": 66,
+          "column": 17
+        },
+        {
+          "line": 66,
+          "column": 111
+        },
+        {
+          "line": 68,
+          "column": 16
+        },
+        {
+          "line": 74,
+          "column": 29
+        },
+        {
+          "line": 80,
+          "column": 84
+        }
+      ]
+    },
+    {
+      "id": "s370",
+      "surface": "許",
+      "occurrences": [
+        {
+          "line": 5,
+          "column": 98
+        },
+        {
+          "line": 72,
+          "column": 60
+        },
+        {
+          "line": 72,
+          "column": 88
+        },
+        {
+          "line": 72,
+          "column": 153
+        }
+      ]
+    },
+    {
+      "id": "s371",
+      "surface": "証明",
+      "occurrences": [
+        {
+          "line": 1,
+          "column": 6
+        },
+        {
+          "line": 3,
+          "column": 17
+        },
+        {
+          "line": 3,
+          "column": 28
+        },
+        {
+          "line": 5,
+          "column": 59
+        },
+        {
+          "line": 5,
+          "column": 92
+        },
+        {
+          "line": 7,
+          "column": 5
+        },
+        {
+          "line": 7,
+          "column": 77
+        },
+        {
+          "line": 9,
+          "column": 26
+        },
+        {
+          "line": 9,
+          "column": 63
+        },
+        {
+          "line": 11,
+          "column": 6
+        },
+        {
+          "line": 15,
+          "column": 54
+        },
+        {
+          "line": 15,
+          "column": 111
+        },
+        {
+          "line": 40,
+          "column": 7
+        },
+        {
+          "line": 40,
+          "column": 50
+        },
+        {
+          "line": 42,
+          "column": 38
+        },
+        {
+          "line": 42,
+          "column": 56
+        },
+        {
+          "line": 42,
+          "column": 81
+        },
+        {
+          "line": 42,
+          "column": 101
+        },
+        {
+          "line": 44,
+          "column": 17
+        },
+        {
+          "line": 46,
+          "column": 35
+        },
+        {
+          "line": 50,
+          "column": 70
+        },
+        {
+          "line": 50,
+          "column": 107
+        },
+        {
+          "line": 52,
+          "column": 61
+        },
+        {
+          "line": 60,
+          "column": 148
+        },
+        {
+          "line": 66,
+          "column": 70
+        },
+        {
+          "line": 66,
+          "column": 126
+        },
+        {
+          "line": 68,
+          "column": 44
+        },
+        {
+          "line": 74,
+          "column": 88
+        },
+        {
+          "line": 74,
+          "column": 137
+        },
+        {
+          "line": 78,
+          "column": 13
+        },
+        {
+          "line": 78,
+          "column": 85
+        },
+        {
+          "line": 80,
+          "column": 59
+        }
+      ]
+    },
+    {
+      "id": "s374",
+      "surface": "認",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 46
+        },
+        {
+          "line": 5,
+          "column": 31
+        },
+        {
+          "line": 15,
+          "column": 17
+        }
+      ]
+    },
+    {
+      "id": "s376",
+      "surface": "読",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 31
+        },
+        {
+          "line": 17,
+          "column": 143
+        },
+        {
+          "line": 42,
+          "column": 131
+        },
+        {
+          "line": 60,
+          "column": 120
+        },
+        {
+          "line": 82,
+          "column": 62
+        },
+        {
+          "line": 84,
+          "column": 41
+        }
+      ]
+    },
+    {
+      "id": "s377",
+      "surface": "調",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 81
+        },
+        {
+          "line": 46,
+          "column": 48
+        },
+        {
+          "line": 70,
+          "column": 5
+        },
+        {
+          "line": 70,
+          "column": 44
+        },
+        {
+          "line": 74,
+          "column": 140
+        },
+        {
+          "line": 80,
+          "column": 52
+        },
+        {
+          "line": 82,
+          "column": 91
+        }
+      ]
+    },
+    {
+      "id": "s381",
+      "surface": "足",
+      "occurrences": [
+        {
+          "line": 17,
+          "column": 33
+        },
+        {
+          "line": 17,
+          "column": 173
+        },
+        {
+          "line": 24,
+          "column": 65
+        },
+        {
+          "line": 38,
+          "column": 34
+        },
+        {
+          "line": 48,
+          "column": 19
+        },
+        {
+          "line": 50,
+          "column": 21
+        },
+        {
+          "line": 66,
+          "column": 83
+        },
+        {
+          "line": 70,
+          "column": 71
+        },
+        {
+          "line": 84,
+          "column": 202
+        }
+      ]
+    },
+    {
+      "id": "s382",
+      "surface": "述",
+      "occurrences": [
+        {
+          "line": 50,
+          "column": 40
+        },
+        {
+          "line": 50,
+          "column": 77
+        },
+        {
+          "line": 66,
+          "column": 29
+        }
+      ]
+    },
+    {
+      "id": "s389",
+      "surface": "関係",
+      "occurrences": [
+        {
+          "line": 50,
+          "column": 37
+        },
+        {
+          "line": 78,
+          "column": 22
+        },
+        {
+          "line": 78,
+          "column": 97
+        },
+        {
+          "line": 80,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "structural_candidates": [
+    {
+      "kind": "heading",
+      "line": 1,
+      "text": "1 証明の規則を明らかにする"
+    },
+    {
+      "kind": "heading",
+      "line": 11,
+      "text": "2 証明は記号列として検査できる"
+    },
+    {
+      "kind": "heading",
+      "line": 44,
+      "text": "3 数について語る言語で、証明をどう扱うか"
+    },
+    {
+      "kind": "heading",
+      "line": 54,
+      "text": "4 数が文の名前になる"
+    },
+    {
+      "kind": "heading",
+      "line": 76,
+      "text": "5 証明可能性は算術で語れる"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "width": 1440,
+    "theme": "light",
+    "title": "ゲーデルの不完全性定理",
+    "headings": 11,
+    "math": 169,
+    "mathErrors": 0,
+    "overflow": false,
+    "font": true,
+    "anchor": 0,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "theme": "light",
+    "title": "ゲーデルの不完全性定理",
+    "headings": 11,
+    "math": 169,
+    "mathErrors": 0,
+    "overflow": false,
+    "font": true,
+    "anchor": 0,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "title": "ゲーデルの不完全性定理",
+    "headings": 11,
+    "math": 169,
+    "mathErrors": 0,
+    "overflow": false,
+    "font": true,
+    "anchor": 0,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "title": "ゲーデルの不完全性定理",
+    "headings": 11,
+    "math": 169,
+    "mathErrors": 0,
+    "overflow": false,
+    "font": true,
+    "anchor": 0,
+    "errors": []
+  }
+]

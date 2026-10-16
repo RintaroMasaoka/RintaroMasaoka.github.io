@@ -1,0 +1,15 @@
+{
+  "scope": "Incremental live corrections F1–F9",
+  "source_sha256": "1eb4ba6e1a665c96f9afcc59bf5fd54cf00f46bc23c607264fc6ed4863b906a6",
+  "checks": {
+    "feedback_coverage": "9/9 source checks",
+    "japanese_prose": "bounded pass",
+    "self_substitution_example_math": "pass",
+    "build": "pass",
+    "original_display_equations": "all 9 preserved; 2 example equations added",
+    "independent_sequential_reader": "UNVERIFIED",
+    "japanese_disciplinary_naming": "not recertified",
+    "initial_conformance": "covers pre-F8/F9 candidate only"
+  },
+  "claim_boundary": "Editorial corrections and concrete example verified within stated checks. No whole-manuscript scientific or sequential-reader acceptance claimed."
+}

@@ -1,0 +1,33 @@
+{
+  "perspective": "Mathematical correctness of the changed concrete self-substitution example only",
+  "source": "/private/tmp/godel-personal-site-20261016/src/content/notes/godel-incompleteness.md",
+  "range": "Section 6 concrete example, lines 109–127",
+  "verdict": "PASS",
+  "evidence": [
+    {
+      "step": 1,
+      "finding": "The symbol sequence x, =, x has codes 1, 5, 1; 2^1 * 3^5 * 5^1 = 2430."
+    },
+    {
+      "step": 2,
+      "finding": "Unique prime factorization recovers exponents 1, 5, 1 and therefore x=x."
+    },
+    {
+      "step": 3,
+      "finding": "Both occurrences of x are free. Replacing each by the closed numeral consisting of 2430 successor symbols followed by 0 produces a closed equality. The numeral denotes the number 2430; 0 is a symbol with code 6, not an exponent zero."
+    },
+    {
+      "step": 4,
+      "finding": "The new formula has 4863 symbols. Its exponent sequence is [7 repeated 2430 times, 6, 5, 7 repeated 2430 times, 6]. Every exponent is positive, so the stated prime-power encoding applies directly."
+    },
+    {
+      "step": 4,
+      "finding": "Writing p_i for the i-th prime, the output is (product i=1..2430 of p_i^7) * p_2431^6 * p_2432^5 * (product i=2433..4862 of p_i^7) * p_4863^6. This is the formula code sub(2430), distinct from the substituted number 2430."
+    }
+  ],
+  "level_check": "The number 2430, its numeral term, the resulting closed formula, and the code of that formula remain distinct throughout the changed example.",
+  "limitations": [
+    "The general description is valid on codes of formulas whose only free variable is the designated x. It does not specify a totalization on malformed or other inputs; this does not affect the example.",
+    "No verdict on subsequent diagonalization, arithmetic representability proofs, prose quality, teaching effectiveness, reader order, or unassigned sections."
+  ]
+}
