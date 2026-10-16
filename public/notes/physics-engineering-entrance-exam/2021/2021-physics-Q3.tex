@@ -67,9 +67,9 @@ $g(1-x)=-g(x)$ で、$g'(x)=1/[x(1-x)]$、特に $g'(1/2)=4$。
 \draw[blue,dashed] plot[domain=0:1,samples=2] (\x,{(2/2)*(2*\x-1)});
 \draw[red,thick] plot[domain=0:1,samples=2] (\x,{(2/0.5)*(2*\x-1)});
 \draw[dashed] (0.5,-4.2)--(0.5,4.2);
-\node at (0.76,2.8) {$g(x)$};
-\node[blue] at (0.82,0.4) {$T/T_{c0}=2$};
-\node[red] at (0.81,3.65) {$T/T_{c0}=1/2$};
+\node at (0.68,2.8) {$g(x)$};
+\node[blue] at (0.80,-1.1) {$T/T_{c0}=2$};
+\node[red] at (0.25,1.7) {$T/T_{c0}=1/2$};
 \node[below] at (0.5,-4.4) {$1/2$};
 \end{tikzpicture}
 \end{center}
@@ -109,11 +109,11 @@ $0<T<T_{c0}$ では中心で $f'(1/2)=0$、$f''(1/2)<0$ なので、$x=1/2$ は�
 \draw[->] (0,-0.055)--(0,0.11) node[above] {$f(x)/(zV)$};
 \draw[thick] plot[domain=0.0001:0.9999,samples=301] (\x,{\x*(1-\x)+(\t/2)*(\x*ln(\x)+(1-\x)*ln(1-\x))});
 \foreach \v in {\xmin,\xspin,0.5} {\draw[dashed] (\v,0.02)--(\v,-0.055);\pgfmathsetmacro{\mirror}{1-\v}\draw[dashed] (\mirror,0.02)--(\mirror,-0.055);}
-\node[above right] at (\xmin,0.025) {\small $\frac12-\delta_0$};
-\node[above left] at (\xspin,0.050) {\small $\frac12-\delta_1$};
+\node[below right] at (\xmin,-0.060) {\small $\frac12-\delta_0$};
+\node[above] at (0.31,0.105) {\small $\frac12-\delta_1$};
 \node[above] at (0.5,0.025) {\small $\frac12$};
 \node[above right] at ({1-\xspin},0.050) {\small $\frac12+\delta_1$};
-\node[above left] at ({1-\xmin},0.025) {\small $\frac12+\delta_0$};
+\node[below left] at ({1-\xmin},-0.060) {\small $\frac12+\delta_0$};
 \end{tikzpicture}
 \end{center}
 この図は $T/T_{c0}=1/2$ の例で、$\delta_1=\sqrt{2}/4$、$\delta_0\simeq0.478752$ である。
@@ -136,10 +136,10 @@ $0<T<T_{c0}$ では中心で $f'(1/2)=0$、$f''(1/2)<0$ なので、$x=1/2$ は�
 }
 \fill (0.5,1) circle(0.5pt);
 \draw[dashed] (0.5,0)--(0.5,1);
-\node at (0.12,0.45) {I};\node at (0.28,0.45) {II};\node at (0.5,0.45) {III};\node at (0.72,0.45) {II};\node at (0.88,0.45) {I};
+\node at (0.05,0.75) {I};\node at (0.10,0.54) {II};\node at (0.5,0.45) {III};\node at (0.90,0.54) {II};\node at (0.95,0.75) {I};
 \node[above] at (0.5,1) {$1$};
 \node[below] at (0.5,0) {$1/2$};\node[below] at (0,0) {$0$};\node[below] at (1,0) {$1$};
-\node at (0.23,0.87) {$\delta_0$};\node at (0.35,0.72) {$\delta_1$};
+\node at (0.10,0.98) {$\delta_0$};\node at (0.35,0.72) {$\delta_1$};
 \end{tikzpicture}
 \end{center}
 実線は $u>0$ に対し $2\delta_0=\tanh u$、$T/T_{c0}=\tanh u/u$ で表せ、臨界点は $u\to0$ の極限にあたる。実線は外側極小の組成 $x=1/2\pm\delta_0$、点線は $f''=0$ となる組成 $x=1/2\pm\delta_1$ を表す。これらの曲線と図中の領域 (I)–(III) の安定性を、以下で相分離後の自由エネルギーと比較して判定する。

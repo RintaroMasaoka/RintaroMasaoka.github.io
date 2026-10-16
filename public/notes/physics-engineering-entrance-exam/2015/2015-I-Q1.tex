@@ -103,8 +103,8 @@ $-m_1gl_1\sin\theta_1$、慣性モーメントは$m_1l_1^2$なので、
   \draw[->] (A) ++({0.33*cos(-90+\thetaOne)},{0.33*sin(-90+\thetaOne)})
     arc[start angle={-90+\thetaOne},end angle={-90+\thetaAbsTwo},radius=0.33];
   \node at ($(A)+(0.43,-0.35)$) {$\theta_2$};
-  \node at ({0.5*\ell*sin(\thetaOne)+0.35},{-0.5*\ell*cos(\thetaOne)}) {$l$};
-  \node at ({\ell*sin(\thetaOne)+0.5*\ell*sin(\thetaAbsTwo)+0.12},{-\ell*cos(\thetaOne)-0.5*\ell*cos(\thetaAbsTwo)}) {$l$};
+  \node at (0.9,-0.35) {$l$};
+  \node[above,yshift=2pt] at ({\ell*sin(\thetaOne)+0.5*\ell*sin(\thetaAbsTwo)+0.12},{-\ell*cos(\thetaOne)-0.5*\ell*cos(\thetaAbsTwo)}) {$l$};
 \end{tikzpicture}
 \caption{等質量・等長二重振り子。$\theta_2$は第1棒から測る相対角である。}
 \label{fig:double-pendulum}

@@ -92,7 +92,7 @@ $u=\theta_1+\theta_2$、$v=\theta_1-\theta_2$は独立に変えられる角度�
   \pgfmathsetmacro{\px}{\pLength*sin(\alpha)}
   \pgfmathsetmacro{\pz}{\pLength*cos(\alpha)}
   \draw[thick] (-2.2,0)--(2.2,0);
-  \node[below] at (1.65,0) {Ground ($z=0$)};
+  \node[anchor=west] at (0.9,0.40) {Ground ($z=0$)};
   \draw[->] (0,0)--(0,2.5) node[above] {$z$};
   \fill (0,\height) circle (2pt);
   \fill (0,-\height) circle (2pt);
@@ -101,7 +101,7 @@ $u=\theta_1+\theta_2$、$v=\theta_1-\theta_2$は独立に変えられる角度�
   \draw[->,blue,thick] (0,\height)--({-\px},{\height+\pz}) node[above left] {$\boldsymbol p$};
   \draw[->,red,thick] (0,-\height)--({\px},{-\height+\pz}) node[below right] {$\boldsymbol p'$};
   \draw[dashed] (0,0)--(0,\height);
-  \draw[<->] (0.18,0)--(0.18,\height) node[midway,right] {$h$};
+  \draw[<->] (-0.3,0)--(-0.3,\height) node[midway,left] {$h$};
 \end{tikzpicture}
 \caption{導体面に対する実双極子と鏡像双極子。接線成分は反転し、法線成分は同じ向きである。}
 \end{figure}

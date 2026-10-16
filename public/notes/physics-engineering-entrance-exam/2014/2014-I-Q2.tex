@@ -84,7 +84,8 @@ $r=R$ では分子と分母が等しく、対数の中身が1となるため、�
  \fill (\D,0) circle (2pt);
  \node[above] at (\D,0.12) {$-\lambda$};
  \draw[<->] (0,-0.3)--(\d,-0.3) node[midway,below] {$d$};
- \draw[->] (0,0)--(\rx,\ry) node[midway,above left] {$R$};
+ \draw[->] (0,0)--(\rx,\ry);
+ \node at (-0.35,0.75) {$R$};
  \node[anchor=north] at ({(\R+\D)/2},-0.28) {$D=R^2/d$};
  \node[above left] at ({1.4*\rx},{1.4*\ry}) {$r=R$};
 \end{tikzpicture}
