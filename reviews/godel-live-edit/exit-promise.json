@@ -1,0 +1,20 @@
+{
+  "source_sha256": "e0b34e010d330e5c1bbc2cde737f4f64b87d02e1ddcf22dcc47419474e541c0a",
+  "range": "last paragraph of section 1",
+  "perspective": "near-term explanatory payoff promised by transition",
+  "reviewer": "check_exit_promise",
+  "method": "fresh no-history, one supplied paragraph, no retrieval tools",
+  "finding": "Next section promises concrete inspection of the steps of a short equality proof; it does not promise to resolve the self-reference connection there.",
+  "evidence": [
+    "その議論を追う準備として",
+    "短い等式の証明を使って",
+    "証明の各行が規則に従っているかを調べる手続き"
+  ],
+  "remaining_observation": "Longer-term referent of その議論 is broad; this does not change the next-section promise.",
+  "checks": [
+    "only the targeted transition changed",
+    "production build",
+    "175 formula instances preserved; no math errors"
+  ],
+  "limits": "Bounded explanatory-promise diagnostic, not full-route or scientific acceptance."
+}
