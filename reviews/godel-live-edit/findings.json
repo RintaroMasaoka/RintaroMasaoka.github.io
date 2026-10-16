@@ -61,7 +61,7 @@
       "location": "§6",
       "feedback": "sub(n)の脳内演算を展開し具体例を使う",
       "repair_condition": "x=xを実際に2430へ符号化し、復号・2430の数項の代入・再符号化を段階表示する",
-      "status": "published"
+      "status": "superseded-by-F19-F20"
     },
     {
       "id": "F10",
@@ -124,14 +124,28 @@
       "location": "§1末尾の接続",
       "feedback": "大きな問いの直後のまずが、すぐに答えを与えるように読める",
       "repair_condition": "問いかけを外し、次節が証明の検査を具体例で確かめる準備段階だと示す",
+      "status": "published"
+    },
+    {
+      "id": "F19",
+      "location": "§6",
+      "feedback": "自己代入の表が分かりにくい",
+      "repair_condition": "一般の計算手順を示し、x=0の例を復号・数項の代入・文全体の再符号化まで通す",
+      "status": "edited-awaiting-publication"
+    },
+    {
+      "id": "F20",
+      "location": "§6",
+      "feedback": "目的のsub(n)を構成できていない",
+      "repair_condition": "任意の自然数入力について出力を定めるアルゴリズムを与え、具体例の返り値を式にする",
       "status": "edited-awaiting-publication"
     }
   ],
-  "source_sha256": "e0b34e010d330e5c1bbc2cde737f4f64b87d02e1ddcf22dcc47419474e541c0a",
+  "source_sha256": "a0e725720ee7720a01c655acdc203f05449d3db4a5816d71321f70782eebe33f",
   "publication": {
     "url": "https://rintaromasaoka.github.io/notes/godel-incompleteness/",
-    "commit": "41a8a519576078c7597ddd60be36d6dc4b7b10de",
-    "run": 38910973807,
+    "commit": "ae62644cf717064911de915b8679c3f6d4ad4e18",
+    "run": 38911662606,
     "status": "success",
     "liveHttpStatus": 200
   }

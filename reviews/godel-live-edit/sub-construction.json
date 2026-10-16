@@ -1,0 +1,78 @@
+{
+  "source_sha256": "a0e725720ee7720a01c655acdc203f05449d3db4a5816d71321f70782eebe33f",
+  "scope": "§6 sub construction before F(x)",
+  "math": {
+    "perspective": "construction of diagonal substitution function",
+    "reviewer": "sub_function_math",
+    "verdict": "supported under existing numeral notation",
+    "required_bridge": "sub-containing expressions abbreviate an arithmetic relation; included"
+  },
+  "reader": {
+    "perspective": "prefix input/operation/output intelligibility",
+    "reviewer": "sub_prefix_reader",
+    "packets": "one paragraph and attached formula or algorithm per reveal",
+    "verdict": "no major missing dependency across all six sequential packets"
+  },
+  "japanese_local_check": {
+    "kind": "coordinator bounded terminology check",
+    "terms": [
+      "自由変数",
+      "数項",
+      "ゲーデル数",
+      "復号",
+      "代入"
+    ],
+    "verdict": "consistent with previously introduced terms; no invented technical terms"
+  },
+  "production": [
+    {
+      "width": 1440,
+      "theme": "light",
+      "title": "ゲーデルの不完全性定理",
+      "headings": 11,
+      "math": 186,
+      "mathErrors": 0,
+      "overflow": false,
+      "font": true,
+      "anchor": 0,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "title": "ゲーデルの不完全性定理",
+      "headings": 11,
+      "math": 186,
+      "mathErrors": 0,
+      "overflow": false,
+      "font": true,
+      "anchor": 0,
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "title": "ゲーデルの不完全性定理",
+      "headings": 11,
+      "math": 186,
+      "mathErrors": 0,
+      "overflow": false,
+      "font": true,
+      "anchor": 0,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "title": "ゲーデルの不完全性定理",
+      "headings": 11,
+      "math": 186,
+      "mathErrors": 0,
+      "overflow": false,
+      "font": true,
+      "anchor": 0,
+      "errors": []
+    }
+  ],
+  "limits": "No full-note scientific, terminology, or reader-order certification."
+}
