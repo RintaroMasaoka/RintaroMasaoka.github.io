@@ -6,7 +6,7 @@
     "public/notes/fuzzy-sphere-3d-cft/visuals/orbitals.html": "5928e2eb4542dd63acdad2700b267743d91110ae4729eafe201e442d3ab13ab0",
     "public/notes/fuzzy-sphere-3d-cft/visuals/embed.js": "16b2f6eba75fe36ddd502f288a7ee16621b07190c0af0d1e4d686349eddd1161",
     "public/notes/fuzzy-sphere-3d-cft/visuals/spectrum.html": "c36765369b8300428ac25d1c8566707dff608df5ecf16285478d2d09785d6cfc",
-    "public/notes/fuzzy-sphere-3d-cft/visuals/visuals.js": "44c308599d34893c90501d95f03d4e2af14daf8ce98a65472023c74586909154"
+    "public/notes/fuzzy-sphere-3d-cft/visuals/visuals.js": "78ae1a7054d4c43f14e812ee6e56b777d4a8739639cbf1ece8e53f91262b0a6b"
   },
   "reader_baseline": "Existing LLL wavefunction formulas and m/s labels; existing primary spectrum table and stress tensor calibration.",
   "scope": "Two inserted visual units only; existing Japanese prose and equations unchanged.",
@@ -64,5 +64,6 @@
     "fonts": "Local shipped KaTeX_Main, KaTeX_Math, KaTeX_AMS loaded in both themes/viewports",
     "labels": "data-tex attributes plus dynamic calls to tex() in visuals.js; controls and plot labels use KaTeX; prose caption remains native document text"
   },
-  "production": "Fresh remote-main checkout: full Astro production build passed; static build browser checks at 1440/390px in both themes passed with no page errors. Density normalization error <1e-12; m clamp, odd-sector filtering and selected readout passed. Language/download CI preflights passed."
+  "production": "Fresh remote-main checkout: full Astro production build passed; static build browser checks at 1440/390px in both themes passed with no page errors. Density normalization error <1e-12; m clamp, odd-sector filtering and selected readout passed. Language/download CI preflights passed.",
+  "formatting_followup": "Moved existing North/South profile labels above the plot to avoid endpoint-curve overlap at m=±s. Content, scales, mappings and interaction unchanged; semantic lane verdicts carry forward for this label-placement-only change."
 }

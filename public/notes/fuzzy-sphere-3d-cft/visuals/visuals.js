@@ -6,7 +6,7 @@
   const node=(name,attrs,parent)=>{const el=document.createElementNS(NS,name);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,String(v)));parent.append(el);return el;};
   function plot(id, ymax, xticks, yticks, xlabel, ylabel, domain=null) {
     const root=document.getElementById(id);root.replaceChildren();
-    const w=root.clientWidth,h=root.clientHeight,box={left:51,top:16,right:w-18,bottom:h-43};
+    const w=root.clientWidth,h=root.clientHeight,box={left:51,top:id==='profile'?26:16,right:w-18,bottom:h-43};
     const svg=node('svg',{viewBox:`0 0 ${w} ${h}`,role:'img','aria-label':id==='profile'?'Normalized latitude probability density':'Scaling dimensions versus spin'},root);
     const label=(value,x,y,cls='')=>{const el=document.createElement('span');el.className='plot-label '+cls;el.style.left=x+'px';el.style.top=y+'px';tex(el,value);root.append(el);return el;};
     const xlo=domain?domain[0]:xticks[0],xhi=domain?domain[1]:xticks[xticks.length-1];
@@ -64,7 +64,7 @@
       const p=plot('profile',ceiling,[-1,0,1],[0,Number((ceiling/2).toFixed(2)),ceiling],'\\cos\\theta','2\\pi|\\psi_m|^2');
       const points=Array.from({length:301},(_,i)=>{const z=-1+2*i/300;return [p.x(z),p.y(prob(s,m,z))];});
       node('path',{d:points.map(([x,y],i)=>(i?'L':'M')+x.toFixed(2)+','+y.toFixed(2)).join(' '),fill:'none',stroke:'var(--accent)','stroke-width':2.5},p.svg);
-      p.label('\\text{South}',p.x(-1)+17,p.box.top+12);p.label('\\text{North}',p.x(1)-17,p.box.top+12);
+      p.label('\\text{South}',p.x(-1)+17,p.box.top-12);p.label('\\text{North}',p.x(1)-17,p.box.top-12);
       canvas.setAttribute('aria-label',`Probability density for s=${s}, m=${m}; ${m===s?'concentrated near the north pole':m===-s?'concentrated near the south pole':'a continuous latitude distribution'}.`);
     }
     spin.addEventListener('input',()=>{const s=Number(spin.value);input.min=-s;input.max=s;input.value=String(Math.max(-s,Math.min(s,Number(input.value))));draw();});
