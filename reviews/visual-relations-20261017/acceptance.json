@@ -1,12 +1,12 @@
 {
   "scope": "Realize three explanatory relations in the published note with simultaneous comparison: multiplicative radius/additive radial time, scalar derivative/spin branching, and two fixed defect sites across all time slices.",
   "revision": {
-    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry.js": "f7ea2cbae3b53ff923ebfb4a3c7c3cd3cf9d43e79252906bcd93989997277947",
-    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry.css": "2a526caadd51bc966b056620d37dcb336a1c4d8cef8fabe5636737047c345b64",
-    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html": "614bc1806a88f5e0dd81cb53dd6194a36e89fee017681888634060c4cecad00e",
-    "public/notes/fuzzy-sphere-3d-cft/visuals/defect.html": "086d9f835bf504a444d170c46623f47911f31c3b3a644a8c5b833010714e7fd8",
-    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants.html": "e799868adce5320bd780e69c0b60b37f7c036c796c3485a44c3066c47b238877",
-    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants.js": "3a18ccae87c6f18711cfe7a4527d1abdd3a9b6ba724af1c133211ed37a10e934"
+    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry-overview.js": "f7ea2cbae3b53ff923ebfb4a3c7c3cd3cf9d43e79252906bcd93989997277947",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry-overview.css": "2a526caadd51bc966b056620d37dcb336a1c4d8cef8fabe5636737047c345b64",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants-overview.js": "3a18ccae87c6f18711cfe7a4527d1abdd3a9b6ba724af1c133211ed37a10e934",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html": "b3e25217474db7a161ece4e30a5ec344d19b4d5de52113992d2979d8c98e17e1",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/defect.html": "b5c5abdd8fe5e562f7eac63151e84046860ab5440c3c2e4c125599ceb779982c",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants.html": "3f62c185115c6cbda6363a3804604aa9523d286b747f556525ddbda8596c9d13"
   },
   "input_packets": [
     "unit-1.md",
@@ -65,5 +65,14 @@
   "control_decisions": "Existing LLL s/m and numerical primary/sector inspection remain because their state changes supply information beyond a fixed view. These three views present their needed comparisons simultaneously.",
   "scientific_conditions": "Unit cylinder, dimensionless radial coordinate, coordinate substitution distinct from Weyl rescaling. Scalar without vanishing descendants, ideal conformal positions but exact SO3 magnetic degeneracy. Defect geometry determines sites rather than couplings. Those conditions and equations carry from the previous accepted source.",
   "limits": "Bounded independent reader judgments, not a whole-note scientific audit or observation of actual learners. Suppressed angular dimension is schematic.",
-  "authoring": "Descendant revision executed by its assigned author; geometry views by coordinator. No Japanese prose or physics conventions changed."
+  "authoring": "Descendant revision executed by its assigned author; geometry views by coordinator. No Japanese prose or physics conventions changed.",
+  "reviewed_revision": {
+    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry.js": "f7ea2cbae3b53ff923ebfb4a3c7c3cd3cf9d43e79252906bcd93989997277947",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry.css": "2a526caadd51bc966b056620d37dcb336a1c4d8cef8fabe5636737047c345b64",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html": "614bc1806a88f5e0dd81cb53dd6194a36e89fee017681888634060c4cecad00e",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/defect.html": "086d9f835bf504a444d170c46623f47911f31c3b3a644a8c5b833010714e7fd8",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants.html": "e799868adce5320bd780e69c0b60b37f7c036c796c3485a44c3066c47b238877",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants.js": "3a18ccae87c6f18711cfe7a4527d1abdd3a9b6ba724af1c133211ed37a10e934"
+  },
+  "asset_binding": "Same reviewed renderer bytes moved to overview-named assets. HTML dependency paths changed only; legacy filenames retain prior contracts for cached pages. Labels, equations, geometry and captions are identical."
 }
