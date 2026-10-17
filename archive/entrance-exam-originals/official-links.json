@@ -1,0 +1,130 @@
+[
+  {
+    "year": 2011,
+    "official_admission_year": 2012,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h24ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "641b4c62ba67688c9419f70390529bc916ec6364f8603b15640ea370c1f0e06d",
+    "archive_filename": "h24ap_exam.pdf"
+  },
+  {
+    "year": 2012,
+    "official_admission_year": 2013,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h25ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "d5d981d963a0dd20928a8703148e1c85dec421639c82fc0d88e84013241c9717",
+    "archive_filename": "h25ap_exam.pdf"
+  },
+  {
+    "year": 2013,
+    "official_admission_year": 2014,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h26ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "b2fe1fe867ebca7080c518890ea2d99e9a2aaec29b9caec17841ab3785b8da6f",
+    "archive_filename": "h26ap_exam.pdf"
+  },
+  {
+    "year": 2014,
+    "official_admission_year": 2015,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h27ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "e404390fcc8002adad61efc16a0af191eca195ba11c35a274163809135f03e65",
+    "archive_filename": "h27ap_exam.pdf"
+  },
+  {
+    "year": 2015,
+    "official_admission_year": 2016,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h28ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "ec4e7d65cfe87cf5ebb619c64ac4e27fa3b7387d01ff34ff1767da15cc6d6b91",
+    "archive_filename": "h28ap_exam.pdf"
+  },
+  {
+    "year": 2016,
+    "official_admission_year": 2017,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h29ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "46acb1f3d9d6627fed04bb2499fb1967d7844c762450d27e32c9d2e9c6bd42d5",
+    "archive_filename": "h29ap_exam.pdf"
+  },
+  {
+    "year": 2017,
+    "official_admission_year": 2018,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h30ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "23f492738dcdef741eddbee47ff40674f6ff81c057915c50056f232d6d5caf67",
+    "archive_filename": "h30ap_exam.pdf"
+  },
+  {
+    "year": 2018,
+    "official_admission_year": 2019,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h31ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "204cbd024e4610688b6738ec05c771eee2c98f7e784a8008a10ec37c9dcef8e1",
+    "archive_filename": "h31ap_exam.pdf"
+  },
+  {
+    "year": 2019,
+    "official_admission_year": 2020,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2020ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "be7f2e93fdf2fdb6921a18c2176b3d9825688d03b92734d336dcaa4b8909bf39",
+    "archive_filename": "2020ap_exam.pdf"
+  },
+  {
+    "year": 2020,
+    "official_admission_year": 2021,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2021ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "536f69110429a855a8f65de782d002d959fd8a99c5ad030f01cd86837f6d1a3e",
+    "archive_filename": "2021ap_exam.pdf"
+  },
+  {
+    "year": 2021,
+    "official_admission_year": 2022,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2022ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "03e0b9086fb3eec4fec643fa1a4ed3b463e35411fbef20eb7da609c06073b39a",
+    "archive_filename": "2022ap_exam.pdf"
+  },
+  {
+    "year": 2022,
+    "official_admission_year": 2023,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2023ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "2ec10096e905e2807566f94885f38b8d549d4852c8fb22f465dd9a620a37442e",
+    "archive_filename": "2023ap_exam.pdf"
+  },
+  {
+    "year": 2023,
+    "official_admission_year": 2024,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2024ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "303204b38405b7fed8cf6140ab3311e23d26c3bfd2afe778a46172dae774cfbc",
+    "archive_filename": "2024ap_exam.pdf"
+  },
+  {
+    "year": 2024,
+    "official_admission_year": 2025,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2025ap_exam.pdf",
+    "identical": true,
+    "local_sha256": "6ec8ebaaf04ce28fb37e3ab9143834a0afb5861f71a96b57b4bfd30623a0b4b8",
+    "archive_filename": "2025ap_exam.pdf"
+  },
+  {
+    "year": 2025,
+    "official_admission_year": 2026,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2026ap_exam_je.pdf",
+    "identical": true,
+    "local_sha256": "05431c30a0bceae4fe8f2fc6a7b902f19d19a7f72790858f20cf05c9db5f9ca6",
+    "archive_filename": "2026ap_exam_je.pdf"
+  },
+  {
+    "year": 2026,
+    "official_admission_year": 2027,
+    "url": "https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2027ap_exam_je.pdf",
+    "identical": true,
+    "local_sha256": "a1b3a2427a26cd2cc93451890a660d87bb3397ea3295d4ae751c43e070d85e3b",
+    "archive_filename": "2027ap_exam_je.pdf"
+  }
+]

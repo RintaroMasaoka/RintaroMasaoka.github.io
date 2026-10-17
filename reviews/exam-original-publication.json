@@ -1,0 +1,13 @@
+{
+  "scope": "Entrance exam original links and publication boundary",
+  "originalsRetained": 16,
+  "officialMatches": "all 16 SHA-256 identical",
+  "examinationYears": "2011–2026",
+  "admissionYears": "2012–2027",
+  "displayConvention": "university admission year (2012–2027); original archive filenames match university",
+  "solutionLinksPreserved": 178,
+  "archiveExcludedFromBuild": true,
+  "oldOriginalDirectoryAbsentFromBuild": true,
+  "browserCheck": "desktop/mobile: 16 official links, all anchors resolve, no overflow or script errors",
+  "noOriginalHashInBuiltPDFs": true
+}
