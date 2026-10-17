@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF pages 4–5.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h27ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,157 +10,130 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2015年 物理学I 第2問}
+\title{物理工学専攻 院試解答集\\2015年度 物理学I 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] リングを貫く磁束}
-リングの中心を$(X,0,0)$、面内の中心からの座標を$(u,v)$とする。円盤上では$x=X+u$、$z=0$であり、面積要素の法線を$+z$向きにとると、
-\begin{align}
-  \Phi(X)&=\int_{u^2+v^2\le a^2} B_0[1+\alpha(X+u)]\,\mathrm d u\,\mathrm d v\\
-  &=B_0(1+\alpha X)\pi a^2
-    +B_0\alpha\int_{u^2+v^2\le a^2}u\,\mathrm d u\,\mathrm d v\\
-  &=\boxed{\pi a^2B_0(1+\alpha X)}.
-\end{align}
-円盤は$u\mapsto-u$で対称なので、積分中の奇関数$u$の項はゼロである。
+\section*{[1] 無限直線電荷}
+線電荷から距離 $r$ の同軸円筒をガウス面に選ぶ。長さ $l$ の円筒面を貫く電束は $2\pi rl E(r)$ で、内部電荷は $\lambda l$ だから
+\begin{equation}
+ \boldsymbol E(r)=\frac{\lambda}{2\pi\varepsilon_0r}\,\boldsymbol e_r,
+ \qquad E(r)=\frac{|\lambda|}{2\pi\varepsilon_0r}.
+\end{equation}
+$r_0$ を基準に $E_r=-d\phi/dr$ を積分すると
+\begin{equation}
+ \phi(r)-\phi(r_0)=-\int_{r_0}^r E_r(r')\,dr'
+ =-\frac{\lambda}{2\pi\varepsilon_0}\ln\frac r{r_0}.
+\end{equation}
+よって $\phi(r_0)=0$ とすれば、原問の式を得る。
 
-\section*{[2] 一定速度で運動するときの電流}
-正の面法線を$+z$にとると、正の周回方向は反時計回りである。$X$が速度$V>0$で増えるため、$+z$向きの磁束が増加する。ファラデーの法則
+\section*{[2] 平行な二本の線電荷}
+点 $(r\cos\theta,r\sin\theta)$ から $(a,0),(b,0)$ までの距離をそれぞれ $r_a,r_b$ とすると
 \begin{equation}
-  IR=-\frac{\mathrm d\Phi}{\mathrm dt}
+ r_a^2=a^2+r^2-2ar\cos\theta,\qquad
+ r_b^2=b^2+r^2-2br\cos\theta.
 \end{equation}
-の負号は誘導電流が磁束の増加を妨げることを表す。よって符号付き電流は
+[1]のポテンシャルを重ね合わせて
 \begin{equation}
-  \boxed{I=-\frac{\pi a^2B_0\alpha V}{R}}.
-\end{equation}
-負号は、実際の電流が図の正方向と逆の時計回りであることを示す。
-
-\section*{[3] 一定速度を保つための力}
-電流が流れるリングに働く磁気力は、周回方向の電流要素と磁場とのローレンツ力から求まる。円周上の角度を$\vartheta$とすると、正の周回方向の電流要素は$\mathrm d\boldsymbol\ell=a(-\sin\vartheta,\cos\vartheta,0)\,\mathrm d\vartheta$である。リング上では$z=0$、$x=X+a\cos\vartheta$なので、$\mathrm d\boldsymbol F=I\,\mathrm d\boldsymbol\ell\times\boldsymbol B$より
-\begin{align}
-  \mathrm dF_{\mathrm{mag},x}
-  &=IaB_0\cos\vartheta[1+\alpha(X+a\cos\vartheta)]\,\mathrm d\vartheta,\\
-  F_{\mathrm{mag},x}
-  &=IaB_0\int_0^{2\pi}
-    [(1+\alpha X)\cos\vartheta+\alpha a\cos^2\vartheta]\,\mathrm d\vartheta
-    =I\pi a^2B_0\alpha.
-\end{align}
-ここで$B_z$の一様部分の寄与は一周積分で相殺し、$x$に比例する部分だけが残る。したがって一定速度では、加えた外力がこの磁気抵抗力とつり合う。外力の大きさは
-\begin{equation}
-  \boxed{F=\frac{(\pi a^2B_0\alpha)^2}{R}V}.
-\end{equation}
-この結果は電力でも確認できる。外力の仕事率$FV$は$RI^2$に等しい。
-
-\section*{[4] 時間変化する磁場と運動方程式}
-磁束は
-\begin{equation}
-  \Phi(X,t)=\pi a^2B_0b(t)(1+\alpha X)
-\end{equation}
-である。正の電流を反時計回りとする規約を保つと、起電力と電流は
-\begin{equation}
-  IR=-\frac{\mathrm d\Phi}{\mathrm dt}
-  =-\pi a^2B_0\frac{\mathrm d}{\mathrm dt}[b(t)(1+\alpha X)].
-  \label{eq:current}
-\end{equation}
-角度$\vartheta$の電流要素を
-$\mathrm d\boldsymbol\ell=a(-\sin\vartheta,\cos\vartheta,0)\,\mathrm d\vartheta$
-とすると、$\mathrm d\boldsymbol F=I\,\mathrm d\boldsymbol\ell\times\boldsymbol B$である。$x=X+a\cos\vartheta$を代入して一周積分すると、$x$成分は
-\begin{equation}
-  F_{\mathrm{mag},x}=I\pi a^2B_0\alpha b(t),
-\end{equation}
-となる。運動方程式$m\ddot X=F_{\mathrm{mag},x}$に式\eqref{eq:current}を代入すると
-\begin{equation}
-  m\ddot X=-\frac{(\pi a^2B_0)^2\alpha}{R}
-  b(t)\frac{\mathrm d}{\mathrm dt}[b(t)(1+\alpha X)].
-\end{equation}
-したがって問題文の形では
-\begin{equation}
-  \boxed{\alpha\ddot X=-\lambda b(t)\frac{\mathrm d}{\mathrm dt}[b(t)(1+\alpha X)]},
-  \qquad
-  \boxed{\lambda=\frac{(\pi a^2B_0\alpha)^2}{mR}}.
-\end{equation}
-$\lambda$の次元は時間の逆数である。
-
-\section*{[5] べき級数の初期係数}
-$0\le t<\tau$では$b(t)=t/\tau$だから、運動方程式は
-\begin{equation}
-  \alpha\ddot X=-\frac{\lambda t}{\tau^2}
-  \left(1+\alpha X+\alpha t\dot X\right).
-  \label{eq:series-eq}
-\end{equation}
-初期条件$X(0)=0$、$\dot X(0)=0$を
-$X=\sum_{k=0}^{\infty}a_kt^k$に適用すると、$a_0=a_1=0$である。式\eqref{eq:series-eq}の$t^0$の係数を比べると、左辺は$2\alpha a_2$、右辺はゼロなので、$a_2=0$となる。
-
-\section*{[6] 短時間近似での速度}
-式\eqref{eq:series-eq}の$t^1$の係数を比べ、$a_0=0$を使うと
-\begin{equation}
-  6\alpha a_3=-\frac{\lambda}{\tau^2},
-  \qquad
-  \boxed{a_3=-\frac{\lambda}{6\alpha\tau^2}}.
-\end{equation}
-問題文の$\tau\ll1/\lambda$の近似では$X\simeq a_3t^3$なので、$t=\tau$での速度は
-\begin{equation}
-  \boxed{V_0=\dot X(\tau)\simeq3a_3\tau^2=-\frac{\lambda}{2\alpha}}.
-\end{equation}
-負号はリングが初期位置から$-x$方向へ動くことを表す。
-
-\section*{[7] 最終位置}
-$t\ge\tau$では$b(t)=1$であり、運動方程式は
-\begin{equation}
-  \ddot X+\lambda\dot X=0.
-\end{equation}
-したがって速度は$\dot X(t)=V_0e^{-\lambda(t-\tau)}$と減衰し、無限時間後の変位は$V_0/\lambda$である。設問[6]--[7]で指定された三次近似$X\simeq a_3t^3$を用いると、
-\begin{equation}
-  X(\tau)\simeq-\frac{\lambda\tau}{6\alpha},\qquad
-  V_0\simeq-\frac{\lambda}{2\alpha}.
-\end{equation}
-従って、この指定された近似の下での答えは
-\begin{equation}
-  \boxed{X(\infty)\simeq X(\tau)+\frac{V_0}{\lambda}
-    =-\frac{1}{2\alpha}-\frac{\lambda\tau}{6\alpha}}.
+ \boxed{\phi(r,\theta)=\frac{\lambda}{2\pi\varepsilon_0}\ln\frac{r_b}{r_a}
+ =\frac{\lambda}{4\pi\varepsilon_0}
+ \ln\frac{b^2+r^2-2br\cos\theta}{a^2+r^2-2ar\cos\theta}.}
 \end{equation}
 
-この三次近似の結果と、運動方程式の漸近展開の精度は区別する必要がある。$\epsilon=\lambda\tau$、$u=t/\tau$、$y=\alpha X$と置くと、$0\le u\le1$で式\eqref{eq:series-eq}は
+\section*{[3] 鏡像電荷と境界条件}
+線電荷 $+\lambda$ を $(d,0)$、鏡像線電荷 $-\lambda$ を $(D,0)$ に置くと、全ポテンシャルは
 \begin{equation}
- y''(u)=-\epsilon u[1+y(u)+uy'(u)],\qquad y(0)=y'(0)=0
+ \phi(r,\theta)=\frac{\lambda}{4\pi\varepsilon_0}
+ \ln\frac{D^2+r^2-2Dr\cos\theta}{d^2+r^2-2dr\cos\theta}.
 \end{equation}
-となる。この有限区間の線形初期値問題を$\epsilon$で順に展開すると
+$r=R$ でこの比が $\theta$ に依存しないためには、分子・分母の $\cos\theta$ 係数で割った定数項が等しくなければならない。従って
 \begin{equation}
- y(u)=-\frac{\epsilon u^3}{6}+\frac{\epsilon^2u^6}{45}+O(\epsilon^3),\qquad
- y'(u)=-\frac{\epsilon u^2}{2}+\frac{2\epsilon^2u^5}{15}+O(\epsilon^3)
+ \frac{D^2+R^2}{2DR}=\frac{d^2+R^2}{2dR},\qquad
+ (D-d)(dD-R^2)=0.
 \end{equation}
-を得る。従って$X(\tau)=y(1)/\alpha$、$V_0/\lambda=y'(1)/(\alpha\epsilon)$を足した漸近展開は
+像電荷は空洞外にあるので $D>R>d$、従って
 \begin{equation}
- X(\infty)=-\frac{1}{2\alpha}-\frac{\lambda\tau}{30\alpha}
- +O\!\left(\frac{(\lambda\tau)^2}{\alpha}\right).
+ \boxed{D=\frac{R^2}{d}}.
 \end{equation}
-三次近似だけで得た箱内の一次係数$-1/6$は、$V_0$の次の補正を含めないため、この漸近展開の一次係数とは異なる。
+この鏡像電荷対だけのポテンシャルは $r=R$ で
+$\lambda\ln(R/d)/(2\pi\varepsilon_0)$ となる。接地条件 $\phi(R,\theta)=0$ を満たすため、この定数を引く。
+$D=R^2/d$ を代入してまとめると、空洞内 ($r<R$) のポテンシャルは
+\begin{equation}
+ \boxed{\phi(r,\theta)=\frac{\lambda}{4\pi\varepsilon_0}
+ \ln\left[
+ \frac{d^2r^2/R^2+R^2-2dr\cos\theta}
+ {d^2+r^2-2dr\cos\theta}\right].}
+\end{equation}
+$r=R$ では分子と分母が等しく、対数の中身が1となるため、接地条件を満たす。加えた定数は電場および誘導面電荷密度には影響しない。
 
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,scale=1.2,font=\small]
-  \pgfmathsetmacro{\ringX}{0.8}
-  \pgfmathsetmacro{\ringR}{0.65}
-  \pgfmathsetmacro{\arcStart}{10}
-  \pgfmathsetmacro{\arcEnd}{100}
-  \draw[->] (-2,0)--(2.2,0) node[right] {$x$};
-  \draw[->] (0,-1.4)--(0,1.5) node[above] {$y$};
-  \draw[thick] (\ringX,0) circle (\ringR);
-  \fill (\ringX,0) circle (1.2pt);
-  \node[below] at (\ringX,0) {$X$};
-  \draw[->,blue,thick] (\ringX,0) ++({\ringR*cos(\arcStart)},{\ringR*sin(\arcStart)})
-    arc[start angle=\arcStart,end angle=\arcEnd,radius=\ringR];
-  \node[blue] at (1.7,0.55) {$I>0$};
-  \draw (0.2,0.75) circle (0.08);
-  \fill (0.2,0.75) circle (1.5pt);
-  \node[right] at (0.3,0.75) {$+z$};
-  \draw[->,red,thick] (\ringX,-0.95)--({\ringX+1},-0.95) node[right] {$V>0$};
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+ \def\R{1.35}
+ \def\eta{0.32}
+ \pgfmathsetmacro{\d}{\eta*\R}
+ \pgfmathsetmacro{\D}{\R/\eta}
+ \pgfmathsetmacro{\rx}{\R*cos(140)}
+ \pgfmathsetmacro{\ry}{\R*sin(140)}
+ \draw[dashed] (0,0) circle (\R);
+ \draw[->] (-1.7,0)--({\D+0.65},0) node[right] {$x$};
+ \draw[->] (0,-1.7)--(0,1.7) node[above] {$y$};
+ \fill (\d,0) circle (2pt);
+ \node[above] at (\d,0.12) {$+\lambda$};
+ \fill (\D,0) circle (2pt);
+ \node[above] at (\D,0.12) {$-\lambda$};
+ \draw[<->] (0,-0.3)--(\d,-0.3) node[midway,below] {$d$};
+ \draw[->] (0,0)--(\rx,\ry);
+ \node at (-0.35,0.75) {$R$};
+ \node[anchor=north] at ({(\R+\D)/2},-0.28) {$D=R^2/d$};
+ \node[above left] at ({1.4*\rx},{1.4*\ry}) {$r=R$};
 \end{tikzpicture}
-\caption{磁束と電流の符号規約。紙面の手前が$+z$、正電流はその向きから見て反時計回り。}
-\label{fig:ring}
-\end{figure}
+\end{center}
+
+\section*{[4] 誘導面電荷密度}
+境界では原問の法線規約により $\sigma(\theta)=\varepsilon_0\partial_r\phi|_{r=R}$ である。上のポテンシャルを微分し、$D=R^2/d$ を代入すると
+\begin{align}
+ \sigma(\theta)
+ &=\frac{\lambda}{4\pi}\left[
+ \frac{2d^2/R-2d\cos\theta}{d^2+R^2-2dR\cos\theta}
+ -\frac{2R-2d\cos\theta}{d^2+R^2-2dR\cos\theta}\right]\\
+ &=\boxed{-\frac{\lambda(R^2-d^2)}
+ {2\pi R(R^2+d^2-2Rd\cos\theta)}}.
+\end{align}
+正の線電荷に対して誘起面電荷は全周で負であり、最も近い $\theta=0$ 側で絶対値が最大となる。
+
+\section*{[5] 誘起電荷の全量}
+$a=d/R<1$ と置くと
+\begin{equation}
+ \sigma(\theta)=-\frac{\lambda}{2\pi R}
+ \frac{1-a^2}{1-2a\cos\theta+a^2}
+ =-\frac{\lambda}{2\pi R}
+ \left(1+2\sum_{n=1}^{\infty}a^n\cos n\theta\right).
+\end{equation}
+各余弦の一周積分は0なので、円筒内側面の単位長さ当たり電荷は
+\begin{equation}
+ \boxed{R\int_0^{2\pi}\sigma(\theta)\,d\theta=-\lambda}.
+\end{equation}
+
+\section*{[6] 面密度測定から位置を求める}
+線電荷の角度が $\psi$ の場合、[4]の式は
+\begin{equation}
+ \sigma(\theta)=-\frac{\lambda}{2\pi R}
+ \left[1+2\frac dR\cos(\theta-\psi)\right]
+ +O\!\left((d/R)^2\right)
+\end{equation}
+となる。以下の対向点の和・差と位置の復元も $d/R$ の一次までであり、対向点で和と差を取れば定数項と反対称な成分を分離できる。
+\begin{align}
+ \sigma_1-\sigma_3&=-\frac{2\lambda d}{\pi R^2}\cos\psi,&
+ \sigma_1+\sigma_3&=-\frac{\lambda}{\pi R},\\
+ \sigma_2-\sigma_4&=-\frac{2\lambda d}{\pi R^2}\sin\psi,&
+ \sigma_2+\sigma_4&=-\frac{\lambda}{\pi R}.
+\end{align}
+従って、$x_0=d\cos\psi$, $y_0=d\sin\psi$ より
+\begin{equation}
+ \boxed{x_0=\frac R2\frac{\sigma_1-\sigma_3}{\sigma_1+\sigma_3},\qquad
+ y_0=\frac R2\frac{\sigma_2-\sigma_4}{\sigma_2+\sigma_4}.}
+\end{equation}
 
 \end{document}

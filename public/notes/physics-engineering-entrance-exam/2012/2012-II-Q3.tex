@@ -1,4 +1,4 @@
-% Source problem: 2012ap_exam.pdf, PDF pp. 9--10.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h24ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,102 +10,131 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2012年 物理学II 第3問}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2012年度 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-領域II ($|x|<d$) の屈折率を $n_2$、領域I・III ($|x|>d$) の屈折率を $n_1<n_2$ とする。界面に平行な $z$ 方向の波数を $\beta>0$ とし、原本の位相因子 $e^{i(\omega t-\beta z)}$ を用いる。
+全設問で時間依存を $e^{-i\omega t}$ とする。$\boldsymbol H$ は $y$ 成分のみを持ち、電場は $x,z$ 成分を持つTM波である。媒質 $j$ では $\boldsymbol D=\epsilon_j\boldsymbol E$、$\boldsymbol B=\mu_0\boldsymbol H$。
 
-\section*{[1] 閉じ込め条件}
-界面に沿う波数成分は境界で連続である。コア内の波数の大きさは $k_0n_2$ なので $\beta=k_0n_2\sin\theta$ である。クラッドで $x$ 方向に伝搬せず減衰するには、その媒質中の全波数 $k_0n_1$ より界面平行成分が大きくなければならない。一方コア内では横方向に振動するので
-\begin{equation}
-  \boxed{k_0n_1<\beta<k_0n_2.}
-\end{equation}
-下端ではクラッドの減衰率が0、上端ではコアの横波数が0となり、いずれも束縛モードの条件から外れる。
-
-\section*{[2] Maxwell方程式}
-媒質 $j$ では $\epsilon_j=\epsilon_0n_j^2$、$\mu=\mu_0$ とする。$z$ 依存は $\partial/\partial z=-i\beta$ なので、$\nabla\times\boldsymbol E=-i\omega\mu_0\boldsymbol H$ と $\nabla\times\boldsymbol H=i\omega\epsilon_j\boldsymbol E$ の成分比較から
+\section*{[1] 全反射と真空中の減衰波}
+電場は電荷のない一様媒質中で $\operatorname{div}\boldsymbol E=0$ を満たす。Faraday則 $\operatorname{rot}\boldsymbol E=i\omega\boldsymbol B$ と Amp\`ere則 $\operatorname{rot}\boldsymbol H=-i\omega\boldsymbol D$ を用いると、
 \begin{align}
-  E_y'&=-i\mu_0\omega H_z, &
-  H_x&=-\frac{\beta}{\mu_0\omega}E_y,\\
-  H_y&=0, &
-  H_z'&=i\left(\frac{\beta^2}{\mu_0\omega}-\epsilon_j\omega\right)E_y.
+  \operatorname{rot}(\operatorname{rot}\boldsymbol E)
+  &=i\omega\mu_0\operatorname{rot}\boldsymbol H
+   =\mu_0\epsilon_j\omega^2\boldsymbol E,\\
+  -\Delta\boldsymbol E&=\mu_0\epsilon_j\omega^2\boldsymbol E.
 \end{align}
-ここで $H_y$ は $\beta>0$ による成分式から0であり、Maxwell方程式の残りの成分とも整合する。
+よって平面波の波数は $k_x^2+k_z^2=\epsilon_j\mu_0\omega^2$ に従う。媒質1では $\epsilon_1\mu_0=n^2/c^2$ だから、入射波の $z$ 成分は
+\begin{equation}
+  \boxed{k_1=\sqrt{\frac{n^2\omega^2}{c^2}-k_x^2}}.
+\end{equation}
+真空側の場 $e^{ik_xx-\kappa_2z}$ を平面波の式に代入すると、$z$ 波数は $i\kappa_2$ であるため
+\begin{equation}
+  k_x^2-\kappa_2^2=\frac{\omega^2}{c^2},\qquad
+  \boxed{\kappa_2=\sqrt{k_x^2-\frac{\omega^2}{c^2}}}.
+\end{equation}
+入射側に伝播波があり $k_1>0$、透過側で減衰するため $\kappa_2>0$ でなければならない。従って
+\begin{equation}
+  \boxed{\frac{\omega}{c}<k_x<\frac{n\omega}{c}}.
+\end{equation}
+下端は真空側の減衰条件、上端は媒質1側の入射波の伝播条件から来る。端点ではそれぞれ $\kappa_2=0$ または $k_1=0$ となるので、指定された狭義の条件には含まれない。
 
-\section*{[3] $H_z$ は恒等的にゼロにはならない}
-領域IIで $H_z$ が恒等的にゼロであると仮定する。このとき $H_z'=0$ なので、[2]の成分式より
+\section*{[2] 媒質間の無反射透過}
+平面波 $e^{i(k_xx+k_jz)}$ では $\boldsymbol k_j=(k_x,0,k_j)$ である。$\operatorname{div}\boldsymbol D=0$ より
 \begin{equation}
- 0=\frac{i}{\mu_0\omega}(\beta^2-k_0^2n_2^2)E_y.
+  k_xE_{j,x}+k_jE_{j,z}=0,
+  \qquad E_{j,z}=-\frac{k_x}{k_j}E_{j,x}.
 \end{equation}
-[1]の $\beta<k_0n_2$ より括弧内は非零であり、領域IIで $E_y$ も恒等的にゼロとなる。さらに $H_x=-\beta E_y/(\mu_0\omega)$ と $H_y=0$ より、同領域の電磁場はすべてゼロとなり、非自明な場が伝搬することに反する。従って
-\begin{equation}
-  \boxed{H_z\not\equiv0\qquad(-d<x<d).}
-\end{equation}
-
-\section*{[4] 電場の波動方程式}
-[2]の式を微分すると $E_y''=-i\mu_0\omega H_z'$ であるから
-\begin{equation}
-  \boxed{\frac{d^2E_y}{dx^2}+
-  (k_0^2n_j^2-\beta^2)E_y=0,\qquad
-  j=\begin{cases}1&(|x|>d),\\2&(|x|<d).\end{cases}}
-\end{equation}
-コアでは $k=\sqrt{k_0^2n_2^2-\beta^2}>0$、クラッドでは $\kappa=\sqrt{\beta^2-k_0^2n_1^2}>0$ とおく。
-
-\section*{[5] 偶対称固有モード}
-コア内の偶関数解と外側で減衰する解を
-\begin{equation}
- E_y(x)=\begin{cases}
-  a\cos(kx),& |x|<d,\\
-  a\cos(kd)e^{-\kappa(|x|-d)},& |x|\ge d
- \end{cases}
-\end{equation}
-と置く。$E_y$ の連続性は外側の振幅を上式のように定める。$x=d$ で微分も連続する条件は
-\begin{equation}
-  -ak\sin(kd)=-a\kappa\cos(kd),\qquad
-  k\tan(kd)=\kappa.
-\end{equation}
-従って
-\begin{equation}
-  \boxed{A(\beta)=kd=d\sqrt{k_0^2n_2^2-\beta^2},\qquad
-  B(\beta)=\frac{\kappa}{k}
-  =\sqrt{\frac{\beta^2-k_0^2n_1^2}{k_0^2n_2^2-\beta^2}},\qquad
-  \tan A=B.}
-\end{equation}
-
-\section*{[6] 固有値と単一モード条件}
-$B>0$ だから $\arctan B$ は $(-\pi/2,\pi/2)$ にあり、$\tan A=B$ は
-\begin{equation}
-  F(\beta)=A(\beta)-\arctan B(\beta)=m\pi,
-  \qquad m\in\mathbb Z
-\end{equation}
-と同値である。許容区間 $k_0n_1<\beta<k_0n_2$ で $A$ は減少し、$B$ は増加するため $F$ は単調減少する。端点極限は
+また $\operatorname{rot}\boldsymbol E=i\omega\mu_0\boldsymbol H$ の $y$ 成分をとると
 \begin{align}
-  \lim_{\beta\to k_0n_1+}F(\beta)&=A_{\max}
-    =k_0d\sqrt{n_2^2-n_1^2}>0,\\
-  \lim_{\beta\to k_0n_2-}F(\beta)&=-\frac{\pi}{2}.
+  k_jE_{j,x}-k_xE_{j,z}&=\omega\mu_0 H_{j,y},\\
+  \omega\mu_0 H_{j,y}&=\frac{k_x^2+k_j^2}{k_j}E_{j,x}
+   =\frac{\epsilon_j\mu_0\omega^2}{k_j}E_{j,x}.
 \end{align}
-よって $F=0$ を満たす偶対称モードは必ず少なくとも1つある。$F$ の値域に $\pi$ が含まれるのは $A_{\max}>\pi$ のときで、その場合にはもう1つの偶モードが存在する。従って偶モードが1つだけとなる正確な条件は
+したがって各媒質の電場・磁場比は
 \begin{equation}
-  \boxed{k_0d\sqrt{n_2^2-n_1^2}\le\pi.}
+  \boxed{\zeta_j=\frac{E_{j,x}}{H_{j,y}}=\frac{k_j}{\epsilon_j\omega}}.
 \end{equation}
-等号では $F=\pi$ は $\beta=k_0n_1$ という許容区間外の端でしか達しないため、追加の減衰束縛モードはない。
+反射がないとき接線成分 $E_x,H_y$ は界面で連続なので $\zeta_1=\zeta_2$、すなわち $k_1/\epsilon_1=k_2/\epsilon_2$ である。分散関係
+\begin{equation}
+  k_1^2=\epsilon_1\mu_0\omega^2-k_x^2,\qquad
+  k_2^2=\epsilon_2\mu_0\omega^2-k_x^2
+\end{equation}
+を用いると
+\begin{align}
+  \frac{\epsilon_1\mu_0\omega^2-k_x^2}{\epsilon_1^2}
+  &=\frac{\epsilon_2\mu_0\omega^2-k_x^2}{\epsilon_2^2},\\
+  \boxed{k_x^2=\frac{\mu_0\omega^2\epsilon_1\epsilon_2}{\epsilon_1+\epsilon_2}},\qquad
+  \boxed{k_x=\omega\sqrt{\frac{\mu_0\epsilon_1\epsilon_2}{\epsilon_1+\epsilon_2}}}.
+\end{align}
+この波数が入射側の伝播条件 $k_x^2<\epsilon_1\mu_0\omega^2$ と透過側の条件 $k_x^2<\epsilon_2\mu_0\omega^2$ を満たすことを確認できる。実際、$\epsilon_2>\epsilon_1>0$ のとき比はそれぞれ $\epsilon_2/(\epsilon_1+\epsilon_2)<1$、$\epsilon_1/(\epsilon_1+\epsilon_2)<1$ であり、$k_1,k_2$ は正の実数となる。接線電場・磁場を同時に連続にするこの入射成分では、反射波の振幅はゼロとなる。
 
-単一モード時はコア内に節のない偶関数形となり、両クラッドへ指数関数的に減衰する。図では横座標を $x/d$、縦座標を $E_y/E_y(0)$ とし、例として $kd=\kappa d=\pi/4$ を選ぶ。この組は界面条件 $k\tan(kd)=\kappa$ を満たし、上で定めた $A=kd=\pi/4$、$B=\kappa/k=1$ に対応する（例えば $\beta d=2$ とすれば、対応する屈折率比も $n_1<n_2$ となる）。
-\begin{center}
-\begin{tikzpicture}[x=1.4cm,y=1.15cm,>=Stealth]
-  \draw[->] (-3.4,0)--(3.6,0) node[right] {$x/d$};
-  \draw[->] (0,-0.1)--(0,1.35) node[above] {$E_y/E_y(0)$};
-  \draw[dashed] (-1,0)--(-1,1.2);
-  \draw[dashed] (1,0)--(1,1.2);
-  \node[below] at (-1,0) {$-1$};
-  \node[below] at (1,0) {$1$};
-  \draw[thick] plot[domain=-3.2:-1,samples=60] (\x,{cos(45)*exp(pi/4*(\x+1))});
-  \draw[thick] plot[domain=-1:1,samples=80] (\x,{cos(45*\x)});
-  \draw[thick] plot[domain=1:3.2,samples=60] (\x,{cos(45)*exp(-pi/4*(\x-1))});
+\section*{[3] 金属界面に束縛された波}
+$+x$ へ伝わる枝を選び、$k_x>0$ とする。逆向きの枝は同じ分散を持つ $-k_x$ で表される。
+$z<0$ の減衰因子は $e^{+\kappa_1z}=e^{ik_{z,1}z}$ に対応し、$k_{z,1}=-i\kappa_1$。一方、$z>0$ の因子 $e^{-\kappa_2z}$ は $k_{z,2}=+i\kappa_2$ に対応する。各媒質の分散関係から
+\begin{equation}
+  \kappa_1^2=k_x^2-\epsilon_0\mu_0\omega^2,\qquad
+  \kappa_2^2=k_x^2-\epsilon_2\mu_0\omega^2
+  =k_x^2+|\epsilon_2|\mu_0\omega^2.
+\end{equation}
+[2]で導いた $E_x/H_y=k_z/(\epsilon\omega)$ を両側に適用し、界面で接線成分を連続にすると
+\begin{equation}
+  -\frac{i\kappa_1}{\epsilon_0\omega}
+  =\frac{i\kappa_2}{\epsilon_2\omega},\qquad
+  \boxed{\frac{\kappa_1}{\kappa_2}=\frac{\epsilon_0}{|\epsilon_2|}}.
+\end{equation}
+この関係と分散関係を組み合わせれば
+\begin{align}
+  \frac{k_x^2-\epsilon_0\mu_0\omega^2}
+       {k_x^2+|\epsilon_2|\mu_0\omega^2}
+  &=\frac{\epsilon_0^2}{|\epsilon_2|^2},\\
+  \boxed{k_x^2} &=\frac{\mu_0\omega^2\epsilon_0|\epsilon_2|}
+                        {|\epsilon_2|-\epsilon_0},\\
+  \boxed{k_x} &=\omega\sqrt{\frac{\mu_0\epsilon_0|\epsilon_2|}
+                                      {|\epsilon_2|-\epsilon_0}}.
+\end{align}
+$|\epsilon_2|>\epsilon_0$ なので
+\begin{equation}
+  \boxed{k_x=\frac{\omega}{c}\sqrt{\frac{|\epsilon_2|}{|\epsilon_2|-\epsilon_0}}>
+  \frac{\omega}{c}}.
+\end{equation}
+この面内波数は真空中の伝播光の最大値 $\omega/c$ より大きい。したがってこのモードは界面に沿って進む一方、垂直方向には真空側・金属側の双方へ減衰する束縛波である。
+
+\section*{[4] プリズムによる励起}
+真空中から金属表面へ直接入射する伝播光は、界面に平行な波数が $k_x\leq\omega/c$ である。一方、[3]の表面波は $k_x>\omega/c$ を要するので、界面に平行な運動量が足りず、平坦な面では直接結合できない。
+
+屈折率 $n_{\mathrm p}>1$ のプリズムから界面の法線となす入射角 $\theta$ で光を入れると、界面に平行な波数は $k_x=n_{\mathrm p}(\omega/c)\sin\theta$ まで大きくなる。真空層との境界で全反射する角度を選べば、この高い面内波数を保ったエバネッセント場が真空ギャップへしみ出す。ギャップを金属表面の近くに狭く保つことで場が金属へ届き、さらに $k_x$ を[3]の表面波波数に合わせればそのモードを励起できる。つまりプリズムは、全反射場を介して伝播光では得られない面内波数を供給し、金属界面の束縛モードとの運動量整合を可能にする。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,scale=1.0]
+  \pgfmathsetmacro{\incidenceAngle}{55}
+  \pgfmathsetmacro{\rayLength}{1.05}
+  \pgfmathsetmacro{\hitX}{3.3}
+  \pgfmathsetmacro{\hitZ}{0.3}
+  \pgfmathsetmacro{\gapWidth}{0.5}
+  \pgfmathsetmacro{\metalX}{\hitX+\gapWidth}
+  \pgfmathsetmacro{\surfaceArrowX}{\metalX-0.04}
+  \pgfmathsetmacro{\rayStartX}{\hitX-\rayLength*cos(\incidenceAngle)}
+  \pgfmathsetmacro{\rayStartZ}{\hitZ-\rayLength*sin(\incidenceAngle)}
+  \pgfmathsetmacro{\rayEndX}{\hitX-\rayLength*cos(\incidenceAngle)}
+  \pgfmathsetmacro{\rayEndZ}{\hitZ+\rayLength*sin(\incidenceAngle)}
+  \draw[thick,fill=gray!15] (0,0) -- (3.3,1.5) -- (3.3,-1.5) -- cycle;
+  \draw[very thick] (\metalX,-1.6) -- (\metalX,1.6);
+  \node at (1.5,0.2) {プリズム};
+  \node[anchor=west] at (\metalX+0.25,1.25) {金属};
+  \node at (\hitX+\gapWidth/2,1.8) {真空ギャップ};
+  \draw[->,thick] (\rayStartX,\rayStartZ) -- (\hitX,\hitZ) node[midway,left] {入射光};
+  \draw[->,thick] (\hitX,\hitZ) -- (\rayEndX,\rayEndZ);
+  \draw[thick,dashed] (\hitX,\hitZ) -- (\metalX,\hitZ);
+  \draw[->,thick,blue] (\surfaceArrowX,-0.45) -- (\surfaceArrowX,1.0);
+  \node[anchor=west] at (\metalX+0.3,0.25) {界面に沿う表面波};
+  \draw[<->] (\hitX,-1.85) -- (\metalX,-1.85) node[midway,below] {狭い隙間};
 \end{tikzpicture}
-\end{center}
+\caption{全反射によるエバネッセント場を介したプリズム結合の模式図。点線はギャップ内にしみ出す場、青い矢印は金属界面に平行な表面波の進行方向を表す。入射角と長さは説明用で、臨界角や寸法を表さない。}
+\end{figure}
 
 \end{document}

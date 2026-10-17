@@ -1,122 +1,111 @@
-% Source problem: 2013ap_exam.pdf, PDF p. 10.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h25ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=23mm]{geometry}
+\usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2013年 物理学II 第3問}
+\title{物理工学専攻 院試解答集\\2013年度 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 電束密度}
-球の全電荷は $Q=4\pi a^2\sigma$ である。Gauss則を半径 $r>a$ の球面に適用すると
-\begin{equation}
- \boxed{\boldsymbol D(\boldsymbol r,t)=\sigma\frac{a^2}{r^2}\hat{\boldsymbol r},\qquad
- D(r,t)=|\sigma|\left(\frac{a}{r}\right)^2.}
-\end{equation}
-ここでは球中心を原点とする瞬間座標を用いた。
+領域II ($|x|<d$) の屈折率を $n_2$、領域I・III ($|x|>d$) の屈折率を $n_1<n_2$ とする。界面に平行な $z$ 方向の波数を $\beta>0$ とし、原本の位相因子 $e^{i(\omega t-\beta z)}$ を用いる。
 
-\section*{[2] 移動電荷の磁場}
-速度が $c$ より十分小さいとき、動く微小電荷 $dq$ による磁場は
-$d\boldsymbol H=(dq/4\pi)\,\boldsymbol v\times\hat{\boldsymbol R}/R^2$ である。電束密度への寄与は
-$d\boldsymbol D=(dq/4\pi)\hat{\boldsymbol R}/R^2$ なので、重ね合わせれば球外で
+\section*{[1] 閉じ込め条件}
+界面に沿う波数成分は境界で連続である。コア内の波数の大きさは $k_0n_2$ なので $\beta=k_0n_2\sin\theta$ である。クラッドで $x$ 方向に伝搬せず減衰するには、その媒質中の全波数 $k_0n_1$ より界面平行成分が大きくなければならない。一方コア内では横方向に振動するので
 \begin{equation}
- \boxed{\boldsymbol H=\boldsymbol v\times\boldsymbol D.}
+  \boxed{k_0n_1<\beta<k_0n_2.}
 \end{equation}
-移動する場は $\partial_t\boldsymbol D=-(\boldsymbol v\cdot\boldsymbol\nabla)\boldsymbol D$ を満たし、外部では $\boldsymbol\nabla\cdot\boldsymbol D=0$ である。一定ベクトル $\boldsymbol v$ に対し
-$\boldsymbol\nabla\times(\boldsymbol v\times\boldsymbol D)
-=\boldsymbol v(\boldsymbol\nabla\cdot\boldsymbol D)-(\boldsymbol v\cdot\boldsymbol\nabla)\boldsymbol D
-=\partial_t\boldsymbol D$ となり、Maxwell--Amp\`ere則とも整合する。
+下端ではクラッドの減衰率が0、上端ではコアの横波数が0となり、いずれも束縛モードの条件から外れる。
 
-\section*{[3] 円Cに沿う積分}
-$\boldsymbol v=v\boldsymbol e_x$ とし、$\theta$ を $\boldsymbol r$ と $+x$ 軸のなす角とする。球面座標の方位方向を $\boldsymbol e_\phi$ とすると
-\begin{equation}
- \boldsymbol H=H_\phi\boldsymbol e_\phi,\qquad
- H_\phi=\frac{\sigma a^2v\sin\theta}{r^2}.
-\end{equation}
-円Cの半径は $d=r\sin\theta$ で、$\boldsymbol H$ は円周に接する。周回方向を $\boldsymbol e_\phi$ とする。積分面 $S$ は、瞬間的な球中心を中心とする半径 $r>a$ の球面上で、極角 $0\leq\vartheta\leq\theta$ の球冠とし、法線を外向きに選ぶ。その境界は円Cであり、正の周回方向は $\boldsymbol e_\phi$ となる。この面は球殻を横切らないので
+\section*{[2] Maxwell方程式}
+媒質 $j$ では $\epsilon_j=\epsilon_0n_j^2$、$\mu=\mu_0$ とする。$z$ 依存は $\partial/\partial z=-i\beta$ なので、$\nabla\times\boldsymbol E=-i\omega\mu_0\boldsymbol H$ と $\nabla\times\boldsymbol H=i\omega\epsilon_j\boldsymbol E$ の成分比較から
 \begin{align}
- \oint_C\boldsymbol H\cdot d\boldsymbol\ell
- &=2\pi dH_\phi\\
- &=\int_S\frac{\partial\boldsymbol D}{\partial t}\cdot d\boldsymbol S
- =\boxed{\frac{2\pi\sigma a^2v\sin^2\theta}{r}}.
+  E_y'&=-i\mu_0\omega H_z, &
+  H_x&=-\frac{\beta}{\mu_0\omega}E_y,\\
+  H_y&=0, &
+  H_z'&=i\left(\frac{\beta^2}{\mu_0\omega}-\epsilon_j\omega\right)E_y.
 \end{align}
-円周積分と面積分を結ぶ等号はMaxwell--Amp\`ere則の積分形である。$S$ 上には伝導電流がなく、変位電流だけが寄与する。
+ここで $H_y$ は $\beta>0$ による成分式から0であり、Maxwell方程式の残りの成分とも整合する。
 
-\section*{[4] 円Cを縁とする面を貫く電束の変化}
-基準時刻に[3]の球冠面 $S$ を選び、その後は実験室に固定して電束の時間変化を求める。球冠面上では $\boldsymbol D=\sigma a^2\boldsymbol e_r/r^2$ なので、基準時刻の電束は
+\section*{[3] $H_z$ は恒等的にゼロにはならない}
+領域IIで $H_z$ が恒等的にゼロであると仮定する。このとき $H_z'=0$ なので、[2]の成分式より
 \begin{equation}
- \Psi=\int_S\boldsymbol D\cdot d\boldsymbol S
- =\sigma a^2\int_0^{2\pi}d\phi\int_0^\theta\sin\vartheta\,d\vartheta
- =2\pi\sigma a^2(1-\cos\theta).
+ 0=\frac{i}{\mu_0\omega}(\beta^2-k_0^2n_2^2)E_y.
 \end{equation}
-微分するときに球冠面を球と一緒に動かしてはならない。実験室に固定した点では球中心からの位置が $\partial_t\boldsymbol r=-v\boldsymbol e_x$ と変わる。その長さの時間微分は $\partial_t r=\boldsymbol e_r\cdot\partial_t\boldsymbol r=-v\cos\vartheta$ である。$\boldsymbol D=\sigma a^2\boldsymbol r/r^3$ に積の微分を適用すると
+[1]の $\beta<k_0n_2$ より括弧内は非零であり、領域IIで $E_y$ も恒等的にゼロとなる。さらに $H_x=-\beta E_y/(\mu_0\omega)$ と $H_y=0$ より、同領域の電磁場はすべてゼロとなり、非自明な場が伝搬することに反する。従って
+\begin{equation}
+  \boxed{H_z\not\equiv0\qquad(-d<x<d).}
+\end{equation}
+
+\section*{[4] 電場の波動方程式}
+[2]の式を微分すると $E_y''=-i\mu_0\omega H_z'$ であるから
+\begin{equation}
+  \boxed{\frac{d^2E_y}{dx^2}+
+  (k_0^2n_j^2-\beta^2)E_y=0,\qquad
+  j=\begin{cases}1&(|x|>d),\\2&(|x|<d).\end{cases}}
+\end{equation}
+コアでは $k=\sqrt{k_0^2n_2^2-\beta^2}>0$、クラッドでは $\kappa=\sqrt{\beta^2-k_0^2n_1^2}>0$ とおく。
+
+\section*{[5] 偶対称固有モード}
+コア内の偶関数解と外側で減衰する解を
+\begin{equation}
+ E_y(x)=\begin{cases}
+  a\cos(kx),& |x|<d,\\
+  a\cos(kd)e^{-\kappa(|x|-d)},& |x|\ge d
+ \end{cases}
+\end{equation}
+と置く。$E_y$ の連続性は外側の振幅を上式のように定める。$x=d$ で微分も連続する条件は
+\begin{equation}
+  -ak\sin(kd)=-a\kappa\cos(kd),\qquad
+  k\tan(kd)=\kappa.
+\end{equation}
+従って
+\begin{equation}
+  \boxed{A(\beta)=kd=d\sqrt{k_0^2n_2^2-\beta^2},\qquad
+  B(\beta)=\frac{\kappa}{k}
+  =\sqrt{\frac{\beta^2-k_0^2n_1^2}{k_0^2n_2^2-\beta^2}},\qquad
+  \tan A=B.}
+\end{equation}
+
+\section*{[6] 固有値と単一モード条件}
+$B>0$ だから $\arctan B$ は $(-\pi/2,\pi/2)$ にあり、$\tan A=B$ は
+\begin{equation}
+  F(\beta)=A(\beta)-\arctan B(\beta)=m\pi,
+  \qquad m\in\mathbb Z
+\end{equation}
+と同値である。許容区間 $k_0n_1<\beta<k_0n_2$ で $A$ は減少し、$B$ は増加するため $F$ は単調減少する。端点極限は
 \begin{align}
- \partial_t\boldsymbol D
- &=\sigma a^2\left(\frac{\partial_t\boldsymbol r}{r^3}
-       -\frac{3\boldsymbol r}{r^4}\partial_t r\right)\\
- &=\frac{\sigma a^2v}{r^3}
- \left(3\cos\vartheta\,\boldsymbol e_r-\boldsymbol e_x\right),\\
- \partial_t\boldsymbol D\cdot\boldsymbol e_r
- &=\frac{2\sigma a^2v\cos\vartheta}{r^3}.
+  \lim_{\beta\to k_0n_1+}F(\beta)&=A_{\max}
+    =k_0d\sqrt{n_2^2-n_1^2}>0,\\
+  \lim_{\beta\to k_0n_2-}F(\beta)&=-\frac{\pi}{2}.
 \end{align}
-従って、固定面を貫く電束の時間変化は
-\begin{align}
- \frac{d\Psi}{dt}
- &=\int_S\partial_t\boldsymbol D\cdot d\boldsymbol S\\
- &=\frac{2\sigma a^2v}{r^3}
-   \int_0^{2\pi}d\phi\int_0^\theta r^2\cos\vartheta\sin\vartheta\,d\vartheta
- =\frac{2\pi\sigma a^2v\sin^2\theta}{r}.
-\end{align}
-よって $\Delta t$ の一次までで
+よって $F=0$ を満たす偶対称モードは必ず少なくとも1つある。$F$ の値域に $\pi$ が含まれるのは $A_{\max}>\pi$ のときで、その場合にはもう1つの偶モードが存在する。従って偶モードが1つだけとなる正確な条件は
 \begin{equation}
- \boxed{\Delta\Psi=\frac{2\pi\sigma a^2v\sin^2\theta}{r}\Delta t
- =\frac{2\pi\sigma a^2v\sin^3\theta}{d}\Delta t.}
+  \boxed{k_0d\sqrt{n_2^2-n_1^2}\le\pi.}
 \end{equation}
-この面の選び方なら、$r>a$ の全ての極角で導出できる。円Cの平面円板を選ぶと球殻を横切る場合があり、その場合は伝導電流も含める必要がある。軸上の $\theta=0,\pi$ では円が縮み、上の値は0となる。
+等号では $F=\pi$ は $\beta=k_0n_1$ という許容区間外の端でしか達しないため、追加の減衰束縛モードはない。
 
-\section*{[5] 磁場の大きさ}
-[3]の円周積分を $2\pi d$ で割るか、[4]の電束変化率を使う。ここで割り算は円が縮まない $0<\theta<\pi$ で行い、軸上は連続極限で評価すると
-\begin{equation}
- \boxed{H(r,t)=\frac{|\Delta\Psi|}{2\pi d\Delta t}
- =\frac{|\sigma|a^2v\sin\theta}{r^2}.}
-\end{equation}
-磁場は $\sigma>0$ なら $+\boldsymbol e_\phi$、$\sigma<0$ なら $-\boldsymbol e_\phi$ を向く。軸上では上式の極限が $H=0$ を与える。
-
-\section*{[6] 磁気エネルギー密度}
-真空中では $\boldsymbol B=\mu_0\boldsymbol H$ なので
-\begin{equation}
- \boxed{u(\boldsymbol r,t)=\frac{B^2}{2\mu_0}
- =\frac12\mu_0H^2
- =\frac12\mu_0\sigma^2a^4v^2\frac{\sin^2\theta}{r^4}.}
-\end{equation}
-
-\section*{[7] 球外の磁気エネルギー}
-球外 $r>a$ の全空間で積分する。体積要素は $r^2\sin\theta\,dr\,d\theta\,d\phi$ なので
-\begin{align}
- U_{\rm mag}
- &=\frac12\mu_0\sigma^2a^4v^2
-   \int_a^\infty\frac{dr}{r^2}
-   \int_0^{2\pi}d\phi\int_0^\pi\sin^3\theta\,d\theta\\
- &=\frac12\mu_0\sigma^2a^4v^2\left(\frac1a\right)(2\pi)\left(\frac43\right)
- =\boxed{\frac{4\pi}{3}\mu_0\sigma^2a^3v^2}.
-\end{align}
-
-\section*{[8] 運動に伴う全エネルギー}
-磁気エネルギーを運動エネルギーに加えると
-\begin{equation}
- \boxed{E_{\rm tot}=\frac12m_0v^2+U_{\rm mag}
- =\frac12\left(m_0+\frac{8\pi}{3}\mu_0\sigma^2a^3\right)v^2.}
-\end{equation}
-したがって、この近似で運動に伴う有効質量は
-$m_{\rm eff}=m_0+8\pi\mu_0\sigma^2a^3/3$ と書ける。
-
-球が動くと電束密度の時間変化が磁場を作り、その磁場はエネルギーを持つ。この磁気エネルギーは速さの二乗に比例するので、運動エネルギーへ加えると質量の増加分として表せる。外力は物質の球だけでなく、運動に伴う磁場も作る仕事をする。ここで扱うのは運動に伴うエネルギーであり、電気的自己エネルギーは含めない。
+単一モード時はコア内に節のない偶関数形となり、両クラッドへ指数関数的に減衰する。図では横座標を $x/d$、縦座標を $E_y/E_y(0)$ とし、例として $kd=\kappa d=\pi/4$ を選ぶ。この組は界面条件 $k\tan(kd)=\kappa$ を満たし、上で定めた $A=kd=\pi/4$、$B=\kappa/k=1$ に対応する（例えば $\beta d=2$ とすれば、対応する屈折率比も $n_1<n_2$ となる）。
+\begin{center}
+\begin{tikzpicture}[x=1.4cm,y=1.15cm,>=Stealth]
+  \draw[->] (-3.4,0)--(3.6,0) node[right] {$x/d$};
+  \draw[->] (0,-0.1)--(0,1.35) node[above] {$E_y/E_y(0)$};
+  \draw[dashed] (-1,0)--(-1,1.2);
+  \draw[dashed] (1,0)--(1,1.2);
+  \node[below] at (-1,0) {$-1$};
+  \node[below] at (1,0) {$1$};
+  \draw[thick] plot[domain=-3.2:-1,samples=60] (\x,{cos(45)*exp(pi/4*(\x+1))});
+  \draw[thick] plot[domain=-1:1,samples=80] (\x,{cos(45*\x)});
+  \draw[thick] plot[domain=1:3.2,samples=60] (\x,{cos(45)*exp(-pi/4*(\x-1))});
+\end{tikzpicture}
+\end{center}
 
 \end{document}

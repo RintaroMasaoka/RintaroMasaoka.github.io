@@ -1,84 +1,137 @@
-% Source problem: public/notes/物工/問題/2017ap_exam.pdf, page 8.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h29ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2017年 物理学II 第2問}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2017年度 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 配置数とエントロピー}
-$N$個の分子を$M$個のセルのうち異なる$N$個に置くので、配置数は
+長さ$a$の棒$N$本をそれぞれ右または左に向ける。右向きを正とし、右向きの本数を$n^+$、左向きの本数を$n^-$とすると
 \begin{equation}
- W=\binom{M}{N}=\frac{M!}{N!(M-N)!}.
+ n^++n^-=N,\qquad n=n^+-n^-,\qquad X=an.
 \end{equation}
-Stirling近似を使うと
+従って$n$は$-N,-N+2,\ldots,N$の値をとる。棒の向きを一本ずつ足し合わせた終点が$X$である。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,scale=0.85]
+ \draw[->] (0,0)--(7.2,0) node[right] {$x$};
+ \fill (0,0) circle (2pt) node[below left] {始点 $0$};
+ \pgfmathsetmacro{\xsum}{0}
+ \pgfmathsetmacro{\ystart}{0.2}
+ \draw[dashed,gray] (0,0)--(\xsum,\ystart);
+ \foreach \step/\sign in {1/1,2/1,3/-1,4/1,5/-1} {
+   \pgfmathsetmacro{\y}{\ystart+0.3*(\step-1)}
+   \pgfmathsetmacro{\xnext}{\xsum+2*\sign}
+   \ifnum\sign=1
+     \draw[->,thick,blue] (\xsum,\y)--(\xnext,\y);
+   \else
+     \draw[->,thick,red] (\xsum,\y)--(\xnext,\y);
+   \fi
+   \ifnum\step<5
+     \pgfmathsetmacro{\ynext}{\y+0.3}
+     \draw[dashed,gray] (\xnext,\y)--(\xnext,\ynext);
+   \fi
+   \pgfmathsetmacro{\xsum}{\xnext}
+ }
+ \draw[dashed] (\xsum,1.4)--(\xsum,-0.25);
+ \fill (\xsum,0) circle (2pt) node[below right] {終点 $X=a$};
+ \node[blue] at (5.0,0.85) {右向き};
+ \node[red] at (5.0,1.45) {左向き};
+\end{tikzpicture}
+\caption{右向き3本、左向き2本の変位を順に足した例。縦方向に並べた各矢印は、左右いずれかの変位 $\pm a$ を表す。}
+\end{figure}
+
+\section*{[1] 終点の確率とエントロピー}
+向きの列は各棒に二通りあるため、全微視状態数は$2^N$である。終点が$X=na$になるには
+\begin{equation}
+ n^+=\frac{N+n}{2},\qquad n^-=\frac{N-n}{2}
+\end{equation}
+でなければならず、$N-n$が偶数である。該当する列の数は、$N$個の場所から右向きの$n^+$個を選ぶ組合せ数
+\begin{equation}
+ \Omega(n)=\frac{N!}{n^+!n^-!}
+\end{equation}
+なので
+\begin{equation}
+ P(n)=\frac{\Omega(n)}{2^N}
+ =\frac{1}{2^N}\frac{N!}{[(N+n)/2]![(N-n)/2]!}.
+\end{equation}
+これは二項分布の全確率であり、許される$n$について$\sum_nP(n)=1$となる。
+
+終点を固定した分子のエントロピーはボルツマンの式$S=k_B\ln\Omega$である。Stirling近似を$n^+,n^-\gg1$で使うと
 \begin{align}
- S&=k_B\ln W\\
- &=k_B\{M\ln M-N\ln N-(M-N)\ln(M-N)\}\\
- &=-Mk_B\left[\phi\ln\phi+(1-\phi)\ln(1-\phi)\right],
- \qquad \phi=\frac NM.
+ S&\simeq k_B\{N\ln N-n^+\ln n^+-n^-\ln n^-\}\\
+ &=k_B\left\{N\ln N-\frac{N+n}{2}\ln\frac{N+n}{2}
+                      -\frac{N-n}{2}\ln\frac{N-n}{2}\right\}.
 \end{align}
+全列数$2^N$は全ての終点を合わせた状態数であり、固定した終点のエントロピーにはその終点を実現する組合せ数$\Omega(n)$を使う。
 
-\section*{[1.2] 圧力と理想気体との比較}
-相互作用がないため$F_0=-TS$である。$v$を一定に保って$V$を変えると、$M=V/v$かつ$\phi=vN/V$も変わる。$f(\phi)=\phi\ln\phi+(1-\phi)\ln(1-\phi)$と置けば
+\section*{[2] 伸長に必要な力}
+各微視状態のエネルギーが同じなので、固定された$X$でのヘルムホルツ自由エネルギーは定数から$F=-TS$である。$n^\pm=(N\pm X/a)/2$を用いてエントロピーを$X$で微分すると
 \begin{equation}
- F_0=\frac{k_BT V}{v}f(\phi),\qquad
- \left(\frac{\partial\phi}{\partial V}\right)_{N}=-\frac{\phi}{V}.
+ \left(\frac{\partial S}{\partial X}\right)_T
+ =\frac{k_B}{2a}\ln\frac{n^-}{n^+}.
 \end{equation}
-従って
-\begin{align}
- p_0=-\left(\frac{\partial F_0}{\partial V}\right)_{T,N}
- &=-\frac{k_BT}{v}\left[f(\phi)-\phi f'(\phi)\right]\\
- &=-\frac{k_BT}{v}\ln(1-\phi)
- =\boxed{-\frac{k_BT}{v}\ln\left(1-\frac{vN}{V}\right)}.
-\end{align}
-$0<\phi<1$では対数の展開から
+従って問題の定義による張力は
 \begin{equation}
- p_0=\frac{k_BT}{v}\left(\phi+\frac{\phi^2}{2}+\cdots\right)
- =\frac{k_BNT}{V}+\frac{k_BTvN^2}{2V^2}+\cdots.
+ \boxed{\tau=\left(\frac{\partial F}{\partial X}\right)_T
+ =\frac{k_BT}{2a}\ln\frac{n^+}{n^-}
+ =\frac{k_BT}{2a}\ln\frac{Na+X}{Na-X}}.
 \end{equation}
-希薄極限の一次項は$p_{\rm id}=k_BNT/V$に一致する。有限密度ではセルの二重占有が禁じられているため、自由に使える空きセルが減って圧力は理想気体より大きくなる。
+$0<X<Na$では$\tau>0$であり、分子を伸ばした状態を保つには右向きに引く必要がある。$X\ll Na$では$\ln[(1+y)/(1-y)]=2y+O(y^3)$より
+\begin{equation}
+ \boxed{\tau=\frac{k_BT}{a^2N}X+O\!\left(\frac{k_BT X^3}{a^4N^3}\right)}.
+\end{equation}
+小伸長では有効ばね定数$k_BT/(Na^2)$に比例する復元応答となる。
 
-\section*{[2.1] 平均場化学ポテンシャル}
-[1.1]のエントロピーと与えられた平均場エネルギーより
+\section*{[3] 外場中の分配関数と平均値}
+右向きと左向きの棒のエネルギーはそれぞれ$-\kappa,+\kappa$である。一本の分配関数は$e^{\beta\kappa}+e^{-\beta\kappa}=2\cosh(\beta\kappa)$なので、独立な$N$本について
 \begin{equation}
- F(\phi)=-\frac12 Mz\alpha\phi^2+Mk_BT\left[\phi\ln\phi+(1-\phi)\ln(1-\phi)\right].
+ Z(\beta)=(2\cosh\beta\kappa)^N,\qquad \beta=\frac1{k_BT}.
 \end{equation}
-$N=M\phi$なので、$M$を固定したまま$\mu=(\partial F/\partial N)_T=M^{-1}(\partial F/\partial\phi)_T$を計算すると
+平均エネルギーは$-\partial_\beta\ln Z$から
 \begin{equation}
- \boxed{\mu(\phi)=-\alpha z\phi+k_BT\left[\ln\phi-\ln(1-\phi)\right]}.
+ \langle E\rangle=-N\kappa\tanh(\beta\kappa).
 \end{equation}
-第一項は近接分子間の引力による寄与、対数項は占有数の制約によるエントロピーの寄与である。
+また各棒のエネルギーと変位には$E_i=-(\kappa/a)\Delta X_i$の関係があるため、$\kappa\ne0$では$\langle X\rangle=-(a/\kappa)\langle E\rangle$であり、直接数えても同じく
+\begin{equation}
+ \langle X\rangle=Na\tanh(\beta\kappa)
+\end{equation}
+となる。$|\kappa|\ll k_BT$で$\tanh y=y+O(y^3)$を使うと
+\begin{equation}
+ \langle E\rangle=-\frac{N\kappa^2}{k_BT}
+ +O\!\left(\frac{N\kappa^4}{(k_BT)^3}\right),\qquad
+ \langle X\rangle=\frac{Na\kappa}{k_BT}
+ +O\!\left(\frac{Na\kappa^3}{(k_BT)^3}\right).
+\end{equation}
+$\kappa=0$でも両者の極限はゼロである。
 
-\section*{[2.2] 化学ポテンシャルが単調増加する温度}
+\section*{[4] ゆらぎ}
+正準分布では$\partial_\beta^2\ln Z=\langle E^2\rangle-\langle E\rangle^2$なので
 \begin{equation}
- \mu'(\phi)=-\alpha z+\frac{k_BT}{\phi(1-\phi)}.
+ \boxed{\langle E^2\rangle-\langle E\rangle^2
+ =N\kappa^2\operatorname{sech}^2(\beta\kappa)}.
 \end{equation}
-$0<\phi<1$における$\phi(1-\phi)$の最大値は$1/4$である。よって$\mu'(\phi)\ge0$が全域で成り立つ条件は
+一本の棒の変位$\Delta X_i$は$\pm a$を取り、平均は$a\tanh(\beta\kappa)$、二乗平均は$a^2$である。従って
 \begin{equation}
- \boxed{T\ge T_c\equiv\frac{\alpha z}{4k_B}}.
+ \operatorname{Var}(\Delta X_i)
+ =a^2-a^2\tanh^2(\beta\kappa)
+ =a^2\operatorname{sech}^2(\beta\kappa).
 \end{equation}
-$T>T_c$では導関数は常に正であり、$T=T_c$では$\phi=1/2$の一点だけでゼロ、それ以外では正である。従って臨界温度でも$\mu(\phi)$は区間全体で厳密に増加する。
-
-\section*{[2.3] 三つの密度と相分離}
-$T<T_c$では$\mu'(\phi)=0$となる密度が二つあり、その間で$\mu$は減少する。このS字形の曲線では、極小値と極大値の間のある化学ポテンシャルに対し、同じ$\mu$を与える密度が三つ現れる。同じ大きさ$M$の二領域に粒子を$N+\delta N$と$N-\delta N$だけ分けたとき、均等な配置との差は
+各棒は独立なので、終点の分散は$N$本の分散を足して
 \begin{equation}
- F(N+\delta N)+F(N-\delta N)-2F(N)
- =F''(N)(\delta N)^2+O((\delta N)^4)
+ \boxed{\langle X^2\rangle-\langle X\rangle^2
+ =Na^2\operatorname{sech}^2(\beta\kappa)}.
 \end{equation}
-である。各$F$は同じ$M,T$で評価する。したがって安定な一様相では$F''(N)=\partial\mu/\partial N\ge0$が必要である。中央の枝では$\partial\mu/\partial N=M^{-1}\mu'(\phi)<0$となり、粒子を偏らせると自由エネルギーが下がるため、この安定性条件に反する。
-
-安定な平衡では、組成に応じて低密度相と高密度相に分かれることがある。$g(\phi)=F(\phi)/M$をセルあたりの自由エネルギーとすれば、共存密度$\phi_g,\phi_l$は
-\begin{equation}
- g'(\phi_g)=g'(\phi_l)=\mu_{\rm coex},\qquad
- g(\phi_l)-g(\phi_g)=\mu_{\rm coex}(\phi_l-\phi_g)
-\end{equation}
-を満たす。第一式は両相の化学ポテンシャルの等値、第二式は二点を結ぶ直線の傾きが共通の接線勾配に等しいことを表す。固定セル体積$v$では圧力は$p=(\phi\mu-g)/v$なので、二式を合わせると圧力も等しい。第二式を積分形に直すと$\int_{\phi_g}^{\phi_l}[\mu(\phi)-\mu_{\rm coex}]\,d\phi=0$となり、Maxwellの等面積則を得る。これが液体と気体の相分離に対応する。三つの解は三相が同時に共存することを意味せず、両端の局所的に安定な枝と中央の不安定枝を表している。
+両分散は非負で、$\kappa=0$ではエネルギー分散は0、終点の分散は$Na^2$である。固定した$\kappa\ne0$に対して$T\to0$とすると、両分散はゼロに近づく。
 \end{document}

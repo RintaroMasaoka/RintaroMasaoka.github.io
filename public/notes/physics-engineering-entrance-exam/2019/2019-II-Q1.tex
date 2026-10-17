@@ -1,0 +1,92 @@
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h31ap_exam.pdf
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集\\2019年度 物理学II 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] デルタ関数障壁での境界条件}
+波動関数が原点で跳ぶと、その一階微分には$\delta(x)$、二階微分にはその導関数$\delta'(x)$に比例する項が現れる。ポテンシャル項$\alpha\delta(x)\psi(x)$には$\delta'(x)$の項がなく、運動エネルギー項のそれを相殺できない。従って波動関数は連続である。シュレーディンガー方程式を$[-\epsilon,\epsilon]$で積分すると
+\begin{equation}
+ -\frac{\hbar^2}{2m}\left[\psi'(\epsilon)-\psi'(-\epsilon)\right]
+ +\alpha\psi(0)=E\int_{-\epsilon}^{\epsilon}\psi(x)\,dx.
+\end{equation}
+$\epsilon\to0$では右辺がゼロに近づくため、
+\begin{equation}
+ \boxed{\psi(0^+)=\psi(0^-)},\qquad
+ \boxed{\psi'(0^+)-\psi'(0^-)=\frac{2m\alpha}{\hbar^2}\psi(0)}.
+\end{equation}
+第2式はデルタ関数ポテンシャルの強さに比例する微分の跳びである。
+
+\section*{[1.2] 透過・反射振幅}
+左から入射する定常波を
+\begin{equation}
+ \psi(x)=\begin{cases}e^{ikx}+re^{-ikx},&x<0,\\ te^{ikx},&x>0\end{cases}
+\end{equation}
+とする。連続条件と微分の跳び条件より
+\begin{equation}
+ 1+r=t,\qquad ikt-ik(1-r)=2kCt.
+\end{equation}
+$C=m\alpha/(\hbar^2k)$を用いて解くと
+\begin{equation}
+ \boxed{r=\frac{C}{i-C}},\qquad
+ \boxed{t=\frac{i}{i-C}}.
+\end{equation}
+確率は$|r|^2=C^2/(1+C^2)$、$|t|^2=1/(1+C^2)$で、和は1となる。
+
+\section*{[2.1] 反対称な二粒子波}
+入射状態を$\Psi_-=\psi_+(x_1)\psi_-(x_2)-\psi_-(x_1)\psi_+(x_2)$とする。各因子に一粒子の散乱則を適用すると
+\begin{equation}
+ \Psi_-\longmapsto(t^2-r^2)\left[\psi_+(x_1)\psi_-(x_2)-\psi_-(x_1)\psi_+(x_2)\right].
+\end{equation}
+同方向出射の$\psi_+(x_1)\psi_+(x_2)$と$\psi_-(x_1)\psi_-(x_2)$は、いずれも二つの積からの係数が$tr-rt=0$となって消える。従って反対向き出射だけが残る。これは$\alpha,E$によらない。
+
+\section*{[2.2] 対称な二粒子波と同方向散乱}
+対称入射$\Psi_+=\psi_+(x_1)\psi_-(x_2)+\psi_-(x_1)\psi_+(x_2)$の出射状態は
+\begin{align}
+ \Psi_+\longmapsto{}&(t^2+r^2)\left[\psi_+(x_1)\psi_-(x_2)+\psi_-(x_1)\psi_+(x_2)\right]\\
+ &+2tr\left[\psi_+(x_1)\psi_+(x_2)+\psi_-(x_1)\psi_-(x_2)\right].
+\end{align}
+第1行が反対向き、第2行が同方向への出射チャネルである。$C\to0$では$t\to1,r\to0$、$C\to\infty$では$t\to0,|r|\to1$なので、両極限では反対向きだけが残る。
+
+同方向だけに散乱される条件は反対向きの係数がゼロとなること、すなわち
+\begin{equation}
+ t^2+r^2=\frac{C^2-1}{(i-C)^2}=0.
+\end{equation}
+$C>0$より$C=1$であり、求める障壁の強さは
+\begin{equation}
+ \boxed{\alpha_0(E)=\frac{\hbar^2k}{m}=\hbar\sqrt{\frac{2E}{m}}}.
+\end{equation}
+このとき同方向の二つの出射チャネルは係数$2tr\ne0$で残る。
+
+\section*{[3] 二重デルタ障壁の完全透過}
+$x<0$、$0<x<L$、$x>L$における波をそれぞれ
+\begin{equation}
+ e^{ikx}+r_Le^{-ikx},\qquad Ae^{ikx}+Be^{-ikx},\qquad Te^{ik(x-L)}
+\end{equation}
+と置く。完全透過では$r_L=0$であり、$x=0$の連続条件と跳び条件から
+\begin{equation}
+ A=1-iC,\qquad B=iC.
+\end{equation}
+$x=L$で$X=Ae^{ikL}/T$、$Y=Be^{-ikL}/T$と定義する。連続条件と微分の跳び条件は
+\begin{equation}
+ X+Y=1,\qquad i(1-X+Y)=2C,
+\end{equation}
+なので$X=1+iC$、$Y=-iC$となる。これらを割り合わせると
+\begin{equation}
+ e^{2ikL}=\frac BA\frac XY=-\frac{1+iC}{1-iC}.
+\end{equation}
+$\theta=\tan^{-1}C$と置けば右辺は$e^{i(\pi+2\theta)}$である。従って正の障壁間隔は
+\begin{equation}
+ \boxed{L_n=\frac{\pi/2+\tan^{-1}C+n\pi}{k}},\qquad n=0,1,2,\ldots.
+\end{equation}
+この条件では反射振幅がゼロで、実ポテンシャルの確率流保存により透過確率は1である。
+\end{document}

@@ -1,4 +1,4 @@
-% Source: public/notes/物工/問題/2022ap_exam.pdf, PDF pp. 8--9.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2022ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -9,139 +9,132 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻院試解答集\\2022年 物理学 第4問}
+\title{物理工学専攻 院試解答集\\2022年度 物理学 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] Laplace 方程式の制約}
-真空中では $\nabla\cdot\boldsymbol E=0$ である。$\boldsymbol E=-\nabla\phi$ と
-$\phi=ax^2+by^2+cz^2$ を代入すると
+\section*{[1.1] 電子の運動方程式}
+電荷が $-q$ なので、電場から受ける力は $-q\boldsymbol E(t)$ である。復元力と減衰力を加えた Newton の式は
 \[
-0=\nabla\cdot\boldsymbol E=-\nabla^2\phi=-2(a+b+c),
-\qquad \boxed{a+b+c=0}.
+\boxed{m\frac{d^2\boldsymbol x}{dt^2}=-q\boldsymbol E_0e^{-i\omega t}-m\omega_0^2\boldsymbol x-m\gamma\frac{d\boldsymbol x}{dt}}.
 \]
 
-\section*{[1.2] Newton--Lorentz 方程式}
-電場力は $-q\nabla\phi$、磁場力は $q\dot{\boldsymbol r}\times\boldsymbol B$ だから
+\section*{[1.2] 定常応答}
+$\boldsymbol x(t)=\boldsymbol x_0e^{-i\omega t}$ とすると、$\dot{\boldsymbol x}=-i\omega\boldsymbol x$、$\ddot{\boldsymbol x}=-\omega^2\boldsymbol x$ である。運動方程式に代入し、$\boldsymbol x_0$ をまとめると
 \[
-\boxed{m\ddot{\boldsymbol r}(t)=-q\nabla\phi(\boldsymbol r(t))
-+q\dot{\boldsymbol r}(t)\times\boldsymbol B}.
-\]
-以降 $a=b=-c/2<0$ なので $c>0$ である。$\boldsymbol B=(0,0,B)$ とすると
-\[
-m\ddot x=qc x+qB\dot y,\qquad
-m\ddot y=qc y-qB\dot x,\qquad
-m\ddot z=-2qc z.
-\]
-
-\section*{[1.3] $z$ 方向の単振動}
-$m\ddot z=-2qc z$ は復元力をもつ調和振動子であり、角振動数は
-\[
-\boxed{\omega_z=\sqrt{\frac{2qc}{m}}}.
-\]
-
-\section*{[1.4] $xy$ 面内の複素方程式}
-$u=x+iy$ とおく。上の $x,y$ 方程式の第2式に $i$ を掛けて第1式に加えると
-\[
-m\ddot u=qc(x+iy)+qB(\dot y-i\dot x)
-=qc u-iqB\dot u,
-\]
-したがって
-\[
-\boxed{m\ddot u+iqB\dot u-qc u=0}.
-\]
-
-\section*{[1.5] 横方向の束縛条件}
-固有解 $u(t)=u_0e^{-i\sigma t}$ を代入すると
-\[
-m\sigma^2-qB\sigma+qc=0,
+\left(\omega_0^2-\omega^2-i\gamma\omega\right)\boldsymbol x_0=-\frac{q}{m}\boldsymbol E_0,
 \qquad
-\boxed{\sigma_\pm=\frac{qB\pm\sqrt{q^2B^2-4mqc}}{2m}}.
+\boxed{\boldsymbol x_0=-\frac{q\boldsymbol E_0}{m\left[(\omega_0^2-\omega^2)-i\gamma\omega\right]}}.
 \]
-初期値によらず有界な振動解を得るには、2根が実数かつ異なる必要がある。判別式が正なら両根は実数で解は2つの振動の重ね合わせとなる。判別式が負なら指数的に増大する解があり、ゼロなら重根に伴う $t e^{-i\sigma t}$ 型の解があり、いずれも全初期条件で有界とはならない。$q>0$ を用いると条件は
-\[
-q^2B^2-4mqc>0
-\quad\Longleftrightarrow\quad
-\boxed{qB^2>4mc}.
-\]
+ここで減衰項の $-i\gamma\omega$ は、与えられた $e^{-i\omega t}$ 規約から決まる。
 
-\section*{[2.1] Mathieu 方程式の係数}
-磁場を無視した $x$ 方向の運動方程式は
+\section*{[1.3] 複素感受率}
+単位体積当たりの分極振幅は
 \[
-m\frac{d^2x}{dt^2}=-2q\alpha x\cos\omega t.
+\boldsymbol P_0=-Nq\boldsymbol x_0
+=\frac{Nq^2}{m[(\omega_0^2-\omega^2)-i\gamma\omega]}\boldsymbol E_0
+=\varepsilon_0\chi\boldsymbol E_0.
 \]
-$\tau=\omega t/2$ とすると $d^2/dt^2=(\omega^2/4)d^2/d\tau^2$ かつ
-$\cos\omega t=\cos2\tau$ だから
+$C=Nq^2/(\varepsilon_0m)$, $A=\omega_0^2-\omega^2$, $B=\gamma\omega$ とおき、分母に共役複素数を掛けると
 \[
-\frac{d^2x}{d\tau^2}+\frac{8q\alpha}{m\omega^2}x\cos2\tau=0.
+\chi=C\frac{A+iB}{A^2+B^2},\qquad
+\boxed{\chi_R=\frac{Nq^2}{\varepsilon_0m}\frac{\omega_0^2-\omega^2}{(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}},
+\qquad
+\boxed{\chi_I=\frac{Nq^2}{\varepsilon_0m}\frac{\gamma\omega}{(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}}.
 \]
-式 (3) と係数を比較して
-\[
-\boxed{\lambda=\frac{4q\alpha}{m\omega^2}}.
-\]
+実場の周期平均を取ると$\langle\boldsymbol E\cdot\partial_t\boldsymbol P\rangle=\varepsilon_0\omega\chi_I|\boldsymbol E_0|^2/2>0$となる。従って正の $\chi_I$ はこの時間規約で受動媒質の吸収に対応する。
 
-\section*{[2.2] Fourier 係数の漸化式}
-式 (4) の各項を2回微分すると係数は $-(2n+\Omega)^2C_n$ となる。また
-\[
-2\lambda\cos2\tau\cos[(2n+\Omega)\tau]
-=\lambda\cos[(2(n+1)+\Omega)\tau]
-+\lambda\cos[(2(n-1)+\Omega)\tau].
-\]
-同じ周波数ごとに係数を比べると
-\[
-\boxed{(2n+\Omega)^2C_n=\lambda(C_{n-1}+C_{n+1})}.
-\]
-
-\section*{[2.3] 小さい $\lambda$ での周波数}
-$C_{\pm2}$ を無視した $n=\pm1$ の式と、$n=0$ の式は
-\[
-\frac{C_1}{C_0}=\frac{\lambda}{(2+\Omega)^2},\qquad
-\frac{C_{-1}}{C_0}=\frac{\lambda}{(\Omega-2)^2},\qquad
-\Omega^2=\lambda\frac{C_{-1}+C_1}{C_0}
-=\lambda^2\left[\frac1{(2-\Omega)^2}+\frac1{(2+\Omega)^2}\right].
-\]
-$0<\Omega<1$の枝では角括弧内の分母がゼロにならず、$\lambda\to0$で上の中心式から$\Omega^2/\lambda^2\to1/2$を得る。従って$\Omega=O(\lambda)$であり、分母の $\Omega$ 依存を1次近似の係数比で落とすと
-\[
-\frac{C_1}{C_0}=\frac{\lambda}{4}+O(\lambda^2),\qquad
-\frac{C_{-1}}{C_0}=\frac{\lambda}{4}+O(\lambda^2).
-\]
-中心式の右辺は $\lambda^2[1/2+O(\Omega^2)]$ であり
-\[
-\Omega^2=\frac{\lambda^2}{2}+O(\lambda^4),\qquad
-\Omega=\frac{\lambda}{\sqrt2}+O(\lambda^3).
-\]
-問題の $0<\Omega<1$ と $\lambda>0$ に合う枝を選ぶと、求める1次の定数は
-\[
-\boxed{\frac{C_{-1}}{C_0}=\epsilon\lambda,\quad
-\frac{C_1}{C_0}=\epsilon\lambda,\quad \Omega=\delta\lambda,
-\qquad \epsilon=\frac14,\quad\delta=\frac1{\sqrt2}}.
-\]
-
-\section*{[2.4] 近似解と概形}
-3つのモードを残すと
-\begin{align*}
-x(\tau)
-&=C_0\left[\cos(\Omega\tau)
-+\frac{\lambda}{4}\cos((2+\Omega)\tau)
-+\frac{\lambda}{4}\cos((2-\Omega)\tau)\right]+O(\lambda^2)\\
-&=\boxed{C_0\left(1+\frac{\lambda}{2}\cos2\tau\right)
-\cos\!\left(\frac{\lambda\tau}{\sqrt2}\right)}+O(\lambda^2).
-\end{align*}
-ここで $O(\lambda^2)$ の精度は、図に示す緩やかな振動の一周期程度、すなわち $\tau=O(\lambda^{-1})$ までを対象とする。さらに長時間では $\Omega$ の省略項による位相誤差が蓄積する。
-緩やかな余弦が長周期振動を表し、因子 $1+(\lambda/2)\cos2\tau$ が小さな速い変調を加える。下図は例として $\lambda=0.2$ とした $x/C_0$ の概形で、横軸は $\tau$ である。
+\section*{[1.4] $\chi_R$ の周波数依存性}
+$\omega<\omega_0$ では $\chi_R>0$、$\omega=\omega_0$ で零を通り、$\omega>\omega_0$ では負となる。共鳴近傍では正負の分散形となり、高周波では $\chi_R\to0^-$ である。図は $\gamma/\omega_0=0.12$ の例で、縦軸は正の尺度 $C/(2\gamma\omega_0)$ で規格化した概形である。
 \begin{center}
-\begin{tikzpicture}[x=0.15cm,y=1.15cm]
-  \draw[->] (0,-1.25) -- (48,-1.25) node[right] {$\tau$};
-  \draw[->] (0,-1.25) -- (0,1.25) node[above] {$x/C_0$};
-  \pgfmathsetmacro{\lam}{0.2}
-  \pgfmathsetmacro{\slow}{\lam/sqrt(2)}
-  \draw[gray!65,dashed] plot[domain=0:46,samples=180] (\x,{cos(deg(\slow*\x))});
-  \draw[thick] plot[domain=0:46,samples=550] (\x,{(1+\lam/2*cos(deg(2*\x)))*cos(deg(\slow*\x))});
-  \draw (0,0) node[left] {$0$};
-  \draw ({2*pi/\slow},-1.25) -- ({2*pi/\slow},-1.19) node[below=4pt] {$2\pi\sqrt2/\lambda$};
+\begin{tikzpicture}[x=4.5cm,y=1.15cm]
+\draw[->] (0,-1.3)--(2.55,-1.3) node[right] {$\omega/\omega_0$};
+\draw[->] (0,-1.35)--(0,1.35) node[above] {$\chi_R/[C/(2\gamma\omega_0)]$};
+\draw[dashed] (1,-1.3)--(1,1.3);
+\draw[thick,domain=0:2.4,samples=180,variable=\u]
+  plot (\u,{0.24*(1-\u*\u)/((1-\u*\u)*(1-\u*\u)+0.0144*\u*\u)});
+\node[below] at (1,-1.3) {$1\;(\omega=\omega_0)$};
+\node[left] at (0,0) {$0$};
 \end{tikzpicture}
 \end{center}
-破線は緩やかな振動のみ、実線は1次の速い変調も含む。
+
+\section*{[2.1] 境界での接線電場}
+Faraday の法則 $\nabla\times\boldsymbol E=-\partial_t\boldsymbol B$ を、長辺が $y$ 方向で境界をまたぐ微小長方形に積分する。短辺の線積分は $\Delta z\to0$ で消え、磁束の時間変化も面積 $O(\Delta y\Delta z)$ に比例して消える。したがって上下の長辺の寄与が等しくなり、$E_y(z=0^+)=E_y(z=0^-)$ を得る。面上では共通の時間因子を省いて
+\[
+\boxed{E_0e^{ik\sin\theta_0 x}+E_me^{iK_{mx}x}=E_te^{iK_{tx}x}}.
+\]
+この関係は境界面上のすべての $x$ で成り立つ。
+
+\section*{[2.2] 接線波数の一致}
+境界に沿った位相が任意の $x$ で一致する必要があるため、入射・反射・透過波の接線成分は等しい。よって
+\[
+\boxed{K_{mx}=K_{tx}=k\sin\theta_0}.
+\]
+
+\section*{[2.3] Maxwell 方程式と分散関係}
+自由電荷がなく一様な各媒質内では $\nabla\cdot\boldsymbol D=0$ なので $\nabla\cdot\boldsymbol E=0$ である。Faraday の法則の両辺に回転を作用させ、$\boldsymbol B=\mu_0\boldsymbol H$、$\nabla\times\boldsymbol H=\partial_t\boldsymbol D$、$\boldsymbol D=\varepsilon_0(1+\chi)\boldsymbol E$ を順に代入すると
+\begin{align*}
+ \nabla\times(\nabla\times\boldsymbol E)
+ &=-\mu_0\frac{\partial}{\partial t}(\nabla\times\boldsymbol H)\\
+ &=-\mu_0\varepsilon_0(1+\chi)\frac{\partial^2\boldsymbol E}{\partial t^2}.
+\end{align*}
+二重回転の公式と $\nabla\cdot\boldsymbol E=0$ より左辺は $-\nabla^2\boldsymbol E$ なので、
+\[
+\nabla^2\boldsymbol E=\mu_0\varepsilon_0(1+\chi)\frac{\partial^2\boldsymbol E}{\partial t^2}
+\]
+を得る。真空では $\chi=0$。平面波を代入すれば
+\[
+\boxed{k^2=\varepsilon_0\mu_0\omega^2},\qquad
+\boxed{K_{mx}^2+K_{mz}^2=k^2},\qquad
+\boxed{K_{tx}^2+K_{tz}^2=(1+\chi)k^2}.
+\]
+
+\section*{[2.4] 反射波の法線成分}
+反射波は真空内で $+z$ 方向へ進み、その波数の大きさは $k$ である。接線成分を [2.2] に代入すると
+\[
+K_{mz}=+\sqrt{k^2-k^2\sin^2\theta_0}
+=\boxed{k\cos\theta_0}.
+\]
+
+\section*{[2.5] 臨界角と透過波の枝}
+$K_{tx}=k\sin\theta_0$ を誘電体の分散関係に代入すると
+\[
+K_{tz}^2=k^2(1+\chi-\sin^2\theta_0)=k^2(\chi+\cos^2\theta_0).
+\]
+境目 $K_{tz}=0$ は $\sin^2\theta_c=1+\chi$、すなわち
+\[
+\boxed{\theta_c=\arcsin\sqrt{1+\chi}=\arccos\sqrt{-\chi}}.
+\]
+$\theta_0<\theta_c$ では透過波は誘電体の深部 $z<0$ へ伝わる。したがって負の法線成分を選び
+\[
+\boxed{K_{tz}=-k\sqrt{1+\chi-\sin^2\theta_0}\quad (\theta_0<\theta_c)}.
+\]
+$\theta_0>\theta_c$ では $K_{tz}$ は純虚数となる。$\kappa=k\sqrt{\sin^2\theta_0-(1+\chi)}>0$ と置く。場の依存性は $e^{iK_{tz}z}$ で、媒質は $z\le0$ にあるので、$z\to-\infty$ で減衰する枝は $K_{tz}=-i\kappa$ である：
+\[
+\boxed{K_{tz}=-ik\sqrt{\sin^2\theta_0-(1+\chi)}\quad (\theta_0>\theta_c)}.
+\]
+実際 $e^{iK_{tz}z}=e^{\kappa z}=e^{-\kappa|z|}$ となる。逆の虚数符号では負の $z$ へ進むにつれて場が増大する。
+
+\section*{[2.6] $1/e$ 減衰深さ}
+振幅が境界値の $1/e$ となる深さの大きさ $z_0=|z|$ は $e^{-\kappa z_0}=e^{-1}$ より
+\[
+\boxed{z_0=\frac{1}{k\sqrt{\sin^2\theta_0-(1+\chi)}}
+=\frac{1}{k\sqrt{-\chi-\cos^2\theta_0}}},
+\qquad 0\le\cos^2\theta_0<-\chi.
+\]
+固定した $\chi$ では $z_0$ は $\cos^2\theta_0$ とともに増え、臨界値 $\cos^2\theta_c=-\chi$ に下側から近づくと発散する。図は無次元変数 $u=\cos^2\theta_0/(-\chi)$ を用いて形を示す。
+\begin{center}
+\begin{tikzpicture}[x=4.6cm,y=0.8cm]
+\draw[->] (0,0)--(1.08,0) node[right] {$u=\cos^2\theta_0/(-\chi)$};
+\draw[->] (0,0)--(0,4.6) node[above] {$\sqrt{-\chi}\,kz_0$};
+\draw[thick,domain=0:0.94,samples=100,variable=\u]
+  plot (\u,{1/sqrt(1-\u)});
+\draw[dashed] (1,0)--(1,4.35);
+\node[below] at (0,0) {$0$};
+\node[below] at (1,0) {$1\;(\cos^2\theta_c=-\chi)$};
+\node[left] at (0,1) {$1$};
+\end{tikzpicture}
+\end{center}
 \end{document}

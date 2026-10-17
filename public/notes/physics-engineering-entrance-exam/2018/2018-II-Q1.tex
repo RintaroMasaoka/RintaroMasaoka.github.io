@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2018ap_exam.pdf, pages 7–8.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h30ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -7,86 +7,64 @@
 \usepackage{amsmath,amssymb}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2018年 物理学II 第1問}
+\title{物理工学専攻 院試解答集\\2018年度 物理学II 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] デルタ関数障壁での境界条件}
-波動関数が原点で跳ぶと、その一階微分には$\delta(x)$、二階微分にはその導関数$\delta'(x)$に比例する項が現れる。ポテンシャル項$\alpha\delta(x)\psi(x)$には$\delta'(x)$の項がなく、運動エネルギー項のそれを相殺できない。従って波動関数は連続である。シュレーディンガー方程式を$[-\epsilon,\epsilon]$で積分すると
+\section*{[1] 引力型デルタポテンシャル}
+$x\ne0$では$-\hbar^2\phi''/(2m)=E\phi$である。負の固有値に対する減衰解を$\phi(x)=Ne^{-\xi|x|}$、$E=-\hbar^2\xi^2/(2m)$と置く。原点を含む微小区間でシュレーディンガー方程式を積分すると
 \begin{equation}
- -\frac{\hbar^2}{2m}\left[\psi'(\epsilon)-\psi'(-\epsilon)\right]
- +\alpha\psi(0)=E\int_{-\epsilon}^{\epsilon}\psi(x)\,dx.
+ \phi'(0^+)-\phi'(0^-)=-\frac{2mv}{\hbar^2}\phi(0).
 \end{equation}
-$\epsilon\to0$では右辺がゼロに近づくため、
+左辺は$-2N\xi$だから$\xi=mv/\hbar^2$。規格化条件より$1=N^2\int_{-\infty}^{\infty}e^{-2\xi|x|}dx=N^2/\xi$であり
 \begin{equation}
- \boxed{\psi(0^+)=\psi(0^-)},\qquad
- \boxed{\psi'(0^+)-\psi'(0^-)=\frac{2m\alpha}{\hbar^2}\psi(0)}.
+ \boxed{N=\sqrt{\frac{mv}{\hbar^2}}},\qquad
+ \boxed{\xi=\frac{mv}{\hbar^2}},\qquad
+ \boxed{E=-\frac{mv^2}{2\hbar^2}}.
 \end{equation}
-第2式はデルタ関数ポテンシャルの強さに比例する微分の跳びである。
 
-\section*{[1.2] 透過・反射振幅}
-左から入射する定常波を
+\section*{[2.1] 試行状態のエネルギー期待値}
+二つの局在配置を$\Phi_1=\phi_s(x_1+R/2)\phi_s(x_2-R/2)$、$\Phi_2=\phi_s(x_1-R/2)\phi_s(x_2+R/2)$と置く。問題文の定義は$\langle\Phi_1|H|\Phi_1\rangle=\langle\Phi_2|H|\Phi_2\rangle=A$、$\langle\Phi_2|H|\Phi_1\rangle=B$、$\langle\Phi_2|\Phi_1\rangle=S$である。対角規格化は1なので
 \begin{equation}
- \psi(x)=\begin{cases}e^{ikx}+re^{-ikx},&x<0,\\ te^{ikx},&x>0\end{cases}
+ \boxed{E(c_1,c_2)=\frac{A(c_1^2+c_2^2)+2Bc_1c_2}{c_1^2+c_2^2+2Sc_1c_2}}.
 \end{equation}
-とする。連続条件と微分の跳び条件より
-\begin{equation}
- 1+r=t,\qquad ikt-ik(1-r)=2kCt.
-\end{equation}
-$C=m\alpha/(\hbar^2k)$を用いて解くと
-\begin{equation}
- \boxed{r=\frac{C}{i-C}},\qquad
- \boxed{t=\frac{i}{i-C}}.
-\end{equation}
-確率は$|r|^2=C^2/(1+C^2)$、$|t|^2=1/(1+C^2)$で、和は1となる。
 
-\section*{[2.1] 反対称な二粒子波}
-入射状態を$\Psi_-=\psi_+(x_1)\psi_-(x_2)-\psi_-(x_1)\psi_+(x_2)$とする。各因子に一粒子の散乱則を適用すると
+\section*{[2.2] 変分方程式}
+エネルギーの停留条件を、分母を含めて変分する。すなわち、$E(c_1,c_2)$の候補値$E$について
 \begin{equation}
- \Psi_-\longmapsto(t^2-r^2)\left[\psi_+(x_1)\psi_-(x_2)-\psi_-(x_1)\psi_+(x_2)\right].
+ \mathcal L=A(c_1^2+c_2^2)+2Bc_1c_2
+ -E(c_1^2+c_2^2+2Sc_1c_2)
 \end{equation}
-同方向出射の$\psi_+(x_1)\psi_+(x_2)$と$\psi_-(x_1)\psi_-(x_2)$は、いずれも二つの積からの係数が$tr-rt=0$となって消える。従って反対向き出射だけが残る。これは$\alpha,E$によらない。
+の偏微分をゼロと置く。両式を2で割ると
+\begin{equation}
+ \boxed{\begin{pmatrix}A&B\\B&A\end{pmatrix}
+ \begin{pmatrix}c_1\\c_2\end{pmatrix}
+ =E\begin{pmatrix}1&S\\S&1\end{pmatrix}
+ \begin{pmatrix}c_1\\c_2\end{pmatrix}}.
+\end{equation}
+交差項の係数は各行列要素そのものではなく、二つの対称な交差項の和となるため、行列の非対角要素は$B-ES$である。
 
-\section*{[2.2] 対称な二粒子波と同方向散乱}
-対称入射$\Psi_+=\psi_+(x_1)\psi_-(x_2)+\psi_-(x_1)\psi_+(x_2)$の出射状態は
+\section*{[2.3] 固有値と空間波動関数}
+両行列は交換対称なので、固有ベクトルは$(1,1)^T$または$(1,-1)^T$である。各ベクトルを同じ符号の分子・分母に代入すると
+\begin{equation}
+ E_+=\frac{A+B}{1+S},\quad (c_1,c_2)\propto(1,1),\qquad
+ E_-=\frac{A-B}{1-S},\quad (c_1,c_2)\propto(1,-1).
+\end{equation}
+従って規格化を除く空間波動関数は
+\begin{equation}
+ \boxed{\Phi_\pm(x_1,x_2)=\phi_s(x_1+R/2)\phi_s(x_2-R/2)
+ \pm\phi_s(x_1-R/2)\phi_s(x_2+R/2)}.
+\end{equation}
+粒子交換$x_1\leftrightarrow x_2$で$\Phi_+$は対称、$\Phi_-$は反対称となる。
+
+\section*{[2.4] スピンを含むフェルミ状態}
+二粒子フェルミ状態はスピンと軌道の積全体が反対称でなければならない。$\alpha,\beta$をそれぞれスピン上向き・下向きの状態、$\omega_i$を粒子$i$のスピン座標とする。スピン一重項$\chi_{00}=(\alpha(\omega_1)\beta(\omega_2)-\beta(\omega_1)\alpha(\omega_2))/\sqrt2$は反対称なので、$\Phi_+$と組み合わせる。三重項は対称なので、$\Phi_-$と組み合わせる。よって全状態と近似エネルギーは
 \begin{align}
- \Psi_+\longmapsto{}&(t^2+r^2)\left[\psi_+(x_1)\psi_-(x_2)+\psi_-(x_1)\psi_+(x_2)\right]\\
- &+2tr\left[\psi_+(x_1)\psi_+(x_2)+\psi_-(x_1)\psi_-(x_2)\right].
+ &\boxed{\Phi_+\chi_{00},\quad E_+},\\
+ &\boxed{\Phi_-\alpha(\omega_1)\alpha(\omega_2),\quad E_-},\\
+ &\boxed{\Phi_-\frac{\alpha(\omega_1)\beta(\omega_2)+\beta(\omega_1)\alpha(\omega_2)}{\sqrt2},\quad E_-},\\
+ &\boxed{\Phi_-\beta(\omega_1)\beta(\omega_2),\quad E_-}.
 \end{align}
-第1行が反対向き、第2行が同方向への出射チャネルである。$C\to0$では$t\to1,r\to0$、$C\to\infty$では$t\to0,|r|\to1$なので、両極限では反対向きだけが残る。
-
-同方向だけに散乱される条件は反対向きの係数がゼロとなること、すなわち
-\begin{equation}
- t^2+r^2=\frac{C^2-1}{(i-C)^2}=0.
-\end{equation}
-$C>0$より$C=1$であり、求める障壁の強さは
-\begin{equation}
- \boxed{\alpha_0(E)=\frac{\hbar^2k}{m}=\hbar\sqrt{\frac{2E}{m}}}.
-\end{equation}
-このとき同方向の二つの出射チャネルは係数$2tr\ne0$で残る。
-
-\section*{[3] 二重デルタ障壁の完全透過}
-$x<0$、$0<x<L$、$x>L$における波をそれぞれ
-\begin{equation}
- e^{ikx}+r_Le^{-ikx},\qquad Ae^{ikx}+Be^{-ikx},\qquad Te^{ik(x-L)}
-\end{equation}
-と置く。完全透過では$r_L=0$であり、$x=0$の連続条件と跳び条件から
-\begin{equation}
- A=1-iC,\qquad B=iC.
-\end{equation}
-$x=L$で$X=Ae^{ikL}/T$、$Y=Be^{-ikL}/T$と定義する。連続条件と微分の跳び条件は
-\begin{equation}
- X+Y=1,\qquad i(1-X+Y)=2C,
-\end{equation}
-なので$X=1+iC$、$Y=-iC$となる。これらを割り合わせると
-\begin{equation}
- e^{2ikL}=\frac BA\frac XY=-\frac{1+iC}{1-iC}.
-\end{equation}
-$\theta=\tan^{-1}C$と置けば右辺は$e^{i(\pi+2\theta)}$である。従って正の障壁間隔は
-\begin{equation}
- \boxed{L_n=\frac{\pi/2+\tan^{-1}C+n\pi}{k}},\qquad n=0,1,2,\ldots.
-\end{equation}
-この条件では反射振幅がゼロで、実ポテンシャルの確率流保存により透過確率は1である。
 \end{document}

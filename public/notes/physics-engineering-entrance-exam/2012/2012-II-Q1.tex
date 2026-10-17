@@ -1,4 +1,4 @@
-% Source problem: 2012ap_exam.pdf, PDF p. 7.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h24ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -6,129 +6,157 @@
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2012年 物理学II 第1問}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2012年度 物理学II 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-生成・消滅演算子を用いると
+以下、計算基底を
 \begin{equation}
-  \hat X=x_0(\hat a+\hat a^\dagger),\qquad
-  x_0=\sqrt{\frac{\hbar}{2m\omega_0}},\qquad
-  \hat H_0=\hbar\omega_0\left(\hat a^\dagger\hat a+\frac12\right).
+  \bigl(|1,1\rangle,|1,0\rangle,|1,-1\rangle\bigr)
 \end{equation}
+の順に並べる。原本[3]の回転因子では $\hbar$ による除算が抜けている。指数を無次元にするため、以下では $J_z/\hbar$ を含む因子として読む。
 
-\section*{[1] 双極子遷移}
-$\hat\mu=q\hat X$ だから、数状態間の行列要素は
+\section*{[1] スピン角運動量の行列}
+昇降演算子の作用を $J=1$ に適用すると
 \begin{equation}
-  \langle l|\hat\mu|n\rangle
-  =q x_0\left(\sqrt n\,\delta_{l,n-1}
-        +\sqrt{n+1}\,\delta_{l,n+1}\right).
+  J_+=\sqrt{2}\hbar
+  \begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix},\qquad
+  J_-=\sqrt{2}\hbar
+  \begin{pmatrix}0&0&0\\1&0&0\\0&1&0\end{pmatrix}.
 \end{equation}
-従って $n\ge1$ なら $|n-1\rangle,|n+1\rangle$ へ遷移でき、基底状態 $|0\rangle$ からは $|1\rangle$ だけが許される。
+$J_x=(J_++J_-)/2$、$J_y=(J_+-J_-)/(2i)$、および $J_z|1,m\rangle=m\hbar|1,m\rangle$ から
+\begin{equation}
+  \boxed{J_x=\frac{\hbar}{\sqrt{2}}
+  \begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix}},\qquad
+  \boxed{J_y=\frac{\hbar}{\sqrt{2}}
+  \begin{pmatrix}0&-i&0\\i&0&-i\\0&i&0\end{pmatrix}},\qquad
+  \boxed{J_z=\hbar
+  \begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix}}.
+\end{equation}
+これらはHermite行列であり、例えば $[J_x,J_y]=i\hbar J_z$ を満たす。さらに $J_x^2+J_y^2+J_z^2=2\hbar^2 I$ なので、全状態で $J^2=1(1+1)\hbar^2$ となる。
 
-\section*{[2] 四次摂動によるエネルギー補正}
-一次摂動論では $\Delta E_n=\langle n|\lambda\hat X^4|n\rangle$ である。
-$Q=\hat a+\hat a^\dagger$ とおき、問題文の昇降作用を2回用いると
+\section*{[2] 静磁場中のエネルギー準位}
+$\boldsymbol{B}=B\boldsymbol{e}_z$ だから、
 \begin{equation}
-  Q^2|n\rangle=\sqrt{n(n-1)}|n-2\rangle
-  +(2n+1)|n\rangle+\sqrt{(n+1)(n+2)}|n+2\rangle.
+  H_M=-\gamma BJ_z
+  =-\gamma B\hbar
+  \begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix}.
 \end{equation}
-$n<2$ のとき最初の項はなく、負の添字の状態は含めない。
-$Q$ はHermiteであり、異なる数状態は直交するので、
-\begin{align}
-  \langle n|Q^4|n\rangle
-  &=\|Q^2|n\rangle\|^2\\
-  &=n(n-1)+(2n+1)^2+(n+1)(n+2)\\
-  &=6n^2+6n+3.
-\end{align}
-したがって
+従って磁気量子数 $m$ ごとの固有エネルギーは
 \begin{equation}
-  \boxed{\Delta E_n
-  =3\lambda(2n^2+2n+1)\left(\frac{\hbar}{2m\omega_0}\right)^2.}
+  \boxed{E_m=-\gamma Bm\hbar\quad(m=1,0,-1)}.
 \end{equation}
+順に $-\gamma B\hbar,0,+\gamma B\hbar$ であり、最低状態は $|1,1\rangle$ である。隣り合う準位間隔は $\gamma B\hbar$ なので、共鳴条件は $\omega=\gamma B$。
 
-\section*{[3] 摂動後の双極子遷移}
-摂動を一次まで含む規格化固有状態は
+\section*{[3] 共鳴交流磁場中の状態}
+問題が与える回転系の近似Hamiltonianは $H_{\mathrm{RF}}=-\gamma B_{\mathrm{RF}}J_x$ である。原本の記号に従い、回転系の状態を $|\Psi(t)\rangle$、実験室系の状態を $|\phi(t)\rangle$ とする。原本[3]の回転変換を次元の合う形に直すと
 \begin{equation}
- |n\rangle'=|n\rangle+
- \frac{\lambda x_0^4}{\hbar\omega_0}
- \sum_{\substack{k\ne n\\ |k-n|\in\{2,4\}}}
- \frac{\langle k|Q^4|n\rangle}{n-k}|k\rangle+O(\lambda^2),
- \qquad Q=\hat a+\hat a^\dagger.
+  |\Psi(t)\rangle=\exp\!\left(-\frac{i}{\hbar}\omega tJ_z\right)|\phi(t)\rangle.
 \end{equation}
-四次演算子は偶数準位だけを混ぜるので、$|8\rangle'$ と反対パリティの状態だけが双極子遷移の候補となる。さらに $Q$ は準位を1つだけ変えるため、候補は $l=3,5,7,9,11,13$ である。ただし候補範囲だけでは行列要素の非零性は決まらない。$Q_{lk}=\langle l|Q|k\rangle$ と書く。$Q$ を4回作用させると、非対角行列要素は
-\begin{align}
- (Q^4)_{n+2,n}&=(4n+6)\sqrt{(n+1)(n+2)},\\
- (Q^4)_{n+4,n}&=\sqrt{(n+1)(n+2)(n+3)(n+4)}
- \qquad(n\ge0)
-\end{align}
-となる。準位を下げる行列要素は、これらの実行列要素の添字を交換して得られる。$\eta=\lambda x_0^4/(\hbar\omega_0)$ とすると、一次遷移振幅は
-\begin{align}
- \frac{\langle l'|q\hat X|8'\rangle}{q x_0}
- &=Q_{l8}+\eta\left[
- \sum_{k\ne l}\frac{(Q^4)_{kl}Q_{k8}}{l-k}
- +\sum_{k\ne8}\frac{Q_{lk}(Q^4)_{k8}}{8-k}\right]+O(\eta^2).
-\end{align}
-$l=13$ では一次補正に寄与するのは、終状態の $|9\rangle$ 成分と初期状態の $|12\rangle$ 成分だけである。その二項は
+以下で解くのは $H_{\mathrm{RF}}$ による回転系の状態 $|\Psi(t)\rangle$ である。$\Omega=\gamma B_{\mathrm{RF}}$、$\theta=\Omega t$ と置くと、時間発展演算子は
 \begin{equation}
-  \frac{\sqrt{13}\,(Q^4)_{12,8}}{4}
-  +\frac{\sqrt{13}\,(Q^4)_{12,8}}{-4}=0.
+  U(t)=\exp\!\left(-\frac{i}{\hbar}H_{\mathrm{RF}}t\right)
+  =\exp\!\left(i\theta\frac{J_x}{\hbar}\right).
 \end{equation}
-上の角括弧内の二つの総和へ行列要素を代入する。各行で左の加数が終状態の補正、右の加数が初期状態の補正からの寄与である。
-\begin{align}
- l=3:&\quad -2\sqrt{105}+2\sqrt{105}=0,\\
- l=5:&\quad -61\sqrt{21}+65\sqrt{21}=4\sqrt{21},\\
- l=7:&\quad -153\sqrt8+105\sqrt8=-48\sqrt8,\\
- l=9:&\quad 408-570=-162,\\
- l=11:&\quad 69\sqrt{110}-66\sqrt{110}=3\sqrt{110}.
-\end{align}
-従って $l=3$ でも一次振幅が消える。残る4つの振幅は
-\begin{align}
- \frac{\langle5'|q\hat X|8'\rangle}{q x_0}&=4\sqrt{21}\,\eta+O(\eta^2),&
- \frac{\langle7'|q\hat X|8'\rangle}{q x_0}&=\sqrt8(1-48\eta)+O(\eta^2),\\
- \frac{\langle9'|q\hat X|8'\rangle}{q x_0}&=3(1-54\eta)+O(\eta^2),&
- \frac{\langle11'|q\hat X|8'\rangle}{q x_0}&=3\sqrt{110}\,\eta+O(\eta^2).
-\end{align}
-従って求める遷移先は
+[1]の行列を掛けると $J_x^3=\hbar^2J_x$ となる。従って指数関数の級数で奇数次と偶数次の項をそれぞれまとめれば
 \begin{equation}
-  \boxed{|5\rangle',\ |7\rangle',\ |9\rangle',\ |11\rangle'.}
+  U(t)=I+i\sin\theta\,\frac{J_x}{\hbar}
+       +(\cos\theta-1)\left(\frac{J_x}{\hbar}\right)^2.
 \end{equation}
+最低状態 $|1,1\rangle$ はこの基底で $(1,0,0)^{\mathsf T}$ なので、
+\begin{equation}
+  U(t)\begin{pmatrix}1\\0\\0\end{pmatrix}
+  =\begin{pmatrix}
+      (1+\cos\theta)/2\\
+      i\sin\theta/\sqrt{2}\\
+      (\cos\theta-1)/2
+    \end{pmatrix}.
+\end{equation}
+よって回転系の状態は
+\begin{equation}
+  \boxed{|\Psi(t)\rangle=
+    \frac{1+\cos\theta}{2}|1,1\rangle
+    +\frac{i\sin\theta}{\sqrt{2}}|1,0\rangle
+    +\frac{\cos\theta-1}{2}|1,-1\rangle.}
+\end{equation}
+実験室系の状態は $|\phi(t)\rangle=\exp(i\omega tJ_z/\hbar)|\Psi(t)\rangle$ から得る。回転変換は $J_z$ と可換なので、$J_z$ の期待値は両系で一致する。実際、回転系振幅の絶対値二乗は
+\begin{equation}
+  \frac{(1+\cos\theta)^2}{4}+\frac{\sin^2\theta}{2}
+  +\frac{(\cos\theta-1)^2}{4}=1
+\end{equation}
+となる。各磁気量子数の確率はこの三項であり、$J_z$ の期待値は
+\begin{align}
+  \langle J_z\rangle
+  &=\hbar\bigl(|c_1|^2-|c_{-1}|^2\bigr)\\
+  &=\boxed{\hbar\cos(\gamma B_{\mathrm{RF}}t)}.
+\end{align}
+初期値は $+\hbar$、周期は $2\pi/(\gamma B_{\mathrm{RF}})$ である。
 
-\section*{[4] Heisenberg表示の位置演算子}
-$[\hat H_0,\hat a]=-\hbar\omega_0\hat a$、$[\hat H_0,\hat a^\dagger]=\hbar\omega_0\hat a^\dagger$ より
+\section*{[4] 相互作用による一次のエネルギー補正}
+演算子は
 \begin{equation}
-  \hat a(t)=e^{-i\omega_0t}\hat a(0),\qquad
-  \hat a^\dagger(t)=e^{i\omega_0t}\hat a^\dagger(0).
+  H_Q=A(2J_x^2-J_y^2-J_z^2)=A(3J_x^2-J^2).
+\end{equation}
+設問[1]の行列から
+\begin{equation}
+  J_x^2=\frac{\hbar^2}{2}
+  \begin{pmatrix}1&0&1\\0&2&0\\1&0&1\end{pmatrix},\qquad
+  J^2=2\hbar^2 I,
 \end{equation}
 従って
-\begin{align}
-  \hat X(t)
-  &=x_0\left(e^{-i\omega_0t}\hat a(0)
-           +e^{i\omega_0t}\hat a^\dagger(0)\right)\\
-  &=\boxed{\hat X(0)\cos(\omega_0t)
-      +\frac{\hat P(0)}{m\omega_0}\sin(\omega_0t).}
-\end{align}
+\begin{equation}
+  H_Q=A\hbar^2
+  \begin{pmatrix}-1/2&0&3/2\\0&1&0\\3/2&0&-1/2\end{pmatrix}.
+\end{equation}
+$H_M$ は $B>0$ で非縮退なので、一次のエネルギー補正は各 $|1,m\rangle$ における対角成分である。
+\begin{equation}
+  \Delta E_{1}= -\frac{A\hbar^2}{2},\qquad
+  \Delta E_{0}= A\hbar^2,\qquad
+  \Delta E_{-1}= -\frac{A\hbar^2}{2}.
+\end{equation}
+よって一次近似の準位は
+\begin{equation}
+  \boxed{E_{1}=-\gamma B\hbar-\frac{A\hbar^2}{2},\quad
+  E_{0}=A\hbar^2,\quad
+  E_{-1}=+\gamma B\hbar-\frac{A\hbar^2}{2}.}
+\end{equation}
+問題の弱摂動条件 $A\hbar^2\ll\gamma B\hbar$ のもとでは準位の順序は変わらない。
 
-\section*{[5] 位置の期待値}
-数状態では $\langle n|\hat X(0)|n\rangle=\langle n|\hat P(0)|n\rangle=0$ なので
-\begin{equation}
-  \boxed{\langle n|\hat X(t)|n\rangle=0.}
-\end{equation}
-有限振幅で振動する例は、$\hat a$ の固有状態である規格化コヒーレント状態
-\begin{equation}
-  |\alpha\rangle=e^{-|\alpha|^2/2}
-  \sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}|n\rangle,
-  \qquad \hat a|\alpha\rangle=\alpha|\alpha\rangle
-\end{equation}
-である。この状態では
-\begin{equation}
-  \boxed{\langle\alpha|\hat X(t)|\alpha\rangle
-  =2x_0\operatorname{Re}\!\left(\alpha e^{-i\omega_0t}\right),}
-\end{equation}
-となり、$\alpha\ne0$ なら有限の振幅で角振動数 $\omega_0$ の正弦振動をする。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,scale=1.0]
+  \pgfmathsetmacro{\energyScale}{1}
+  \pgfmathsetmacro{\eta}{1/5}
+  \pgfmathsetmacro{\lowerUnperturbed}{-\energyScale}
+  \pgfmathsetmacro{\middleUnperturbed}{0}
+  \pgfmathsetmacro{\upperUnperturbed}{\energyScale}
+  \pgfmathsetmacro{\lowerPerturbed}{-\energyScale-\eta/2}
+  \pgfmathsetmacro{\middlePerturbed}{\eta}
+  \pgfmathsetmacro{\upperPerturbed}{\energyScale-\eta/2}
+  \draw[->] (-0.3,-2.8) -- (-0.3,2.8) node[above] {$E$};
+  \node at (1.2,3.05) {$H_Q=0$};
+  \draw[thick] (0.4,\lowerUnperturbed) -- (1.8,\lowerUnperturbed);
+  \draw[thick] (0.4,\middleUnperturbed) -- (1.8,\middleUnperturbed);
+  \draw[thick] (0.4,\upperUnperturbed) -- (1.8,\upperUnperturbed);
+  \node[align=left,anchor=west] at (1.95,\lowerUnperturbed) {$m=+1$\\$\Delta E=0$};
+  \node[align=left,anchor=west] at (1.95,\middleUnperturbed) {$m=0$\\$\Delta E=0$};
+  \node[align=left,anchor=west] at (1.95,\upperUnperturbed) {$m=-1$\\$\Delta E=0$};
+  \node at (5,3.05) {$H_Q$あり（一次）};
+  \draw[thick] (3.8,\lowerPerturbed) -- (5.2,\lowerPerturbed);
+  \draw[thick] (3.8,\middlePerturbed) -- (5.2,\middlePerturbed);
+  \draw[thick] (3.8,\upperPerturbed) -- (5.2,\upperPerturbed);
+  \node[anchor=west] at (5.35,\lowerPerturbed) {$m=+1,\quad\Delta E=-A\hbar^2/2$};
+  \node[anchor=west] at (5.35,\middlePerturbed) {$m=0,\quad\Delta E=+A\hbar^2$};
+  \node[anchor=west] at (5.35,\upperPerturbed) {$m=-1,\quad\Delta E=-A\hbar^2/2$};
+\end{tikzpicture}
+\caption{未摂動準位と相互作用による一次の準位移動。縦軸は $\gamma B\hbar$ で規格化した模式図で、表示例は $A\hbar/(\gamma B)=1/5$ とする。}
+\end{figure}
 
 \end{document}

@@ -1,160 +1,123 @@
-% Source problem: 2014ap_exam.pdf, PDF pp. 10--11.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h26ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=24mm]{geometry}
+\usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2014年 物理学II 第2問}
+\title{物理工学専攻 院試解答集\\2014年度 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-$\beta=1/(k_BT)$ とする。粒子は古典Boltzmann統計に従い、$N!$ で割って同種粒子の重複計数を除く。
+\section*{[1] 速度空間でのミクロカノニカル分布}
+$N=2$ の全運動エネルギーは
+\begin{equation}
+ E=\frac{m}{2}(v_{x,1}^2+v_{y,1}^2+v_{x,2}^2+v_{y,2}^2).
+\end{equation}
+したがって4成分を座標とする速度空間では、許される点は原点中心、半径
+\begin{equation}
+ \boxed{R=\sqrt{\frac{2E}{m}}}
+\end{equation}
+の3次元球面上にある。ミクロカノニカル分布では、等しい微小エネルギー幅の殻に含まれる位相空間体積を等重みに数える。
+速度球面の面積要素を $dS$、半径方向の厚さを $dR$ とすると、殻の体積は $dS\,dR$ である。
+$E=mR^2/2$ を微分すれば
+\begin{equation}
+  dE=mR\,dR,\qquad dS\,dR=\frac{dS\,dE}{mR}.
+\end{equation}
+同じ球面上では $mR$ が一定なので、固定したエネルギー幅に対する重みは $dS$ に比例する。
+位置積分は速度方向に依存しない共通因子となり、ミクロカノニカル分布はこの球面に一様である。
 
-\section*{[1] 理想気体の分配関数}
-一粒子の並進分配関数は位置積分と三つの運動量積分の積であり
+\section*{[2] $d$ 次元球面の表面積}
+半径 $r$ の球面を、最初の $d-1$ 座標 $q_1,\ldots,q_{d-1}$ で表すと
+\begin{equation}
+ q_d=\pm\sqrt{r^2-q_1^2-\cdots-q_{d-1}^2}.
+\end{equation}
+各半球の面積要素はグラフ面積の公式から
+\begin{equation}
+ dS=\sqrt{1+\sum_{j=1}^{d-1}\left(\frac{\partial q_d}{\partial q_j}\right)^2}
+       \,dq_1\cdots dq_{d-1}
+    =\frac{r}{\sqrt{r^2-\sum_{j=1}^{d-1}q_j^2}}\,dq_1\cdots dq_{d-1}.
+\end{equation}
+上下二つの半球を足し、各変数が残りの半径以内を動く積分にすると、問題文の式が得られる。たとえば
 \begin{align}
- z_1&=\frac{1}{h^3}\int_Vd^3r\int_{\mathbb R^3}d^3p\,
- e^{-\beta p^2/(2m)}\\
- &=\frac{V}{h^3}\left(\int_{-\infty}^{\infty}
- e^{-\beta p_x^2/(2m)}dp_x\right)^3
- =V\left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3/2}.
+ S_2(r)&=\int_{-r}^{r}dq_1\,\frac{2r}{\sqrt{r^2-q_1^2}},\\
+ S_3(r)&=\int_{-r}^{r}dq_1
+ \int_{-\sqrt{r^2-q_1^2}}^{\sqrt{r^2-q_1^2}}dq_2\,
+ \frac{2r}{\sqrt{r^2-q_1^2-q_2^2}},\\
+ S_4(r)&=\int_{-r}^{r}dq_1
+ \int_{-\sqrt{r^2-q_1^2}}^{\sqrt{r^2-q_1^2}}dq_2
+ \int_{-\sqrt{r^2-q_1^2-q_2^2}}^{\sqrt{r^2-q_1^2-q_2^2}}dq_3\,
+ \frac{2r}{\sqrt{r^2-q_1^2-q_2^2-q_3^2}}.
 \end{align}
-ここで $h=2\pi\hbar$ とガウス積分を用いた。従って
-\begin{equation}
- \boxed{Z_0(T,V,N)=\frac{z_1^N}{N!}
- =\frac{V^N}{N!}\left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3N/2}.}
-\end{equation}
+同じ構成を $d-1$ 重積分へ拡張できる。
 
-\section*{[2] 内部エネルギーと定積比熱}
+\section*{[3] $N=2$ の粒子1の速さ}
+速度ベクトル $\boldsymbol v_1$ が平面内で速さ $v_1$ と角度 $\theta$ を持つとする。エネルギー一定面上で粒子2の速さは
 \begin{equation}
- U=-\frac{\partial}{\partial\beta}\ln Z_0
- =\boxed{\frac32Nk_BT},\qquad
- C_V=\left(\frac{\partial U}{\partial T}\right)_{V,N}
- =\boxed{\frac32Nk_B}.
+ s=|\boldsymbol v_2|=\sqrt{R^2-v_1^2}.
 \end{equation}
-
-\section*{[3] 理想気体の状態方程式}
-$F_0=-k_BT\ln Z_0$ であり、$V$ に依存する項は $-Nk_BT\ln V$ だけなので
-\begin{equation}
- P=-\left(\frac{\partial F_0}{\partial V}\right)_{T,N}
- =k_BT\frac{\partial\ln Z_0}{\partial V}
- =\frac{Nk_BT}{V}.
-\end{equation}
-従って
-\begin{equation}
- \boxed{PV=Nk_BT.}
-\end{equation}
-
-\section*{[4] 引力と排除体積}
-原問の一粒子エネルギーは $p^2/(2m)-\alpha N/V$ である。従って全ポテンシャルエネルギーは $-\alpha N^2/V$、Boltzmann因子は $\exp(\beta\alpha N^2/V)$ となる。短距離斥力によって配置空間体積は $V-Nb$ となるから
-\begin{equation}
- \boxed{Z(T,V,N)=\frac{(V-Nb)^N}{N!}
- \left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3N/2}
- \exp\!\left(\frac{\alpha N^2}{Vk_BT}\right).}
-\end{equation}
-Helmholtz自由エネルギーは
-\begin{equation}
- F=-k_BT\ln Z=F_{\rm kin}(T,N)-Nk_BT\ln(V-Nb)
- -\frac{\alpha N^2}{V},
-\end{equation}
-ここで $F_{\rm kin}$ は $V$ に依存しない。よって
-\begin{equation}
- \boxed{P=-F_V=\frac{Nk_BT}{V-Nb}-\frac{\alpha N^2}{V^2}},\qquad
- \boxed{\left(P+\frac{\alpha N^2}{V^2}\right)(V-Nb)=Nk_BT.}
-\end{equation}
-
-\section*{[5] 自由エネルギー最小と安定性}
-固定した $T,N,P$ に対して $A(V)=F(T,N,V)+PV$ とする。停留点では
-\begin{equation}
- A'(V)=F_V+P=0\quad\Longleftrightarrow\quad P=-F_V,
-\end{equation}
-右辺の $P(V)=-F_V$ は均一状態の圧力であり、固定した外圧 $P$ と停留点で一致する。さらに
-\begin{equation}
- A''(V)=F_{VV}=-\left(\frac{\partial P}{\partial V}\right)_{T,N}.
-\end{equation}
-局所安定な熱平衡は $A''>0$ の極小なので $\partial P/\partial V<0$。$A''<0$ の極大は不安定である。$A''=0$ では二階微分だけで安定性を判定できず、この等温線で安定枝が終わる点は限界点となる。図1では左右の等しい最小値が同じGibbs自由エネルギーを持つ共存状態、中央の極大が不安定状態である。
-
-\begin{center}
-\begin{tikzpicture}[>=Stealth,x=0.32cm,y=120cm]
- \pgfmathsetmacro{\pc}{0.018081606931683265}
- \pgfmathsetmacro{\gzero}{-0.4685322546678666}
- \draw[->] (0,0)--(15,0) node[right] {$V/(Nb)$};
- \draw[->] (0,0)--(0,0.032) node[above] {$(F+PV)/(N\alpha/b)$};
-\draw[thick] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+\pc*\x-\gzero});
- \fill (1.6447993625905433,0) circle (1.3pt) node[below] {安定};
- \fill (9.723323053742876,0) circle (1.3pt) node[below] {安定};
- \fill (3.458082353218395,0.0170369489645495) circle (1.3pt) node[above] {不安定};
-\end{tikzpicture}
-\end{center}
-
-図では $k_BT b/\alpha=1/4$ の例を用いた。共存圧力は
-$P_{\rm coex}b^2/\alpha\simeq0.01808161$ であり、二つの極小の高さが等しくなるように求めた。
-自由エネルギー図の縦軸は、体積によらない項と共存時の極小値を差し引いて示した。
-
-\section*{[6] 圧力による傾きの変化}
-圧力を $P+\delta P$ に変えると
-\begin{equation}
- A_{P+\delta P}(V)=A_P(V)+\delta P\,V.
-\end{equation}
-したがって $\delta P>0$ では大体積側ほど自由エネルギーが余分に上がり、小体積側の極小がより低くなる。圧力を下げると逆に大体積側の極小が選ばれる。これは外圧を上げると圧縮が進み、外圧を下げると膨張・気化が進むことに対応する。
-\begin{center}
-\begin{tikzpicture}[>=Stealth,x=0.32cm,y=90cm]
- \pgfmathsetmacro{\pc}{0.018081606931683265}
- \pgfmathsetmacro{\gzero}{-0.4685322546678666}
- \draw[->] (0,-0.01)--(15,-0.01) node[right] {$V/(Nb)$};
- \draw[->] (0,-0.01)--(0,0.04) node[above] {$(F+PV)/(N\alpha/b)$};
- \draw[dashed] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+\pc*\x-\gzero});
- \draw[thick] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+(\pc+0.001)*\x-\gzero});
- \draw[dotted,thick] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+(\pc-0.001)*\x-\gzero});
-\end{tikzpicture}
-\end{center}
-破線は共存圧力、実線は圧力増加、点線は圧力減少を表す。圧力変化は $\delta P b^2/\alpha=\pm0.001$ とし、同じ自由エネルギーに $\delta P V$ を加えて描いた。
-
-\section*{[7] 状態方程式と平衡等温線}
-状態方程式 $P(V)=Nk_BT/(V-Nb)-\alpha N^2/V^2$ をこの温度で描くと、図1に二つの極小がある条件ではS字状のvan der Waalsループを持つ。
-中間枝は $\partial P/\partial V>0$ であり、均一な状態として不安定である。
-共存圧力 $P_{\rm coex}$ では、小体積相と大体積相のGibbs自由エネルギーが等しい。
-全 $N$ 個の粒子がそれぞれの均一相にあるときの体積を $V_l,V_g$ と書き、$V_l<V_g$ とする。
-$F(V)=F(T,N,V)$ と略記すると、二つの大域最小の高さが等しい条件は
-\begin{equation}
- F(V_g)-F(V_l)=-P_{\rm coex}(V_g-V_l)
-\end{equation}
-である。
-
-中間の全体積では、二つの相が共存し、各相に属する粒子の割合が変わる。
-熱力学極限で界面の自由エネルギーを無視し、各相の体積と自由エネルギーを加える。
-大体積相に属する粒子の割合を $x$（$0\le x\le1$）とすると、自由エネルギーの示量性から
+各 $\boldsymbol v_1$ に対し、残る2成分 $(v_{x,2},v_{y,2})$ は半径 $s$ の円周上を動く。エネルギーのデルタ関数を用いてその寄与を書くと
 \begin{align}
- V&=(1-x)V_l+xV_g,\\
- F_{\rm mix}(V)&=(1-x)F(V_l)+xF(V_g).
+ P(v_1)\,dv_1
+ &\propto \underbrace{2\pi v_1\,dv_1}_{\boldsymbol v_1\text{ の円環面積}}
+ \int_{\mathbb R^2}d^2v_2\,
+ \delta\!\left(E-\frac m2(v_1^2+v_2^2)\right)\\
+ &\propto 2\pi v_1\,dv_1\,\frac{S_2(s)}{m s}.
 \end{align}
-従ってこの混合状態の圧力は
+$0<v_1<R$ で粒子2の速さを積分変数 $u$ とすると、デルタ関数の引数が0となるのは $u=s$ で、その微分の絶対値は $ms$ である。
+したがって上の殻積分は
 \begin{equation}
- -\frac{dF_{\rm mix}}{dV}
- =-\frac{F(V_g)-F(V_l)}{V_g-V_l}=P_{\rm coex}.
+  \int_0^\infty 2\pi u\,du\,
+  \delta\!\left(E-\frac m2(v_1^2+u^2)\right)
+  =\frac{2\pi s}{ms}=\frac{S_2(s)}{ms}=\frac{2\pi}{m}.
 \end{equation}
-このため平衡等温線は $V_l\le V\le V_g$ で水平となる。
-均一状態のS字曲線と、二相の割合が変わる平衡状態を同じ図に示す。
-\begin{center}
-\begin{tikzpicture}[>=Stealth,x=0.32cm,y=60cm]
- \pgfmathsetmacro{\pc}{0.018081606931683265}
- \draw[->] (0,0)--(15,0) node[right] {$V/(Nb)$};
- \draw[->] (0,0)--(0,0.065) node[above] {$Pb^2/\alpha$};
- \draw[dashed] plot[domain=1.5:14,samples=301] (\x,{0.25/(\x-1)-1/(\x*\x)});
- \draw[thick] plot[domain=1.5:1.6447993625905433,samples=41] (\x,{0.25/(\x-1)-1/(\x*\x)});
- \draw[thick] (1.6447993625905433,\pc)--(9.723323053742876,\pc);
- \draw[thick] plot[domain=9.723323053742876:14,samples=81] (\x,{0.25/(\x-1)-1/(\x*\x)});
- \node[above] at (7,\pc) {$P_{\rm coex}b^2/\alpha$};
-\end{tikzpicture}
-\end{center}
-破線は状態方程式の全枝、実線は平衡等温線である。共存区間は一定圧力の直線で結び、区間外では実線と状態方程式が一致する。
+ここで $S_2(s)=2\pi s$ は円周長であり、この殻積分は $v_1$ に依存しない。したがって速さの確率密度は
+\begin{equation}
+ \boxed{P(v_1)\propto v_1\quad(0<v_1<R),\qquad
+ P(v_1)=0\quad(v_1>R).}
+\end{equation}
+半径 $v_1$ の円環面積に比例するため、平面速度ベクトルの密度と速さの密度は異なる。
+
+\section*{[4] 一般の $N$ に対する速さ分布}
+全エネルギー $E=N\epsilon$ のとき、$2N$ 次元速度球面の半径は
+\begin{equation}
+ R=\sqrt{\frac{2N\epsilon}{m}}.
+\end{equation}
+粒子1の二成分を固定すると、残る $2N-2$ 成分の速度空間は半径
+$s=\sqrt{R^2-v_1^2}$ の球面上にある。前問と同じエネルギー殻積分から
+\begin{equation}
+ P(v_1)\,dv_1\propto 2\pi v_1\,dv_1\,
+ \frac{S_{2N-2}(s)}{m s}.
+\end{equation}
+$d$ 次元球面の表面積は半径の $d-1$ 乗に比例するので
+$S_{2N-2}(s)\propto s^{2N-3}$。従って
+\begin{equation}
+ \boxed{P(v_1)\propto v_1
+ \left(\frac{2N\epsilon}{m}-v_1^2\right)^{N-2},\qquad
+ 0<v_1<\sqrt{\frac{2N\epsilon}{m}}.}
+\end{equation}
+それより大きい速さでは $P(v_1)=0$ である。
+
+\section*{[5] Maxwell速さ分布への極限}
+$v_1$ を固定して $N\to\infty$ とする。$v_1$ に依らない係数を比例定数へまとめると
+\begin{align}
+ P(v_1)&\propto v_1\left(1-\frac{mv_1^2}{2N\epsilon}\right)^{N-2}\\
+ &\longrightarrow v_1\exp\!\left(-\frac{mv_1^2}{2\epsilon}\right).
+\end{align}
+これは二次元でのMaxwell速さ分布であり、先頭の $v_1$ は二次元の円環面積要素に由来する。
+
+\section*{[6] 温度}
+温度 $T$ の二次元Maxwell速さ分布は
+$P(v_1)\propto v_1\exp[-mv_1^2/(2k_BT)]$ である。指数を[5]と比べると
+\begin{equation}
+ \boxed{T=\frac{\epsilon}{k_B}.}
+\end{equation}
+これは各粒子に二つの並進自由度があり、平均運動エネルギーが
+$2(k_BT/2)=k_BT$ であることとも一致する。
 
 \end{document}

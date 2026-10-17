@@ -1,107 +1,134 @@
-% Source problem: 2013ap_exam.pdf, PDF p. 7.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h25ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=23mm]{geometry}
+\usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
-\usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2013年 物理学II 第1問}
+\title{物理工学専攻 院試解答集\\2013年度 物理学II 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] Pauli行列の固有状態}
-$|\alpha\rangle=(1,0)^T$, $|\beta\rangle=(0,1)^T$ を $\sigma_z$ の固有値 $+1,-1$ の状態とする。行列の作用を直接計算すると
+生成・消滅演算子を用いると
+\begin{equation}
+  \hat X=x_0(\hat a+\hat a^\dagger),\qquad
+  x_0=\sqrt{\frac{\hbar}{2m\omega_0}},\qquad
+  \hat H_0=\hbar\omega_0\left(\hat a^\dagger\hat a+\frac12\right).
+\end{equation}
+
+\section*{[1] 双極子遷移}
+$\hat\mu=q\hat X$ だから、数状態間の行列要素は
+\begin{equation}
+  \langle l|\hat\mu|n\rangle
+  =q x_0\left(\sqrt n\,\delta_{l,n-1}
+        +\sqrt{n+1}\,\delta_{l,n+1}\right).
+\end{equation}
+従って $n\ge1$ なら $|n-1\rangle,|n+1\rangle$ へ遷移でき、基底状態 $|0\rangle$ からは $|1\rangle$ だけが許される。
+
+\section*{[2] 四次摂動によるエネルギー補正}
+一次摂動論では $\Delta E_n=\langle n|\lambda\hat X^4|n\rangle$ である。
+$Q=\hat a+\hat a^\dagger$ とおき、問題文の昇降作用を2回用いると
+\begin{equation}
+  Q^2|n\rangle=\sqrt{n(n-1)}|n-2\rangle
+  +(2n+1)|n\rangle+\sqrt{(n+1)(n+2)}|n+2\rangle.
+\end{equation}
+$n<2$ のとき最初の項はなく、負の添字の状態は含めない。
+$Q$ はHermiteであり、異なる数状態は直交するので、
 \begin{align}
- \sigma_x\frac{|\alpha\rangle+|\beta\rangle}{\sqrt2}
- &=+\frac{|\alpha\rangle+|\beta\rangle}{\sqrt2},&
- \sigma_x\frac{|\alpha\rangle-|\beta\rangle}{\sqrt2}
- &=-\frac{|\alpha\rangle-|\beta\rangle}{\sqrt2},\\
- \sigma_y\frac{|\alpha\rangle+i|\beta\rangle}{\sqrt2}
- &=+\frac{|\alpha\rangle+i|\beta\rangle}{\sqrt2},&
- \sigma_y\frac{|\alpha\rangle-i|\beta\rangle}{\sqrt2}
- &=-\frac{|\alpha\rangle-i|\beta\rangle}{\sqrt2}.
+  \langle n|Q^4|n\rangle
+  &=\|Q^2|n\rangle\|^2\\
+  &=n(n-1)+(2n+1)^2+(n+1)(n+2)\\
+  &=6n^2+6n+3.
 \end{align}
-したがって $|\pm x\rangle=(|\alpha\rangle\pm|\beta\rangle)/\sqrt2$、$|\pm y\rangle=(|\alpha\rangle\pm i|\beta\rangle)/\sqrt2$ がそれぞれ固有値 $\pm1$ の規格化固有状態である。
-
-\section*{[2] 電場中の一次元運動}
-\subsection*{[2.1] ハミルトニアン}
-$\boldsymbol p=p_x\boldsymbol e_x$, $\boldsymbol E=E\boldsymbol e_z$ なので $\boldsymbol p\times\boldsymbol E=-p_xE\boldsymbol e_y$。従って
+したがって
 \begin{equation}
- H=\frac{p_x^2}{2m}+H_{\rm SO}
- =\boxed{\frac{p_x^2}{2m}-\frac{\gamma E}{\hbar}p_x\sigma_y}.
+  \boxed{\Delta E_n
+  =3\lambda(2n^2+2n+1)\left(\frac{\hbar}{2m\omega_0}\right)^2.}
 \end{equation}
 
-\subsection*{[2.2] 分散とスピン}
-平面波 $\phi_k(x)=e^{ikx}$ では $p_x=\hbar k$ だから
+\section*{[3] 摂動後の双極子遷移}
+摂動を一次まで含む規格化固有状態は
 \begin{equation}
- H(k)=\frac{\hbar^2k^2}{2m}-\gamma Ek\sigma_y.
+ |n\rangle'=|n\rangle+
+ \frac{\lambda x_0^4}{\hbar\omega_0}
+ \sum_{\substack{k\ne n\\ |k-n|\in\{2,4\}}}
+ \frac{\langle k|Q^4|n\rangle}{n-k}|k\rangle+O(\lambda^2),
+ \qquad Q=\hat a+\hat a^\dagger.
 \end{equation}
-$\sigma_y$ 固有値を $s=\pm1$ とし、$|y,+1\rangle=|+y\rangle$、$|y,-1\rangle=|-y\rangle$ と書くと、固有関数と固有エネルギーは
+四次演算子は偶数準位だけを混ぜるので、$|8\rangle'$ と反対パリティの状態だけが双極子遷移の候補となる。さらに $Q$ は準位を1つだけ変えるため、候補は $l=3,5,7,9,11,13$ である。ただし候補範囲だけでは行列要素の非零性は決まらない。$Q_{lk}=\langle l|Q|k\rangle$ と書く。$Q$ を4回作用させると、非対角行列要素は
 \begin{align}
- \psi_{k,s}(x)&=e^{ikx}|y,s\rangle,\\
- E_s(k)&=\frac{\hbar^2k^2}{2m}-s\gamma Ek
- =\frac{\hbar^2}{2m}\left(k-\frac{sm\gamma E}{\hbar^2}\right)^2
-  -\frac{m\gamma^2E^2}{2\hbar^2}.
+ (Q^4)_{n+2,n}&=(4n+6)\sqrt{(n+1)(n+2)},\\
+ (Q^4)_{n+4,n}&=\sqrt{(n+1)(n+2)(n+3)(n+4)}
+ \qquad(n\ge0)
 \end{align}
-二本は $k=0$ で交差する放物線で、それぞれの固有枝ではスピンは一定の $s\boldsymbol e_y$ を向く。$\gamma<0$ のため、各 $k\ne0$ で低い方の枝は $s=\operatorname{sgn}(\gamma k)=-\operatorname{sgn}(k)$ である。つまり最低エネルギー状態を $k<0$ から $k>0$ へ移るとスピンは $+y$ から $-y$ へ反転する。交差点 $k=0$ では縮退しており、スピン方向は一意に定まらない。
-
-$k_*=|m\gamma E|/\hbar^2$、$E_*=m\gamma^2E^2/(2\hbar^2)$、$x=k/k_*$ と置けば $E_s/E_*=x^2+2sx$ である。分散を図示する。
-\begin{center}
-\begin{tikzpicture}[x=0.8cm,y=0.32cm]
- \draw[->] (-2.4,0)--(2.8,0) node[right] {$k/k_*$};
- \draw[->] (0,-1.35)--(0,5.2) node[above] {$E_s/E_*$};
- \draw[gray!40] (-2.2,-1)--(2.5,-1);
- \draw[thick,blue,domain=-2.2:1.4,samples=100] plot (\x,{\x*\x+2*\x});
- \draw[thick,red,dashed,domain=-1.4:2.4,samples=100] plot (\x,{\x*\x-2*\x});
- \draw[dotted] (0,-1.15)--(0,4.8);
- \node[blue,anchor=west] at (1.65,4.65) {$s=+1$};
- \node[red,anchor=east] at (-1.65,4.65) {$s=-1$};
- \node[below left] at (0,0) {$0$};
- \node[above] at (1,0) {$1$};
- \node[above] at (-1,0) {$-1$};
-\end{tikzpicture}
-\end{center}
-青実線と赤破線は $\sigma_y$ の固有値 $+1,-1$ に対応する。放物線の頂点はそれぞれ $k/k_*=-1,+1$ にあり、エネルギーは $-E_*$ である。
-
-\subsection*{[2.3] Zeeman場を加えた場合}
-$\Delta=g\mu_BB/2>0$ とおくと、Zeeman項を含む運動量表示ハミルトニアンは
+となる。準位を下げる行列要素は、これらの実行列要素の添字を交換して得られる。$\eta=\lambda x_0^4/(\hbar\omega_0)$ とすると、一次遷移振幅は
+\begin{align}
+ \frac{\langle l'|q\hat X|8'\rangle}{q x_0}
+ &=Q_{l8}+\eta\left[
+ \sum_{k\ne l}\frac{(Q^4)_{kl}Q_{k8}}{l-k}
+ +\sum_{k\ne8}\frac{Q_{lk}(Q^4)_{k8}}{8-k}\right]+O(\eta^2).
+\end{align}
+$l=13$ では一次補正に寄与するのは、終状態の $|9\rangle$ 成分と初期状態の $|12\rangle$ 成分だけである。その二項は
 \begin{equation}
- H(k)=\frac{\hbar^2k^2}{2m}+\Delta\sigma_x-\gamma Ek\sigma_y
- =\frac{\hbar^2k^2}{2m}+\boldsymbol h(k)\cdot\boldsymbol\sigma,
- \qquad \boldsymbol h(k)=(\Delta,-\gamma Ek,0).
+  \frac{\sqrt{13}\,(Q^4)_{12,8}}{4}
+  +\frac{\sqrt{13}\,(Q^4)_{12,8}}{-4}=0.
 \end{equation}
-Pauli行列の反交換関係から $(\boldsymbol h\cdot\boldsymbol\sigma)^2=|\boldsymbol h|^2I$ となり、$\boldsymbol h\cdot\boldsymbol\sigma$ の固有値は $\pm|\boldsymbol h|$ である。従って
+上の角括弧内の二つの総和へ行列要素を代入する。各行で左の加数が終状態の補正、右の加数が初期状態の補正からの寄与である。
+\begin{align}
+ l=3:&\quad -2\sqrt{105}+2\sqrt{105}=0,\\
+ l=5:&\quad -61\sqrt{21}+65\sqrt{21}=4\sqrt{21},\\
+ l=7:&\quad -153\sqrt8+105\sqrt8=-48\sqrt8,\\
+ l=9:&\quad 408-570=-162,\\
+ l=11:&\quad 69\sqrt{110}-66\sqrt{110}=3\sqrt{110}.
+\end{align}
+従って $l=3$ でも一次振幅が消える。残る4つの振幅は
+\begin{align}
+ \frac{\langle5'|q\hat X|8'\rangle}{q x_0}&=4\sqrt{21}\,\eta+O(\eta^2),&
+ \frac{\langle7'|q\hat X|8'\rangle}{q x_0}&=\sqrt8(1-48\eta)+O(\eta^2),\\
+ \frac{\langle9'|q\hat X|8'\rangle}{q x_0}&=3(1-54\eta)+O(\eta^2),&
+ \frac{\langle11'|q\hat X|8'\rangle}{q x_0}&=3\sqrt{110}\,\eta+O(\eta^2).
+\end{align}
+従って求める遷移先は
 \begin{equation}
- \boxed{E_\pm(k)=\frac{\hbar^2k^2}{2m}
- \pm\sqrt{\Delta^2+(\gamma Ek)^2}}.
+  \boxed{|5\rangle',\ |7\rangle',\ |9\rangle',\ |11\rangle'.}
 \end{equation}
-$k=0$ の準位差は $2\Delta=g\mu_BB$ で、電場のみの交差が有限の間隔を持つ反交差となる。その規格化固有状態で $\{\sigma_j,\boldsymbol h\cdot\boldsymbol\sigma\}=2h_jI$ の期待値を取ると、$2(\pm|\boldsymbol h|)\langle\sigma_j\rangle_\pm=2h_j$（$j=x,y,z$）である。従ってスピン期待値は
-\begin{equation}
- \boxed{\langle\boldsymbol\sigma\rangle_\pm
- =\pm\frac{(\Delta,-\gamma Ek,0)}{\sqrt{\Delta^2+(\gamma Ek)^2}}.}
-\end{equation}
-よって $k=0$ では上枝が $+x$、下枝が $-x$ を向く。$\gamma<0$ なら $h_y=-\gamma Ek$ は $k$ と同じ符号を持つ。$|k|$ が大きくなるにつれて、上枝のスピンは有効場 $\boldsymbol h(k)$ と平行、下枝のスピンは反平行のまま連続的に回る。十分大きな正の $k$ では上枝が $+y$、負の $k$ では上枝が $-y$ に近づき、下枝は反対向きとなる。
 
-固有エネルギーの概略は次のようになる。$q=k/k_0$, $k_0=\Delta/(|\gamma|E)$ とし、二次項の無次元係数 $c=\hbar^2k_0^2/(2m\Delta)$ を表示例として $c=1$ に選ぶ。したがって曲線は $E_\pm/\Delta=q^2\pm\sqrt{1+q^2}$ で、$q=0$ のギャップは $2\Delta=g\mu_BB$ である。曲率は $c$ に依存する。
-\begin{center}
-\begin{tikzpicture}[x=0.7cm,y=0.24cm]
- \draw[->] (-3.2,0)--(3.8,0) node[right] {$k/k_0$};
- \draw[->] (0,-1.9)--(0,10.0) node[above] {$E/\Delta$};
- \draw[gray!45] (-2.8,1)--(3.1,1);
- \draw[thick,red,domain=-2.6:2.6,samples=140] plot (\x,{\x*\x-sqrt(1+\x*\x)});
- \draw[thick,blue,domain=-2.6:2.6,samples=140] plot (\x,{\x*\x+sqrt(1+\x*\x)});
- \draw[dashed] (0,-1.1)--(0,1.1);
- \draw[<->,thick] (0,-1)--(0,1);
- \node[red,anchor=west] at (2.6,3.0) {$E_-(k)$};
- \node[blue,anchor=west] at (2.8,9.5) {$E_+(k)$};
- \node[anchor=west] at (1.0,-1.35) {$2\Delta=g\mu_BB$};
-\end{tikzpicture}
-\end{center}
+\section*{[4] Heisenberg表示の位置演算子}
+$[\hat H_0,\hat a]=-\hbar\omega_0\hat a$、$[\hat H_0,\hat a^\dagger]=\hbar\omega_0\hat a^\dagger$ より
+\begin{equation}
+  \hat a(t)=e^{-i\omega_0t}\hat a(0),\qquad
+  \hat a^\dagger(t)=e^{i\omega_0t}\hat a^\dagger(0).
+\end{equation}
+従って
+\begin{align}
+  \hat X(t)
+  &=x_0\left(e^{-i\omega_0t}\hat a(0)
+           +e^{i\omega_0t}\hat a^\dagger(0)\right)\\
+  &=\boxed{\hat X(0)\cos(\omega_0t)
+      +\frac{\hat P(0)}{m\omega_0}\sin(\omega_0t).}
+\end{align}
+
+\section*{[5] 位置の期待値}
+数状態では $\langle n|\hat X(0)|n\rangle=\langle n|\hat P(0)|n\rangle=0$ なので
+\begin{equation}
+  \boxed{\langle n|\hat X(t)|n\rangle=0.}
+\end{equation}
+有限振幅で振動する例は、$\hat a$ の固有状態である規格化コヒーレント状態
+\begin{equation}
+  |\alpha\rangle=e^{-|\alpha|^2/2}
+  \sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}|n\rangle,
+  \qquad \hat a|\alpha\rangle=\alpha|\alpha\rangle
+\end{equation}
+である。この状態では
+\begin{equation}
+  \boxed{\langle\alpha|\hat X(t)|\alpha\rangle
+  =2x_0\operatorname{Re}\!\left(\alpha e^{-i\omega_0t}\right),}
+\end{equation}
+となり、$\alpha\ne0$ なら有限の振幅で角振動数 $\omega_0$ の正弦振動をする。
 
 \end{document}

@@ -1,4 +1,4 @@
-% Source: public/notes/物工/問題/2022ap_exam.pdf, PDF pp. 6--7.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2022ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -9,142 +9,213 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2022年 物理学 第3問}
+\title{物理工学専攻 院試解答集\\2022年度 物理学 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 静止円柱内の1粒子分配関数}
-確率密度の規格化は
+\section*{[1] 異種最近接対と内部エネルギー}
+一つの A 原子には $z$ 個の最近接サイトがあり、その B 原子占有確率は $(1-x)$ と近似する。A 原子を持つサイトから数えれば異種対を重複なく数えるため
 \[
-1=\frac1{h^3L\widetilde Z_1}\int_{-L/2}^{L/2}dz
-\int_{x^2+y^2\le R^2}dx\,dy\int_{\mathbb R^3}d^3p\,
-e^{-p^2/(2mkT)}.
-\]
-運動量積分は $(2\pi mkT)^{3/2}$、断面積は $\pi R^2$、高さ積分は $L$ なので
-\[
-\widetilde Z_1(T,R)=\frac{\pi R^2}{h^3}(2\pi mkT)^{3/2}
-=\boxed{\gamma R^2(kT)^{3/2}},\qquad
-\gamma=\frac{\pi^{5/2}(2m)^{3/2}}{h^3}.
+N_{AB}=N_Az\frac{N_B}{N}=zNx(1-x),\qquad
+\boxed{E=zNVx(1-x)}.
 \]
 
-\section*{[1.2] 自由エネルギー密度}
-古典的な同種粒子の分配関数は $Z_N=[L\widetilde Z_1]^N/N!$ である。Stirling 近似から
-\[
-F=-kT\log Z_N\simeq -NkT\left[\log\left(\frac{L\widetilde Z_1}{N}\right)+1\right].
-\]
-$\nu=N/L$ を固定して割り算すると
-\[
-\boxed{\widetilde F=\frac FL=-\nu kT\left[\log\left(\frac{\widetilde Z_1}{\nu}\right)+1\right]
-=-\nu kT(\log\widetilde Z_1-\log\nu+1)}.
-\]
-
-\section*{[1.3] 静止容器の側圧}
-半径を $dR$ だけ準静的に増やすと体積変化は $dV=2\pi RL\,dR$。したがって
-\[
-P=-\frac1{2\pi R}\left(\frac{\partial\widetilde F}{\partial R}\right)_{T,\nu}
-=\boxed{\frac{\nu kT}{2\pi R\widetilde Z_1}\left(\frac{\partial\widetilde Z_1}{\partial R}\right)_T}.
-\]
-ここで [1.1] の $\widetilde Z_1\propto R^2$ を使うと
-\[
-\boxed{P=\frac{\nu kT}{\pi R^2}}.
-\]
-
-\section*{[2.1] 回転系ハミルトニアンの最小値}
-$r^2=x^2+y^2$ とし平方完成すると
-\[
-H_1-\omega M_1
-=\frac{(p_x+m\omega y)^2+(p_y-m\omega x)^2+p_z^2}{2m}
--\frac{m\omega^2r^2}{2}.
-\]
-$r\le R$ のもとでは二乗項をゼロにし、$r=R$ としたとき最小になる。よって
-\[
-\boxed{\min(H_1-\omega M_1)=-\frac{m\omega^2R^2}{2}=-\epsilon},\qquad
-\epsilon=\frac{mR^2\omega^2}{2}.
-\]
-$\omega=0$ では最小値は $0$ である。
-
-\section*{[2.2] 平衡流の速度場}
-位置 $\boldsymbol r$ を固定した運動量分布は
-\[
-\exp\!\left[-\frac{(p_x+m\omega y)^2+(p_y-m\omega x)^2+p_z^2}{2mkT}\right]
-\]
-に比例するガウス分布である。その中心運動量を $m$ で割れば局所平均速度となる：
-\[
-\boxed{v_x(\boldsymbol r)=-\omega y,\qquad v_y(\boldsymbol r)=\omega x,\qquad v_z(\boldsymbol r)=0}.
-\]
-これは $z$ 軸周りの剛体回転 $\boldsymbol v=\boldsymbol\omega\times\boldsymbol r$ である。
-
-\section*{[2.3] 回転系の規格化定数}
-平方完成した運動量積分は通常の Gaussian と同じであり、位置に残る重みは $e^{m\omega^2r^2/(2kT)}$ である。$\lambda=\epsilon/(kT)$ とすると
+\section*{[2] 配置エントロピー}
+$N_A=xN$, $N_B=(1-x)N$ の配置数は $N!/(N_A!N_B!)$ である。Stirling 近似より
 \begin{align*}
-\widetilde Z_1(T,R,\omega)
-&=\frac{(2\pi mkT)^{3/2}}{h^3}\,2\pi\int_0^Rr\,e^{m\omega^2r^2/(2kT)}dr\\
-&=\frac{(2\pi mkT)^{3/2}}{h^3}\frac{2\pi kT}{m\omega^2}(e^\lambda-1)\\
-&=\boxed{\gamma R^2(kT)^{3/2}\frac{e^\lambda-1}{\lambda}}
-=\boxed{\frac{2\gamma(kT)^{5/2}}{m\omega^2}(e^{\epsilon/(kT)}-1)}.
+S&=k_B\log\frac{N!}{N_A!N_B!}\\
+&\simeq k_B[N\log N-N_A\log N_A-N_B\log N_B]\\
+&=\boxed{-k_BN[x\log x+(1-x)\log(1-x)]}.
 \end{align*}
-ここでは $\omega\ne0$ とした。$\lambda\to0$ で $(e^\lambda-1)/\lambda\to1$ となり、[1.1] の非回転極限に戻る。
 
-\section*{[2.4] 回転容器の側圧}
-全粒子の角運動量を $M=\sum_jM_{1,j}$ とし、逆温度を $\beta=1/(kT)$ と書く。角速度 $\omega$ の容器が粒子に及ぼすトルクの仕事率は $\omega\,d\langle M\rangle/dt$ なので、準静的な変化での第一法則は
+\section*{[3] 自由エネルギー}
 \[
- d\langle H\rangle=T\,dS+\omega\,d\langle M\rangle-P\,dV
- \qquad(N\text{ 固定})
+\boxed{F=E-TS=N\left\{zVx(1-x)+k_BT[x\log x+(1-x)\log(1-x)]\right\}},
+\qquad f(x)=F/N.
 \]
-である。回転分布 $e^{-\beta(H-\omega M)}$ から得る熱力学ポテンシャルを $F_\omega$ と書くと、[1.2] と同じ粒子数の数え上げにより
+したがって
+\[
+f(x)=zVx(1-x)+k_BT[x\log x+(1-x)\log(1-x)].
+\]
+微分すると
+\[
+f'(x)=zV(1-2x)+k_BT\log\frac{x}{1-x}.
+\]
+
+\section*{[4] 停留条件関数}
+$f'(x)=0$ を問題の形に整理すると
+\[
+\frac{zV}{k_BT}(2x-1)=g(x),\qquad \boxed{g(x)=\log\frac{x}{1-x}}.
+\]
+$g(1-x)=-g(x)$ で、$g'(x)=1/[x(1-x)]$、特に $g'(1/2)=4$。
+
+\section*{[5] 臨界温度}
+中心近傍で交点の個数が変わるのは、直線と$g(x)$の傾きの差$g'(x)-2zV/(k_BT)$が中心でゼロになるときである。$g'(x)=1/[x(1-x)]$は中心で最小値4を取るため、臨界点では直線の傾き $2zV/(k_BT)$ と $g'(1/2)=4$ が一致する。従って
+\[
+\boxed{T_{c0}=\frac{zV}{2k_B}}.
+\]
+
+\section*{[6] 交点による臨界温度の判定}
+以下の図では同じ $g(x)$ と、傾き $zV/(k_BT)$ に比例する直線を比較する。$T>T_{c0}$ では中心 $x=1/2$ でのみ交わる。$T<T_{c0}$ では中心に加えて二つの対称な交点 $x=1/2\pm\delta_0$ が生じる。
+\begin{center}
+\begin{tikzpicture}[x=5.4cm,y=0.54cm]
+\draw[->] (0,-4.4)--(1.04,-4.4) node[right] {$x$};
+\draw[->] (0,-4.5)--(0,4.5) node[above] {$y$};
+\draw[thick] plot[domain=0.02:0.98,samples=181] (\x,{ln(\x/(1-\x))});
+\draw[blue,dashed] plot[domain=0:1,samples=2] (\x,{(2/2)*(2*\x-1)});
+\draw[red,thick] plot[domain=0:1,samples=2] (\x,{(2/0.5)*(2*\x-1)});
+\draw[dashed] (0.5,-4.2)--(0.5,4.2);
+\node at (0.68,2.8) {$g(x)$};
+\node[blue] at (0.80,-1.1) {$T/T_{c0}=2$};
+\node[red] at (0.25,1.7) {$T/T_{c0}=1/2$};
+\node[below] at (0.5,-4.4) {$1/2$};
+\end{tikzpicture}
+\end{center}
+図の直線の傾きは高温側で $2zV/(k_BT)<4$、低温側で $2zV/(k_BT)>4$ である。ここで青・赤の直線はそれぞれ代表温度を表す。
+
+\section*{[7] 変曲点の位置}
+\[
+f''(x)=-2zV+k_BT\left(\frac1x+\frac1{1-x}\right)
+=-2zV+\frac{k_BT}{x(1-x)}.
+\]
+$f''(x)=0$ から
+\[
+x(1-x)=\frac{k_BT}{2zV},\qquad
+\boxed{\delta_1(T)=\sqrt{\frac14-\frac{k_BT}{2zV}}
+=\frac12\sqrt{1-\frac{T}{T_{c0}}}}.
+\]
+$T<T_{c0}$ なら二つの実変曲点がある。原問は $T=T_{c0}$ も変曲点の範囲に含めるが、この極限では $\delta_1=0$ かつ $f''(1/2)=0$ で、$f''$ はその両側で正となる。したがって臨界組成は曲率がゼロになる退化点であり、厳密には変曲点ではない。
+
+\section*{[8] 低温の自由エネルギー曲線}
+$0<T<T_{c0}$ では中心で $f'(1/2)=0$、$f''(1/2)<0$ なので、$x=1/2$ は局所最大である。右側では
+\[
+ f''(x)<0\quad\left(\frac12<x<\frac12+\delta_1\right),
+ \qquad
+ f'\!\left(\frac12+\delta_1\right)<0.
+\]
+その外側では $f''(x)>0$ であり、$f'(x)$ は増加して $x\to1$ で $+\infty$ に発散する。従って再び $f'(x)=0$ となる点は変曲点より外側に一つだけあり、これが $x=1/2+\delta_0$ の極小である。対称性 $f(1-x)=f(x)$ より左側にも同じ高さの極小があり、
+\[
+ \boxed{0<\delta_1<\delta_0<\frac12}.
+\]
+この符号変化から、二つの外側極小が全区間での最小値を与える。変曲点は各極小と中心極大の間にある。端点で $f'(x)$ は対数発散するが $f(x)$ 自体は有限である。
+\begin{center}
+\begin{tikzpicture}[x=5.1cm,y=18cm]
+\pgfmathsetmacro{\t}{0.5}
+\pgfmathsetmacro{\xmin}{0.02124798796136563}
+\pgfmathsetmacro{\xspin}{(1-sqrt(1-\t))/2}
+\draw[->] (0,-0.055)--(1.04,-0.055) node[right] {$x$};
+\draw[->] (0,-0.055)--(0,0.11) node[above] {$f(x)/(zV)$};
+\draw[thick] plot[domain=0.0001:0.9999,samples=301] (\x,{\x*(1-\x)+(\t/2)*(\x*ln(\x)+(1-\x)*ln(1-\x))});
+\foreach \v in {\xmin,\xspin,0.5} {\draw[dashed] (\v,0.02)--(\v,-0.055);\pgfmathsetmacro{\mirror}{1-\v}\draw[dashed] (\mirror,0.02)--(\mirror,-0.055);}
+\node[below right] at (\xmin,-0.060) {\small $\frac12-\delta_0$};
+\node[above] at (0.31,0.105) {\small $\frac12-\delta_1$};
+\node[above] at (0.5,0.025) {\small $\frac12$};
+\node[above right] at ({1-\xspin},0.050) {\small $\frac12+\delta_1$};
+\node[below left] at ({1-\xmin},-0.060) {\small $\frac12+\delta_0$};
+\end{tikzpicture}
+\end{center}
+この図は $T/T_{c0}=1/2$ の例で、$\delta_1=\sqrt{2}/4$、$\delta_0\simeq0.478752$ である。
+
+\section*{[9] 停留点の温度依存}
+外側停留点は
+\[
+\frac{4\delta_0}{T/T_{c0}}=
+\log\frac{1+2\delta_0}{1-2\delta_0}
+\quad(0<\delta_0<1/2)
+\]
+を満たす。これは $\delta_0=0$ という中心解を除いた正の解である。温度曲線は左右対称で、$\delta_0,\delta_1$ はともに $T\to T_{c0}$ で0、$T\to0$ で $1/2$ に近づき、$0<T<T_{c0}$ では $\delta_0>\delta_1$ となる。
+\begin{center}
+\begin{tikzpicture}[x=5.2cm,y=1.8cm]
+\draw[->] (0,0)--(1.04,0) node[right] {$x$};
+\draw[->] (0,0)--(0,1.08) node[above] {$T/T_{c0}$};
+\foreach \sgn in {-1,1} {
+ \draw[thick] plot[domain=0.001:50,samples=501,variable=\u] ({(1+\sgn*(1-exp(-2*\u))/(1+exp(-2*\u)))/2},{(1-exp(-2*\u))/((1+exp(-2*\u))*\u)});
+ \draw[dashed] plot[domain=0:1,samples=121] ({(1+\sgn*sqrt(1-\x))/2},\x);
+}
+\fill (0.5,1) circle(0.5pt);
+\draw[dashed] (0.5,0)--(0.5,1);
+\node at (0.05,0.75) {I};\node at (0.10,0.54) {II};\node at (0.5,0.45) {III};\node at (0.90,0.54) {II};\node at (0.95,0.75) {I};
+\node[above] at (0.5,1) {$1$};
+\node[below] at (0.5,0) {$1/2$};\node[below] at (0,0) {$0$};\node[below] at (1,0) {$1$};
+\node at (0.10,0.98) {$\delta_0$};\node at (0.35,0.72) {$\delta_1$};
+\end{tikzpicture}
+\end{center}
+実線は $u>0$ に対し $2\delta_0=\tanh u$、$T/T_{c0}=\tanh u/u$ で表せ、臨界点は $u\to0$ の極限にあたる。実線は外側極小の組成 $x=1/2\pm\delta_0$、点線は $f''=0$ となる組成 $x=1/2\pm\delta_1$ を表す。これらの曲線と図中の領域 (I)–(III) の安定性を、以下で相分離後の自由エネルギーと比較して判定する。
+
+\section*{[10] 相分離のレバー則}
+A 原子数保存より $x_0N=sx_1N+(1-s)x_2N$ なので
+\[
+\boxed{s=\frac{x_2-x_0}{x_2-x_1}},\qquad 1-s=\frac{x_0-x_1}{x_2-x_1}.
+\]
+
+\section*{[11] 相分離後の自由エネルギー}
+二相のサイト比で平均した自由エネルギーは
+\[
+\boxed{f^*=sf(x_1)+(1-s)f(x_2)
+=\frac{x_2-x_0}{x_2-x_1}f(x_1)+\frac{x_0-x_1}{x_2-x_1}f(x_2)}.
+\]
+この式は、$f(x_1)$ と $f(x_2)$ を結ぶ直線の $x=x_0$ での高さである。組成 $x_0$ を保つ二相分離で一様相の自由エネルギーを下げられるかどうかは、この高さと $f(x_0)$ の比較で決まる。
+
+$0<T<T_{c0}$ では [8] の対称な二極小について
+\[
+ f\!\left(\frac12-\delta_0\right)
+ =f\!\left(\frac12+\delta_0\right),\qquad
+ f'\!\left(\frac12-\delta_0\right)
+ =f'\!\left(\frac12+\delta_0\right)=0.
+\]
+従って両極小を結ぶ水平線は、両点で曲線に接し、全組成で曲線より下にある共通接線である。$|x_0-1/2|<\delta_0$ のとき、$x_1=1/2-\delta_0$、$x_2=1/2+\delta_0$ と選べばレバー則で $0<s<1$ となり、
+\[
+ f^*=f\!\left(\frac12-\delta_0\right)<f(x_0).
+\]
+どの相の $f$ もこの極小値以上なので、この二相の組成で固定組成の最小自由エネルギーに達する。
+
+一方、$x_0\le1/2-\delta_0$ の外側枝では $f''>0$、$f'(x_0)\le0$ である。凸な左側枝は $x_0$ での接線より上にあり、その接線は $x\ge1/2-\delta_0$ でも極小値以下にとどまる。従って全区間で
+\[
+ f(x)\ge f(x_0)+f'(x_0)(x-x_0).
+\]
+これを $x_1,x_2$ に適用し、レバー則の重みで足すと
 \begin{align*}
- F_\omega&=-kT\log\frac{[L\widetilde Z_1(T,R,\omega)]^N}{N!}
- =\langle H\rangle-TS-\omega\langle M\rangle\\
- &\simeq-NkT\left[\log\left(\frac{L\widetilde Z_1(T,R,\omega)}N\right)+1\right],\\
- dF_\omega&=-S\,dT-\langle M\rangle\,d\omega-P\,dV.
+ f^*&\ge f(x_0)+f'(x_0)\{sx_1+(1-s)x_2-x_0\}\\
+ &=f(x_0).
 \end{align*}
-従って側圧は $T,\omega,N,L$ 固定での半径微分から得られる。$dV=2\pi RL\,dR$ と [2.3] を用いると
-\[
-P=\frac{\nu kT}{2\pi R}\left(\frac{\partial\log\widetilde Z_1}{\partial R}\right)_{T,\omega}
-=\boxed{\frac{\nu m\omega^2}{2\pi(1-e^{-\lambda})}},\qquad \lambda=\frac{mR^2\omega^2}{2kT}.
-\]
-角速度固定で $T\to0$、すなわち $\lambda\to\infty$ とすると
-\[
-\boxed{P\longrightarrow\frac{\nu m\omega^2}{2\pi}}.
-\]
-また $\lambda\to0$ では $P\to\nu kT/(\pi R^2)$ となり、静止容器の式と一致する。
+右側の $x_0\ge1/2+\delta_0$ も対称性から同じであり、外側では一様相が最小自由エネルギーを与える。相分離を許した最小自由エネルギーの曲線は、外側の $f(x)$ を残し、二極小の間を共通接線で置き換えた形となる。この曲線は $f$ の下側凸包であり、二極小の組成 $x=1/2\pm\delta_0$ が共存境界を与える。
 
-\section*{[2.5] 慣性モーメント}
-既に得た局所平均速度は$\langle\boldsymbol v\mid r\rangle=(-\omega y,\omega x,0)$である。よって一粒子の軸まわり角運動量は$\langle M_1\mid r\rangle=x(m\omega x)-y(-m\omega y)=m\omega r^2$、全粒子について$\langle M\rangle=Nm\omega\langle r^2\rangle$となる。ここで$I=Nm\langle r^2\rangle$が質量分布の慣性モーメントである。回転分配関数は $e^{\beta\omega M_1}$ を含むため
+\section*{[12] 微小ゆらぎに対する局所安定性}
+$x_1=x_0-\delta$, $x_2=x_0+\delta$ ($0<\delta<\min(x_0,1-x_0)$) のとき、二相の組成比は $s=1/2$ となる。Taylor展開を両側で足すと奇数次項が相殺し、
+\begin{equation}
+ f^*-f(x_0)=\frac12f''(x_0)\delta^2
+ +\frac1{24}f''''(x_0)\delta^4+O(\delta^6).
+\end{equation}
+従って二次の自由エネルギー変化が正となる条件は
 \[
-I=\frac{\langle M\rangle}{\omega}
-=\frac{NkT}{\omega}\left(\frac{\partial\log\widetilde Z_1}{\partial\omega}\right)_{T,R}.
+ \boxed{f''(x_0)>0}.
 \]
-\[
-\log\widetilde Z_1=\text{(terms independent of $\omega$)}-2\log|\omega|+\log(e^\lambda-1),
-\qquad \partial_\omega\lambda=\frac{2\lambda}{\omega}.
-\]
-従って $\omega\ne0$ で
-\[
-\boxed{I=\frac{2N}{\omega^2}\left[\frac{\epsilon}{1-e^{-\epsilon/(kT)}}-kT\right]}.
-\]
-極限 $\omega\to0$ では $I\to NmR^2/2$、$T\to0$ では $I\to NmR^2$ で、後者は粒子が側壁近くに集まることに対応する。
+これが二次で判定する局所安定条件であり、$f''(x_0)<0$なら十分小さいゆらぎで自由エネルギーが下がる。$f''(x_0)=0$では二次の判定だけでは結論できず、高次項が必要となる。ここで
+\begin{align}
+ f'''(x)&=k_BT\left[-\frac1{x^2}+\frac1{(1-x)^2}\right],\\
+ f''''(x)&=2k_BT\left[\frac1{x^3}+\frac1{(1-x)^3}\right]>0\qquad(T>0).
+\end{align}
+特に臨界点$x_0=1/2$, $T=T_{c0}$では$f''=f'''=0$、$f''''=16zV$なので、
+\begin{equation}
+ f^*-f(1/2)=\frac23zV\delta^4+O(\delta^6)>0.
+\end{equation}
+二次項がゼロでも、この対称ゆらぎに対して一様相は安定である。
 
-\section*{[2.6] 固定角速度の熱容量}
-固定した $R,L,N,\omega$ のもとで加熱すると、[2.4] の第一法則から、加えた熱は回転仕事を差し引いた
-\[
- \delta Q=d\langle H\rangle-\omega\,d\langle M\rangle
- =d\langle H-\omega M\rangle
-\]
-となる。従って固定角速度の熱容量では共回転系の平均 $U_\omega=\langle H-\omega M\rangle$ を温度微分する。回転分布の逆温度微分もこの同じ平均を与え、
-\[
-U_\omega=\langle H-\omega M\rangle=-N\left(\frac{\partial\log\widetilde Z_1}{\partial\beta}\right)_{\omega,R}.
-\]
-同じ式は $\langle H\rangle=\tfrac32NkT+\tfrac12I\omega^2$ と $\langle M\rangle=I\omega$ から $U_\omega=\tfrac32NkT-\tfrac12I\omega^2$ としても得られる。$\widetilde Z_1\propto\beta^{-5/2}(e^{\beta\epsilon}-1)$ より
-\[
-U_\omega=\frac52NkT-\frac{N\epsilon}{1-e^{-\epsilon/(kT)}}.
-\]
-よって $\omega$ 固定の熱容量は
-\[
-\boxed{C_\omega=\left(\frac{\partial U_\omega}{\partial T}\right)_\omega
-=\frac52Nk-\frac{N\epsilon^2}{kT^2}\frac{e^{-\epsilon/(kT)}}{\left(1-e^{-\epsilon/(kT)}\right)^2}}.
-\]
-上式の減算項を$Nk\lambda^2e^{-\lambda}/(1-e^{-\lambda})^2$と書けば、高温の$\lambda\to0$では$1-e^{-\lambda}\sim\lambda$から$Nk$に、低温の$\lambda\to\infty$では0に近づく。従って非零の $\omega$ を固定した高温極限では $C_\omega\to\tfrac32Nk$、低温極限では $C_\omega\to\tfrac52Nk$ である。$\omega=0$ では式の連続極限から $C_0=\tfrac32Nk$ がすべての $T$ で得られる。
+\section*{[13] 安定・準安定・不安定領域}
+$T<T_{c0}$ において $|x-1/2|<\delta_1$ では $f''(x)<0$ であり、微小ゆらぎでも相分離するので領域 (III)。$\delta_1<|x-1/2|<\delta_0$ では局所安定だが全体として一様相が最安定ではなく、準安定領域 (II)。$|x-1/2|>\delta_0$ では一様相が最安定で領域 (I) である。これらの開領域は [9] の $\delta_0$ と $\delta_1$ の曲線の間隔に対応する。
+
+低温のスピノーダル境界$|x_0-1/2|=\delta_1$では$f''(x_0)=0$だが、$f'''(x_0)\ne0$である。左右の組成変化を$x_1=x_0-\delta_-$、$x_2=x_0+\delta_+$ ($\delta_-,\delta_+>0$) とすると、レバー則から$s=\delta_+/(\delta_-+\delta_+)$となり、Taylor展開の三次までの平均は
+\begin{equation}
+ f^*-f(x_0)=\frac{\delta_-\,\delta_+(\delta_+-\delta_-)}6f'''(x_0)
+ +O\!\left((\delta_-+\delta_+)^4\right).
+\end{equation}
+$\delta_+-\delta_-$を$f'''(x_0)$と逆符号に選び、固定した比で両方を小さくすれば自由エネルギーを下げられる。従ってこの境界は、一般の非対称な微小相分離に対して局所安定ではない。対称ゆらぎだけの四次項が正であることとは区別する。
+
+一方、臨界温度では
+\begin{equation}
+ f''(x)=zV\left[\frac1{2x(1-x)}-2\right]\ge0,
+\end{equation}
+等号は$x=1/2$の一点だけである。$T>T_{c0}$なら$f''(x)\ge4k_BT-2zV>0$となる。いずれも傾き$f'$は厳密に増加するため、異なる二組成を結ぶ直線は中間の自由エネルギー曲線より上にある。従って任意の非自明な二相分離に対して$f(x_0)<f^*$となり、臨界点を含めて$T\ge T_{c0}$では全組成が (I) である。低温の共存境界$|x-1/2|=\delta_0$上の組成も一様相が最安定である。
 \end{document}

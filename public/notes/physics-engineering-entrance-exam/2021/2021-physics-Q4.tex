@@ -1,4 +1,4 @@
-% Source: public/notes/物工/問題/2021ap_exam.pdf, PDF pp. 8--9.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2021ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -9,132 +9,127 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2021年 物理学 第4問}
+\title{物理工学専攻 院試解答集\\2021年度 物理学 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 電子の運動方程式}
-電荷が $-q$ なので、電場から受ける力は $-q\boldsymbol E(t)$ である。復元力と減衰力を加えた Newton の式は
+\section*{[1] 静的な双極子ポテンシャル}
+点1,2の位置は $z=\pm l/2$ なので、$r_\pm=(r^2\mp rl\cos\theta+l^2/4)^{1/2}$ である。$l/r$ の一次まで
 \[
-\boxed{m\frac{d^2\boldsymbol x}{dt^2}=-q\boldsymbol E_0e^{-i\omega t}-m\omega_0^2\boldsymbol x-m\gamma\frac{d\boldsymbol x}{dt}}.
+\frac1{r_+}-\frac1{r_-}=\frac{l\cos\theta}{r^2}+O(l^3/r^4).
+\]
+従って $q l=\alpha_0E_0$ を用いれば
+\[
+\varphi=\frac{\alpha_0E_0\cos\theta}{4\pi\varepsilon_0r^2},\qquad
+\boxed{C=0,\quad D=1}.
 \]
 
-\section*{[1.2] 定常応答}
-$\boldsymbol x(t)=\boldsymbol x_0e^{-i\omega t}$ とすると、$\dot{\boldsymbol x}=-i\omega\boldsymbol x$、$\ddot{\boldsymbol x}=-\omega^2\boldsymbol x$ である。運動方程式に代入し、$\boldsymbol x_0$ をまとめると
+\section*{[2] 遅延ポテンシャル}
+$\tau=t-r/c$ とおくと、$r_\pm\simeq r\mp(l/2)\cos\theta$ より
 \[
-\left(\omega_0^2-\omega^2-i\gamma\omega\right)\boldsymbol x_0=-\frac{q}{m}\boldsymbol E_0,
-\qquad
-\boxed{\boldsymbol x_0=-\frac{q\boldsymbol E_0}{m\left[(\omega_0^2-\omega^2)-i\gamma\omega\right]}}.
+q(t-r_\pm/c)l=\alpha_0E_0\cos\!\left(\omega_0\tau\pm\frac{\omega_0l\cos\theta}{2c}\right)
+\simeq \alpha_0E_0\left[\cos(\omega_0\tau)\mp\frac{\omega_0l\cos\theta}{2c}\sin(\omega_0\tau)\right].
 \]
-ここで減衰項の $-i\gamma\omega$ は、与えられた $e^{-i\omega t}$ 規約から決まる。
+また $1/r_\pm\simeq r^{-1}\pm l\cos\theta/(2r^2)$. 代入すると
+\[
+\varphi=\frac{\alpha_0E_0\cos\theta}{4\pi\varepsilon_0}
+\left[ -\frac{\omega_0}{cr}\sin(\omega_0\tau)+\frac1{r^2}\cos(\omega_0\tau)\right],
+\]
+ゆえに
+\[
+\boxed{F=-\frac{\omega_0}{c}\sin(\omega_0\tau),\qquad G=\cos(\omega_0\tau)}.
+\]
 
-\section*{[1.3] 複素感受率}
-単位体積当たりの分極振幅は
+\section*{[3] ベクトルポテンシャル}
+$\boldsymbol e_z=\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta$ かつ $\dot p(\tau)=-\alpha_0E_0\omega_0\sin(\omega_0\tau)$ より
 \[
-\boldsymbol P_0=-Nq\boldsymbol x_0
-=\frac{Nq^2}{m[(\omega_0^2-\omega^2)-i\gamma\omega]}\boldsymbol E_0
-=\varepsilon_0\chi\boldsymbol E_0.
+\boxed{\boldsymbol A=-\frac{\alpha_0E_0\omega_0}{4\pi\varepsilon_0c^2r}\sin(\omega_0\tau)
+(\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta)}.
 \]
-$C=Nq^2/(\varepsilon_0m)$, $A=\omega_0^2-\omega^2$, $B=\gamma\omega$ とおき、分母に共役複素数を掛けると
-\[
-\chi=C\frac{A+iB}{A^2+B^2},\qquad
-\boxed{\chi_R=\frac{Nq^2}{\varepsilon_0m}\frac{\omega_0^2-\omega^2}{(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}},
-\qquad
-\boxed{\chi_I=\frac{Nq^2}{\varepsilon_0m}\frac{\gamma\omega}{(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}}.
-\]
-実場の周期平均を取ると$\langle\boldsymbol E\cdot\partial_t\boldsymbol P\rangle=\varepsilon_0\omega\chi_I|\boldsymbol E_0|^2/2>0$となる。従って正の $\chi_I$ はこの時間規約で受動媒質の吸収に対応する。
 
-\section*{[1.4] $\chi_R$ の周波数依存性}
-$\omega<\omega_0$ では $\chi_R>0$、$\omega=\omega_0$ で零を通り、$\omega>\omega_0$ では負となる。共鳴近傍では正負の分散形となり、高周波では $\chi_R\to0^-$ である。図は $\gamma/\omega_0=0.12$ の例で、縦軸は正の尺度 $C/(2\gamma\omega_0)$ で規格化した概形である。
+\section*{[4] スカラーポテンシャルの勾配}
+放射場の次数だけを保つ。遅延時刻$\tau=t-r/c$を用いると、例えば
+\begin{equation}
+ \partial_r\frac{\sin(\omega_0\tau)}r
+ =-\frac{\omega_0\cos(\omega_0\tau)}{cr}
+ -\frac{\sin(\omega_0\tau)}{r^2}
+\end{equation}
+であり、遅延引数の微分から$1/r$項が生じる。角度微分は$1/r^2$にとどまる。
+\[
+\boxed{\nabla\varphi=\frac{\alpha_0E_0\omega_0^2}{4\pi\varepsilon_0c^2r}
+\cos\theta\cos(\omega_0\tau)\boldsymbol e_r+O(r^{-2})}.
+\]
+
+\section*{[5] 放射電場と磁束密度}
+時間微分は $\partial_t\boldsymbol A=-\alpha_0E_0\omega_0^2\cos(\omega_0\tau)(\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta)/(4\pi\varepsilon_0c^2r)$. その動径成分は $-\nabla\varphi$ の動径成分と相殺し、
+\[
+\boxed{\boldsymbol E=-\frac{\alpha_0E_0\omega_0^2}{4\pi\varepsilon_0c^2r}
+\sin\theta\cos(\omega_0\tau)\boldsymbol e_\theta},\qquad
+\boxed{\boldsymbol B=-\frac{\alpha_0E_0\omega_0^2}{4\pi\varepsilon_0c^3r}
+\sin\theta\cos(\omega_0\tau)\boldsymbol e_\phi}.
+\]
+磁場の方位角成分は $B_\phi=r^{-1}\{\partial_r(rA_\theta)-\partial_\theta A_r\}$ である。$\partial_r\tau=-1/c$ により第1項から上の $1/r$ 項が生じ、第2項は $O(r^{-2})$ である。従って $B_\phi=E_\theta/c$。両場は動径方向に直交し、$\boldsymbol E\cdot\boldsymbol B=0$。
+
+\section*{[6] ポインティングベクトルと角度分布}
+$\boldsymbol e_\theta\times\boldsymbol e_\phi=\boldsymbol e_r$ なので、瞬時値は
+\[
+\boxed{\boldsymbol S=\frac{(\alpha_0E_0\omega_0^2)^2}{16\pi^2\varepsilon_0c^3r^2}
+\sin^2\theta\cos^2(\omega_0\tau)\boldsymbol e_r}.
+\]
+従って距離依存は $r^{-2}$、方位角 $\phi$ に依らない。時間平均した角度分布は $\langle|\boldsymbol S|\rangle\propto\sin^2\theta$ で、$\theta=0,\pi$ で零、$\theta=\pi/2$ で最大となる。下図は距離 $r$ を固定した時間平均の角度分布である。左は $\theta$ 依存性、右は $\theta=\pi/2$ に固定した $\phi$ 依存性を示す。瞬時値にも同じ角度因子があり、時刻による変化は $\cos^2(\omega_0\tau)$ による。
 \begin{center}
-\begin{tikzpicture}[x=4.5cm,y=1.15cm]
-\draw[->] (0,-1.3)--(2.55,-1.3) node[right] {$\omega/\omega_0$};
-\draw[->] (0,-1.35)--(0,1.35) node[above] {$\chi_R/[C/(2\gamma\omega_0)]$};
-\draw[dashed] (1,-1.3)--(1,1.3);
-\draw[thick,domain=0:2.4,samples=180,variable=\u]
-  plot (\u,{0.24*(1-\u*\u)/((1-\u*\u)*(1-\u*\u)+0.0144*\u*\u)});
-\node[below] at (1,-1.3) {$1\;(\omega=\omega_0)$};
-\node[left] at (0,0) {$0$};
+\begin{tikzpicture}[x=1.35cm,y=1.6cm]
+\draw[->] (0,0)--(3.45,0) node[right] {$\theta$};
+\draw[->] (0,0)--(0,1.25) node[above] {$\langle|\boldsymbol S|\rangle/\langle|\boldsymbol S|\rangle_{\max}$};
+\draw[thick] plot[domain=0:pi,samples=121] (\x,{sin(deg(\x))^2});
+\foreach \x/\lab in {0/0,{pi/2}/{\pi/2},pi/{\pi}} {
+ \draw (\x,0.02)--(\x,-0.02) node[below=3pt] {$\lab$};
+}
+\end{tikzpicture}
+\hspace{0.8cm}
+\begin{tikzpicture}[x=0.68cm,y=1.6cm]
+\draw[->] (0,0)--(6.65,0) node[right] {$\phi$};
+\draw[->] (0,0)--(0,1.25) node[above] {$\langle|\boldsymbol S|\rangle/\langle|\boldsymbol S|\rangle_{\max}$};
+\draw[thick] (0,1)--({2*pi},1);
+\foreach \x/\lab in {0/0,pi/{\pi},{2*pi}/{2\pi}} {
+ \draw (\x,0.02)--(\x,-0.02) node[below=3pt] {$\lab$};
+}
+\draw (0.04,1)--(-0.04,1) node[left] {$1$};
+\node at (pi,0.55) {$\theta=\pi/2$};
 \end{tikzpicture}
 \end{center}
 
-\section*{[2.1] 境界での接線電場}
-Faraday の法則 $\nabla\times\boldsymbol E=-\partial_t\boldsymbol B$ を、長辺が $y$ 方向で境界をまたぐ微小長方形に積分する。短辺の線積分は $\Delta z\to0$ で消え、磁束の時間変化も面積 $O(\Delta y\Delta z)$ に比例して消える。したがって上下の長辺の寄与が等しくなり、$E_y(z=0^+)=E_y(z=0^-)$ を得る。面上では共通の時間因子を省いて
-\[
-\boxed{E_0e^{ik\sin\theta_0 x}+E_me^{iK_{mx}x}=E_te^{iK_{tx}x}}.
-\]
-この関係は境界面上のすべての $x$ で成り立つ。
-
-\section*{[2.2] 接線波数の一致}
-境界に沿った位相が任意の $x$ で一致する必要があるため、入射・反射・透過波の接線成分は等しい。よって
-\[
-\boxed{K_{mx}=K_{tx}=k\sin\theta_0}.
-\]
-
-\section*{[2.3] Maxwell 方程式と分散関係}
-自由電荷がなく一様な各媒質内では $\nabla\cdot\boldsymbol D=0$ なので $\nabla\cdot\boldsymbol E=0$ である。Faraday の法則の両辺に回転を作用させ、$\boldsymbol B=\mu_0\boldsymbol H$、$\nabla\times\boldsymbol H=\partial_t\boldsymbol D$、$\boldsymbol D=\varepsilon_0(1+\chi)\boldsymbol E$ を順に代入すると
+\section*{[7] 変調された分極率と側帯波}
+[2]の同じ一次展開を任意の時間依存$p(t)$に適用し、[3]の電流からのポテンシャルと合わせると
+\begin{equation}
+ \varphi=\frac{\cos\theta}{4\pi\varepsilon_0}
+ \left[\frac{p(\tau)}{r^2}+\frac{\dot p(\tau)}{cr}\right],\qquad
+ \boldsymbol A=\frac{\dot p(\tau)}{4\pi\varepsilon_0c^2r}\boldsymbol e_z.
+\end{equation}
+$\partial_r\tau=-1/c$より、放射場の$1/r$項は
+\begin{align}
+ -\nabla\varphi\big|_{1/r}
+ &=\frac{\ddot p(\tau)\cos\theta}{4\pi\varepsilon_0c^2r}\boldsymbol e_r,\\
+ -\partial_t\boldsymbol A
+ &=-\frac{\ddot p(\tau)}{4\pi\varepsilon_0c^2r}
+ (\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta).
+\end{align}
+動径成分が相殺するので、$\boldsymbol E=\sin\theta\,\ddot p(\tau)\boldsymbol e_\theta/(4\pi\varepsilon_0c^2r)$となる。積和公式を使うと
 \begin{align*}
- \nabla\times(\nabla\times\boldsymbol E)
- &=-\mu_0\frac{\partial}{\partial t}(\nabla\times\boldsymbol H)\\
- &=-\mu_0\varepsilon_0(1+\chi)\frac{\partial^2\boldsymbol E}{\partial t^2}.
+ p(\tau)&=E_0\left[\alpha_0\cos(\omega_0\tau)+\frac{\alpha_1}{2}\cos((\omega_0+\omega_v)\tau)+\frac{\alpha_1}{2}\cos((\omega_0-\omega_v)\tau)\right],\\
+ \ddot p(\tau)&=-E_0\left[\alpha_0\omega_0^2\cos(\omega_0\tau)
+ +\frac{\alpha_1}{2}(\omega_0+\omega_v)^2\cos((\omega_0+\omega_v)\tau)
+ +\frac{\alpha_1}{2}(\omega_0-\omega_v)^2\cos((\omega_0-\omega_v)\tau)\right].
 \end{align*}
-二重回転の公式と $\nabla\cdot\boldsymbol E=0$ より左辺は $-\nabla^2\boldsymbol E$ なので、
+従って
 \[
-\nabla^2\boldsymbol E=\mu_0\varepsilon_0(1+\chi)\frac{\partial^2\boldsymbol E}{\partial t^2}
+\begin{aligned}
+\boldsymbol E(\boldsymbol r,t)=-\frac{E_0\sin\theta}{4\pi\varepsilon_0c^2r}\Bigl[&\alpha_0\omega_0^2\cos(\omega_0\tau)\\
+&+\frac{\alpha_1}{2}(\omega_0+\omega_v)^2\cos((\omega_0+\omega_v)\tau)\\
+&+\frac{\alpha_1}{2}(\omega_0-\omega_v)^2\cos((\omega_0-\omega_v)\tau)\Bigr]\boldsymbol e_\theta.
+\end{aligned}
 \]
-を得る。真空では $\chi=0$。平面波を代入すれば
-\[
-\boxed{k^2=\varepsilon_0\mu_0\omega^2},\qquad
-\boxed{K_{mx}^2+K_{mz}^2=k^2},\qquad
-\boxed{K_{tx}^2+K_{tz}^2=(1+\chi)k^2}.
-\]
-
-\section*{[2.4] 反射波の法線成分}
-反射波は真空内で $+z$ 方向へ進み、その波数の大きさは $k$ である。接線成分を [2.2] に代入すると
-\[
-K_{mz}=+\sqrt{k^2-k^2\sin^2\theta_0}
-=\boxed{k\cos\theta_0}.
-\]
-
-\section*{[2.5] 臨界角と透過波の枝}
-$K_{tx}=k\sin\theta_0$ を誘電体の分散関係に代入すると
-\[
-K_{tz}^2=k^2(1+\chi-\sin^2\theta_0)=k^2(\chi+\cos^2\theta_0).
-\]
-境目 $K_{tz}=0$ は $\sin^2\theta_c=1+\chi$、すなわち
-\[
-\boxed{\theta_c=\arcsin\sqrt{1+\chi}=\arccos\sqrt{-\chi}}.
-\]
-$\theta_0<\theta_c$ では透過波は誘電体の深部 $z<0$ へ伝わる。したがって負の法線成分を選び
-\[
-\boxed{K_{tz}=-k\sqrt{1+\chi-\sin^2\theta_0}\quad (\theta_0<\theta_c)}.
-\]
-$\theta_0>\theta_c$ では $K_{tz}$ は純虚数となる。$\kappa=k\sqrt{\sin^2\theta_0-(1+\chi)}>0$ と置く。場の依存性は $e^{iK_{tz}z}$ で、媒質は $z\le0$ にあるので、$z\to-\infty$ で減衰する枝は $K_{tz}=-i\kappa$ である：
-\[
-\boxed{K_{tz}=-ik\sqrt{\sin^2\theta_0-(1+\chi)}\quad (\theta_0>\theta_c)}.
-\]
-実際 $e^{iK_{tz}z}=e^{\kappa z}=e^{-\kappa|z|}$ となる。逆の虚数符号では負の $z$ へ進むにつれて場が増大する。
-
-\section*{[2.6] $1/e$ 減衰深さ}
-振幅が境界値の $1/e$ となる深さの大きさ $z_0=|z|$ は $e^{-\kappa z_0}=e^{-1}$ より
-\[
-\boxed{z_0=\frac{1}{k\sqrt{\sin^2\theta_0-(1+\chi)}}
-=\frac{1}{k\sqrt{-\chi-\cos^2\theta_0}}},
-\qquad 0\le\cos^2\theta_0<-\chi.
-\]
-固定した $\chi$ では $z_0$ は $\cos^2\theta_0$ とともに増え、臨界値 $\cos^2\theta_c=-\chi$ に下側から近づくと発散する。図は無次元変数 $u=\cos^2\theta_0/(-\chi)$ を用いて形を示す。
-\begin{center}
-\begin{tikzpicture}[x=4.6cm,y=0.8cm]
-\draw[->] (0,0)--(1.08,0) node[right] {$u=\cos^2\theta_0/(-\chi)$};
-\draw[->] (0,0)--(0,4.6) node[above] {$\sqrt{-\chi}\,kz_0$};
-\draw[thick,domain=0:0.94,samples=100,variable=\u]
-  plot (\u,{1/sqrt(1-\u)});
-\draw[dashed] (1,0)--(1,4.35);
-\node[below] at (0,0) {$0$};
-\node[below] at (1,0) {$1\;(\cos^2\theta_c=-\chi)$};
-\node[left] at (0,1) {$1$};
-\end{tikzpicture}
-\end{center}
+散乱波に含まれる正の角振動数は $\boxed{\omega_0,\ \omega_0+\omega_v,\ \omega_0-\omega_v}$ である（$\omega_v\ll\omega_0$）。
 \end{document}

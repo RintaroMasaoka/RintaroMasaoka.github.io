@@ -1,4 +1,4 @@
-% Source problem: 2012ap_exam.pdf, PDF p. 8.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h24ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -6,113 +6,81 @@
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2012年 物理学II 第2問}
+\title{物理工学専攻 院試解答集\\2012年度 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] Bose--Einstein分布}
-エネルギー $E$ の一粒子状態の平均占有数は
-\begin{equation}
-  \boxed{f_{BE}(E)=\frac{1}{\exp[(E-\mu)/(k_BT)]-1}.}
-\end{equation}
-最低エネルギーを $E_0=0$ としたので、基底状態も含めて分母を正に保つには $\mu<0$ が必要である。凝縮相の熱力学極限では $\mu\to0^-$ を考え、励起状態 $E>0$ の分布には $\mu=0$ を用いる。この極限で基底状態の占有数は発散するため、凝縮粒子数は励起状態の分布と分けて数える。
-
-\section*{[2] $\mu$ への依存}
-$E$ と $T>0$ を固定すると
-\begin{equation}
- \frac{\partial f_{BE}}{\partial\mu}
- =\frac{e^{(E-\mu)/(k_BT)}}{k_BT\left(e^{(E-\mu)/(k_BT)}-1\right)^2}>0,
-\end{equation}
-なので $f_{BE}$ は $\mu$ とともに単調に増加する。以下は例として $E>0$ かつ $E/(k_BT)=1$ の概形である。許される $\mu\le0$ では $\mu=0$ に有限値で近づく。基底状態 $E=0$ では $\mu\to0^-$ で発散する。
-\begin{center}
-\begin{tikzpicture}[x=1cm,y=3cm,>=Stealth]
-  \pgfmathsetmacro{\energyOverKT}{1}
-  \pgfmathsetmacro{\muMin}{-4}
-  \pgfmathsetmacro{\occupationAtZero}{1/(exp(\energyOverKT)-1)}
-  \draw[->] (-4.4,0)--(0.5,0) node[right] {$u=\mu/(k_BT)$};
-  \draw[->] (-4.3,0)--(-4.3,0.72) node[above] {$f_{BE}$};
-  \draw[dashed] (0,0)--(0,\occupationAtZero);
-  \draw[thick,samples=81] plot[domain=\muMin:0] (\x,{1/(exp(\energyOverKT-\x)-1)});
-  \draw (-4.35,0.5)--(-4.25,0.5) node[left,xshift=-3pt] {$0.5$};
-  \node[below] at (0,0) {$0$};
-  \node[below] at (\muMin,0) {$-4$};
-\end{tikzpicture}
-\end{center}
-
-\section*{[3] 状態密度}
-運動量空間でエネルギーが $E$ 以下の領域は半径 $\sqrt{2mE}$ の球である。スピン縮退がなく、状態を位相空間体積 $h^3$ ごとに数えると
+\section*{[1] 相互作用のない一次元気体}
+まず粒子1個の分配関数を求める。長さ $L$ の一次元箱では状態数を位相空間体積 $h$ ごとに数えるので、運動量積分から
 \begin{align}
-  \mathcal N(E)
-  &=\frac{V}{h^3}\frac{4\pi}{3}(2mE)^{3/2}
-   =\frac{V}{6\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{3/2},\\
-  D(E)&=\frac{d\mathcal N}{dE}
-   =\boxed{\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{1/2}.}
+  Z_1
+  &=\frac{1}{h}\int_0^L\mathrm{d}x
+      \int_{-\infty}^{\infty}\mathrm{d}p\,
+      \exp\!\left(-\frac{p^2}{2mk_BT}\right)\\
+  &=\frac{L}{h}\sqrt{2\pi m k_BT}
+   =\frac{L}{\lambda},
+  \qquad
+  \lambda=\frac{h}{\sqrt{2\pi m k_BT}}
+  =\sqrt{\frac{2\pi\hbar^2}{mk_BT}}.
 \end{align}
+$N$ 個は同種粒子なので、同じ配置を粒子ラベルの $N!$ 通りだけ重複して数えないようにする。従って気体Aの分配関数は
+\begin{equation}
+  \boxed{Z_A=\frac{Z_1^N}{N!}
+    =\frac{1}{N!}\left(\frac{L}{\lambda}\right)^N.}
+\end{equation}
 
-\section*{[4] 励起粒子数の上限}
-固定した $E$ で占有数は $\mu$ とともに増すから、励起状態の粒子数は $\mu=0$ で最大となる。$\beta=1/(k_BT)$ とし $x=\beta E$ と変数変換すると
+\section*{[2] 自由エネルギー}
+Helmholtz自由エネルギーは $F=-k_BT\ln Z_A$ だから
 \begin{align}
- N_t^{\max}
- &=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}
-   (k_BT)^{3/2}\int_0^\infty\frac{x^{1/2}}{e^x-1}\,dx\\
- &=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}
-   (k_BT)^{3/2}\Gamma(3/2)\zeta(3/2)\\
- &=\boxed{V\zeta(3/2)\left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3/2}.}
+  F(T,L)
+  &=-Nk_BT\ln\frac{L}{\lambda}+k_BT\ln N!\\
+  &\simeq -Nk_BT\ln\frac{L}{\lambda}
+      +Nk_BT\ln N-Nk_BT\\
+  &=\boxed{Nk_BT\left[\ln\!\left(\frac{N\lambda}{L}\right)-1\right].}
 \end{align}
-従って $T\to0$ で $N_t^{\max}\to0$ となる。
+ここでは原本の $N\gg1$ とStirling近似を用いた。
 
-\section*{[5] 臨界温度}
-臨界点では励起状態に全粒子を収容できる限界に達し、$N=N_t^{\max}(T_c)$ である。よって
+\section*{[3] 化学ポテンシャル}
+温度と長さを固定して粒子数で微分する。$N$ は巨視的な系の連続変数として扱うため、
 \begin{equation}
-  \boxed{T_c=\frac{2\pi\hbar^2}{mk_B}
-  \left[\frac{N}{V\zeta(3/2)}\right]^{2/3}.}
+  \boxed{\mu(T,L)=\left(\frac{\partial F}{\partial N}\right)_{T,L}
+  =k_BT\ln\!\left(\frac{N\lambda}{L}\right).}
 \end{equation}
 
-\section*{[6] 凝縮成分}
-有限系での基底占有数は $N_0=f_{BE}(0)=[\exp(-\mu/k_BT)-1]^{-1}$ だから、$\mu=-k_BT\ln(1+1/N_0)$ である。$T<T_c$ では余剰粒子が基底状態を巨視的に占め、熱力学極限で $N_0\to\infty$ とともに $\mu\to0^-$ となる。この極限で励起状態の分布に $\mu=0$ を代入すると、その粒子数は $N_t^{\max}(T)$ に飽和する。残り
+\section*{[4] Boltzmann統計の希薄条件}
+並進運動のエネルギーは $E=p^2/(2m)\ge0$ であるため、Boltzmann占有数は最も低いエネルギーで最大となる。基準を $E_0=0$ とすれば
 \begin{equation}
-  N_0=N-N_t^{\max}(T)
+  \bar n_{\mathrm{max}}
+  =\exp\!\left(\frac{\mu}{k_BT}\right)
+  =\frac{N\lambda}{L}.
 \end{equation}
-は $E=0$ の基底状態を巨視的に占める。したがって $E>0$ の連続状態の積分だけで凝縮粒子数を数えない。
+したがって全ての一粒子準位の占有数が十分小さいための条件は
+\begin{equation}
+  \boxed{\frac{N\lambda}{L}\ll1,\qquad
+  \frac{L}{N}\gg\lambda.}
+\end{equation}
+$\lambda$ は長さの次元を持ち、温度 $T$ における熱的de Broglie波長を表す。$L/N$ は1粒子あたりの平均間隔なので、条件は粒子間隔が波長より十分大きいことを意味する。波動性が粒子の重なりに強く影響しない希薄な領域で、各量子状態の平均占有数を小さく保てる。
 
-\section*{[7] 全エネルギーと定積熱容量}
-基底状態のエネルギーを0とすると、全エネルギーは励起状態の寄与だけである。
+\section*{[5] 剛体斥力のある一次元気体}
+粒子中心を $x_1<\cdots<x_N$ の順に並べる。壁との条件は $d/2\le x_1$、$x_N\le L-d/2$、隣り合う粒子には $x_{i+1}-x_i\ge d$ を課す。隣接粒子ごとに重なる排除長を取り除く座標
+\begin{equation}
+  y_i=x_i-(i-1)d
+\end{equation}
+を導入すると、壁と粒子間の条件は $d/2\le y_1\le\cdots\le y_N\le L-Nd+d/2$ となる。この区間の長さは $L-Nd$ で、座標変換のJacobianは1である。順序付き領域は長さ $L-Nd$ の直積領域の $1/N!$ を占めるので、配置積分は $(L-Nd)^N/N!$ となる。同じ順序を既に選んでいるため、さらに $N!$ で割ることはしない。運動量積分は気体Aと同じだから
+\begin{equation}
+  \boxed{Z_B=\frac{1}{N!}\left(\frac{L-Nd}{\lambda}\right)^N.}
+\end{equation}
+この結果から
 \begin{align}
- U&=\int_0^\infty E D(E)f_{BE}(E)\,dE\\
- &=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}
-   (k_BT)^{5/2}\int_0^\infty\frac{x^{3/2}}{e^x-1}\,dx\\
- &=\boxed{\frac32V\zeta(5/2)
-   \left(\frac{m}{2\pi\hbar^2}\right)^{3/2}(k_BT)^{5/2}.}
+  F_B&=-k_BT\ln Z_B
+  \simeq Nk_BT\left[\ln\!\left(\frac{N\lambda}{L-Nd}\right)-1\right],\\
+  P&=-\left(\frac{\partial F_B}{\partial L}\right)_{T,N}
+   =\boxed{\frac{Nk_BT}{L-Nd}}.
 \end{align}
-固定 $N,V$ で微分する。凝縮相では $\mu=0$ であり、励起状態の $U$ は上式の温度依存だけを持つため
-\begin{equation}
-  \boxed{C_V=\left(\frac{\partial U}{\partial T}\right)_{N,V}
-   =\frac{15}{4}Vk_B\zeta(5/2)
-     \left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3/2}.}
-\end{equation}
-
-\section*{[8] 液体 $^4\mathrm{He}$ の数値評価}
-数密度を質量密度から求めると
-\begin{equation}
- n=\frac{N}{V}=\frac{1.5\times10^2}{6.7\times10^{-27}}
-   =2.24\times10^{28}\ \mathrm{m^{-3}}.
-\end{equation}
-臨界温度は
-\begin{equation}
- T_c=\frac{2\pi(1.1\times10^{-34}\,\mathrm{J\,s})^2}
- { (6.7\times10^{-27}\,\mathrm{kg})(1.4\times10^{-23}\,\mathrm{J/K})}
- \left(\frac{2.24\times10^{28}\,\mathrm{m^{-3}}}{2.61}\right)^{2/3}
- =3.40\ \mathrm K.
-\end{equation}
-有効数字1桁では $\boxed{T_c\simeq3\ \mathrm K}$ である。
-
-\section*{[9] 理想気体模型との違い}
-実際の液体ヘリウムでは原子間相互作用を無視できず、相関のある液体となる。ここで用いた理想気体は相互作用を全く含まないため、その臨界温度は実験の超流動転移温度と一致する必要はない。
+気体Aでは $P_A=Nk_BT/L$ である。斥力のある気体Bでは使える長さが $L-Nd$ に減るため、同じ $T,N,L$ でも圧力は大きい。得た古典的な剛体棒模型の式を設問の希薄条件 $L\gg Nd$ の外まで形式的に延ばすと、$L\to Nd+0$ で圧力が発散する。ただしこの高密度極限では古典近似自体の適用も別途確かめる必要がある。$d\to0$ の極限では気体Aの状態方程式を再現する。
 
 \end{document}

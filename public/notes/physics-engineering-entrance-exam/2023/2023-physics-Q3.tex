@@ -1,4 +1,4 @@
-% Source: 2023ap_exam.pdf, PDF pp. 6--7.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2023ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -9,231 +9,142 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2023年 物理学 第3問}
+\title{物理工学専攻 院試解答集\\2023年度 物理学 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-以下で $C=(\partial U/\partial T)$ は指定された振動子系の全熱容量とする。固体の単位質量あたりの格子比熱は、得られた $C$ を固体の質量で割ったものである。体積や振動数は温度に依存しないものとして微分する。
+\section*{[1.1] 静止円柱内の1粒子分配関数}
+確率密度の規格化は
+\[
+1=\frac1{h^3L\widetilde Z_1}\int_{-L/2}^{L/2}dz
+\int_{x^2+y^2\le R^2}dx\,dy\int_{\mathbb R^3}d^3p\,
+e^{-p^2/(2mkT)}.
+\]
+運動量積分は $(2\pi mkT)^{3/2}$、断面積は $\pi R^2$、高さ積分は $L$ なので
+\[
+\widetilde Z_1(T,R)=\frac{\pi R^2}{h^3}(2\pi mkT)^{3/2}
+=\boxed{\gamma R^2(kT)^{3/2}},\qquad
+\gamma=\frac{\pi^{5/2}(2m)^{3/2}}{h^3}.
+\]
 
-\section*{[1] 古典的な1次元調和振動子}
-\subsection*{[1.1] 分配関数}
-$M$ 個の振動子は独立なので、まず1個の位相空間積分 $z_{\mathrm{cl}}$ を計算する。運動量と位置の積分を分け、問題文のガウス積分を使うと
-\begin{align}
-z_{\mathrm{cl}}
-&=\frac{1}{2\pi\hbar}
- \int_{-\infty}^{\infty}\!\mathrm dp\,
- e^{-\beta p^2/(2m)}
- \int_{-\infty}^{\infty}\!\mathrm dx\,
- e^{-\beta m\omega^2x^2/2}\\
-&=\frac{1}{2\pi\hbar}
- \sqrt{\frac{2\pi m}{\beta}}
- \sqrt{\frac{2\pi}{\beta m\omega^2}}
- =\frac{1}{\beta\hbar\omega}.
-\end{align}
-従って
-\begin{equation}
-\boxed{Z(T)=z_{\mathrm{cl}}^M
- =\left(\frac{k_{\mathrm B}T}{\hbar\omega}\right)^M}.
-\end{equation}
+\section*{[1.2] 自由エネルギー密度}
+古典的な同種粒子の分配関数は $Z_N=[L\widetilde Z_1]^N/N!$ である。Stirling 近似から
+\[
+F=-kT\log Z_N\simeq -NkT\left[\log\left(\frac{L\widetilde Z_1}{N}\right)+1\right].
+\]
+$\nu=N/L$ を固定して割り算すると
+\[
+\boxed{\widetilde F=\frac FL=-\nu kT\left[\log\left(\frac{\widetilde Z_1}{\nu}\right)+1\right]
+=-\nu kT(\log\widetilde Z_1-\log\nu+1)}.
+\]
 
-\subsection*{[1.2] 内部エネルギー}
-正準分布の関係 $U=-\partial\ln Z/\partial\beta$ に上式を代入する。$\ln Z=-M\ln(\beta\hbar\omega)$ より
-\begin{equation}
-\boxed{U=\frac{M}{\beta}=Mk_{\mathrm B}T}.
-\end{equation}
-1振動子に運動・位置の二つの二次項があり、各項が $k_{\mathrm B}T/2$ を担うという等分配則とも一致する。
+\section*{[1.3] 静止容器の側圧}
+半径を $dR$ だけ準静的に増やすと体積変化は $dV=2\pi RL\,dR$。したがって
+\[
+P=-\frac1{2\pi R}\left(\frac{\partial\widetilde F}{\partial R}\right)_{T,\nu}
+=\boxed{\frac{\nu kT}{2\pi R\widetilde Z_1}\left(\frac{\partial\widetilde Z_1}{\partial R}\right)_T}.
+\]
+ここで [1.1] の $\widetilde Z_1\propto R^2$ を使うと
+\[
+\boxed{P=\frac{\nu kT}{\pi R^2}}.
+\]
 
-\subsection*{[1.3] 熱容量}
-振動数を固定して $U$ を温度微分すると
-\begin{equation}
-\boxed{C=\left(\frac{\partial U}{\partial T}\right)_{\omega}=Mk_{\mathrm B}}.
-\end{equation}
+\section*{[2.1] 回転系ハミルトニアンの最小値}
+$r^2=x^2+y^2$ とし平方完成すると
+\[
+H_1-\omega M_1
+=\frac{(p_x+m\omega y)^2+(p_y-m\omega x)^2+p_z^2}{2m}
+-\frac{m\omega^2r^2}{2}.
+\]
+$r\le R$ のもとでは二乗項をゼロにし、$r=R$ としたとき最小になる。よって
+\[
+\boxed{\min(H_1-\omega M_1)=-\frac{m\omega^2R^2}{2}=-\epsilon},\qquad
+\epsilon=\frac{mR^2\omega^2}{2}.
+\]
+$\omega=0$ では最小値は $0$ である。
 
-\section*{[2] 単一振動数の量子的調和振動子}
-\subsection*{[2.1] 分配関数}
-1振動子について $n=0,1,\ldots$ のボルツマン因子を和にする。$q=e^{-\beta\hbar\omega}$ は $0<q<1$ なので等比級数を使え、
-\begin{equation}
-z_{\mathrm q}=\sum_{n=0}^{\infty}
- e^{-\beta\hbar\omega(n+1/2)}
- =\frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
- =\frac{1}{2\sinh(\beta\hbar\omega/2)}.
-\end{equation}
-$M$ 個の独立なモードでは
-\begin{equation}
-\boxed{Z(T)=\left[
-\frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
-\right]^M}.
-\end{equation}
+\section*{[2.2] 平衡流の速度場}
+位置 $\boldsymbol r$ を固定した運動量分布は
+\[
+\exp\!\left[-\frac{(p_x+m\omega y)^2+(p_y-m\omega x)^2+p_z^2}{2mkT}\right]
+\]
+に比例するガウス分布である。その中心運動量を $m$ で割れば局所平均速度となる：
+\[
+\boxed{v_x(\boldsymbol r)=-\omega y,\qquad v_y(\boldsymbol r)=\omega x,\qquad v_z(\boldsymbol r)=0}.
+\]
+これは $z$ 軸周りの剛体回転 $\boldsymbol v=\boldsymbol\omega\times\boldsymbol r$ である。
 
-\subsection*{[2.2] 内部エネルギー}
-$\ln Z=M[-\beta\hbar\omega/2-\ln(1-e^{-\beta\hbar\omega})]$ を $\beta$ で微分すると
-\begin{equation}
-\boxed{U=M\hbar\omega\left(
-\frac12+\frac{1}{e^{\beta\hbar\omega}-1}
-\right)}.
-\end{equation}
-第1項は $T=0$ でも残る零点エネルギー、第2項は熱励起のエネルギーである。
+\section*{[2.3] 回転系の規格化定数}
+平方完成した運動量積分は通常の Gaussian と同じであり、位置に残る重みは $e^{m\omega^2r^2/(2kT)}$ である。$\lambda=\epsilon/(kT)$ とすると
+\begin{align*}
+\widetilde Z_1(T,R,\omega)
+&=\frac{(2\pi mkT)^{3/2}}{h^3}\,2\pi\int_0^Rr\,e^{m\omega^2r^2/(2kT)}dr\\
+&=\frac{(2\pi mkT)^{3/2}}{h^3}\frac{2\pi kT}{m\omega^2}(e^\lambda-1)\\
+&=\boxed{\gamma R^2(kT)^{3/2}\frac{e^\lambda-1}{\lambda}}
+=\boxed{\frac{2\gamma(kT)^{5/2}}{m\omega^2}(e^{\epsilon/(kT)}-1)}.
+\end{align*}
+ここでは $\omega\ne0$ とした。$\lambda\to0$ で $(e^\lambda-1)/\lambda\to1$ となり、[1.1] の非回転極限に戻る。
 
-\subsection*{[2.3] 熱容量}
-$\Theta=\hbar\omega/k_{\mathrm B}$ を振動子の温度尺度とおくと、$\beta\hbar\omega=\Theta/T$ である。零点項は温度微分で消え、$y=\Theta/T$ について $\mathrm dy/\mathrm dT=-y/T$ を使えば
-\begin{equation}
-\boxed{C=Mk_{\mathrm B}
-\left(\frac{\Theta}{T}\right)^2
-\frac{e^{\Theta/T}}{(e^{\Theta/T}-1)^2}}
-=Mk_{\mathrm B}\left[
-\frac{\Theta/(2T)}{\sinh(\Theta/(2T))}
-\right]^2.
-\end{equation}
+\section*{[2.4] 回転容器の側圧}
+全粒子の角運動量を $M=\sum_jM_{1,j}$ とし、逆温度を $\beta=1/(kT)$ と書く。角速度 $\omega$ の容器が粒子に及ぼすトルクの仕事率は $\omega\,d\langle M\rangle/dt$ なので、準静的な変化での第一法則は
+\[
+ d\langle H\rangle=T\,dS+\omega\,d\langle M\rangle-P\,dV
+ \qquad(N\text{ 固定})
+\]
+である。回転分布 $e^{-\beta(H-\omega M)}$ から得る熱力学ポテンシャルを $F_\omega$ と書くと、[1.2] と同じ粒子数の数え上げにより
+\begin{align*}
+ F_\omega&=-kT\log\frac{[L\widetilde Z_1(T,R,\omega)]^N}{N!}
+ =\langle H\rangle-TS-\omega\langle M\rangle\\
+ &\simeq-NkT\left[\log\left(\frac{L\widetilde Z_1(T,R,\omega)}N\right)+1\right],\\
+ dF_\omega&=-S\,dT-\langle M\rangle\,d\omega-P\,dV.
+\end{align*}
+従って側圧は $T,\omega,N,L$ 固定での半径微分から得られる。$dV=2\pi RL\,dR$ と [2.3] を用いると
+\[
+P=\frac{\nu kT}{2\pi R}\left(\frac{\partial\log\widetilde Z_1}{\partial R}\right)_{T,\omega}
+=\boxed{\frac{\nu m\omega^2}{2\pi(1-e^{-\lambda})}},\qquad \lambda=\frac{mR^2\omega^2}{2kT}.
+\]
+角速度固定で $T\to0$、すなわち $\lambda\to\infty$ とすると
+\[
+\boxed{P\longrightarrow\frac{\nu m\omega^2}{2\pi}}.
+\]
+また $\lambda\to0$ では $P\to\nu kT/(\pi R^2)$ となり、静止容器の式と一致する。
 
-\subsection*{[2.4] 低温・高温と概形}
-$T\ll\Theta$ では $e^{\Theta/T}\gg1$、$T\gg\Theta$ では $\sinh(y/2)\sim y/2$ である。従って
-\begin{equation}
-\boxed{C\sim Mk_{\mathrm B}\left(\frac{\Theta}{T}\right)^2e^{-\Theta/T}
-\quad(T\ll\Theta)},\qquad
-\boxed{C\longrightarrow Mk_{\mathrm B}\quad(T\gg\Theta)}.
-\end{equation}
-低温では最初の励起に必要な有限のエネルギー $\hbar\omega$ が熱励起を抑える。図の横軸 $T/\Theta$、縦軸 $C/(Mk_{\mathrm B})$ は無次元である。
-\begin{center}
-\begin{tikzpicture}[x=3.0cm,y=3.0cm]
- \draw[->] (0,0)--(3.2,0) node[right] {$T/\Theta$};
- \draw[->] (0,0)--(0,1.2) node[above] {$C/(Mk_{\mathrm B})$};
- \draw[gray,densely dotted] (0,1)--(3,1);
- \node[left] at (0,1) {$1$};
- \foreach \x in {1,2,3} {\draw (\x,0)--(\x,-0.025) node[below] {$\x$};}
- \draw[blue,very thick] plot[smooth] coordinates {
- (0,0) (0.05,0.000001) (0.1,0.004540) (0.15,0.056706)
- (0.2,0.170742) (0.3,0.426247) (0.4,0.608890)
- (0.5,0.724062) (0.7,0.845975) (1,0.920674)
- (1.5,0.963772) (2,0.979425) (3,0.990792)};
- \node[blue] at (1.2,0.70) {量子振動子};
-\end{tikzpicture}
-\end{center}
+\section*{[2.5] 慣性モーメント}
+既に得た局所平均速度は$\langle\boldsymbol v\mid r\rangle=(-\omega y,\omega x,0)$である。よって一粒子の軸まわり角運動量は$\langle M_1\mid r\rangle=x(m\omega x)-y(-m\omega y)=m\omega r^2$、全粒子について$\langle M\rangle=Nm\omega\langle r^2\rangle$となる。ここで$I=Nm\langle r^2\rangle$が質量分布の慣性モーメントである。回転分配関数は $e^{\beta\omega M_1}$ を含むため
+\[
+I=\frac{\langle M\rangle}{\omega}
+=\frac{NkT}{\omega}\left(\frac{\partial\log\widetilde Z_1}{\partial\omega}\right)_{T,R}.
+\]
+\[
+\log\widetilde Z_1=\text{(terms independent of $\omega$)}-2\log|\omega|+\log(e^\lambda-1),
+\qquad \partial_\omega\lambda=\frac{2\lambda}{\omega}.
+\]
+従って $\omega\ne0$ で
+\[
+\boxed{I=\frac{2N}{\omega^2}\left[\frac{\epsilon}{1-e^{-\epsilon/(kT)}}-kT\right]}.
+\]
+極限 $\omega\to0$ では $I\to NmR^2/2$、$T\to0$ では $I\to NmR^2$ で、後者は粒子が側壁近くに集まることに対応する。
 
-\section*{[3] デバイ型の振動数分布}
-\subsection*{[3.1] 内部エネルギーと熱容量の積分}
-まず与えられた状態密度の規格化は
-\begin{equation}
-\int_0^{\omega_{\mathrm D}}g(\omega)\,\mathrm d\omega
-=\frac{9N}{\omega_{\mathrm D}^3}
-\int_0^{\omega_{\mathrm D}}\omega^2\,\mathrm d\omega=3N
-\end{equation}
-であり、3次元固体の振動モード数に一致する。各周波数のモードに[2.2]の1振動子のエネルギーを適用して、
-\begin{equation}
-\boxed{U=\int_0^{\omega_{\mathrm D}}\!g(\omega)\hbar\omega
-\left[\frac12+\frac{1}{e^{\beta\hbar\omega}-1}\right]
-\mathrm d\omega}.
-\end{equation}
-このうち零点エネルギーは $\frac12\int g(\omega)\hbar\omega\,\mathrm d\omega=9N\hbar\omega_{\mathrm D}/8$ であり、熱容量に寄与しない。従って、微分を積分の中に入れると
-\begin{equation}
-\boxed{C=k_{\mathrm B}\int_0^{\omega_{\mathrm D}}\!g(\omega)
-(\beta\hbar\omega)^2
-\frac{e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}
-\mathrm d\omega}.
-\end{equation}
-
-\subsection*{[3.2] 低温・高温と概形}
-デバイ温度 $\Theta_{\mathrm D}=\hbar\omega_{\mathrm D}/k_{\mathrm B}$ を導入し、積分変数を $x=\beta\hbar\omega$ に変える。上限は $\Theta_{\mathrm D}/T$、また $g(\omega)\mathrm d\omega=9N(T/\Theta_{\mathrm D})^3x^2\mathrm dx$ なので
-\begin{equation}
-C=9Nk_{\mathrm B}\left(\frac{T}{\Theta_{\mathrm D}}\right)^3
-\int_0^{\Theta_{\mathrm D}/T}
-\frac{x^4e^x}{(e^x-1)^2}\,\mathrm dx.
-\end{equation}
-$T\ll\Theta_{\mathrm D}$ では上限が十分大きい。被積分関数は大きい$x$で$x^4e^{-x}$に近づくため、上限から先の尾部は指数的に小さく、積分の上限を無限大に延ばせる。問題文の積分値を使い、
-\begin{equation}
-\boxed{C\sim\frac{12\pi^4}{5}Nk_{\mathrm B}
-\left(\frac{T}{\Theta_{\mathrm D}}\right)^3
-\quad(T\ll\Theta_{\mathrm D})}.
-\end{equation}
-高温では全モードに $k_{\mathrm B}$ の熱容量が戻る。実際、$x\ll1$ で $x^2e^x/(e^x-1)^2\to1$ だから、規格化したモード数を用いて
-\begin{equation}
-\boxed{C\longrightarrow 3Nk_{\mathrm B}\quad(T\gg\Theta_{\mathrm D})}.
-\end{equation}
-概形は低温で原点から $T^3$ に沿って立ち上がり、上側の漸近値 $3Nk_{\mathrm B}$ に近づく。
-\begin{center}
-\begin{tikzpicture}[x=3.0cm,y=3.0cm]
- \draw[->] (0,0)--(3.2,0) node[right] {$T/\Theta_{\mathrm D}$};
- \draw[->] (0,0)--(0,1.2) node[above] {$C/(3Nk_{\mathrm B})$};
- \draw[gray,densely dotted] (0,1)--(3,1);
- \node[left] at (0,1) {$1$};
- \foreach \x in {1,2,3} {\draw (\x,0)--(\x,-0.025) node[below] {$\x$};}
- \draw[blue,very thick] plot[smooth] coordinates {
- (0,0) (0.05,0.009741) (0.1,0.075821) (0.15,0.212992)
- (0.2,0.368635) (0.3,0.607703) (0.4,0.745853)
- (0.5,0.825408) (0.7,0.904954) (1,0.951732)
- (1.5,0.978126) (2,0.987611) (3,0.994466)};
- \node[blue] at (1.05,0.73) {デバイ模型};
-\end{tikzpicture}
-\end{center}
-
-\section*{[4] 3種類の固体モデルの比較}
-\subsection*{[4.1] 同じ座標でのプロット}
-[1]と[2]の $M$ を $3N$ に替えると、$\Theta=\hbar\omega/k_{\mathrm B}$ を用いて
-\begin{align}
-C_{\mathrm I}&=3Nk_{\mathrm B},\\
-C_{\mathrm{II}}&=3Nk_{\mathrm B}
-\left(\frac{\Theta}{T}\right)^2
-\frac{e^{\Theta/T}}{(e^{\Theta/T}-1)^2},\\
-C_{\mathrm{III}}&=9Nk_{\mathrm B}
-\left(\frac{T}{\Theta_{\mathrm D}}\right)^3
-\int_0^{\Theta_{\mathrm D}/T}
-\frac{x^4e^x}{(e^x-1)^2}\,\mathrm dx.
-\end{align}
-原題は $\omega$ と $\omega_{\mathrm D}$ の比を指定していない。以下の図は比較例として $\omega=\omega_{\mathrm D}$、すなわち $\Theta=\Theta_{\mathrm D}$ と置き、縦軸を $3Nk_{\mathrm B}$ で割った。
-\begin{center}
-\begin{tikzpicture}[x=3.0cm,y=3.2cm]
- \draw[->] (0,0)--(3.2,0) node[right] {$T/\Theta$};
- \draw[->] (0,0)--(0,1.19) node[above] {$C/(3Nk_{\mathrm B})$};
- \node[left] at (0,1) {$1$};
- \foreach \x in {1,2,3} {\draw (\x,0)--(\x,-0.023) node[below] {$\x$};}
- \draw[black,thick,densely dotted] (0,1)--(3,1);
- \draw[blue,very thick] plot[smooth] coordinates {
- (0,0) (0.05,0.009741) (0.1,0.075821) (0.15,0.212992)
- (0.2,0.368635) (0.3,0.607703) (0.4,0.745853)
- (0.5,0.825408) (0.7,0.904954) (1,0.951732)
- (1.5,0.978126) (2,0.987611) (3,0.994466)};
- \draw[red,very thick,dashed] plot[smooth] coordinates {
- (0,0) (0.05,0.000001) (0.1,0.004540) (0.15,0.056706)
- (0.2,0.170742) (0.3,0.426247) (0.4,0.608890)
- (0.5,0.724062) (0.7,0.845975) (1,0.920674)
- (1.5,0.963772) (2,0.979425) (3,0.990792)};
- \draw[black,thick,densely dotted] (0.20,-0.21)--(0.58,-0.21);
- \node[anchor=west] at (0.62,-0.21) {$C_{\mathrm I}$ 古典};
- \draw[red,very thick,dashed] (1.18,-0.21)--(1.56,-0.21);
- \node[anchor=west] at (1.60,-0.21) {$C_{\mathrm{II}}$ 単一振動数};
- \draw[blue,very thick] (0.20,-0.39)--(0.58,-0.39);
- \node[anchor=west] at (0.62,-0.39) {$C_{\mathrm{III}}$ デバイ模型};
-\end{tikzpicture}
-\end{center}
-
-\subsection*{[4.2] 高温での比較}
-$T\gg\Theta,\Theta_{\mathrm D}$ では各量子モードの平均エネルギーの主項が $k_{\mathrm B}T$ となる。従って $3N$ 個の振動モードはいずれも等分配則の値に戻り、
-\begin{equation}
-\boxed{C_{\mathrm I}=3Nk_{\mathrm B},\qquad
-C_{\mathrm{II}}\longrightarrow3Nk_{\mathrm B},\qquad
-C_{\mathrm{III}}\longrightarrow3Nk_{\mathrm B}}.
-\end{equation}
-有限の高温での近づき方も確認できる。$y^2e^y/(e^y-1)^2=1-y^2/12+O(y^4)$ を各モードに用いると
-\begin{equation}
-C_{\mathrm{II}}=3Nk_{\mathrm B}
-\left[1-\frac1{12}\left(\frac{\Theta}{T}\right)^2+O\!\left((\Theta/T)^4\right)\right],\qquad
-C_{\mathrm{III}}=3Nk_{\mathrm B}
-\left[1-\frac1{20}\left(\frac{\Theta_{\mathrm D}}{T}\right)^2+O\!\left((\Theta_{\mathrm D}/T)^4\right)\right].
-\end{equation}
-後者では$g(\omega)$による平均が$\langle\omega^2\rangle=(3N)^{-1}\int_0^{\omega_{\mathrm D}}g(\omega)\omega^2\,d\omega=3\omega_{\mathrm D}^2/5$であり、$1/12$にこれを掛けて係数$1/20$を得る。どちらの量子曲線も古典値へ下から近づく。
-
-\subsection*{[4.3] 低温での比較}
-古典模型を形式的に低温へ外挿すると $C_{\mathrm I}=3Nk_{\mathrm B}$ のままであり、熱励起の量子化による凍結を表せない。一方、単一振動数の量子模型にはすべてのモードに同じ有限の励起ギャップ $\hbar\omega$ があるので
-\begin{equation}
-\boxed{C_{\mathrm{II}}\sim3Nk_{\mathrm B}
-\left(\frac{\Theta}{T}\right)^2e^{-\Theta/T}}.
-\end{equation}
-デバイ模型には $\omega\to0$ の低周波モードが連続して存在する。温度 $T$ で励起しやすい $\hbar\omega\lesssim k_{\mathrm B}T$ のモード数は $g(\omega)\propto\omega^2$ から $T^3$ に比例するため、
-\begin{equation}
-\boxed{C_{\mathrm{III}}\sim\frac{12\pi^4}{5}Nk_{\mathrm B}
-\left(\frac{T}{\Theta_{\mathrm D}}\right)^3}.
-\end{equation}
-したがって $T\to0$ では両量子模型の熱容量は零になるが、デバイ模型の冪減衰は単一振動数模型の指数減衰より遅い。ここでは格子振動だけを比較している。実在の金属では電子の熱容量が低温でおおむね $T$ に比例する場合があり、この3模型の式には含まれない。
-
+\section*{[2.6] 固定角速度の熱容量}
+固定した $R,L,N,\omega$ のもとで加熱すると、[2.4] の第一法則から、加えた熱は回転仕事を差し引いた
+\[
+ \delta Q=d\langle H\rangle-\omega\,d\langle M\rangle
+ =d\langle H-\omega M\rangle
+\]
+となる。従って固定角速度の熱容量では共回転系の平均 $U_\omega=\langle H-\omega M\rangle$ を温度微分する。回転分布の逆温度微分もこの同じ平均を与え、
+\[
+U_\omega=\langle H-\omega M\rangle=-N\left(\frac{\partial\log\widetilde Z_1}{\partial\beta}\right)_{\omega,R}.
+\]
+同じ式は $\langle H\rangle=\tfrac32NkT+\tfrac12I\omega^2$ と $\langle M\rangle=I\omega$ から $U_\omega=\tfrac32NkT-\tfrac12I\omega^2$ としても得られる。$\widetilde Z_1\propto\beta^{-5/2}(e^{\beta\epsilon}-1)$ より
+\[
+U_\omega=\frac52NkT-\frac{N\epsilon}{1-e^{-\epsilon/(kT)}}.
+\]
+よって $\omega$ 固定の熱容量は
+\[
+\boxed{C_\omega=\left(\frac{\partial U_\omega}{\partial T}\right)_\omega
+=\frac52Nk-\frac{N\epsilon^2}{kT^2}\frac{e^{-\epsilon/(kT)}}{\left(1-e^{-\epsilon/(kT)}\right)^2}}.
+\]
+上式の減算項を$Nk\lambda^2e^{-\lambda}/(1-e^{-\lambda})^2$と書けば、高温の$\lambda\to0$では$1-e^{-\lambda}\sim\lambda$から$Nk$に、低温の$\lambda\to\infty$では0に近づく。従って非零の $\omega$ を固定した高温極限では $C_\omega\to\tfrac32Nk$、低温極限では $C_\omega\to\tfrac52Nk$ である。$\omega=0$ では式の連続極限から $C_0=\tfrac32Nk$ がすべての $T$ で得られる。
 \end{document}

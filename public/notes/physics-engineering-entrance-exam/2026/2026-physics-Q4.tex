@@ -1,6 +1,6 @@
-% 出典: 2026ap_exam.pdf, 日本語版 pp. 8--9.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2026ap_exam_je.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=24mm]{geometry}
+\usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
@@ -9,165 +9,149 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2026年 物理学 第4問}
+\title{物理工学専攻 院試解答集\\2026年度 物理学 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 振動子の応答}
-電場方向の単位ベクトルを $\boldsymbol e_x$ とする。$\boldsymbol u(t)=u_0\boldsymbol e_xe^{-i\omega t}$ を (1) に代入すると、$\mathrm d^2\boldsymbol u/\mathrm dt^2=-\omega^2\boldsymbol u$ より
-\begin{equation}
-m(\omega_0^2-\omega^2)u_0=qE_0,
-\qquad
-\boxed{P_0=Nqu_0=\frac{Nq^2E_0}{m(\omega_0^2-\omega^2)}}.
-\end{equation}
-この定常調和応答は $\omega\ne\omega_0$ に限る。減衰のないモデルでちょうど $\omega=\omega_0$ とすると振幅が有限な同じ周波数の定常解はなく、式の発散をそのまま有限の分極と解釈できない。
+\section*{[1.1] 電子の運動方程式}
+電子の電荷は $-e$ なので、電場による力は $-e\boldsymbol E$ である。ポテンシャルの勾配を加えると、減衰のない運動方程式は
+\[
+\boxed{m\ddot{\boldsymbol u}=-\boldsymbol\nabla_{\boldsymbol u}V-e\boldsymbol E
+=-m\begin{pmatrix}\omega_\alpha^2u_x\\\omega_\alpha^2u_y\\\omega_\beta^2u_z\end{pmatrix}
+-e\boldsymbol E_0e^{-i\omega t}.}
+\]
+成分ごとには $m\ddot u_j+m\omega_j^2u_j=-eE_j$ であり、$\omega_x=\omega_y=\omega_\alpha$, $\omega_z=\omega_\beta$ と置ける。
 
-\section*{[1.2] 誘電率とその符号}
-以後、振動子の強さを周波数の二乗で表した
-\begin{equation}
-\Omega_p^2\equiv\frac{Nq^2}{\varepsilon_0m}>0
-\end{equation}
-を使う。[1.1] のベクトル関係 $\boldsymbol P=\varepsilon_0\Omega_p^2\boldsymbol E/(\omega_0^2-\omega^2)$ を誘電率の定義に入れると
-\begin{equation}
-\boxed{\varepsilon(\omega)=\varepsilon_0\left(1+\frac{\Omega_p^2}{\omega_0^2-\omega^2}\right)
-=\varepsilon_0\frac{\omega_0^2+\Omega_p^2-\omega^2}{\omega_0^2-\omega^2}}.
-\end{equation}
-$\omega>0$ で分母と分子の符号が異なるのは
-\begin{equation}
-\boxed{\omega_0<\omega<\sqrt{\omega_0^2+\Omega_p^2}}
-\end{equation}
-である。下端は共鳴点、上端は $\varepsilon=0$ なので、いずれも「負」には含まない。
+\section*{[1.2] 誘電率テンソル}
+定常解を $u_j(t)=u_{j,0}e^{-i\omega t}$ と置く。$\ddot u_j=-\omega^2u_j$ だから [1.1] より
+\[
+u_j=-\frac{e}{m(\omega_j^2-\omega^2)}E_j.
+\]
+共振点 $\omega_j=\omega$ は問題の条件で除かれている。$\boldsymbol P=-\rho e\boldsymbol u$ を $\boldsymbol D=\epsilon_0\boldsymbol E+\boldsymbol P$ に代入すると
+\[
+\boxed{\tilde\epsilon=
+\begin{pmatrix}
+\displaystyle\epsilon_0+\frac{\rho e^2}{m(\omega_\alpha^2-\omega^2)}&0&0\\
+0&\displaystyle\epsilon_0+\frac{\rho e^2}{m(\omega_\alpha^2-\omega^2)}&0\\
+0&0&\displaystyle\epsilon_0+\frac{\rho e^2}{m(\omega_\beta^2-\omega^2)}
+\end{pmatrix}.}
+\]
+電子密度を $0$ にすると真空の $\epsilon_0\mathbf I$ に戻る。分母の符号は共振周波数との大小に依存し、[2] の $\epsilon_n>\epsilon_a>\epsilon_0$ は別途与えられた条件である。
 
-\section*{[1.3] 誘電体中の固有モード}
-(4) の回転をとり (3) を代入すると
-\begin{equation}
-\nabla\times(\nabla\times\boldsymbol E)
-=i\omega\mu_0\nabla\times\boldsymbol H
-=\mu_0\omega^2(\varepsilon_0\boldsymbol E+\boldsymbol P).
-\label{eq:double-curl}
-\end{equation}
-一様な誘電体で $\varepsilon(\omega)\ne0$ なら、(5) の
-$\nabla\cdot\boldsymbol D=\varepsilon(\omega)\nabla\cdot\boldsymbol E=0$ から $\boldsymbol k\cdot\boldsymbol E_0=0$。したがって (2) の平面波について二重回転の左辺は $k^2\boldsymbol E$ となる。非零の横電場では
-\begin{equation}
-\boxed{\boldsymbol P=\left(\frac{k^2}{\mu_0\omega^2}-\varepsilon_0\right)\boldsymbol E},
-\qquad
-\boxed{c^2k^2=\omega^2\frac{\varepsilon(\omega)}{\varepsilon_0}
-=\omega^2\left(1+\frac{\Omega_p^2}{\omega_0^2-\omega^2}\right)}.
-\label{eq:bulk}
-\end{equation}
-最初の式はマクスウェル方程式による分極と電場の関係であり、[1.1] の振動子応答を加えたものが二番目の分散式である。
-
-$K=c^2k^2$、$X=\omega^2$ と置き、分母を払うと
-\begin{equation}
-X^2-(K+\omega_0^2+\Omega_p^2)X+K\omega_0^2=0.
-\end{equation}
-ゆえに、横波の二枝は
-\begin{equation}
-\boxed{\omega_{\pm}^2(k)=\frac{K+\omega_0^2+\Omega_p^2
-\pm\sqrt{(K+\omega_0^2+\Omega_p^2)^2-4K\omega_0^2}}{2}}.
-\label{eq:branches}
-\end{equation}
-判別式は $(K-\omega_0^2)^2+2\Omega_p^2(K+\omega_0^2)+\Omega_p^4>0$ で、$k>0$ なら二根は正である。$k=0$ では下枝は $\omega_-=0$、上枝は $\sqrt{\omega_0^2+\Omega_p^2}$ となる。
-
-なお $\varepsilon(\omega)=0$ では (5) から横波条件を導けない。このとき $\omega=\sqrt{\omega_0^2+\Omega_p^2}$、$\boldsymbol E\parallel\boldsymbol k$、$\boldsymbol H=\boldsymbol 0$ の縦の分極振動も (3)--(6) を満たす。式 \eqref{eq:branches} は非零横電場の分散を表す。
-
-\section*{[1.4] 大きな波数での二枝}
-$K\gg\omega_0^2,\Omega_p^2$ では、\eqref{eq:branches} の根の和と積から先頭項が分かる。設問で指定された三つの記号で表す答えは
-\begin{equation}
-\boxed{\omega_+\simeq ck,\qquad\omega_-\simeq\omega_0}.
-\end{equation}
-根の和と積を順に展開すると
-\begin{equation}
-\omega_+^2=K+\Omega_p^2+O(K^{-1}),\qquad
-\omega_-^2=\omega_0^2\left(1-\frac{\Omega_p^2}{K}+O(K^{-2})\right).
-\end{equation}
-平方根を一次まで展開した結果は
-\begin{equation}
-\omega_+=ck+\frac{\Omega_p^2}{2ck}+O(k^{-3}),\qquad
-\omega_-=\omega_0\left(1-\frac{\Omega_p^2}{2c^2k^2}+O(k^{-4})\right).
-\label{eq:highk}
-\end{equation}
-この次項の係数には $\Omega_p^2=Nq^2/(\varepsilon_0m)$ が現れる。$ck$ と $\omega_0$ はいずれも角周波数の次元を持ち、$k\to\infty$ で補正はそれぞれの先頭項に比べて消える。
-
-\section*{[2.1] 界面の連続条件と電場成分}
-図のように界面の上を真空、下を誘電体とし、$\alpha_0,\alpha_1$ は局在のため正の実数とする。
+\section*{[2] 座標と二つの透過波}
+原本図1に合わせ、境界を $z=0$、結晶を $z>0$ とする。$x$ は右、$z$ は図で下向き、$y$ は紙面手前を向く。以下の角は $z$ 軸から右側へ測り、透過波の $k_z$ は正とする。
 \begin{center}
-\begin{tikzpicture}[>=stealth,scale=0.85]
-  \fill[gray!12] (-3,-1.25) rectangle (3,0);
-  \draw[thick] (-3,0)--(3,0);
-  \draw[->] (0,-1.5)--(0,1.7) node[above] {$z$};
-  \draw[->] (-3.2,0)--(3.35,0) node[right] {$x$};
-  \node at (-2.1,0.9) {真空 $\varepsilon_0$};
-  \node at (-2.1,-0.8) {誘電体 $\varepsilon(\omega)$};
-  \draw[->,very thick] (0.6,0.23)--(2.0,0.23) node[midway,above] {$k_{\parallel}$};
-  \draw[->,blue,thick] (2.45,0.15)--(2.45,1.15) node[above] {$e^{-\alpha_0 z}$};
-  \draw[->,blue,thick] (2.45,-0.15)--(2.45,-1.15) node[below] {$e^{\alpha_1 z}$};
+\begin{tikzpicture}[x=1cm,y=1cm,>=stealth,scale=0.95]
+  \draw[gray,thick] (-3.5,0)--(3.7,0);
+  \draw[->] (0,2.5)--(0,-2.5) node[below] {$z$};
+  \draw[->] (0,0)--(3.6,0) node[right] {$x$};
+  \node[left] at (-2.5,0.38) {真空 $z<0$};
+  \node[left] at (-2.5,-0.38) {結晶 $z>0$};
+  \draw (0.62,2.0) circle (0.12);
+  \fill (0.62,2.0) circle (0.035);
+  \node[right] at (0.80,2.0) {$y$：紙面手前};
+  \draw[->,thick] (-2.1,1.9)--(0,0) node[pos=0.44,above right] {$\boldsymbol k_i$};
+  \draw[->,thick] (0,0)--(1.8,1.65) node[near end,above] {$\boldsymbol k_r$};
+  \draw[->,thick,blue] (0,0)--(0.70,-2.15) node[below] {$\boldsymbol k_{t1}$（S）};
+  \draw[->,thick,red] (0,0)--(1.58,-2.15) node[right] {$\boldsymbol k_{t2}$（P）};
+  \draw (0,-0.77) arc[start angle=-90,end angle=-72,radius=0.77];
+  \draw[thin,gray] (-0.38,-0.65)--(-0.18,-0.80)--(0.12,-0.76);
+  \node[anchor=east] at (-0.38,-0.65) {$\phi_{t1}$};
+  \draw (0,-1.12) arc[start angle=-90,end angle=-54,radius=1.12];
+  \node at (1.18,-1.15) {$\phi_{t2}$};
 \end{tikzpicture}
 \end{center}
-\newpage
-\enlargethispage{3\baselineskip}
-[1] の無源 Maxwell 方程式を界面をまたいで用いる。(4) を界面を横切る微小ループで積分すると接線電場が連続し、(5) を薄い円柱で積分すると自由表面電荷がない場合の法線電束密度が連続する。場が界面近傍で有限なら、縮小極限でループ短辺の線積分、ループの磁束、円柱側面の電束は消える。$y$ 成分は (7), (8) により零だから、$z=0$ では
-\begin{equation}
-\boxed{E_{0x}=E_{1x}},\qquad
-\boxed{\varepsilon_0E_{0z}=\varepsilon(\omega)E_{1z}}.
-\label{eq:boundary}
-\end{equation}
-真空側では $\varepsilon_0\ne0$ なので、(5) と (7) から $ik_{\parallel}E_{0x}-\alpha_0E_{0z}=0$ を得る。媒質側では $\varepsilon=0$ の可能性を先に除かず、(3), (4) から得る二重回転方程式の $x$ 成分を用いる。(8) と $\alpha_1^2=k_{\parallel}^2-\varepsilon\mu_0\omega^2$ を代入すると
-\begin{equation}
--\alpha_1(\alpha_1E_{1x}-ik_{\parallel}E_{1z})
-=\varepsilon\mu_0\omega^2E_{1x}
-\quad\Longrightarrow\quad
-ik_{\parallel}E_{1x}+\alpha_1E_{1z}=0.
-\end{equation}
-局在条件 $\alpha_0>0$ から $k_{\parallel}^2>\varepsilon_0\mu_0\omega^2$ であり、$k_{\parallel}\ne0$ である。従って
-\begin{equation}
-\boxed{E_{0z}=\frac{ik_{\parallel}}{\alpha_0}E_{0x}},\qquad
-\boxed{E_{1z}=-\frac{ik_{\parallel}}{\alpha_1}E_{1x}}.
-\label{eq:component}
-\end{equation}
-法線成分の符号が逆なのは、両側で指数の $z$ 微分の符号が逆だからである。
-$\varepsilon=0$ なら式\eqref{eq:boundary}の法線電束の連続性から $E_{0z}=0$、式\eqref{eq:component}と接線電場の連続性から他の電場成分も零となる。従って (7), (8) の形の非零の局在表面波ではこの場合を除ける。
+この図は進行方向の関係を示す模式図で、矢印の長さは波数の大きさを表さない。
 
-\section*{[2.2] 表面波の条件}
-\eqref{eq:component} を \eqref{eq:boundary} に入れ、非零の $E_{0x}=E_{1x}$ と $k_{\parallel}$ を消すと
-\begin{equation}
-\boxed{\frac{\varepsilon_0}{\alpha_0}+\frac{\varepsilon(\omega)}{\alpha_1}=0,
-\quad\text{すなわち}\quad
-\varepsilon(\omega)=-\varepsilon_0\frac{\alpha_1}{\alpha_0}}.
-\label{eq:tm}
-\end{equation}
-$\alpha_0,\alpha_1>0$ なので少なくとも $\varepsilon(\omega)<0$ が必要である。実際の存在範囲は両側の減衰条件を合わせて [2.4] で決める。
+\section*{[2.1] 境界に沿う位相の一致}
+境界 $z=0$ では各平面波の位相は $k_xx-\omega t$ となる。接線方向の電場・磁場の連続条件がすべての $x,t$ で成り立つには、非零の入射・反射・透過振幅の位相が一致しなければならない。したがって
+\[
+k_{i,x}=k_{r,x}=k_{t1,x}=k_{t2,x}.
+\]
+図の斜入射の透過枝では $k_{tj,x}=|\boldsymbol k_{tj}|\sin\phi_{tj}>0$ であり、垂直入射ではこの成分は零となる。位相一致から
+\[
+\boxed{\sin\phi_{t1}=\frac{|\boldsymbol k_i|}{|\boldsymbol k_{t1}|}\sin\phi_i,
+\qquad
+\sin\phi_{t2}=\frac{|\boldsymbol k_i|}{|\boldsymbol k_{t2}|}\sin\phi_i.}
+\]
 
-\section*{[2.3] 界面に沿う波数}
-\eqref{eq:tm} より $\alpha_1=-\varepsilon\alpha_0/\varepsilon_0$。両辺の二乗と
-$\alpha_0^2=k_{\parallel}^2-\varepsilon_0\mu_0\omega^2$、
-$\alpha_1^2=k_{\parallel}^2-\varepsilon\mu_0\omega^2$ を組み合わせると
-\begin{equation}
-(\varepsilon_0^2-\varepsilon^2)k_{\parallel}^2
-=\varepsilon_0\varepsilon\mu_0\omega^2(\varepsilon_0-\varepsilon).
-\end{equation}
-$\varepsilon\ne\varepsilon_0$ として共通因子を除き、正方向へ伝わる根を選べば
-\begin{equation}
-\boxed{k_{\parallel}=\omega\sqrt{\frac{\mu_0\varepsilon_0\varepsilon(\omega)}
-{\varepsilon_0+\varepsilon(\omega)}}
-=\frac{\omega}{c}\sqrt{\frac{\varepsilon(\omega)}
-{\varepsilon_0+\varepsilon(\omega)}}}.
-\label{eq:kpar}
-\end{equation}
-これは $\varepsilon<-\varepsilon_0$ の範囲で実数かつ $k_{\parallel}>\omega/c$ となり、真空側でも減衰する。
+\section*{[2.2] 平面波の電場と電束密度}
+$e^{i(\boldsymbol k\cdot\boldsymbol r-\omega t)}$ の共通因子を外すと、問題の Maxwell 方程式は
+\[
+\boldsymbol k\times\boldsymbol E=\mu_0\omega\boldsymbol H,
+\qquad
+\boldsymbol k\times\boldsymbol H=-\omega\boldsymbol D
+\]
+となる。第一式を第二式に代入し、三重積を展開すれば
+\begin{align*}
+\boldsymbol k\times(\boldsymbol k\times\boldsymbol E)
+&=-\mu_0\omega^2\boldsymbol D\\
+&=(\boldsymbol k\cdot\boldsymbol E)\boldsymbol k-|\boldsymbol k|^2\boldsymbol E.
+\end{align*}
+ゆえに $\boldsymbol e=\boldsymbol k/|\boldsymbol k|$ を用いて
+\[
+\boxed{\boldsymbol D=\frac{|\boldsymbol k|^2}{\mu_0\omega^2}
+\left[\boldsymbol E-(\boldsymbol e\cdot\boldsymbol E)\boldsymbol e\right].}
+\]
+この式から $\boldsymbol k\cdot\boldsymbol D=0$ も直ちに分かる。異方性媒質では一般に $\boldsymbol k\cdot\boldsymbol E=0$ とは限らない。
 
-\section*{[2.4] 表面波が存在する周波数}
-\eqref{eq:kpar} を $\alpha_0^2=k_{\parallel}^2-\omega^2/c^2$ に入れると
-\begin{equation}
-\alpha_0^2=\frac{\omega^2}{c^2}\frac{-\varepsilon_0}{\varepsilon+\varepsilon_0}.
-\end{equation}
-$\alpha_0^2>0$ と [2.2] の $\varepsilon<0$ を両立する条件は $\varepsilon<-\varepsilon_0$。このとき $\alpha_1=-\varepsilon\alpha_0/\varepsilon_0>0$ も満たす。[1.2] の誘電率を代入すると
-\begin{equation}
-1+\frac{\Omega_p^2}{\omega_0^2-\omega^2}<-1
-\quad\Longleftrightarrow\quad
-\boxed{\omega_0<\omega<\sqrt{\omega_0^2+\frac{Nq^2}{2\varepsilon_0m}}}.
-\end{equation}
-下端 $\omega_0$ では無減衰振動子の定常応答が発散するうえ、真空側の $\alpha_0\to0$ で局在性も失う。上端では $\varepsilon\to-\varepsilon_0$ に伴い $k_{\parallel}$ が無限大になる。よって両端を除く。[1.2] の $\varepsilon<0$ の帯域のうち、この狭い範囲だけが真空・誘電体の両側へ減衰する表面波を与える。
+\section*{[2.3] S偏光の波数}
+S偏光では $\boldsymbol E=E_y\boldsymbol e_y$ が入射面に垂直なので、$\boldsymbol e\cdot\boldsymbol E=0$。一方、結晶中では $D_y=\epsilon_nE_y$ である。[2.2] の $y$ 成分を非零の $E_y$ で割ると
+\[
+\epsilon_n=\frac{|\boldsymbol k_{t1}|^2}{\mu_0\omega^2},
+\qquad
+\boxed{|\boldsymbol k_{t1}|=\omega\sqrt{\mu_0\epsilon_n}.}
+\]
+
+\section*{[2.4] S偏光の光線方向}
+Maxwell の式から $\boldsymbol H_{t1,0}=(\boldsymbol k_{t1}\times\boldsymbol E_{t1,0})/(\mu_0\omega)$。$\boldsymbol k_{t1}\cdot\boldsymbol E_{t1,0}=0$ なので三重積により
+\[
+\boldsymbol E_{t1,0}\times\boldsymbol H_{t1,0}
+=\frac{|\boldsymbol E_{t1,0}|^2}{\mu_0\omega}\boldsymbol k_{t1}.
+\]
+係数は正であり、光線は波数と平行である。したがって求める角は
+\[
+\boxed{\phi_{t1}.}
+\]
+
+\section*{[2.5] P偏光の波数}
+$\boldsymbol k_{t2}=k(\sin\phi_{t2},0,\cos\phi_{t2})$、$\boldsymbol E_{t2,0}=(E_x,0,E_z)$ と置く。$\boldsymbol k\cdot\boldsymbol D=0$ と $D_x=\epsilon_nE_x$, $D_z=\epsilon_aE_z$ より
+\[
+\epsilon_n\sin\phi_{t2}E_x+\epsilon_a\cos\phi_{t2}E_z=0,
+\qquad
+\frac{E_z}{E_x}=-\frac{\epsilon_n}{\epsilon_a}\tan\phi_{t2}.
+\]
+ここで $E_x\ne0$ であり、$\cos\phi_{t2}>0$ の透過枝を使った。[2.2] を $x$ 成分に適用すると
+\[
+\epsilon_nE_x=\frac{k^2}{\mu_0\omega^2}
+\left(\cos^2\phi_{t2}E_x-\sin\phi_{t2}\cos\phi_{t2}E_z\right).
+\]
+上の比を代入し、正の平方根を採用して
+\[
+\boxed{|\boldsymbol k_{t2}|=\omega\sqrt{\frac{\mu_0\epsilon_n\epsilon_a}
+{\epsilon_a\cos^2\phi_{t2}+\epsilon_n\sin^2\phi_{t2}}}.}
+\]
+$\phi_{t2}=0$ なら電場は $x$ 方向で $k=\omega\sqrt{\mu_0\epsilon_n}$ となり、[2.3] に一致する。
+
+\section*{[2.6] P偏光の光線方向}
+$\boldsymbol H_{t2,0}=H_y\boldsymbol e_y$ であり、Maxwell の式から
+\[
+H_y=\frac{k}{\mu_0\omega}
+\left(\cos\phi_{t2}E_x-\sin\phi_{t2}E_z\right).
+\]
+$E_z/E_x\le0$ かつ $\cos\phi_{t2}>0$ なので $H_y/E_x>0$。したがって
+\[
+\boldsymbol E_{t2,0}\times\boldsymbol H_{t2,0}
+=H_y(-E_z,0,E_x),
+\qquad
+\tan\theta_{t2}=\frac{-E_zH_y}{E_xH_y}.
+\]
+[2.5] の電場成分比を使えば
+\[
+\boxed{\tan\theta_{t2}=\frac{\epsilon_n}{\epsilon_a}\tan\phi_{t2}.}
+\]
+$\epsilon_n>\epsilon_a$ かつ $\phi_{t2}>0$ なら光線は位相法線より $x$ 側へ傾く。$\epsilon_n=\epsilon_a$ の等方極限では二方向は一致する。
+
 \end{document}

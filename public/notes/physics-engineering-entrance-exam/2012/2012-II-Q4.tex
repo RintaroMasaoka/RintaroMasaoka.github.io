@@ -1,4 +1,4 @@
-% Source problem: 2012ap_exam.pdf, PDF pp. 11--12.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h24ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,148 +10,283 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2012年 物理学II 第4問}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2012年度 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 二原子格子の分散関係}
-ばねの配置から、単位格子 $n$ の変位は
-\begin{align}
- m\ddot u_n&=C_1(v_n-u_n)+C_2(v_{n-1}-u_n),\\
- m\ddot v_n&=C_1(u_n-v_n)+C_2(u_{n+1}-v_n).
-\end{align}
-Bloch波を
+\section*{[1] 周期境界条件}
+周期境界条件では、原子軌道の添字 $j$ と $j+M$ を同一視する。
+したがって、同じ軌道に掛かるBloch係数も一致しなければならず、
 \begin{equation}
- u_n=u e^{i(kan-\omega t)},\qquad
- v_n=v e^{i(ka(n+1/2)-\omega t)}
+  e^{ik(j+M)a}=e^{ikja},\qquad e^{ikMa}=1
 \end{equation}
-とおく。振幅の方程式は
+となる。この条件の下でBloch和は $\psi_k(x+Ma)=\psi_k(x)$ を満たす。
+従って許される波数は
 \begin{equation}
- \begin{pmatrix}
- m\omega^2-C_1-C_2 & C_1e^{ika/2}+C_2e^{-ika/2}\\
- C_2e^{ika/2}+C_1e^{-ika/2} & m\omega^2-C_1-C_2
- \end{pmatrix}
- \begin{pmatrix}u\\v\end{pmatrix}=0.
+  \boxed{k=\frac{2\pi l}{Ma}\quad(l\in\mathbb Z)}.
 \end{equation}
-非自明解には行列式が0であることが必要なので
-\begin{equation}
- \boxed{\omega_{\pm}^2(k)=\frac{C_1+C_2\pm
- \sqrt{C_1^2+C_2^2+2C_1C_2\cos(ka)}}{m}.}
-\end{equation}
-$\omega_-(k)$ が音響枝、$\omega_+(k)$ が光学枝である。
+第一ブリルアン領域内では隣り合う波数の間隔は $2\pi/(Ma)$ である。
 
-\section*{[2] 第一ブリルアン領域}
-第一ブリルアン領域は $-\pi/a\le k\le\pi/a$ である。端点と中心で
+\section*{[2] 単元素鎖のエネルギー分散}
+問題文のシュレーディンガー方程式(1)に $\psi_k$ を代入し、$\phi_A^*(x)$ を掛けて積分する。運動エネルギー演算子を $T=-\hbar^2\partial_x^2/(2m)$ と書く。孤立原子の方程式から $\langle\phi_A|T+u(x)|\phi_A\rangle=E_A$ となる。隣接する二つのA原子イオンのポテンシャルはそれぞれ $\beta$ を与え、オンサイトのエネルギーは $E_A+2\beta$ である。
+
+右隣の軌道については、その原子の孤立方程式と軌道の直交性から
+\begin{equation}
+ \int\phi_A^*(x)[T+u(x-a)]\phi_A(x-a)\,dx
+ =E_A\int\phi_A^*(x)\phi_A(x-a)\,dx=0.
+\end{equation}
+したがって全ポテンシャルのうち原点の $u(x)$ が残す行列要素が、問題で定義された $\gamma$ である。左隣も同様に $\gamma$ を与え、両者にはBloch位相 $e^{ika}$ と $e^{-ika}$ が付く。列挙外の積分は無視できるので
 \begin{align}
- \omega_a(0)&=0,&
- \omega_o(0)&=\sqrt{\frac{2(C_1+C_2)}{m}},\\
- \omega_a(\pi/a)&=\sqrt{\frac{2C_2}{m}},&
- \omega_o(\pi/a)&=\sqrt{\frac{2C_1}{m}},
+  E(k)&=E_A+2\beta+\gamma(e^{ika}+e^{-ika})\\
+      &=\boxed{E_A+2\beta+2\gamma\cos(ka)}.
 \end{align}
-ここで $C_1>C_2$ を用いた。図では $C_1=4,C_2=1,m=1$ とし、横軸は $ka$ で表す（ばね定数と質量は同じ単位系）。
-\begin{center}
-\begin{tikzpicture}[x=0.85cm,y=0.85cm,>=Stealth]
- \draw[->] (-3.8,0)--(3.8,0) node[right] {$ka$};
- \draw[->] (0,0)--(0,3.8) node[above] {$\omega$};
- \draw[dashed] (-3.14,0)--(-3.14,3.45);
- \draw[dashed] (3.14,0)--(3.14,3.45);
- \node[below] at (-3.14,0) {$-\pi$};
- \node[below] at (3.14,0) {$\pi$};
- \draw[thick] plot[domain=-pi:pi,samples=181] (\x,{sqrt(5-sqrt(17+8*cos(deg(\x))))});
- \draw[thick] plot[domain=-pi:pi,samples=181] (\x,{sqrt(5+sqrt(17+8*cos(deg(\x))))});
- \node at (1.55,1.7) {音響};
- \node at (1.7,3.45) {光学};
+
+\section*{[3] 第一ブリルアン領域と安定性}
+孤立原子の準位 $E_A$ は、真空準位を基準に束縛状態なら負である。隣接イオンの引力ポテンシャルによる対角シフト $2\beta$ も安定な結晶では一般に負となる。移動積分の符号はバンド底の位置を決める。安定な結合性の底端が $k=0$ にある場合は $\gamma<0$ で、バンド底 $E_A+2\beta+2\gamma$ は上端 $E_A+2\beta-2\gamma$ より低い。バンド幅は $4|\gamma|$ である。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,x=1.1cm,y=0.7cm]
+  \pgfmathsetmacro{\gammaVal}{-1}
+  \pgfmathsetmacro{\betaVal}{-0.5}
+  \pgfmathsetmacro{\gammaMagnitude}{abs(\gammaVal)}
+  \pgfmathsetmacro{\atomicLevel}{-2*\betaVal/\gammaMagnitude}
+  \pgfmathsetmacro{\axisBase}{-2.6}
+  \pgfmathsetmacro{\axisRight}{pi+0.36}
+  \draw[->] (-3.6,-3.0) -- (-3.6,3.0) node[above] {$E$};
+  \draw[->] (-3.35,\axisBase) -- (\axisRight,\axisBase) node[right] {$k$};
+  \draw[dashed] (-pi,0) -- (pi,0);
+  \draw[dash dot] (-pi,\atomicLevel) -- (pi,\atomicLevel);
+  \node[anchor=west] at (0.2,\atomicLevel+0.45) {$E_A$};
+  \draw[->] (-2.2,\atomicLevel) -- (-2.2,0) node[midway,left] {$2\beta<0$};
+  \draw[<->] (pi+0.12,-2) -- (pi+0.12,2) node[midway,right] {$4|\gamma|$};
+  \draw[thick,samples=100] plot[domain=-180:180] ({\x*pi/180},{2*\gammaVal*cos(\x)});
+  \draw[dotted] (-pi,-2) -- (-pi,2);
+  \draw[dotted] (pi,-2) -- (pi,2);
+  \node[below] at (-pi,\axisBase) {$-\pi/a$};
+  \node[below] at (0,\axisBase) {$0$};
+  \node[below] at (pi,\axisBase) {$\pi/a$};
+  \node[left] at (-3.6,0) {$E_A+2\beta$};
+  \node[anchor=west] at (0.2,-2.15) {$E_A+2\beta+2\gamma$};
+  \node[anchor=west] at (0.2,2.05) {$E_A+2\beta-2\gamma$};
+  \node at (2.4,2.7) {$\gamma<0$};
 \end{tikzpicture}
-\end{center}
-音響枝の長波長極限は、$\cos(ka)\simeq1-(ka)^2/2$ を用いると
+\caption{単元素鎖の分散。縦方向は $|\gamma|$ を単位とする。表示例では $\gamma=-|\gamma|$ と $2\beta=-|\gamma|$ を選び、他のエネルギー比は示していない。}
+\end{figure}
+
+\section*{[4] 電子と正孔の有効質量}
+まず[3]の図と同じ $\gamma<0$ の場合を考える。
+一つの軌道にスピンの異なる2個の電子を収容できるので、単位胞あたりの占有数2が満占有に対応する。
+バンド端近傍の曲率は
 \begin{equation}
- \omega_a(k)\simeq v_a|k|,\qquad
- \boxed{v_a=a\sqrt{\frac{C_1C_2}{2m(C_1+C_2)}}}.
+  \frac{d^2E}{dk^2}=-2\gamma a^2\cos(ka).
 \end{equation}
-光学枝は
+基底状態または低温の低エネルギーキャリアを考えると、平均占有数が1より十分小さいときの電子はバンド底 $k=0$ の近くに入る。よって
 \begin{equation}
- \omega_o(k)\simeq\sqrt{\frac{2(C_1+C_2)}{m}}
- -\frac{C_1C_2a^2k^2}{4\sqrt{2m(C_1+C_2)^3}}.
+  \boxed{m_e^*=\frac{\hbar^2}{E''(0)}
+  =\frac{\hbar^2}{-2\gamma a^2}>0.}
 \end{equation}
-したがって $k\to0$ で、音響枝の群速度は $v_a$（$k<0$ 側は $-v_a$）、光学枝の群速度は
+同じ低エネルギー条件のもとで占有数が2に近いときは、バンド上端 $k=\pi/a$ 近くの空状態を正孔として扱う。電子の曲率は $E''(\pi/a)=2\gamma a^2<0$ なので、正孔の質量はその負号付き逆数で
 \begin{equation}
- v_{g,o}\simeq-\frac{C_1C_2a^2}{2\sqrt{2m(C_1+C_2)^3}}k\longrightarrow0.
+  \boxed{m_h^*=-\frac{\hbar^2}{E''(\pi/a)}
+  =-\frac{\hbar^2}{2\gamma a^2}>0.}
+\end{equation}
+この最近接余弦バンドでは両者の大きさが等しい。正孔質量の負号は、電子バンド頂の負曲率を正の正孔質量に変換するために必要である。
+$\gamma>0$ ではバンド底と上端の位置が入れ替わり、電子は $k=\pi/a$、正孔は $k=0$ の近くで評価する。
+したがって $\gamma\ne0$ でのキャリア質量は、どちらも $\hbar^2/(2|\gamma|a^2)$ である。
+$\gamma=0$ ではバンドが平坦となり、有限の曲率から質量を求めるこの式は使えない。
+
+\section*{[5] 二原子分子鎖の固有値方程式}
+一単位胞の基底を $\phi_A,\phi_B$ とする。原子Aの対角要素は $E_A+2\beta$、隣の単位胞にあるA軌道との移動要素は[2]とBloch和により $2\gamma\cos(ka)$ となる。B軌道の対角要素は $E_B$。A–B間の要素にも運動エネルギーの寄与がある。[2]で定義した $T$ を用い、同一分子内の軌道の重なりを $S_{AB}=\langle\phi_A|\phi_B\rangle$ と置く。原問では列挙されていない重なり積分を無視するので $S_{AB}\simeq0$ である。孤立A原子の方程式 $(T+u)\phi_A=E_A\phi_A$ とHermite性から
+\begin{align}
+  \langle\phi_A|T+u|\phi_B\rangle&=E_A S_{AB},\\
+  \langle\phi_A|T+u+w|\phi_B\rangle
+    &=E_A S_{AB}+\langle\phi_A|w|\phi_B\rangle\simeq\delta.
+\end{align}
+孤立B原子の方程式から評価しても、同じ要素は $E_B S_{AB}+\langle\phi_A|u|\phi_B\rangle\simeq\delta$ となる。従って二つの等しいポテンシャル積分は、運動項を含む行列要素をそれぞれ評価するものである。係数 $c_k,d_k$ は
+\begin{equation}
+  \boxed{
+  \begin{pmatrix}
+    E_A+2\beta+2\gamma\cos(ka)&\delta\\
+    \delta&E_B
+  \end{pmatrix}
+  \begin{pmatrix}c_k\\d_k\end{pmatrix}
+  =E(k)\begin{pmatrix}c_k\\d_k\end{pmatrix}.}
+\end{equation}
+ここで行列はHermiteであり、固有値は実数となる。
+
+\section*{[6] 混成バンド}
+\begin{equation}
+  \Delta=E_A-E_B+2\beta
+\end{equation}
+と置く。固有値方程式の行列式から
+\begin{align}
+  0&=[E_A+2\beta+2\gamma\cos(ka)-E][E_B-E]-\delta^2.
+\end{align}
+\begin{equation}
+  \boxed{\begin{aligned}
+  E_{\pm}(k)&=\frac{E_A+E_B}{2}+\beta+\gamma\cos(ka)\\
+  &\quad\pm\sqrt{\left(\frac{\Delta}{2}+\gamma\cos(ka)\right)^2+\delta^2}.
+  \end{aligned}}
 \end{equation}
 
-\section*{[3] 長波長での原子の振動}
-$k=0$ で[1]の固有行列に音響枝の $\omega_a=0$ を代入すると $-(C_1+C_2)u+(C_1+C_2)v=0$、すなわち $u=v$ である。光学枝の $m\omega_o^2=2(C_1+C_2)$ を代入すると $(C_1+C_2)(u+v)=0$、すなわち $u=-v$ となる。$k\to0$ ではBloch位相 $e^{ika/2}\to1$ だから、この振幅関係が実変位 $u_n,v_n$ の同位相・逆位相にそのまま対応する。従って音響枝では隣接原子がまとまって動き、光学枝では二つの基底原子が互いに逆向きに振動する。
+まず $\delta=0$ なら、A由来の余弦バンド $E_A+2\beta+2\gamma\cos(ka)$ と、分散のないB準位 $E_B$ が交差する。交差条件は $\Delta+2\gamma\cos(ka)=0$ である。$|\Delta|\ll|\gamma|$ では交差点が第一ブリルアン領域内にあり、$\Delta=0$ なら $ka=\pm\pi/2$。一方 $|\Delta|\gg|\gamma|$ では両バンドの中心エネルギー差がAバンドの半幅より十分大きく、交差しない。
 
-\section*{[4] 光子の非弾性散乱}
-結晶へ渡る運動量は入射光子から散乱光子を引いた差であるため
+$\delta\ne0$ はAとBの混成を生む。交差点近傍では固有値が分裂し、直接ギャップは $2|\delta|$ となる。$|\Delta|\gg|\gamma|$ では未混成準位差 $|\Delta+2\gamma\cos(ka)|$ が全波数で $|\delta|$ より十分大きい。固有値方程式の二行から
 \begin{equation}
- \boldsymbol K_i=\boldsymbol K_f+\boldsymbol q_B.
+ \delta d_k=[E(k)-E_A-2\beta-2\gamma\cos(ka)]c_k,
+ \qquad \delta c_k=[E(k)-E_B]d_k
 \end{equation}
-三角形の頂点をつなぐと
-\begin{center}
-\begin{tikzpicture}[>=Stealth,scale=1.05]
- \coordinate (O) at (0,0); \coordinate (I) at (3.2,0); \coordinate (F) at (1.2,-1.5);
- \draw[->,thick] (O)--(I) node[midway,above] {$\boldsymbol K_i$};
- \draw[->,thick] (O)--(F) node[midway,left] {$\boldsymbol K_f$};
- \draw[->,thick] (F)--(I) node[midway,below right,xshift=4pt,yshift=-2pt] {$\boldsymbol q_B$};
- \draw (0.75,0) arc (0:-51:0.75);
- \node at (0.9,-0.45) {$\theta$};
+となる。Bに近い枝では $|c_k/d_k|\simeq|\delta/(\Delta+2\gamma\cos(ka))|\ll1$、Aに近い枝では同様に $|d_k/c_k|\ll1$ だから、各枝は主に元のAまたはB軌道の性質を保つ。また固有値のずれは
+\begin{equation}
+ \sqrt{\frac{[\Delta+2\gamma\cos(ka)]^2}{4}+\delta^2}
+ -\frac{|\Delta+2\gamma\cos(ka)|}{2}
+ \simeq\frac{\delta^2}{|\Delta+2\gamma\cos(ka)|}
+\end{equation}
+と小さい。これは下図の大離調での弱い準位移動にも対応する。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,x=0.62cm,y=0.68cm,font=\footnotesize]
+\pgfmathsetmacro{\gammaVal}{-1}
+\pgfmathsetmacro{\gammaMagnitude}{abs(\gammaVal)}
+\pgfmathsetmacro{\betaVal}{-0.5}
+\pgfmathsetmacro{\mixing}{0.12}
+\pgfmathsetmacro{\detuning}{0.25}
+\pgfmathsetmacro{\atomicA}{\detuning-2*\betaVal}
+\pgfmathsetmacro{\aBottom}{\detuning-2*\gammaMagnitude}
+\pgfmathsetmacro{\aTop}{\detuning+2*\gammaMagnitude}
+\begin{scope}[shift={(0,0)}]
+  \draw[->] (-3.4,-2.45)--(-3.4,3.55);
+  \node[above] at (-3.4,3.55) {$E-E_B$};
+  \draw[->] (-pi,-2.45)--(3.25,-2.45) node[right] {$ka$};
+  \foreach \k/\label in {-1/{-\pi},0/0,1/\pi} {\draw ({\k*pi},-2.45)--++(0,-0.12) node[below] {$\label$};}
+  \node[above] at (0,4.0) {$|\Delta|\ll|\gamma|,\ \delta=0$};
+  \draw[gray,dash dot] (-pi,\atomicA)--(pi,\atomicA);
+  \node[left] at (-3.4,\atomicA) {$E_A-E_B$};
+  \draw[gray,dotted] (-pi,\detuning)--(3.15,\detuning);
+  \node[above] at (2.5,\detuning) {$\Delta$};
+  \draw[gray,dashed] (-pi,0)--(pi,0);
+  \node[left] at (-3.4,0) {$0\ (E_B)$};
+  \draw[->] (3.45,\atomicA)--(3.45,\detuning)
+    node[midway,right] {$2\beta$};
+  \draw[dotted,gray] (pi,\aBottom)--(4.65,\aBottom);
+  \draw[dotted,gray] (pi,\aTop)--(4.65,\aTop);
+  \draw[<->] (4.65,\aBottom)--(4.65,\aTop)
+    node[midway,right] {$4|\gamma|$};
+  \draw[thick,samples=140] plot[domain=-180:180]
+    ({\x*pi/180},{\detuning+2*\gammaVal*cos(\x)});
+  \draw[thick] (-pi,0)--(pi,0);
+\end{scope}
+\begin{scope}[shift={(13,0)}]
+  \draw[->] (-3.4,-2.45)--(-3.4,3.55);
+  \node[above] at (-3.4,3.55) {$E-E_B$};
+  \draw[->] (-pi,-2.45)--(3.25,-2.45) node[right] {$ka$};
+  \foreach \k/\label in {-1/{-\pi},0/0,1/\pi} {\draw ({\k*pi},-2.45)--++(0,-0.12) node[below] {$\label$};}
+  \node[above] at (0,4.0) {$|\Delta|\ll|\gamma|,\ 0<|\delta|\ll|\gamma|$};
+  \draw[gray,dash dot] (-pi,\atomicA)--(pi,\atomicA);
+  \node[left] at (-3.4,\atomicA) {$E_A-E_B$};
+  \draw[gray,dotted] (-pi,\detuning)--(3.15,\detuning);
+  \node[above] at (2.5,\detuning) {$\Delta$};
+  \draw[gray,dashed] (-pi,0)--(pi,0);
+  \node[left] at (-3.4,0) {$0\ (E_B)$};
+  \draw[->] (3.45,\atomicA)--(3.45,\detuning)
+    node[midway,right] {$2\beta$};
+  \draw[dotted,gray] (pi,\aBottom)--(4.65,\aBottom);
+  \draw[dotted,gray] (pi,\aTop)--(4.65,\aTop);
+  \draw[<->] (4.65,\aBottom)--(4.65,\aTop)
+    node[midway,right] {$4|\gamma|$};
+  \draw[gray,dashed,samples=140] plot[domain=-180:180]
+    ({\x*pi/180},{\detuning+2*\gammaVal*cos(\x)});
+  \draw[thick,samples=180] plot[domain=-180:180]
+    ({\x*pi/180},{(\detuning+2*\gammaVal*cos(\x))/2-sqrt(((\detuning+2*\gammaVal*cos(\x))/2)^2+\mixing^2)});
+  \draw[thick,samples=180] plot[domain=-180:180]
+    ({\x*pi/180},{(\detuning+2*\gammaVal*cos(\x))/2+sqrt(((\detuning+2*\gammaVal*cos(\x))/2)^2+\mixing^2)});
+  \pgfmathsetmacro{\crossing}{-acos(-\detuning/(2*\gammaVal))*pi/180}
+  \draw[<->] (\crossing,-\mixing)--(\crossing,\mixing);
+  \draw[thin] (\crossing,\mixing+0.04)--(-0.4,0.35);
+  \node[above] at (-0.4,0.35) {$2|\delta|$};
+  \node[above] at (2.65,\aTop+0.02) {$E_+$};
+  \node[below] at (-0.1,\aBottom-0.02) {$E_-$};
+\end{scope}
 \end{tikzpicture}
-\end{center}
-である。$\omega_i\gg\omega_B$ なら $|\boldsymbol K_f|\simeq|\boldsymbol K_i|$ なので
-\begin{align}
- |\boldsymbol q_B|^2&=|\boldsymbol K_i|^2+|\boldsymbol K_f|^2
- -2|\boldsymbol K_i||\boldsymbol K_f|\cos\theta\\
- &\simeq2|\boldsymbol K_i|^2(1-\cos\theta),\\
- &\boxed{|\boldsymbol q_B|\simeq2|\boldsymbol K_i|\sin(\theta/2).}
-\end{align}
+\vspace{0.8em}
 
-\section*{[5] 音速とBrillouin周波数}
-長波長音響フォノンでは $\omega_B=v_a|\boldsymbol q_B|$ である。媒質中の光子波数は $|\boldsymbol K_i|=n\omega_i/c$ だから
-\begin{equation}
- \boxed{\frac{\omega_B}{v_a}=\frac{2n\omega_i}{c}\sin(\theta/2).}
-\end{equation}
-
-\section*{[6] 音速の数値}
-分光波数を $\tilde\nu_B=1/\lambda_B=3.0\,\mathrm{cm^{-1}}=3.0\times10^2\,\mathrm{m^{-1}}$ とする。原本の $\hbar\omega_B=hc\tilde\nu_B$ と $h=2\pi\hbar$ より $\omega_B=2\pi c\tilde\nu_B$ である。また $\omega_i=2\pi c/\lambda_i$ なので $\omega_B/\omega_i=\lambda_i\tilde\nu_B$。散乱角 $180^\circ$ では
-\begin{align}
- v_a&=\frac{c}{2n}\frac{\omega_B}{\omega_i}
- =\frac{c\lambda_i\tilde\nu_B}{2n}\\
- &=\frac{(3.0\times10^8)(680\times10^{-9})(3.0\times10^2)}{2(2.4)}\,\mathrm{m/s}\\
- &=1.275\times10^4\,\mathrm{m/s}
- \simeq\boxed{1.3\times10^4\,\mathrm{m/s}}\quad(2\text{桁}).
-\end{align}
-
-\section*{[7] 中性子散乱からばね定数}
-$q=\pi/a$ では分散関係から
-\begin{equation}
- \omega_1=\omega_o(\pi/a)=\sqrt{\frac{2C_1}{m}},\qquad
- \omega_2=\omega_a(\pi/a)=\sqrt{\frac{2C_2}{m}}.
-\end{equation}
-中性子の運動エネルギー $E_n=\hbar^2K^2/(2M_n)$ と $K=2\pi/\lambda$ を用いる。フォノンを生成するので
-\begin{equation}
- \frac{\hbar^2}{2M_n}\left[\left(\frac{2\pi}{\lambda_{ij}}\right)^2
- -\left(\frac{2\pi}{\lambda_f}\right)^2\right]=\hbar\omega_j,
- \qquad j=1,2.
-\end{equation}
-ここで $\lambda_{i1}<\lambda_{i2}$ なので、同一の $\lambda_f$ に対して $j=1$ のエネルギー移行が大きく、光学枝 $C_1$、$j=2$ は音響枝 $C_2$ に対応する。$\Delta_j=\lambda_{ij}^{-2}-\lambda_f^{-2}>0$ と置けば
-\begin{equation}
- \boxed{C_j=\frac{2m\pi^4\hbar^2}{M_n^2}\Delta_j^2,
- \qquad j=1,2.}
-\end{equation}
-
-\section*{[8] 格子定数}
-音響速度の式を $a$ について解くと
-\begin{equation}
- a=v_a\sqrt{2m\left(\frac1{C_1}+\frac1{C_2}\right)}.
-\end{equation}
-ばね定数の表式を代入して
-\begin{equation}
- \boxed{a=\frac{v_aM_n}{\pi^2\hbar}
- \sqrt{\frac1{\Delta_1^2}+\frac1{\Delta_2^2}}},\qquad
- \Delta_j=\frac1{\lambda_{ij}^2}-\frac1{\lambda_f^2}.
-\end{equation}
-この式は長さの次元を持ち、音速因子 $v_a$ を含む。
+\begin{tikzpicture}[>=Stealth,x=0.62cm,y=0.54cm,font=\footnotesize]
+\pgfmathsetmacro{\gammaVal}{-1}
+\pgfmathsetmacro{\gammaMagnitude}{abs(\gammaVal)}
+\pgfmathsetmacro{\betaVal}{-0.5}
+\pgfmathsetmacro{\mixing}{0.12}
+\pgfmathsetmacro{\detuning}{4}
+\pgfmathsetmacro{\atomicA}{\detuning-2*\betaVal}
+\pgfmathsetmacro{\aBottom}{\detuning-2*\gammaMagnitude}
+\pgfmathsetmacro{\aTop}{\detuning+2*\gammaMagnitude}
+\begin{scope}[shift={(0,0)}]
+  \draw[->] (-3.4,-0.85)--(-3.4,7.0);
+  \node[above] at (-3.4,7.0) {$E-E_B$};
+  \draw[->] (-pi,-0.85)--(3.25,-0.85) node[right] {$ka$};
+  \foreach \k/\label in {-1/{-\pi},0/0,1/\pi} {\draw ({\k*pi},-0.85)--++(0,-0.12) node[below] {$\label$};}
+  \node[above] at (0,7.55) {$|\Delta|\gg|\gamma|,\ \delta=0$};
+  \draw[gray,dash dot] (-pi,\atomicA)--(pi,\atomicA);
+  \node[left] at (-3.4,\atomicA) {$E_A-E_B$};
+  \draw[gray,dotted] (-pi,\detuning)--(3.15,\detuning);
+  \node[above] at (2.5,\detuning) {$\Delta$};
+  \draw[gray,dashed] (-pi,0)--(pi,0);
+  \node[left] at (-3.4,0) {$0\ (E_B)$};
+  \draw[->] (3.45,\atomicA)--(3.45,\detuning)
+    node[midway,right] {$2\beta$};
+  \draw[dotted,gray] (pi,\aBottom)--(4.65,\aBottom);
+  \draw[dotted,gray] (pi,\aTop)--(4.65,\aTop);
+  \draw[<->] (4.65,\aBottom)--(4.65,\aTop)
+    node[midway,right] {$4|\gamma|$};
+  \draw[thick,samples=140] plot[domain=-180:180]
+    ({\x*pi/180},{\detuning+2*\gammaVal*cos(\x)});
+  \draw[thick] (-pi,0)--(pi,0);
+\end{scope}
+\begin{scope}[shift={(13,0)}]
+  \draw[->] (-3.4,-0.85)--(-3.4,7.0);
+  \node[above] at (-3.4,7.0) {$E-E_B$};
+  \draw[->] (-pi,-0.85)--(3.25,-0.85) node[right] {$ka$};
+  \foreach \k/\label in {-1/{-\pi},0/0,1/\pi} {\draw ({\k*pi},-0.85)--++(0,-0.12) node[below] {$\label$};}
+  \node[above] at (0,7.55) {$|\Delta|\gg|\gamma|,\ 0<|\delta|\ll|\gamma|$};
+  \draw[gray,dash dot] (-pi,\atomicA)--(pi,\atomicA);
+  \node[left] at (-3.4,\atomicA) {$E_A-E_B$};
+  \draw[gray,dotted] (-pi,\detuning)--(3.15,\detuning);
+  \node[above] at (2.5,\detuning) {$\Delta$};
+  \draw[gray,dashed] (-pi,0)--(pi,0);
+  \node[left] at (-3.4,0) {$0\ (E_B)$};
+  \draw[->] (3.45,\atomicA)--(3.45,\detuning)
+    node[midway,right] {$2\beta$};
+  \draw[dotted,gray] (pi,\aBottom)--(4.65,\aBottom);
+  \draw[dotted,gray] (pi,\aTop)--(4.65,\aTop);
+  \draw[<->] (4.65,\aBottom)--(4.65,\aTop)
+    node[midway,right] {$4|\gamma|$};
+  \draw[gray,dashed,samples=140] plot[domain=-180:180]
+    ({\x*pi/180},{\detuning+2*\gammaVal*cos(\x)});
+  \draw[thick,samples=180] plot[domain=-180:180]
+    ({\x*pi/180},{(\detuning+2*\gammaVal*cos(\x))/2-sqrt(((\detuning+2*\gammaVal*cos(\x))/2)^2+\mixing^2)});
+  \draw[thick,samples=180] plot[domain=-180:180]
+    ({\x*pi/180},{(\detuning+2*\gammaVal*cos(\x))/2+sqrt(((\detuning+2*\gammaVal*cos(\x))/2)^2+\mixing^2)});
+  \node[above] at (0,\aBottom+0.08) {$E_+$};
+  \node[below] at (1.5,-0.08) {$E_-$};
+  \pgfmathsetmacro{\bShift}{sqrt((\detuning+2*\gammaVal)^2/4+\mixing^2)-(\detuning+2*\gammaVal)/2}
+  \pgfmathsetmacro{\zoom}{200}
+  \pgfmathsetmacro{\zoomTop}{-3.4}
+  \pgfmathsetmacro{\zoomBottom}{\zoomTop-\zoom*\bShift}
+  \draw[gray] (-2.8,-5.7) rectangle (3.8,-2.75);
+  \node[above] at (0.85,-2.75) {$ka=0$; shift $\times200$};
+  \draw[gray,dashed] (-0.95,\zoomTop)--(0.35,\zoomTop);
+  \node[left] at (-0.95,\zoomTop) {$E_B$};
+  \draw[thick] (-0.95,\zoomBottom)--(0.35,\zoomBottom);
+  \node[left] at (-0.95,\zoomBottom) {$E_-(0)$};
+  \draw[<->] (0.65,\zoomBottom)--(0.65,\zoomTop)
+    node[midway,right] {$\simeq\dfrac{\delta^2}{\Delta+2\gamma}$};
+\end{scope}
+\end{tikzpicture}
+\caption{混成の有無と離調の大小による分散。エネルギーは $|\gamma|$ を単位とし、$E_B$ を基準とする。全図で $\gamma=-1$、$\beta=-0.5$、小離調は $\Delta=0.25$、大離調は $\Delta=4$ とした。有限混成の二図はともに $\delta=0.12$。実線は固有エネルギー、破線は未混成AバンドとB準位、一点鎖線は孤立A準位、点線はAバンド中心を示す。矢印 $2\beta$ は孤立A準位から中心への移動、$4|\gamma|$ は未混成Aバンドの幅である。右上は交差波数でのギャップ、右下の枠内は $ka=0$ でのB由来準位の移動を縦に200倍拡大した図で、実線の位置は厳密な固有値から計算した。$\Delta<0$ の大離調では上下のバンド順が逆になる。}
+\end{figure}
 
 \end{document}

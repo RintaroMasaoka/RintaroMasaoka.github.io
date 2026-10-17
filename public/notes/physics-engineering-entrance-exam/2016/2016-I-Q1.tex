@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF pages 2–3.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h28ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -6,126 +6,144 @@
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2016年 物理学I 第1問}
+\title{物理工学専攻 院試解答集\\2016年度 物理学I 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] Bが動き出す時刻}
-Cが動き始めてから$t$秒後、Bが静止している間は右側のばねの伸びが$v_0t$である。Bを右へ引く力は$kv_0t$。これが最大静止摩擦力$\mu mg$に達した時にBが動き始めるので
+\section*{[1] 単振り子の運動方程式}
+角度$\theta_1$を鉛直下向きから測る。支点まわりの重力のモーメントは
+$-m_1gl_1\sin\theta_1$、慣性モーメントは$m_1l_1^2$なので、
 \begin{equation}
-  kv_0t_0=\mu mg,\qquad
-  \boxed{t_0=\frac{\mu mg}{kv_0}}.
+  m_1l_1^2\ddot{\theta}_1=-m_1gl_1\sin\theta_1,
+  \qquad \ddot{\theta}_1+\frac{g}{l_1}\sin\theta_1=0.
+\end{equation}
+小振幅では$\sin\theta_1\simeq\theta_1$だから、
+\begin{equation}
+  \ddot{\theta}_1+\omega_0^2\theta_1=0,
+  \qquad \boxed{\omega_0=\sqrt{\frac{g}{l_1}}}.
 \end{equation}
 
-\section*{[1.2] Bの運動方程式}
-Bが動き始めた時刻を$t=0$とする。このときCは初期位置から$v_0t_0$だけ進んでおり、その後$t$秒間にさらに$v_0t$進む。Aは静止しているため、左のばねは$x_B$だけ伸び、右のばねは$v_0(t+t_0)-x_B$だけ伸びる。Bは右向きに滑るので動摩擦力は左向きである。よって
+\section*{[2] 質量の影響}
+運動方程式では慣性項と重力による復元項の両方が$m_1$に比例するため、質量を約すと固有角周波数には$m_1$が残らない。一方、平衡位置で同じ大きさの水平撃力$J$を加えると、角運動量の変化から角速度の初期値は$\dot{\theta}_1=J/(m_1l_1)$となる。小振幅での角振幅はこの初期角速度を$\omega_0$で割った
+\begin{equation}
+  \theta_{\max}\simeq\frac{J}{m_1\sqrt{gl_1}}.
+\end{equation}
+したがって同じ撃力なら、質量が大きいほど振幅は小さいが、振動の角周波数は変わらない。
+
+\section*{[3] 水平力を受けるときの平衡}
+第2棒の鉛直下向きからの絶対角を$\phi=\theta_1+\theta_2$とする。質点の位置は
+\begin{equation}
+  \boldsymbol r_1=\begin{pmatrix}l_1\sin\theta_1\\-l_1\cos\theta_1\end{pmatrix},
+  \qquad
+  \boldsymbol r_2=\boldsymbol r_1+
+  \begin{pmatrix}l_2\sin\phi\\-l_2\cos\phi\end{pmatrix}.
+\end{equation}
+独立な一般化座標を$(\theta_1,\phi)$とし、$\theta_1$の仮想変位では$\phi$を固定する。仮想変位に対する外力と重力の仕事がゼロとなる条件を用いる。$\theta_1$の変位は両質点の高さを変え、$\phi$の変位は質点$m_2$の位置だけを変えるので、
 \begin{align}
-  m\ddot x_B
-  &=k\{v_0(t+t_0)-x_B\}-kx_B-\frac23\mu mg\\
-  &=-2kx_B+kv_0t+\frac13\mu mg
-   =-2kx_B+kv_0t+\frac13kv_0t_0.
+  F_xl_1\cos\theta_1-(m_1+m_2)gl_1\sin\theta_1&=0,\\
+  F_xl_2\cos\phi-m_2gl_2\sin\phi&=0.
 \end{align}
-ここでは$x_B(0)=0$に加えて、滑り始める直前まで静止していたことから$\dot x_B(0)=0$である。
-
-\section*{[1.3] Bの位置}
-角振動数$\omega=\sqrt{2k/m}$を導入すると
+図2のように各棒が鉛直下向きから$-\pi/2$と$\pi/2$の間にある平衡枝では、
 \begin{equation}
-  \ddot x_B+\omega^2x_B=\frac{k v_0}{m}t+\frac{k v_0t_0}{3m}.
+  \boxed{\theta_1=\arctan\frac{F_x}{(m_1+m_2)g}},\qquad
+  \boxed{\phi=\arctan\frac{F_x}{m_2g}},\qquad
+  \boxed{\theta_2=\phi-\theta_1}.
 \end{equation}
-右辺に対する一次式の特解を$x_p=v_0t/2+v_0t_0/6$とおける。一般解に初期条件を適用すると
-\begin{equation}
-  \boxed{x_B(t)=\frac{v_0t}{2}+\frac{v_0t_0}{6}
-    -\frac{v_0t_0}{6}\cos(\omega t)
-    -\frac{v_0}{2\omega}\sin(\omega t)}.
-\end{equation}
-この式は$t=0$で$x_B=\dot x_B=0$を満たす。
 
-\section*{[1.4] Aが静止を保つ条件}
-$\omega t_0\ll1$のもとで、解の二つの差をそれぞれ展開する。
+\section*{[4] 等質量・等長二重振り子のラグランジアン}
+以後$m_1=m_2=m$、$l_1=l_2=l$、$F_x=0$とする。$\theta_1$は第1棒の角度、$\theta_2$は第1棒に対する第2棒の相対角であり、$\phi=\theta_1+\theta_2$は第2棒の絶対角である。位置は
+\begin{equation}
+  \boldsymbol r_1=l\begin{pmatrix}\sin\theta_1\\-\cos\theta_1\end{pmatrix},
+  \qquad
+  \boldsymbol r_2=l\begin{pmatrix}\sin\theta_1+\sin\phi\\-\cos\theta_1-\cos\phi\end{pmatrix}.
+\end{equation}
+時間微分すると、質点2の速さの二乗に交差項が生じる。
 \begin{align}
-  x_B(t_0)
-  &=\frac{v_0}{2}\left(t_0-\frac{\sin(\omega t_0)}{\omega}\right)
-    +\frac{v_0t_0}{6}\left[1-\cos(\omega t_0)\right]\\
-  &=\frac{v_0\omega^2t_0^3}{12}
-    +\frac{v_0\omega^2t_0^3}{12}
-    +O(v_0\omega^4t_0^5)\\
-  &=\boxed{\frac{v_0\omega^2t_0^3}{6}
-    =\frac{k v_0t_0^3}{3m}}+O(v_0\omega^4t_0^5).
+  T&=\frac{m}{2}|\dot{\boldsymbol r}_1|^2+\frac{m}{2}|\dot{\boldsymbol r}_2|^2\\
+   &=\frac{ml^2}{2}\left[2\dot{\theta}_1^2+\dot{\phi}^{2}
+       +2\cos\theta_2\,\dot{\theta}_1\dot{\phi}\right],\\
+  U&=mg(y_1+y_2)=-mgl\left(2\cos\theta_1+\cos\phi\right).
 \end{align}
-このときAに働くばね力の大きさは
+よって$L=T-U$は
 \begin{equation}
-  kx_B(t_0)\simeq\frac{\mu mg}{6}(\omega t_0)^2\ll\mu mg,
+  \boxed{L=\frac{ml^2}{2}\left[2\dot{\theta}_1^2+
+    (\dot{\theta}_1+\dot{\theta}_2)^2+
+    2\cos\theta_2\,\dot{\theta}_1(\dot{\theta}_1+\dot{\theta}_2)\right]
+    +mgl\left[2\cos\theta_1+\cos(\theta_1+\theta_2)\right].}
 \end{equation}
-である。従ってAを動かすのに必要な力は最大静止摩擦力より小さく、Aは静止を保つ。
+第2質点の重力位置エネルギーにも第1棒による高さ$-l\cos\theta_1$が含まれるため、$2\cos\theta_1$の項が現れる。
 
-\section*{[2.1] 微小振動の運動方程式と固有振動数}
-外部ポテンシャルの曲率は
-\begin{equation}
-  U''(x)=k_1\left[-1+3\left(\frac{x}{l}\right)^2\right].
-\end{equation}
-従って中央のBでは$U''(0)=-k_1$、両端のA,Cでは$U''(\pm l)=2k_1$である。ばね力と外力を一次まで残すと
-\begin{equation}
-  m\begin{pmatrix}\ddot q_A\\\ddot q_B\\\ddot q_C\end{pmatrix}
-  =\begin{pmatrix}
-    -k_0-2k_1&k_0&0\\
-    k_0&-2k_0+k_1&k_0\\
-    0&k_0&-k_0-2k_1
-  \end{pmatrix}
-  \begin{pmatrix}q_A\\q_B\\q_C\end{pmatrix}.
-  \label{eq:linearized}
-\end{equation}
-式\eqref{eq:linearized}の右辺の行列を$K$とおく。これを$(1,0,-1)^T$に作用させると
-\begin{equation}
-  K\begin{pmatrix}1\\0\\-1\end{pmatrix}
-  =-(k_0+2k_1)\begin{pmatrix}1\\0\\-1\end{pmatrix}.
-\end{equation}
-運動方程式は$m\ddot{\boldsymbol q}=K\boldsymbol q$なので、左右反対称モードの角振動数は
-\begin{equation}
-  \boxed{\omega_a^2=\frac{k_0+2k_1}{m}}.
-\end{equation}
-対称な変位$(a,b,a)$では、力の係数行列$K$は$(a,b)$に対して
-\begin{equation}
-  K_s=\begin{pmatrix}-k_0-2k_1&k_0\\2k_0&-2k_0+k_1\end{pmatrix}
-\end{equation}
-と作用する。$K_s$の固有値を$-m\omega^2$と書くと
-\begin{equation}
-  m^2\omega^4-m(3k_0+k_1)\omega^2+(3k_0k_1-2k_1^2)=0,
-\end{equation}
-したがって対称モードの二つの周波数は
-\begin{equation}
-  \boxed{\omega_{\pm}^2=
-  \frac{3k_0+k_1\pm\sqrt{9k_0^2-6k_0k_1+9k_1^2}}{2m}}.
-\end{equation}
-$\omega_-$が小さい方の周波数である。三つのモードが正の固有角振動数を持つ安定な微小振動となるのは $0<k_1<3k_0/2$ である。等号の $k_1=3k_0/2$ では $\omega_-=0$ となり、線形化した零モードは $\ddot q=0$ であって振動しない。これを不安定化の臨界点として区別する。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.25,>=Stealth,font=\small]
+  \pgfmathsetmacro{\ell}{1.3}
+  \pgfmathsetmacro{\thetaOne}{25}
+  \pgfmathsetmacro{\thetaTwo}{40}
+  \pgfmathsetmacro{\thetaAbsTwo}{\thetaOne+\thetaTwo}
+  \coordinate (O) at (0,0);
+  \coordinate (A) at ({\ell*sin(\thetaOne)},{-\ell*cos(\thetaOne)});
+  \coordinate (B) at ({\ell*sin(\thetaOne)+\ell*sin(\thetaAbsTwo)},{-\ell*cos(\thetaOne)-\ell*cos(\thetaAbsTwo)});
+  \draw[->] (-0.5,0)--(3.1,0) node[right] {$x$};
+  \draw[->] (0,-2.8)--(0,0.6) node[above] {$y$};
+  \draw[thick] (O)--(A)--(B);
+  \fill (O) circle (1.5pt) node[above left] {$O$};
+  \fill (A) circle (2pt) node[below left] {$m$};
+  \fill (B) circle (2pt) node[right] {$m$};
+  \draw[dashed] (O)--(0,-\ell);
+  \draw[dashed] (A)--++({\ell*sin(\thetaOne)},{-\ell*cos(\thetaOne)});
+  \draw[->] (0,-0.7) arc[start angle=-90,end angle={-90+\thetaOne},radius=0.7];
+  \node at (0.53,-0.64) {$\theta_1$};
+  \draw[->] (A) ++({0.33*cos(-90+\thetaOne)},{0.33*sin(-90+\thetaOne)})
+    arc[start angle={-90+\thetaOne},end angle={-90+\thetaAbsTwo},radius=0.33];
+  \node at ($(A)+(0.43,-0.35)$) {$\theta_2$};
+  \node at (0.9,-0.35) {$l$};
+  \node[above,yshift=2pt] at ({\ell*sin(\thetaOne)+0.5*\ell*sin(\thetaAbsTwo)+0.12},{-\ell*cos(\thetaOne)-0.5*\ell*cos(\thetaAbsTwo)}) {$l$};
+\end{tikzpicture}
+\caption{等質量・等長二重振り子。$\theta_2$は第1棒から測る相対角である。}
+\label{fig:double-pendulum}
+\end{figure}
 
-\section*{[2.2] 不安定になる基準振動}
-$k_1$を増すと、最初にゼロになるのは対称モードの低周波数$\omega_-$である。二つの対称モードの積は
+\section*{[5] 小振幅の運動方程式}
+小さい$\theta_1,\theta_2$に対して、速度項の$\cos\theta_2$を$1$、ポテンシャルの余弦を2次まで展開する。ラグランジアンの定数を除けば
 \begin{equation}
-  \omega_-^2\omega_+^2=\frac{k_1(3k_0-2k_1)}{m^2}.
+  L^{(2)}=\frac{ml^2}{2}
+  \begin{pmatrix}\dot\theta_1&\dot\theta_2\end{pmatrix}
+  \begin{pmatrix}5&2\\2&1\end{pmatrix}
+  \begin{pmatrix}\dot\theta_1\\\dot\theta_2\end{pmatrix}
+  -\frac{mgl}{2}
+  \begin{pmatrix}\theta_1&\theta_2\end{pmatrix}
+  \begin{pmatrix}3&1\\1&1\end{pmatrix}
+  \begin{pmatrix}\theta_1\\\theta_2\end{pmatrix}.
 \end{equation}
-従って臨界値では$3k_0-2k_c=0$となり
+したがって、オイラー・ラグランジュ方程式は
 \begin{equation}
-  \boxed{k_c=\frac32 k_0}.
+  \boxed{\begin{pmatrix}5&2\\2&1\end{pmatrix}
+  \begin{pmatrix}\ddot\theta_1\\\ddot\theta_2\end{pmatrix}
+  +\frac{g}{l}\begin{pmatrix}3&1\\1&1\end{pmatrix}
+  \begin{pmatrix}\theta_1\\\theta_2\end{pmatrix}=\boldsymbol 0.}
 \end{equation}
-$k_1>k_c$では$\omega_-^2<0$となるため、この対称な低周波数モードが不安定である。
 
-\section*{[2.3] 不安定化するモードの変位比}
-$k_1=4k_c/9=2k_0/3$では
+\section*{[6] 基準振動}
+$\boldsymbol\theta=\boldsymbol A e^{i\omega t}$とおく。$\lambda=\omega^2/(g/l)$とすると、非自明な振幅ベクトルがある条件は
 \begin{equation}
-  \omega_-^2=\frac{k_0}{3m}.
+  0=\det\left[
+  \begin{pmatrix}3&1\\1&1\end{pmatrix}
+  -\lambda\begin{pmatrix}5&2\\2&1\end{pmatrix}\right]
+  =(3-5\lambda)(1-\lambda)-(1-2\lambda)^2
+  =\lambda^2-4\lambda+2.
 \end{equation}
-このとき
+よって$\lambda=2\pm\sqrt{2}$であり、正の二つの固有角周波数は
 \begin{equation}
-  K_s=k_0\begin{pmatrix}-7/3&1\\2&-4/3\end{pmatrix}.
+  \boxed{\omega=\sqrt{\frac{g}{l}}\sqrt{2\pm\sqrt{2}}
+  =\omega_0\sqrt{2\pm\sqrt{2}},\qquad \omega_0=\sqrt{\frac{g}{l}}.}
 \end{equation}
-固有値$-k_0/3=-m\omega_-^2$の固有ベクトルは$(a,b)=(1,2)$であり、全三質点では$(q_A,q_B,q_C)\propto(1,2,1)$となる。よって
-\begin{equation}
-  \boxed{q_A:q_B:q_C=1:2:1}.
-\end{equation}
+固有値$\lambda$は無次元で、$g/l$は角周波数の二乗の次元をもつ。
 
 \end{document}

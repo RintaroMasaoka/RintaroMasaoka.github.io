@@ -1,147 +1,229 @@
-% Source: public/notes/物工/問題/2021ap_exam.pdf, PDF pp. 4--5.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2021ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=24mm]{geometry}
+\usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
-\setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2021年 物理学 第2問}
+\setlength{\parskip}{0.3em}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2021年度 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 一様な無限鎖}
-$n$ 番目の質点は左右のばねから $k(x_{n+1}-x_n)$, $k(x_{n-1}-x_n)$ の力を受けるため
+\section*{[1] 次元の確認}
+密度 $\rho$ の次元は $M L^{-3}$、体積の次元は $L^3$、加速度の次元は
+$L T^{-2}$ である。従って運動方程式の左辺は力の次元
 \[
-\boxed{m\ddot x_n=k(x_{n+1}-2x_n+x_{n-1})}.
+ [\rho\Delta V\,\partial_t^2\boldsymbol u]
+ = (ML^{-3})L^3(LT^{-2})=MLT^{-2}.
+\]
+$\boldsymbol F$ は単位体積当たりの力なので $[\boldsymbol F]=ML^{-2}T^{-2}$ であり、
+$[\boldsymbol F\Delta V]=MLT^{-2}$ となる。両辺の次元は一致する。
+
+\section*{[2] 下面に働く力}
+上面と下面が接する媒質の微小面に働く力は、作用・反作用により等しい大きさで
+逆向きである。上面の外向き法線は $+x_3$ 方向で、その応力ベクトルが
+$\boldsymbol p^{(3)}(\boldsymbol x',t)$ である。従って隣接する体積素が共有面を通じて
+下面に及ぼす応力ベクトルは
+\begin{equation}
+ -\boldsymbol p^{(3)}(\boldsymbol x'',t).
+\end{equation}
+この符号は、面の法線を反転したことに対応する。
+
+\section*{[3] 面応力の合力}
+$x_k$ に垂直な正側の面と負側の面が $x_1$ 方向に及ぼす力の差は
+\[
+ \left[p_1^{(k)}\!\left(\boldsymbol x+\frac{\Delta x_k}{2}\boldsymbol e_k,t\right)
+ -p_1^{(k)}\!\left(\boldsymbol x-\frac{\Delta x_k}{2}\boldsymbol e_k,t\right)\right]
+ \Delta A_k,
+ \qquad \Delta A_k=\prod_{r\ne k}\Delta x_r.
+\]
+微小量の一次まで Taylor 展開すると、これは
+$\partial p_1^{(k)}/\partial x_k\,\Delta x_k\Delta A_k$ である。
+$\Delta x_k\Delta A_k=\Delta V$ だから、$k=1,2,3$ の三対の面を足し、体積で
+割ると
+\begin{equation}
+ F_1(\boldsymbol x,t)=\sum_{k=1}^3\frac{\partial p_1^{(k)}(\boldsymbol x,t)}
+                                      {\partial x_k}.
+\end{equation}
+
+\section*{[4] 等方弾性体の運動方程式}
+$F_j=\sum_k\partial_kp_j^{(k)}$ と構成式を用いると
+\begin{align}
+ F_j&=\frac12\sum_{k,m,n}c_{jkmn}\partial_k
+                   (\partial_nu_m+\partial_mu_n)\\
+ &=\frac{\lambda}{2}\sum_{k,m,n}
+     \delta_{jk}\delta_{mn}\partial_k(\partial_nu_m+\partial_mu_n)\\
+ &\quad+\frac{\mu}{2}\sum_{k,m,n}
+    (\delta_{jm}\delta_{kn}+\delta_{jn}\delta_{km})
+       \partial_k(\partial_nu_m+\partial_mu_n).
+\end{align}
+各 Kronecker の縮約を行う。$\lambda$ 項では$\delta_{jk}\delta_{mn}$が$k=j,m=n$を選び、$\lambda\partial_j\sum_m\partial_mu_m$となる。二つの$\mu$項はそれぞれ
+\begin{equation}
+ \frac\mu2\sum_k(\partial_k^2u_j+\partial_k\partial_ju_k)
+\end{equation}
+となるため、合わせて$\mu\nabla^2u_j+\mu\partial_j(\nabla\cdot\boldsymbol u)$を与える。従って
+\begin{equation}
+ \rho\frac{\partial^2\boldsymbol u}{\partial t^2}
+ =\mu\nabla^2\boldsymbol u+(\lambda+\mu)\nabla(\nabla\cdot\boldsymbol u),
+ \qquad \boxed{A=\lambda+\mu}.
+\end{equation}
+
+\section*{[5] 縦波・横波の位相速度}
+縦波の平面波 $\boldsymbol u=\boldsymbol u_0e^{i(\boldsymbol k\cdot\boldsymbol x-\omega t)}$
+では $\boldsymbol u_0\parallel\boldsymbol k$ なので
+$\nabla^2\boldsymbol u=-k^2\boldsymbol u$ と
+$\nabla(\nabla\cdot\boldsymbol u)=-k^2\boldsymbol u$ である。運動方程式から
+\[
+ \rho\omega^2=(\lambda+2\mu)k^2,
+ \qquad \boxed{v_l=\sqrt{\frac{\lambda+2\mu}{\rho}}}.
+\]
+横波では $\boldsymbol k\cdot\boldsymbol u_0=0$ で発散項が消えるため
+\[
+ \rho\omega^2=\mu k^2,
+ \qquad \boxed{v_t=\sqrt{\frac{\mu}{\rho}}}.
 \]
 
-\section*{[1.2] 平面波の分散関係}
-$x_n=e^{iqn}c_q(t)$ と置くと
-\[
-\boxed{\ddot c_q+\frac{2k}{m}(1-\cos q)c_q=0}
-\quad\left(=\ddot c_q+\frac{4k}{m}\sin^2\frac q2\,c_q=0\right).
-\]
-物理変位はこの複素解の実部である。
+\section*{[6] 横波のみの反射}
+構成式を表面法線$x_2$について縮約すると
+\begin{equation}
+ p_1^{(2)}=\mu(\partial_2u_1+\partial_1u_2),\qquad
+ p_2^{(2)}=\lambda\nabla\cdot\boldsymbol u+2\mu\partial_2u_2
+\end{equation}
+である。入射波と反射波の境界上の位相をそれぞれ$f=e^{i(k_t\sin\alpha_t x_1-\omega_t t)}$、$f'=e^{i(k_t'\sin\alpha_t' x_1-\omega_t't)}$と書く。横波の偏極ベクトルと波数ベクトルを代入すると
+\begin{equation}
+ p_1^{(2)}=-i\mu\bigl[k_t\cos(2\alpha_t)u_t f
+ +k_t'\cos(2\alpha_t')u_t'f'\bigr],\qquad
+ p_2^{(2)}=2i\mu\bigl[k_t\sin\alpha_t\cos\alpha_t\,u_t f
+ -k_t'\sin\alpha_t'\cos\alpha_t'\,u_t'f'\bigr].
+\end{equation}
+任意の$x_1,t$で非零の応力成分同士が相殺するには、両者の周波数と接線波数が等しくなければならない。$\alpha_t=\pi/4$で$p_1^{(2)}$の係数が消える場合も、$p_2^{(2)}$の係数は非零である。境界 $x_2=0$ 上の位相は、位置 $x_1$ と時刻 $t$ に依存する因子
+$e^{i(qx_1-\omega t)}$ で決まる。時間に依らない平面境界では、入射波と反射波の
+周波数が等しく、境界上の接線方向波数も等しい。従って
+\begin{equation}
+ \omega_t'=\omega_t,\qquad
+ k_t'\sin\alpha_t'=k_t\sin\alpha_t.
+ \label{eq:tangential-match}
+\end{equation}
+同じ媒質中の横波であるから $k_t'=\omega_t'/v_t=k_t$ であり、角度範囲から
+\begin{equation}
+ \boxed{\alpha_t'=\alpha_t,\quad \omega_t'=\omega_t,\quad
+        \boldsymbol k_t'=k_t(\sin\alpha_t,-\cos\alpha_t)^{\mathsf T}}.
+\end{equation}
+これは自由表面の全境界条件に対する位相整合である。$p_1^{(2)}$ だけを見ると
+その横波成分は $\cos2\alpha_t$ に比例するため、$\alpha_t=\pi/4$ ではこの応力成分が
+位相整合の情報を持たない。この場合は、同じく自由端条件に含まれる
+$p_2^{(2)}=0$ が非零の成分を与え、式\eqref{eq:tangential-match}を課す。
 
-\section*{[1.3] 固有振動数}
-$0<q<2\pi$ では
-\[
-\boxed{\omega_q=2\sqrt{\frac{k}{m}}\left|\sin\frac q2\right|},
-\qquad c_q(t)=C_+e^{i\omega_qt}+C_-e^{-i\omega_qt}.
-\]
-$k/m$ の次元は $\mathrm{s}^{-2}$ であり、$\omega_q$ は角振動数の次元を持つ。
+\section*{[7] 横波だけで反射する角度}
+以下、式\eqref{eq:tangential-match}により境界上で共通の位相因子をくくる。
+横波の発散はゼロであり、二つの表面応力成分は
+\begin{align}
+ p_1^{(2)}&=-i\mu k_t\cos(2\alpha_t)(u_t+u_t'),
+ \label{eq:shear-traction}\\
+ p_2^{(2)}&=2i\mu k_t\sin\alpha_t\cos\alpha_t(u_t-u_t').
+ \label{eq:normal-traction}
+\end{align}
+角度が $\alpha_t=0$ のとき、式\eqref{eq:normal-traction}は自動的にゼロであり、
+式\eqref{eq:shear-traction}を満たす反射振幅は
+\begin{equation}
+ \boxed{u_t'=-u_t\qquad(\alpha_t=0)}.
+\end{equation}
+この法線入射枝を、式\eqref{eq:normal-traction}を因子で割るときに落としては
+ならない。
 
-\section*{[1.4] 一様変位モード}
-$q=0$ では復元力が消え、$\ddot c_0=0$ より
-\[
-\boxed{c_0(t)=At+B}.
-\]
-定数項は鎖全体の並進、時間一次項は一様速度の並進に対応する。
+一方、$0<\alpha_t<\pi/2$ では式\eqref{eq:normal-traction}から $u_t'=u_t$。
+これを $p_1^{(2)}=0$ に代入すると $\cos2\alpha_t=0$ なので
+\begin{equation}
+ \boxed{\alpha_t=\frac{\pi}{4}\qquad(0<\alpha_t<\pi/2)}.
+\end{equation}
+従って問題の範囲における全ての入射角は $0$ と $\pi/4$ である。
 
-\section*{[2.1] 質量欠陥を含む運動方程式}
-質量が変わる原点と通常のサイトでは
-\[
-M\ddot x_0=k(x_1-2x_0+x_{-1}),\qquad
-m\ddot x_n=k(x_{n+1}-2x_n+x_{n-1})\quad(n\ne0).
-\]
-隣り合うばねは両質点に等大反対向きの力を及ぼすので、原点の質量だけを $M$ に置き換える。
-
-\section*{[2.2] バルクの振動数}
-欠陥から離れた $n\le-2$ と $n\ge1$ では質量は $m$ である。$e^{\pm iqn-i\omega_qt}$ を代入すれば
-\[
-\boxed{m\omega_q^2=2k(1-\cos q)=4k\sin^2\frac q2},
-\]
-すなわち [1.3] の分散関係が両側で成り立つ。
-
-\section*{[2.3] 界面での連立方程式}
-入射・反射・透過波を
-\[
-x_n(t)=\begin{cases}(e^{iqn}+R_qe^{-iqn})e^{-i\omega_qt},&n\le-1,\\T_qe^{iqn}e^{-i\omega_qt},&n\ge0\end{cases}
-\]
-とする。原点では $x_0=T_qe^{-i\omega_qt}$, $x_1=T_qe^{iq}e^{-i\omega_qt}$, $x_{-1}=(e^{-iq}+R_qe^{iq})e^{-i\omega_qt}$. これを質量 $M$ の運動方程式に代入すると
-\[
-\left(2-\frac{M\omega_q^2}{k}-e^{iq}\right)T_q-e^{iq}R_q=e^{-iq}.
-\]
-$n=-1$ の式には $x_{-2}=(e^{-2iq}+R_qe^{2iq})e^{-i\omega_qt}$ を代入し、バルク分散を使うと
-\[
-2\cos q(e^{-iq}+R_qe^{iq})=e^{-2iq}+R_qe^{2iq}+T_q
-\quad\Longrightarrow\quad \boxed{T_q-R_q=1}.
-\]
-従って
-\[
-\boxed{\left(2-e^{iq}-\frac{4M}{m}\sin^2\frac q2\right)T_q-e^{iq}R_q=e^{-iq},\qquad R_q=T_q-1}.
-\]
-
-\section*{[2.4] 透過・反射振幅}
-$R_q=T_q-1$ を界面式へ代入し、$m\omega_q^2/k=2-2\cos q$ を用いると
-\[
-\boxed{T_q=\frac{e^{-iq}-e^{iq}}
-{2(1-M/m)+(M/m)e^{-iq}-(2-M/m)e^{iq}}},\qquad
-\boxed{R_q=T_q-1}.
-\]
-この複素振幅には界面の位相も含まれる。
-
-\section*{[2.5] 質量極限の解釈}
-$M=m$ では分子・分母が等しく $T_q=1,R_q=0$ となり、鎖は一様で散乱しない。$M\to\infty$ では有限な $0<q<\pi$ に対して $T_q\to0$, $R_q\to-1$ であり、原点が動かない固定端から位相反転して反射する。
-\begin{center}
-\begin{tikzpicture}[scale=0.9]
-\pgfmathsetmacro{\spacing}{1.2}
-\foreach \n in {-3,...,2} {\draw[thick] ({\n*\spacing},0)--({(\n+1)*\spacing},0);}
-\foreach \n in {-2,...,2} {\filldraw[fill=gray!25] ({\n*\spacing},0) circle(0.18);
- \ifnum\n=0 \node[above] at (0,0.22) {$M$};\else \node[above] at ({\n*\spacing},0.22) {$m$};\fi}
-\draw[->,very thick] (-3.7,0.65)--(-2.9,0.65) node[midway,above] {入射};
-\draw[->,very thick] (-0.5,0.95)--(-1.3,0.95) node[midway,above] {反射};
-\draw[->,very thick] (0.5,0.65)--(1.3,0.65) node[midway,above] {透過};
-\node[below] at (0,-0.2) {$n=0$};
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,scale=1.05,font=\small]
+ \pgfmathsetmacro{\kt}{2.6}
+ \pgfmathsetmacro{\kl}{\kt/sqrt(3)}
+ \fill[gray!14] (-3,-2.8) rectangle (3,0);
+ \draw[thick,->] (-3,0)--(3.2,0) node[right] {$x_1$};
+ \node[above] at (-1.9,0.04) {自由表面 $x_2=0$};
+ \draw[dashed,->] (0,-2.65)--(0,1.0) node[above] {$x_2$};
+ \draw[->,thick] ({-\kt*sin(30)},{-\kt*cos(30)})--(0,0)
+    node[pos=0.22,left] {入射横波 $\boldsymbol k_t$};
+ \draw[->,thick,dashed] (0,0)--({\kt*sin(30)},{-\kt*cos(30)})
+    node[pos=0.92,right] {反射横波 $\boldsymbol k_t'$};
+ \draw[->,thick,dash dot] (0,0)--({\kl*sin(60)},{-\kl*cos(60)})
+    node[pos=0.95,right] {反射縦波 $\boldsymbol k_l'$};
+ \draw ({0.65*cos(240)},{0.65*sin(240)})
+    arc[start angle=240,end angle=270,radius=0.65];
+ \node[left] at (-0.43,-0.72) {$\alpha_t$};
+ \draw ({0.45*cos(270)},{0.45*sin(270)})
+    arc[start angle=270,end angle=300,radius=0.45];
+ \draw[thin] ({0.45*cos(285)},{0.45*sin(285)})--(0.35,-1.25);
+ \node[below] at (0.35,-1.25) {$\alpha_t'$};
+ \draw ({0.9*cos(270)},{0.9*sin(270)})
+    arc[start angle=270,end angle=330,radius=0.9];
+ \draw[thin] ({0.9*cos(315)},{0.9*sin(315)})--(1.05,-1.14);
+ \node[below] at (1.05,-1.14) {$\alpha_l'$};
+ \node at (-1.7,-2.65) {媒質};
 \end{tikzpicture}
-\end{center}
+\caption{自由表面での入射横波と、媒質内へ進む反射横波・縦波。$\lambda=\mu$、$\alpha_t=30^\circ$、$\alpha_l'=60^\circ$の伝搬波の例。波数ベクトルの長さと接線成分は各波の速度と位相整合条件に合わせた。角度は表面の法線から測る。}
+\label{fig:elastic-reflection}
+\end{figure}
 
-\section*{[3.1] 周期境界条件}
-周期条件 $A_q=C_qe^{iqL}$, $B_q=D_qe^{-iqL}$ は $C_q=A_qe^{-iqL}$, $B_q=D_qe^{-iqL}$ と同値である。$\binom{C_q}{B_q}=S_q\binom{A_q}{D_q}$ と合わせると、入射係数ベクトルは $S_q$ の固有ベクトルで固有値 $e^{-iqL}$ を持つ。従って
+\section*{[8] 接線方向波数の一致}
+境界 $x_2=0$ で応力を評価すると、各波の位相因子は
+$e^{i(k_xx_1-\omega t)}$ となる。自由表面の二つの応力条件が任意の $x_1,t$ で
+成り立つには、非零の反射応力が入射波と同じ時間周波数・接線方向波数を持つ必要がある。
+縦波では変位振幅は波数ベクトルに比例するので、比例係数を $A_l\ne0$ として
+$\boldsymbol u_{l0}'=A_l\boldsymbol k_l'$ と書く。
+構成式から境界上の縦波応力は
 \[
-\det(S_q-e^{-iqL}I)=0
-\quad\Longleftrightarrow\quad
-\boxed{e^{-iqL}=T_q+R_q\quad\text{or}\quad e^{-iqL}=T_q-R_q}.
+ \begin{pmatrix}p_{1,l}^{(2)}\\p_{2,l}^{(2)}\end{pmatrix}
+ =iA_l
+ \begin{pmatrix}
+  2\mu k_{l,1}'k_{l,2}'\\
+  \lambda\{(k_{l,1}')^2+(k_{l,2}')^2\}+2\mu(k_{l,2}')^2
+ \end{pmatrix}
+ e^{i(k_{l,1}'x_1-\omega_l't)}.
 \]
-$S_q$は$(1,1)^{\mathsf T}$と$(1,-1)^{\mathsf T}$にそれぞれ固有値$T_q+R_q$と$T_q-R_q$で作用する。二固有値が異なれば、各根は独立な一つの振動モードを与える。
-
-\section*{[3.2] 一様質量 $M=m$}
-このとき $T_q=1,R_q=0$ なので
+縦波の分散関係は $(k_{l,1}')^2+(k_{l,2}')^2=(\omega_l'/v_l)^2$ である。
+$\lambda,\mu>0$ のもとで二つの応力係数が同時に零にはならない。
+実際、第1係数が零なら波数成分の一方が零となり、非零周波数の分散関係から第2係数は非零である。
+この議論は法線成分が複素数の場合も成り立ち、二乗には複素共役を取らない。
+従って、位相整合条件は
 \[
-e^{-iqL}=1,\qquad \boxed{q=\frac{2\pi l}{L}}.
+ \omega_l'=\omega_t\equiv\omega,\qquad
+ k_{l,1}'=k_t\sin\alpha_t\equiv q.
 \]
-$0<q<\pi$ では $l=1,\ldots,L/2-1$。各許容 $q$ で二方向の平面波が独立なので正の内部モードは $L-2$ 個で、
+実際に媒質内へ伝搬する縦波では $k_l'=\omega/v_l$ であり、
+$\boldsymbol k_l'=k_l'(\sin\alpha_l',-\cos\alpha_l')^{\mathsf T}$ と書けるので、
+\begin{equation}
+ \boxed{k_t\sin\alpha_t=k_l'\sin\alpha_l'}.
+\end{equation}
+これは境界に平行な並進対称性から生じる位相整合条件である。実数の反射角が存在する範囲は
 \[
-\boxed{\omega_l=2\sqrt{\frac{k}{m}}\sin\frac{l\pi}{L}}.
+ \sin\alpha_l'=\frac{v_l}{v_t}\sin\alpha_t\le1,
+ \qquad
+ \boxed{\sin\alpha_t\le\frac{v_t}{v_l}
+ =\sqrt{\frac{\mu}{\lambda+2\mu}}}.
 \]
-開区間に含めない $q=0$ は一様並進、$q=\pi$ は隣り合う質点が逆向きに動く帯域端モードであり、合わせて一様鎖の $L$ 個の座標自由度を満たす。
-
-\section*{[3.3] 質量 $M=2m$}
-透過振幅は
+等号では縦波は表面に平行に伝搬する限界となる。これを超える入射角では、
+法線波数は分散関係から虚数となる。媒質が $x_2<0$ にあることから、内部へ減衰する枝は
 \[
-T_q=\frac{e^{-iq}-e^{iq}}{2(e^{-iq}-1)},\qquad T_q-R_q=1,\qquad T_q+R_q=2T_q-1=e^{iq}.
+ k_{l,2}'=-i\sqrt{q^2-(\omega/v_l)^2},\qquad
+ e^{ik_{l,2}'x_2}=e^{\sqrt{q^2-(\omega/v_l)^2}\,x_2}.
 \]
-従って二つの固有値条件から
-\[
-q=\frac{2\pi l}{L}\quad(l=1,\ldots,L/2-1),\qquad
-q=\frac{2\pi l}{L+1}\quad(l=1,\ldots,L/2),
-\]
-いずれも $0<q<\pi$ を満たす。対応する振動数は両系列について
-\[
-\boxed{\omega_q=2\sqrt{\frac{k}{m}}\sin\frac q2}.
-\]
-系列間に重複はなく、式(2)型の伝搬モード数は $(L/2-1)+L/2=L-1$ 個となる。残り1個は $q=0$ の一様並進モードである。これら$L$個で全座標自由度を満たすため、別の局在高周波モードは加わらない。
-
-\section*{[3.4] 固定質点極限 $M\to\infty$}
-この極限では $T_q\to0$, $R_q\to-1$ となり、周期条件の固有値は $\pm1$。従って
-\[
-e^{-iqL}=\pm1,\qquad \boxed{q_j=\frac{j\pi}{L}\quad(j=1,\ldots,L-1)}.
-\]
-固有振動数は $\boxed{\omega_j=2\sqrt{k/m}\sin(j\pi/(2L))}$. 中央の質点は動かないため、有限質量の自由度は他の $L-1$ 個だけであり、上の解が全ての正の振動モードを数え尽くす。
+この場合は実反射角の射線表示を使えないが、接線成分 $k_{l,1}'=q$ の整合は保たれる。
+図\ref{fig:elastic-reflection}は伝搬縦波が存在する範囲の例である。
+この内部減衰は入射横波に伴う散乱場の縦波成分である。原問は表面に局在する波の励起を除くが、
+その除外を散乱に伴う内部減衰成分にも適用すると、一般の超臨界角で自由表面条件を満たせない。
+ここでは必要な減衰縦波成分を残し、独立した表面固有波の励起は扱わない。
 \end{document}

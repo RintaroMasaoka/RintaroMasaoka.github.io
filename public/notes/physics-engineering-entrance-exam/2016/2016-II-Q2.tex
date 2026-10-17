@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF page 8.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h28ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -11,127 +11,149 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2016年 物理学II 第2問}
+\title{物理工学専攻 院試解答集\\2016年度 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-長さ$a$の棒$N$本をそれぞれ右または左に向ける。右向きを正とし、右向きの本数を$n^+$、左向きの本数を$n^-$とすると
+\section*{[1] 可逆断熱膨張}
+エントロピーを$P,T$の関数とみると、全微分は
 \begin{equation}
- n^++n^-=N,\qquad n=n^+-n^-,\qquad X=an.
+  \mathrm dS=\left(\frac{\partial S}{\partial P}\right)_T\mathrm dP
+   +\left(\frac{\partial S}{\partial T}\right)_P\mathrm dT.
 \end{equation}
-従って$n$は$-N,-N+2,\ldots,N$の値をとる。棒の向きを一本ずつ足し合わせた終点が$X$である。
+マクスウェル関係と$C_P=T(\partial S/\partial T)_P$、熱膨張率
+$\alpha=V^{-1}(\partial V/\partial T)_P$を使うと
+\begin{equation}
+  \mathrm dS=-\alpha V\,\mathrm dP+\frac{C_P}{T}\,\mathrm dT.
+\end{equation}
+可逆断熱過程では$\mathrm dS=0$だから、
+\begin{equation}
+  \boxed{\left(\frac{\partial T}{\partial P}\right)_S
+  =\frac{TV\alpha}{C_P}}.
+\end{equation}
+理想気体は$V=RT/P$なので、一定圧力で$\partial V/\partial T=R/P=V/T$となり
+\begin{equation}
+  \boxed{\alpha_{\mathrm{ideal}}=\frac1T}.
+\end{equation}
+
+\section*{[2] ジュール・トムソン膨張のエンタルピー}
+多孔栓を通る定常流を、栓の両側を含む断熱制御体積として考える。外部との熱交換はなく、軸仕事もなく、流速と高さの変化による運動・位置エネルギーの差を無視する。入口側が流体を押す圧力仕事は$P_1V_1$、出口側で流体がする仕事は$P_2V_2$なので、単位モル当たりの第一法則は$U_2-U_1=P_1V_1-P_2V_2$となる。従って$H=U+PV$とおけば入口・出口で
+\begin{equation}
+  H_1=H_2
+\end{equation}
+となる。これは等エンタルピー条件であり、栓を通る過程を等エントロピーとする主張ではない。断熱でも、不可逆過程ではエントロピーは生成されうる。
+
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[>=Stealth,scale=0.85]
- \draw[->] (0,0)--(7.2,0) node[right] {$x$};
- \fill (0,0) circle (2pt) node[below left] {始点 $0$};
- \pgfmathsetmacro{\xsum}{0}
- \pgfmathsetmacro{\ystart}{0.2}
- \draw[dashed,gray] (0,0)--(\xsum,\ystart);
- \foreach \step/\sign in {1/1,2/1,3/-1,4/1,5/-1} {
-   \pgfmathsetmacro{\y}{\ystart+0.3*(\step-1)}
-   \pgfmathsetmacro{\xnext}{\xsum+2*\sign}
-   \ifnum\sign=1
-     \draw[->,thick,blue] (\xsum,\y)--(\xnext,\y);
-   \else
-     \draw[->,thick,red] (\xsum,\y)--(\xnext,\y);
-   \fi
-   \ifnum\step<5
-     \pgfmathsetmacro{\ynext}{\y+0.3}
-     \draw[dashed,gray] (\xnext,\y)--(\xnext,\ynext);
-   \fi
-   \pgfmathsetmacro{\xsum}{\xnext}
- }
- \draw[dashed] (\xsum,1.4)--(\xsum,-0.25);
- \fill (\xsum,0) circle (2pt) node[below right] {終点 $X=a$};
- \node[blue] at (5.0,0.85) {右向き};
- \node[red] at (5.0,1.45) {左向き};
+\begin{tikzpicture}[>=Stealth,font=\small]
+ \pgfmathsetmacro{\halfLength}{4}
+ \pgfmathsetmacro{\halfHeight}{0.65}
+ \pgfmathsetmacro{\pistonInset}{1.5}
+ \pgfmathsetmacro{\pistonHalfWidth}{0.1}
+ \pgfmathsetmacro{\plugHalfWidth}{0.16}
+ \pgfmathsetmacro{\leftPiston}{-\halfLength+\pistonInset}
+ \pgfmathsetmacro{\rightPiston}{\halfLength-\pistonInset}
+ \draw[thick] (-\halfLength,\halfHeight)--(\halfLength,\halfHeight);
+ \draw[thick] (-\halfLength,-\halfHeight)--(\halfLength,-\halfHeight);
+ \draw[thick,fill=gray!35] ({\leftPiston-\pistonHalfWidth},-\halfHeight) rectangle ({\leftPiston+\pistonHalfWidth},\halfHeight);
+ \draw[thick,fill=gray!35] ({\rightPiston-\pistonHalfWidth},-\halfHeight) rectangle ({\rightPiston+\pistonHalfWidth},\halfHeight);
+ \draw[thick,fill=gray!20] (-\plugHalfWidth,-\halfHeight) rectangle (\plugHalfWidth,\halfHeight);
+ \foreach \y in {-0.45,-0.15,0.15,0.45}
+   \draw[fill=white] (0,\y) circle (0.035);
+ \node at ({(\leftPiston-\plugHalfWidth)/2},0.2) {$P_1,V_1,T_1$};
+ \node at ({(\rightPiston+\plugHalfWidth)/2},0.2) {$P_2,V_2,T_2$};
+ \draw[->,thick] (-3.8,0)--(-2.9,0);
+ \draw[->,thick] (2.9,0)--(3.8,0);
+ \draw[->,thick] (-0.65,-0.3)--(0.65,-0.3);
+ \draw[thin] (\leftPiston,-\halfHeight)--({\leftPiston-0.3},-1.1);
+ \node[below] at ({\leftPiston-0.3},-1.1) {ピストン1};
+ \draw[thin] (\rightPiston,-\halfHeight)--({\rightPiston+0.3},-1.1);
+ \node[below] at ({\rightPiston+0.3},-1.1) {ピストン2};
+ \draw[thin] (0,-\halfHeight)--(0,-1.5);
+ \node[below] at (0,-1.5) {細孔栓};
 \end{tikzpicture}
-\caption{右向き3本、左向き2本の変位を順に足した例。縦方向に並べた各矢印は、左右いずれかの変位 $\pm a$ を表す。}
+\caption{断熱された細孔栓の入口・出口状態。}
+\label{fig:throttle}
 \end{figure}
 
-\section*{[1] 終点の確率とエントロピー}
-向きの列は各棒に二通りあるため、全微視状態数は$2^N$である。終点が$X=na$になるには
+\section*{[3] ジュール・トムソン係数}
+エンタルピーを$P,T$の関数として微分する。
 \begin{equation}
- n^+=\frac{N+n}{2},\qquad n^-=\frac{N-n}{2}
+  \mathrm dH=C_P\,\mathrm dT+
+  \left(\frac{\partial H}{\partial P}\right)_T\mathrm dP.
 \end{equation}
-でなければならず、$N-n$が偶数である。該当する列の数は、$N$個の場所から右向きの$n^+$個を選ぶ組合せ数
+$\mathrm dH=\mathrm dU+P\,\mathrm dV+V\,\mathrm dP=T\,\mathrm dS+V\,\mathrm dP$ とマクスウェル関係から
+$(\partial H/\partial P)_T=V-T(\partial V/\partial T)_P=V(1-T\alpha)$。
+従って等エンタルピー条件$\mathrm dH=0$では
 \begin{equation}
- \Omega(n)=\frac{N!}{n^+!n^-!}
+  \boxed{\left(\frac{\partial T}{\partial P}\right)_H
+    =\frac{V(T\alpha-1)}{C_P}}.
 \end{equation}
-なので
+[1]の係数との差は
 \begin{equation}
- P(n)=\frac{\Omega(n)}{2^N}
- =\frac{1}{2^N}\frac{N!}{[(N+n)/2]![(N-n)/2]!}.
+  \left(\frac{\partial T}{\partial P}\right)_H
+  -\left(\frac{\partial T}{\partial P}\right)_S
+  =-\frac{V}{C_P}<0,
 \end{equation}
-これは二項分布の全確率であり、許される$n$について$\sum_nP(n)=1$となる。
+ここで$V>0,C_P>0$を用いた。理想気体では$T\alpha=1$なので、
+\begin{equation}
+  \boxed{\left(\frac{\partial T}{\partial P}\right)_{H,\mathrm{ideal}}=0}.
+\end{equation}
 
-終点を固定した分子のエントロピーはボルツマンの式$S=k_B\ln\Omega$である。Stirling近似を$n^+,n^-\gg1$で使うと
+\section*{[4] 低密度での状態方程式}
+この小問で用いる van der Waals の状態方程式は
+\begin{equation}
+  \left(P+\frac{a}{V^2}\right)(V-b)=RT.
+\end{equation}
+これを$P$について解くと
+\begin{equation}
+  P=\frac{RT}{V-b}-\frac{a}{V^2},
+  \qquad
+  PV=\frac{RT}{1-b/V}-\frac{a}{V}.
+\end{equation}
+$b/V\ll1$で$1/(1-b/V)\simeq1+b/V$と展開する。
 \begin{align}
- S&\simeq k_B\{N\ln N-n^+\ln n^+-n^-\ln n^-\}\\
- &=k_B\left\{N\ln N-\frac{N+n}{2}\ln\frac{N+n}{2}
-                      -\frac{N-n}{2}\ln\frac{N-n}{2}\right\}.
+  PV&\simeq RT+\frac{RTb-a}{V}\\
+    &=RT\left[1+\left(1-\frac{a}{bRT}\right)\frac bV\right].
 \end{align}
-全列数$2^N$は全ての終点を合わせた状態数であり、固定した終点のエントロピーにはその終点を実現する組合せ数$\Omega(n)$を使う。
+従って
+\begin{equation}
+  \boxed{B(T)=1-\frac{a}{bRT}}.
+\end{equation}
+ボイル温度$T_B=a/(Rb)$では$B(T_B)=0$となり、低密度での一次の非理想補正が消える。これは密度の一次の範囲で理想気体に近づくという意味である。
 
-\section*{[2] 伸長に必要な力}
-各微視状態のエネルギーが同じなので、固定された$X$でのヘルムホルツ自由エネルギーは定数から$F=-TS$である。$n^\pm=(N\pm X/a)/2$を用いてエントロピーを$X$で微分すると
+\section*{[5] 逆転温度}
+ここでも原問題の$V\gg b$、$T\ge T_B$の範囲で近似を用いる。与えられた近似を$T$で微分すると
 \begin{equation}
- \left(\frac{\partial S}{\partial X}\right)_T
- =\frac{k_B}{2a}\ln\frac{n^-}{n^+}.
+  V\simeq\frac{RT}{P}+b-\frac{a}{RT},
+  \qquad
+  \left(\frac{\partial V}{\partial T}\right)_P
+  \simeq\frac RP+\frac{a}{RT^2}.
 \end{equation}
-従って問題の定義による張力は
+一般式$\mu_{\mathrm{JT}}=[T(\partial V/\partial T)_P-V]/C_P$に代入して
 \begin{equation}
- \boxed{\tau=\left(\frac{\partial F}{\partial X}\right)_T
- =\frac{k_BT}{2a}\ln\frac{n^+}{n^-}
- =\frac{k_BT}{2a}\ln\frac{Na+X}{Na-X}}.
+  \boxed{\mu_{\mathrm{JT}}
+  =\left(\frac{\partial T}{\partial P}\right)_H
+  \simeq\frac1{C_P}\left(\frac{2a}{RT}-b\right)}.
 \end{equation}
-$0<X<Na$では$\tau>0$であり、分子を伸ばした状態を保つには右向きに引く必要がある。$X\ll Na$では$\ln[(1+y)/(1-y)]=2y+O(y^3)$より
+係数がゼロとなる逆転温度は
 \begin{equation}
- \boxed{\tau=\frac{k_BT}{a^2N}X+O\!\left(\frac{k_BT X^3}{a^4N^3}\right)}.
+  \boxed{T_{\mathrm{inv}}=\frac{2a}{Rb}=2T_B}.
 \end{equation}
-小伸長では有効ばね定数$k_BT/(Na^2)$に比例する復元応答となる。
+この近似の範囲で、$T_B\le T<T_{\mathrm{inv}}$では$\mu_{\mathrm{JT}}>0$なので減圧時に冷え、$T>T_{\mathrm{inv}}$では$\mu_{\mathrm{JT}}<0$なので減圧時に温まる。
 
-\section*{[3] 外場中の分配関数と平均値}
-右向きと左向きの棒のエネルギーはそれぞれ$-\kappa,+\kappa$である。一本の分配関数は$e^{\beta\kappa}+e^{-\beta\kappa}=2\cosh(\beta\kappa)$なので、独立な$N$本について
+\section*{[6] 排除体積だけがある場合}
+$a$の寄与を無視したとき、相互作用は排除体積だけであり、粒子間ポテンシャルエネルギーは温度に依存しない定数として扱える。従って内部エネルギー$U$は運動エネルギーで決まり、温度だけに依存する。一方、状態方程式は$P(V-b)=RT$なので
 \begin{equation}
- Z(\beta)=(2\cosh\beta\kappa)^N,\qquad \beta=\frac1{k_BT}.
+  H=U+PV=U+RT\frac{V}{V-b}
+   =U+RT\left(1+\frac{b}{V-b}\right).
 \end{equation}
-平均エネルギーは$-\partial_\beta\ln Z$から
+温度を固定して体積を増やすと$V/(V-b)=1+b/(V-b)$は減少する。$C_V=(\partial U/\partial T)_V>0$を用いて$H$の全微分を取ると
 \begin{equation}
- \langle E\rangle=-N\kappa\tanh(\beta\kappa).
+ dH=\left(C_V+\frac{RV}{V-b}\right)dT-\frac{RTb}{(V-b)^2}dV.
 \end{equation}
-また各棒のエネルギーと変位には$E_i=-(\kappa/a)\Delta X_i$の関係があるため、$\kappa\ne0$では$\langle X\rangle=-(a/\kappa)\langle E\rangle$であり、直接数えても同じく
-\begin{equation}
- \langle X\rangle=Na\tanh(\beta\kappa)
-\end{equation}
-となる。$|\kappa|\ll k_BT$で$\tanh y=y+O(y^3)$を使うと
-\begin{equation}
- \langle E\rangle=-\frac{N\kappa^2}{k_BT}
- +O\!\left(\frac{N\kappa^4}{(k_BT)^3}\right),\qquad
- \langle X\rangle=\frac{Na\kappa}{k_BT}
- +O\!\left(\frac{Na\kappa^3}{(k_BT)^3}\right).
-\end{equation}
-$\kappa=0$でも両者の極限はゼロである。
+したがってジュール・トムソン過程の$dH=0$で$dV>0$なら$dT>0$となる。これは$\mu_{\mathrm{JT}}=-b/C_P<0$と減圧時の$\mathrm dP<0$から$\mathrm dT>0$となることにも一致する。
 
-\section*{[4] ゆらぎ}
-正準分布では$\partial_\beta^2\ln Z=\langle E^2\rangle-\langle E\rangle^2$なので
-\begin{equation}
- \boxed{\langle E^2\rangle-\langle E\rangle^2
- =N\kappa^2\operatorname{sech}^2(\beta\kappa)}.
-\end{equation}
-一本の棒の変位$\Delta X_i$は$\pm a$を取り、平均は$a\tanh(\beta\kappa)$、二乗平均は$a^2$である。従って
-\begin{equation}
- \operatorname{Var}(\Delta X_i)
- =a^2-a^2\tanh^2(\beta\kappa)
- =a^2\operatorname{sech}^2(\beta\kappa).
-\end{equation}
-各棒は独立なので、終点の分散は$N$本の分散を足して
-\begin{equation}
- \boxed{\langle X^2\rangle-\langle X\rangle^2
- =Na^2\operatorname{sech}^2(\beta\kappa)}.
-\end{equation}
-両分散は非負で、$\kappa=0$ではエネルギー分散は0、終点の分散は$Na^2$である。固定した$\kappa\ne0$に対して$T\to0$とすると、両分散はゼロに近づく。
 \end{document}

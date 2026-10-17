@@ -1,157 +1,111 @@
-% Source: 2023ap_exam.pdf, PDF pp. 2--3.
-% Original SHA-256: 303204b38405b7fed8cf6140ab3311e23d26c3bfd2afe778a46172dae774cfbc
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2023ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=23mm]{geometry}
+\usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
-\setlength{\parskip}{0.3em}
-\title{物理工学専攻 院試解答集\\2023年 物理学 第1問}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集\\2023年度 物理学 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\noindent 出典：2023年8月29日実施の物理学入学試験、第1問（原本PDFの2--3ページ）。棒の下端をP、回転軸上の点をOとする。PからOまでが$l_1$、Pから上端までが$l_0$であり、$l_1>l_0/2$だから重心はOより下にある。
-
-\section*{[1] 棒の慣性モーメント}
-
-\subsection*{[1.1] 中心軸に関する慣性モーメント}
-棒の密度は一様なので、中心軸に垂直な断面内でも質量は一様に分布する。半径$r$、幅$\mathrm{d}r$の円環が全質量に占める割合は$2\pi r\,\mathrm{d}r/(\pi a^2)$である。この円環の質量は$\mathrm{d}m=M(2\pi r\,\mathrm{d}r)/(\pi a^2)=2Mr\,\mathrm{d}r/a^2$。各円環の寄与$r^2\mathrm{d}m$を積分して
+\section*{[1.1] 1次元無限深井戸の固有状態}
+井戸の内部 $-a<x<a$ では $-\hbar^2\psi''/(2m)=E\psi$、壁では $\psi(\pm a)=0$ である。規格化された非零の固有状態について、部分積分と壁の条件から
+\begin{equation}
+ E=\int_{-a}^a\psi^*\!\left(-\frac{\hbar^2}{2m}\psi''\right)dx
+ =\frac{\hbar^2}{2m}\int_{-a}^a|\psi'|^2dx>0.
+\end{equation}
+従って$k=\sqrt{2mE}/\hbar>0$は実数である。内部の一般解は正弦と余弦の線形結合であり、左端の条件を満たす形は$\psi(x)=C\sin[k(x+a)]$となる。右端の条件は
+\begin{equation}
+ \psi(a)=C\sin(2ka)=0.
+\end{equation}
+非零状態では$C\ne0$なので、$2ka=n\pi$、すなわち$k_n=n\pi/(2a)$ ($n=1,2,\ldots$) を得る。奇数 $n=2l+1$ ($l=0,1,\ldots$) では余弦、偶数 $n=2l$ ($l=1,2,\ldots$) では正弦が境界条件を満たす。規格化を行うと
 \[
- I_{\parallel}=\int_0^a r^2\,\mathrm{d}m
- =\int_0^a r^2\frac{2M}{a^2}r\,\mathrm{d}r
- =\boxed{\frac12 Ma^2}.
+\boxed{\psi_{2l+1}(x)=\frac1{\sqrt a}\cos\!\left(\frac{(2l+1)\pi x}{2a}\right)\quad(l=0,1,\ldots)},\qquad
+\boxed{\psi_{2l}(x)=\frac1{\sqrt a}\sin\!\left(\frac{l\pi x}{a}\right)\quad(l=1,2,\ldots)}.
 \]
-
-\subsection*{[1.2] 薄い円板の直径に関する慣性モーメント}
-円板の質量は$\Delta M=M\Delta l/l_0$である。円板面内で互いに直交する二本の直径に関する慣性モーメントは対称性から等しい。垂直軸の定理より、その和は中心軸に関する$\Delta M a^2/2$なので、一方の直径について
+したがって全準位のエネルギーは
 \[
- \boxed{\Delta I_{\perp}=\frac14\Delta M a^2
- =\frac{Ma^2}{4l_0}\Delta l}.
+\boxed{E_n=\frac{\hbar^2 k_n^2}{2m}=\frac{\hbar^2\pi^2n^2}{8ma^2}},\quad n=1,2,\ldots.
 \]
-厚さに伴う$O((\Delta l)^3)$の項は、十分に薄い円板の極限で消える。
+特に $\psi_1(x)=a^{-1/2}\cos(\pi x/2a)$ を含む。
 
-\subsection*{[1.3] Oを通る回転軸に関する慣性モーメント}
-Pから中心軸に沿って距離$s$の位置の薄い円板を考える。Oを通る$y$方向の軸は、その円板の重心を通る平行な直径から$|s-l_1|$離れている。平行軸の定理と[1.2]より
+\section*{[1.2] 反転パリティ}
+奇数準位の余弦は偶関数、偶数準位の正弦は奇関数なので
 \[
- I_{\mathrm O}=\int_0^{l_0}\frac{M}{l_0}
- \left(\frac{a^2}{4}+(s-l_1)^2\right)\mathrm{d}s
- =M\left(\frac{a^2}{4}+\frac{l_0^2}{3}-l_0l_1+l_1^2\right).
+\hat P\psi_n(x)=\psi_n(-x)=\boxed{(-1)^{n+1}\psi_n(x)}.
 \]
-平方完成すると、重心がPから$l_0/2$にあることも見える形で
-\[
- \boxed{I_{\mathrm O}=M\left[\frac{a^2}{4}+\frac{l_0^2}{12}
- +\left(l_1-\frac{l_0}{2}\right)^2\right]}.
-\]
+固有値は $n$ が奇数なら $+1$、偶数なら $-1$ である。
 
-\section*{[2] 力を取り除いた後の運動}
-Oを原点とし、$\theta>0$のときPがOより右にある向きを正に取る。右向きの$F_1$は下端Pで正の回転モーメントを与え、重力は棒を鉛直に戻す。次の図は[2]の力の作用点と、後の[3]で使う上端の作用点を共通に示す。
-\begin{center}
-\begin{tikzpicture}[>=Latex,scale=0.9]
- \draw[fill=gray!12] (-0.10,-2.55) rectangle (0.10,1.45);
- \fill (0,0) circle (2pt) node[right=3pt] {$\mathrm O$};
- \fill (0,-2.55) circle (1.8pt) node[below right] {$\mathrm P$};
- \node[above] at (0,1.45) {上端};
- \draw[->,thick] (0.12,-2.55)--(1.27,-2.55) node[right] {$F_1$};
- \draw[->,thick] (0.12,1.45)--(1.27,1.45) node[right] {$F_2$（[3]）};
- \draw[<->] (-0.45,-2.55)--(-0.45,0) node[midway,left] {$l_1$};
- \draw[<->] (-0.45,0)--(-0.45,1.45) node[midway,left] {$l_0-l_1$};
- \draw[->] (-1.35,-2.0)--(-0.85,-2.0) node[above] {$+x$};
- \draw[->] (-1.35,-2.0)--(-1.35,-1.5) node[left] {$+z$};
-\end{tikzpicture}
-\end{center}
-図の棒は$\theta=0$を表す。$F_1$と$F_2$は同じ右向きでも、Oの反対側に作用するので回転モーメントは逆向きである。
-
-\subsection*{[2.1] 静止角}
-重心はOから棒に沿って$l_1-l_0/2$だけ下にある。力の作用線までの垂直距離は、水平な$F_1$では$l_1\cos\theta$、鉛直な重力では重心の水平変位$(l_1-l_0/2)\sin\theta$である。したがってOに関する正向きのモーメントは$F_1l_1\cos\theta$、重力による負向きのモーメントは$-Mg(l_1-l_0/2)\sin\theta$。静止条件から
+\section*{[2.1] 座標交換}
+分離解のエネルギーは $E_{n_x,n_y}=E_{n_x}+E_{n_y}=\hbar^2\pi^2(n_x^2+n_y^2)/(8ma^2)$ である。座標を交換すると
 \[
- F_1l_1\cos\theta_0=Mg\left(l_1-\frac{l_0}{2}\right)\sin\theta_0,
- \qquad
- \boxed{\tan\theta_0=\frac{F_1l_1}{Mg(l_1-l_0/2)}}.
+\hat M\Psi_{1,1}=\psi_1(y)\psi_1(x)=\Psi_{1,1},\qquad
+\hat M\Psi_{2,2}=\psi_2(y)\psi_2(x)=\Psi_{2,2}.
 \]
-$F_1>0$、$l_1>l_0/2$、$|\theta_0|<\pi/2$なので、この平衡角は正である。
+両状態の $\hat M$ 固有値は $+1$ である。
 
-\subsection*{[2.2] 鉛直位置での角速度}
-$F_1$を取り除いた直後の角速度は0である。その後はOの固定軸に関する重力の位置エネルギーと回転運動エネルギーの和が保存する。$\theta=0$を位置エネルギーの基準にすると
+\section*{[2.2] $\hat H$ と $\hat M$ の同時固有状態}
+第一励起部分空間の二つの直交した積状態は縮退している。交換演算子はこれらを入れ替えるので、正の実係数の規約に従う規格化同時固有状態は
 \[
- U(\theta)=Mg\left(l_1-\frac{l_0}{2}\right)(1-\cos\theta),\qquad
- \frac12 I_{\mathrm O}\dot\theta^2\bigg|_{\theta=0}=U(\theta_0).
-\]
-したがって角速度の大きさは
-\[
- \boxed{\left|\dot\theta\right|_{\theta=0}=
- \sqrt{\frac{2Mg(l_1-l_0/2)(1-\cos\theta_0)}{I_{\mathrm O}}}}.
+\boxed{|\Psi_+\rangle=\frac{\Psi_{2,1}+\Psi_{1,2}}{\sqrt2},\quad \hat M|\Psi_+\rangle=+|\Psi_+\rangle},\qquad
+\boxed{|\Psi_-\rangle=\frac{\Psi_{2,1}-\Psi_{1,2}}{\sqrt2},\quad \hat M|\Psi_-\rangle=-|\Psi_-\rangle}.
 \]
 
-\subsection*{[2.3] 微小振動の周期}
-力を除いた後の運動方程式は
+\section*{[2.3] 交換固有状態の角運動量}
+$x\leftrightarrow y$ は $\hat L=-i\hbar(x\partial_y-y\partial_x)$ の符号を反転するため
 \[
- I_{\mathrm O}\ddot\theta=-Mg\left(l_1-\frac{l_0}{2}\right)\sin\theta.
+\hat M\hat L\hat M=-\hat L.
 \]
-$|\theta|\leq\theta_0\ll1$なら$\sin\theta\simeq\theta$であり、角振動数の二乗は$Mg(l_1-l_0/2)/I_{\mathrm O}$となる。よって
+$\hat M|\Psi_\pm\rangle=\pm|\Psi_\pm\rangle$ より
 \[
- \boxed{T=2\pi\sqrt{\frac{I_{\mathrm O}}{Mg(l_1-l_0/2)}}}.
-\]
-
-\section*{[3] ソレノイドと磁気モーメント}
-
-\subsection*{[3.1] 鉄芯のない長いソレノイド}
-ソレノイド内に軸方向の長さ$\ell$の辺を置いた長方形のアンペール経路をとる。長いソレノイドの近似で外側の磁場を無視すると、内側の辺による線積分は$H\ell$、経路が囲む電流は$N\ell$巻分の$N\ell I$である。アンペールの法則$H\ell=N\ell I$より、磁場の強さと真空中の磁束密度はそれぞれ
-\[
- \boxed{H=NI},\qquad \boxed{B=\mu_0NI}.
-\]
-以下の$\mu$は鉄芯の透磁率である。問題の長いソレノイドと端の漏れ磁場を無視する近似を鉄芯が入った部分にも適用すると、そこでも$H=NI$と扱え、鉄芯内の磁束密度は$B=\mu H=\mu NI$となる。
-
-\subsection*{[3.2] $X/3$だけ挿入したときのインダクタンス}
-[3.3]ではインダクタンスを挿入長で微分するので、まず一般の挿入長$\xi$に対する磁束鎖交数を求める。鉄芯内部の断面積は$\pi b^2$であり、上の近似で一巻きあたりの磁束は$\Phi=\mu NI\pi b^2$となる。鉄芯を囲む巻数は$N\xi$で、鉄芯のない部分の磁束は設問の近似で無視する。全磁束鎖交数を$LI$と置けば
-\[
- LI=(N\xi)\Phi,\qquad L(\xi)=\mu N^2\pi b^2\xi.
-\]
-従って$\xi=X/3$では
-\[
- \boxed{L=\frac13\mu N^2\pi b^2X}.
+\langle\Psi_\pm|\hat L|\Psi_\pm\rangle
+=\langle\Psi_\pm|\hat M(-\hat L)\hat M|\Psi_\pm\rangle
+=-\langle\Psi_\pm|\hat L|\Psi_\pm\rangle,
+\qquad \boxed{\langle\hat L\rangle_\pm=0}.
 \]
 
-\subsection*{[3.3] 上端の力から下端の力を測る}
-上の$L(\xi)$を設問の力の式に代入すると、鉄芯を引き込む力は挿入長に依らず
+\section*{[2.4] 四回回転の固有値}
+$\psi_1$ は偶関数、$\psi_2$ は奇関数であり、$\hat C_4\Psi(x,y)=\Psi(-y,x)$ だから
 \[
- F_2=\frac{I^2}{2}\frac{\partial L}{\partial\xi}
- =\frac12\mu N^2\pi b^2 I^2.
+\hat C_4\Psi_{1,1}=\psi_1(-y)\psi_1(x)=\Psi_{1,1},\qquad
+\hat C_4\Psi_{2,2}=\psi_2(-y)\psi_2(x)=-\Psi_{2,2}.
 \]
-棒が鉛直に保たれたとき、重力の作用線はOを通る。図のようにOから下端Pまでの腕は$l_1$、Oから上端までの腕は$l_0-l_1$であり、二つの右向きの力のモーメントがつり合う。ゆえに
+固有値はそれぞれ $+1,-1$ である。
+
+\section*{[2.5] $\hat H$ と $\hat C_4$ の同時固有状態}
+第一励起部分空間では
 \[
- F_1l_1=F_2(l_0-l_1),\qquad
- \boxed{F_1=\frac{\mu N^2\pi b^2I^2}{2}\frac{l_0-l_1}{l_1}}.
+\hat C_4\Psi_{2,1}=-\Psi_{1,2},\qquad \hat C_4\Psi_{1,2}=\Psi_{2,1}.
+\]
+従って、正の実係数の規約で規格化された回転固有状態は
+\[
+\boxed{|\Psi'_+\rangle=\frac{\Psi_{2,1}+i\Psi_{1,2}}{\sqrt2},\quad \hat C_4|\Psi'_+\rangle=+i|\Psi'_+\rangle},\qquad
+\boxed{|\Psi'_-\rangle=\frac{\Psi_{2,1}-i\Psi_{1,2}}{\sqrt2},\quad \hat C_4|\Psi'_-\rangle=-i|\Psi'_-\rangle}.
 \]
 
-\subsection*{[3.4] 数値と単位}
-長さと電流をSI単位に直すと、$l_0-l_1=0.50\,\mathrm m$、$l_1=0.90\,\mathrm m$、$b=0.015\,\mathrm m$、$I=0.200\,\mathrm A$である。[3.3]より
+\section*{[2.6] 回転固有状態の角運動量}
+$A=\langle\psi_2|x|\psi_1\rangle$ と $B=\langle\psi_1|\hat p|\psi_2\rangle$ とおく。問題の積分公式を用いると
 \[
- F_2=\frac{(6.4\times10^{-3})(2000)^2\pi(0.015)^2(0.200)^2}{2}
- =0.3619\ldots\,\mathrm N,
- \qquad F_1=F_2\frac{0.50}{0.90}=0.2011\ldots\,\mathrm N.
+A=\frac1a\int_{-a}^{a}x\sin\!\left(\frac{\pi x}{a}\right)\cos\!\left(\frac{\pi x}{2a}\right)dx
+=\frac{32a}{9\pi^2},\qquad
+B=-\frac{i\hbar\pi}{a^2}\int_{-a}^{a}\cos\!\left(\frac{\pi x}{2a}\right)\cos\!\left(\frac{\pi x}{a}\right)dx
+=-\frac{4i\hbar}{3a}.
 \]
-与えられた換算を磁場勾配にも適用すると
+ここで $\hat L=x\hat p_y-y\hat p_x$ である。異なる積状態間の行列要素は
 \[
- \frac{\partial H}{\partial x}
- =1600\,\frac{\mathrm{Oe}}{\mathrm{cm}}
- \times\frac{10^3}{4\pi}\,\frac{\mathrm{A/m}}{\mathrm{Oe}}
- \times100\,\frac{\mathrm{cm}}{\mathrm m}
- =\frac{4.0\times10^7}{\pi}\,\mathrm{A\,m^{-2}}.
+\langle\Psi_{2,1}|\hat L|\Psi_{1,2}\rangle
+=A B-\langle\psi_2|\hat p|\psi_1\rangle A
+=A(B-B^*)=-\frac{256i\hbar}{27\pi^2}.
 \]
-$F_1=m\,\partial H/\partial x$なので
+対角要素は実の積状態の運動量平均がゼロなので消える。$C=\langle\Psi_{2,1}|\hat L|\Psi_{1,2}\rangle=-256i\hbar/(27\pi^2)$と書けば、$\Psi'_+$の交差項は$i(C-C^*)/2=256\hbar/(27\pi^2)$であり、$\Psi'_-$ではその符号が反転する。従って
 \[
- m=\frac{0.2011\ldots}{(4.0\times10^7/\pi)}
- =1.579\ldots\times10^{-8}\,\mathrm{Wb\,m}.
+\boxed{\langle\Psi'_\pm|\hat L|\Psi'_\pm\rangle=\pm\frac{256\hbar}{27\pi^2}}.
 \]
-実際に$\mathrm N/(\mathrm{A\,m^{-2}})=\mathrm{N\,m^2/A}=\mathrm{Wb\,m}$である。求める空欄は有効数字二桁で
-\[
- \boxed{1.6\times10^{-8}}\quad(\mathrm{Wb\,m}).
-\]
+回転固有値 $\pm i$ の状態が反対符号の角運動量を持つ。
 \end{document}

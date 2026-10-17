@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF page 10.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h27ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,166 +10,119 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2015年 物理学II 第3問}
+\title{物理工学専攻 院試解答集\\2015年度 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 束縛電子の運動}
-電子の電荷は$-e$なので、電場による力は$-e\boldsymbol E$である。共振振動数$\omega_0$の調和復元力も加えると、
+原問の時間依存を $e^{-i\omega t}$ とし、媒質は $z>0$、波の伝播方向を $+z$ とする。電場は $x$ 方向で、複素波数 $\widetilde k=k_1+ik_2$ を用いて
 \begin{equation}
-  \boxed{m\ddot{\boldsymbol x}=-m\omega_0^2\boldsymbol x-e\boldsymbol E.}
+ \boldsymbol E(z,t)=\operatorname{Re}\!\left[\widetilde E_0\,\boldsymbol e_x
+ e^{i(\widetilde kz-\omega t)}\right]
+ =|\widetilde E_0|e^{-k_2z}\cos(k_1z-\omega t+\delta)\,\boldsymbol e_x
+\end{equation}
+と書く（$\delta=\arg\widetilde E_0$）。媒質中で減衰する解を選ぶので $k_2>0$ である。
+
+\section*{[1] 分散関係と位相速度}
+波動方程式に $e^{i(\widetilde kz-\omega t)}$ を代入すると
+\begin{equation}
+ -\widetilde k^2+\epsilon\mu\omega^2+i\mu\sigma\omega=0,
+ \qquad \boxed{\widetilde k^2=\epsilon\mu\omega^2+i\mu\sigma\omega}.
+\end{equation}
+位相一定条件 $k_1z-\omega t+\delta=\text{const.}$ から、位相速度は振幅減衰を決める $k_2$ ではなく
+\begin{equation}
+ \boxed{v_{\rm ph}=\frac{\omega}{k_1}}.
 \end{equation}
 
-\section*{[2] 分極の運動方程式}
-数密度$N$の電子による分極は$\boldsymbol P=-eN\boldsymbol x$である。これを時間で2回微分し、[1]を使うと
+\section*{[2] 振幅減衰距離}
+振幅は $z$ とともに $e^{-k_2z}$ 倍される。$e^{-k_2d}=e^{-1}$ より
 \begin{equation}
-  \boxed{\ddot{\boldsymbol P}+\omega_0^2\boldsymbol P
-  =\frac{Ne^2}{m}\boldsymbol E.}
+ \boxed{d=\frac{1}{k_2}}.
 \end{equation}
-右辺の符号が正なのは、$\boldsymbol P$と電子変位$\boldsymbol x$が反対向きだからである。
+これは振幅の $1/e$ 距離であり、時間平均二乗場や強度の $1/e$ 距離は $1/(2k_2)$ である。
 
-\section*{[3] 誘電率}
-電場と分極が角周波数$\omega$で振動するので、$\ddot P=-\omega^2P$である。従って
-\begin{equation}
-  (\omega_0^2-\omega^2)P=\frac{Ne^2}{m}E,
-  \qquad
-  \boxed{P=\frac{Ne^2}{m(\omega_0^2-\omega^2)}E}.
-\end{equation}
-マクロな関係$D=\varepsilon_0E+P=\varepsilon(\omega)E$より
-\begin{equation}
-  \varepsilon(\omega)=\varepsilon_0+
-  \frac{Ne^2}{m(\omega_0^2-\omega^2)}.
-\end{equation}
+\section*{[3] 実部・虚部}
+$
+(k_1+ik_2)^2=(k_1^2-k_2^2)+2ik_1k_2
+=\mu\omega(\epsilon\omega+i\sigma).
+$
+よって $k_1^2-k_2^2=\epsilon\mu\omega^2$、$2k_1k_2=\mu\sigma\omega$。$k_1,k_2>0$ の減衰・前進波の枝を選ぶと
+\begin{align}
+ k_1&=\boxed{\sqrt{\frac{\mu\omega}{2}
+ \left(\sqrt{\epsilon^2\omega^2+\sigma^2}+\epsilon\omega\right)}},\\
+ k_2&=\boxed{\sqrt{\frac{\mu\omega}{2}
+ \left(\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\right)}}.
+\end{align}
 
-\section*{[4] 誘電体中の分散関係}
-問題文の波動方程式(3)に平面波を代入すると$-k^2E+\varepsilon(\omega)\mu_0\omega^2E=0$だから
+\section*{[4] 伝導率による減衰距離}
 \begin{equation}
-  \boxed{k^2=\mu_0\varepsilon(\omega)\omega^2}.
+ d=\sqrt{\frac{2}{\mu\omega\left(\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\right)}}.
 \end{equation}
-プラズマ角周波数を$\omega_p^2=Ne^2/(\varepsilon_0m)$、
-$\omega_1=\sqrt{\omega_0^2+\omega_p^2}$とおく。真空中の光速$c=1/\sqrt{\varepsilon_0\mu_0}$を使えば
+高伝導率 $\sigma\gg\epsilon\omega$ では平方根の内側の根号を $\sigma$ と近似できるため
 \begin{equation}
-  \boxed{k^2=\frac{\omega^2}{c^2}
-  \frac{\omega_1^2-\omega^2}{\omega_0^2-\omega^2}}.
+ \boxed{d\simeq\sqrt{\frac{2}{\mu\sigma\omega}}\propto\sigma^{-1/2}}.
 \end{equation}
-
-\section*{[5] 誘電体の実部・虚部}
-正の角周波数に対して、分子と分母の符号を比べる。$+z$方向へ進む波には、伝搬域で$\operatorname{Re}k>0$、非伝搬域で$\operatorname{Im}k>0$となる枝を選ぶ。
+低伝導率 $\sigma\ll\epsilon\omega$ では
+$\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\simeq\sigma^2/(2\epsilon\omega)$ なので
 \begin{equation}
-  \begin{array}{c|c|c}
-    \text{周波数域}&\operatorname{Re}k&\operatorname{Im}k\\ \hline
-    0<\omega<\omega_0&
-    \displaystyle\frac{\omega}{c}\sqrt{\frac{\omega_1^2-\omega^2}{\omega_0^2-\omega^2}}&0\\[1.1em]
-    \omega_0<\omega<\omega_1&0&
-    \displaystyle\frac{\omega}{c}\sqrt{\frac{\omega_1^2-\omega^2}{\omega^2-\omega_0^2}}\\[1.1em]
-    \omega>\omega_1&
-    \displaystyle\frac{\omega}{c}\sqrt{\frac{\omega^2-\omega_1^2}{\omega^2-\omega_0^2}}&0
-  \end{array}
-\end{equation}
-誘電体の非伝搬帯では$k=i\kappa$（$\kappa>0$）を選ぶ。位相因子は$e^{ikz}=e^{-\kappa z}$となり、$+z$方向へ進むと振幅が減衰する。これはエバネッセント場の空間的減衰であり、この無減衰模型での吸収損失を意味しない。共振$\omega_0$では理想化した無減衰模型の$k$が発散し、$\omega_1$では$k=0$となる。
-
-図の例では $\Omega=\omega/\omega_0$、$K=ck/\omega_0$ と規格化し、$\omega_1/\omega_0=2$ を選ぶ。従って $\omega_p/\omega_0=\sqrt{3}$ であり、実部・虚部の枝は直前の分散式から
-\begin{equation}
- \operatorname{Re}K=\begin{cases}
- \displaystyle\Omega\sqrt{\frac{4-\Omega^2}{1-\Omega^2}},&0<\Omega<1,\\
- 0,&1<\Omega<2,\\
- \displaystyle\Omega\sqrt{\frac{\Omega^2-4}{\Omega^2-1}},&\Omega>2,
- \end{cases}\quad
- \operatorname{Im}K=\begin{cases}
- \displaystyle\Omega\sqrt{\frac{4-\Omega^2}{\Omega^2-1}},&1<\Omega<2,\\
- 0,&0<\Omega<1\text{ または }\Omega>2.
- \end{cases}
+ \boxed{d\simeq\frac{2}{\sigma}\sqrt{\frac{\epsilon}{\mu}}\propto\sigma^{-1}}.
 \end{equation}
 
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,font=\small,x=1.25cm,y=0.8cm]
-  \begin{scope}
-    \draw[->] (0,0)--(3.25,0) node[right] {$\Omega$};
-    \draw[->] (0,0)--(0,1.9) node[above] {$\operatorname{Re}K$};
-    \draw[dashed] (1,0)--(1,1.65);
-    \draw[dashed] (2,0)--(2,1.55);
-    \begin{scope}
-    \clip (0,0) rectangle (3.1,1.8);
-    \draw[thick] plot[domain=0:0.985,samples=100] (\x,{\x*sqrt((4-\x^2)/(1-\x^2))});
-    \draw[thick] plot[domain=2:3.1,samples=100] (\x,{\x*sqrt((\x^2-4)/(\x^2-1))});
-    \end{scope}
-    \node[below] at (1,0) {$1$};
-    \node[below] at (2,0) {$2$};
-    \node at (1.5,0.3) {$0$};
-  \end{scope}
-  \begin{scope}[xshift=5.2cm]
-    \draw[->] (0,0)--(3.15,0) node[right] {$\Omega$};
-    \draw[->] (0,0)--(0,1.9) node[above] {$\operatorname{Im}K$};
-    \draw[dashed] (1,0)--(1,1.65);
-    \draw[dashed] (2,0)--(2,1.55);
-    \begin{scope}
-    \clip (0,0) rectangle (3.1,1.8);
-    \draw[thick,dashed] plot[domain=1.015:2,samples=100] (\x,{\x*sqrt((4-\x^2)/(\x^2-1))});
-    \end{scope}
-    \node[below] at (1,0) {$1$};
-    \node[below] at (2,0) {$2$};
-  \end{scope}
-\end{tikzpicture}
-\caption{誘電体の規格化波数 $K$ の実部（実線）と虚部（破線）。共振近傍で発散する枝は枠外へ続く。}
-\label{fig:dielectric-k}
-\end{figure}
+\section*{[5] 電場・磁場の位相差}
+Faraday則から複素振幅は
+\begin{equation}
+ \widetilde{\boldsymbol B}(z)=\frac{\widetilde k}{\omega}
+ \boldsymbol e_z\times\widetilde{\boldsymbol E}(z)
+ =\frac{\widetilde k}{\omega}\widetilde E_0\boldsymbol e_y
+ e^{i\widetilde kz}.
+\end{equation}
+位相 $\Theta=k_1z-\omega t+\delta$ と書くと、実電場は $E_x\propto\cos\Theta$、実磁束密度は $B_y\propto\cos(\Theta+\phi)$ である。同じ山に注目すれば磁束密度の山は電場より $\phi/\omega$ だけ遅い時刻に現れる。従って磁束密度は電場に対して $\widetilde k$ の偏角だけ遅れ、
+\begin{equation}
+ \boxed{\phi=\arg(k_1+ik_2)=\tan^{-1}\!\left(\frac{k_2}{k_1}\right)},
+ \qquad 0<\phi<\frac{\pi}{2}.
+\end{equation}
+高伝導率極限では $k_1/k_2\to1$ より $\boxed{\phi\to\pi/4}$。低伝導率極限では $k_2/k_1\to0$ より $\boxed{\phi\to0}$。
 
-\section*{[6] 金属中の自由電子}
-金属中の電子には束縛復元力がない。磁気力を無視すると、電場による運動方程式は
+\section*{[6] 平均ポインティング流束}
+$z=0$ で $\widetilde{\boldsymbol B}_0=(\widetilde k/\omega)\widetilde E_0\boldsymbol e_y$ である。実場の時間平均を複素振幅で計算すると
+\begin{align}
+ \langle\boldsymbol S\rangle
+ &=\frac{1}{2\mu}\operatorname{Re}
+ \left(\widetilde{\boldsymbol E}_0\times\widetilde{\boldsymbol B}_0^{\,*}\right)
+ =\frac{|\widetilde E_0|^2}{2\mu\omega}\operatorname{Re}(\widetilde k^{\,*})\boldsymbol e_z\\
+ &=\frac{|\widetilde E_0|^2 k_1}{2\mu\omega}\boldsymbol e_z.
+\end{align}
+従って
 \begin{equation}
-  \boxed{m\ddot{\boldsymbol x}=-e\boldsymbol E.}
+ \boxed{|\langle\boldsymbol S\rangle|=
+ \frac{|\widetilde E_0|^2 k_1}{2\mu\omega}
+ =\frac{|\widetilde E_0|^2}{2}
+ \sqrt{\frac{\epsilon}{2\mu}
+ \left(\sqrt{1+\frac{\sigma^2}{\epsilon^2\omega^2}}+1\right)}}.
 \end{equation}
-分極$\boldsymbol P=-en_e\boldsymbol x$を導入すれば、調和応答では
-\begin{equation}
-  P=-\frac{n_e e^2}{m\omega^2}E,\qquad
-  \varepsilon_m(\omega)=\varepsilon_0\left(1-\frac{\omega_{pm}^2}{\omega^2}\right),
-  \qquad \omega_{pm}^2=\frac{n_e e^2}{\varepsilon_0m}.
-\end{equation}
+流束は媒質内へ向かう $+z$ 方向である。
 
-\section*{[7] 金属の実部・虚部}
-分散関係は
+\section*{[7] 媒質に及ぼす単位体積あたりの仕事率}
+電磁場が電荷にする仕事率密度は電流密度との内積である。オーム則を用いれば
 \begin{equation}
-  k^2=\mu_0\varepsilon_0(\omega^2-\omega_{pm}^2)
-  =\frac{\omega^2-\omega_{pm}^2}{c^2}.
+ \boxed{Q(\boldsymbol r,t)=\boldsymbol E(\boldsymbol r,t)\cdot\boldsymbol J(\boldsymbol r,t)
+ =\sigma|\boldsymbol E(\boldsymbol r,t)|^2\geq0}.
 \end{equation}
-ここでは $\Omega=\omega/\omega_{pm}$、$K=ck/\omega_{pm}$ とおくと、正周波数で
-\begin{equation}
- \operatorname{Re}K=\begin{cases}0,&0<\Omega<1,\\
- \sqrt{\Omega^2-1},&\Omega>1,\end{cases}\qquad
- \operatorname{Im}K=\begin{cases}\sqrt{1-\Omega^2},&0<\Omega<1,\\
- 0,&\Omega>1.\end{cases}
-\end{equation}
-となる。
-従って正の角周波数では
-\begin{equation}
-  \boxed{\begin{aligned}
-    0<\omega<\omega_{pm}:&\quad \operatorname{Re}k=0,\quad
-      \operatorname{Im}k=\frac1c\sqrt{\omega_{pm}^2-\omega^2},\\
-    \omega>\omega_{pm}:&\quad \operatorname{Re}k=\frac1c\sqrt{\omega^2-\omega_{pm}^2},\quad
-      \operatorname{Im}k=0.
-  \end{aligned}}
-\end{equation}
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,font=\small,x=1.25cm,y=0.8cm]
-  \draw[->] (0,0)--(3.3,0) node[right] {$\Omega=\omega/\omega_{pm}$};
-  \draw[->] (0,0)--(0,3.2) node[above] {$K=ck/\omega_{pm}$};
-  \draw[dashed] (1,0)--(1,1.65);
-  \draw[thick] plot[domain=1:3.1,samples=100] (\x,{sqrt(\x^2-1)});
-  \draw[thick,dashed] plot[domain=0:1,samples=100] (\x,{sqrt(1-\x^2)});
-  \node[below] at (1,0) {$1$};
-  \node at (2.5,0.7) {$\operatorname{Re}K$};
-  \node at (0.35,1.5) {$\operatorname{Im}K$};
-\end{tikzpicture}
-\caption{金属の規格化波数 $K$ の実部（実線）と虚部（破線）。}
-\label{fig:metal-k}
-\end{figure}
+電場は $x$ 方向なのでここでの絶対値二乗は実場の成分の二乗を表す。
 
-\section*{[8] 誘電体と金属の光学的性質}
-可視光を各模型の低周波数側とみなす。束縛電子をもつ誘電体で$\omega\ll\omega_0$なら$k$は実数であり、波は媒質内を伝搬する。対して金属で$\omega<\omega_{pm}$なら$k$は虚数であり、電場は表面から内部へ指数関数的に減衰する。内部にはエバネッセント場が存在する。ここで$H_y$は磁場の強さの$y$成分である。位相因子$e^{i(kz-\omega t)}$に対するFaradayの法則$\nabla\times\boldsymbol E=-\mu_0\partial_t\boldsymbol H$の$y$成分は$ikE_x=i\omega\mu_0H_y$だから、$H_y=kE_x/(\mu_0\omega)$となる。$k$が純虚数なので、時間平均の法線エネルギー流は$\operatorname{Re}(E_xH_y^*)/2=|E_x|^2\operatorname{Re}(k)/(2\mu_0\omega)=0$である。散逸のない半無限金属に平均電力は伝わらず、入射電力は反射される。金属内部の空間的減衰を吸収損失とは解釈しない。
+\section*{[8] Joule熱と侵入エネルギー}
+媒質中の電場振幅が $|\widetilde E_0|e^{-k_2z}$ であるから
+\begin{equation}
+ \langle Q(z,t)\rangle=\frac{\sigma}{2}|\widetilde E_0|^2e^{-2k_2z}.
+\end{equation}
+従って単位界面面積あたり、単位時間に媒質内で消費される平均仕事は
+\begin{align}
+ \int_0^{+\infty}\langle Q(z,t)\rangle dz
+ &=\frac{\sigma|\widetilde E_0|^2}{4k_2}
+ =\frac{|\widetilde E_0|^2k_1}{2\mu\omega}
+ =|\langle\boldsymbol S(0)\rangle|,
+\end{align}
+ここで $2k_1k_2=\mu\sigma\omega$ を用いた。媒質の奥では流束がゼロに減衰するため、境界から流入した平均電磁エネルギーは全て媒質内のJoule熱に変わる。
 
 \end{document}

@@ -1,4 +1,4 @@
-% 出典: 2026ap_exam.pdf, 日本語版 pp. 2--3.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2026ap_exam_je.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -6,112 +6,151 @@
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2026年 物理学 第1問}
+\title{物理工学専攻 院試解答集\\2026年度 物理学 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{図1の幾何と運動の向き}
-円錐の母線に沿って頂点から測った距離が $r$ である。図1の上向き $z$ 軸を使うと、A の水平半径と高さ、B の高さはそれぞれ
-\begin{equation}
- R_A=r\sin\theta_0,\qquad z_A=r\cos\theta_0,\qquad
- z_B=-(l-r)=r-l. \label{eq:geometry}
-\end{equation}
-糸が張っているので、A が斜面を外へ進むと B も上昇する。以下では図の円錐に合わせて $0<\theta_0<\pi/2$、また $0<r<l$ の運動を考える。初速度は方位角方向だけなので、$\dot r(0)=0$、$r_0\sin\theta_0\,\dot\varphi(0)=v_0$ である。
+\section*{[1] 糸で落下する剛体}
+図1の内側の円盤は厚さを無視するので、剛体の質量は外側の2枚に分布する。一方、糸は半径 $r_2$ の内側の円盤に接している。この二つの半径の役割を区別する。
 
-\section*{[1] ラグランジアン}
-A の速さの二乗は $\dot r^{2}+(r\sin\theta_0)^2\dot\varphi^{2}$、B の速さの二乗は $\dot z_B^{2}=\dot r^{2}$ である。位置エネルギーの基準を頂点の高さに取ると
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.92]
+  \draw[thick] (0,0) circle (1.65);
+  \draw[dashed] (0,0) circle (0.78);
+  \fill (0,0) circle (1.3pt) node[below left] {$C$};
+  \draw[very thick] (0.78,0)--(0.78,2.1);
+  \draw[->] (0,0)--(1.18,1.16) node[midway,above left] {$r_1$};
+  \draw[->] (0,0)--(0.78,0) node[midway,below] {$r_2$};
+  \draw[->,thick] (2.25,1.25)--(2.25,0.28) node[midway,right] {$a$};
+  \node[above] at (0.78,2.1) {糸の固定端};
+  \node[below] at (0,-1.9) {外円盤の半径と糸のトルク腕};
+\end{tikzpicture}
+\end{center}
+
+\subsection*{[1.1] 中心軸まわりの慣性モーメント}
+外側の2枚は同じ厚さ $d_1$ と同じ密度を持つため、1枚の質量は $M/2$ である。1枚について半径 $s$ から $s+\mathrm ds$ の環の質量は、面密度を $(M/2)/(\pi r_1^2)$ として
 \[
- T_A=\frac m2\bigl(\dot r^{2}+r^2\sin^2\theta_0\,\dot\varphi^{2}\bigr),\quad
- T_B=\frac M2\dot r^{2},\quad
- U_A=mg r\cos\theta_0,\quad U_B=Mg(r-l).
+\mathrm dm=\frac{M/2}{\pi r_1^2}\,2\pi s\,\mathrm ds
+=\frac{M}{r_1^2}s\,\mathrm ds.
 \]
-従って、基準点による定数項も含めた答えは
-\begin{equation}
- \boxed{L=\frac{m+M}{2}\dot r^{2}
- +\frac m2r^2\sin^2\theta_0\,\dot\varphi^{2}
- -g(m\cos\theta_0+M)r+Mgl.} \label{eq:L}
-\end{equation}
-
-\section*{[2] $r$ の運動方程式}
-式\eqref{eq:L}から $\partial L/\partial\dot r=(m+M)\dot r$、$\partial L/\partial r=mr\sin^2\theta_0\,\dot\varphi^{2}-g(m\cos\theta_0+M)$ である。従って
-\begin{equation}
- \boxed{(m+M)\ddot r=mr\sin^2\theta_0\,\dot\varphi^{2}
- -g(m\cos\theta_0+M).} \label{eq:radial}
-\end{equation}
-右辺の第一項は方位角運動が外向きに寄与する項、第二項は二つの質点を同時に上げることに伴う重力項である。
-
-\section*{[3] $z$ 軸まわりの角運動量}
-$L$ は $\varphi$ を含まないので、$\frac{d}{dt}(\partial L/\partial\dot\varphi)=0$。A の水平半径 $R_A$ と水平接線方向の速さ $R_A\dot\varphi$ の積から、保存量は
-\begin{equation}
- L_z=mr^2\sin^2\theta_0\,\dot\varphi
- =mr_0\sin\theta_0\,v_0. \label{eq:Lz}
-\end{equation}
-B は $z$ 軸上で動くため、この軸まわりの角運動量を持たない。
-
-\section*{[4] 方位角を消去した方程式}
-式\eqref{eq:Lz}より $\dot\varphi=v_0r_0/(r^2\sin\theta_0)$。これを式\eqref{eq:radial}に代入すると
-\begin{equation}
- \boxed{(m+M)\ddot r=\frac{mr_0^2v_0^2}{r^3}
- -g(m\cos\theta_0+M).} \label{eq:reduced}
-\end{equation}
-
-\section*{[5] 径方向の速さ}
-式\eqref{eq:reduced}に $\dot r$ を掛ける。$r^{-3}\dot r=-\frac12\frac{d}{dt}(r^{-2})$ であり、初期条件 $r=r_0,\dot r=0$ を使って積分すると
-\begin{align}
- \frac{m+M}{2}\dot r^{2}
- &=\frac{m v_0^2}{2}\left(1-\frac{r_0^2}{r^2}\right)
- -g(m\cos\theta_0+M)(r-r_0),\\
- \dot r^{2}
- &=\boxed{\frac{m v_0^2}{m+M}\left(1-\frac{r_0^2}{r^2}\right)
- -\frac{2g(m\cos\theta_0+M)}{m+M}(r-r_0).} \label{eq:rdotsq}
-\end{align}
-これは $r=r_0$ で確かに零になる。$l$ は糸長の制約を定めるが、$r$ に依存する運動エネルギー・力には現れない。
-
-\section*{[6] 他方の転回点}
-$r_1\ne r_0$ は式\eqref{eq:rdotsq}のもう一つの正の零点である。$r=r_1$ とおき、$1-r_0^2/r_1^2=(r_1-r_0)(r_1+r_0)/r_1^2$ を用いて $r_1-r_0$ を除くと
+よって1枚の中心軸まわりの慣性モーメントは $\int_0^{r_1}s^2\,\mathrm dm=Mr_1^2/4$。2枚を足すと
 \[
- 2g(m\cos\theta_0+M)r_1^2-mv_0^2r_1-mv_0^2r_0=0.
+\boxed{I_C=\frac12Mr_1^2}.
 \]
-左辺の定数項は負なので二根の符号は異なり、物理的な根は正の根である。よって
-\begin{equation}
- \boxed{r_1=\frac{mv_0^2+\sqrt{m^2v_0^4+8m v_0^2r_0g(m\cos\theta_0+M)}}{4g(m\cos\theta_0+M)}.} \label{eq:r1}
-\end{equation}
-$r_1>r_0$ か $r_1<r_0$ かは初期加速度の符号、すなわち $mv_0^2/r_0-g(m\cos\theta_0+M)$ の符号で決まる。等号の場合は $r_1=r_0$ の定常回転となり、この設問の異なる二つの転回点にはならない。問題文が想定する往復運動では、$r_0,r_1$ とその間の $r$ は $0<r<l$ を満たす。
+厚さを無視する内側の円盤には質量を割り当てない。$d_1$ は面密度を通じて $M$ に含まれている。
 
-\section*{[7] 定常回転を与える半頂角}
-ここからは問題文の通り $\theta_0$ だけを変え、$r=r_0$ を保つ別の運動を考える。式\eqref{eq:reduced}で $\ddot r=0$ とすると $mv_0^2/r_0=g(m\cos\theta_0+M)$。従って
-\begin{equation}
- \boxed{\theta_0=\arccos\!\left(\frac{v_0^2}{gr_0}-\frac{M}{m}\right).} \label{eq:theta}
-\end{equation}
-図の非退化な上向き円錐については $0<v_0^2/(gr_0)-M/m<1$ が必要である。
-
-\section*{[8] 微小変位後の角速度}
-瞬間的な力は $r$ 方向だけなので $z$ 軸まわりのトルクはなく、式\eqref{eq:Lz}の値は前後で同じである。$r=r_0+\rho$ を代入して
-\begin{equation}
- \boxed{\dot\varphi=\frac{v_0r_0}{(r_0+\rho)^2\sin\theta_0}
- =\frac{v_0}{r_0\sin\theta_0}\left(1+\frac{\rho}{r_0}\right)^{-2}.} \label{eq:phirho}
-\end{equation}
-ここでは後の運動の $\dot\rho$ の初期値は指定しない。
-
-\section*{[9] $\rho$ の一次の運動方程式}
-式\eqref{eq:reduced}に $r=r_0+\rho$ を入れ、$|\rho|\ll r_0$ で $(1+\rho/r_0)^{-3}\simeq1-3\rho/r_0$ と展開する。定数項 $mv_0^2/r_0-g(m\cos\theta_0+M)$ は式\eqref{eq:theta}の定常条件で零なので
-\begin{equation}
- \boxed{\ddot\rho+\omega^2\rho=0,\qquad
- \omega^2=\frac{3m v_0^2}{(m+M)r_0^2}
- =\frac{3g(m\cos\theta_0+M)}{(m+M)r_0}.} \label{eq:rho}
-\end{equation}
-$\omega^2>0$ なので、微小なずれに対する復元運動である。求めた式は $\rho/r_0$ の一次までで、$\rho^2$ 以上を捨てている。
-
-\section*{[10] B の運動}
-糸の長さから $z_B=r-l=r_0-l+\rho$ である。従って B は平均位置 $z_B=r_0-l$ のまわりを、A の径方向のずれと同じ $\rho$ だけ上下する。式\eqref{eq:rho}より、その運動は鉛直方向の単振動であり、角振動数は $\omega$、周期は
+\subsection*{[1.2] 並進と回転の運動方程式}
+並進の正方向を鉛直下向き、回転の正方向を糸がほどける向きに選ぶ。重力と糸の張力による並進の式は
 \[
- \boxed{T=\frac{2\pi}{\omega}
- =2\pi\sqrt{\frac{(m+M)r_0^2}{3m v_0^2}}.}
+\boxed{Ma=Mg-T}.
 \]
-微小力の力積は指定されていないので、振幅と位相はこの設問だけでは定まらない。A が外側へ動くとき B は上昇する。
+糸の張力は中心軸から距離 $r_2$ で作用するので、角速度のこの正方向の成分を $\omega$ とすれば
+\[
+\boxed{I_C\dot\omega=Tr_2}.
+\]
+糸が滑らないため、糸のほどけた長さは重心の下降距離に等しい。これを時間で二度微分すると $\boxed{a=r_2\dot\omega}$ となる。
 
+\subsection*{[1.3] 重心の加速度}
+回転の式と滑りなしの条件から $T=I_Ca/r_2^2$。これを並進の式に代入し、[1.1] の $I_C$ を使うと
+\[
+\left(M+\frac{Mr_1^2}{2r_2^2}\right)a=Mg,
+\qquad
+\boxed{a=\frac{2r_2^2}{r_1^2+2r_2^2}\,g}.
+\]
+$r_1,r_2,g>0$ なら $0<a<g$ であり、$T=M(g-a)>0$ とも整合する。
+
+\section*{[2] 磁場中の帯電球殻}
+位置 $\boldsymbol r$ は球殻の重心から表面上の点へ向かう。電荷は球殻とともに回るので、各表面素片の電荷に働く磁気力を求め、そのトルクを球面全体で積分する。外部磁場 $\boldsymbol B=(0,0,B)$ だけを用いる。
+
+\subsection*{[2.1] 表面上の速度}
+角速度 $\boldsymbol\omega$ で剛体回転する点の速度は、中心が静止しているため
+\[
+\boxed{\boldsymbol v=\boldsymbol\omega\times\boldsymbol r}.
+\]
+
+\subsection*{[2.2] 微小面積に働く力}
+面積 $\mathrm dS$ の電荷は $\sigma\,\mathrm dS$。磁場によるローレンツ力は、問題の三重積公式に $\boldsymbol a=\boldsymbol\omega$, $\boldsymbol b=\boldsymbol r$, $\boldsymbol c=\boldsymbol B$ を代入して
+\[
+\boxed{\mathrm d\boldsymbol F
+=\sigma\,\mathrm dS\,(\boldsymbol\omega\times\boldsymbol r)\times\boldsymbol B
+=\sigma\,\mathrm dS\left[(\boldsymbol\omega\cdot\boldsymbol B)\boldsymbol r
+-(\boldsymbol r\cdot\boldsymbol B)\boldsymbol\omega\right]}.
+\]
+$\sigma$ は符号付きの面電荷密度なので、負電荷では力の向きが反転する。
+
+\subsection*{[2.3] 微小トルク}
+原点まわりのトルクは $\boldsymbol r\times\mathrm d\boldsymbol F$。力のうち $\boldsymbol r$ と平行な項は寄与しない。したがって
+\[
+\boxed{\mathrm d\boldsymbol N
+=-\sigma\,\mathrm dS\,(\boldsymbol r\cdot\boldsymbol B)
+   (\boldsymbol r\times\boldsymbol\omega)
+=\sigma\,\mathrm dS\,(\boldsymbol r\cdot\boldsymbol B)
+   (\boldsymbol\omega\times\boldsymbol r)}.
+\]
+
+\subsection*{[2.4] 球面全体からのトルク}
+球面の回転・反射対称性［問題の式 (1)］により、$\int_{\Omega_R}x^2\,\mathrm dS$, $\int_{\Omega_R}y^2\,\mathrm dS$, $\int_{\Omega_R}z^2\,\mathrm dS$ は等しく、異なる座標の積の積分はゼロである。$x^2+y^2+z^2=R^2$ と球面積 $4\pi R^2$ から
+\[
+\int_{\Omega_R}x^2\,\mathrm dS
+=\int_{\Omega_R}y^2\,\mathrm dS
+=\int_{\Omega_R}z^2\,\mathrm dS
+=\frac{4\pi R^4}{3}.
+\]
+よって $\int_{\Omega_R}(\boldsymbol r\cdot\boldsymbol B)\boldsymbol r\,\mathrm dS=(4\pi R^4/3)\boldsymbol B$。$\boldsymbol\omega$ は球面上の位置に依らないので [2.3] を積分して
+\[
+\boldsymbol N=\frac{4\pi\sigma R^4}{3}\,\boldsymbol\omega\times\boldsymbol B.
+\]
+$\boldsymbol B=(0,0,B)$ を代入した答えは
+\[
+\boxed{N_x=\frac{4\pi\sigma BR^4}{3}\omega_y,\qquad
+N_y=-\frac{4\pi\sigma BR^4}{3}\omega_x,\qquad N_z=0}.
+\]
+
+\subsection*{[2.5] 各軸の慣性モーメント}
+面質量密度 $\rho$ について $x$ 軸からの距離の二乗は $y^2+z^2$。したがって
+\[
+I_x=\rho\int_{\Omega_R}(y^2+z^2)\,\mathrm dS
+=\frac{8\pi\rho R^4}{3}.
+\]
+同じ球対称性を $y,z$ 軸にも用いると
+\[
+\boxed{I_x=I_y=I_z=I=\frac{8\pi\rho R^4}{3}}.
+\]
+
+\subsection*{[2.6] 角速度と歳差の向き}
+球殻の慣性モーメントはどの軸でも $I$ なので、角運動量は $I\boldsymbol\omega$ であり、回転運動方程式は $I\dot{\boldsymbol\omega}=\boldsymbol N$。[2.4] と [2.5] を代入して
+\[
+\dot\omega_x=\frac{\sigma B}{2\rho}\omega_y,\qquad
+\dot\omega_y=-\frac{\sigma B}{2\rho}\omega_x,\qquad
+\dot\omega_z=0.
+\]
+初期条件は $\omega_x(0)=\omega_0\sin\theta$, $\omega_y(0)=0$, $\omega_z(0)=\omega_0\cos\theta$。最初の二式から $\ddot\omega_x=-(\sigma B/2\rho)^2\omega_x$ となり、初期値を満たす解は
+\[
+\boxed{\begin{aligned}
+\omega_x(t)&=\omega_0\sin\theta\cos\!\left(\frac{\sigma B}{2\rho}t\right),\\
+\omega_y(t)&=-\omega_0\sin\theta\sin\!\left(\frac{\sigma B}{2\rho}t\right),\\
+\omega_z(t)&=\omega_0\cos\theta.
+\end{aligned}}
+\]
+横成分を$\boldsymbol\omega_\perp=(\omega_x,\omega_y,0)$と書く。その大きさは $\omega_0\sin\theta$ のまま $xy$ 平面を回り、$\omega_z$ も一定である。したがって回転軸は $z$ 軸となす角 $\theta$ を保って歳差する。
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (-0.4,0)--(2.6,0) node[right] {$+x$};
+  \draw[->] (0,-0.35)--(0,2.2) node[above] {$+y$};
+  \draw[dashed] (0,0) circle (1.65);
+  \draw[->,very thick] (0,0)--(1.65,0) node[below right] {$\boldsymbol\omega_{\perp}(0)$};
+  \draw[->,thick] (1.7,0.16) arc[start angle=5,end angle=65,radius=1.7];
+  \node[anchor=west] at (2.0,1.25) {$\sigma<0,\ B>0$};
+  \node[below] at (0,-2.0) {$+z$ 側から見た横成分};
+\end{tikzpicture}
+\end{center}
+
+$\sigma<0,B>0$ なら、初期時刻の $\dot\omega_y(0)=-\sigma B\omega_0\sin\theta/(2\rho)>0$。すなわち横成分は $+x$ から $+y$ に向かうので、$+z$ 側から見た歳差の向きは\textbf{反時計回り}である。
 \end{document}

@@ -1,4 +1,4 @@
-% Source: public/notes/物工/問題/2022ap_exam.pdf, PDF pp. 4--5.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2022ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -9,98 +9,139 @@
 \usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2022年 物理学 第2問}
+\title{物理工学専攻 院試解答集\\2022年度 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-図の幾何では $y$ は下向き正で、棒の方向単位ベクトルは $(\sin\theta,\cos\theta)$ である。振動する支点の変位は鉛直成分だけに加わる。
+\section*{[1.1] 一様な無限鎖}
+$n$ 番目の質点は左右のばねから $k(x_{n+1}-x_n)$, $k(x_{n-1}-x_n)$ の力を受けるため
+\[
+\boxed{m\ddot x_n=k(x_{n+1}-2x_n+x_{n-1})}.
+\]
+
+\section*{[1.2] 平面波の分散関係}
+$x_n=e^{iqn}c_q(t)$ と置くと
+\[
+\boxed{\ddot c_q+\frac{2k}{m}(1-\cos q)c_q=0}
+\quad\left(=\ddot c_q+\frac{4k}{m}\sin^2\frac q2\,c_q=0\right).
+\]
+物理変位はこの複素解の実部である。
+
+\section*{[1.3] 固有振動数}
+$0<q<2\pi$ では
+\[
+\boxed{\omega_q=2\sqrt{\frac{k}{m}}\left|\sin\frac q2\right|},
+\qquad c_q(t)=C_+e^{i\omega_qt}+C_-e^{-i\omega_qt}.
+\]
+$k/m$ の次元は $\mathrm{s}^{-2}$ であり、$\omega_q$ は角振動数の次元を持つ。
+
+\section*{[1.4] 一様変位モード}
+$q=0$ では復元力が消え、$\ddot c_0=0$ より
+\[
+\boxed{c_0(t)=At+B}.
+\]
+定数項は鎖全体の並進、時間一次項は一様速度の並進に対応する。
+
+\section*{[2.1] 質量欠陥を含む運動方程式}
+質量が変わる原点と通常のサイトでは
+\[
+M\ddot x_0=k(x_1-2x_0+x_{-1}),\qquad
+m\ddot x_n=k(x_{n+1}-2x_n+x_{n-1})\quad(n\ne0).
+\]
+隣り合うばねは両質点に等大反対向きの力を及ぼすので、原点の質量だけを $M$ に置き換える。
+
+\section*{[2.2] バルクの振動数}
+欠陥から離れた $n\le-2$ と $n\ge1$ では質量は $m$ である。$e^{\pm iqn-i\omega_qt}$ を代入すれば
+\[
+\boxed{m\omega_q^2=2k(1-\cos q)=4k\sin^2\frac q2},
+\]
+すなわち [1.3] の分散関係が両側で成り立つ。
+
+\section*{[2.3] 界面での連立方程式}
+入射・反射・透過波を
+\[
+x_n(t)=\begin{cases}(e^{iqn}+R_qe^{-iqn})e^{-i\omega_qt},&n\le-1,\\T_qe^{iqn}e^{-i\omega_qt},&n\ge0\end{cases}
+\]
+とする。原点では $x_0=T_qe^{-i\omega_qt}$, $x_1=T_qe^{iq}e^{-i\omega_qt}$, $x_{-1}=(e^{-iq}+R_qe^{iq})e^{-i\omega_qt}$. これを質量 $M$ の運動方程式に代入すると
+\[
+\left(2-\frac{M\omega_q^2}{k}-e^{iq}\right)T_q-e^{iq}R_q=e^{-iq}.
+\]
+$n=-1$ の式には $x_{-2}=(e^{-2iq}+R_qe^{2iq})e^{-i\omega_qt}$ を代入し、バルク分散を使うと
+\[
+2\cos q(e^{-iq}+R_qe^{iq})=e^{-2iq}+R_qe^{2iq}+T_q
+\quad\Longrightarrow\quad \boxed{T_q-R_q=1}.
+\]
+従って
+\[
+\boxed{\left(2-e^{iq}-\frac{4M}{m}\sin^2\frac q2\right)T_q-e^{iq}R_q=e^{-iq},\qquad R_q=T_q-1}.
+\]
+
+\section*{[2.4] 透過・反射振幅}
+$R_q=T_q-1$ を界面式へ代入し、$m\omega_q^2/k=2-2\cos q$ を用いると
+\[
+\boxed{T_q=\frac{e^{-iq}-e^{iq}}
+{2(1-M/m)+(M/m)e^{-iq}-(2-M/m)e^{iq}}},\qquad
+\boxed{R_q=T_q-1}.
+\]
+この複素振幅には界面の位相も含まれる。
+
+\section*{[2.5] 質量極限の解釈}
+$M=m$ では分子・分母が等しく $T_q=1,R_q=0$ となり、鎖は一様で散乱しない。$M\to\infty$ では有限な $0<q<\pi$ に対して $T_q\to0$, $R_q\to-1$ であり、原点が動かない固定端から位相反転して反射する。
 \begin{center}
-\begin{tikzpicture}[scale=0.95]
-\def\L{2.0}
-\def\amp{0.4}
-\def\ang{30}
-\pgfmathsetmacro{\px}{\L*sin(\ang)}
-\pgfmathsetmacro{\py}{-(\amp+\L*cos(\ang))}
-\draw[->] (-1.0,0)--(2.0,0) node[right] {$x$};
-\draw[->] (0,0.25)--(0,-2.8) node[below] {$y$};
-\fill (0,0) circle (2pt) node[above left] {$(0,0)$};
-\fill (0,-\amp) circle (2pt);
-\node[anchor=west] at (0.2,{-\amp-0.13}) {$O(t)$};
-\draw[densely dashed] (0,0)--(0,-2.35);
-\draw[->] (0,-0.03)--(0,{-\amp+0.03}) node[midway,left] {$a\cos\Omega t$};
-\draw[very thick] (0,-\amp)--(\px,\py);
-\fill (\px,\py) circle (3pt) node[right] {$m$};
-\draw (0,-\amp) arc[start angle=270,end angle={270+\ang},radius=0.55*\L];
-\pgfmathsetmacro{\arcx}{0.62*\L*cos(285)}
-\pgfmathsetmacro{\arcy}{-\amp+0.62*\L*sin(285)}
-\node at (\arcx,\arcy) {$\theta$};
-\node at ({0.55*\px+0.32},{-\amp+0.55*(\py+\amp)}) {$L$};
+\begin{tikzpicture}[scale=0.9]
+\pgfmathsetmacro{\spacing}{1.2}
+\foreach \n in {-3,...,2} {\draw[thick] ({\n*\spacing},0)--({(\n+1)*\spacing},0);}
+\foreach \n in {-2,...,2} {\filldraw[fill=gray!25] ({\n*\spacing},0) circle(0.18);
+ \ifnum\n=0 \node[above] at (0,0.22) {$M$};\else \node[above] at ({\n*\spacing},0.22) {$m$};\fi}
+\draw[->,very thick] (-3.7,0.65)--(-2.9,0.65) node[midway,above] {入射};
+\draw[->,very thick] (-0.5,0.95)--(-1.3,0.95) node[midway,above] {反射};
+\draw[->,very thick] (0.5,0.65)--(1.3,0.65) node[midway,above] {透過};
+\node[below] at (0,-0.2) {$n=0$};
 \end{tikzpicture}
 \end{center}
 
-\section*{[1] おもりの座標}
-支点からおもりへの変位は $(L\sin\theta,L\cos\theta)$ なので
+\section*{[3.1] 周期境界条件}
+周期条件 $A_q=C_qe^{iqL}$, $B_q=D_qe^{-iqL}$ は $C_q=A_qe^{-iqL}$, $B_q=D_qe^{-iqL}$ と同値である。$\binom{C_q}{B_q}=S_q\binom{A_q}{D_q}$ と合わせると、入射係数ベクトルは $S_q$ の固有ベクトルで固有値 $e^{-iqL}$ を持つ。従って
 \[
-\boxed{x=L\sin\theta,\qquad y=a\cos\Omega t+L\cos\theta}.
+\det(S_q-e^{-iqL}I)=0
+\quad\Longleftrightarrow\quad
+\boxed{e^{-iqL}=T_q+R_q\quad\text{or}\quad e^{-iqL}=T_q-R_q}.
 \]
+$S_q$は$(1,1)^{\mathsf T}$と$(1,-1)^{\mathsf T}$にそれぞれ固有値$T_q+R_q$と$T_q-R_q$で作用する。二固有値が異なれば、各根は独立な一つの振動モードを与える。
 
-\section*{[2] Cartesian の運動方程式}
-張力は支点へ向かうため $x$ 成分は $-T\sin\theta$、下向き $y$ 成分は $-T\cos\theta$。重力は下向き正だから
+\section*{[3.2] 一様質量 $M=m$}
+このとき $T_q=1,R_q=0$ なので
 \[
-\boxed{m\ddot x=-T\sin\theta,\qquad m\ddot y=mg-T\cos\theta}.
+e^{-iqL}=1,\qquad \boxed{q=\frac{2\pi l}{L}}.
 \]
+$0<q<\pi$ では $l=1,\ldots,L/2-1$。各許容 $q$ で二方向の平面波が独立なので正の内部モードは $L-2$ 個で、
+\[
+\boxed{\omega_l=2\sqrt{\frac{k}{m}}\sin\frac{l\pi}{L}}.
+\]
+開区間に含めない $q=0$ は一様並進、$q=\pi$ は隣り合う質点が逆向きに動く帯域端モードであり、合わせて一様鎖の $L$ 個の座標自由度を満たす。
 
-\section*{[3] 座標の二階微分}
-[1] を時間微分すると
+\section*{[3.3] 質量 $M=2m$}
+透過振幅は
 \[
-\boxed{\ddot x=L(\ddot\theta\cos\theta-\dot\theta^2\sin\theta)},\qquad
-\boxed{\ddot y=-a\Omega^2\cos\Omega t-L(\ddot\theta\sin\theta+\dot\theta^2\cos\theta)}.
+T_q=\frac{e^{-iq}-e^{iq}}{2(e^{-iq}-1)},\qquad T_q-R_q=1,\qquad T_q+R_q=2T_q-1=e^{iq}.
 \]
+従って二つの固有値条件から
+\[
+q=\frac{2\pi l}{L}\quad(l=1,\ldots,L/2-1),\qquad
+q=\frac{2\pi l}{L+1}\quad(l=1,\ldots,L/2),
+\]
+いずれも $0<q<\pi$ を満たす。対応する振動数は両系列について
+\[
+\boxed{\omega_q=2\sqrt{\frac{k}{m}}\sin\frac q2}.
+\]
+系列間に重複はなく、式(2)型の伝搬モード数は $(L/2-1)+L/2=L-1$ 個となる。残り1個は $q=0$ の一様並進モードである。これら$L$個で全座標自由度を満たすため、別の局在高周波モードは加わらない。
 
-\section*{[4] 張力を消去した角運動方程式}
-第一式に $\cos\theta$ を掛け、第二式に $-\sin\theta$ を掛けて加えると張力が消え、
+\section*{[3.4] 固定質点極限 $M\to\infty$}
+この極限では $T_q\to0$, $R_q\to-1$ となり、周期条件の固有値は $\pm1$。従って
 \[
-m(\ddot x\cos\theta-\ddot y\sin\theta)=-mg\sin\theta.
+e^{-iqL}=\pm1,\qquad \boxed{q_j=\frac{j\pi}{L}\quad(j=1,\ldots,L-1)}.
 \]
-[3] の加速度を代入すると $\ddot x\cos\theta-\ddot y\sin\theta=L\ddot\theta+a\Omega^2\cos\Omega t\sin\theta$ なので
-\[
-\boxed{\ddot\theta+\frac{a\Omega^2}{L}\cos\Omega t\sin\theta=-\frac{g}{L}\sin\theta}.
-\]
-
-\section*{[5] 支点が静止したときの小振動}
-微小角では $\sin\theta\simeq\theta$。$a=0$ の方程式は
-\[
-\ddot\theta_0+\frac gL\theta_0=0,\qquad \omega_0=\sqrt{\frac gL}.
-\]
-初期条件 $\theta_0(0)=A$, $\dot\theta_0(0)=0$ より
-\[
-\boxed{\theta_0(t)=A\cos\omega_0t}.
-\]
-
-\section*{[6] 振幅 $a$ の一次応答}
-小角の方程式を $\theta=\theta_0+a\theta_1$ として展開する。$a^0$ の項は [5] の式、$a^1$ の項は
-\[
-\ddot\theta_1+\omega_0^2\theta_1=-\frac{\Omega^2}{L}\theta_0(t)\cos\Omega t
-=-\frac{A\Omega^2}{2L}\left\{\cos[(\Omega+\omega_0)t]+\cos[(\Omega-\omega_0)t]\right\}.
-\]
-右辺には積和公式による二つの側帯波が現れる。
-
-\section*{[7] 二つの側帯波をもつ特解}
-特解 $\theta_1=u_1\cos[(\Omega+\omega_0)t]+u_2\cos[(\Omega-\omega_0)t]$ を [6] に代入する。各周波数の係数条件は
-\[
-\left[\omega_0^2-(\Omega+\omega_0)^2\right]u_1=-\frac{A\Omega^2}{2L},\qquad
-\left[\omega_0^2-(\Omega-\omega_0)^2\right]u_2=-\frac{A\Omega^2}{2L}.
-\]
-$\Omega>0$ なので第1の分母は零にならず、第2の分母が零となるのは $\Omega=2\omega_0$ のときである。$A\ne0$ のとき、有限な二側帯波特解が存在する条件は
-\[
-\boxed{\Omega\ne2\sqrt{\frac gL}}.
-\]
-そのとき
-\[
-\boxed{u_1=\frac{A\Omega}{2L\left(\Omega+2\sqrt{g/L}\right)},\qquad
-u_2=\frac{A\Omega}{2L\left(\Omega-2\sqrt{g/L}\right)}}.
-\]
-共鳴点 $\Omega=2\omega_0$ では差周波側帯波が固有振動と一致し、通常は永年項を含むためこの有界な形の特解は得られない。$A=0$ なら一次の駆動自体がなく、$\theta_1=0$ は共鳴点でも解である。
+固有振動数は $\boxed{\omega_j=2\sqrt{k/m}\sin(j\pi/(2L))}$. 中央の質点は動かないため、有限質量の自由度は他の $L-1$ 個だけであり、上の解が全ての正の振動モードを数え尽くす。
 \end{document}

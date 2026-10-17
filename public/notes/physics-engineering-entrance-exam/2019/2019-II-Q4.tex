@@ -1,0 +1,124 @@
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h31ap_exam.pdf
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\usepackage{amsmath,amssymb,tikz}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集\\2019年度 物理学II 第4問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 化学ポテンシャルと電荷移動}
+内部エネルギーを$U(S,V,N)$とすると化学ポテンシャルは
+\begin{equation}
+ dU=T\,dS-p\,dV+\mu\,dN,\qquad
+ \mu=\left(\frac{\partial U}{\partial N}\right)_{S,V}
+\end{equation}
+で定義される。孤立したMの電子化学ポテンシャルは$-W$、Sでは$-\phi_s$である。接続すると電子は化学ポテンシャルの高い側から低い側へ移り、平衡では静電エネルギーを含む電気化学ポテンシャルが両側で一致する。$W>\phi_s$ならSからMへ移ってM側が負、S側が正になり、逆の大小関係なら電荷の向きは反転する。[1]では両方を含む電荷量の大きさを求める。
+
+\section*{[1.2] 誘起表面電荷}
+面積$A$の平行板容量は$C=\varepsilon_0A/d$である。S側の符号付き電荷を$q$と置く（$q>0$なら電子はSからMへ移る）。静電エネルギーは
+\begin{equation}
+ U_{\mathrm{es}}=\frac{q^2}{2C}=\frac{d q^2}{2\varepsilon_0A}.
+\end{equation}
+電子が移ることで化学自由エネルギーは$-(W-\phi_s)q/e$だけ変化する。従って全エネルギー
+\begin{equation}
+ U(q)=\frac{d q^2}{2\varepsilon_0A}
+ -\frac{W-\phi_s}{e}q
+\end{equation}
+を最小にする条件$\partial U/\partial q=0$から、S側の符号付き面電荷密度は$q/A=\varepsilon_0(W-\phi_s)/(ed)$である。求める大きさは
+\begin{equation}
+ \boxed{\rho=\frac{\varepsilon_0}{ed}|W-\phi_s|}.
+\end{equation}
+ここでは$\rho$を大きさとして用いた。原問の$M$側$-\rho$、$S$側$+\rho$という記号を符号付き密度と読めば、$W<\phi_s$のとき$\rho$の符号が反転する。
+
+\section*{[1.3] 板間の引力}
+一方の板が作る電場は$\rho/(2\varepsilon_0)$である。もう一方の板に働く圧力は$\rho$とこの電場の積だから
+\begin{equation}
+ F=A\frac{\rho^2}{2\varepsilon_0}
+ =\boxed{\frac{\varepsilon_0A}{2e^2d^2}|W-\phi_s|^2}.
+\end{equation}
+圧力の次元は$\mathrm{N/m^2}$で、面積を掛けると力になる。
+
+\section*{[1.4] 振動する間隔と電流}
+瞬時の平衡電荷密度は
+\begin{equation}
+ \frac{q(t)}{A}=\frac{\varepsilon_0(W-\phi_s)}{e[d+\delta\sin(\Omega t)]}
+ \simeq\frac{\varepsilon_0(W-\phi_s)}{ed}
+ \left[1-\frac{\delta}{d}\sin(\Omega t)\right]
+\end{equation}
+である。符号付き電荷の時間変化から$ I(t)=dq/dt$となり、振幅は
+\begin{equation}
+ \boxed{I_0=\frac{\varepsilon_0A\delta\Omega}{ed^2}|W-\phi_s|}.
+\end{equation}
+ここでは$\delta/d$の一次まで残した。
+
+\section*{[2.1] 半導体側のバンド曲がり}
+金属側の静電ポテンシャルを$\Phi_M$、半導体の十分内部のものを$\Phi_S$とし、同じ基準から測る。電子の静電エネルギーは$-e\Phi$なので、平衡での電気化学ポテンシャルの一致は
+\begin{equation}
+ -W-e\Phi_M=-\phi_s-e\Phi_S,\qquad
+ e(\Phi_S-\Phi_M)=W-\phi_s.
+\end{equation}
+界面固有の状態による追加のエネルギー変化を無視する原問の理想接合では、伝導帯端も静電エネルギーだけシフトする。従って界面と十分内部との伝導帯端の差は
+\begin{equation}
+ \boxed{\Delta_s=-e(\Phi_M-\Phi_S)=W-\phi_s}.
+\end{equation}
+これは半導体内部から界面までの伝導帯端の上昇である。$E_F$ から界面伝導帯端までの障壁は $\Delta_s+(\phi_s-\chi_c)=W-\chi_c$。図ではこの二つの差を分けて示し、同じ静電シフトを価電子帯端にも適用した。図の縦横の長さは縮尺を表さず、異なるエネルギー差の大小比較には用いない。破線は端点を結ぶ案内で、空乏領域内の詳細な電位分布は原問で定まらない。
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=0.62cm]
+ \pgfmathsetmacro{\bulkEc}{0.8}
+ \pgfmathsetmacro{\shiftE}{1.4}
+ \pgfmathsetmacro{\gapE}{3.4}
+ \pgfmathsetmacro{\interfaceEc}{\bulkEc+\shiftE}
+ \pgfmathsetmacro{\bulkEv}{\bulkEc-\gapE}
+ \pgfmathsetmacro{\interfaceEv}{\interfaceEc-\gapE}
+ \draw[->] (-0.2,-3.0) -- (-0.2,3.1) node[above] {エネルギー};
+ \draw[->] (-1.5,-0.8) -- (5.3,-0.8) node[right] {$x$};
+ \draw[thick] (-1.3,0) -- (0,0);
+ \draw[dashed] (-1.3,0) -- (5,0) node[right] {$E_F$};
+ \draw[thick] (0,{\interfaceEc}) -- (0.65,{\interfaceEc});
+ \draw[densely dashed,thick] (0.65,{\interfaceEc}) -- (1.35,{\bulkEc});
+ \draw[thick] (1.35,{\bulkEc}) -- (4.8,{\bulkEc});
+ \draw[thick] (0,{\interfaceEv}) -- (0.65,{\interfaceEv});
+ \draw[densely dashed,thick] (0.65,{\interfaceEv}) -- (1.35,{\bulkEv});
+ \draw[thick] (1.35,{\bulkEv}) -- (4.8,{\bulkEv});
+ \draw[<->] (2.2,0) -- (2.2,{\bulkEc}) node[midway,right] {$\phi_s-\chi_c$};
+ \draw[dashed] (0,{\interfaceEc})--(0.62,{\interfaceEc});
+ \draw[dashed] (0.62,{\bulkEc})--(1.35,{\bulkEc});
+ \draw[<->] (0.62,{\bulkEc}) -- (0.62,{\interfaceEc}) node[midway,left,xshift=-2pt] {$\Delta_s$};
+ \draw[<->] (2.2,{\bulkEv}) -- (2.2,{\interfaceEv}) node[midway,right] {$\Delta_s$};
+ \node at (3.6,1.12) {伝導帯端 $E_c$};
+ \node[anchor=west] at (2.8,-2.3) {価電子帯端 $E_v$};
+ \node at (-0.7,-0.5) {M};
+ \node at (2.4,-0.5) {S};
+ \node[align=center] at (3.7,2.35) {中間の形状は\\原問で未指定};
+\end{tikzpicture}
+\end{center}
+
+\section*{[2.2] 熱活性化と整流性}
+半導体内部のフェルミ準位は伝導帯端より$\phi_s-\chi_c>0$だけ低い。伝導帯内の状態のエネルギーを$E$、フェルミ準位を$E_F$とすると、非縮退近似でその状態の占有因子は$\exp[-(E-E_F)/(k_BT)]$である。界面では伝導帯端が$\Delta_s$だけ高くなるため、十分内部と同じ伝導帯端からのエネルギーを持つ状態同士の占有因子の比は
+\begin{equation}
+ \frac{\exp[-(E+\Delta_s-E_F)/(k_BT)]}
+      {\exp[-(E-E_F)/(k_BT)]}
+ =\exp\!\left(-\frac{\Delta_s}{k_BT}\right).
+\end{equation}
+従って平衡での界面近傍の伝導電子は少なく、半導体から金属への電子の供給は熱活性化によって抑えられる。
+
+平衡をゼロとする外部からの印加電圧を$V=V_M-V_S$とする。印加電圧が主に空乏層にかかる近似では、静電ポテンシャル差$\Phi_M-\Phi_S$は平衡値から$V$だけ変化する。電子の静電エネルギーは$-e\Phi$なので、
+\begin{equation}
+ \Delta_s(V)=\Delta_s(0)-eV.
+\end{equation}
+以下では半導体内部の温度と電子密度を一定とし、障壁を越える熱放出が電流を支配する範囲を考える。障壁が残り、界面を通過する割合の電圧依存を無視できるとき、SからMへの電子流は平衡時に比べて
+\begin{equation}
+ \frac{\exp[-\Delta_s(V)/(k_BT)]}{\exp[-\Delta_s(0)/(k_BT)]}
+ =\exp\!\left(\frac{eV}{k_BT}\right)
+\end{equation}
+倍となる。一方、Mのフェルミ準位と界面の伝導帯端はともに$-e\Phi_M$だけ動くため、その間の障壁$W-\chi_c$は変わらず、MからSへの電子流はほぼ一定である。
+
+平衡では両向きの電子流が釣り合う。Mを正にするとSからMへの流れが増え、その差として正味の電子流がSからMへ生じる。Mを負にするとSからMへの流れが抑えられ、ほぼ一定のMからSへの流れが残る。この非対称な電圧依存によって整流性が生じ、順方向の通常の電流は電子流と逆のMからSへ流れる。
+\end{document}

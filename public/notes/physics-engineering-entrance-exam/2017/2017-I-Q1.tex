@@ -1,86 +1,131 @@
-% Source problem: public/notes/物工/問題/2017ap_exam.pdf, page 2.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h29ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2017年 物理学I 第1問}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2017年度 物理学I 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 質点の速さ}
-頂点を位置エネルギーの基準にする。角度$\theta$まで降りたときの高さの減少は$R(1-\cos\theta)$なので、力学的エネルギー保存から
+\section*{[1.1] Bが動き出す時刻}
+Cが動き始めてから$t$秒後、Bが静止している間は右側のばねの伸びが$v_0t$である。Bを右へ引く力は$kv_0t$。これが最大静止摩擦力$\mu mg$に達した時にBが動き始めるので
 \begin{equation}
- \frac12 mv^2=mgR(1-\cos\theta),\qquad
- \boxed{v(\theta)=\sqrt{2gR(1-\cos\theta)}}.
+  kv_0t_0=\mu mg,\qquad
+  \boxed{t_0=\frac{\mu mg}{kv_0}}.
 \end{equation}
 
-\section*{[1.2] 質点の離脱}
-半径方向内向きを正に取ると、接触中は$mg\cos\theta-N=mv^2/R$である。離脱時は$N=0$だから、$v_c^2=gR\cos\theta_{c1}$。これとエネルギー式を合わせると
-\begin{equation}
- 2(1-\cos\theta_{c1})=\cos\theta_{c1},\qquad
- \boxed{\cos\theta_{c1}=\frac23},\quad
- \boxed{v_{c1}=\sqrt{\frac{2gR}{3}}}.
-\end{equation}
-
-\section*{[2.1] 一様球の慣性モーメント}
-球の密度は$\rho_m=3m/(4\pi r^3)$である。球座標で極角を$\vartheta$とすると
+\section*{[1.2] Bの運動方程式}
+Bが動き始めた時刻を$t=0$とする。このときCは初期位置から$v_0t_0$だけ進んでおり、その後$t$秒間にさらに$v_0t$進む。Aは静止しているため、左のばねは$x_B$だけ伸び、右のばねは$v_0(t+t_0)-x_B$だけ伸びる。Bは右向きに滑るので動摩擦力は左向きである。よって
 \begin{align}
- I&=\int (s\sin\vartheta)^2\rho_m\,s^2\sin\vartheta\,ds\,d\vartheta\,d\phi\\
- &=\rho_m\left(\int_0^r s^4ds\right)
-   \left(\int_0^\pi\sin^3\vartheta\,d\vartheta\right)(2\pi)
- =\boxed{\frac25mr^2}.
+  m\ddot x_B
+  &=k\{v_0(t+t_0)-x_B\}-kx_B-\frac23\mu mg\\
+  &=-2kx_B+kv_0t+\frac13\mu mg
+   =-2kx_B+kv_0t+\frac13kv_0t_0.
 \end{align}
+ここでは$x_B(0)=0$に加えて、滑り始める直前まで静止していたことから$\dot x_B(0)=0$である。
 
-\section*{[2.2] 転がり条件}
-球中心の軌道半径は$R+r$である。接触点の速度がゼロだから、$v=r\omega$（角速度の大きさ）となる。
+\section*{[1.3] Bの位置}
+角振動数$\omega=\sqrt{2k/m}$を導入すると
+\begin{equation}
+  \ddot x_B+\omega^2x_B=\frac{k v_0}{m}t+\frac{k v_0t_0}{3m}.
+\end{equation}
+右辺に対する一次式の特解を$x_p=v_0t/2+v_0t_0/6$とおける。一般解に初期条件を適用すると
+\begin{equation}
+  \boxed{x_B(t)=\frac{v_0t}{2}+\frac{v_0t_0}{6}
+    -\frac{v_0t_0}{6}\cos(\omega t)
+    -\frac{v_0}{2\omega}\sin(\omega t)}.
+\end{equation}
+この式は$t=0$で$x_B=\dot x_B=0$を満たす。
 
-\section*{[2.3] 転がる球の離脱}
-重心の位置エネルギー減少は$mg(R+r)(1-\cos\theta)$である。$I=2mr^2/5$および$\omega=v/r$を使うと
+\section*{[1.4] Aが静止を保つ条件}
+$\omega t_0\ll1$のもとで、解の二つの差をそれぞれ展開する。
+\begin{align}
+  x_B(t_0)
+  &=\frac{v_0}{2}\left(t_0-\frac{\sin(\omega t_0)}{\omega}\right)
+    +\frac{v_0t_0}{6}\left[1-\cos(\omega t_0)\right]\\
+  &=\frac{v_0\omega^2t_0^3}{12}
+    +\frac{v_0\omega^2t_0^3}{12}
+    +O(v_0\omega^4t_0^5)\\
+  &=\boxed{\frac{v_0\omega^2t_0^3}{6}
+    =\frac{k v_0t_0^3}{3m}}+O(v_0\omega^4t_0^5).
+\end{align}
+このときAに働くばね力の大きさは
 \begin{equation}
- mg(R+r)(1-\cos\theta)=\frac12mv^2+\frac12I\omega^2
- =\frac7{10}mv^2,
-\quad v^2=\frac{10}{7}g(R+r)(1-\cos\theta).
+  kx_B(t_0)\simeq\frac{\mu mg}{6}(\omega t_0)^2\ll\mu mg,
 \end{equation}
-離脱時の半径方向の式は$mg\cos\theta_{c2}=mv_{c2}^2/(R+r)$である。二式を連立して
+である。従ってAを動かすのに必要な力は最大静止摩擦力より小さく、Aは静止を保つ。
+
+\section*{[2.1] 微小振動の運動方程式と固有振動数}
+外部ポテンシャルの曲率は
 \begin{equation}
- \boxed{\cos\theta_{c2}=\frac{10}{17}},\qquad
- \boxed{v_{c2}=\sqrt{\frac{10}{17}g(R+r)}}.
+  U''(x)=k_1\left[-1+3\left(\frac{x}{l}\right)^2\right].
+\end{equation}
+従って中央のBでは$U''(0)=-k_1$、両端のA,Cでは$U''(\pm l)=2k_1$である。ばね力と外力を一次まで残すと
+\begin{equation}
+  m\begin{pmatrix}\ddot q_A\\\ddot q_B\\\ddot q_C\end{pmatrix}
+  =\begin{pmatrix}
+    -k_0-2k_1&k_0&0\\
+    k_0&-2k_0+k_1&k_0\\
+    0&k_0&-k_0-2k_1
+  \end{pmatrix}
+  \begin{pmatrix}q_A\\q_B\\q_C\end{pmatrix}.
+  \label{eq:linearized}
+\end{equation}
+式\eqref{eq:linearized}の右辺の行列を$K$とおく。これを$(1,0,-1)^T$に作用させると
+\begin{equation}
+  K\begin{pmatrix}1\\0\\-1\end{pmatrix}
+  =-(k_0+2k_1)\begin{pmatrix}1\\0\\-1\end{pmatrix}.
+\end{equation}
+運動方程式は$m\ddot{\boldsymbol q}=K\boldsymbol q$なので、左右反対称モードの角振動数は
+\begin{equation}
+  \boxed{\omega_a^2=\frac{k_0+2k_1}{m}}.
+\end{equation}
+対称な変位$(a,b,a)$では、力の係数行列$K$は$(a,b)$に対して
+\begin{equation}
+  K_s=\begin{pmatrix}-k_0-2k_1&k_0\\2k_0&-2k_0+k_1\end{pmatrix}
+\end{equation}
+と作用する。$K_s$の固有値を$-m\omega^2$と書くと
+\begin{equation}
+  m^2\omega^4-m(3k_0+k_1)\omega^2+(3k_0k_1-2k_1^2)=0,
+\end{equation}
+したがって対称モードの二つの周波数は
+\begin{equation}
+  \boxed{\omega_{\pm}^2=
+  \frac{3k_0+k_1\pm\sqrt{9k_0^2-6k_0k_1+9k_1^2}}{2m}}.
+\end{equation}
+$\omega_-$が小さい方の周波数である。三つのモードが正の固有角振動数を持つ安定な微小振動となるのは $0<k_1<3k_0/2$ である。等号の $k_1=3k_0/2$ では $\omega_-=0$ となり、線形化した零モードは $\ddot q=0$ であって振動しない。これを不安定化の臨界点として区別する。
+
+\section*{[2.2] 不安定になる基準振動}
+$k_1$を増すと、最初にゼロになるのは対称モードの低周波数$\omega_-$である。二つの対称モードの積は
+\begin{equation}
+  \omega_-^2\omega_+^2=\frac{k_1(3k_0-2k_1)}{m^2}.
+\end{equation}
+従って臨界値では$3k_0-2k_c=0$となり
+\begin{equation}
+  \boxed{k_c=\frac32 k_0}.
+\end{equation}
+$k_1>k_c$では$\omega_-^2<0$となるため、この対称な低周波数モードが不安定である。
+
+\section*{[2.3] 不安定化するモードの変位比}
+$k_1=4k_c/9=2k_0/3$では
+\begin{equation}
+  \omega_-^2=\frac{k_0}{3m}.
+\end{equation}
+このとき
+\begin{equation}
+  K_s=k_0\begin{pmatrix}-7/3&1\\2&-4/3\end{pmatrix}.
+\end{equation}
+固有値$-k_0/3=-m\omega_-^2$の固有ベクトルは$(a,b)=(1,2)$であり、全三質点では$(q_A,q_B,q_C)\propto(1,2,1)$となる。よって
+\begin{equation}
+  \boxed{q_A:q_B:q_C=1:2:1}.
 \end{equation}
 
-\section*{[2.4] 離脱角の違い}
-同じ角度$\theta$での向心加速度を、各中心軌道の半径を使って比較すると
-\begin{equation}
- \text{質点：}\quad\frac{v^2}{R}=2g(1-\cos\theta),\qquad
- \text{球：}\quad\frac{v^2}{R+r}=\frac{10}{7}g(1-\cos\theta).
-\end{equation}
-転がる球では位置エネルギーの一部が回転エネルギーに入るため、向心加速度の係数が小さい。接触中の法線抗力は、質点では$N=m[g\cos\theta-v^2/R]$、球では$N=m[g\cos\theta-v^2/(R+r)]$であり、球のほうが同じ角度で大きい。そのため球はより大きな角度まで接触を保つ。実際、$10/17<2/3$より$\theta_{c2}>\theta_{c1}$である。
-
-\section*{[3.1] 撃力の作用高さ}
-撃力の作用時間を十分短く取り、その間の重力と接触摩擦の力積を無視する。頂点で水平方向に打つので、支持面へ向かう法線方向の衝突も生じない。この局所的な撃力モデルでは、並進の力積収支から$mv_0=P$、重心まわりの角力積収支から$I\omega_0=P(h-r)$となる。接触点の水平速度がゼロとなるためには、撃力直後の重心速度$v_0=P/m$と角速度$\omega_0$が$v_0=r\omega_0$を満たす必要がある。従って
-\begin{equation}
- \omega_0=\frac{P(h-r)}{I}=\frac{5P(h-r)}{2mr^2}.
-\end{equation}
-これを転がり条件に代入すると
-\begin{equation}
- \boxed{h=\frac75r},\qquad v_0=\frac{P}{m},\quad \omega_0=\frac{P}{mr}.
-\end{equation}
-
-\section*{[3.2] 撃力後の離脱}
-撃力後は力学的エネルギーが保存される。最初の並進・回転運動エネルギーは$(7/10)P^2/m$なので
-\begin{equation}
- v^2=\frac{10}{7}g(R+r)(1-\cos\theta)+\frac{P^2}{m^2}.
-\end{equation}
-離脱条件$v_c^2=g(R+r)\cos\theta_{c3}$と連立すると
-\begin{equation}
- \boxed{\cos\theta_{c3}=\frac{10}{17}
- +\frac{7P^2}{17m^2g(R+r)}},\qquad
- \boxed{v_{c3}=\sqrt{\frac{10}{17}g(R+r)+\frac{7P^2}{17m^2}}}.
-\end{equation}
-この離脱角が実現するには、右辺が$0$以上$1$以下でなければならない。
 \end{document}

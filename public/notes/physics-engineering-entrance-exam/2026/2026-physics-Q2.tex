@@ -1,4 +1,4 @@
-% Source: public/notes/物工/問題/2026ap_exam.pdf, Japanese PDF pp. 4--5.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2026ap_exam_je.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -8,105 +8,121 @@
 \usepackage{amsmath,amssymb}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2026年 物理学 第2問}
+\title{物理工学専攻 院試解答集\\2026年度 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 自由回転状態の規格化}
-角度 $\phi$ は一周すると同じ配置に戻る。従って一周分 $0\leq\phi<2\pi$ で規格化する。$A$ は正の実数だから
-\begin{equation}
-1=\int_0^{2\pi}|\Psi_m(\phi)|^2\,\mathrm d\phi
- =A^2\int_0^{2\pi}\mathrm d\phi=2\pi A^2,
-\qquad \boxed{A=\frac{1}{\sqrt{2\pi}}}.
-\end{equation}
+\section*{[1.1] 調和振動子の幅}
+$V_0=0$ のハミルトニアンを $\hat H_0$ と書く。式 (2) の Gaussian を微分すると
+\[
+\psi_0''(x)=(\alpha^2x^2-\alpha)\psi_0(x).
+\]
+これを $\hat H_0\psi_0=E_0\psi_0$ に代入し、$x^2$ の係数を比較すると
+\[
+-\frac{\hbar^2\alpha^2}{2m}+\frac{m\omega^2}{2}=0.
+\]
+$\alpha>0$ は波動関数が無限遠で減衰する条件だから、
+\[
+\boxed{\alpha=\frac{m\omega}{\hbar}}.
+\]
+このとき定数項も $E_0=\hbar^2\alpha/(2m)=\hbar\omega/2$ となる。
 
-\section*{[1.2] 周期性とエネルギー}
-波動関数の一価性 $\Psi_m(\phi+2\pi)=\Psi_m(\phi)$ は $e^{2\pi i m}=1$、すなわち $m\in\mathbb Z$ を要求する。$V_3=0$ の (2) に $e^{im\phi}$ を代入すると、二階微分は $-m^2e^{im\phi}$ なので
-\begin{equation}
-\boxed{E_m=\frac{\hbar^2m^2}{2I}},\qquad m=0,\pm1,\pm2,\ldots.
-\end{equation}
-$m\neq0$ では $m$ と $-m$ が同じエネルギーを持つ。
+\section*{[1.2] 小さい段差によるエネルギーの変化}
+段差の摂動は $x<0$ で $V_0$、$x\geq0$ で0である。有限の $V_0$ に対する基底エネルギーを $E_0(V_0)$ と書く。非縮退基底状態の一次補正は、左半直線に粒子を見いだす確率を $V_0$ に掛けたものになる。$|\psi_0(x)|^2$ は偶関数で規格化されているため、この確率は $1/2$。したがって
+\[
+\boxed{E_0(V_0)-E_0
+=V_0\int_{-\infty}^{0}|\psi_0(x)|^2\,\mathrm dx+O(V_0^2)
+=\frac{V_0}{2}+O\!\left(\frac{V_0^2}{\hbar\omega}\right)}.
+\]
+ここでは $V_0\ll\hbar\omega$ とし、二次以上の項を省いた。
 
-\section*{[2.1] 極小近傍の調和振動}
-極小は $\phi_k=2\pi k/3$ ($k=0,1,2$) であり、$V(\phi_k)=0$ である。$\phi-\phi_k$ が小さいとき $1-\cos[3(\phi-\phi_k)]\simeq\tfrac92(\phi-\phi_k)^2$ だから
-\begin{equation}
-V(\phi)\simeq\frac{9V_3}{4}(\phi-\phi_k)^2
-=\frac12 I\omega_0^2(\phi-\phi_k)^2.
-\end{equation}
-回転の運動エネルギーは $I\dot\phi^2/2$ なので、調和振動子の質量に相当する係数は $I$ である。従って
-\begin{equation}
-\boxed{\omega_0=3\sqrt{\frac{V_3}{2I}}},\qquad
-\boxed{\epsilon=\frac{\hbar\omega_0}{2}=\frac{3\hbar}{2}\sqrt{\frac{V_3}{2I}}}.
-\end{equation}
+\section*{[2.1] 無限壁と許される固有関数}
+$V_0\to\infty$ では、有限のエネルギーをもつ束縛状態は $x<0$ に確率振幅をもてない。無限壁の境界条件は $\phi_k(0)=0$ である。$x>0$ の Schrödinger 方程式は $\hat H_0$ と同じである。正の半直線で減衰する解を $x<0$ へ $-\phi_k(-x)$ として奇拡張すると、$\phi_k(0)=0$ により原点で関数値がつながり、左右の導関数も一致する。調和振動子のポテンシャルは偶関数なので、拡張した関数は両半直線で同じ固有値の Schrödinger 方程式を満たし、全直線の奇固有関数となる。問題文のパリティ条件によれば、それは奇数番号の $\psi_{2k+1}$ に比例する。負の半直線を0とし、正の半直線で $\psi_{2k+1}$ を定数倍したものが式 (4) になる。
 
-\section*{[2.2] 三つの極小点を結ぶトンネル効果}
-以下、(3) と (6) の通常の行列固有値問題として、局在状態 $|1\rangle,|2\rangle,|3\rangle$ を互いに直交する規格化基底として扱う。原題は各状態の規格化だけを明記しているが、重なりが無視できない場合には別途重なり行列を要する。
+\section*{[2.2] 規格化とエネルギー}
+$\psi_{2k+1}$ は奇関数で全直線上で規格化されている。その確率密度は偶関数だから
+\[
+1=\int_{-\infty}^{\infty}|\psi_{2k+1}|^2\,\mathrm dx
+=2\int_0^{\infty}|\psi_{2k+1}|^2\,\mathrm dx.
+\]
+式 (4) の規格化条件 $N^2\int_0^\infty|\psi_{2k+1}|^2\,\mathrm dx=1$ と $N>0$ より
+\[
+\boxed{N=\sqrt2},\qquad
+\boxed{\epsilon_k=E_{2k+1}=\left(2k+\frac32\right)\hbar\omega}
+\quad(k=0,1,\ldots).
+\]
+特に、無限壁の基底状態は全直線振動子の第1励起状態の右半分である。
 
-(3) の各成分は
-\begin{equation}
-(\widetilde H\boldsymbol c)_j=(\epsilon+t)c_j-t(c_1+c_2+c_3),
-\qquad \boldsymbol c=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}
-\end{equation}
-と書ける。三成分が等しい対称状態では $c_1=c_2=c_3=e^{i\alpha}/\sqrt3$、$\alpha$ は任意の全体位相であり、固有値は $\boxed{E_{\mathrm s}=\epsilon-2t}$ となる。一方、$c_1+c_2+c_3=0$ の二次元部分空間では $\boxed{E_{\mathrm d}=\epsilon+t}$ が二重縮退する。この部分空間の任意の状態は $|c_1|^2+|c_2|^2+|c_3|^2=1$ を満たせば規格化される。三つの係数を個別に一意に定める条件はない。
+\section*{[3.1] 壁を取り去った直後の展開}
+ポテンシャルを瞬間的に変えても、その瞬間の波動関数は変わらない。したがって $\Psi(x,0)=\phi_0(x)$ を新しいハミルトニアン $\hat H_0$ の完全な固有関数系で展開し、係数は $c_j=\langle\psi_j|\phi_0\rangle$ とする。$c_0$ は実で正であり、式 (2)、(3) と $N=\sqrt2$ を使うと
+\begin{align*}
+c_0&=\sqrt2\int_0^\infty\psi_0(x)\psi_1(x)\,\mathrm dx\\
+&=2\sqrt\alpha\left(\frac\alpha\pi\right)^{1/2}
+\int_0^\infty x e^{-\alpha x^2}\,\mathrm dx
+=2\sqrt\alpha\left(\frac\alpha\pi\right)^{1/2}\frac1{2\alpha}.
+\end{align*}
+よって
+\[
+\boxed{c_0=\frac1{\sqrt\pi}}.
+\]
+ここで用いた積分は $u=\alpha x^2$ と置けば直ちに得られる。
 
-\section*{[2.3] 回転操作との同時固有状態}
-(4) から、$R$ は係数を $(c_1,c_2,c_3)\mapsto(c_3,c_1,c_2)$ と移す。$\omega^3=1$ および $1+\omega+\omega^2=0$ を用いれば、規格化された同時固有状態を
-\begin{align}
-\boxed{|\Psi_1\rangle}&=\frac{|1\rangle+|2\rangle+|3\rangle}{\sqrt3},
-& R|\Psi_1\rangle&=|\Psi_1\rangle,
-& \widetilde H|\Psi_1\rangle&=(\epsilon-2t)|\Psi_1\rangle,\\
-\boxed{|\Psi_{\omega}\rangle}&=\frac{|1\rangle+\omega^2|2\rangle+\omega|3\rangle}{\sqrt3},
-& R|\Psi_{\omega}\rangle&=\omega|\Psi_{\omega}\rangle,
-& \widetilde H|\Psi_{\omega}\rangle&=(\epsilon+t)|\Psi_{\omega}\rangle,\\
-\boxed{|\Psi_{\omega^2}\rangle}&=\frac{|1\rangle+\omega|2\rangle+\omega^2|3\rangle}{\sqrt3},
-& R|\Psi_{\omega^2}\rangle&=\omega^2|\Psi_{\omega^2}\rangle,
-& \widetilde H|\Psi_{\omega^2}\rangle&=(\epsilon+t)|\Psi_{\omega^2}\rangle
-\end{align}
-と選べる。例えば $R|\Psi_{\omega}\rangle=(\omega|1\rangle+|2\rangle+\omega^2|3\rangle)/\sqrt3=\omega|\Psi_{\omega}\rangle$ であり、位相の対応を直接確かめられる。三状態は互いに直交する。
+\section*{[3.2] 壁を取り去った後のエネルギー期待値}
+$t>0$ では $\hat H_0$ が時間に依存しないため、エネルギー期待値は時刻0の値に等しい。初期波動関数は原点で0となるが、導関数には跳びがある。そこで、エネルギーを運動エネルギーとポテンシャルエネルギーの積分で評価する。各半直線で部分積分すると
+\begin{equation}
+ -\int_0^\infty\psi_1^*\psi_1''\,dx
+ =-[\psi_1^*\psi_1']_0^\infty+\int_0^\infty|\psi_1'|^2\,dx
+ =\int_0^\infty|\psi_1'|^2\,dx
+\end{equation}
+となる。原点では$\psi_1(0)=0$、無限遠では波動関数が減衰するので境界項は消える。$\phi_0=\sqrt2\psi_1$ ($x>0$) だから
+\begin{align*}
+E(t)&=\int_{-\infty}^{\infty}\left[
+\frac{\hbar^2}{2m}|\phi_0'(x)|^2
++\frac{m\omega^2x^2}{2}|\phi_0(x)|^2\right]\mathrm dx\\
+&=2\int_0^\infty\left[
+\frac{\hbar^2}{2m}|\psi_1'(x)|^2
++\frac{m\omega^2x^2}{2}|\psi_1(x)|^2\right]\mathrm dx.
+\end{align*}
+角括弧の中は偶関数なので、最後の式は全直線上の $\psi_1$ のエネルギー期待値である。したがって
+\[
+\boxed{E(t)=E_1=\frac32\hbar\omega\qquad(t>0)}.
+\]
+この値は壁を取り去った後の $\hat H_0$ に関する期待値であり、$\phi_0$ 自体が $\hat H_0$ の固有状態だという意味ではない。
 
-\section*{[2.4] WKB の障壁積分}
-$\epsilon\simeq0$ とすると、隣接する極小間の転回点は $\phi_1\simeq0$、$\phi_2\simeq2\pi/3$ となる。この区間では $\sin(3\phi/2)\geq0$ であり、$1-\cos(3\phi)=2\sin^2(3\phi/2)$ だから、(5) の作用積分は
-\begin{align}
-\int_0^{2\pi/3}\!\sqrt{2I V(\phi)}\,\mathrm d\phi
-&=\sqrt{2IV_3}\int_0^{2\pi/3}\sin\!\left(\frac{3\phi}{2}\right)\mathrm d\phi\\
-&=\sqrt{2IV_3}\left[-\frac23\cos\!\left(\frac{3\phi}{2}\right)\right]_0^{2\pi/3}
-=\frac43\sqrt{2IV_3}.
-\end{align}
-従って深い障壁 $V_3\gg\epsilon$、すなわち $\sqrt{2IV_3}\gg\hbar$ の指数近似で
-\begin{equation}
-\boxed{t\approx C\exp\!\left[-\frac{4\sqrt{2IV_3}}{3\hbar}\right]}.
-\end{equation}
-$\sqrt{IV_3}$ は作用の次元を持つので指数は無次元である。$C$ は (5) で未指定の前因子であり、この近似だけでは決められない。
+\section*{[3.3] 一周期後の波動関数}
+急変後の展開の各成分は、$\hat H_0$ の固有エネルギー $E_j=(j+1/2)\hbar\omega$ に従い
+\[
+\Psi(x,t)=\sum_{j=0}^{\infty}c_j
+e^{-i(j+1/2)\omega t}\psi_j(x)
+\]
+と進む。$t=2\pi/\omega$ では全ての $j$ で位相が $e^{-i(2j+1)\pi}=-1$ となるので、$\Psi(x,2\pi/\omega)=-\phi_0(x)$。式 (3) と $\alpha=m\omega/\hbar$ を使って明示すると
+\[
+\boxed{\Psi\!\left(x,\frac{2\pi}{\omega}\right)=
+\begin{cases}
+0 &(x<0),\\[2pt]
+-2\sqrt\alpha\left(\dfrac\alpha\pi\right)^{1/4}
+x e^{-\alpha x^2/2} &(x\geq0).
+\end{cases}}
+\]
+位相 $-1$ は確率密度を変えないが、波動関数の値としては残る。
 
-\section*{[3.1] 対称・反対称基底での行列}
-$|A\rangle=(|2\rangle+|3\rangle)/\sqrt2$、$|B\rangle=(|2\rangle-|3\rangle)/\sqrt2$ とする。$|1\rangle$ は $|2\rangle,|3\rangle$ に同じ $-t'$ で結合するので、$|A\rangle$ への行列要素は $-\sqrt2t'$、$|B\rangle$ への行列要素は零である。また $|2\rangle,|3\rangle$ 間の $-t$ は対称・反対称状態をそれぞれ $\epsilon-t,\epsilon+t$ に分ける。従って指定された順序 $(|1\rangle,|A\rangle,|B\rangle)$ で
-\begin{equation}
-\boxed{\widetilde H'=
-\begin{pmatrix}
-\epsilon-\Delta&-\sqrt2t'&0\\
--\sqrt2t'&\epsilon-t&0\\
-0&0&\epsilon+t
-\end{pmatrix}}.
-\end{equation}
-
-\section*{[3.2] 非対角項の二次摂動}
-指定の分割は
-\begin{equation}
-\widetilde H_0=\operatorname{diag}(\epsilon-\Delta,\epsilon-t,\epsilon+t),\qquad
-\widetilde H_1=\begin{pmatrix}0&-\sqrt2t'&0\\-\sqrt2t'&0&0\\0&0&0\end{pmatrix}.
-\end{equation}
-$\widetilde H_1$ の対角要素は零なので一次補正は零である。$\Delta>t$ により、非摂動の $|1\rangle$ と $|A\rangle$ のエネルギー差は $(\epsilon-\Delta)-(\epsilon-t)=-(\Delta-t)$ と零でない。以下は$t'$についての形式的な二次展開であり、近似値として用いる条件は$\sqrt2t'\ll\Delta-t$である。二次の式 $E_n^{(2)}=\sum_{k\ne n}|\langle k|\widetilde H_1|n\rangle|^2/(E_n^{(0)}-E_k^{(0)})$ を用いると
-\begin{align}
-\boxed{E_{1}}&=\epsilon-\Delta-\frac{2t'^2}{\Delta-t}+O\!\left(\frac{t'^4}{(\Delta-t)^3}\right),\\
-\boxed{E_{A}}&=\epsilon-t+\frac{2t'^2}{\Delta-t}+O\!\left(\frac{t'^4}{(\Delta-t)^3}\right),\\
-\boxed{E_{B}}&=\epsilon+t.
-\end{align}
-$|B\rangle$ は他の状態と結合せず、最後の値はこの行列内で厳密である。二次展開の条件は $\sqrt2t'\ll\Delta-t$ であり、原題の大小関係 $\Delta>t>t'>0$ だけでは $\Delta-t$ が十分大きいとは限らない。実際、最初の二準位の厳密値は
-\begin{equation}
-E_{\pm}=\epsilon-\frac{\Delta+t}{2}
-\pm\sqrt{\frac{(\Delta-t)^2}{4}+2t'^2},
-\end{equation}
-であり、上の $E_1,E_A$ はそれぞれ $E_-,E_+$ の小さい $t'/(\Delta-t)$ に関する展開である。
+\section*{[3.4] 半周期後の波動関数}
+$t=\pi/\omega$ では各成分の位相は $e^{-i(j+1/2)\pi}=-i(-1)^j$ となる。問題文で与えられたパリティ $\psi_j(-x)=(-1)^j\psi_j(x)$ を項ごとに使うと
+\[
+\Psi\!\left(x,\frac\pi\omega\right)
+=-i\sum_{j=0}^{\infty}c_j\psi_j(-x)
+=-i\phi_0(-x).
+\]
+右半直線にあった初期波動関数は左半直線へ鏡映される。$\psi_1$ が奇関数であることにも注意して書き下すと
+\[
+\boxed{\Psi\!\left(x,\frac\pi\omega\right)=
+\begin{cases}
+2i\sqrt\alpha\left(\dfrac\alpha\pi\right)^{1/4}
+x e^{-\alpha x^2/2} &(x<0),\\[2pt]
+0 &(x\geq0).
+\end{cases}}
+\]
+原点ではどちらの枝も0であり、鏡映と位相因子は規格化を保つ。
 \end{document}

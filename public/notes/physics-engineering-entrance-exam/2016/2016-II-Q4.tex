@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF pages 11–12.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h28ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -11,200 +11,196 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2016年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2016年度 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 電子線の加速電圧}
-相対論的補正を無視すると電子の運動量は$p=\sqrt{2meV}$であり、ド・ブロイ関係$p=h/\lambda$より
+\section*{[1.1] 放物線バンドの状態密度}
+エネルギーが$\epsilon>0$以下の状態は$\boldsymbol k$空間で楕円体の内部にある。その半軸は$k_i=\sqrt{2m_i\epsilon}/\hbar$である。スピン自由度を数えず、$\boldsymbol k$空間で1状態が占める体積を$(2\pi)^3$とすると、単位実空間体積当たりの状態数は
 \begin{equation}
- V=\frac{h^2}{2me\lambda^2}.
+  n(\epsilon)=\frac{1}{(2\pi)^3}\frac{4\pi}{3}
+  \prod_{i=1}^{3}\frac{\sqrt{2m_i\epsilon}}{\hbar}
+  =\frac{(2\epsilon)^{3/2}\sqrt{m_1m_2m_3}}{6\pi^2\hbar^3}.
 \end{equation}
-$\lambda=0.01\,\mathrm{nm}=1.0\times10^{-11}\,\mathrm m$を代入すると
+これを$\epsilon$で微分して
 \begin{equation}
- V=\frac{(6.6\times10^{-34}\,\mathrm{J\,s})^2}
- {2(9.1\times10^{-31}\,\mathrm{kg})(1.6\times10^{-19}\,\mathrm C)(1.0\times10^{-11}\,\mathrm m)^2}
- =1.5\times10^4\,\mathrm V.
+  \boxed{\rho_{3\mathrm D}(\epsilon)=
+  \frac{\sqrt{2m_1m_2m_3\epsilon}}{2\pi^2\hbar^3}\quad(\epsilon\ge0),}
+\end{equation}
+負のエネルギーでは$\rho_{3\mathrm D}=0$である。状態密度はバンド端から$\sqrt\epsilon$に比例して増加する。
+
+\section*{[1.2] 波数の時間発展}
+速度成分は$v_x=\hbar k_x/m_1$、$v_y=\hbar k_y/m_2$、$v_z=\hbar k_z/m_3$である。電子の符号$-e$と$\boldsymbol B=(0,0,B)$から
+\begin{equation}
+  \dot k_x=-\frac{eB}{m_2}k_y,\qquad
+  \dot k_y=\frac{eB}{m_1}k_x,\qquad
+  \dot k_z=0.
+\end{equation}
+従って$\ddot k_x=-(eB)^2k_x/(m_1m_2)$であり、正の角周波数は
+\begin{equation}
+  \boxed{\omega_c=\frac{eB}{\sqrt{m_1m_2}}}.
+\end{equation}
+初期条件と設問の$k_x$の形より
+\begin{equation}
+  \boxed{k_x(t)=k_{0x}\cos(\omega_ct),\quad
+  k_y(t)=\sqrt{\frac{m_2}{m_1}}k_{0x}\sin(\omega_ct),\quad
+  k_z(t)=k_{0z}.}
 \end{equation}
 
-\section*{[2] 有限正方格子の散乱振幅}
-左下の格子点を原点に取ると、原子位置は$\boldsymbol r_{n_x,n_y}=(a n_x,a n_y,0)$である。従って振幅は二つの有限和に分離する。
+\section*{[1.3] 波数軌道}
+消去すると
+\begin{equation}
+  \frac{k_x^2}{k_{0x}^2}+
+  \frac{k_y^2}{(\sqrt{m_2/m_1}\,k_{0x})^2}=1.
+\end{equation}
+したがって$k_x$–$k_y$平面では楕円を描く。$t=0$で$(k_x,k_y)=(k_{0x},0)$にあり、$\dot k_y(0)>0$なので、時間とともに上向きに進む。
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.05]
+ \pgfmathsetmacro{\kb}{sqrt(2)}
+ \draw[->] (-1.4,0)--(1.8,0) node[right] {$k_x$};
+ \draw[->] (0,-1.8)--(0,1.95) node[above] {$k_y$};
+ \draw[thick] plot[domain=0:360,samples=121] ({cos(\x)},{\kb*sin(\x)});
+ \draw[->,thick] plot[domain=20:48,samples=16] ({cos(\x)},{\kb*sin(\x)});
+ \fill (1,0) circle (1.4pt) node[below right] {$t=0$};
+ \draw (1,-0.06)--(1,0.06); \node[above right] at (1,0) {$k_{0x}$};
+ \draw (-0.06,\kb)--(0.06,\kb); \node[above left] at (-0.08,\kb) {$\sqrt{m_2/m_1}\,k_{0x}$};
+ \node[below left] at (0,0) {$O$};
+\end{tikzpicture}
+\caption{放物線バンドの波数軌道。図では$m_2=2m_1$とし、軸上のラベルには一般の半軸長を示す。矢印は時間の増加方向を示す。}
+\label{fig:parabolic-k}
+\end{figure}
+
+\section*{[1.4] 実空間の軌道}
+群速度を積分し、$\boldsymbol r(0)=0$を使うと
 \begin{align}
- A(\boldsymbol K,N_x,N_y)
- &=f\sum_{n_x=0}^{N_x-1}e^{-iaK_xn_x}
-    \sum_{n_y=0}^{N_y-1}e^{-iaK_yn_y}\\
- &=fL(K_x,N_x)L(K_y,N_y),\\
- L(K,N)&=\sum_{n=0}^{N-1}e^{-iaKn}
- =e^{-iaK(N-1)/2}\frac{\sin(NaK/2)}{\sin(aK/2)}.
+  x(t)&=\frac{\hbar k_{0x}}{m_1\omega_c}\sin(\omega_ct),\\
+  y(t)&=\frac{\hbar k_{0x}}{\sqrt{m_1m_2}\,\omega_c}
+       [1-\cos(\omega_ct)],\\
+  z(t)&=\frac{\hbar k_{0z}}{m_3}t.
 \end{align}
-分母がゼロとなる点では極限を取る。したがって
-\begin{equation}
- |L(K,N)|^2=\left[\frac{\sin(NaK/2)}{\sin(aK/2)}\right]^2,
-\end{equation}
-また$N=1,2,3$ではそれぞれ$1$、$4\cos^2(aK/2)$、$[1+2\cos(aK)]^2$となる。
+$xy$平面への射影は中心が$y=\hbar k_{0x}/(\sqrt{m_1m_2}\,\omega_c)$にある楕円である。$t=0$では原点から$x$正方向へ進む。$z$は一定速度で増えるので、三次元軌道はこの楕円を射影にもつらせんである。
+
+
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[xscale=0.78,yscale=0.22,>=Stealth]
- \begin{scope}
-   \draw[->] (0,0)--(7.0,0) node[right] {$aK_x$};
-   \draw[->] (0,0)--(0,10) node[above] {$|L|^2$};
-   \draw[thick,blue,domain=0:6.283,samples=120] plot (\x,1);
-   \node[anchor=west] at (5.0,2.2) {$N_x=1$};
-   \draw (0,0.15)--(0,-0.15) node[below=3pt] {$0$};
-   \draw (3.142,0.15)--(3.142,-0.15) node[below=3pt] {$\pi$};
-   \draw (6.283,0.15)--(6.283,-0.15) node[below=3pt] {$2\pi$};
- \end{scope}
- \begin{scope}[yshift=-15cm]
-   \draw[->] (0,0)--(7.0,0) node[right] {$aK_x$};
-   \draw[->] (0,0)--(0,10) node[above] {$|L|^2$};
-   \draw[thick,blue,domain=0:6.283,samples=120] plot (\x,{4*cos(\x r/2)^2});
-   \node[anchor=west] at (5.0,7.2) {$N_x=2$};
-   \draw (0,0.15)--(0,-0.15) node[below=3pt] {$0$};
-   \draw (3.142,0.15)--(3.142,-0.15) node[below=3pt] {$\pi$};
-   \draw (6.283,0.15)--(6.283,-0.15) node[below=3pt] {$2\pi$};
- \end{scope}
- \begin{scope}[yshift=-30cm]
-   \draw[->] (0,0)--(7.0,0) node[right] {$aK_x$};
-   \draw[->] (0,0)--(0,10) node[above] {$|L|^2$};
-   \draw[thick,blue,domain=0:6.283,samples=120] plot (\x,{(1+2*cos(\x r))^2});
-   \node[anchor=west] at (3.0,7.5) {$N_x=3$};
-   \draw (0,0.15)--(0,-0.15) node[below=3pt] {$0$};
-   \draw (3.142,0.15)--(3.142,-0.15) node[below=3pt] {$\pi$};
-   \draw (6.283,0.15)--(6.283,-0.15) node[below=3pt] {$2\pi$};
- \end{scope}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=1.05]
+ \pgfmathsetmacro{\rx}{sqrt(2)}
+ \draw[->] (-1.8,0)--(1.9,0) node[right] {$x$};
+ \draw[->] (0,-0.35)--(0,2.5) node[above] {$y$};
+ \draw[thick] plot[domain=0:360,samples=121] ({\rx*sin(\x)},{1-cos(\x)});
+ \draw[->,thick] plot[domain=18:46,samples=16] ({\rx*sin(\x)},{1-cos(\x)});
+ \fill (0,0) circle (1.4pt) node[below left] {$t=0$};
+ \fill (0,1) circle (1pt);
+ \draw[dashed] (\rx,1)--(\rx,-0.45);
+ \draw[<->] (0,-0.4)--(\rx,-0.4)
+   node[midway,below] {$\hbar k_{0x}/(m_1\omega_c)$};
+ \draw[dashed] (0,1)--(-2.0,1);
+ \draw[<->] (-1.9,0)--(-1.9,1);
+ \node[left] at (-1.95,0.5) {$\hbar k_{0x}/(\sqrt{m_1m_2}\,\omega_c)$};
 \end{tikzpicture}
-\caption{$|L(K_x,N_x)|^2$の一周期。各パネルの縦軸は実際の強度である。}
+\caption{放物線バンドの実空間軌道の$xy$射影。図\ref{fig:parabolic-k}と同じ$m_2=2m_1$の例。初期位置は原点で、矢印は時間の増加方向を示す。}
+\label{fig:parabolic-r}
 \end{figure}
 
-\section*{[3] 単原子三角格子の回折}
-図3の基本格子ベクトルは
-\begin{equation}
- \boldsymbol a_1=a\begin{pmatrix}\sqrt3/2\\1/2\end{pmatrix},\qquad
- \boldsymbol a_2=a\begin{pmatrix}-\sqrt3/2\\1/2\end{pmatrix}.
-\end{equation}
-逆格子は$\boldsymbol a_i\cdot\boldsymbol b_j=2\pi\delta_{ij}$で定めるから
-\begin{equation}
- \boxed{\boldsymbol b_1=\frac{2\pi}{a}\begin{pmatrix}1/\sqrt3\\1\end{pmatrix},\qquad
- \boldsymbol b_2=\frac{2\pi}{a}\begin{pmatrix}-1/\sqrt3\\1\end{pmatrix}}.
-\end{equation}
-面内の原子位置$\boldsymbol r=n_1\boldsymbol a_1+n_2\boldsymbol a_2$を散乱振幅の位相因子$e^{-i\boldsymbol K\cdot\boldsymbol r}$に代入すると、二方向の有限等比和が得られる。多数の単位胞で双方の和が強め合う条件は$\boldsymbol K_{\parallel}\cdot\boldsymbol a_i=2\pi m_i$（$m_i$は整数）である。したがって散乱ベクトルの面内成分は逆格子ベクトル$\boldsymbol G=m_1\boldsymbol b_1+m_2\boldsymbol b_2$であり、
-\begin{equation}
- |\boldsymbol G|^2=\frac{16\pi^2}{3a^2}
- (m_1^2+m_2^2+m_1m_2).
-\end{equation}
-括弧内は$(m_1-m_2)^2+3m_1m_2$とも書けるので、3で割った余りは$0$か$1$であり、値$2$は取らない。指数$(1,0)$、$(1,1)$、$(2,0)$でそれぞれ$1,3,4$となるため、最小の三つの正の値は$1,3,4$である。垂直入射では$\boldsymbol k$は面に垂直で、$\boldsymbol G$は$\boldsymbol k'$の面内成分なので、回折角$\theta$（入射・散乱波数ベクトル間の全角）には
-\begin{equation}
- |\boldsymbol G|=|\boldsymbol k'|\sin\theta=k\sin\theta,\qquad k=\frac{2\pi}{\lambda}
-\end{equation}
-が成り立つ。三殻がいずれも前方の検出面に届く条件は、最大の$|\boldsymbol G|$に対して$4\lambda/(\sqrt3a)<1$、すなわち$0<\lambda/a<\sqrt3/4$である。この範囲で、小さい方から三つの角は
-\begin{equation}
- \boxed{\theta_1=\sin^{-1}\!\left(\frac{2\lambda}{\sqrt3a}\right),\qquad
- \theta_2=\sin^{-1}\!\left(\frac{2\lambda}{a}\right),\qquad
- \theta_3=\sin^{-1}\!\left(\frac{4\lambda}{\sqrt3a}\right)}.
-\end{equation}
-散乱が可能な範囲で各回折角は$0<\theta<\pi/2$である。小角度では$\theta_1\simeq2\lambda/(\sqrt3a)$、$\theta_2\simeq2\lambda/a$、$\theta_3\simeq4\lambda/(\sqrt3a)$となる。
 
-各逆格子殻には六つの等価なベクトルがあるため、平面ディテクタ上では入射方向を中心とする三つの六回対称なスポット列となる。小角近似では検出面上の半径が$\theta_j$に比例し、その比は$1:\sqrt3:2$である。第1殻と第3殻は$x$軸から$60^\circ$おきに並び、第2殻はそれらから$30^\circ$回転している。
+\section*{[2.1] 線形バンドの状態密度}
+2次元では状態密度は$\boldsymbol k$空間の面積で数える。エネルギーの絶対値が$|\epsilon|$以下の状態の波数半径は$k=|\epsilon|/\gamma$であり、1枝当たりの単位面積当たり状態数は
+\begin{equation}
+  n(\epsilon)=\frac{\pi k^2}{(2\pi)^2}
+  =\frac{\epsilon^2}{4\pi\gamma^2}.
+\end{equation}
+正負どちらの枝についても$|\epsilon|$で微分した状態密度は
+\begin{equation}
+  \boxed{\rho_{2\mathrm D}(\epsilon)=\frac{|\epsilon|}{2\pi\gamma^2}.}
+\end{equation}
+よって$\epsilon=0$でゼロとなり、正負のエネルギーに対してV字形に増加する。
+
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[scale=0.56]
- \pgfmathsetmacro{\shellscale}{sqrt(3)/2}
- \begin{scope}[xshift=-5.0cm]
-   \draw[->] (-3.4,0)--(3.3,0) node[right] {$x$};
-   \draw[->] (0,-3.1)--(0,3.2) node[above] {$y$};
-   \fill (0,0) circle (2.4pt);
-   \foreach \m in {-2,-1,0,1,2} {\foreach \n in {-2,-1,0,1,2} {
-     \pgfmathtruncatemacro{\q}{\m*\m+\n*\n+\m*\n}
-     \ifnum\q=1\relax
-       \pgfmathsetmacro{\gx}{\shellscale*(\m-\n)/sqrt(3)}
-       \pgfmathsetmacro{\gy}{\shellscale*(\m+\n)}
-       \fill (\gx,\gy) circle (2.4pt);
-     \fi
-     \ifnum\q=3\relax
-       \pgfmathsetmacro{\gx}{\shellscale*(\m-\n)/sqrt(3)}
-       \pgfmathsetmacro{\gy}{\shellscale*(\m+\n)}
-       \fill (\gx,\gy) circle (2.4pt);
-     \fi
-     \ifnum\q=4\relax
-       \pgfmathsetmacro{\gx}{\shellscale*(\m-\n)/sqrt(3)}
-       \pgfmathsetmacro{\gy}{\shellscale*(\m+\n)}
-       \fill (\gx,\gy) circle (2.4pt);
-     \fi
-   }}
-   \node at (0,-3.7) {(a) 位置（$\theta_1,\theta_2,\theta_3$）};
- \end{scope}
- \begin{scope}[xshift=5.0cm]
-   \draw[->] (-3.4,0)--(3.3,0) node[right] {$x$};
-   \draw[->] (0,-3.1)--(0,3.2) node[above] {$y$};
-   \fill (0,0) circle ({sqrt(3)*2.4pt});
-   \foreach \m in {-2,-1,0,1,2} {\foreach \n in {-2,-1,0,1,2} {
-     \pgfmathtruncatemacro{\q}{\m*\m+\n*\n+\m*\n}
-     \pgfmathsetmacro{\gx}{\shellscale*(\m-\n)/sqrt(3)}
-     \pgfmathsetmacro{\gy}{\shellscale*(\m+\n)}
-     \ifnum\q=1\relax
-       \fill (\gx,\gy) circle (2.4pt);
-     \fi
-     \ifnum\q=3\relax
-       \fill (\gx,\gy) circle ({sqrt(3)*2.4pt});
-     \fi
-     \ifnum\q=4\relax
-       \fill (\gx,\gy) circle (2.4pt);
-     \fi
-   }}
-   \node at (0,-3.7) {(b) 基底強度（面積比 $1:3:1$）};
- \end{scope}
+\begin{tikzpicture}[>=Stealth,font=\small,scale=0.9]
+  \begin{scope}[xshift=0cm]
+    \draw[->] (-1.6,0)--(1.7,0) node[right] {$\epsilon$};
+    \draw[->] (0,0)--(0,2.1) node[above] {$\rho_{3\mathrm D}$};
+    \draw[thick] plot[domain=0:1.6,samples=121] ({\x},{1.3*sqrt(\x)});
+    \node[below left] at (0,0) {$0$};
+  \end{scope}
+  \begin{scope}[xshift=5.4cm]
+    \draw[->] (-1.8,0)--(1.9,0) node[right] {$\epsilon$};
+    \draw[->] (0,0)--(0,2.0) node[above] {$\rho_{2\mathrm D}$};
+    \draw[thick] plot[domain=-1.5:1.5,samples=121] (\x,{(1.6/1.5)*abs(\x)});
+    \node[below left] at (0,0) {$0$};
+  \end{scope}
 \end{tikzpicture}
-\caption{小角近似での三殻の回折位置。(b)は[4]で求めるハニカム基底の相対強度を点の面積で表す。}
+\caption{放物線バンドと線形バンドの状態密度の概形。各図の尺度は独立で、左は $\sqrt{\epsilon}$、右は $|\epsilon|$ に比例する形を示す。}
+\label{fig:dos}
 \end{figure}
 
-\section*{[4] ハニカム構造の基底干渉}
-図4の二原子基底の相対位置を$\boldsymbol\tau=(2\boldsymbol a_1+\boldsymbol a_2)/3$とする。$f_A=f$、$f_B=2f$と選べば、逆格子点$\boldsymbol G=m_1\boldsymbol b_1+m_2\boldsymbol b_2$での基底振幅は
+\section*{[2.2] 線形バンドの波数運動}
+バンドの符号を$s=+1$（$\epsilon>0$）、$s=-1$（$\epsilon<0$）で表すと、速度は$\boldsymbol v=s(\gamma/\hbar)\boldsymbol k/|\boldsymbol k|$である。この等方的な分散では$\boldsymbol v$が$\boldsymbol k$に平行または反平行である。運動方程式$\hbar\dot{\boldsymbol k}=-e\boldsymbol v\times\boldsymbol B$の両辺を$\boldsymbol k$と内積すると
 \begin{equation}
- F_{\rm basis}=f_A+f_Be^{-i\boldsymbol G\cdot\boldsymbol\tau}
- =f\left[1+2e^{-i(2\pi/3)(2m_1+m_2)}\right].
+ \frac{d}{dt}|\boldsymbol k|^2=2\boldsymbol k\cdot\dot{\boldsymbol k}
+ =-\frac{2e}{\hbar}\boldsymbol k\cdot(\boldsymbol v\times\boldsymbol B)=0.
 \end{equation}
-従って単位胞数による共通因子を除くと
+よって初期値から$|\boldsymbol k|=k_0$となる。この一定値を用いた運動方程式の成分は
 \begin{equation}
- I_{\rm basis}=|F_{\rm basis}|^2/|f|^2
- =5+4\cos\!\left(\frac{2\pi}{3}(2m_1+m_2)\right).
+ \dot k_x=-s\frac{\gamma eB}{\hbar^2k_0}k_y,\qquad
+ \dot k_y=s\frac{\gamma eB}{\hbar^2k_0}k_x.
 \end{equation}
-各殻のすべての指数について$t=2m_1+m_2$と置くと、$t^2\equiv m_1^2+m_2^2+m_1m_2\pmod 3$である。したがって第一・第三殻では$t\not\equiv0\pmod3$、第二殻では$t\equiv0\pmod3$となる。上の余弦は順に$-1/2,1,-1/2$であり、各殻のどのピークも強度$3,9,3$をもつ。その比は
+従って$\ddot k_x=-(\gamma eB/(\hbar^2k_0))^2k_x$である。初期条件を適用すると
 \begin{equation}
- \boxed{I_1:I_2:I_3=1:3:1}.
+  \boxed{\omega_c=\frac{\gamma eB}{\hbar^2k_0}},\qquad
+  \boxed{k_x=k_0\cos(\omega_ct),\quad
+         k_y=s k_0\sin(\omega_ct).}
 \end{equation}
-第二殻のピークは他の二殻より3倍強い。
+ここでは$\omega_c$を正の角周波数の大きさとして定義し、回転方向を$s$で表した。
 
-\section*{[5] 面直積層による干渉}
-隣接層の間隔を$d$、積層数を$N_z$とする。全ての層で同じ面内原子配置を持ち、散乱ベクトルの垂直成分を$c=K_z$とすれば、各層の位相差は$cd$である。振幅には
-\begin{equation}
- S_{N_z}(c)=\sum_{j=0}^{N_z-1}e^{-icjd}
- =e^{-icd(N_z-1)/2}\frac{\sin(N_zcd/2)}{\sin(cd/2)}
-\end{equation}
-が掛かる。$cd=2\pi m$（$m$整数）では各層が同位相となり、$|S_{N_z}|^2=N_z^2$である。この条件の近くの最初の零点は$cd=2\pi m\pm2\pi/N_z$なので、ピーク幅は$c$について$1/(N_zd)$の程度になる。一方、層条件からの位相のずれを固定すると
-\begin{equation}
- \frac{|S_{N_z}(c)|^2}{N_z^2}
- \leq \frac{1}{N_z^2\sin^2(cd/2)}.
-\end{equation}
-従って$N_z|\sin(cd/2)|\gg1$なら、強め合うピークに比べて強度が小さい。有限層では、層条件から外れた振幅が一般に厳密にゼロになるわけではない。
+\section*{[2.3] 二つの線形バンドの軌道}
+波数空間では、両枝とも半径$k_0$の円を描く。正の枝は反時計回り、負の枝は時計回りに回る。
 
-垂直入射では$\boldsymbol k=(0,0,k)$であり、面内回折ベクトルを$\boldsymbol G$とすると、弾性散乱の前方解は
+位置の速度は
 \begin{equation}
- \boldsymbol k'=(\boldsymbol G,\sqrt{k^2-|\boldsymbol G|^2}),\qquad
- c=k'_z-k=\sqrt{k^2-|\boldsymbol G|^2}-k.
+  v_x=s\frac{\gamma}{\hbar}\cos(\omega_ct),\qquad
+  v_y=\frac{\gamma}{\hbar}\sin(\omega_ct).
 \end{equation}
-非零の$\boldsymbol G$に対するこの$c$が層条件のピーク幅以上に外れると、層からの散乱は弱め合い、回折ピークが抑えられる。垂直入射でも層条件に近い場合には抑制されないが、問題文の消失は層条件から外れた場合に対応する。
+初期位置を原点として積分すると
+\begin{equation}
+  \boxed{x(t)=s\frac{\gamma}{\hbar\omega_c}\sin(\omega_ct),\qquad
+  y(t)=\frac{\gamma}{\hbar\omega_c}[1-\cos(\omega_ct)].}
+\end{equation}
+$R_c=\gamma/(\hbar\omega_c)=\hbar k_0/(eB)$とおくと
+$x^2+(y-R_c)^2=R_c^2$であり、実空間の軌道も原点を通る円である。正の枝は原点から右へ動き、反時計回りに進む。負の枝は原点から左へ動き、時計回りに進む。
 
-傾斜によって層条件と弾性散乱を両立できる具体例として、$0<|\boldsymbol G|<2k$のとき、入射の面内成分を$-\boldsymbol G/2$に取ると
-\begin{equation}
- \boldsymbol k=\left(-\frac{\boldsymbol G}{2},\sqrt{k^2-\frac{|\boldsymbol G|^2}{4}}\right),\qquad
- \boldsymbol k'=\left(\frac{\boldsymbol G}{2},\sqrt{k^2-\frac{|\boldsymbol G|^2}{4}}\right).
-\end{equation}
-両波数の大きさは$k$で、$\boldsymbol k'-\boldsymbol k=(\boldsymbol G,0)$となる。従って$c=0$、すなわち$m=0$の層条件が満たされ、全層が強め合う。面直方向からの入射の傾斜角は
-\begin{equation}
- \alpha=\sin^{-1}\!\left(\frac{|\boldsymbol G|}{2k}\right)
- \simeq\frac{|\boldsymbol G|}{2k}\qquad (|\boldsymbol G|/k\ll1)
-\end{equation}
-であるため、小角回折の領域では小さな傾斜でピークが現れる。これは選んだ$\boldsymbol G$に対応する方位と角度の構成である。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,font=\small,scale=0.85]
+  \begin{scope}[xshift=0cm]
+    \draw[->] (-1.7,0)--(1.8,0) node[right] {$k_x$};
+    \draw[->] (0,-1.5)--(0,1.65) node[above] {$k_y$};
+    \draw[thin,gray] (0,0) circle (1);
+    \draw[->,blue,thick] plot[domain=35:70,samples=16] ({cos(\x)},{sin(\x)});
+    \draw[->,red,dashed,thick] plot[domain=-35:-70,samples=16] ({cos(\x)},{sin(\x)});
+    \fill (1,0) circle (1.5pt);
+    \node[blue] at (-0.85,1.4) {$\epsilon>0$};
+    \node[red] at (-0.85,-1.4) {$\epsilon<0$};
+  \end{scope}
+  \begin{scope}[xshift=5.3cm]
+    \draw[->] (-1.7,0)--(1.8,0) node[right] {$x$};
+    \draw[->] (0,-0.4)--(0,2.6) node[above] {$y$};
+    \draw[thin,gray] (0,1) circle (1);
+    \fill (0,0) circle (1.5pt);
+    \draw[->,blue,thick] plot[domain=35:70,samples=16] ({sin(\x)},{1-cos(\x)});
+    \draw[->,red,dashed,thick] plot[domain=35:70,samples=16] ({-sin(\x)},{1-cos(\x)});
+    \node[blue,right] at (1.1,1.35) {$\epsilon>0$};
+    \node[red,left] at (-1.1,1.35) {$\epsilon<0$};
+  \end{scope}
+\end{tikzpicture}
+\caption{線形バンドの波数円と実空間円。実線の矢印は正の枝、破線の矢印は負の枝の時間発展方向を示す。}
+\label{fig:linear-orbits}
+\end{figure}
+
 \end{document}

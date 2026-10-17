@@ -1,82 +1,157 @@
-% Source problem: 2013ap_exam.pdf, PDF pp. 11--12.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h25ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=23mm]{geometry}
+\usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2013年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2013年度 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 低周波の状態密度}
-$d$ 次元の波数空間で、半径 $k$ の球（円）に含まれる状態数は体積に比例し、$N(k)\propto k^d$ である。線形分散 $\omega=vk$ から $k=\omega/v$ なので
+\section*{[1] 二原子格子の分散関係}
+ばねの配置から、単位格子 $n$ の変位は
+\begin{align}
+ m\ddot u_n&=C_1(v_n-u_n)+C_2(v_{n-1}-u_n),\\
+ m\ddot v_n&=C_1(u_n-v_n)+C_2(u_{n+1}-v_n).
+\end{align}
+Bloch波を
 \begin{equation}
- D(\omega)=\frac{dN}{d\omega}\propto\omega^{d-1}.
+ u_n=u e^{i(kan-\omega t)},\qquad
+ v_n=v e^{i(ka(n+1/2)-\omega t)}
 \end{equation}
-従って3次元立方格子では $p=2$、2次元正方格子では $p=1$ である。
+とおく。振幅の方程式は
+\begin{equation}
+ \begin{pmatrix}
+ m\omega^2-C_1-C_2 & C_1e^{ika/2}+C_2e^{-ika/2}\\
+ C_2e^{ika/2}+C_1e^{-ika/2} & m\omega^2-C_1-C_2
+ \end{pmatrix}
+ \begin{pmatrix}u\\v\end{pmatrix}=0.
+\end{equation}
+非自明解には行列式が0であることが必要なので
+\begin{equation}
+ \boxed{\omega_{\pm}^2(k)=\frac{C_1+C_2\pm
+ \sqrt{C_1^2+C_2^2+2C_1C_2\cos(ka)}}{m}.}
+\end{equation}
+$\omega_-(k)$ が音響枝、$\omega_+(k)$ が光学枝である。
 
-\section*{[2] 低温比熱}
-低周波の状態密度を $D(\omega)=A\omega^p$ と書く。Debye近似では、このべき則を有限個のモード数に合う上限角周波数 $\omega_D$ まで延長する。この近似での内部エネルギーは
+\section*{[2] 第一ブリルアン領域}
+第一ブリルアン領域は $-\pi/a\le k\le\pi/a$ である。端点と中心で
+\begin{align}
+ \omega_a(0)&=0,&
+ \omega_o(0)&=\sqrt{\frac{2(C_1+C_2)}{m}},\\
+ \omega_a(\pi/a)&=\sqrt{\frac{2C_2}{m}},&
+ \omega_o(\pi/a)&=\sqrt{\frac{2C_1}{m}},
+\end{align}
+ここで $C_1>C_2$ を用いた。図では $C_1=4,C_2=1,m=1$ とし、横軸は $ka$ で表す（ばね定数と質量は同じ単位系）。
+\begin{center}
+\begin{tikzpicture}[x=0.85cm,y=0.85cm,>=Stealth]
+ \draw[->] (-3.8,0)--(3.8,0) node[right] {$ka$};
+ \draw[->] (0,0)--(0,3.8) node[above] {$\omega$};
+ \draw[dashed] (-3.14,0)--(-3.14,3.45);
+ \draw[dashed] (3.14,0)--(3.14,3.45);
+ \node[below] at (-3.14,0) {$-\pi$};
+ \node[below] at (3.14,0) {$\pi$};
+ \draw[thick] plot[domain=-pi:pi,samples=181] (\x,{sqrt(5-sqrt(17+8*cos(deg(\x))))});
+ \draw[thick] plot[domain=-pi:pi,samples=181] (\x,{sqrt(5+sqrt(17+8*cos(deg(\x))))});
+ \node at (1.55,1.7) {音響};
+ \node at (1.7,3.45) {光学};
+\end{tikzpicture}
+\end{center}
+音響枝の長波長極限は、$\cos(ka)\simeq1-(ka)^2/2$ を用いると
 \begin{equation}
- U=\int_0^{\omega_D}d\omega\,D(\omega)
- \frac{\hbar\omega}{e^{\hbar\omega/(k_BT)}-1}.
+ \omega_a(k)\simeq v_a|k|,\qquad
+ \boxed{v_a=a\sqrt{\frac{C_1C_2}{2m(C_1+C_2)}}}.
 \end{equation}
-十分低温では寄与する周波数は $k_BT/\hbar\ll\omega_D$ であり、上限を無限大まで延ばせる。$x=\hbar\omega/(k_BT)$ と置換すると
+光学枝は
 \begin{equation}
- U\propto T^{p+2}\int_0^\infty\frac{x^{p+1}}{e^x-1}\,dx,
- \qquad C_V=\frac{dU}{dT}\propto T^{p+1}.
+ \omega_o(k)\simeq\sqrt{\frac{2(C_1+C_2)}{m}}
+ -\frac{C_1C_2a^2k^2}{4\sqrt{2m(C_1+C_2)^3}}.
 \end{equation}
-よって3次元では $q=3$、2次元では $q=2$ となる。
-
-\section*{[3] 層状系の伝搬方向}
-図3(i)の帯域幅は $\omega_a$、(ii)は $\omega_b$ であり、$\omega_a\ll\omega_b$ である。面内では結合が強いため復元力と音速が大きく、面内方向の分散は広い帯域を持つ。従って(ii)が面内、分散の狭い(i)が弱く結合した面間方向である。
-
-\section*{[4] 等エネルギー面}
-面内波数を $k_\parallel=\sqrt{k_x^2+k_y^2}$、面間波数を $k_z$ とする。両方向で線形分散が成り立つ $\omega_0\ll\omega_a$ では、長波長の音響分散は
+したがって $k\to0$ で、音響枝の群速度は $v_a$（$k<0$ 側は $-v_a$）、光学枝の群速度は
 \begin{equation}
- \omega^2\simeq v_\parallel^2k_\parallel^2+v_\perp^2k_z^2.
-\end{equation}
-従って $\omega=\omega_0$ 面は
-\begin{equation}
- v_\parallel^2(k_x^2+k_y^2)+v_\perp^2k_z^2=\omega_0^2,
-\end{equation}
-すなわち異方的な楕円体である。
-
-$\omega_a\ll\omega_0\ll\omega_b$ では、面内分散は線形の範囲にある。弱い面間方向の分散は $k_z$ に依存するが、その $\omega^2$ への寄与を $f(k_z)$ と書けば、通常の弱結合近似では $0\le f(k_z)\lesssim\omega_a^2\ll\omega_0^2$ である。したがって主項では
-\begin{equation}
- v_\parallel^2(k_x^2+k_y^2)=\omega_0^2-f(k_z)\simeq\omega_0^2.
-\end{equation}
-面内波数の大きさは $k_\parallel\simeq\omega_0/v_\parallel$ でほぼ一定となり、等エネルギー面は $k_z$ 方向に第一ブリルアン領域全体へ延びる円筒面に近い。
-
-\section*{[5] 層状系の状態密度}
-低周波では楕円体の体積が $\omega^3$ に比例する。状態数 $N(\omega)\propto\omega^3$ を微分すれば
-\begin{equation}
- D(\omega)\propto\omega^2,\qquad r=2\quad(\omega\ll\omega_a).
-\end{equation}
-中間域の円筒では、面間方向の波数幅はほぼ一定で、囲まれる状態数は面内円の面積に比例する。主項の半径は $k_\parallel\simeq\omega/v_\parallel$ なので、$\omega\gg\omega_a$ では $N(\omega)\propto\omega^2$、従って
-\begin{equation}
- D(\omega)\propto\omega,\qquad r=1\quad(\omega_a\ll\omega\ll\omega_b).
+ v_{g,o}\simeq-\frac{C_1C_2a^2}{2\sqrt{2m(C_1+C_2)^3}}k\longrightarrow0.
 \end{equation}
 
-\section*{[6] 層状系の比熱}
-熱的に寄与する周波数域全体で状態密度を $D(\omega)\propto\omega^r$ と近似できる場合、比熱積分で $x=\hbar\omega/(k_BT)$ と置けば
-\begin{equation}
- C_V\propto T^{r+1}\int_0^\infty dx\,x^{r+2}\frac{e^x}{(e^x-1)^2}.
-\end{equation}
-この積分は温度によらない。$k_BT\ll\hbar\omega_a$ では熱的周波数域が低周波の $D(\omega)\propto\omega^2$ に収まるので $s=3$ となる。
+\section*{[3] 長波長での原子の振動}
+$k=0$ で[1]の固有行列に音響枝の $\omega_a=0$ を代入すると $-(C_1+C_2)u+(C_1+C_2)v=0$、すなわち $u=v$ である。光学枝の $m\omega_o^2=2(C_1+C_2)$ を代入すると $(C_1+C_2)(u+v)=0$、すなわち $u=-v$ となる。$k\to0$ ではBloch位相 $e^{ika/2}\to1$ だから、この振幅関係が実変位 $u_n,v_n$ の同位相・逆位相にそのまま対応する。従って音響枝では隣接原子がまとまって動き、光学枝では二つの基底原子が互いに逆向きに振動する。
 
-中間温度 $\hbar\omega_a\ll k_BT\ll\hbar\omega_b$ では、$D(\omega)\propto\omega$ が成り立つ領域の寄与は主項として
+\section*{[4] 光子の非弾性散乱}
+結晶へ渡る運動量は入射光子から散乱光子を引いた差であるため
 \begin{equation}
- C_{V,\mathrm{mid}}\propto T^2
- \int_{\hbar\omega_a/(k_BT)}^{\hbar\omega_b/(k_BT)}
- dx\,x^3\frac{e^x}{(e^x-1)^2}
+ \boldsymbol K_i=\boldsymbol K_f+\boldsymbol q_B.
 \end{equation}
-である。下端を0へ延ばす相対誤差は、被積分関数が $x\to0$ で $x$ に近づくため $O((\hbar\omega_a/k_BT)^2)$ となる。ただし実際の低周波モードをこの延長で置き換えたわけではない。[4] の非負で有界な面間寄与をもつ分散では、$\omega\lesssim\omega_a$ の状態数は面内半径 $\omega_a/v_\parallel$ の円筒内の状態数以下であり、熱的半径 $k_BT/(\hbar v_\parallel)$ の状態数に比べて $O((\hbar\omega_a/k_BT)^2)$ である。低周波の各モードの比熱は高々 $k_B$ なので、この部分も主項には影響しない。上端側は熱的占有の指数因子で抑えられる。従って面内線形分散が熱的周波数域で有効なこの温度範囲では $C_V\propto T^2$、すなわち $s=2$ である。$\hbar\omega_b\ll k_BT$ では全フォノンモードが古典極限に入り、各モードの比熱は温度によらず一定なので $s=0$ となる。
+三角形の頂点をつなぐと
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.05]
+ \coordinate (O) at (0,0); \coordinate (I) at (3.2,0); \coordinate (F) at (1.2,-1.5);
+ \draw[->,thick] (O)--(I) node[midway,above] {$\boldsymbol K_i$};
+ \draw[->,thick] (O)--(F) node[midway,left] {$\boldsymbol K_f$};
+ \draw[->,thick] (F)--(I) node[midway,below right,xshift=4pt,yshift=-2pt] {$\boldsymbol q_B$};
+ \draw (0.75,0) arc (0:-51:0.75);
+ \node at (0.9,-0.45) {$\theta$};
+\end{tikzpicture}
+\end{center}
+である。$\omega_i\gg\omega_B$ なら $|\boldsymbol K_f|\simeq|\boldsymbol K_i|$ なので
+\begin{align}
+ |\boldsymbol q_B|^2&=|\boldsymbol K_i|^2+|\boldsymbol K_f|^2
+ -2|\boldsymbol K_i||\boldsymbol K_f|\cos\theta\\
+ &\simeq2|\boldsymbol K_i|^2(1-\cos\theta),\\
+ &\boxed{|\boldsymbol q_B|\simeq2|\boldsymbol K_i|\sin(\theta/2).}
+\end{align}
+
+\section*{[5] 音速とBrillouin周波数}
+長波長音響フォノンでは $\omega_B=v_a|\boldsymbol q_B|$ である。媒質中の光子波数は $|\boldsymbol K_i|=n\omega_i/c$ だから
+\begin{equation}
+ \boxed{\frac{\omega_B}{v_a}=\frac{2n\omega_i}{c}\sin(\theta/2).}
+\end{equation}
+
+\section*{[6] 音速の数値}
+分光波数を $\tilde\nu_B=1/\lambda_B=3.0\,\mathrm{cm^{-1}}=3.0\times10^2\,\mathrm{m^{-1}}$ とする。原本の $\hbar\omega_B=hc\tilde\nu_B$ と $h=2\pi\hbar$ より $\omega_B=2\pi c\tilde\nu_B$ である。また $\omega_i=2\pi c/\lambda_i$ なので $\omega_B/\omega_i=\lambda_i\tilde\nu_B$。散乱角 $180^\circ$ では
+\begin{align}
+ v_a&=\frac{c}{2n}\frac{\omega_B}{\omega_i}
+ =\frac{c\lambda_i\tilde\nu_B}{2n}\\
+ &=\frac{(3.0\times10^8)(680\times10^{-9})(3.0\times10^2)}{2(2.4)}\,\mathrm{m/s}\\
+ &=1.275\times10^4\,\mathrm{m/s}
+ \simeq\boxed{1.3\times10^4\,\mathrm{m/s}}\quad(2\text{桁}).
+\end{align}
+
+\section*{[7] 中性子散乱からばね定数}
+$q=\pi/a$ では分散関係から
+\begin{equation}
+ \omega_1=\omega_o(\pi/a)=\sqrt{\frac{2C_1}{m}},\qquad
+ \omega_2=\omega_a(\pi/a)=\sqrt{\frac{2C_2}{m}}.
+\end{equation}
+中性子の運動エネルギー $E_n=\hbar^2K^2/(2M_n)$ と $K=2\pi/\lambda$ を用いる。フォノンを生成するので
+\begin{equation}
+ \frac{\hbar^2}{2M_n}\left[\left(\frac{2\pi}{\lambda_{ij}}\right)^2
+ -\left(\frac{2\pi}{\lambda_f}\right)^2\right]=\hbar\omega_j,
+ \qquad j=1,2.
+\end{equation}
+ここで $\lambda_{i1}<\lambda_{i2}$ なので、同一の $\lambda_f$ に対して $j=1$ のエネルギー移行が大きく、光学枝 $C_1$、$j=2$ は音響枝 $C_2$ に対応する。$\Delta_j=\lambda_{ij}^{-2}-\lambda_f^{-2}>0$ と置けば
+\begin{equation}
+ \boxed{C_j=\frac{2m\pi^4\hbar^2}{M_n^2}\Delta_j^2,
+ \qquad j=1,2.}
+\end{equation}
+
+\section*{[8] 格子定数}
+音響速度の式を $a$ について解くと
+\begin{equation}
+ a=v_a\sqrt{2m\left(\frac1{C_1}+\frac1{C_2}\right)}.
+\end{equation}
+ばね定数の表式を代入して
+\begin{equation}
+ \boxed{a=\frac{v_aM_n}{\pi^2\hbar}
+ \sqrt{\frac1{\Delta_1^2}+\frac1{\Delta_2^2}}},\qquad
+ \Delta_j=\frac1{\lambda_{ij}^2}-\frac1{\lambda_f^2}.
+\end{equation}
+この式は長さの次元を持ち、音速因子 $v_a$ を含む。
 
 \end{document}

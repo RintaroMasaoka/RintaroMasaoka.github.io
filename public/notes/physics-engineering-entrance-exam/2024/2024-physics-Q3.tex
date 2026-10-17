@@ -1,166 +1,239 @@
-% Source: public/notes/物工/問題/2024ap_exam.pdf, PDF pp. 4--5.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2024ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
-\usepackage{amsmath,amssymb,booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2024年 物理学 第3問}
+\title{物理工学専攻 院試解答集\\2024年度 物理学 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-各スピンは$\sigma_\alpha\in\{+1,-1\}$、結合定数は$J\ne0$である。$N$個のスピンのエネルギーは$E=-(J/N)\sum_{\alpha<\beta}\sigma_\alpha\sigma_\beta$とし、各異なるペアを一度ずつ数える。
+以下で $C=(\partial U/\partial T)$ は指定された振動子系の全熱容量とする。固体の単位質量あたりの格子比熱は、得られた $C$ を固体の質量で割ったものである。体積や振動数は温度に依存しないものとして微分する。
 
-\section*{[1.1] $N=2$ のエネルギーと縮退度}
-原題の式(2)は $E=-J\sigma_1\sigma_2/2$ である。同じ向きなら積は $+1$ で、$(+,+),(-,-)$ の2通りがある。逆向きなら積は $-1$ で、$(+,-),(-,+)$ の2通りがある。従って $J\ne0$ のもとで、取りうる値をすべて挙げると
-\[
-\begin{array}{c|cc}
- & E & W\\ \hline
-\sigma_1=\sigma_2 & -J/2 & 2\\
-\sigma_1=-\sigma_2 & J/2 & 2
-\end{array}
-\]
-である。縮退度の和 $2+2=2^2$ は全配置数と一致する。
-
-\section*{[1.2] $N=3$ のエネルギーと縮退度}
-3スピンでは$E=-(J/3)(\sigma_1\sigma_2+\sigma_2\sigma_3+\sigma_1\sigma_3)$である。すべて同じ向きなら括弧内の三つの積はすべて $+1$ となる。配置は全上向きと全下向きの2通りである。1個だけ他の2個と逆向きなら、同じ向きのペアが1組、逆向きのペアが2組なので、積の和は $1-1-1=-1$ となる。逆向きの1個の選び方が3通り、その向きが2通りある。よって
-\[
-\begin{array}{c|cc}
- & E & W\\ \hline
-\text{全スピンが同じ向き} & -J & 2\\
-\text{1個だけ逆向き} & J/3 & 6
-\end{array}
-\]
-を得る。$2+6=2^3$ で全配置を数え尽くしている。
-
-\section*{[1.3] $N=3$ の基底状態}
-$J>0$ なら $-J<J/3$ なので全スピンが同じ向きの配置が基底状態であり、$\boxed{W=2}$。$J<0$ なら $J/3<-J$ なので1個だけ逆向きの配置が基底状態であり、$\boxed{W=6}$ である。
-
-\section*{[2.1] 一般の $N$ に対するエネルギー}
-$M$を$-1$向きのスピン数とすると、総スピンは $\sum_{\alpha=1}^N\sigma_\alpha=N-2M$ である。その二乗を展開すると、$\sigma_\alpha^2=1$ から
-\[
-(N-2M)^2
-=\sum_{\alpha=1}^N\sigma_\alpha^2
- +2\sum_{\alpha<\beta}\sigma_\alpha\sigma_\beta
-=N+2\sum_{\alpha<\beta}\sigma_\alpha\sigma_\beta.
-\]
-二つ目の和は、順序の異なる同一ペアを重複して含まない。これを式(1)に入れて
-\[
-\boxed{E(M)=-\frac{J}{2N}\bigl[(N-2M)^2-N\bigr]},
-\qquad M=0,1,\ldots,N
-\]
-を得る。指定した $M$ に対して $-1$ スピンの位置を選ぶ状態数は $\binom{N}{M}$ である。ただし、$M$ と $N-M$ のように異なる値が同じエネルギーを与えるとき、エネルギーの縮退度はそれぞれの状態数を加えたものになる。
-
-\section*{[2.2] 一般の $N$ に対する基底状態}
-$J>0$ では $E(M)$ を最小にするには $|N-2M|$ を最大にする。$M=0,N$ が該当し、$N\geq1$ で
-\[
-\boxed{E=-\frac{J}{2}(N-1),\qquad W=2\quad(J>0)}.
-\]
-$J<0$ では逆に $|N-2M|$ を最小にする。偶数 $N$ では $M=N/2$ のみ、奇数 $N$ では $M=(N-1)/2,(N+1)/2$ の二つが該当する。従って
-\[
-\boxed{\begin{array}{ll}
-N\text{ が偶数}:& E=J/2,\quad W=\displaystyle\binom{N}{N/2},\\[2mm]
-N\text{ が奇数}:& E=\displaystyle\frac{J(N-1)}{2N},\quad
- W=\displaystyle 2\binom{N}{(N-1)/2}
-\end{array}\qquad(J<0).}
-\]
-ここで奇数 $N$ の二つの $M$ は異なる配置集合を表す。$N=1$ でも式は $E=0,W=2$ を与える。また $N=2,3$ を代入すると [1.1]–[1.3] の結果に戻る。
-
-\section*{[3.1] エネルギー密度}
-以下は原題に従い $N\gg1,J>0$、$m=M/N$、$0<m<1/2$ とする。[2.1] の厳密式を $N$ で割れば
-\[
-\frac{E}{N}=-\frac{J}{2}(1-2m)^2+\frac{J}{2N}.
-\]
-最後の項は有限 $N$ の補正である。大 $N$ で求める関数の主項は
-\[
-\boxed{\frac{E}{N}\simeq-\frac{J}{2}(1-2m)^2.}
-\]
-
-\section*{[3.2] エントロピー密度}
-$M=Nm$ 個の $-1$ スピンを $N$ 箇所から選ぶので、式(4)で指定した磁化の配置数は $W=\binom{N}{M}$ である。$S=k_B\log W$ とし、原題の式(5)を $N,M,N-M$ に適用すると
-\begin{align*}
-\frac{S}{N}
-&=\frac{k_B}{N}\bigl(\log N!-\log M!-\log(N-M)!\bigr)\\
-&\simeq-k_B\bigl[m\log m+(1-m)\log(1-m)\bigr].
-\end{align*}
+\section*{[1] 古典的な1次元調和振動子}
+\subsection*{[1.1] 分配関数}
+$M$ 個の振動子は独立なので、まず1個の位相空間積分 $z_{\mathrm{cl}}$ を計算する。運動量と位置の積分を分け、問題文のガウス積分を使うと
+\begin{align}
+z_{\mathrm{cl}}
+&=\frac{1}{2\pi\hbar}
+ \int_{-\infty}^{\infty}\!\mathrm dp\,
+ e^{-\beta p^2/(2m)}
+ \int_{-\infty}^{\infty}\!\mathrm dx\,
+ e^{-\beta m\omega^2x^2/2}\\
+&=\frac{1}{2\pi\hbar}
+ \sqrt{\frac{2\pi m}{\beta}}
+ \sqrt{\frac{2\pi}{\beta m\omega^2}}
+ =\frac{1}{\beta\hbar\omega}.
+\end{align}
 従って
-\[
-\boxed{\frac{S}{N}\simeq-k_B\bigl[m\log m+(1-m)\log(1-m)\bigr].}
-\]
-この主項は $N\to\infty$ で $m$ を固定し、$M$ と $N-M$ がともに十分大きいときに得られる。$J>0$ の同じエネルギーには $m$ と $1-m$ の両方が対応するが、二枝を合算してもエントロピー密度に加わるのは高々 $k_B\log2/N$ であり、この主項は変わらない。
+\begin{equation}
+\boxed{Z(T)=z_{\mathrm{cl}}^M
+ =\left(\frac{k_{\mathrm B}T}{\hbar\omega}\right)^M}.
+\end{equation}
 
-\section*{[3.3] 温度と $m$ の関係}
-$m$ を変化させると、[3.1] と [3.2] の主項の微分は
-\[
-\frac{1}{N}\frac{\mathrm dE}{\mathrm dm}=2J(1-2m),\qquad
-\frac{1}{N}\frac{\mathrm dS}{\mathrm dm}=k_B\log\frac{1-m}{m}.
-\]
-$0<m<1/2$ ではどちらも正である。式(6)をこの曲線に沿って用い、
-\[
-\frac1T=\frac{\mathrm dS/\mathrm dm}{\mathrm dE/\mathrm dm}
-=\frac{k_B\log[(1-m)/m]}{2J(1-2m)}
-\]
-から
-\[
-\boxed{T(m)=\frac{2J(1-2m)}{k_B\log[(1-m)/m]}}\qquad(0<m<1/2)
-\]
-を得る。分母は正なので $T>0$ であり、$m\to0$ で $T\to0$ となる。
+\subsection*{[1.2] 内部エネルギー}
+正準分布の関係 $U=-\partial\ln Z/\partial\beta$ に上式を代入する。$\ln Z=-M\ln(\beta\hbar\omega)$ より
+\begin{equation}
+\boxed{U=\frac{M}{\beta}=Mk_{\mathrm B}T}.
+\end{equation}
+1振動子に運動・位置の二つの二次項があり、各項が $k_{\mathrm B}T/2$ を担うという等分配則とも一致する。
 
-\section*{[3.4] 低温の $m$}
-$k_BT\ll J$ のとき原題の条件どおり $m\ll1$ とする。[3.3] を
-\[
-\log\frac{1-m}{m}=\frac{2J}{k_BT}(1-2m)
-\]
-と書けば、左辺は先頭で $-\log m$、右辺は先頭で $2J/(k_BT)$ である。従って、熱力学極限を先に取った低温の支配項は
-\[
-\boxed{m\sim\exp\!\left(-\frac{2J}{k_BT}\right)}\qquad(k_BT/J\to0).
-\]
-等号ではなく漸近等価を用いるのは、元の式には $m$ に依存する補正が残るためである。
+\subsection*{[1.3] 熱容量}
+振動数を固定して $U$ を温度微分すると
+\begin{equation}
+\boxed{C=\left(\frac{\partial U}{\partial T}\right)_{\omega}=Mk_{\mathrm B}}.
+\end{equation}
 
-\section*{[3.5] 低温のエントロピー}
-$m\ll1$ に対して $-(1-m)\log(1-m)=m+O(m^2)$ なので、[3.2] は
-\[
-\frac{S}{N}=k_B\bigl[m(1-\log m)+O(m^2)\bigr].
-\]
-[3.4] の $-\log m\sim2J/(k_BT)$ を代入すると
-\[
-\boxed{\frac{S}{N}\sim k_B\left(1+\frac{2J}{k_BT}\right)
-\exp\!\left(-\frac{2J}{k_BT}\right)}\qquad(k_BT/J\to0).
-\]
-括弧内の $1$ は $-(1-m)\log(1-m)$ からの寄与である。さらに厳密な最先頭だけなら、括弧内は $2J/(k_BT)$ に置き換えられる。
+\section*{[2] 単一振動数の量子的調和振動子}
+\subsection*{[2.1] 分配関数}
+1振動子について $n=0,1,\ldots$ のボルツマン因子を和にする。$q=e^{-\beta\hbar\omega}$ は $0<q<1$ なので等比級数を使え、
+\begin{equation}
+z_{\mathrm q}=\sum_{n=0}^{\infty}
+ e^{-\beta\hbar\omega(n+1/2)}
+ =\frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
+ =\frac{1}{2\sinh(\beta\hbar\omega/2)}.
+\end{equation}
+$M$ 個の独立なモードでは
+\begin{equation}
+\boxed{Z(T)=\left[
+\frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
+\right]^M}.
+\end{equation}
 
-\section*{[3.6] 低温の熱容量}
-体積や外場など他の外部条件は変えていないので、$C=T\,\mathrm dS/\mathrm dT$ を用いる。[3.5] で使ったエントロピーを温度で微分するため、$x=2J/(k_BT)$ とおき、[3.3] の関係を微分する。
-\[
-\log\frac{1-m}{m}=x(1-2m),\qquad
-\frac{\mathrm dm}{\mathrm dx}
-=-\frac{m(1-m)(1-2m)}{1-2xm(1-m)}\sim-m.
-\]
-ここで [3.4] より $m\sim e^{-x}$ であり、$xm\to0$ を用いた。[3.2] のエントロピーから $\mathrm d(S/N)/\mathrm dm=k_B\log[(1-m)/m]$ なので、$T\,\mathrm d/\mathrm dT=-x\,\mathrm d/\mathrm dx$ により
-\[
-\frac{C}{N}=-k_Bx\log\frac{1-m}{m}\frac{\mathrm dm}{\mathrm dx}
-\sim k_Bx^2e^{-x}.
-\]
-従って
-\[
-\boxed{\frac{C}{N}\sim k_B\left(\frac{2J}{k_BT}\right)^2
-\exp\!\left(-\frac{2J}{k_BT}\right)}\qquad(k_BT/J\to0).
-\]
-同じ結果は、$E/N\simeq-J/2+2Jm$ と上の $\mathrm dm/\mathrm dx$ を使い、$C/N=\mathrm d(E/N)/\mathrm dT$ を計算しても得られる。正の値で、$T\to0$ では指数的にゼロになる。
+\subsection*{[2.2] 内部エネルギー}
+$\ln Z=M[-\beta\hbar\omega/2-\ln(1-e^{-\beta\hbar\omega})]$ を $\beta$ で微分すると
+\begin{equation}
+\boxed{U=M\hbar\omega\left(
+\frac12+\frac{1}{e^{\beta\hbar\omega}-1}
+\right)}.
+\end{equation}
+第1項は $T=0$ でも残る零点エネルギー、第2項は熱励起のエネルギーである。
 
-\section*{[4] 臨界温度}
-原題では $T\geq T_c$ の平衡状態が $m=1/2$ である。[3.3] の式はこの点で分子と分母がともにゼロになるため、$0<m<1/2$ からの極限を取る。$\log[(1-m)/m]$ の $m=1/2$ での一次微分は $-4$ だから、$m\to1/2$ では
-\[
-\log\frac{1-m}{m}=2(1-2m)+O\bigl((1-2m)^3\bigr).
-\]
-従って
-\[
-\boxed{T_c=\lim_{m\to1/2^-}T(m)=\frac{J}{k_B}.}
-\]
-これは $N\gg1$ の熱力学的な臨界温度である。有限 $N$ の [2] に臨界特異点を主張するものではない。
+\subsection*{[2.3] 熱容量}
+$\Theta=\hbar\omega/k_{\mathrm B}$ を振動子の温度尺度とおくと、$\beta\hbar\omega=\Theta/T$ である。零点項は温度微分で消え、$y=\Theta/T$ について $\mathrm dy/\mathrm dT=-y/T$ を使えば
+\begin{equation}
+\boxed{C=Mk_{\mathrm B}
+\left(\frac{\Theta}{T}\right)^2
+\frac{e^{\Theta/T}}{(e^{\Theta/T}-1)^2}}
+=Mk_{\mathrm B}\left[
+\frac{\Theta/(2T)}{\sinh(\Theta/(2T))}
+\right]^2.
+\end{equation}
+
+\subsection*{[2.4] 低温・高温と概形}
+$T\ll\Theta$ では $e^{\Theta/T}\gg1$、$T\gg\Theta$ では $\sinh(y/2)\sim y/2$ である。従って
+\begin{equation}
+\boxed{C\sim Mk_{\mathrm B}\left(\frac{\Theta}{T}\right)^2e^{-\Theta/T}
+\quad(T\ll\Theta)},\qquad
+\boxed{C\longrightarrow Mk_{\mathrm B}\quad(T\gg\Theta)}.
+\end{equation}
+低温では最初の励起に必要な有限のエネルギー $\hbar\omega$ が熱励起を抑える。図の横軸 $T/\Theta$、縦軸 $C/(Mk_{\mathrm B})$ は無次元である。
+\begin{center}
+\begin{tikzpicture}[x=3.0cm,y=3.0cm]
+ \draw[->] (0,0)--(3.2,0) node[right] {$T/\Theta$};
+ \draw[->] (0,0)--(0,1.2) node[above] {$C/(Mk_{\mathrm B})$};
+ \draw[gray,densely dotted] (0,1)--(3,1);
+ \node[left] at (0,1) {$1$};
+ \foreach \x in {1,2,3} {\draw (\x,0)--(\x,-0.025) node[below] {$\x$};}
+ \draw[blue,very thick] plot[smooth] coordinates {
+ (0,0) (0.05,0.000001) (0.1,0.004540) (0.15,0.056706)
+ (0.2,0.170742) (0.3,0.426247) (0.4,0.608890)
+ (0.5,0.724062) (0.7,0.845975) (1,0.920674)
+ (1.5,0.963772) (2,0.979425) (3,0.990792)};
+ \node[blue] at (1.2,0.70) {量子振動子};
+\end{tikzpicture}
+\end{center}
+
+\section*{[3] デバイ型の振動数分布}
+\subsection*{[3.1] 内部エネルギーと熱容量の積分}
+まず与えられた状態密度の規格化は
+\begin{equation}
+\int_0^{\omega_{\mathrm D}}g(\omega)\,\mathrm d\omega
+=\frac{9N}{\omega_{\mathrm D}^3}
+\int_0^{\omega_{\mathrm D}}\omega^2\,\mathrm d\omega=3N
+\end{equation}
+であり、3次元固体の振動モード数に一致する。各周波数のモードに[2.2]の1振動子のエネルギーを適用して、
+\begin{equation}
+\boxed{U=\int_0^{\omega_{\mathrm D}}\!g(\omega)\hbar\omega
+\left[\frac12+\frac{1}{e^{\beta\hbar\omega}-1}\right]
+\mathrm d\omega}.
+\end{equation}
+このうち零点エネルギーは $\frac12\int g(\omega)\hbar\omega\,\mathrm d\omega=9N\hbar\omega_{\mathrm D}/8$ であり、熱容量に寄与しない。従って、微分を積分の中に入れると
+\begin{equation}
+\boxed{C=k_{\mathrm B}\int_0^{\omega_{\mathrm D}}\!g(\omega)
+(\beta\hbar\omega)^2
+\frac{e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}
+\mathrm d\omega}.
+\end{equation}
+
+\subsection*{[3.2] 低温・高温と概形}
+デバイ温度 $\Theta_{\mathrm D}=\hbar\omega_{\mathrm D}/k_{\mathrm B}$ を導入し、積分変数を $x=\beta\hbar\omega$ に変える。上限は $\Theta_{\mathrm D}/T$、また $g(\omega)\mathrm d\omega=9N(T/\Theta_{\mathrm D})^3x^2\mathrm dx$ なので
+\begin{equation}
+C=9Nk_{\mathrm B}\left(\frac{T}{\Theta_{\mathrm D}}\right)^3
+\int_0^{\Theta_{\mathrm D}/T}
+\frac{x^4e^x}{(e^x-1)^2}\,\mathrm dx.
+\end{equation}
+$T\ll\Theta_{\mathrm D}$ では上限が十分大きい。被積分関数は大きい$x$で$x^4e^{-x}$に近づくため、上限から先の尾部は指数的に小さく、積分の上限を無限大に延ばせる。問題文の積分値を使い、
+\begin{equation}
+\boxed{C\sim\frac{12\pi^4}{5}Nk_{\mathrm B}
+\left(\frac{T}{\Theta_{\mathrm D}}\right)^3
+\quad(T\ll\Theta_{\mathrm D})}.
+\end{equation}
+高温では全モードに $k_{\mathrm B}$ の熱容量が戻る。実際、$x\ll1$ で $x^2e^x/(e^x-1)^2\to1$ だから、規格化したモード数を用いて
+\begin{equation}
+\boxed{C\longrightarrow 3Nk_{\mathrm B}\quad(T\gg\Theta_{\mathrm D})}.
+\end{equation}
+概形は低温で原点から $T^3$ に沿って立ち上がり、上側の漸近値 $3Nk_{\mathrm B}$ に近づく。
+\begin{center}
+\begin{tikzpicture}[x=3.0cm,y=3.0cm]
+ \draw[->] (0,0)--(3.2,0) node[right] {$T/\Theta_{\mathrm D}$};
+ \draw[->] (0,0)--(0,1.2) node[above] {$C/(3Nk_{\mathrm B})$};
+ \draw[gray,densely dotted] (0,1)--(3,1);
+ \node[left] at (0,1) {$1$};
+ \foreach \x in {1,2,3} {\draw (\x,0)--(\x,-0.025) node[below] {$\x$};}
+ \draw[blue,very thick] plot[smooth] coordinates {
+ (0,0) (0.05,0.009741) (0.1,0.075821) (0.15,0.212992)
+ (0.2,0.368635) (0.3,0.607703) (0.4,0.745853)
+ (0.5,0.825408) (0.7,0.904954) (1,0.951732)
+ (1.5,0.978126) (2,0.987611) (3,0.994466)};
+ \node[blue] at (1.05,0.73) {デバイ模型};
+\end{tikzpicture}
+\end{center}
+
+\section*{[4] 3種類の固体モデルの比較}
+\subsection*{[4.1] 同じ座標でのプロット}
+[1]と[2]の $M$ を $3N$ に替えると、$\Theta=\hbar\omega/k_{\mathrm B}$ を用いて
+\begin{align}
+C_{\mathrm I}&=3Nk_{\mathrm B},\\
+C_{\mathrm{II}}&=3Nk_{\mathrm B}
+\left(\frac{\Theta}{T}\right)^2
+\frac{e^{\Theta/T}}{(e^{\Theta/T}-1)^2},\\
+C_{\mathrm{III}}&=9Nk_{\mathrm B}
+\left(\frac{T}{\Theta_{\mathrm D}}\right)^3
+\int_0^{\Theta_{\mathrm D}/T}
+\frac{x^4e^x}{(e^x-1)^2}\,\mathrm dx.
+\end{align}
+原題は $\omega$ と $\omega_{\mathrm D}$ の比を指定していない。以下の図は比較例として $\omega=\omega_{\mathrm D}$、すなわち $\Theta=\Theta_{\mathrm D}$ と置き、縦軸を $3Nk_{\mathrm B}$ で割った。
+\begin{center}
+\begin{tikzpicture}[x=3.0cm,y=3.2cm]
+ \draw[->] (0,0)--(3.2,0) node[right] {$T/\Theta$};
+ \draw[->] (0,0)--(0,1.19) node[above] {$C/(3Nk_{\mathrm B})$};
+ \node[left] at (0,1) {$1$};
+ \foreach \x in {1,2,3} {\draw (\x,0)--(\x,-0.023) node[below] {$\x$};}
+ \draw[black,thick,densely dotted] (0,1)--(3,1);
+ \draw[blue,very thick] plot[smooth] coordinates {
+ (0,0) (0.05,0.009741) (0.1,0.075821) (0.15,0.212992)
+ (0.2,0.368635) (0.3,0.607703) (0.4,0.745853)
+ (0.5,0.825408) (0.7,0.904954) (1,0.951732)
+ (1.5,0.978126) (2,0.987611) (3,0.994466)};
+ \draw[red,very thick,dashed] plot[smooth] coordinates {
+ (0,0) (0.05,0.000001) (0.1,0.004540) (0.15,0.056706)
+ (0.2,0.170742) (0.3,0.426247) (0.4,0.608890)
+ (0.5,0.724062) (0.7,0.845975) (1,0.920674)
+ (1.5,0.963772) (2,0.979425) (3,0.990792)};
+ \draw[black,thick,densely dotted] (0.20,-0.21)--(0.58,-0.21);
+ \node[anchor=west] at (0.62,-0.21) {$C_{\mathrm I}$ 古典};
+ \draw[red,very thick,dashed] (1.18,-0.21)--(1.56,-0.21);
+ \node[anchor=west] at (1.60,-0.21) {$C_{\mathrm{II}}$ 単一振動数};
+ \draw[blue,very thick] (0.20,-0.39)--(0.58,-0.39);
+ \node[anchor=west] at (0.62,-0.39) {$C_{\mathrm{III}}$ デバイ模型};
+\end{tikzpicture}
+\end{center}
+
+\subsection*{[4.2] 高温での比較}
+$T\gg\Theta,\Theta_{\mathrm D}$ では各量子モードの平均エネルギーの主項が $k_{\mathrm B}T$ となる。従って $3N$ 個の振動モードはいずれも等分配則の値に戻り、
+\begin{equation}
+\boxed{C_{\mathrm I}=3Nk_{\mathrm B},\qquad
+C_{\mathrm{II}}\longrightarrow3Nk_{\mathrm B},\qquad
+C_{\mathrm{III}}\longrightarrow3Nk_{\mathrm B}}.
+\end{equation}
+有限の高温での近づき方も確認できる。$y^2e^y/(e^y-1)^2=1-y^2/12+O(y^4)$ を各モードに用いると
+\begin{equation}
+C_{\mathrm{II}}=3Nk_{\mathrm B}
+\left[1-\frac1{12}\left(\frac{\Theta}{T}\right)^2+O\!\left((\Theta/T)^4\right)\right],\qquad
+C_{\mathrm{III}}=3Nk_{\mathrm B}
+\left[1-\frac1{20}\left(\frac{\Theta_{\mathrm D}}{T}\right)^2+O\!\left((\Theta_{\mathrm D}/T)^4\right)\right].
+\end{equation}
+後者では$g(\omega)$による平均が$\langle\omega^2\rangle=(3N)^{-1}\int_0^{\omega_{\mathrm D}}g(\omega)\omega^2\,d\omega=3\omega_{\mathrm D}^2/5$であり、$1/12$にこれを掛けて係数$1/20$を得る。どちらの量子曲線も古典値へ下から近づく。
+
+\subsection*{[4.3] 低温での比較}
+古典模型を形式的に低温へ外挿すると $C_{\mathrm I}=3Nk_{\mathrm B}$ のままであり、熱励起の量子化による凍結を表せない。一方、単一振動数の量子模型にはすべてのモードに同じ有限の励起ギャップ $\hbar\omega$ があるので
+\begin{equation}
+\boxed{C_{\mathrm{II}}\sim3Nk_{\mathrm B}
+\left(\frac{\Theta}{T}\right)^2e^{-\Theta/T}}.
+\end{equation}
+デバイ模型には $\omega\to0$ の低周波モードが連続して存在する。温度 $T$ で励起しやすい $\hbar\omega\lesssim k_{\mathrm B}T$ のモード数は $g(\omega)\propto\omega^2$ から $T^3$ に比例するため、
+\begin{equation}
+\boxed{C_{\mathrm{III}}\sim\frac{12\pi^4}{5}Nk_{\mathrm B}
+\left(\frac{T}{\Theta_{\mathrm D}}\right)^3}.
+\end{equation}
+したがって $T\to0$ では両量子模型の熱容量は零になるが、デバイ模型の冪減衰は単一振動数模型の指数減衰より遅い。ここでは格子振動だけを比較している。実在の金属では電子の熱容量が低温でおおむね $T$ に比例する場合があり、この3模型の式には含まれない。
+
 \end{document}

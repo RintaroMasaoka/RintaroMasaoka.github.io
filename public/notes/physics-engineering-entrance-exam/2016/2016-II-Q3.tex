@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2016ap_exam.pdf, PDF pages 9–10.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h28ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -11,164 +11,165 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
 \renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2016年 物理学II 第3問}
+\title{物理工学専攻 院試解答集\\2016年度 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 磁場中の束縛電子}
-電子の電荷は$-e$であるから、電場とローレンツ力を含む運動方程式は
+\section*{[1] 束縛電子の運動}
+電子の電荷は$-e$なので、電場による力は$-e\boldsymbol E$である。共振振動数$\omega_0$の調和復元力も加えると、
 \begin{equation}
- m\ddot{\boldsymbol u}=-e(\boldsymbol E_{\rm ex}+\dot{\boldsymbol u}\times\boldsymbol B_{\rm ex})-m\omega_0^2\boldsymbol u.
-\end{equation}
-時間因子$e^{-i\omega t}$を取り出すと$\dot{\boldsymbol u}=-i\omega\boldsymbol u$、$\ddot{\boldsymbol u}=-\omega^2\boldsymbol u$であり、$\boldsymbol B_{\rm ex}=B\boldsymbol e_z$より
-\begin{align}
- m(\omega^2-\omega_0^2)u_x+i e\omega B u_y&=eE_x,\\
- -i e\omega B u_x+m(\omega^2-\omega_0^2)u_y&=eE_y.
-\end{align}
-$D=m(\omega^2-\omega_0^2)$、$\Omega=e\omega B$とおくと
-\begin{equation}
- \begin{pmatrix}D&i\Omega\\-i\Omega&D\end{pmatrix}
- \begin{pmatrix}u_x\\u_y\end{pmatrix}
- =e\begin{pmatrix}E_x\\E_y\end{pmatrix}.
-\end{equation}
-行列式は$D^2-\Omega^2$だから、その逆行列を用いて
-\begin{equation}
- \boxed{u_x=\frac{e(DE_x-i\Omega E_y)}{D^2-\Omega^2},\qquad
- u_y=\frac{e(i\Omega E_x+DE_y)}{D^2-\Omega^2}}.
+  \boxed{m\ddot{\boldsymbol x}=-m\omega_0^2\boldsymbol x-e\boldsymbol E.}
 \end{equation}
 
-\section*{[2] 複素比誘電率}
-分極は$\boldsymbol P=-ne\boldsymbol u$である。$\boldsymbol P=\varepsilon_0(\tilde{\boldsymbol\varepsilon}-\mathbf I)\boldsymbol E_{\rm ex}$と比較すると
-\begin{align}
- \varepsilon_{xx}&=1-\frac{ne^2D}{\varepsilon_0(D^2-\Omega^2)},&
- \gamma&=\frac{ne^2\Omega}{\varepsilon_0(D^2-\Omega^2)}
- =\frac{ne^3\omega B}{\varepsilon_0(D^2-\Omega^2)},\\
- \varepsilon_{zz}&=1-\frac{ne^2}{\varepsilon_0D}.
-\end{align}
-最後の式は$z$方向の運動方程式$D u_z=eE_z$から得る。条件$\omega_0\gg\omega>0$、$\omega_0\gg eB/m$では$D<0$かつ$|D|>\Omega$であり、よって
+\section*{[2] 分極の運動方程式}
+数密度$N$の電子による分極は$\boldsymbol P=-eN\boldsymbol x$である。これを時間で2回微分し、[1]を使うと
 \begin{equation}
- D^2-\Omega^2>0,\qquad \gamma>0,\qquad \varepsilon_{xx}>1.
+  \boxed{\ddot{\boldsymbol P}+\omega_0^2\boldsymbol P
+  =\frac{Ne^2}{m}\boldsymbol E.}
 \end{equation}
-ここでは$\varepsilon_{xx}$と$\gamma$が実数となる近似範囲を考えている。
+右辺の符号が正なのは、$\boldsymbol P$と電子変位$\boldsymbol x$が反対向きだからである。
 
-\section*{[3] 平面波の波動方程式}
-式(3)の第1式を$\boldsymbol k$と外積し、第2式で$\boldsymbol H_0$を消去すると
+\section*{[3] 誘電率}
+電場と分極が角周波数$\omega$で振動するので、$\ddot P=-\omega^2P$である。従って
 \begin{equation}
- \boldsymbol k\times(\boldsymbol k\times\boldsymbol E_0)
- =-\mu_0\varepsilon_0\omega^2\tilde{\boldsymbol\varepsilon}\boldsymbol E_0.
+  (\omega_0^2-\omega^2)P=\frac{Ne^2}{m}E,
+  \qquad
+  \boxed{P=\frac{Ne^2}{m(\omega_0^2-\omega^2)}E}.
 \end{equation}
-ベクトル恒等式$\boldsymbol a\times(\boldsymbol b\times\boldsymbol c)=\boldsymbol b(\boldsymbol a\cdot\boldsymbol c)-\boldsymbol c(\boldsymbol a\cdot\boldsymbol b)$を使い、$c^{-2}=\mu_0\varepsilon_0$とすれば
+マクロな関係$D=\varepsilon_0E+P=\varepsilon(\omega)E$より
 \begin{equation}
- \boxed{(\boldsymbol E_0\cdot\boldsymbol k)\boldsymbol k-|\boldsymbol k|^2\boldsymbol E_0
- +\left(\frac{\omega}{c}\right)^2\tilde{\boldsymbol\varepsilon}\boldsymbol E_0=0}.
+  \varepsilon(\omega)=\varepsilon_0+
+  \frac{Ne^2}{m(\omega_0^2-\omega^2)}.
 \end{equation}
 
-\section*{[4] 固有モード}
-$\boldsymbol k=k_z\boldsymbol e_z$とする。$x,y$成分は
+\section*{[4] 誘電体中の分散関係}
+問題文の波動方程式(3)に平面波を代入すると$-k^2E+\varepsilon(\omega)\mu_0\omega^2E=0$だから
 \begin{equation}
- \begin{pmatrix}
- (\omega/c)^2\varepsilon_{xx}-k_z^2&i(\omega/c)^2\gamma\\
- -i(\omega/c)^2\gamma&(\omega/c)^2\varepsilon_{xx}-k_z^2
- \end{pmatrix}
- \begin{pmatrix}E_{0,x}\\E_{0,y}\end{pmatrix}=0.
+  \boxed{k^2=\mu_0\varepsilon(\omega)\omega^2}.
 \end{equation}
-非零の解には行列式がゼロであることが必要だから
+プラズマ角周波数を$\omega_p^2=Ne^2/(\varepsilon_0m)$、
+$\omega_1=\sqrt{\omega_0^2+\omega_p^2}$とおく。真空中の光速$c=1/\sqrt{\varepsilon_0\mu_0}$を使えば
 \begin{equation}
- \left[(\omega/c)^2\varepsilon_{xx}-k_z^2\right]^2
- -\left[(\omega/c)^2\gamma\right]^2=0.
+  \boxed{k^2=\frac{\omega^2}{c^2}
+  \frac{\omega_1^2-\omega^2}{\omega_0^2-\omega^2}}.
 \end{equation}
-$0<\gamma<\varepsilon_{xx}$より二つの正の波数は
-\begin{equation}
- \boxed{k_\pm=\frac{\omega}{c}\sqrt{\varepsilon_{xx}\pm\gamma}},\qquad k_+>k_->0.
-\end{equation}
-$k_z=k_+$のとき$x$成分の式から$E_{0,y}=-iE_{0,x}$、$k_z=k_-$では$E_{0,y}=iE_{0,x}$となる。$|\boldsymbol E_{0\pm}|=E$で規格化すると
-\begin{equation}
- \boxed{\boldsymbol E_{0+}=\frac{E}{\sqrt2}\begin{pmatrix}1\\-i\\0\end{pmatrix},\qquad
- \boldsymbol E_{0-}=\frac{E}{\sqrt2}\begin{pmatrix}1\\i\\0\end{pmatrix}}.
-\end{equation}
-$z$成分の式は$(\omega/c)^2\varepsilon_{zz}E_{0,z}=0$を与える。この振動子モデルの条件では$\varepsilon_{zz}>0$なので$E_{0,z}=0$である。
 
-\section*{[5] 円偏光モードの時間変化}
-正の波数側モードについて
+\section*{[5] 誘電体の実部・虚部}
+正の角周波数に対して、分子と分母の符号を比べる。$+z$方向へ進む波には、伝搬域で$\operatorname{Re}k>0$、非伝搬域で$\operatorname{Im}k>0$となる枝を選ぶ。
 \begin{equation}
- \boldsymbol E_+(z,t)=\frac{E}{\sqrt2}
- \begin{pmatrix}1\\-i\\0\end{pmatrix}e^{ik_+z-i\omega t}
+  \begin{array}{c|c|c}
+    \text{周波数域}&\operatorname{Re}k&\operatorname{Im}k\\ \hline
+    0<\omega<\omega_0&
+    \displaystyle\frac{\omega}{c}\sqrt{\frac{\omega_1^2-\omega^2}{\omega_0^2-\omega^2}}&0\\[1.1em]
+    \omega_0<\omega<\omega_1&0&
+    \displaystyle\frac{\omega}{c}\sqrt{\frac{\omega_1^2-\omega^2}{\omega^2-\omega_0^2}}\\[1.1em]
+    \omega>\omega_1&
+    \displaystyle\frac{\omega}{c}\sqrt{\frac{\omega^2-\omega_1^2}{\omega^2-\omega_0^2}}&0
+  \end{array}
 \end{equation}
-である。$z=0$で実部を取れば
-\begin{equation}
- \Re E_{+,x}(0,t)=\frac{E}{\sqrt2}\cos\omega t,\qquad
- \Re E_{+,y}(0,t)=-\frac{E}{\sqrt2}\sin\omega t.
-\end{equation}
-二成分は同じ振幅で位相が$\pi/2$ずれているので、合成電場の先端は円を描く。
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[xscale=0.92,yscale=0.82,>=Stealth]
- \draw[->] (-0.25,0)--(6.8,0) node[right] {$\omega t$};
- \draw[->] (0,-1.35)--(0,2.4) node[above] {成分（$E/\sqrt2$単位）};
- \draw[thick,blue,domain=0:6.283,samples=120] plot (\x,{cos(\x r)});
- \draw[thick,red,domain=0:6.283,samples=120] plot (\x,{-sin(\x r)});
- \foreach \x/\lab in {0/0,1.571/{\pi/2},3.142/{\pi},4.712/{3\pi/2},6.283/{2\pi}} {
-   \draw (\x,0.04)--(\x,-0.04) node[below=3pt] {$\lab$};
- }
- \node[blue,anchor=west] at (0.35,2.15) {$\sqrt2\,\Re E_{+,x}/E=\cos\omega t$};
- \node[red,anchor=west] at (0.35,1.72) {$\sqrt2\,\Re E_{+,y}/E=-\sin\omega t$};
-\end{tikzpicture}
-\caption{二つの直交成分の位相差。}
-\end{figure}
+誘電体の非伝搬帯では$k=i\kappa$（$\kappa>0$）を選ぶ。位相因子は$e^{ikz}=e^{-\kappa z}$となり、$+z$方向へ進むと振幅が減衰する。これはエバネッセント場の空間的減衰であり、この無減衰模型での吸収損失を意味しない。共振$\omega_0$では理想化した無減衰模型の$k$が発散し、$\omega_1$では$k=0$となる。
 
-\section*{[6] 媒質を通過した偏光面}
-境界で$x$偏光になるよう、二つの固有モードを等しい振幅で重ねる。
+図の例では $\Omega=\omega/\omega_0$、$K=ck/\omega_0$ と規格化し、$\omega_1/\omega_0=2$ を選ぶ。従って $\omega_p/\omega_0=\sqrt{3}$ であり、実部・虚部の枝は直前の分散式から
 \begin{equation}
- \boldsymbol E(z,t)=\frac{\boldsymbol E_{0+}}{\sqrt2}e^{ik_+z-i\omega t}
- +\frac{\boldsymbol E_{0-}}{\sqrt2}e^{ik_-z-i\omega t}.
+ \operatorname{Re}K=\begin{cases}
+ \displaystyle\Omega\sqrt{\frac{4-\Omega^2}{1-\Omega^2}},&0<\Omega<1,\\
+ 0,&1<\Omega<2,\\
+ \displaystyle\Omega\sqrt{\frac{\Omega^2-4}{\Omega^2-1}},&\Omega>2,
+ \end{cases}\quad
+ \operatorname{Im}K=\begin{cases}
+ \displaystyle\Omega\sqrt{\frac{4-\Omega^2}{\Omega^2-1}},&1<\Omega<2,\\
+ 0,&0<\Omega<1\text{ または }\Omega>2.
+ \end{cases}
 \end{equation}
-$z=0$では$\boldsymbol E_{0+}+\boldsymbol E_{0-}=\sqrt2(E,0,0)^{\mathsf T}$なので条件(5)を満たす。$\bar k=(k_++k_-)/2$、$\delta=(k_+-k_-)z/2$と置くと、複素振幅は
-\begin{equation}
- \boldsymbol E(z,t)=E\begin{pmatrix}\cos\delta\\\sin\delta\\0\end{pmatrix}
- e^{i\bar k z-i\omega t}.
-\end{equation}
-従って$z=l$では
-\begin{equation}
- \boxed{\boldsymbol F=E\begin{pmatrix}\cos\theta\\\sin\theta\\0\end{pmatrix},\qquad
- \theta=\frac{(k_+-k_-)l}{2}}.
-\end{equation}
-実電場は共通の伝搬位相を持つ直線偏光で、その振動方向が$x$軸から$\theta$回転している。
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[>=Stealth,scale=0.95]
- \draw[thick] (0,0)--(0,1.6);
- \draw[thick] (4,0)--(4,1.6);
- \node[above] at (2,1.6) {媒質 $0\le z\le l$};
- \draw[->,blue,thick] (-1,0.8)--(0,0.8) node[midway,above] {$\boldsymbol E\parallel x$};
- \draw[->,thick] (0,1.25)--(4,1.25) node[midway,above] {$+z$};
- \draw[->,purple,thick] (0.35,0.08)--(3.65,0.08) node[midway,below] {$\boldsymbol B_{\rm ex}\parallel +z$};
- \coordinate (M) at (5.4,0.8);
- \draw[->,thick] (4,0.8)--(M) node[midway,above] {入射光};
- \draw[thick] (5.4,0.15)--(5.4,1.45);
- \node[right] at (5.4,0.8) {鏡};
- \draw[->,thick] (M)--(0.2,0.8) node[pos=0.72,below] {Return};
- \draw[->] (-0.9,-0.65)--(0.0,-0.65) node[right] {$z$};
- \draw[->] (-0.9,-0.65)--(-0.9,0.25) node[above] {$x$};
- \fill (-0.55,-0.65) circle (2pt) node[below] {$+y$};
+\begin{tikzpicture}[>=Stealth,font=\small,x=1.25cm,y=0.8cm]
+  \begin{scope}
+    \draw[->] (0,0)--(3.25,0) node[right] {$\Omega$};
+    \draw[->] (0,0)--(0,1.9) node[above] {$\operatorname{Re}K$};
+    \draw[dashed] (1,0)--(1,1.65);
+    \draw[dashed] (2,0)--(2,1.55);
+    \begin{scope}
+    \clip (0,0) rectangle (3.1,1.8);
+    \draw[thick] plot[domain=0:0.985,samples=100] (\x,{\x*sqrt((4-\x^2)/(1-\x^2))});
+    \draw[thick] plot[domain=2:3.1,samples=100] (\x,{\x*sqrt((\x^2-4)/(\x^2-1))});
+    \end{scope}
+    \node[below] at (1,0) {$1$};
+    \node[below] at (2,0) {$2$};
+    \node at (1.5,0.3) {$0$};
+  \end{scope}
+  \begin{scope}[xshift=5.2cm]
+    \draw[->] (0,0)--(3.15,0) node[right] {$\Omega$};
+    \draw[->] (0,0)--(0,1.9) node[above] {$\operatorname{Im}K$};
+    \draw[dashed] (1,0)--(1,1.65);
+    \draw[dashed] (2,0)--(2,1.55);
+    \begin{scope}
+    \clip (0,0) rectangle (3.1,1.8);
+    \draw[thick,dashed] plot[domain=1.015:2,samples=100] (\x,{\x*sqrt((4-\x^2)/(\x^2-1))});
+    \end{scope}
+    \node[below] at (1,0) {$1$};
+    \node[below] at (2,0) {$2$};
+  \end{scope}
 \end{tikzpicture}
-\caption{磁場の向きを保ったまま鏡で戻す往復伝搬。媒質内の偏光面の回転角は $\theta$ である。}
+\caption{誘電体の規格化波数 $K$ の実部（実線）と虚部（破線）。共振近傍で発散する枝は枠外へ続く。}
+\label{fig:dielectric-k}
 \end{figure}
 
-\section*{[7] 鏡による往復}
-鏡は偏光を反射するが、外部磁場$\boldsymbol B_{\rm ex}$は反転しない。[4]の固有方程式は$k_z^2$で決まるため、戻り光では同じ固定$x,y$座標の固有ベクトル$\boldsymbol E_{0\pm}$に、それぞれ$k_z=-k_\pm$を対応させる。鏡の反射係数を両成分に共通な$r$とすると、$z=l$から$z=0$へ戻る各成分にも$e^{i(-k_\pm)(0-l)}=e^{ik_\pm l}$の位相が加わる。従って戻った電場は
+\section*{[6] 金属中の自由電子}
+金属中の電子には束縛復元力がない。磁気力を無視すると、電場による運動方程式は
 \begin{equation}
- \boldsymbol E_{\rm ret}(0,t)
- =\frac{r}{\sqrt2}\left(\boldsymbol E_{0+}e^{2ik_+l}
- +\boldsymbol E_{0-}e^{2ik_-l}\right)e^{-i\omega t}
- =rE\begin{pmatrix}\cos2\theta\\\sin2\theta\\0\end{pmatrix}
- e^{2i\bar k l-i\omega t}.
+  \boxed{m\ddot{\boldsymbol x}=-e\boldsymbol E.}
 \end{equation}
-このように往路と復路の相対位相差が加算され、$x$軸に対する最終角は
+分極$\boldsymbol P=-en_e\boldsymbol x$を導入すれば、調和応答では
 \begin{equation}
- \boxed{\theta_{\rm round}=2\theta=(k_+-k_-)l}.
+  P=-\frac{n_e e^2}{m\omega^2}E,\qquad
+  \varepsilon_m(\omega)=\varepsilon_0\left(1-\frac{\omega_{pm}^2}{\omega^2}\right),
+  \qquad \omega_{pm}^2=\frac{n_e e^2}{\varepsilon_0m}.
 \end{equation}
-これは媒質表面での反射を無視し、鏡の反射自体が偏光面の向きを変えないという問題の設定による。鏡までの真空中の往復位相も両成分に共通なので、回転角には影響しない。
+
+\section*{[7] 金属の実部・虚部}
+分散関係は
+\begin{equation}
+  k^2=\mu_0\varepsilon_0(\omega^2-\omega_{pm}^2)
+  =\frac{\omega^2-\omega_{pm}^2}{c^2}.
+\end{equation}
+ここでは $\Omega=\omega/\omega_{pm}$、$K=ck/\omega_{pm}$ とおくと、正周波数で
+\begin{equation}
+ \operatorname{Re}K=\begin{cases}0,&0<\Omega<1,\\
+ \sqrt{\Omega^2-1},&\Omega>1,\end{cases}\qquad
+ \operatorname{Im}K=\begin{cases}\sqrt{1-\Omega^2},&0<\Omega<1,\\
+ 0,&\Omega>1.\end{cases}
+\end{equation}
+となる。
+従って正の角周波数では
+\begin{equation}
+  \boxed{\begin{aligned}
+    0<\omega<\omega_{pm}:&\quad \operatorname{Re}k=0,\quad
+      \operatorname{Im}k=\frac1c\sqrt{\omega_{pm}^2-\omega^2},\\
+    \omega>\omega_{pm}:&\quad \operatorname{Re}k=\frac1c\sqrt{\omega^2-\omega_{pm}^2},\quad
+      \operatorname{Im}k=0.
+  \end{aligned}}
+\end{equation}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,font=\small,x=1.25cm,y=0.8cm]
+  \draw[->] (0,0)--(3.3,0) node[right] {$\Omega=\omega/\omega_{pm}$};
+  \draw[->] (0,0)--(0,3.2) node[above] {$K=ck/\omega_{pm}$};
+  \draw[dashed] (1,0)--(1,1.65);
+  \draw[thick] plot[domain=1:3.1,samples=100] (\x,{sqrt(\x^2-1)});
+  \draw[thick,dashed] plot[domain=0:1,samples=100] (\x,{sqrt(1-\x^2)});
+  \node[below] at (1,0) {$1$};
+  \node at (2.5,0.7) {$\operatorname{Re}K$};
+  \node at (0.35,1.5) {$\operatorname{Im}K$};
+\end{tikzpicture}
+\caption{金属の規格化波数 $K$ の実部（実線）と虚部（破線）。}
+\label{fig:metal-k}
+\end{figure}
+
+\section*{[8] 誘電体と金属の光学的性質}
+可視光を各模型の低周波数側とみなす。束縛電子をもつ誘電体で$\omega\ll\omega_0$なら$k$は実数であり、波は媒質内を伝搬する。対して金属で$\omega<\omega_{pm}$なら$k$は虚数であり、電場は表面から内部へ指数関数的に減衰する。内部にはエバネッセント場が存在する。ここで$H_y$は磁場の強さの$y$成分である。位相因子$e^{i(kz-\omega t)}$に対するFaradayの法則$\nabla\times\boldsymbol E=-\mu_0\partial_t\boldsymbol H$の$y$成分は$ikE_x=i\omega\mu_0H_y$だから、$H_y=kE_x/(\mu_0\omega)$となる。$k$が純虚数なので、時間平均の法線エネルギー流は$\operatorname{Re}(E_xH_y^*)/2=|E_x|^2\operatorname{Re}(k)/(2\mu_0\omega)=0$である。散逸のない半無限金属に平均電力は伝わらず、入射電力は反射される。金属内部の空間的減衰を吸収損失とは解釈しない。
+
 \end{document}

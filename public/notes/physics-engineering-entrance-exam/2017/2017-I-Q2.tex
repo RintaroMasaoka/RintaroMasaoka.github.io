@@ -1,81 +1,133 @@
-% Source problem: public/notes/物工/問題/2017ap_exam.pdf, page 3.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h29ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2017年 物理学I 第2問}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2017年度 物理学I 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 電場と電位}
-ガウスの法則より、半径$a$より内側では包む電荷がなく、球殻間だけで電場がある。外側では全電荷がゼロである。電位は無限遠をゼロとして積分する。
+\section*{[1] 二点電荷のポテンシャル}
+ポテンシャルの重ね合わせから
 \begin{equation}
- E(r)=\begin{cases}0&(r<a),\\ Q_0/(4\pi\varepsilon_0r^2)&(a<r<b),\\0&(r>b),\end{cases}\quad
- \phi(r)=\frac{Q_0}{4\pi\varepsilon_0}\begin{cases}1/a-1/b&(r<a),\\1/r-1/b&(a\le r\le b),\\0&(r>b).\end{cases}
+  \boxed{\phi(P)=\frac{q}{4\pi\varepsilon_0}
+    \left(\frac1{r_+}-\frac1{r_-}\right)}.
 \end{equation}
 
-\section*{[1.2] 静電容量}
-球殻間の電位差は$\Delta\phi=Q_0(1/a-1/b)/(4\pi\varepsilon_0)$であるから
+\section*{[2] 遠方での双極子ポテンシャル}
+$\boldsymbol p$の向きを極軸に取ると、正負電荷の位置はそれぞれ$+\boldsymbol d/2$、$-\boldsymbol d/2$であり、
 \begin{equation}
- C=\frac{Q_0}{\Delta\phi}=\boxed{\frac{4\pi\varepsilon_0ab}{b-a}}.
+  r_\pm=\sqrt{r^2+\frac{d^2}{4}\mp rd\cos\theta}.
+\end{equation}
+$d/r$の一次まで二項展開すると
+\begin{equation}
+  \frac1{r_+}=\frac1r+\frac{d\cos\theta}{2r^2}+O\!\left(\frac{d^2}{r^3}\right),\qquad
+  \frac1{r_-}=\frac1r-\frac{d\cos\theta}{2r^2}+O\!\left(\frac{d^2}{r^3}\right).
+\end{equation}
+単極子項は差を取ると消える。$p=qd$より
+\begin{equation}
+  \boxed{\phi(r,\theta)=\frac{p\cos\theta}{4\pi\varepsilon_0r^2}}
+  \qquad (r\gg d).
 \end{equation}
 
-\section*{[1.3] 誘電体で満たした場合のエネルギー}
-誘電率$\varepsilon$の媒質で満たすと$C_\varepsilon=4\pi\varepsilon ab/(b-a)$である。電荷を$Q_0$に保つので
+\section*{[3] 双極子電場}
+軸対称な球座標で$\nabla\phi=\boldsymbol e_r\partial_r\phi+
+(\boldsymbol e_\theta/r)\partial_\theta\phi$だから
 \begin{equation}
- U=\frac{Q_0^2}{2C_\varepsilon}
- =\boxed{\frac{Q_0^2}{8\pi\varepsilon}\left(\frac1a-\frac1b\right)}.
+  \boldsymbol E=-\nabla\phi=\frac{p}{4\pi\varepsilon_0r^3}
+    \left(2\cos\theta\,\boldsymbol e_r+\sin\theta\,\boldsymbol e_\theta\right).
+\end{equation}
+これは問題文に示された電場の式である。
+\begin{equation}
+  \boxed{\boldsymbol E(r,\theta)=\frac{p}{4\pi\varepsilon_0r^3}
+    \left(2\cos\theta\,\boldsymbol e_r+\sin\theta\,\boldsymbol e_\theta\right)}.
 \end{equation}
 
-\section*{[1.4] 薄い誘電層による容量変化}
-真空層$a<r<b-d$と誘電層$b-d<r<b$は直列である。
+\section*{[4] 双極子2の回転方向}
+位置1から2への方向を$x$軸とすると、双極子1が位置2につくる電場は
+\begin{equation}
+  \boldsymbol E_1=\frac{p_1}{4\pi\varepsilon_0l^3}
+    (2\cos\theta_1\,\boldsymbol e_x-\sin\theta_1\,\boldsymbol e_y).
+\end{equation}
+(a)では$\theta_1=\pi/2$なので$\boldsymbol E_1$は$-y$方向、$\boldsymbol p_2$は$+x$方向である。トルク$\boldsymbol\tau_2=\boldsymbol p_2\times\boldsymbol E_1$は紙面の裏向きとなるから、紙面を正面から見て時計回りに回り始める。(b)では$\boldsymbol p_2$も$-y$方向で$\boldsymbol E_1$と平行なのでトルクはゼロであり、回転しない。
+
+\section*{[5] 二つの双極子の相互作用エネルギー}
+$U=-\boldsymbol p_2\cdot\boldsymbol E_1$に上の電場と$\boldsymbol p_2=p_2(\cos\theta_2\boldsymbol e_x+\sin\theta_2\boldsymbol e_y)$を代入すると
 \begin{align}
- \frac1C&=\frac1{4\pi\varepsilon_0}\left(\frac1a-\frac1{b-d}\right)
- +\frac1{4\pi\varepsilon}\left(\frac1{b-d}-\frac1b\right)\\
- &=\frac1{4\pi\varepsilon_0}\left(\frac1a-\frac1b\right)
- -\frac{d}{4\pi b^2}\left(\frac1{\varepsilon_0}-\frac1\varepsilon\right)+O(d^2).
+  U&=-\frac{p_1p_2}{4\pi\varepsilon_0l^3}
+       (2\cos\theta_1\cos\theta_2-\sin\theta_1\sin\theta_2)\\
+   &=-\frac{p_1p_2}{8\pi\varepsilon_0l^3}
+       [3\cos(\theta_1+\theta_2)+\cos(\theta_1-\theta_2)].
 \end{align}
-$C_0=4\pi\varepsilon_0ab/(b-a)$を使って逆数を展開すると
+
+\section*{[6] 安定な相対配置}
+$u=\theta_1+\theta_2$、$v=\theta_1-\theta_2$は独立に変えられる角度である。エネルギーを最小にするには$\cos u=\cos v=1$が必要で、
 \begin{equation}
- \boxed{C=C_0+\frac{4\pi\varepsilon_0(\varepsilon-\varepsilon_0)}{\varepsilon}\frac{a^2}{(b-a)^2}d+O(d^2)}.
+  \theta_1+\theta_2=2m\pi,\qquad
+  \theta_1-\theta_2=2n\pi\qquad(m,n\in\mathbb Z).
+\end{equation}
+したがって角度を$2\pi$を法として表すと、安定配置は$(\theta_1,\theta_2)=(0,0)$および$(\pi,\pi)$であり、いずれも
+\begin{equation}
+  \boxed{U_{\min}=-\frac{p_1p_2}{2\pi\varepsilon_0l^3}}.
 \end{equation}
 
-\section*{[2.1] 定常電流とジュール熱}
-媒質内の電場は$E_r=Q_0/(4\pi\varepsilon r^2)$なので、半径によらず電流は
+\section*{[7] 接地導体面と双極子のエネルギー}
+図3の実双極子の法線成分は$p\cos\alpha$、面に平行な成分は$-p\sin\alpha\,\boldsymbol e_y$である。双極子を$-q$から$+q$へ向かう微小な電荷対とみなす。接地面の鏡像では各電荷を$z\mapsto-z$で反射し、電荷の符号も反転する。像の$-q$から$+q$への変位をたどると、法線成分は元の向きのまま、面に平行な成分は反転する。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,font=\small,scale=0.85]
+  \pgfmathsetmacro{\height}{1.15}
+  \pgfmathsetmacro{\pLength}{1.15}
+  \pgfmathsetmacro{\alpha}{45}
+  \pgfmathsetmacro{\px}{\pLength*sin(\alpha)}
+  \pgfmathsetmacro{\pz}{\pLength*cos(\alpha)}
+  \draw[thick] (-2.2,0)--(2.2,0);
+  \node[anchor=west] at (0.9,0.40) {Ground ($z=0$)};
+  \draw[->] (0,0)--(0,2.5) node[above] {$z$};
+  \fill (0,\height) circle (2pt);
+  \fill (0,-\height) circle (2pt);
+  \node[right] at (0,\height) {実双極子};
+  \node[right] at (0,-\height) {像双極子};
+  \draw[->,blue,thick] (0,\height)--({-\px},{\height+\pz}) node[above left] {$\boldsymbol p$};
+  \draw[->,red,thick] (0,-\height)--({\px},{-\height+\pz}) node[below right] {$\boldsymbol p'$};
+  \draw[dashed] (0,0)--(0,\height);
+  \draw[<->] (-0.3,0)--(-0.3,\height) node[midway,left] {$h$};
+\end{tikzpicture}
+\caption{導体面に対する実双極子と鏡像双極子。接線成分は反転し、法線成分は同じ向きである。}
+\end{figure}
+実双極子と像双極子の距離は$2h$である。像双極子が実双極子の位置につくる電場は
 \begin{equation}
- I=4\pi r^2\sigma E_r=\frac{\sigma Q_0}{\varepsilon}>0.
+  \boldsymbol E_{\mathrm{im}}=\frac{1}{4\pi\varepsilon_0(2h)^3}
+  (-p\sin\alpha\,\boldsymbol e_y+2p\cos\alpha\,\boldsymbol e_z).
 \end{equation}
-電位差を電流で割れば抵抗が得られる。
+従って両者の相互作用エネルギーは
 \begin{equation}
- \boxed{\mathcal R=\frac{1}{4\pi\sigma}\left(\frac1a-\frac1b\right)},\qquad
- \boxed{\dot Q_{\rm heat}=I^2\mathcal R=\frac{\sigma Q_0^2}{4\pi\varepsilon^2}\left(\frac1a-\frac1b\right)}.
+  U_{\mathrm{pair}}=-\boldsymbol p\cdot\boldsymbol E_{\mathrm{im}}
+  =-\frac{p^2(1+\cos^2\alpha)}{32\pi\varepsilon_0h^3}.
 \end{equation}
+像は実双極子によって誘起されるので、この相互作用エネルギー全体を系のエネルギーとはしない。$h,\alpha$ を固定して実双極子を $\boldsymbol p(s)=s\boldsymbol p$（$0\le s\le1$）と徐々に立ち上げると、導体の線形応答により像の電場は $\boldsymbol E_{\mathrm{im}}(s)=s\boldsymbol E_{\mathrm{im}}$ となる。実双極子を増やす増分仕事のうち導体に由来する分は $dU'=-\boldsymbol E_{\mathrm{im}}(s)\cdot d\boldsymbol p(s)=-s\boldsymbol p\cdot\boldsymbol E_{\mathrm{im}}\,ds$ である。従って $\int_0^1s\,ds=1/2$ から
+\begin{equation}
+  \boxed{U'=\frac12U_{\mathrm{pair}}
+  =-\frac{p^2(1+\cos^2\alpha)}{64\pi\varepsilon_0h^3}
+  =-\frac{p^2(3+\cos2\alpha)}{128\pi\varepsilon_0h^3}}.
+\end{equation}
+これは$h\to\infty$でゼロとなる。
 
-\section*{[2.2] 電源を外した後}
-時刻$t$の内側球殻の電荷を$Q(t)$とする。[2.1]の電流式に現在の電荷を入れると$I(t)=\sigma Q(t)/\varepsilon$となる。外向きの電流は内側球殻の電荷を減らすので、電荷保存則から$dQ/dt=-I(t)=-\sigma Q(t)/\varepsilon$である。初期条件$Q(0)=Q_0$を使うと
+\section*{[8] 最も安定な双極子の向き}
+$U'$を最小にするには$\cos^2\alpha=1$であればよい。従って
 \begin{equation}
- Q(t)=Q_0e^{-\sigma t/\varepsilon}.
+  \boxed{\alpha=n\pi\quad(n\in\mathbb Z)}
 \end{equation}
-瞬時電力は[2.1]の$Q_0$を$Q(t)$に置き換えたものなので
-\begin{equation}
- W(t)=\int_0^t\frac{\sigma Q(t')^2}{4\pi\varepsilon^2}\left(\frac1a-\frac1b\right)dt'
- =\boxed{\frac{Q_0^2}{8\pi\varepsilon}\left(\frac1a-\frac1b\right)\left(1-e^{-2\sigma t/\varepsilon}\right)}.
-\end{equation}
+であり、双極子モーメントが導体面の法線に平行または反平行なとき最も安定である。
 
-\section*{[2.3] 静電エネルギーとの関係}
-$t\to\infty$では残留電荷がゼロとなり、発生熱は$W(\infty)=Q_0^2(1/a-1/b)/(8\pi\varepsilon)$となる。これは[1.3]の初期静電エネルギーに等しい。ここでは電源が外れており、媒質の熱以外にエネルギーが移らないためである。
-
-\section*{[3] 二媒質境界の面電荷}
-定常状態では各領域の電流密度が$I/(4\pi r^2)$である。従って境界の両側の電場は$E_i=I/(4\pi\sigma_i r_0^2)$。境界面法線を外向きに取ると、自由面電荷密度は法線方向の$\boldsymbol D$の跳びで
-\begin{equation}
- \boxed{\sigma_{\rm s}=\varepsilon_2E_2-\varepsilon_1E_1
- =\frac{I}{4\pi r_0^2}\left(\frac{\varepsilon_2}{\sigma_2}-\frac{\varepsilon_1}{\sigma_1}\right)}.
-\end{equation}
-負値の場合は、境界に負の自由電荷が蓄積している。
 \end{document}

@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF pages 8–9.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h27ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,150 +10,151 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2015年 物理学II 第2問}
+\title{物理工学専攻 院試解答集\\2015年度 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 可逆断熱膨張}
-エントロピーを$P,T$の関数とみると、全微分は
-\begin{equation}
-  \mathrm dS=\left(\frac{\partial S}{\partial P}\right)_T\mathrm dP
-   +\left(\frac{\partial S}{\partial T}\right)_P\mathrm dT.
-\end{equation}
-マクスウェル関係と$C_P=T(\partial S/\partial T)_P$、熱膨張率
-$\alpha=V^{-1}(\partial V/\partial T)_P$を使うと
-\begin{equation}
-  \mathrm dS=-\alpha V\,\mathrm dP+\frac{C_P}{T}\,\mathrm dT.
-\end{equation}
-可逆断熱過程では$\mathrm dS=0$だから、
-\begin{equation}
-  \boxed{\left(\frac{\partial T}{\partial P}\right)_S
-  =\frac{TV\alpha}{C_P}}.
-\end{equation}
-理想気体は$V=RT/P$なので、一定圧力で$\partial V/\partial T=R/P=V/T$となり
-\begin{equation}
-  \boxed{\alpha_{\mathrm{ideal}}=\frac1T}.
-\end{equation}
+$\beta=1/(k_BT)$ とする。粒子は古典Boltzmann統計に従い、$N!$ で割って同種粒子の重複計数を除く。
 
-\section*{[2] ジュール・トムソン膨張のエンタルピー}
-多孔栓を通る定常流を、栓の両側を含む断熱制御体積として考える。外部との熱交換はなく、軸仕事もなく、流速と高さの変化による運動・位置エネルギーの差を無視する。入口側が流体を押す圧力仕事は$P_1V_1$、出口側で流体がする仕事は$P_2V_2$なので、単位モル当たりの第一法則は$U_2-U_1=P_1V_1-P_2V_2$となる。従って$H=U+PV$とおけば入口・出口で
-\begin{equation}
-  H_1=H_2
-\end{equation}
-となる。これは等エンタルピー条件であり、栓を通る過程を等エントロピーとする主張ではない。断熱でも、不可逆過程ではエントロピーは生成されうる。
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,font=\small]
- \pgfmathsetmacro{\halfLength}{4}
- \pgfmathsetmacro{\halfHeight}{0.65}
- \pgfmathsetmacro{\pistonInset}{1.5}
- \pgfmathsetmacro{\pistonHalfWidth}{0.1}
- \pgfmathsetmacro{\plugHalfWidth}{0.16}
- \pgfmathsetmacro{\leftPiston}{-\halfLength+\pistonInset}
- \pgfmathsetmacro{\rightPiston}{\halfLength-\pistonInset}
- \draw[thick] (-\halfLength,\halfHeight)--(\halfLength,\halfHeight);
- \draw[thick] (-\halfLength,-\halfHeight)--(\halfLength,-\halfHeight);
- \draw[thick,fill=gray!35] ({\leftPiston-\pistonHalfWidth},-\halfHeight) rectangle ({\leftPiston+\pistonHalfWidth},\halfHeight);
- \draw[thick,fill=gray!35] ({\rightPiston-\pistonHalfWidth},-\halfHeight) rectangle ({\rightPiston+\pistonHalfWidth},\halfHeight);
- \draw[thick,fill=gray!20] (-\plugHalfWidth,-\halfHeight) rectangle (\plugHalfWidth,\halfHeight);
- \foreach \y in {-0.45,-0.15,0.15,0.45}
-   \draw[fill=white] (0,\y) circle (0.035);
- \node at ({(\leftPiston-\plugHalfWidth)/2},0.2) {$P_1,V_1,T_1$};
- \node at ({(\rightPiston+\plugHalfWidth)/2},0.2) {$P_2,V_2,T_2$};
- \draw[->,thick] (-3.8,0)--(-2.9,0);
- \draw[->,thick] (2.9,0)--(3.8,0);
- \draw[->,thick] (-0.65,-0.3)--(0.65,-0.3);
- \draw[thin] (\leftPiston,-\halfHeight)--({\leftPiston-0.3},-1.1);
- \node[below] at ({\leftPiston-0.3},-1.1) {ピストン1};
- \draw[thin] (\rightPiston,-\halfHeight)--({\rightPiston+0.3},-1.1);
- \node[below] at ({\rightPiston+0.3},-1.1) {ピストン2};
- \draw[thin] (0,-\halfHeight)--(0,-1.5);
- \node[below] at (0,-1.5) {細孔栓};
-\end{tikzpicture}
-\caption{断熱された細孔栓の入口・出口状態。}
-\label{fig:throttle}
-\end{figure}
-
-\section*{[3] ジュール・トムソン係数}
-エンタルピーを$P,T$の関数として微分する。
-\begin{equation}
-  \mathrm dH=C_P\,\mathrm dT+
-  \left(\frac{\partial H}{\partial P}\right)_T\mathrm dP.
-\end{equation}
-$\mathrm dH=\mathrm dU+P\,\mathrm dV+V\,\mathrm dP=T\,\mathrm dS+V\,\mathrm dP$ とマクスウェル関係から
-$(\partial H/\partial P)_T=V-T(\partial V/\partial T)_P=V(1-T\alpha)$。
-従って等エンタルピー条件$\mathrm dH=0$では
-\begin{equation}
-  \boxed{\left(\frac{\partial T}{\partial P}\right)_H
-    =\frac{V(T\alpha-1)}{C_P}}.
-\end{equation}
-[1]の係数との差は
-\begin{equation}
-  \left(\frac{\partial T}{\partial P}\right)_H
-  -\left(\frac{\partial T}{\partial P}\right)_S
-  =-\frac{V}{C_P}<0,
-\end{equation}
-ここで$V>0,C_P>0$を用いた。理想気体では$T\alpha=1$なので、
-\begin{equation}
-  \boxed{\left(\frac{\partial T}{\partial P}\right)_{H,\mathrm{ideal}}=0}.
-\end{equation}
-
-\section*{[4] 低密度での状態方程式}
-この小問で用いる van der Waals の状態方程式は
-\begin{equation}
-  \left(P+\frac{a}{V^2}\right)(V-b)=RT.
-\end{equation}
-これを$P$について解くと
-\begin{equation}
-  P=\frac{RT}{V-b}-\frac{a}{V^2},
-  \qquad
-  PV=\frac{RT}{1-b/V}-\frac{a}{V}.
-\end{equation}
-$b/V\ll1$で$1/(1-b/V)\simeq1+b/V$と展開する。
+\section*{[1] 理想気体の分配関数}
+一粒子の並進分配関数は位置積分と三つの運動量積分の積であり
 \begin{align}
-  PV&\simeq RT+\frac{RTb-a}{V}\\
-    &=RT\left[1+\left(1-\frac{a}{bRT}\right)\frac bV\right].
+ z_1&=\frac{1}{h^3}\int_Vd^3r\int_{\mathbb R^3}d^3p\,
+ e^{-\beta p^2/(2m)}\\
+ &=\frac{V}{h^3}\left(\int_{-\infty}^{\infty}
+ e^{-\beta p_x^2/(2m)}dp_x\right)^3
+ =V\left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3/2}.
 \end{align}
+ここで $h=2\pi\hbar$ とガウス積分を用いた。従って
+\begin{equation}
+ \boxed{Z_0(T,V,N)=\frac{z_1^N}{N!}
+ =\frac{V^N}{N!}\left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3N/2}.}
+\end{equation}
+
+\section*{[2] 内部エネルギーと定積比熱}
+\begin{equation}
+ U=-\frac{\partial}{\partial\beta}\ln Z_0
+ =\boxed{\frac32Nk_BT},\qquad
+ C_V=\left(\frac{\partial U}{\partial T}\right)_{V,N}
+ =\boxed{\frac32Nk_B}.
+\end{equation}
+
+\section*{[3] 理想気体の状態方程式}
+$F_0=-k_BT\ln Z_0$ であり、$V$ に依存する項は $-Nk_BT\ln V$ だけなので
+\begin{equation}
+ P=-\left(\frac{\partial F_0}{\partial V}\right)_{T,N}
+ =k_BT\frac{\partial\ln Z_0}{\partial V}
+ =\frac{Nk_BT}{V}.
+\end{equation}
 従って
 \begin{equation}
-  \boxed{B(T)=1-\frac{a}{bRT}}.
+ \boxed{PV=Nk_BT.}
 \end{equation}
-ボイル温度$T_B=a/(Rb)$では$B(T_B)=0$となり、低密度での一次の非理想補正が消える。これは密度の一次の範囲で理想気体に近づくという意味である。
 
-\section*{[5] 逆転温度}
-ここでも原問題の$V\gg b$、$T\ge T_B$の範囲で近似を用いる。与えられた近似を$T$で微分すると
+\section*{[4] 引力と排除体積}
+原問の一粒子エネルギーは $p^2/(2m)-\alpha N/V$ である。従って全ポテンシャルエネルギーは $-\alpha N^2/V$、Boltzmann因子は $\exp(\beta\alpha N^2/V)$ となる。短距離斥力によって配置空間体積は $V-Nb$ となるから
 \begin{equation}
-  V\simeq\frac{RT}{P}+b-\frac{a}{RT},
-  \qquad
-  \left(\frac{\partial V}{\partial T}\right)_P
-  \simeq\frac RP+\frac{a}{RT^2}.
+ \boxed{Z(T,V,N)=\frac{(V-Nb)^N}{N!}
+ \left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3N/2}
+ \exp\!\left(\frac{\alpha N^2}{Vk_BT}\right).}
 \end{equation}
-一般式$\mu_{\mathrm{JT}}=[T(\partial V/\partial T)_P-V]/C_P$に代入して
+Helmholtz自由エネルギーは
 \begin{equation}
-  \boxed{\mu_{\mathrm{JT}}
-  =\left(\frac{\partial T}{\partial P}\right)_H
-  \simeq\frac1{C_P}\left(\frac{2a}{RT}-b\right)}.
+ F=-k_BT\ln Z=F_{\rm kin}(T,N)-Nk_BT\ln(V-Nb)
+ -\frac{\alpha N^2}{V},
 \end{equation}
-係数がゼロとなる逆転温度は
+ここで $F_{\rm kin}$ は $V$ に依存しない。よって
 \begin{equation}
-  \boxed{T_{\mathrm{inv}}=\frac{2a}{Rb}=2T_B}.
+ \boxed{P=-F_V=\frac{Nk_BT}{V-Nb}-\frac{\alpha N^2}{V^2}},\qquad
+ \boxed{\left(P+\frac{\alpha N^2}{V^2}\right)(V-Nb)=Nk_BT.}
 \end{equation}
-この近似の範囲で、$T_B\le T<T_{\mathrm{inv}}$では$\mu_{\mathrm{JT}}>0$なので減圧時に冷え、$T>T_{\mathrm{inv}}$では$\mu_{\mathrm{JT}}<0$なので減圧時に温まる。
 
-\section*{[6] 排除体積だけがある場合}
-$a$の寄与を無視したとき、相互作用は排除体積だけであり、粒子間ポテンシャルエネルギーは温度に依存しない定数として扱える。従って内部エネルギー$U$は運動エネルギーで決まり、温度だけに依存する。一方、状態方程式は$P(V-b)=RT$なので
+\section*{[5] 自由エネルギー最小と安定性}
+固定した $T,N,P$ に対して $A(V)=F(T,N,V)+PV$ とする。停留点では
 \begin{equation}
-  H=U+PV=U+RT\frac{V}{V-b}
-   =U+RT\left(1+\frac{b}{V-b}\right).
+ A'(V)=F_V+P=0\quad\Longleftrightarrow\quad P=-F_V,
 \end{equation}
-温度を固定して体積を増やすと$V/(V-b)=1+b/(V-b)$は減少する。$C_V=(\partial U/\partial T)_V>0$を用いて$H$の全微分を取ると
+右辺の $P(V)=-F_V$ は均一状態の圧力であり、固定した外圧 $P$ と停留点で一致する。さらに
 \begin{equation}
- dH=\left(C_V+\frac{RV}{V-b}\right)dT-\frac{RTb}{(V-b)^2}dV.
+ A''(V)=F_{VV}=-\left(\frac{\partial P}{\partial V}\right)_{T,N}.
 \end{equation}
-したがってジュール・トムソン過程の$dH=0$で$dV>0$なら$dT>0$となる。これは$\mu_{\mathrm{JT}}=-b/C_P<0$と減圧時の$\mathrm dP<0$から$\mathrm dT>0$となることにも一致する。
+局所安定な熱平衡は $A''>0$ の極小なので $\partial P/\partial V<0$。$A''<0$ の極大は不安定である。$A''=0$ では二階微分だけで安定性を判定できず、この等温線で安定枝が終わる点は限界点となる。図1では左右の等しい最小値が同じGibbs自由エネルギーを持つ共存状態、中央の極大が不安定状態である。
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,x=0.32cm,y=120cm]
+ \pgfmathsetmacro{\pc}{0.018081606931683265}
+ \pgfmathsetmacro{\gzero}{-0.4685322546678666}
+ \draw[->] (0,0)--(15,0) node[right] {$V/(Nb)$};
+ \draw[->] (0,0)--(0,0.032) node[above] {$(F+PV)/(N\alpha/b)$};
+\draw[thick] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+\pc*\x-\gzero});
+ \fill (1.6447993625905433,0) circle (1.3pt) node[below] {安定};
+ \fill (9.723323053742876,0) circle (1.3pt) node[below] {安定};
+ \fill (3.458082353218395,0.0170369489645495) circle (1.3pt) node[above] {不安定};
+\end{tikzpicture}
+\end{center}
+
+図では $k_BT b/\alpha=1/4$ の例を用いた。共存圧力は
+$P_{\rm coex}b^2/\alpha\simeq0.01808161$ であり、二つの極小の高さが等しくなるように求めた。
+自由エネルギー図の縦軸は、体積によらない項と共存時の極小値を差し引いて示した。
+
+\section*{[6] 圧力による傾きの変化}
+圧力を $P+\delta P$ に変えると
+\begin{equation}
+ A_{P+\delta P}(V)=A_P(V)+\delta P\,V.
+\end{equation}
+したがって $\delta P>0$ では大体積側ほど自由エネルギーが余分に上がり、小体積側の極小がより低くなる。圧力を下げると逆に大体積側の極小が選ばれる。これは外圧を上げると圧縮が進み、外圧を下げると膨張・気化が進むことに対応する。
+\begin{center}
+\begin{tikzpicture}[>=Stealth,x=0.32cm,y=90cm]
+ \pgfmathsetmacro{\pc}{0.018081606931683265}
+ \pgfmathsetmacro{\gzero}{-0.4685322546678666}
+ \draw[->] (0,-0.01)--(15,-0.01) node[right] {$V/(Nb)$};
+ \draw[->] (0,-0.01)--(0,0.04) node[above] {$(F+PV)/(N\alpha/b)$};
+ \draw[dashed] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+\pc*\x-\gzero});
+ \draw[thick] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+(\pc+0.001)*\x-\gzero});
+ \draw[dotted,thick] plot[domain=1.3:14,samples=241] (\x,{-0.25*ln(\x-1)-1/\x+(\pc-0.001)*\x-\gzero});
+\end{tikzpicture}
+\end{center}
+破線は共存圧力、実線は圧力増加、点線は圧力減少を表す。圧力変化は $\delta P b^2/\alpha=\pm0.001$ とし、同じ自由エネルギーに $\delta P V$ を加えて描いた。
+
+\section*{[7] 状態方程式と平衡等温線}
+状態方程式 $P(V)=Nk_BT/(V-Nb)-\alpha N^2/V^2$ をこの温度で描くと、図1に二つの極小がある条件ではS字状のvan der Waalsループを持つ。
+中間枝は $\partial P/\partial V>0$ であり、均一な状態として不安定である。
+共存圧力 $P_{\rm coex}$ では、小体積相と大体積相のGibbs自由エネルギーが等しい。
+全 $N$ 個の粒子がそれぞれの均一相にあるときの体積を $V_l,V_g$ と書き、$V_l<V_g$ とする。
+$F(V)=F(T,N,V)$ と略記すると、二つの大域最小の高さが等しい条件は
+\begin{equation}
+ F(V_g)-F(V_l)=-P_{\rm coex}(V_g-V_l)
+\end{equation}
+である。
+
+中間の全体積では、二つの相が共存し、各相に属する粒子の割合が変わる。
+熱力学極限で界面の自由エネルギーを無視し、各相の体積と自由エネルギーを加える。
+大体積相に属する粒子の割合を $x$（$0\le x\le1$）とすると、自由エネルギーの示量性から
+\begin{align}
+ V&=(1-x)V_l+xV_g,\\
+ F_{\rm mix}(V)&=(1-x)F(V_l)+xF(V_g).
+\end{align}
+従ってこの混合状態の圧力は
+\begin{equation}
+ -\frac{dF_{\rm mix}}{dV}
+ =-\frac{F(V_g)-F(V_l)}{V_g-V_l}=P_{\rm coex}.
+\end{equation}
+このため平衡等温線は $V_l\le V\le V_g$ で水平となる。
+均一状態のS字曲線と、二相の割合が変わる平衡状態を同じ図に示す。
+\begin{center}
+\begin{tikzpicture}[>=Stealth,x=0.32cm,y=60cm]
+ \pgfmathsetmacro{\pc}{0.018081606931683265}
+ \draw[->] (0,0)--(15,0) node[right] {$V/(Nb)$};
+ \draw[->] (0,0)--(0,0.065) node[above] {$Pb^2/\alpha$};
+ \draw[dashed] plot[domain=1.5:14,samples=301] (\x,{0.25/(\x-1)-1/(\x*\x)});
+ \draw[thick] plot[domain=1.5:1.6447993625905433,samples=41] (\x,{0.25/(\x-1)-1/(\x*\x)});
+ \draw[thick] (1.6447993625905433,\pc)--(9.723323053742876,\pc);
+ \draw[thick] plot[domain=9.723323053742876:14,samples=81] (\x,{0.25/(\x-1)-1/(\x*\x)});
+ \node[above] at (7,\pc) {$P_{\rm coex}b^2/\alpha$};
+\end{tikzpicture}
+\end{center}
+破線は状態方程式の全枝、実線は平衡等温線である。共存区間は一定圧力の直線で結び、区間外では実線と状態方程式が一致する。
 
 \end{document}

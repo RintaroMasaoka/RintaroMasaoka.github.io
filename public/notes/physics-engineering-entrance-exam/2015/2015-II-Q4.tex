@@ -1,6 +1,6 @@
-% Source problem: public/notes/物工/問題/2015ap_exam.pdf, PDF pages 11–12.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h27ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=24mm]{geometry}
+\usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
@@ -8,199 +8,180 @@
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
+\renewcommand{\figurename}{図}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\renewcommand{\figurename}{図}
-\title{物理工学専攻 院試解答集\\2015年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2015年度 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 放物線バンドの状態密度}
-エネルギーが$\epsilon>0$以下の状態は$\boldsymbol k$空間で楕円体の内部にある。その半軸は$k_i=\sqrt{2m_i\epsilon}/\hbar$である。スピン自由度を数えず、$\boldsymbol k$空間で1状態が占める体積を$(2\pi)^3$とすると、単位実空間体積当たりの状態数は
+\section*{[1] 逆格子と第一ブリュアン域}
+逆格子の定義は $\boldsymbol a_i\cdot\boldsymbol b_j=2\pi\delta_{ij}$ である。$\boldsymbol b_1=(u,v)$ とすると
+\[
+ \frac{\sqrt3a}{2}u+\frac a2v=2\pi,
+ \qquad -\frac{\sqrt3a}{2}u+\frac a2v=0.
+\]
+和と差から $v=2\pi/a$, $u=2\pi/(\sqrt3a)$ を得る。同様に
 \begin{equation}
-  n(\epsilon)=\frac{1}{(2\pi)^3}\frac{4\pi}{3}
-  \prod_{i=1}^{3}\frac{\sqrt{2m_i\epsilon}}{\hbar}
-  =\frac{(2\epsilon)^{3/2}\sqrt{m_1m_2m_3}}{6\pi^2\hbar^3}.
+ \boxed{\boldsymbol b_1=2\pi\left(\frac{1}{\sqrt3a},\frac1a\right),\qquad
+ \boldsymbol b_2=2\pi\left(-\frac{1}{\sqrt3a},\frac1a\right).}
 \end{equation}
-これを$\epsilon$で微分して
+第一ブリュアン域は、原点と最短の逆格子点との垂直二等分線に囲まれた領域である。最短の6点は
+$\pm\boldsymbol b_1,\pm\boldsymbol b_2,\pm(\boldsymbol b_1-\boldsymbol b_2)$。
+各境界は $\boldsymbol k\cdot\boldsymbol G=|\boldsymbol G|^2/2$ を満たす。
+$\boldsymbol G=\boldsymbol b_1-\boldsymbol b_2$ の境界は $k_x=2\pi/(\sqrt3a)$。
+$\boldsymbol b_1,\boldsymbol b_2$ の境界の交点は $k_x=0$, $k_y=4\pi/(3a)$ なので
 \begin{equation}
-  \boxed{\rho_{3\mathrm D}(\epsilon)=
-  \frac{\sqrt{2m_1m_2m_3\epsilon}}{2\pi^2\hbar^3}\quad(\epsilon\ge0),}
+ \boxed{P=\left(\frac{2\pi}{\sqrt3a},0\right),\qquad
+ Q=\left(0,\frac{4\pi}{3a}\right).}
 \end{equation}
-負のエネルギーでは$\rho_{3\mathrm D}=0$である。状態密度はバンド端から$\sqrt\epsilon$に比例して増加する。
+得られる領域は図の正六角形である。図中のOは波数原点を表す。
 
-\section*{[1.2] 波数の時間発展}
-速度成分は$v_x=\hbar k_x/m_1$、$v_y=\hbar k_y/m_2$、$v_z=\hbar k_z/m_3$である。電子の符号$-e$と$\boldsymbol B=(0,0,B)$から
+\section*{[2] スピンを含めた自由電子の状態数}
+単位胞の面積を $s$、系全体の面積を $S$ とすると
+\[
+ s=|\boldsymbol a_1\times\boldsymbol a_2|=\frac{\sqrt3}{2}a^2,
+ \qquad \text{電子数}=\frac{2S}{s}.
+\]
+波数空間で単位面積あたりの状態数は $S/(2\pi)^2$。スピン2重を含めて円内の状態を数えると
 \begin{equation}
-  \dot k_x=-\frac{eB}{m_2}k_y,\qquad
-  \dot k_y=\frac{eB}{m_1}k_x,\qquad
-  \dot k_z=0.
-\end{equation}
-従って$\ddot k_x=-(eB)^2k_x/(m_1m_2)$であり、正の角周波数は
-\begin{equation}
-  \boxed{\omega_c=\frac{eB}{\sqrt{m_1m_2}}}.
-\end{equation}
-初期条件と設問の$k_x$の形より
-\begin{equation}
-  \boxed{k_x(t)=k_{0x}\cos(\omega_ct),\quad
-  k_y(t)=\sqrt{\frac{m_2}{m_1}}k_{0x}\sin(\omega_ct),\quad
-  k_z(t)=k_{0z}.}
+ 2\frac{S}{(2\pi)^2}\pi k_F^2=\frac{2S}{s},
+ \qquad \boxed{k_F=\frac1a\sqrt{\frac{8\pi}{\sqrt3}}.}
 \end{equation}
 
-\section*{[1.3] 波数軌道}
-消去すると
-\begin{equation}
-  \frac{k_x^2}{k_{0x}^2}+
-  \frac{k_y^2}{(\sqrt{m_2/m_1}\,k_{0x})^2}=1.
-\end{equation}
-したがって$k_x$–$k_y$平面では楕円を描く。$t=0$で$(k_x,k_y)=(k_{0x},0)$にあり、$\dot k_y(0)>0$なので、時間とともに上向きに進む。
-
-
+\section*{[3] フェルミ面と第一域の関係}
+円の面積は $\pi k_F^2=(2\pi)^2/s$ で、第一ブリュアン域の面積に等しい。
+ただし形は円と六角形で異なる。六角形の内接半径 $r_{\rm in}$ と外接半径 $r_{\rm out}$ は
+\[
+ r_{\rm in}=\frac{2\pi}{\sqrt3a},\qquad
+ r_{\rm out}=\frac{4\pi}{3a},\qquad r_{\rm in}<k_F<r_{\rm out}.
+\]
+したがってフェルミ面は各辺を横切るが、六角形の頂点には届かない。自由電子のフェルミ面は第一域の外にも続く円である。
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[>=Stealth,font=\small,scale=1.05]
- \pgfmathsetmacro{\kb}{sqrt(2)}
- \draw[->] (-1.4,0)--(1.8,0) node[right] {$k_x$};
- \draw[->] (0,-1.8)--(0,1.95) node[above] {$k_y$};
- \draw[thick] plot[domain=0:360,samples=121] ({cos(\x)},{\kb*sin(\x)});
- \draw[->,thick] plot[domain=20:48,samples=16] ({cos(\x)},{\kb*sin(\x)});
- \fill (1,0) circle (1.4pt) node[below right] {$t=0$};
- \draw (1,-0.06)--(1,0.06); \node[above right] at (1,0) {$k_{0x}$};
- \draw (-0.06,\kb)--(0.06,\kb); \node[above left] at (-0.08,\kb) {$\sqrt{m_2/m_1}\,k_{0x}$};
+\begin{tikzpicture}[>=Stealth,scale=1.55]
+ \pgfmathsetmacro{\px}{2/sqrt(3)}
+ \pgfmathsetmacro{\qy}{4/3}
+ \pgfmathsetmacro{\sy}{\qy/2}
+ \fill[blue!7] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
+ \draw[thick,blue] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
+ \draw[->] (-1.6,0)--(1.65,0) node[right] {$k_x/(\pi/a)$};
+ \draw[->] (0,-1.5)--(0,2.35) node[above] {$k_y/(\pi/a)$};
+ \draw[->,thick] (0,0)--(\px,2) node[above right] {$\boldsymbol b_1/(\pi/a)$};
+ \draw[->,thick] (0,0)--(-\px,2) node[above left] {$\boldsymbol b_2/(\pi/a)$};
+ \fill (\px,0) circle(1.4pt) node[above right] {$P$};
+ \fill (0,\qy) circle(1.4pt) node[above left] {$Q$};
  \node[below left] at (0,0) {$O$};
 \end{tikzpicture}
-\caption{放物線バンドの波数軌道。図では$m_2=2m_1$とし、軸上のラベルには一般の半軸長を示す。矢印は時間の増加方向を示す。}
-\label{fig:parabolic-k}
+\hspace{5mm}
+\begin{tikzpicture}[>=Stealth,scale=1.55]
+ \pgfmathsetmacro{\px}{2/sqrt(3)}
+ \pgfmathsetmacro{\qy}{4/3}
+ \pgfmathsetmacro{\sy}{\qy/2}
+ \pgfmathsetmacro{\kf}{sqrt(8/(pi*sqrt(3)))}
+ \fill[blue!7] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
+ \draw[thick,blue] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
+ \draw[->] (-1.5,0)--(1.7,0) node[right] {$k_x/(\pi/a)$};
+ \draw[->] (0,-1.5)--(0,1.65) node[above] {$k_y/(\pi/a)$};
+ \draw[red,thick,dashed] (0,0) circle(\kf);
+ \draw[->,red] (0,0)--({\kf/sqrt(2)},{-\kf/sqrt(2)}) node[midway,below left] {$k_F/(\pi/a)$};
+\end{tikzpicture}
+\caption{左: 逆格子と第一域。座標の単位は $\pi/a$。右: 同じ縮尺の第一域（青線）と自由電子のフェルミ面（赤破線）。}
 \end{figure}
 
-\section*{[1.4] 実空間の軌道}
-群速度を積分し、$\boldsymbol r(0)=0$を使うと
+\section*{[4] 原子軌道への射影}
+原問の図2の配置に従って、Aから最近接Bへの変位を
+\begin{equation}
+ \boldsymbol\delta_1=\frac{\boldsymbol a_1+2\boldsymbol a_2}{3},\quad
+ \boldsymbol\delta_2=\frac{\boldsymbol a_1-\boldsymbol a_2}{3},\quad
+ \boldsymbol\delta_3=\frac{-2\boldsymbol a_1-\boldsymbol a_2}{3}
+\end{equation}
+と選ぶ。どれも長さ $a/\sqrt3$ である。最近接位相の和を
+\[
+ f(\boldsymbol k)=\sum_{j=1}^3 e^{i\boldsymbol k\cdot\boldsymbol\delta_j}
+\]
+と定義する。以下 $\lambda^A=\lambda^A_{\boldsymbol k}$, $\lambda^B=\lambda^B_{\boldsymbol k}$ と略記する。
+A軌道への固有方程式の射影は、規格化積分と最近接行列要素だけを残して
 \begin{align}
-  x(t)&=\frac{\hbar k_{0x}}{m_1\omega_c}\sin(\omega_ct),\\
-  y(t)&=\frac{\hbar k_{0x}}{\sqrt{m_1m_2}\,\omega_c}
-       [1-\cos(\omega_ct)],\\
-  z(t)&=\frac{\hbar k_{0z}}{m_3}t.
+ \int\phi_A(\boldsymbol r-\boldsymbol r_i^A)\mathcal H\psi_{\boldsymbol k}(\boldsymbol r)\,\mathrm d\boldsymbol r
+ &=e^{i\boldsymbol k\cdot\boldsymbol r_i^A}
+   [\epsilon_A\lambda^A+\tau f(\boldsymbol k)\lambda^B],\\
+ E(\boldsymbol k)\int\phi_A(\boldsymbol r-\boldsymbol r_i^A)\psi_{\boldsymbol k}(\boldsymbol r)\,\mathrm d\boldsymbol r
+ &=e^{i\boldsymbol k\cdot\boldsymbol r_i^A}E(\boldsymbol k)\lambda^A.
 \end{align}
-$xy$平面への射影は中心が$y=\hbar k_{0x}/(\sqrt{m_1m_2}\,\omega_c)$にある楕円である。$t=0$では原点から$x$正方向へ進む。$z$は一定速度で増えるので、三次元軌道はこの楕円を射影にもつらせんである。
-
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,font=\small,scale=1.05]
- \pgfmathsetmacro{\rx}{sqrt(2)}
- \draw[->] (-1.8,0)--(1.9,0) node[right] {$x$};
- \draw[->] (0,-0.35)--(0,2.5) node[above] {$y$};
- \draw[thick] plot[domain=0:360,samples=121] ({\rx*sin(\x)},{1-cos(\x)});
- \draw[->,thick] plot[domain=18:46,samples=16] ({\rx*sin(\x)},{1-cos(\x)});
- \fill (0,0) circle (1.4pt) node[below left] {$t=0$};
- \fill (0,1) circle (1pt);
- \draw[dashed] (\rx,1)--(\rx,-0.45);
- \draw[<->] (0,-0.4)--(\rx,-0.4)
-   node[midway,below] {$\hbar k_{0x}/(m_1\omega_c)$};
- \draw[dashed] (0,1)--(-2.0,1);
- \draw[<->] (-1.9,0)--(-1.9,1);
- \node[left] at (-1.95,0.5) {$\hbar k_{0x}/(\sqrt{m_1m_2}\,\omega_c)$};
-\end{tikzpicture}
-\caption{放物線バンドの実空間軌道の$xy$射影。図\ref{fig:parabolic-k}と同じ$m_2=2m_1$の例。初期位置は原点で、矢印は時間の増加方向を示す。}
-\label{fig:parabolic-r}
-\end{figure}
-
-
-\section*{[2.1] 線形バンドの状態密度}
-2次元では状態密度は$\boldsymbol k$空間の面積で数える。エネルギーの絶対値が$|\epsilon|$以下の状態の波数半径は$k=|\epsilon|/\gamma$であり、1枝当たりの単位面積当たり状態数は
+BからAへの最近接変位は $-\boldsymbol\delta_j$ なので、Bへの射影には $f^*$ が現れる。
+共通の位相を除くと
 \begin{equation}
-  n(\epsilon)=\frac{\pi k^2}{(2\pi)^2}
-  =\frac{\epsilon^2}{4\pi\gamma^2}.
+ \boxed{\begin{pmatrix}\epsilon_A&\tau f(\boldsymbol k)\\\tau f(\boldsymbol k)^*&\epsilon_B\end{pmatrix}
+ \begin{pmatrix}\lambda^A\\\lambda^B\end{pmatrix}
+ =E(\boldsymbol k)\begin{pmatrix}\lambda^A\\\lambda^B\end{pmatrix}.}
 \end{equation}
-正負どちらの枝についても$|\epsilon|$で微分した状態密度は
-\begin{equation}
-  \boxed{\rho_{2\mathrm D}(\epsilon)=\frac{|\epsilon|}{2\pi\gamma^2}.}
-\end{equation}
-よって$\epsilon=0$でゼロとなり、正負のエネルギーに対してV字形に増加する。
+これは係数に対する固有値方程式である。
 
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,font=\small,scale=0.9]
-  \begin{scope}[xshift=0cm]
-    \draw[->] (-1.6,0)--(1.7,0) node[right] {$\epsilon$};
-    \draw[->] (0,0)--(0,2.1) node[above] {$\rho_{3\mathrm D}$};
-    \draw[thick] plot[domain=0:1.6,samples=121] ({\x},{1.3*sqrt(\x)});
-    \node[below left] at (0,0) {$0$};
-  \end{scope}
-  \begin{scope}[xshift=5.4cm]
-    \draw[->] (-1.8,0)--(1.9,0) node[right] {$\epsilon$};
-    \draw[->] (0,0)--(0,2.0) node[above] {$\rho_{2\mathrm D}$};
-    \draw[thick] plot[domain=-1.5:1.5,samples=121] (\x,{(1.6/1.5)*abs(\x)});
-    \node[below left] at (0,0) {$0$};
-  \end{scope}
-\end{tikzpicture}
-\caption{放物線バンドと線形バンドの状態密度の概形。各図の尺度は独立で、左は $\sqrt{\epsilon}$、右は $|\epsilon|$ に比例する形を示す。}
-\label{fig:dos}
-\end{figure}
-
-\section*{[2.2] 線形バンドの波数運動}
-バンドの符号を$s=+1$（$\epsilon>0$）、$s=-1$（$\epsilon<0$）で表すと、速度は$\boldsymbol v=s(\gamma/\hbar)\boldsymbol k/|\boldsymbol k|$である。この等方的な分散では$\boldsymbol v$が$\boldsymbol k$に平行または反平行である。運動方程式$\hbar\dot{\boldsymbol k}=-e\boldsymbol v\times\boldsymbol B$の両辺を$\boldsymbol k$と内積すると
+\section*{[5] 二本のエネルギー帯}
+行列式がゼロになる条件は
+\[
+ (E-\epsilon_A)(E-\epsilon_B)-\tau^2|f(\boldsymbol k)|^2=0.
+\]
+したがって上帯を $E_+$、下帯を $E_-$ とすると
 \begin{equation}
- \frac{d}{dt}|\boldsymbol k|^2=2\boldsymbol k\cdot\dot{\boldsymbol k}
- =-\frac{2e}{\hbar}\boldsymbol k\cdot(\boldsymbol v\times\boldsymbol B)=0.
+ \boxed{E_\pm(\boldsymbol k)=\frac{\epsilon_A+\epsilon_B}{2}
+ \pm\sqrt{\frac{(\epsilon_A-\epsilon_B)^2}{4}+\tau^2|f(\boldsymbol k)|^2}.}
 \end{equation}
-よって初期値から$|\boldsymbol k|=k_0$となる。この一定値を用いた運動方程式の成分は
-\begin{equation}
- \dot k_x=-s\frac{\gamma eB}{\hbar^2k_0}k_y,\qquad
- \dot k_y=s\frac{\gamma eB}{\hbar^2k_0}k_x.
-\end{equation}
-従って$\ddot k_x=-(\gamma eB/(\hbar^2k_0))^2k_x$である。初期条件を適用すると
-\begin{equation}
-  \boxed{\omega_c=\frac{\gamma eB}{\hbar^2k_0}},\qquad
-  \boxed{k_x=k_0\cos(\omega_ct),\quad
-         k_y=s k_0\sin(\omega_ct).}
-\end{equation}
-ここでは$\omega_c$を正の角周波数の大きさとして定義し、回転方向を$s$で表した。
+位相の和の絶対値の二乗は
+\begin{align}
+ |f|^2&=3+2\sum_{i<j}\cos[\boldsymbol k\cdot(\boldsymbol\delta_i-\boldsymbol\delta_j)]\\
+ &=3+4\cos\left(\frac{\sqrt3a k_x}{2}\right)\cos\left(\frac{a k_y}{2}\right)
+       +2\cos(a k_y).
+\end{align}
+よってこの最後の式を代入すれば $k_x,k_y$ の明示的な関数になる。
 
-\section*{[2.3] 二つの線形バンドの軌道}
-波数空間では、両枝とも半径$k_0$の円を描く。正の枝は反時計回り、負の枝は時計回りに回る。
-
-位置の速度は
+\section*{[6] 占有状態と最小ギャップ}
+各エネルギー帯は単位胞あたりスピン込みで2個の電子を収容する。
+電子が単位胞あたり2個なら下帯は満たされ、上帯は空である。
+$f=0$ で下帯が最大、上帯が最小となる。
+$k_x=0$ では
+\[
+ |f|^2=1+4\cos\left(\frac{ak_y}{2}\right)+4\cos^2\left(\frac{ak_y}{2}\right)
+       =\left[1+2\cos\left(\frac{ak_y}{2}\right)\right]^2.
+\]
+ゼロになるのは $\cos(ak_y/2)=-1/2$。第一域にある点は
 \begin{equation}
-  v_x=s\frac{\gamma}{\hbar}\cos(\omega_ct),\qquad
-  v_y=\frac{\gamma}{\hbar}\sin(\omega_ct).
+ \boxed{X=\left(0,\pm\frac{4\pi}{3a}\right),\qquad
+ E_1=\epsilon_B,\quad E_2=\epsilon_A,\quad E_g=\epsilon_A-\epsilon_B.}
 \end{equation}
-初期位置を原点として積分すると
+これらは図の上・下の頂点に当たる。以下では $X=(0,4\pi/(3a))$ を選ぶ。
+
+\section*{[7] X近傍の曲率と有効質量}
+$k_y=4\pi/(3a)+q$ とおき、$|aq|\ll1$ で展開すると
+\[
+ 1+2\cos\left(\frac{2\pi}{3}+\frac{aq}{2}\right)
+ =-\frac{\sqrt3a}{2}q+O(q^2).
+\]
+$E_g>0$ なので平方根を展開できる。原問の $E_g\gg|\tau|$ の範囲では
+\begin{align}
+ E_+(q)&=\epsilon_A+\frac{3a^2\tau^2}{4E_g}q^2+O(q^3),\\
+ E_-(q)&=\epsilon_B-\frac{3a^2\tau^2}{4E_g}q^2+O(q^3).
+\end{align}
+電子の有効質量を $1/m^*=(1/\hbar^2)\,\partial^2 E/\partial k_y^2$ で定義すると
 \begin{equation}
-  \boxed{x(t)=s\frac{\gamma}{\hbar\omega_c}\sin(\omega_ct),\qquad
-  y(t)=\frac{\gamma}{\hbar\omega_c}[1-\cos(\omega_ct)].}
+ \boxed{m^*_+=\frac{2\hbar^2 E_g}{3a^2\tau^2},\qquad
+ m^*_-=-\frac{2\hbar^2 E_g}{3a^2\tau^2}.}
 \end{equation}
-$R_c=\gamma/(\hbar\omega_c)=\hbar k_0/(eB)$とおくと
-$x^2+(y-R_c)^2=R_c^2$であり、実空間の軌道も原点を通る円である。正の枝は原点から右へ動き、反時計回りに進む。負の枝は原点から左へ動き、時計回りに進む。
+上帯は極小なので正、下帯は極大なので負である。下帯のホールを用いる場合は、電子の符号付き曲率質量とは別に $m^*_{\rm hole}=|m^*_-|$ となる。
 
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,font=\small,scale=0.85]
-  \begin{scope}[xshift=0cm]
-    \draw[->] (-1.7,0)--(1.8,0) node[right] {$k_x$};
-    \draw[->] (0,-1.5)--(0,1.65) node[above] {$k_y$};
-    \draw[thin,gray] (0,0) circle (1);
-    \draw[->,blue,thick] plot[domain=35:70,samples=16] ({cos(\x)},{sin(\x)});
-    \draw[->,red,dashed,thick] plot[domain=-35:-70,samples=16] ({cos(\x)},{sin(\x)});
-    \fill (1,0) circle (1.5pt);
-    \node[blue] at (-0.85,1.4) {$\epsilon>0$};
-    \node[red] at (-0.85,-1.4) {$\epsilon<0$};
-  \end{scope}
-  \begin{scope}[xshift=5.3cm]
-    \draw[->] (-1.7,0)--(1.8,0) node[right] {$x$};
-    \draw[->] (0,-0.4)--(0,2.6) node[above] {$y$};
-    \draw[thin,gray] (0,1) circle (1);
-    \fill (0,0) circle (1.5pt);
-    \draw[->,blue,thick] plot[domain=35:70,samples=16] ({sin(\x)},{1-cos(\x)});
-    \draw[->,red,dashed,thick] plot[domain=35:70,samples=16] ({-sin(\x)},{1-cos(\x)});
-    \node[blue,right] at (1.1,1.35) {$\epsilon>0$};
-    \node[red,left] at (-1.1,1.35) {$\epsilon<0$};
-  \end{scope}
-\end{tikzpicture}
-\caption{線形バンドの波数円と実空間円。実線の矢印は正の枝、破線の矢印は負の枝の時間発展方向を示す。}
-\label{fig:linear-orbits}
-\end{figure}
-
+\clearpage
+\section*{[8] すべて同じ原子にした場合}
+$\epsilon_B=\epsilon_A$ とするとギャップは消え、$k_x=0$ で
+\[
+ E_\pm(k_y)=\epsilon_A\pm|\tau|\left|1+2\cos\left(\frac{ak_y}{2}\right)\right|.
+\]
+よってX近傍では
+\begin{equation}
+ \boxed{E_\pm(q)=\epsilon_A\pm\frac{\sqrt3a|\tau|}{2}|q|+O(q^2),\qquad E_g=0.}
+\end{equation}
+上下のエネルギーを大小で並べると $|q|$ を含む直線的な交差になる。
+[7]の放物的な有効質量の式を、ギャップが消える場合にそのまま用いることはできない。
 \end{document}

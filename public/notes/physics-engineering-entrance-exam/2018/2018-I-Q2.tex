@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2018ap_exam.pdf, pages 4–5.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h30ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -7,83 +7,75 @@
 \usepackage{amsmath,amssymb}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2018年 物理学I 第2問}
+\title{物理工学専攻 院試解答集\\2018年度 物理学I 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 誘導電場}
-半径$r$の円筒経路を上から見て反時計回りを正に取る。Faradayの法則から
+\section*{[1.1] 電場と電位}
+ガウスの法則より、半径$a$より内側では包む電荷がなく、球殻間だけで電場がある。外側では全電荷がゼロである。電位は無限遠をゼロとして積分する。
 \begin{equation}
- \oint\boldsymbol E\cdot d\boldsymbol l=-\frac{d}{dt}(\pi r^2B(t)),\qquad
- 2\pi rE_\theta=-\pi r^2\dot B(t).
-\end{equation}
-$B(t)=\mu_0H_0\sin(2\pi ft)$より
-\begin{equation}
- \boxed{E_\theta(r,t)=-\frac r2\dot B(t)
- =-\pi f\mu_0H_0r\cos(2\pi ft)}.
+ E(r)=\begin{cases}0&(r<a),\\ Q_0/(4\pi\varepsilon_0r^2)&(a<r<b),\\0&(r>b),\end{cases}\quad
+ \phi(r)=\frac{Q_0}{4\pi\varepsilon_0}\begin{cases}1/a-1/b&(r<a),\\1/r-1/b&(a\le r\le b),\\0&(r>b).\end{cases}
 \end{equation}
 
-\section*{[1.2] 誘導加熱電力}
-電流密度は$J=E_\theta/\rho$なので、単位体積あたりのJoule発熱率は$E_\theta^2/\rho$である。体積要素$2\pi rL\,dr$にわたって積分すると
+\section*{[1.2] 静電容量}
+球殻間の電位差は$\Delta\phi=Q_0(1/a-1/b)/(4\pi\varepsilon_0)$であるから
+\begin{equation}
+ C=\frac{Q_0}{\Delta\phi}=\boxed{\frac{4\pi\varepsilon_0ab}{b-a}}.
+\end{equation}
+
+\section*{[1.3] 誘電体で満たした場合のエネルギー}
+誘電率$\varepsilon$の媒質で満たすと$C_\varepsilon=4\pi\varepsilon ab/(b-a)$である。電荷を$Q_0$に保つので
+\begin{equation}
+ U=\frac{Q_0^2}{2C_\varepsilon}
+ =\boxed{\frac{Q_0^2}{8\pi\varepsilon}\left(\frac1a-\frac1b\right)}.
+\end{equation}
+
+\section*{[1.4] 薄い誘電層による容量変化}
+真空層$a<r<b-d$と誘電層$b-d<r<b$は直列である。
 \begin{align}
- P(t)&=\int_0^R\frac{E_\theta(r,t)^2}{\rho}2\pi rL\,dr\\
- &=\frac{\pi^3\mu_0^2H_0^2f^2LR^4}{2\rho}\cos^2(2\pi ft).
+ \frac1C&=\frac1{4\pi\varepsilon_0}\left(\frac1a-\frac1{b-d}\right)
+ +\frac1{4\pi\varepsilon}\left(\frac1{b-d}-\frac1b\right)\\
+ &=\frac1{4\pi\varepsilon_0}\left(\frac1a-\frac1b\right)
+ -\frac{d}{4\pi b^2}\left(\frac1{\varepsilon_0}-\frac1\varepsilon\right)+O(d^2).
 \end{align}
-
-\section*{[1.3] 一秒間の温度上昇}
-$1$秒は$f=10\,\mathrm{Hz}$の整数周期なので、$\cos^2$の時間平均は$1/2$である。従って
+$C_0=4\pi\varepsilon_0ab/(b-a)$を使って逆数を展開すると
 \begin{equation}
- \Delta T=\frac{\langle P\rangle(1\,\mathrm s)}{C}
- =\frac{\pi^3\mu_0^2H_0^2f^2LR^4}{4\rho C}(1\,\mathrm s).
-\end{equation}
-与えられた値を代入すると$\langle P\rangle\simeq1.96\times10^{-3}\,\mathrm W$、$\Delta T\simeq3.92\times10^{-3}\,\mathrm K$である。一桁の有効数字では
-\begin{equation}
- \boxed{\Delta T\simeq4\times10^{-3}\,\mathrm K}.
+ \boxed{C=C_0+\frac{4\pi\varepsilon_0(\varepsilon-\varepsilon_0)}{\varepsilon}\frac{a^2}{(b-a)^2}d+O(d^2)}.
 \end{equation}
 
-\section*{[2.1] 一つの円環電流の軸上磁場}
-半径$a$のループの各電流要素についてBiot--Savart則を用いると、対称性により横成分は相殺し、軸成分だけが残る。距離$\sqrt{a^2+x^2}$、軸への射影因子$a/\sqrt{a^2+x^2}$を使えば
+\section*{[2.1] 定常電流とジュール熱}
+媒質内の電場は$E_r=Q_0/(4\pi\varepsilon r^2)$なので、半径によらず電流は
 \begin{equation}
- B_x(x)=\frac{\mu_0I}{4\pi}\frac{2\pi a^2}{(a^2+x^2)^{3/2}}
- =\boxed{\frac{\mu_0Ia^2}{2(a^2+x^2)^{3/2}}}.
+ I=4\pi r^2\sigma E_r=\frac{\sigma Q_0}{\varepsilon}>0.
 \end{equation}
-ここでは電流方向を右ねじの法則で$+x$向きに磁場を作る向きとした。逆向き電流なら符号が反転する。
-
-\section*{[2.2] 逆向き電流の二つのループ}
-左のループを$x=-b$で$+x$向きの磁場を作るように取り、右のループ$x=b$の電流は反対向きとする。軸上の符号付き成分は
+電位差を電流で割れば抵抗が得られる。
 \begin{equation}
- B_x(x)=\frac{\mu_0Ia^2}{2}\left[
- \frac{1}{(a^2+(b+x)^2)^{3/2}}-
- \frac{1}{(a^2+(b-x)^2)^{3/2}}\right].
-\end{equation}
-原点で$B_x(0)=0$であり、奇関数なので偶数次の項は消える。微分すると
-\begin{equation}
- B_x'(0)=-\frac{3\mu_0Ia^2b}{(a^2+b^2)^{5/2}},\qquad
- \boxed{B_x(x)=-\frac{3\mu_0Ia^2b}{(a^2+b^2)^{5/2}}x+O(x^3)}.
+ \boxed{\mathcal R=\frac{1}{4\pi\sigma}\left(\frac1a-\frac1b\right)},\qquad
+ \boxed{\dot Q_{\rm heat}=I^2\mathcal R=\frac{\sigma Q_0^2}{4\pi\varepsilon^2}\left(\frac1a-\frac1b\right)}.
 \end{equation}
 
-\section*{[2.3] 同じ向きの電流と二次項の相殺}
-右の電流を反転すると二つの軸成分が加わる。
+\section*{[2.2] 電源を外した後}
+時刻$t$の内側球殻の電荷を$Q(t)$とする。[2.1]の電流式に現在の電荷を入れると$I(t)=\sigma Q(t)/\varepsilon$となる。外向きの電流は内側球殻の電荷を減らすので、電荷保存則から$dQ/dt=-I(t)=-\sigma Q(t)/\varepsilon$である。初期条件$Q(0)=Q_0$を使うと
 \begin{equation}
- B_x(x)=\frac{\mu_0Ia^2}{2}\left[
- \frac{1}{(a^2+(b+x)^2)^{3/2}}+
- \frac{1}{(a^2+(b-x)^2)^{3/2}}\right].
+ Q(t)=Q_0e^{-\sigma t/\varepsilon}.
 \end{equation}
-$S=a^2+b^2$とおいて
+瞬時電力は[2.1]の$Q_0$を$Q(t)$に置き換えたものなので
 \begin{equation}
- \frac{1}{[a^2+(b\pm x)^2]^{3/2}}
- =S^{-3/2}\left[1\mp\frac{3b}{S}x
- +\frac{3(4b^2-a^2)}{2S^2}x^2+O(x^3)\right]
+ W(t)=\int_0^t\frac{\sigma Q(t')^2}{4\pi\varepsilon^2}\left(\frac1a-\frac1b\right)dt'
+ =\boxed{\frac{Q_0^2}{8\pi\varepsilon}\left(\frac1a-\frac1b\right)\left(1-e^{-2\sigma t/\varepsilon}\right)}.
 \end{equation}
-と展開し、$+x$と$-x$の式を足すと
+
+\section*{[2.3] 静電エネルギーとの関係}
+$t\to\infty$では残留電荷がゼロとなり、発生熱は$W(\infty)=Q_0^2(1/a-1/b)/(8\pi\varepsilon)$となる。これは[1.3]の初期静電エネルギーに等しい。ここでは電源が外れており、媒質の熱以外にエネルギーが移らないためである。
+
+\section*{[3] 二媒質境界の面電荷}
+定常状態では各領域の電流密度が$I/(4\pi r^2)$である。従って境界の両側の電場は$E_i=I/(4\pi\sigma_i r_0^2)$。境界面法線を外向きに取ると、自由面電荷密度は法線方向の$\boldsymbol D$の跳びで
 \begin{equation}
- B_x(x)=\frac{\mu_0Ia^2}{S^{3/2}}
- +\frac{3\mu_0Ia^2(4b^2-a^2)}{2S^{7/2}}x^2+O(x^4).
+ \boxed{\sigma_{\rm s}=\varepsilon_2E_2-\varepsilon_1E_1
+ =\frac{I}{4\pi r_0^2}\left(\frac{\varepsilon_2}{\sigma_2}-\frac{\varepsilon_1}{\sigma_1}\right)}.
 \end{equation}
-二次項が消える条件は$4b^2-a^2=0$である。$a,b>0$より
-\begin{equation}
- \boxed{a=2b}.
-\end{equation}
+負値の場合は、境界に負の自由電荷が蓄積している。
 \end{document}

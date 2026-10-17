@@ -1,0 +1,117 @@
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2027ap_exam_je.pdf
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\setCJKsansfont{HaranoAjiGothic-Medium.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集\\2027年度 物理学 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{図1の幾何と運動の向き}
+円錐の母線に沿って頂点から測った距離が $r$ である。図1の上向き $z$ 軸を使うと、A の水平半径と高さ、B の高さはそれぞれ
+\begin{equation}
+ R_A=r\sin\theta_0,\qquad z_A=r\cos\theta_0,\qquad
+ z_B=-(l-r)=r-l. \label{eq:geometry}
+\end{equation}
+糸が張っているので、A が斜面を外へ進むと B も上昇する。以下では図の円錐に合わせて $0<\theta_0<\pi/2$、また $0<r<l$ の運動を考える。初速度は方位角方向だけなので、$\dot r(0)=0$、$r_0\sin\theta_0\,\dot\varphi(0)=v_0$ である。
+
+\section*{[1] ラグランジアン}
+A の速さの二乗は $\dot r^{2}+(r\sin\theta_0)^2\dot\varphi^{2}$、B の速さの二乗は $\dot z_B^{2}=\dot r^{2}$ である。位置エネルギーの基準を頂点の高さに取ると
+\[
+ T_A=\frac m2\bigl(\dot r^{2}+r^2\sin^2\theta_0\,\dot\varphi^{2}\bigr),\quad
+ T_B=\frac M2\dot r^{2},\quad
+ U_A=mg r\cos\theta_0,\quad U_B=Mg(r-l).
+\]
+従って、基準点による定数項も含めた答えは
+\begin{equation}
+ \boxed{L=\frac{m+M}{2}\dot r^{2}
+ +\frac m2r^2\sin^2\theta_0\,\dot\varphi^{2}
+ -g(m\cos\theta_0+M)r+Mgl.} \label{eq:L}
+\end{equation}
+
+\section*{[2] $r$ の運動方程式}
+式\eqref{eq:L}から $\partial L/\partial\dot r=(m+M)\dot r$、$\partial L/\partial r=mr\sin^2\theta_0\,\dot\varphi^{2}-g(m\cos\theta_0+M)$ である。従って
+\begin{equation}
+ \boxed{(m+M)\ddot r=mr\sin^2\theta_0\,\dot\varphi^{2}
+ -g(m\cos\theta_0+M).} \label{eq:radial}
+\end{equation}
+右辺の第一項は方位角運動が外向きに寄与する項、第二項は二つの質点を同時に上げることに伴う重力項である。
+
+\section*{[3] $z$ 軸まわりの角運動量}
+$L$ は $\varphi$ を含まないので、$\frac{d}{dt}(\partial L/\partial\dot\varphi)=0$。A の水平半径 $R_A$ と水平接線方向の速さ $R_A\dot\varphi$ の積から、保存量は
+\begin{equation}
+ L_z=mr^2\sin^2\theta_0\,\dot\varphi
+ =mr_0\sin\theta_0\,v_0. \label{eq:Lz}
+\end{equation}
+B は $z$ 軸上で動くため、この軸まわりの角運動量を持たない。
+
+\section*{[4] 方位角を消去した方程式}
+式\eqref{eq:Lz}より $\dot\varphi=v_0r_0/(r^2\sin\theta_0)$。これを式\eqref{eq:radial}に代入すると
+\begin{equation}
+ \boxed{(m+M)\ddot r=\frac{mr_0^2v_0^2}{r^3}
+ -g(m\cos\theta_0+M).} \label{eq:reduced}
+\end{equation}
+
+\section*{[5] 径方向の速さ}
+式\eqref{eq:reduced}に $\dot r$ を掛ける。$r^{-3}\dot r=-\frac12\frac{d}{dt}(r^{-2})$ であり、初期条件 $r=r_0,\dot r=0$ を使って積分すると
+\begin{align}
+ \frac{m+M}{2}\dot r^{2}
+ &=\frac{m v_0^2}{2}\left(1-\frac{r_0^2}{r^2}\right)
+ -g(m\cos\theta_0+M)(r-r_0),\\
+ \dot r^{2}
+ &=\boxed{\frac{m v_0^2}{m+M}\left(1-\frac{r_0^2}{r^2}\right)
+ -\frac{2g(m\cos\theta_0+M)}{m+M}(r-r_0).} \label{eq:rdotsq}
+\end{align}
+これは $r=r_0$ で確かに零になる。$l$ は糸長の制約を定めるが、$r$ に依存する運動エネルギー・力には現れない。
+
+\section*{[6] 他方の転回点}
+$r_1\ne r_0$ は式\eqref{eq:rdotsq}のもう一つの正の零点である。$r=r_1$ とおき、$1-r_0^2/r_1^2=(r_1-r_0)(r_1+r_0)/r_1^2$ を用いて $r_1-r_0$ を除くと
+\[
+ 2g(m\cos\theta_0+M)r_1^2-mv_0^2r_1-mv_0^2r_0=0.
+\]
+左辺の定数項は負なので二根の符号は異なり、物理的な根は正の根である。よって
+\begin{equation}
+ \boxed{r_1=\frac{mv_0^2+\sqrt{m^2v_0^4+8m v_0^2r_0g(m\cos\theta_0+M)}}{4g(m\cos\theta_0+M)}.} \label{eq:r1}
+\end{equation}
+$r_1>r_0$ か $r_1<r_0$ かは初期加速度の符号、すなわち $mv_0^2/r_0-g(m\cos\theta_0+M)$ の符号で決まる。等号の場合は $r_1=r_0$ の定常回転となり、この設問の異なる二つの転回点にはならない。問題文が想定する往復運動では、$r_0,r_1$ とその間の $r$ は $0<r<l$ を満たす。
+
+\section*{[7] 定常回転を与える半頂角}
+ここからは問題文の通り $\theta_0$ だけを変え、$r=r_0$ を保つ別の運動を考える。式\eqref{eq:reduced}で $\ddot r=0$ とすると $mv_0^2/r_0=g(m\cos\theta_0+M)$。従って
+\begin{equation}
+ \boxed{\theta_0=\arccos\!\left(\frac{v_0^2}{gr_0}-\frac{M}{m}\right).} \label{eq:theta}
+\end{equation}
+図の非退化な上向き円錐については $0<v_0^2/(gr_0)-M/m<1$ が必要である。
+
+\section*{[8] 微小変位後の角速度}
+瞬間的な力は $r$ 方向だけなので $z$ 軸まわりのトルクはなく、式\eqref{eq:Lz}の値は前後で同じである。$r=r_0+\rho$ を代入して
+\begin{equation}
+ \boxed{\dot\varphi=\frac{v_0r_0}{(r_0+\rho)^2\sin\theta_0}
+ =\frac{v_0}{r_0\sin\theta_0}\left(1+\frac{\rho}{r_0}\right)^{-2}.} \label{eq:phirho}
+\end{equation}
+ここでは後の運動の $\dot\rho$ の初期値は指定しない。
+
+\section*{[9] $\rho$ の一次の運動方程式}
+式\eqref{eq:reduced}に $r=r_0+\rho$ を入れ、$|\rho|\ll r_0$ で $(1+\rho/r_0)^{-3}\simeq1-3\rho/r_0$ と展開する。定数項 $mv_0^2/r_0-g(m\cos\theta_0+M)$ は式\eqref{eq:theta}の定常条件で零なので
+\begin{equation}
+ \boxed{\ddot\rho+\omega^2\rho=0,\qquad
+ \omega^2=\frac{3m v_0^2}{(m+M)r_0^2}
+ =\frac{3g(m\cos\theta_0+M)}{(m+M)r_0}.} \label{eq:rho}
+\end{equation}
+$\omega^2>0$ なので、微小なずれに対する復元運動である。求めた式は $\rho/r_0$ の一次までで、$\rho^2$ 以上を捨てている。
+
+\section*{[10] B の運動}
+糸の長さから $z_B=r-l=r_0-l+\rho$ である。従って B は平均位置 $z_B=r_0-l$ のまわりを、A の径方向のずれと同じ $\rho$ だけ上下する。式\eqref{eq:rho}より、その運動は鉛直方向の単振動であり、角振動数は $\omega$、周期は
+\[
+ \boxed{T=\frac{2\pi}{\omega}
+ =2\pi\sqrt{\frac{(m+M)r_0^2}{3m v_0^2}}.}
+\]
+微小力の力積は指定されていないので、振幅と位相はこの設問だけでは定まらない。A が外側へ動くとき B は上昇する。
+
+\end{document}

@@ -1,128 +1,122 @@
-% Source problem: 2014ap_exam.pdf, PDF pp. 12--13.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h26ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=24mm]{geometry}
+\usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2014年 物理学II 第3問}
+\title{物理工学専攻 院試解答集\\2014年度 物理学II 第3問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-原問の時間依存を $e^{-i\omega t}$ とし、媒質は $z>0$、波の伝播方向を $+z$ とする。電場は $x$ 方向で、複素波数 $\widetilde k=k_1+ik_2$ を用いて
+\section*{[1] 電束密度}
+球の全電荷は $Q=4\pi a^2\sigma$ である。Gauss則を半径 $r>a$ の球面に適用すると
 \begin{equation}
- \boldsymbol E(z,t)=\operatorname{Re}\!\left[\widetilde E_0\,\boldsymbol e_x
- e^{i(\widetilde kz-\omega t)}\right]
- =|\widetilde E_0|e^{-k_2z}\cos(k_1z-\omega t+\delta)\,\boldsymbol e_x
+ \boxed{\boldsymbol D(\boldsymbol r,t)=\sigma\frac{a^2}{r^2}\hat{\boldsymbol r},\qquad
+ D(r,t)=|\sigma|\left(\frac{a}{r}\right)^2.}
 \end{equation}
-と書く（$\delta=\arg\widetilde E_0$）。媒質中で減衰する解を選ぶので $k_2>0$ である。
+ここでは球中心を原点とする瞬間座標を用いた。
 
-\section*{[1] 分散関係と位相速度}
-波動方程式に $e^{i(\widetilde kz-\omega t)}$ を代入すると
+\section*{[2] 移動電荷の磁場}
+速度が $c$ より十分小さいとき、動く微小電荷 $dq$ による磁場は
+$d\boldsymbol H=(dq/4\pi)\,\boldsymbol v\times\hat{\boldsymbol R}/R^2$ である。電束密度への寄与は
+$d\boldsymbol D=(dq/4\pi)\hat{\boldsymbol R}/R^2$ なので、重ね合わせれば球外で
 \begin{equation}
- -\widetilde k^2+\epsilon\mu\omega^2+i\mu\sigma\omega=0,
- \qquad \boxed{\widetilde k^2=\epsilon\mu\omega^2+i\mu\sigma\omega}.
+ \boxed{\boldsymbol H=\boldsymbol v\times\boldsymbol D.}
 \end{equation}
-位相一定条件 $k_1z-\omega t+\delta=\text{const.}$ から、位相速度は振幅減衰を決める $k_2$ ではなく
-\begin{equation}
- \boxed{v_{\rm ph}=\frac{\omega}{k_1}}.
-\end{equation}
+移動する場は $\partial_t\boldsymbol D=-(\boldsymbol v\cdot\boldsymbol\nabla)\boldsymbol D$ を満たし、外部では $\boldsymbol\nabla\cdot\boldsymbol D=0$ である。一定ベクトル $\boldsymbol v$ に対し
+$\boldsymbol\nabla\times(\boldsymbol v\times\boldsymbol D)
+=\boldsymbol v(\boldsymbol\nabla\cdot\boldsymbol D)-(\boldsymbol v\cdot\boldsymbol\nabla)\boldsymbol D
+=\partial_t\boldsymbol D$ となり、Maxwell--Amp\`ere則とも整合する。
 
-\section*{[2] 振幅減衰距離}
-振幅は $z$ とともに $e^{-k_2z}$ 倍される。$e^{-k_2d}=e^{-1}$ より
+\section*{[3] 円Cに沿う積分}
+$\boldsymbol v=v\boldsymbol e_x$ とし、$\theta$ を $\boldsymbol r$ と $+x$ 軸のなす角とする。球面座標の方位方向を $\boldsymbol e_\phi$ とすると
 \begin{equation}
- \boxed{d=\frac{1}{k_2}}.
+ \boldsymbol H=H_\phi\boldsymbol e_\phi,\qquad
+ H_\phi=\frac{\sigma a^2v\sin\theta}{r^2}.
 \end{equation}
-これは振幅の $1/e$ 距離であり、時間平均二乗場や強度の $1/e$ 距離は $1/(2k_2)$ である。
-
-\section*{[3] 実部・虚部}
-$
-(k_1+ik_2)^2=(k_1^2-k_2^2)+2ik_1k_2
-=\mu\omega(\epsilon\omega+i\sigma).
-$
-よって $k_1^2-k_2^2=\epsilon\mu\omega^2$、$2k_1k_2=\mu\sigma\omega$。$k_1,k_2>0$ の減衰・前進波の枝を選ぶと
+円Cの半径は $d=r\sin\theta$ で、$\boldsymbol H$ は円周に接する。周回方向を $\boldsymbol e_\phi$ とする。積分面 $S$ は、瞬間的な球中心を中心とする半径 $r>a$ の球面上で、極角 $0\leq\vartheta\leq\theta$ の球冠とし、法線を外向きに選ぶ。その境界は円Cであり、正の周回方向は $\boldsymbol e_\phi$ となる。この面は球殻を横切らないので
 \begin{align}
- k_1&=\boxed{\sqrt{\frac{\mu\omega}{2}
- \left(\sqrt{\epsilon^2\omega^2+\sigma^2}+\epsilon\omega\right)}},\\
- k_2&=\boxed{\sqrt{\frac{\mu\omega}{2}
- \left(\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\right)}}.
+ \oint_C\boldsymbol H\cdot d\boldsymbol\ell
+ &=2\pi dH_\phi\\
+ &=\int_S\frac{\partial\boldsymbol D}{\partial t}\cdot d\boldsymbol S
+ =\boxed{\frac{2\pi\sigma a^2v\sin^2\theta}{r}}.
+\end{align}
+円周積分と面積分を結ぶ等号はMaxwell--Amp\`ere則の積分形である。$S$ 上には伝導電流がなく、変位電流だけが寄与する。
+
+\section*{[4] 円Cを縁とする面を貫く電束の変化}
+基準時刻に[3]の球冠面 $S$ を選び、その後は実験室に固定して電束の時間変化を求める。球冠面上では $\boldsymbol D=\sigma a^2\boldsymbol e_r/r^2$ なので、基準時刻の電束は
+\begin{equation}
+ \Psi=\int_S\boldsymbol D\cdot d\boldsymbol S
+ =\sigma a^2\int_0^{2\pi}d\phi\int_0^\theta\sin\vartheta\,d\vartheta
+ =2\pi\sigma a^2(1-\cos\theta).
+\end{equation}
+微分するときに球冠面を球と一緒に動かしてはならない。実験室に固定した点では球中心からの位置が $\partial_t\boldsymbol r=-v\boldsymbol e_x$ と変わる。その長さの時間微分は $\partial_t r=\boldsymbol e_r\cdot\partial_t\boldsymbol r=-v\cos\vartheta$ である。$\boldsymbol D=\sigma a^2\boldsymbol r/r^3$ に積の微分を適用すると
+\begin{align}
+ \partial_t\boldsymbol D
+ &=\sigma a^2\left(\frac{\partial_t\boldsymbol r}{r^3}
+       -\frac{3\boldsymbol r}{r^4}\partial_t r\right)\\
+ &=\frac{\sigma a^2v}{r^3}
+ \left(3\cos\vartheta\,\boldsymbol e_r-\boldsymbol e_x\right),\\
+ \partial_t\boldsymbol D\cdot\boldsymbol e_r
+ &=\frac{2\sigma a^2v\cos\vartheta}{r^3}.
+\end{align}
+従って、固定面を貫く電束の時間変化は
+\begin{align}
+ \frac{d\Psi}{dt}
+ &=\int_S\partial_t\boldsymbol D\cdot d\boldsymbol S\\
+ &=\frac{2\sigma a^2v}{r^3}
+   \int_0^{2\pi}d\phi\int_0^\theta r^2\cos\vartheta\sin\vartheta\,d\vartheta
+ =\frac{2\pi\sigma a^2v\sin^2\theta}{r}.
+\end{align}
+よって $\Delta t$ の一次までで
+\begin{equation}
+ \boxed{\Delta\Psi=\frac{2\pi\sigma a^2v\sin^2\theta}{r}\Delta t
+ =\frac{2\pi\sigma a^2v\sin^3\theta}{d}\Delta t.}
+\end{equation}
+この面の選び方なら、$r>a$ の全ての極角で導出できる。円Cの平面円板を選ぶと球殻を横切る場合があり、その場合は伝導電流も含める必要がある。軸上の $\theta=0,\pi$ では円が縮み、上の値は0となる。
+
+\section*{[5] 磁場の大きさ}
+[3]の円周積分を $2\pi d$ で割るか、[4]の電束変化率を使う。ここで割り算は円が縮まない $0<\theta<\pi$ で行い、軸上は連続極限で評価すると
+\begin{equation}
+ \boxed{H(r,t)=\frac{|\Delta\Psi|}{2\pi d\Delta t}
+ =\frac{|\sigma|a^2v\sin\theta}{r^2}.}
+\end{equation}
+磁場は $\sigma>0$ なら $+\boldsymbol e_\phi$、$\sigma<0$ なら $-\boldsymbol e_\phi$ を向く。軸上では上式の極限が $H=0$ を与える。
+
+\section*{[6] 磁気エネルギー密度}
+真空中では $\boldsymbol B=\mu_0\boldsymbol H$ なので
+\begin{equation}
+ \boxed{u(\boldsymbol r,t)=\frac{B^2}{2\mu_0}
+ =\frac12\mu_0H^2
+ =\frac12\mu_0\sigma^2a^4v^2\frac{\sin^2\theta}{r^4}.}
+\end{equation}
+
+\section*{[7] 球外の磁気エネルギー}
+球外 $r>a$ の全空間で積分する。体積要素は $r^2\sin\theta\,dr\,d\theta\,d\phi$ なので
+\begin{align}
+ U_{\rm mag}
+ &=\frac12\mu_0\sigma^2a^4v^2
+   \int_a^\infty\frac{dr}{r^2}
+   \int_0^{2\pi}d\phi\int_0^\pi\sin^3\theta\,d\theta\\
+ &=\frac12\mu_0\sigma^2a^4v^2\left(\frac1a\right)(2\pi)\left(\frac43\right)
+ =\boxed{\frac{4\pi}{3}\mu_0\sigma^2a^3v^2}.
 \end{align}
 
-\section*{[4] 伝導率による減衰距離}
+\section*{[8] 運動に伴う全エネルギー}
+磁気エネルギーを運動エネルギーに加えると
 \begin{equation}
- d=\sqrt{\frac{2}{\mu\omega\left(\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\right)}}.
+ \boxed{E_{\rm tot}=\frac12m_0v^2+U_{\rm mag}
+ =\frac12\left(m_0+\frac{8\pi}{3}\mu_0\sigma^2a^3\right)v^2.}
 \end{equation}
-高伝導率 $\sigma\gg\epsilon\omega$ では平方根の内側の根号を $\sigma$ と近似できるため
-\begin{equation}
- \boxed{d\simeq\sqrt{\frac{2}{\mu\sigma\omega}}\propto\sigma^{-1/2}}.
-\end{equation}
-低伝導率 $\sigma\ll\epsilon\omega$ では
-$\sqrt{\epsilon^2\omega^2+\sigma^2}-\epsilon\omega\simeq\sigma^2/(2\epsilon\omega)$ なので
-\begin{equation}
- \boxed{d\simeq\frac{2}{\sigma}\sqrt{\frac{\epsilon}{\mu}}\propto\sigma^{-1}}.
-\end{equation}
+したがって、この近似で運動に伴う有効質量は
+$m_{\rm eff}=m_0+8\pi\mu_0\sigma^2a^3/3$ と書ける。
 
-\section*{[5] 電場・磁場の位相差}
-Faraday則から複素振幅は
-\begin{equation}
- \widetilde{\boldsymbol B}(z)=\frac{\widetilde k}{\omega}
- \boldsymbol e_z\times\widetilde{\boldsymbol E}(z)
- =\frac{\widetilde k}{\omega}\widetilde E_0\boldsymbol e_y
- e^{i\widetilde kz}.
-\end{equation}
-位相 $\Theta=k_1z-\omega t+\delta$ と書くと、実電場は $E_x\propto\cos\Theta$、実磁束密度は $B_y\propto\cos(\Theta+\phi)$ である。同じ山に注目すれば磁束密度の山は電場より $\phi/\omega$ だけ遅い時刻に現れる。従って磁束密度は電場に対して $\widetilde k$ の偏角だけ遅れ、
-\begin{equation}
- \boxed{\phi=\arg(k_1+ik_2)=\tan^{-1}\!\left(\frac{k_2}{k_1}\right)},
- \qquad 0<\phi<\frac{\pi}{2}.
-\end{equation}
-高伝導率極限では $k_1/k_2\to1$ より $\boxed{\phi\to\pi/4}$。低伝導率極限では $k_2/k_1\to0$ より $\boxed{\phi\to0}$。
-
-\section*{[6] 平均ポインティング流束}
-$z=0$ で $\widetilde{\boldsymbol B}_0=(\widetilde k/\omega)\widetilde E_0\boldsymbol e_y$ である。実場の時間平均を複素振幅で計算すると
-\begin{align}
- \langle\boldsymbol S\rangle
- &=\frac{1}{2\mu}\operatorname{Re}
- \left(\widetilde{\boldsymbol E}_0\times\widetilde{\boldsymbol B}_0^{\,*}\right)
- =\frac{|\widetilde E_0|^2}{2\mu\omega}\operatorname{Re}(\widetilde k^{\,*})\boldsymbol e_z\\
- &=\frac{|\widetilde E_0|^2 k_1}{2\mu\omega}\boldsymbol e_z.
-\end{align}
-従って
-\begin{equation}
- \boxed{|\langle\boldsymbol S\rangle|=
- \frac{|\widetilde E_0|^2 k_1}{2\mu\omega}
- =\frac{|\widetilde E_0|^2}{2}
- \sqrt{\frac{\epsilon}{2\mu}
- \left(\sqrt{1+\frac{\sigma^2}{\epsilon^2\omega^2}}+1\right)}}.
-\end{equation}
-流束は媒質内へ向かう $+z$ 方向である。
-
-\section*{[7] 媒質に及ぼす単位体積あたりの仕事率}
-電磁場が電荷にする仕事率密度は電流密度との内積である。オーム則を用いれば
-\begin{equation}
- \boxed{Q(\boldsymbol r,t)=\boldsymbol E(\boldsymbol r,t)\cdot\boldsymbol J(\boldsymbol r,t)
- =\sigma|\boldsymbol E(\boldsymbol r,t)|^2\geq0}.
-\end{equation}
-電場は $x$ 方向なのでここでの絶対値二乗は実場の成分の二乗を表す。
-
-\section*{[8] Joule熱と侵入エネルギー}
-媒質中の電場振幅が $|\widetilde E_0|e^{-k_2z}$ であるから
-\begin{equation}
- \langle Q(z,t)\rangle=\frac{\sigma}{2}|\widetilde E_0|^2e^{-2k_2z}.
-\end{equation}
-従って単位界面面積あたり、単位時間に媒質内で消費される平均仕事は
-\begin{align}
- \int_0^{+\infty}\langle Q(z,t)\rangle dz
- &=\frac{\sigma|\widetilde E_0|^2}{4k_2}
- =\frac{|\widetilde E_0|^2k_1}{2\mu\omega}
- =|\langle\boldsymbol S(0)\rangle|,
-\end{align}
-ここで $2k_1k_2=\mu\sigma\omega$ を用いた。媒質の奥では流束がゼロに減衰するため、境界から流入した平均電磁エネルギーは全て媒質内のJoule熱に変わる。
+球が動くと電束密度の時間変化が磁場を作り、その磁場はエネルギーを持つ。この磁気エネルギーは速さの二乗に比例するので、運動エネルギーへ加えると質量の増加分として表せる。外力は物質の球だけでなく、運動に伴う磁場も作る仕事をする。ここで扱うのは運動に伴うエネルギーであり、電気的自己エネルギーは含めない。
 
 \end{document}

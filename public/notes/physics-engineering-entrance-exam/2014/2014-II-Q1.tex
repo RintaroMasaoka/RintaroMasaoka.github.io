@@ -1,204 +1,107 @@
-% Source problem: 2014ap_exam.pdf, PDF pp. 7--9.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h26ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=24mm]{geometry}
+\usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2014年 物理学II 第1問}
+\title{物理工学専攻 院試解答集\\2014年度 物理学II 第1問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 1粒子状態のエネルギー}
-図の $\psi_S$ は節を持たない対称状態、$\psi_A$ は節を1つ持つ反対称状態である。一次元束縛状態では節の少ない状態ほどエネルギーが低いので
-\begin{equation}
- E_S=-J,\qquad E_A=+J.
-\end{equation}
-
-\section*{[2] 局在基底}
-規格直交する $\psi_S,\psi_A$ より
-\begin{equation}
- \langle\psi_L|\psi_R\rangle
- =\frac12(\langle\psi_S|\psi_S\rangle-\langle\psi_A|\psi_A\rangle)=0.
-\end{equation}
-また $H\psi_S=-J\psi_S$, $H\psi_A=J\psi_A$ だから、$\{\psi_L,\psi_R\}$ 基底の行列要素は
-\begin{equation}
- \boxed{H_1=\begin{pmatrix}0&-J\\-J&0\end{pmatrix}.}
-\end{equation}
-
-\section*{[3] 1粒子のトンネル確率}
-左井戸状態 $|L\rangle$ からの時間発展は
-\begin{equation}
- e^{-iH_1t/\hbar}|L\rangle
- =\cos\!\left(\frac{Jt}{\hbar}\right)|L\rangle
- +i\sin\!\left(\frac{Jt}{\hbar}\right)|R\rangle.
-\end{equation}
-従って右井戸にある確率は
-\begin{equation}
- \boxed{P_R(t)=\sin^2\!\left(\frac{Jt}{\hbar}\right).}
-\end{equation}
-
-\section*{[4] 相互作用のない2粒子系}
-\subsection*{[4.1] ハミルトニアン}
-対称化された規格化状態は
-\begin{equation}
- |0\rangle=|LL\rangle,\qquad
- |1\rangle=\frac{|LR\rangle+|RL\rangle}{\sqrt2},\qquad
- |2\rangle=|RR\rangle.
-\end{equation}
-一体トンネル項 $-J(|L\rangle\langle R|+|R\rangle\langle L|)$ を各粒子に作用させると
-\begin{equation}
- H|0\rangle=-\sqrt2J|1\rangle,\quad
- H|1\rangle=-\sqrt2J(|0\rangle+|2\rangle),\quad
- H|2\rangle=-\sqrt2J|1\rangle.
-\end{equation}
-従って
-\begin{equation}
- \boxed{H_0=\begin{pmatrix}
- 0&-\sqrt2J&0\\-\sqrt2J&0&-\sqrt2J\\0&-\sqrt2J&0
- \end{pmatrix}.}
-\end{equation}
-\subsection*{[4.2] 固有エネルギー}
-反対称な端状態 $(|0\rangle-|2\rangle)/\sqrt2$ の固有値は0。対称な端状態 $(|0\rangle+|2\rangle)/\sqrt2$ と $|1\rangle$ に対して、上の行列の制限は $\left(\begin{smallmatrix}0&-2J\\-2J&0\end{smallmatrix}\right)$ となる。この二次元ブロックの固有値は $\pm2J$ なので
-\begin{equation}
- \boxed{E=-2J,\ 0,\ 2J.}
-\end{equation}
-\subsection*{[4.3] 粒子数確率}
-初期状態 $|LL\rangle$ は、独立に左右へ移る2粒子の積状態である。$x=Jt/\hbar$ とすると
+\section*{[1] Pauli行列の固有状態}
+$|\alpha\rangle=(1,0)^T$, $|\beta\rangle=(0,1)^T$ を $\sigma_z$ の固有値 $+1,-1$ の状態とする。行列の作用を直接計算すると
 \begin{align}
- P_0(t)&=\cos^4x,\\
- P_1(t)&=2\sin^2x\cos^2x=\frac12\sin^2(2x),\\
- P_2(t)&=\sin^4x.
+ \sigma_x\frac{|\alpha\rangle+|\beta\rangle}{\sqrt2}
+ &=+\frac{|\alpha\rangle+|\beta\rangle}{\sqrt2},&
+ \sigma_x\frac{|\alpha\rangle-|\beta\rangle}{\sqrt2}
+ &=-\frac{|\alpha\rangle-|\beta\rangle}{\sqrt2},\\
+ \sigma_y\frac{|\alpha\rangle+i|\beta\rangle}{\sqrt2}
+ &=+\frac{|\alpha\rangle+i|\beta\rangle}{\sqrt2},&
+ \sigma_y\frac{|\alpha\rangle-i|\beta\rangle}{\sqrt2}
+ &=-\frac{|\alpha\rangle-i|\beta\rangle}{\sqrt2}.
 \end{align}
-各時刻で和は1。原図の選択肢では図2(a)に対応し、点線が $P_0$、実線が $P_1$、一点鎖線が $P_2$ を表す。確率の共通周期は
+したがって $|\pm x\rangle=(|\alpha\rangle\pm|\beta\rangle)/\sqrt2$、$|\pm y\rangle=(|\alpha\rangle\pm i|\beta\rangle)/\sqrt2$ がそれぞれ固有値 $\pm1$ の規格化固有状態である。
+
+\section*{[2] 電場中の一次元運動}
+\subsection*{[2.1] ハミルトニアン}
+$\boldsymbol p=p_x\boldsymbol e_x$, $\boldsymbol E=E\boldsymbol e_z$ なので $\boldsymbol p\times\boldsymbol E=-p_xE\boldsymbol e_y$。従って
 \begin{equation}
- \boxed{T=\frac{\pi\hbar}{J}}.
+ H=\frac{p_x^2}{2m}+H_{\rm SO}
+ =\boxed{\frac{p_x^2}{2m}-\frac{\gamma E}{\hbar}p_x\sigma_y}.
 \end{equation}
-一周期の概形は次のとおりである。
+
+\subsection*{[2.2] 分散とスピン}
+平面波 $\phi_k(x)=e^{ikx}$ では $p_x=\hbar k$ だから
+\begin{equation}
+ H(k)=\frac{\hbar^2k^2}{2m}-\gamma Ek\sigma_y.
+\end{equation}
+$\sigma_y$ 固有値を $s=\pm1$ とし、$|y,+1\rangle=|+y\rangle$、$|y,-1\rangle=|-y\rangle$ と書くと、固有関数と固有エネルギーは
+\begin{align}
+ \psi_{k,s}(x)&=e^{ikx}|y,s\rangle,\\
+ E_s(k)&=\frac{\hbar^2k^2}{2m}-s\gamma Ek
+ =\frac{\hbar^2}{2m}\left(k-\frac{sm\gamma E}{\hbar^2}\right)^2
+  -\frac{m\gamma^2E^2}{2\hbar^2}.
+\end{align}
+二本は $k=0$ で交差する放物線で、それぞれの固有枝ではスピンは一定の $s\boldsymbol e_y$ を向く。$\gamma<0$ のため、各 $k\ne0$ で低い方の枝は $s=\operatorname{sgn}(\gamma k)=-\operatorname{sgn}(k)$ である。つまり最低エネルギー状態を $k<0$ から $k>0$ へ移るとスピンは $+y$ から $-y$ へ反転する。交差点 $k=0$ では縮退しており、スピン方向は一意に定まらない。
+
+$k_*=|m\gamma E|/\hbar^2$、$E_*=m\gamma^2E^2/(2\hbar^2)$、$x=k/k_*$ と置けば $E_s/E_*=x^2+2sx$ である。分散を図示する。
 \begin{center}
-\begin{tikzpicture}[x=1.55cm,y=1.35cm,>=Stealth]
- \draw[->] (0,0)--(2.15,0) node[right] {$t/T$};
- \draw[->] (0,0)--(0,1.15) node[above] {$P_n$};
- \draw[dotted,thick,domain=0:1,samples=101] plot (\x,{cos(deg(pi*\x))^4});
- \draw[thick,domain=0:1,samples=101] plot (\x,{2*sin(deg(pi*\x))^2*cos(deg(pi*\x))^2});
- \draw[dash dot,thick,domain=0:1,samples=101] plot (\x,{sin(deg(pi*\x))^4});
- \draw (0,0)--(-0.06,0) node[left] {0};
- \draw (0,1)--(-0.06,1) node[left] {1};
- \draw (1,0)--(1,-0.04) node[below] {1};
- \node[anchor=west] at (1.15,0.88) {$P_0$ dotted};
- \node[anchor=west] at (1.15,0.58) {$P_1$ solid};
- \node[anchor=west] at (1.15,0.28) {$P_2$ dash-dot};
+\begin{tikzpicture}[x=0.8cm,y=0.32cm]
+ \draw[->] (-2.4,0)--(2.8,0) node[right] {$k/k_*$};
+ \draw[->] (0,-1.35)--(0,5.2) node[above] {$E_s/E_*$};
+ \draw[gray!40] (-2.2,-1)--(2.5,-1);
+ \draw[thick,blue,domain=-2.2:1.4,samples=100] plot (\x,{\x*\x+2*\x});
+ \draw[thick,red,dashed,domain=-1.4:2.4,samples=100] plot (\x,{\x*\x-2*\x});
+ \draw[dotted] (0,-1.15)--(0,4.8);
+ \node[blue,anchor=west] at (1.65,4.65) {$s=+1$};
+ \node[red,anchor=east] at (-1.65,4.65) {$s=-1$};
+ \node[below left] at (0,0) {$0$};
+ \node[above] at (1,0) {$1$};
+ \node[above] at (-1,0) {$-1$};
 \end{tikzpicture}
 \end{center}
+青実線と赤破線は $\sigma_y$ の固有値 $+1,-1$ に対応する。放物線の頂点はそれぞれ $k/k_*=-1,+1$ にあり、エネルギーは $-E_*$ である。
 
-\section*{[5] 強い引力相互作用}
-\subsection*{[5.1] ハミルトニアン}
-同一井戸に2粒子がある状態のエネルギーを $-A$ だけ下げると、
+\subsection*{[2.3] Zeeman場を加えた場合}
+$\Delta=g\mu_BB/2>0$ とおくと、Zeeman項を含む運動量表示ハミルトニアンは
 \begin{equation}
- \boxed{H_{-A}=\begin{pmatrix}
- -A&-\sqrt2J&0\\-\sqrt2J&0&-\sqrt2J\\0&-\sqrt2J&-A
- \end{pmatrix}.}
+ H(k)=\frac{\hbar^2k^2}{2m}+\Delta\sigma_x-\gamma Ek\sigma_y
+ =\frac{\hbar^2k^2}{2m}+\boldsymbol h(k)\cdot\boldsymbol\sigma,
+ \qquad \boldsymbol h(k)=(\Delta,-\gamma Ek,0).
 \end{equation}
-\subsection*{[5.2] 固有エネルギー}
-反対称端状態のエネルギーは $-A$。対称端状態と $|1\rangle$ の部分行列は
-$\begin{pmatrix}-A&-2J\\-2J&0\end{pmatrix}$ である。従って
+Pauli行列の反交換関係から $(\boldsymbol h\cdot\boldsymbol\sigma)^2=|\boldsymbol h|^2I$ となり、$\boldsymbol h\cdot\boldsymbol\sigma$ の固有値は $\pm|\boldsymbol h|$ である。従って
 \begin{equation}
- E=-A,\qquad E_\pm=\frac{-A\pm\sqrt{A^2+16J^2}}2.
+ \boxed{E_\pm(k)=\frac{\hbar^2k^2}{2m}
+ \pm\sqrt{\Delta^2+(\gamma Ek)^2}}.
 \end{equation}
-$A\gg J$ で展開すると
+$k=0$ の準位差は $2\Delta=g\mu_BB$ で、電場のみの交差が有限の間隔を持つ反交差となる。その規格化固有状態で $\{\sigma_j,\boldsymbol h\cdot\boldsymbol\sigma\}=2h_jI$ の期待値を取ると、$2(\pm|\boldsymbol h|)\langle\sigma_j\rangle_\pm=2h_j$（$j=x,y,z$）である。従ってスピン期待値は
 \begin{equation}
- \boxed{E_-=-A-\frac{4J^2}{A}+O(J^4/A^3),\quad
- E_a=-A,\quad E_+=\frac{4J^2}{A}+O(J^4/A^3).}
+ \boxed{\langle\boldsymbol\sigma\rangle_\pm
+ =\pm\frac{(\Delta,-\gamma Ek,0)}{\sqrt{\Delta^2+(\gamma Ek)^2}}.}
 \end{equation}
-\subsection*{[5.3] 引力の場合の粒子数確率}
-有限の $A$ に対する確率を求める。同一井戸状態の相互作用エネルギーを一般の符号付き $u$ とし、そのハミルトニアンを $H(u)$ と書く。引力の場合は $u=-A$ である。端状態の対称・反対称な組合せを
-\begin{equation}
- |s\rangle=\frac{|0\rangle+|2\rangle}{\sqrt2},\qquad
- |a\rangle=\frac{|0\rangle-|2\rangle}{\sqrt2}
-\end{equation}
-と置く。[5.2]と同じ分解により、基底 $(|s\rangle,|1\rangle)$ での部分行列は
-\begin{equation}
- H_s(u)=\begin{pmatrix}u&-2J\\-2J&0\end{pmatrix},
- \qquad H(u)|a\rangle=u|a\rangle
-\end{equation}
-である。準位差を $\Delta=\sqrt{u^2+16J^2}$ とすると、2次元の単位行列 $\mathbf I$ に対して
-\begin{equation}
- \left(H_s(u)-\frac u2\mathbf I\right)^2
- =\frac{\Delta^2}{4}\mathbf I.
-\end{equation}
-従って行列指数の偶数べきと奇数べきをまとめれば時間発展を求められる。この小節では $x=\Delta t/(2\hbar)$、$y=ut/(2\hbar)$ と置く。初期状態 $|0\rangle=(|s\rangle+|a\rangle)/\sqrt2$ から
-\begin{align}
- |\Psi(t)\rangle
- &=\frac{e^{-iy}}{\sqrt2}
-   \left[\left(\cos x-i\frac u\Delta\sin x\right)|s\rangle
-          +i\frac{4J}{\Delta}\sin x\,|1\rangle\right]\\
- &\quad+\frac{e^{-2iy}}{\sqrt2}|a\rangle.
-\end{align}
-各占有状態へ射影して振幅の絶対値二乗を取ると
-\begin{align}
- P_0(t)&=\frac14\left|e^{-iy}\left(\cos x-i\frac u\Delta\sin x\right)+e^{-2iy}\right|^2,\\
- P_1(t)&=\frac{8J^2}{\Delta^2}\sin^2x,\\
- P_2(t)&=\frac14\left|e^{-iy}\left(\cos x-i\frac u\Delta\sin x\right)-e^{-2iy}\right|^2.
-\end{align}
-従って有限 $A$ では中間状態 $|1\rangle$ も一般に占有される。$A/J\gg1$ ではその振幅は小さく、主要な時間変化は二つの同一井戸状態間の遅いペア移動となる。初期状態 $|0\rangle$ は対称状態 $|s\rangle$ と反対称状態 $|a\rangle$ を等重みで含む。$|s\rangle$ を主成分とする低エネルギー固有状態と $|a\rangle$ のエネルギー差は $4J^2/A$ であり、その相対位相から
-\begin{equation}
- P_0(t)\simeq\cos^2\!\left(\frac{2J^2t}{A\hbar}\right),\qquad
- P_2(t)\simeq\sin^2\!\left(\frac{2J^2t}{A\hbar}\right),\qquad P_1\ll1.
-\end{equation}
-ペア移動の周期は
-\begin{equation}
- \boxed{T_A=\frac{2\pi\hbar}{4J^2/A}=\frac{\pi\hbar A}{2J^2}}.
-\end{equation}
-図2(b)に対応する概形は次のとおりである。点線が $P_0$、実線が $P_2$、一点鎖線が小さい $P_1$ である。
+よって $k=0$ では上枝が $+x$、下枝が $-x$ を向く。$\gamma<0$ なら $h_y=-\gamma Ek$ は $k$ と同じ符号を持つ。$|k|$ が大きくなるにつれて、上枝のスピンは有効場 $\boldsymbol h(k)$ と平行、下枝のスピンは反平行のまま連続的に回る。十分大きな正の $k$ では上枝が $+y$、負の $k$ では上枝が $-y$ に近づき、下枝は反対向きとなる。
+
+固有エネルギーの概略は次のようになる。$q=k/k_0$, $k_0=\Delta/(|\gamma|E)$ とし、二次項の無次元係数 $c=\hbar^2k_0^2/(2m\Delta)$ を表示例として $c=1$ に選ぶ。したがって曲線は $E_\pm/\Delta=q^2\pm\sqrt{1+q^2}$ で、$q=0$ のギャップは $2\Delta=g\mu_BB$ である。曲率は $c$ に依存する。
 \begin{center}
-\begin{tikzpicture}[x=1.15cm,y=1.25cm,>=Stealth]
- \draw[->] (0,0)--(4.3,0) node[right] {$t/T_A$};
- \draw[->] (0,0)--(0,1.15) node[above] {$P_n$};
- \draw[dotted,thick,domain=0:2.5,samples=80] plot (\x,{cos(deg(pi*\x))^2});
- \draw[thick,domain=0:2.5,samples=80] plot (\x,{sin(deg(pi*\x))^2});
- \draw[dash dot,thick] (0,0.015)--(2.5,0.015);
- \draw (1,0)--(1,-0.04) node[below] {1};
- \node[anchor=west] at (2.9,0.86) {$P_0$ dotted};
- \node[anchor=west] at (2.9,0.56) {$P_2$ solid};
- \node[anchor=west] at (2.9,0.25) {$P_1$ dash-dot};
+\begin{tikzpicture}[x=0.7cm,y=0.24cm]
+ \draw[->] (-3.2,0)--(3.8,0) node[right] {$k/k_0$};
+ \draw[->] (0,-1.9)--(0,10.0) node[above] {$E/\Delta$};
+ \draw[gray!45] (-2.8,1)--(3.1,1);
+ \draw[thick,red,domain=-2.6:2.6,samples=140] plot (\x,{\x*\x-sqrt(1+\x*\x)});
+ \draw[thick,blue,domain=-2.6:2.6,samples=140] plot (\x,{\x*\x+sqrt(1+\x*\x)});
+ \draw[dashed] (0,-1.1)--(0,1.1);
+ \draw[<->,thick] (0,-1)--(0,1);
+ \node[red,anchor=west] at (2.6,3.0) {$E_-(k)$};
+ \node[blue,anchor=west] at (2.8,9.5) {$E_+(k)$};
+ \node[anchor=west] at (1.0,-1.35) {$2\Delta=g\mu_BB$};
 \end{tikzpicture}
 \end{center}
-\section*{[6] 強い斥力相互作用}
-同じ井戸に2粒子があるときのエネルギーを $B$ だけ上げると
-\begin{equation}
- H_{+B}=\begin{pmatrix}
- B&-\sqrt2J&0\\-\sqrt2J&0&-\sqrt2J\\0&-\sqrt2J&B
- \end{pmatrix},\qquad
- E=B,\quad E_\pm=\frac{B\pm\sqrt{B^2+16J^2}}2.
-\end{equation}
-$B\gg J$ では $E_-= -4J^2/B+O(J^4/B^3)$、$E_a=B$、$E_+=B+4J^2/B+O(J^4/B^3)$。従って近接する端状態間の遅いペア移動も同じ形であり
-\begin{equation}
- P_0(t)\simeq\cos^2\!\left(\frac{2J^2t}{B\hbar}\right),\qquad
- P_2(t)\simeq\sin^2\!\left(\frac{2J^2t}{B\hbar}\right),\qquad P_1\ll1.
-\end{equation}
-原図では同じく図2(b)で、周期は
-\begin{equation}
- \boxed{T_B=\frac{\pi\hbar B}{2J^2}}.
-\end{equation}
-ここでも有限 $B$ では $P_1(t)$ は厳密にはゼロでなく、[5.3]の厳密式に $u=B$ を入れる。
-
-\section*{[7] 引力と斥力の比較}
-引力 $u=-A$ と斥力 $u=+B$ のどちらでも、同じ絶対値 $|u|$ なら厳密な確率式は同じである。行列
-\begin{equation}
- H(u)=\begin{pmatrix}u&-\sqrt2J&0\\-\sqrt2J&0&-\sqrt2J\\0&-\sqrt2J&u\end{pmatrix}
-\end{equation}
-に $S=\operatorname{diag}(1,-1,1)$ を使うと $H(-u)=-S H(u)S$。$H(u)$ は実行列で $S|0\rangle=|0\rangle$ だから、時間発展は
-\begin{equation}
- e^{-iH(-u)t/\hbar}|0\rangle
- =S\bigl[e^{-iH(u)t/\hbar}|0\rangle\bigr]^*.
-\end{equation}
-$S$ は各占有振幅に符号 $\pm1$ を掛けるだけなので、複素共役後の絶対値二乗も元と同じである。従って各占有数確率と確率グラフの概形は符号反転で変化しない。違うのは同一井戸の対状態が他状態より低いか高いかというエネルギー準位の順序である。
 
 \end{document}

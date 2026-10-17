@@ -4,10 +4,19 @@
   "officialMatches": "all 16 SHA-256 identical",
   "examinationYears": "2011–2026",
   "admissionYears": "2012–2027",
-  "displayConvention": "university admission year (2012–2027); original archive filenames match university",
-  "solutionLinksPreserved": 178,
+  "displayConvention": "university admission year throughout collection titles, filenames, directories, bookmarks, metadata and links",
   "archiveExcludedFromBuild": true,
   "oldOriginalDirectoryAbsentFromBuild": true,
   "browserCheck": "desktop/mobile: 16 official links, all anchors resolve, no overflow or script errors",
-  "noOriginalHashInBuiltPDFs": true
+  "noOriginalHashInBuiltPDFs": true,
+  "publication": {
+    "commit": "70101a630d7e4b83e98b0c6653c3c885ffd67b22",
+    "run": 39012391311,
+    "status": "previous publication; complete naming update pending",
+    "oldOriginalUrls": "16/16 HTTP 404",
+    "solutions": "combined and latest annual PDF HTTP 200",
+    "archiveUrl": "HTTP 404",
+    "page": "16 official links and university admission years verified"
+  },
+  "solutionLinks": 178
 }

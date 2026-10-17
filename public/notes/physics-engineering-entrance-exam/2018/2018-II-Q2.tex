@@ -1,4 +1,4 @@
-% Source problem: public/notes/物工/問題/2018ap_exam.pdf, pages 9–10.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h30ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -7,112 +7,78 @@
 \usepackage{amsmath,amssymb}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2018年 物理学II 第2問}
+\title{物理工学専攻 院試解答集\\2018年度 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 臨界点}
-状態方程式を粒子数密度$n$で微分すると
+\section*{[1.1] 配置数とエントロピー}
+$N$個の分子を$M$個のセルのうち異なる$N$個に置くので、配置数は
+\begin{equation}
+ W=\binom{M}{N}=\frac{M!}{N!(M-N)!}.
+\end{equation}
+Stirling近似を使うと
 \begin{align}
- \left(\frac{\partial P}{\partial n}\right)_T
- &=\frac{k_BT}{(1-bn)^2}-2an,\\
- \left(\frac{\partial^2P}{\partial n^2}\right)_T
- &=\frac{2bk_BT}{(1-bn)^3}-2a.
+ S&=k_B\ln W\\
+ &=k_B\{M\ln M-N\ln N-(M-N)\ln(M-N)\}\\
+ &=-Mk_B\left[\phi\ln\phi+(1-\phi)\ln(1-\phi)\right],
+ \qquad \phi=\frac NM.
 \end{align}
-両方をゼロとし、式を割り合わせると
-\begin{equation}
- \frac{2b}{1-bn_c}=\frac1{n_c},\qquad
- \boxed{n_c=\frac1{3b}}.
-\end{equation}
-第2式から臨界温度が得られ、状態方程式へ代入すれば臨界圧力は
-\begin{equation}
- \boxed{T_c=\frac{8a}{27k_Bb}},\qquad
- \boxed{P_c=\frac{a}{27b^2}}.
-\end{equation}
 
-\section*{[2] 臨界密度での等温圧縮率}
-固定した粒子数$N$について$n=N/V$なので、$(\partial V/\partial n)_N=-V/n$である。圧縮率の定義に連鎖律を使うと
+\section*{[1.2] 圧力と理想気体との比較}
+相互作用がないため$F_0=-TS$である。$v$を一定に保って$V$を変えると、$M=V/v$かつ$\phi=vN/V$も変わる。$f(\phi)=\phi\ln\phi+(1-\phi)\ln(1-\phi)$と置けば
 \begin{equation}
- K_T=-\frac1V\left(\frac{\partial V}{\partial P}\right)_{T,N}
- =-\frac1V\left(-\frac Vn\right)
- \left(\frac{\partial P}{\partial n}\right)_T^{-1}
- =\left[n\left(\frac{\partial P}{\partial n}\right)_T\right]^{-1}.
+ F_0=\frac{k_BT V}{v}f(\phi),\qquad
+ \left(\frac{\partial\phi}{\partial V}\right)_{N}=-\frac{\phi}{V}.
 \end{equation}
-$n=n_c=1/(3b)$を代入すると
+従って
 \begin{align}
- K_T&=\frac1{n_c}\left(\frac94k_BT-\frac{2a}{3b}\right)^{-1}\\
- &=\boxed{\frac{4}{9n_ck_B(T-T_c)}}\qquad (T>T_c),
+ p_0=-\left(\frac{\partial F_0}{\partial V}\right)_{T,N}
+ &=-\frac{k_BT}{v}\left[f(\phi)-\phi f'(\phi)\right]\\
+ &=-\frac{k_BT}{v}\ln(1-\phi)
+ =\boxed{-\frac{k_BT}{v}\ln\left(1-\frac{vN}{V}\right)}.
 \end{align}
-ここで$2a/(3b)=(9/4)k_BT_c$を用いた。$T\downarrow T_c$で圧縮率が発散する。
+$0<\phi<1$では対数の展開から
+\begin{equation}
+ p_0=\frac{k_BT}{v}\left(\phi+\frac{\phi^2}{2}+\cdots\right)
+ =\frac{k_BNT}{V}+\frac{k_BTvN^2}{2V^2}+\cdots.
+\end{equation}
+希薄極限の一次項は$p_{\rm id}=k_BNT/V$に一致する。有限密度ではセルの二重占有が禁じられているため、自由に使える空きセルが減って圧力は理想気体より大きくなる。
 
-\section*{[3] 理想気体の自由エネルギーと状態量}
-運動量積分は
+\section*{[2.1] 平均場化学ポテンシャル}
+[1.1]のエントロピーと与えられた平均場エネルギーより
 \begin{equation}
- \int_{-\infty}^{\infty}e^{-p^2/(2mk_BT)}\,dp=\sqrt{2\pi mk_BT}
+ F(\phi)=-\frac12 Mz\alpha\phi^2+Mk_BT\left[\phi\ln\phi+(1-\phi)\ln(1-\phi)\right].
 \end{equation}
-なので
+$N=M\phi$なので、$M$を固定したまま$\mu=(\partial F/\partial N)_T=M^{-1}(\partial F/\partial\phi)_T$を計算すると
 \begin{equation}
- Z_0=\frac{V^N}{N!h^{3N}}(2\pi mk_BT)^{3N/2}.
+ \boxed{\mu(\phi)=-\alpha z\phi+k_BT\left[\ln\phi-\ln(1-\phi)\right]}.
 \end{equation}
-Stirling近似を使って$F_0=-k_BT\ln Z_0$を整理すると
-\begin{equation}
- F_0=-Nk_BT\left[\ln\!\left(\frac{V}{N}\right)+1
- +\frac32\ln\!\left(\frac{2\pi mk_BT}{h^2}\right)\right].
-\end{equation}
-これを各変数で微分すると
-\begin{align}
- P_0&=-\left(\frac{\partial F_0}{\partial V}\right)_{T,N}
- =\boxed{\frac{Nk_BT}{V}},\\
- S_0&=-\left(\frac{\partial F_0}{\partial T}\right)_{V,N}
- =\boxed{Nk_B\left[\ln\!\left(\frac{V}{N}\right)+\frac52
- +\frac32\ln\!\left(\frac{2\pi mk_BT}{h^2}\right)\right]},\\
- \mu_0&=\left(\frac{\partial F_0}{\partial N}\right)_{T,V}
- =\boxed{-k_BT\left[\ln\!\left(\frac{V}{N}\right)
- +\frac32\ln\!\left(\frac{2\pi mk_BT}{h^2}\right)\right]},\\
- U_0&=F_0+TS_0=\boxed{\frac32Nk_BT}.
-\end{align}
-対数は組合せをまとめると無次元であり、例えば
-$\mu_0=k_BT\ln[n\lambda_T^3]$、$\lambda_T=h/\sqrt{2\pi mk_BT}$と書ける。
+第一項は近接分子間の引力による寄与、対数項は占有数の制約によるエントロピーの寄与である。
 
-\section*{[4] 高温・低密度での自由エネルギー}
-相互作用の積分は
+\section*{[2.2] 化学ポテンシャルが単調増加する温度}
 \begin{equation}
- \int_\ell^\infty r^2\frac{u(r)}{k_BT}\,dr
- =-\frac{\epsilon\ell^3}{3k_BT}.
+ \mu'(\phi)=-\alpha z+\frac{k_BT}{\phi(1-\phi)}.
 \end{equation}
-また$4\pi\ell^3/3=2v$だから、与えられた近似式の角括弧は
-$1+2\epsilon v/(k_BTV)$となる。$N$が大きく、密度が低く、
- $\epsilon/(k_BT)\ll1$として引力に由来する対数を展開し、$N-1\simeq N$とすれば
-\begin{align}
- \ln A&\simeq N\ln\left(1-\frac{Nv}{V}\right)
- +\frac{N(N-1)}2\ln\left(1+\frac{2\epsilon v}{k_BTV}\right)\\
- &\simeq N\ln\left(1-\frac{Nv}{V}\right)
- +\frac{N^2\epsilon v}{k_BTV}.
-\end{align}
-排除体積因子は問題文の形のまま保ち、引力補正のみを一次で近似する。従って
+$0<\phi<1$における$\phi(1-\phi)$の最大値は$1/4$である。よって$\mu'(\phi)\ge0$が全域で成り立つ条件は
 \begin{equation}
- \boxed{F\simeq F_0-Nk_BT\ln\left(1-\frac{Nv}{V}\right)
- -\frac{N^2\epsilon v}{V}}.
+ \boxed{T\ge T_c\equiv\frac{\alpha z}{4k_B}}.
 \end{equation}
-低密度でさらに展開すれば排除体積補正の先頭は$N^2vk_BT/V$となる。排除体積は自由エネルギーを増やし、引力は減らす。
+$T>T_c$では導関数は常に正であり、$T=T_c$では$\phi=1/2$の一点だけでゼロ、それ以外では正である。従って臨界温度でも$\mu(\phi)$は区間全体で厳密に増加する。
 
-\section*{[5] 圧力と [6] 定数の対応}
-同じ近似で自由エネルギーを密度形に書くと
+\section*{[2.3] 三つの密度と相分離}
+$T<T_c$では$\mu'(\phi)=0$となる密度が二つあり、その間で$\mu$は減少する。このS字形の曲線では、極小値と極大値の間のある化学ポテンシャルに対し、同じ$\mu$を与える密度が三つ現れる。同じ大きさ$M$の二領域に粒子を$N+\delta N$と$N-\delta N$だけ分けたとき、均等な配置との差は
 \begin{equation}
- F\simeq -Nk_BT\left[\ln\!\left(\frac{V-Nv}{Nh^3}\right)+1
- +\frac32\ln(2\pi mk_BT)+\frac{\epsilon vN}{k_BTV}\right].
+ F(N+\delta N)+F(N-\delta N)-2F(N)
+ =F''(N)(\delta N)^2+O((\delta N)^4)
 \end{equation}
-この形から体積微分を取ると
+である。各$F$は同じ$M,T$で評価する。したがって安定な一様相では$F''(N)=\partial\mu/\partial N\ge0$が必要である。中央の枝では$\partial\mu/\partial N=M^{-1}\mu'(\phi)<0$となり、粒子を偏らせると自由エネルギーが下がるため、この安定性条件に反する。
+
+安定な平衡では、組成に応じて低密度相と高密度相に分かれることがある。$g(\phi)=F(\phi)/M$をセルあたりの自由エネルギーとすれば、共存密度$\phi_g,\phi_l$は
 \begin{equation}
- P=-\left(\frac{\partial F}{\partial V}\right)_{T,N}
- =\frac{Nk_BT}{V-Nv}-\frac{\epsilon vN^2}{V^2}
- =\boxed{\frac{nk_BT}{1-vn}-\epsilon v n^2}.
+ g'(\phi_g)=g'(\phi_l)=\mu_{\rm coex},\qquad
+ g(\phi_l)-g(\phi_g)=\mu_{\rm coex}(\phi_l-\phi_g)
 \end{equation}
-よって van der Waals 方程式と比較して
-\begin{equation}
- \boxed{b=v,\qquad a=\epsilon v}.
-\end{equation}
-各項の次元は圧力であり、引力項の符号は負である。
+を満たす。第一式は両相の化学ポテンシャルの等値、第二式は二点を結ぶ直線の傾きが共通の接線勾配に等しいことを表す。固定セル体積$v$では圧力は$p=(\phi\mu-g)/v$なので、二式を合わせると圧力も等しい。第二式を積分形に直すと$\int_{\phi_g}^{\phi_l}[\mu(\phi)-\mu_{\rm coex}]\,d\phi=0$となり、Maxwellの等面積則を得る。これが液体と気体の相分離に対応する。三つの解は三相が同時に共存することを意味せず、両端の局所的に安定な枝と中央の不安定枝を表している。
 \end{document}

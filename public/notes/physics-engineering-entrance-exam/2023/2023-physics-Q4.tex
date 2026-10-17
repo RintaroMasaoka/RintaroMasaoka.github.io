@@ -1,4 +1,4 @@
-% Source: public/notes/物工/問題/2023ap_exam.pdf, PDF pp. 8--9.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2023ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -6,112 +6,142 @@
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2023年 物理学 第4問}
+\title{物理工学専攻院試解答集\\2023年度 物理学 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 観測量の交換関係}
-式(3)の定義と $[\hat a,\hat a^\dagger]=1$ を使う。$[\hat a^\dagger,\hat a]=-1$ なので
+\section*{[1.1] Laplace 方程式の制約}
+真空中では $\nabla\cdot\boldsymbol E=0$ である。$\boldsymbol E=-\nabla\phi$ と
+$\phi=ax^2+by^2+cz^2$ を代入すると
 \[
-[\hat x,\hat p]
-=\frac{i}{2}[\hat a^\dagger+\hat a,\hat a^\dagger-\hat a]
-=\frac{i}{2}\{-[\hat a^\dagger,\hat a]+[\hat a,\hat a^\dagger]\}
-=\boxed{i}.
+0=\nabla\cdot\boldsymbol E=-\nabla^2\phi=-2(a+b+c),
+\qquad \boxed{a+b+c=0}.
 \]
-$\hat x,\hat p$ は無次元の共役な観測量である。
 
-\section*{[1.2] 真空のゆらぎ}
-$\hat a|0\rangle=0$ と交換関係から、$\langle0|\hat a^\dagger\hat a|0\rangle=0$、$\langle0|\hat a\hat a^\dagger|0\rangle=1$ である。$\hat a^2$ と $(\hat a^\dagger)^2$ の真空期待値もゼロであり、$\langle\hat x\rangle=\langle\hat p\rangle=0$ だから
+\section*{[1.2] Newton--Lorentz 方程式}
+電場力は $-q\nabla\phi$、磁場力は $q\dot{\boldsymbol r}\times\boldsymbol B$ だから
 \[
-\sigma_x^2=\langle\hat x^2\rangle=\frac12,
+\boxed{m\ddot{\boldsymbol r}(t)=-q\nabla\phi(\boldsymbol r(t))
++q\dot{\boldsymbol r}(t)\times\boldsymbol B}.
+\]
+以降 $a=b=-c/2<0$ なので $c>0$ である。$\boldsymbol B=(0,0,B)$ とすると
+\[
+m\ddot x=qc x+qB\dot y,\qquad
+m\ddot y=qc y-qB\dot x,\qquad
+m\ddot z=-2qc z.
+\]
+
+\section*{[1.3] $z$ 方向の単振動}
+$m\ddot z=-2qc z$ は復元力をもつ調和振動子であり、角振動数は
+\[
+\boxed{\omega_z=\sqrt{\frac{2qc}{m}}}.
+\]
+
+\section*{[1.4] $xy$ 面内の複素方程式}
+$u=x+iy$ とおく。上の $x,y$ 方程式の第2式に $i$ を掛けて第1式に加えると
+\[
+m\ddot u=qc(x+iy)+qB(\dot y-i\dot x)
+=qc u-iqB\dot u,
+\]
+したがって
+\[
+\boxed{m\ddot u+iqB\dot u-qc u=0}.
+\]
+
+\section*{[1.5] 横方向の束縛条件}
+固有解 $u(t)=u_0e^{-i\sigma t}$ を代入すると
+\[
+m\sigma^2-qB\sigma+qc=0,
 \qquad
-\sigma_p^2=\langle\hat p^2\rangle=\frac12.
+\boxed{\sigma_\pm=\frac{qB\pm\sqrt{q^2B^2-4mqc}}{2m}}.
 \]
-従って $\boxed{\sigma_x\sigma_p=1/2}$。右辺も $\frac12|\langle[\hat x,\hat p]\rangle|=1/2$ なので、不確定性関係の等号が成立する。
+初期値によらず有界な振動解を得るには、2根が実数かつ異なる必要がある。判別式が正なら両根は実数で解は2つの振動の重ね合わせとなる。判別式が負なら指数的に増大する解があり、ゼロなら重根に伴う $t e^{-i\sigma t}$ 型の解があり、いずれも全初期条件で有界とはならない。$q>0$ を用いると条件は
+\[
+q^2B^2-4mqc>0
+\quad\Longleftrightarrow\quad
+\boxed{qB^2>4mc}.
+\]
 
-\section*{[2.1] スクイーズ変換後の係数}
-式(5)で $\hat S^\dagger\hat a\hat S$ と $\hat S^\dagger\hat a^\dagger\hat S$ を式(1)へ代入する。$\hat a\hat a^\dagger=\hat a^\dagger\hat a+1$ に注意すると
+\section*{[2.1] Mathieu 方程式の係数}
+磁場を無視した $x$ 方向の運動方程式は
+\[
+m\frac{d^2x}{dt^2}=-2q\alpha x\cos\omega t.
+\]
+$\tau=\omega t/2$ とすると $d^2/dt^2=(\omega^2/4)d^2/d\tau^2$ かつ
+$\cos\omega t=\cos2\tau$ だから
+\[
+\frac{d^2x}{d\tau^2}+\frac{8q\alpha}{m\omega^2}x\cos2\tau=0.
+\]
+式 (3) と係数を比較して
+\[
+\boxed{\lambda=\frac{4q\alpha}{m\omega^2}}.
+\]
+
+\section*{[2.2] Fourier 係数の漸化式}
+式 (4) の各項を2回微分すると係数は $-(2n+\Omega)^2C_n$ となる。また
+\[
+2\lambda\cos2\tau\cos[(2n+\Omega)\tau]
+=\lambda\cos[(2(n+1)+\Omega)\tau]
++\lambda\cos[(2(n-1)+\Omega)\tau].
+\]
+同じ周波数ごとに係数を比べると
+\[
+\boxed{(2n+\Omega)^2C_n=\lambda(C_{n-1}+C_{n+1})}.
+\]
+
+\section*{[2.3] 小さい $\lambda$ での周波数}
+$C_{\pm2}$ を無視した $n=\pm1$ の式と、$n=0$ の式は
+\[
+\frac{C_1}{C_0}=\frac{\lambda}{(2+\Omega)^2},\qquad
+\frac{C_{-1}}{C_0}=\frac{\lambda}{(\Omega-2)^2},\qquad
+\Omega^2=\lambda\frac{C_{-1}+C_1}{C_0}
+=\lambda^2\left[\frac1{(2-\Omega)^2}+\frac1{(2+\Omega)^2}\right].
+\]
+$0<\Omega<1$の枝では角括弧内の分母がゼロにならず、$\lambda\to0$で上の中心式から$\Omega^2/\lambda^2\to1/2$を得る。従って$\Omega=O(\lambda)$であり、分母の $\Omega$ 依存を1次近似の係数比で落とすと
+\[
+\frac{C_1}{C_0}=\frac{\lambda}{4}+O(\lambda^2),\qquad
+\frac{C_{-1}}{C_0}=\frac{\lambda}{4}+O(\lambda^2).
+\]
+中心式の右辺は $\lambda^2[1/2+O(\Omega^2)]$ であり
+\[
+\Omega^2=\frac{\lambda^2}{2}+O(\lambda^4),\qquad
+\Omega=\frac{\lambda}{\sqrt2}+O(\lambda^3).
+\]
+問題の $0<\Omega<1$ と $\lambda>0$ に合う枝を選ぶと、求める1次の定数は
+\[
+\boxed{\frac{C_{-1}}{C_0}=\epsilon\lambda,\quad
+\frac{C_1}{C_0}=\epsilon\lambda,\quad \Omega=\delta\lambda,
+\qquad \epsilon=\frac14,\quad\delta=\frac1{\sqrt2}}.
+\]
+
+\section*{[2.4] 近似解と概形}
+3つのモードを残すと
 \begin{align*}
-\hat S^\dagger\hat a^\dagger\hat a\hat S
-&=\cosh(2r)\hat a^\dagger\hat a+\sinh^2r
--\frac{\sinh(2r)}2\bigl((\hat a^\dagger)^2+\hat a^2\bigr),\\
-\hat S^\dagger\bigl((\hat a^\dagger)^2+\hat a^2\bigr)\hat S
-&=\cosh(2r)\bigl((\hat a^\dagger)^2+\hat a^2\bigr)
--2\sinh(2r)\hat a^\dagger\hat a-\sinh(2r).
+x(\tau)
+&=C_0\left[\cos(\Omega\tau)
++\frac{\lambda}{4}\cos((2+\Omega)\tau)
++\frac{\lambda}{4}\cos((2-\Omega)\tau)\right]+O(\lambda^2)\\
+&=\boxed{C_0\left(1+\frac{\lambda}{2}\cos2\tau\right)
+\cos\!\left(\frac{\lambda\tau}{\sqrt2}\right)}+O(\lambda^2).
 \end{align*}
-よって式(6)の各係数は
-\begin{align*}
-\boxed{\omega(r)}&=\boxed{\omega\cosh(2r)-\Delta\sinh(2r)},\\
-\boxed{\Delta(r)}&=\boxed{\Delta\cosh(2r)-\omega\sinh(2r)},\\
-\boxed{E(r)}&=\boxed{\hbar\omega\sinh^2r-\frac{\hbar\Delta}{2}\sinh(2r)}.
-\end{align*}
-$r=0$ を入れると元の $\omega,\Delta,E=0$ に戻る。
-
-\section*{[2.2] 基底状態と偶数光子}
-$\omega>\Delta>0$ のとき $\Delta(r)=0$ とする実数 $r$ は
-\[
-\tanh(2r)=\frac{\Delta}{\omega},\qquad
-\boxed{r=\frac14\log\frac{\omega+\Delta}{\omega-\Delta}}>0.
-\]
-この値で $\Omega=\sqrt{\omega^2-\Delta^2}>0$ とおけば $\omega(r)=\Omega$、$E(r)=\hbar(\Omega-\omega)/2$ であり、
-\[
-\hat S^\dagger(r)\hat H\hat S(r)
-=\hbar\Omega\hat a^\dagger\hat a+\frac{\hbar}{2}(\Omega-\omega).
-\]
-右辺では $\hat a^\dagger\hat a\geq0$ なので $|0\rangle$ が基底状態である。元のハミルトニアンの基底状態とそのエネルギーは、それぞれ $\boxed{\hat S(r)|0\rangle}$、$\hbar(\Omega-\omega)/2$ となる。
-
-$\hat S(r)$ の指数の各項 $\hat a^2,(\hat a^\dagger)^2$ は光子数を2だけ変える。真空は光子数0から始まるため、指数を展開して作用させても偶数光子の部分空間から出ない。従って $\hat S(r)|0\rangle$ には奇数光子成分がない。
-
-\section*{[2.3] スクイーズされた基底状態のゆらぎ}
-式(5)と観測量の定義から
-\[
-\hat S^\dagger\hat x\hat S=e^{-r}\hat x,
-\qquad \hat S^\dagger\hat p\hat S=e^{r}\hat p.
-\]
-$\hat S|0\rangle$ での期待値を真空期待値に移すと、平均値はどちらもゼロであり、[1.2]の分散から
-\[
-\boxed{\sigma_x^2=\frac{e^{-2r}}2
-=\frac12\sqrt{\frac{\omega-\Delta}{\omega+\Delta}}},
-\qquad
-\boxed{\sigma_p^2=\frac{e^{2r}}2
-=\frac12\sqrt{\frac{\omega+\Delta}{\omega-\Delta}}}.
-\]
-$\Delta>0$ では真空に比べて $x$ の分散が小さく、$p$ の分散が大きい。一方、積は $\sigma_x\sigma_p=1/2=\frac12|\langle[\hat x,\hat p]\rangle|$ であり、等号は保たれる。$\Delta\to0$ では両分散は $1/2$ に戻る。
-
-\section*{[3.1] ハイゼンベルク方程式の行列}
-交換関係を積に適用すると
-\[
-[\hat a^\dagger\hat a,\hat a]=-\hat a,
-\quad [(\hat a^\dagger)^2,\hat a]=-2\hat a^\dagger,
-\quad [\hat a^2,\hat a^\dagger]=2\hat a.
-\]
-式(7)から $\dot{\hat a}=-i(\omega\hat a+\Delta\hat a^\dagger)$、$\dot{\hat a}^\dagger=i(\Delta\hat a+\omega\hat a^\dagger)$ となる。従って式(8)の行列は
-\[
-\boxed{M=\begin{pmatrix}\omega&\Delta\\-\Delta&-\omega\end{pmatrix}}.
-\]
-
-\section*{[3.2] 固有値と安定性}
-$M^2=(\omega^2-\Delta^2)I$ なので固有値は
-\[
-\boxed{\lambda_\pm=\pm\sqrt{\omega^2-\Delta^2}}.
-\]
-$\omega>\Delta$ なら実数の $\lambda_\pm=\pm\Omega$ である。$M^2=\Omega^2I$を指数級数の偶数次と奇数次に適用すると、$e^{-iMt}=I\cos(\Omega t)-i(M/\Omega)\sin(\Omega t)$となり振動的かつ有界である。$\omega<\Delta$ なら$\gamma=\sqrt{\Delta^2-\omega^2}>0$として$M^2=-\gamma^2I$なので、同じ展開から$e^{-iMt}=I\cosh(\gamma t)-i(M/\gamma)\sinh(\gamma t)$となる。一方のモードは指数的に増大するので不安定である。境界 $\omega=\Delta$ では固有値がともにゼロでも $M^2=0$ かつ $M\ne0$ なので $e^{-iMt}=I-iMt$ は時間に比例して増大する。この意味でも有界な安定領域には含まれない。
-
-\section*{[3.3] 境界での光子数}
-$\omega=\Delta$ で $M^2=0$ を使い、初期条件 $\hat a(0)=\hat a$、$\hat a^\dagger(0)=\hat a^\dagger$ を式(8)に適用する。
-\[
-\begin{pmatrix}\hat a(t)\\\hat a^\dagger(t)\end{pmatrix}
-=(I-iMt)\begin{pmatrix}\hat a\\\hat a^\dagger\end{pmatrix},
-\qquad
-\hat a(t)=(1-i\Delta t)\hat a-i\Delta t\hat a^\dagger.
-\]
-初期真空では $\langle\hat a^\dagger\hat a\rangle=0$、$\langle\hat a\hat a^\dagger\rangle=1$ である。従って $\hat a(t)$ の生成演算子の係数だけが $\langle0|\hat a^\dagger(t)\hat a(t)|0\rangle$ に寄与し、
-\[
-\boxed{\langle\hat n(t)\rangle=|{-i\Delta t}|^2=\Delta^2t^2}.
-\]
-$t=0$ でゼロに戻り、$\Delta t$ は無次元である。
+ここで $O(\lambda^2)$ の精度は、図に示す緩やかな振動の一周期程度、すなわち $\tau=O(\lambda^{-1})$ までを対象とする。さらに長時間では $\Omega$ の省略項による位相誤差が蓄積する。
+緩やかな余弦が長周期振動を表し、因子 $1+(\lambda/2)\cos2\tau$ が小さな速い変調を加える。下図は例として $\lambda=0.2$ とした $x/C_0$ の概形で、横軸は $\tau$ である。
+\begin{center}
+\begin{tikzpicture}[x=0.15cm,y=1.15cm]
+  \draw[->] (0,-1.25) -- (48,-1.25) node[right] {$\tau$};
+  \draw[->] (0,-1.25) -- (0,1.25) node[above] {$x/C_0$};
+  \pgfmathsetmacro{\lam}{0.2}
+  \pgfmathsetmacro{\slow}{\lam/sqrt(2)}
+  \draw[gray!65,dashed] plot[domain=0:46,samples=180] (\x,{cos(deg(\slow*\x))});
+  \draw[thick] plot[domain=0:46,samples=550] (\x,{(1+\lam/2*cos(deg(2*\x)))*cos(deg(\slow*\x))});
+  \draw (0,0) node[left] {$0$};
+  \draw ({2*pi/\slow},-1.25) -- ({2*pi/\slow},-1.19) node[below=4pt] {$2\pi\sqrt2/\lambda$};
+\end{tikzpicture}
+\end{center}
+破線は緩やかな振動のみ、実線は1次の速い変調も含む。
 \end{document}

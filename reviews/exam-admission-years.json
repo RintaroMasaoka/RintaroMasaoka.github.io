@@ -1,0 +1,411 @@
+{
+  "questionTeXFiles": 80,
+  "individualPDFs": 80,
+  "annualPDFs": 16,
+  "combinedPDFs": 1,
+  "totalPages": 237,
+  "bodyChecks": [
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2012/2012-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2012/2012-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2012/2012-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2012/2012-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2012/2012-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2012/2012-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2013/2013-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2013/2013-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2013/2013-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2013/2013-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2013/2013-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2013/2013-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2014/2014-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2014/2014-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2014/2014-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2014/2014-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2014/2014-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2014/2014-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2015/2015-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2015/2015-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2015/2015-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2015/2015-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2015/2015-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2015/2015-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2016/2016-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2016/2016-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2016/2016-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2016/2016-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2016/2016-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2016/2016-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2017/2017-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2017/2017-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2017/2017-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2017/2017-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2017/2017-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2017/2017-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2018/2018-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2018/2018-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2018/2018-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2018/2018-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2018/2018-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2018/2018-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2019/2019-I-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2019/2019-I-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2019/2019-II-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2019/2019-II-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2019/2019-II-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2019/2019-II-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2020/2020-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2020/2020-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2020/2020-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2020/2020-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2021/2021-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2021/2021-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2021/2021-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2021/2021-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2022/2022-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2022/2022-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2022/2022-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2022/2022-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2023/2023-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2023/2023-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2023/2023-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2023/2023-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2024/2024-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2024/2024-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2024/2024-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2024/2024-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2025/2025-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2025/2025-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2025/2025-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2025/2025-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2026/2026-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2026/2026-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2026/2026-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2026/2026-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2027/2027-physics-Q1.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2027/2027-physics-Q2.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2027/2027-physics-Q3.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    },
+    {
+      "file": "public/notes/physics-engineering-entrance-exam/2027/2027-physics-Q4.pdf",
+      "contentMatchesExceptTitle": true,
+      "pagesUnchanged": true
+    }
+  ],
+  "convention": "university admission year in display, titles, bookmarks, metadata, directories and filenames",
+  "originalsRemainOutsideSite": true
+}

@@ -1,166 +1,106 @@
-% Source: 2023ap_exam.pdf, PDF pp. 4--5.
-% Source SHA-256: 303204b38405b7fed8cf6140ab3311e23d26c3bfd2afe778a46172dae774cfbc
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2023ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=23mm]{geometry}
+\usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,decorations.pathmorphing}
 \setlength{\parindent}{1em}
-\setlength{\parskip}{0.4em}
-\title{物理工学専攻 院試解答集\\2023年 物理学 第2問}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集\\2023年度 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-$z$ 軸の正方向を鏡1から鏡2へとり、電場は $\boldsymbol{e}_x$、磁場は $\boldsymbol{e}_y$ の方向にとる。$\boldsymbol{e}_x\times\boldsymbol{e}_y=\boldsymbol{e}_z$ である。電場の複素振幅には問題文と同じく $e^{-i\omega t}$ の時間依存を用いる。真空中の波数を $q=\omega/c$ と記し、ばね定数 $k$ と区別する。
-以下の配置図はばねを付けた場合も示す。$A$は照射面積、$P$は後で求める鏡2への光圧で、矢印$AP$は鏡2を右へ押す力を表す。
-
+図の幾何では $y$ は下向き正で、棒の方向単位ベクトルは $(\sin\theta,\cos\theta)$ である。振動する支点の変位は鉛直成分だけに加わる。
 \begin{center}
-\begin{tikzpicture}[>=Latex,scale=0.92]
- \draw[->] (-0.7,0)--(8.6,0) node[right] {$z$};
- \draw[very thick] (0,-0.65)--(0,0.7) node[above] {鏡1};
- \draw[very thick] (5,-0.65)--(5,0.7) node[above] {鏡2};
- \draw[<->] (0,-0.45)--(5,-0.45) node[midway,below] {$d=z_2-z_1$};
- \draw[decorate,decoration={coil,aspect=0.5,segment length=6pt,amplitude=4pt}] (5.05,0.30)--(7.2,0.30);
- \draw[very thick] (7.25,-0.2)--(7.25,0.8);
- \draw[->,thick] (5.1,0.9)--(6.1,0.9) node[right] {$A P$};
- \node[below] at (0,-0.76) {$z_1$}; \node[below] at (5,-0.76) {$z_2$};
- \node at (3.2,0.7) {$E_0$};
+\begin{tikzpicture}[scale=0.95]
+\def\L{2.0}
+\def\amp{0.4}
+\def\ang{30}
+\pgfmathsetmacro{\px}{\L*sin(\ang)}
+\pgfmathsetmacro{\py}{-(\amp+\L*cos(\ang))}
+\draw[->] (-1.0,0)--(2.0,0) node[right] {$x$};
+\draw[->] (0,0.25)--(0,-2.8) node[below] {$y$};
+\fill (0,0) circle (2pt) node[above left] {$(0,0)$};
+\fill (0,-\amp) circle (2pt);
+\node[anchor=west] at (0.2,{-\amp-0.13}) {$O(t)$};
+\draw[densely dashed] (0,0)--(0,-2.35);
+\draw[->] (0,-0.03)--(0,{-\amp+0.03}) node[midway,left] {$a\cos\Omega t$};
+\draw[very thick] (0,-\amp)--(\px,\py);
+\fill (\px,\py) circle (3pt) node[right] {$m$};
+\draw (0,-\amp) arc[start angle=270,end angle={270+\ang},radius=0.55*\L];
+\pgfmathsetmacro{\arcx}{0.62*\L*cos(285)}
+\pgfmathsetmacro{\arcy}{-\amp+0.62*\L*sin(285)}
+\node at (\arcx,\arcy) {$\theta$};
+\node at ({0.55*\px+0.32},{-\amp+0.55*(\py+\amp)}) {$L$};
 \end{tikzpicture}
 \end{center}
 
-\section*{[1.1] 完全反射鏡の間の角周波数}
-完全導体表面では接線方向の電場が零である。$u=z+L/2$ とおけば鏡間は $0<u<L$ であり、電場の空間部分は両端で零となる正弦波である。したがって
+\section*{[1] おもりの座標}
+支点からおもりへの変位は $(L\sin\theta,L\cos\theta)$ なので
 \[
- \sin(q_nL)=0,\qquad q_n=\frac{n\pi}{L}\quad(n=1,2,\ldots),
- \qquad \boxed{\omega_n=\frac{n\pi c}{L}}.
+\boxed{x=L\sin\theta,\qquad y=a\cos\Omega t+L\cos\theta}.
 \]
-$n$ の偶奇にかかわらず許される。偶数 $n$ と奇数 $n$ はそれぞれ中心 $z=0$ に節をもつ状態と腹をもつ状態に対応する。
 
-\section*{[1.2] 電場・磁束密度の複素振幅}
-腹の電場振幅を $E_0$ とし、電場の全体位相を実数の正の係数に選ぶと
+\section*{[2] Cartesian の運動方程式}
+張力は支点へ向かうため $x$ 成分は $-T\sin\theta$、下向き $y$ 成分は $-T\cos\theta$。重力は下向き正だから
 \[
- \boxed{\widetilde{\boldsymbol E}_n(z)
- =E_0\sin\!\left[q_n\left(z+\frac L2\right)\right]\boldsymbol e_x}.
+\boxed{m\ddot x=-T\sin\theta,\qquad m\ddot y=mg-T\cos\theta}.
 \]
-ファラデーの法則 $\boldsymbol\nabla\times\boldsymbol E=-\partial_t\boldsymbol B$ の $y$ 成分は、上記の時間依存では
-$\partial_z\widetilde E_x=i\omega_n\widetilde B_y$ である。よって
-\[
- \boxed{\widetilde{\boldsymbol B}_n(z)
- =-i\frac{E_0}{c}\cos\!\left[q_n\left(z+\frac L2\right)\right]\boldsymbol e_y}.
-\]
-電場の節で磁束密度は腹になり、両者は時間的に $\pi/2$ だけずれる。これらを $e^{-i\omega_nt}$ に掛けて実部を取れば、実際の電場と磁束密度が得られる。
 
-\section*{[1.3] 鏡2への放射圧}
-$\widetilde{\boldsymbol H}=\widetilde{\boldsymbol B}/\mu_0$ を代入すると、$\widetilde{\boldsymbol E}_n\times\widetilde{\boldsymbol H}_n^*$ は純虚数である。従って鏡間の平均エネルギー流と平均運動量密度はともに零である。しかし、これは鏡への力が零であることを意味しない。定在波は振幅 $E_0/2$ の右向き進行波と左向き進行波に分解できる。右向き波の時間平均強度は $I=\tfrac12\varepsilon_0c(E_0/2)^2$ であり、鏡2で完全反射すると単位面積・単位時間あたりの運動量変化は $2I/c$ となる。従って $+z$ 方向に作用する圧力は
+\section*{[3] 座標の二階微分}
+[1] を時間微分すると
 \[
- \boxed{P=\frac{2I}{c}=\frac{\varepsilon_0E_0^2}{4}}.
+\boxed{\ddot x=L(\ddot\theta\cos\theta-\dot\theta^2\sin\theta)},\qquad
+\boxed{\ddot y=-a\Omega^2\cos\Omega t-L(\ddot\theta\sin\theta+\dot\theta^2\cos\theta)}.
 \]
-別法として、鏡面では $E_x=0$ であり、$|B_y|$ の振幅が $E_0/c$ となることから、磁気圧の時間平均 $\langle B^2/(2\mu_0)\rangle=E_0^2/(4\mu_0c^2)$ も同じ値を与える。
 
-\section*{[2] ばねで支えられた完全反射鏡}
-鏡2に働く放射圧の力は $+z$ 方向に $AP$、自然長から $\delta$ だけ移動したばねの力は $-k\delta$ である。静的平衡条件 $AP-k\delta=0$ と [1.3] より
+\section*{[4] 張力を消去した角運動方程式}
+第一式に $\cos\theta$ を掛け、第二式に $-\sin\theta$ を掛けて加えると張力が消え、
 \[
- \boxed{\delta=\frac{\varepsilon_0AE_0^2}{4k}>0}.
+m(\ddot x\cos\theta-\ddot y\sin\theta)=-mg\sin\theta.
 \]
-圧力に面積を掛けたものが力なので、右辺の単位は長さである。完全反射の定在波が成立する角周波数は移動後の鏡間長に応じて選ばれるが、腹の振幅を $E_0$ に固定したときの鏡面圧力は [1.3] と同じである。
+[3] の加速度を代入すると $\ddot x\cos\theta-\ddot y\sin\theta=L\ddot\theta+a\Omega^2\cos\Omega t\sin\theta$ なので
+\[
+\boxed{\ddot\theta+\frac{a\Omega^2}{L}\cos\Omega t\sin\theta=-\frac{g}{L}\sin\theta}.
+\]
 
-\section*{[3.1] 部分反射鏡を通して入射する光}
-鏡間長を $d=z_2-z_1$ とする。鏡1から鏡間へ入る進行波の複素振幅は $tE_1$、$t=\sqrt{1-r^2}$ である。鏡間で一往復すると、鏡1・鏡2でそれぞれ $-r,-1$ の反射と位相 $e^{2iqd}$ を受け、複素振幅は $r e^{2iqd}$ 倍される。$0<r<1$ だから多重反射の和は収束し、右向き進行波の振幅は
+\section*{[5] 支点が静止したときの小振動}
+微小角では $\sin\theta\simeq\theta$。$a=0$ の方程式は
 \[
- a=\frac{tE_1}{1-r e^{2iqd}}.
+\ddot\theta_0+\frac gL\theta_0=0,\qquad \omega_0=\sqrt{\frac gL}.
 \]
-完全反射する鏡2により左向き波の振幅の大きさも $|a|$ である。実際、鏡間の電場は
+初期条件 $\theta_0(0)=A$, $\dot\theta_0(0)=0$ より
 \[
- \widetilde{\boldsymbol E}(z)
- =a\bigl[e^{iq(z-z_1)}-e^{2iqd}e^{-iq(z-z_1)}\bigr]\boldsymbol e_x
- =2ia e^{iqd}\sin[q(z-z_2)]\boldsymbol e_x.
+\boxed{\theta_0(t)=A\cos\omega_0t}.
 \]
-鏡2の位置では零となり、腹では二つの進行波が同位相に重なるので $E_0=2|a|$ となる。$E_1$ を正の実振幅とすると
-\[
- \boxed{\frac{E_0}{E_1}=
- \frac{2\sqrt{1-r^2}}{\sqrt{(1-r)^2+4r\sin^2(qd)}}}.
-\]
-特に $z_1=-L/2,z_2=L/2$ では $d=L$ を代入する。共振条件 $qL=n\pi$ も満たす場合に限り、比は $2\sqrt{(1+r)/(1-r)}$ になる。[3.1]単独では $\omega$ にその条件は課されていないため、上式の $d=L$ が一般の答えである。
 
-\section*{[3.2] 半値となる鏡1の移動量}
-問題文の条件から、$z_1=-L/2$、すなわち $d=L$ で比が極大になるように $\omega$ を選ぶ。これは $qL=n\pi$ ($n$ は正の整数) を満たす選択であり、極大値は
+\section*{[6] 振幅 $a$ の一次応答}
+小角の方程式を $\theta=\theta_0+a\theta_1$ として展開する。$a^0$ の項は [5] の式、$a^1$ の項は
 \[
- \left(\frac{E_0}{E_1}\right)_{\!\max}
- =\frac{2\sqrt{1-r^2}}{1-r}.
+\ddot\theta_1+\omega_0^2\theta_1=-\frac{\Omega^2}{L}\theta_0(t)\cos\Omega t
+=-\frac{A\Omega^2}{2L}\left\{\cos[(\Omega+\omega_0)t]+\cos[(\Omega-\omega_0)t]\right\}.
 \]
-鏡1を $\pm\Delta$ 動かすと $d=L\mp\Delta$ となる。比が極大値の $1/\sqrt2$ となる条件は、分母の二乗が共振時の2倍になること、すなわち
-\[
- 4r\sin^2(q\Delta)=(1-r)^2.
-\]
-$0<q\Delta<\pi/2$ の枝を問題文が指定しているので
-\[
- \boxed{\Delta=\frac{c}{\omega}
- \arcsin\!\left(\frac{1-r}{2\sqrt r}\right)}.
-\]
-$1/2<r<1$ では逆正弦の引数は $0$ と $1$ の間にあり、指定された範囲に入る。
+右辺には積和公式による二つの側帯波が現れる。
 
-\section*{[3.3] 微小振動の実効ばね定数}
-ここでは入射振幅 $E_1$ と角周波数 $\omega$ を固定し、光学場は鏡2の動きに即座に追従する。鏡2が右へ動けば $d=z_2-z_1$ が増す。[3.1] と [1.3] より、鏡2を右へ押す力は
+\section*{[7] 二つの側帯波をもつ特解}
+特解 $\theta_1=u_1\cos[(\Omega+\omega_0)t]+u_2\cos[(\Omega-\omega_0)t]$ を [6] に代入する。各周波数の係数条件は
 \[
- F_{\mathrm{opt}}(d)=AP(d),\qquad
- P(d)=\frac{\varepsilon_0E_0(d)^2}{4}
- =\frac{\varepsilon_0(1-r^2)E_1^2}
- {(1-r)^2+4r\sin^2(qd)}.
+\left[\omega_0^2-(\Omega+\omega_0)^2\right]u_1=-\frac{A\Omega^2}{2L},\qquad
+\left[\omega_0^2-(\Omega-\omega_0)^2\right]u_2=-\frac{A\Omega^2}{2L}.
 \]
-鏡1を固定して鏡2の平衡位置を $z_{2*}=L/2+\delta$、平衡時の鏡間長を$d_*=z_{2*}-z_1$とする。平衡条件は $k\delta=F_{\mathrm{opt}}(d_*)$ であるから、入射光があるとき $\delta>0$ となる。平衡点からの微小変位 $x=z_2-z_{2*}$ に対する合力は
-\begin{equation}
- F_{\mathrm{opt}}(d_*+x)-k(\delta+x)
- =[F_{\mathrm{opt}}'(d_*)-k]x+O(x^2)
-\end{equation}
-である。従って一次項を $-k'x$ と書けば
-\begin{align*}
- k'&=k-\left.\frac{dF_{\mathrm{opt}}}{dd}\right|_{d_*}\\
- &=k+\frac{4Arq\varepsilon_0(1-r^2)E_1^2\sin(2qd_*)}
- {\bigl[(1-r)^2+4r\sin^2(qd_*)\bigr]^2}.
-\end{align*}
-分母は正なので、$k'-k$ の符号は $\sin(2qd_*)$ で決まる。まず $|\delta|\ll\Delta$ に基づき、$\delta/\Delta$ の一次までの光ばね効果を比較する。平衡条件 $k\delta=F_{\mathrm{opt}}(d_*)$ を使うと
+$\Omega>0$ なので第1の分母は零にならず、第2の分母が零となるのは $\Omega=2\omega_0$ のときである。$A\ne0$ のとき、有限な二側帯波特解が存在する条件は
 \[
- \frac{k'-k}{k}
- =\frac{4rq\delta\sin(2qd_*)}
- {(1-r)^2+4r\sin^2(qd_*)}.
+\boxed{\Omega\ne2\sqrt{\frac gL}}.
 \]
-共振条件 $qL=n\pi$ より、(a) の基準位置 $d=L$ では光圧の傾きが零であり、一次では $k'\simeq k$ となる。(b) の基準位置 $d=L-\Delta$ では鏡2を右へ動かすと共振へ近づき、光圧が増して復元力を弱める。(c) の $d=L+\Delta$ では共振から遠ざかり、光圧が減って復元力を強める。実際、(b),(c) ではそれぞれ
+そのとき
 \[
- \frac{k'-k}{k}=\mp q\delta\cot(q\Delta)
- +O\!\left((\delta/\Delta)^2\right).
+\boxed{u_1=\frac{A\Omega}{2L\left(\Omega+2\sqrt{g/L}\right)},\qquad
+u_2=\frac{A\Omega}{2L\left(\Omega-2\sqrt{g/L}\right)}}.
 \]
-ここで $\delta/\Delta$ の一次項だけを残す追加の近似をすれば、硬化がその次数で見えるのは (c) である。
-
-ただし、厳密な平衡点はどの配置でも自然長から $\delta>0$ だけ右にある。(a) では $d_*=L+\delta$ なので光圧は極大を少し過ぎて減少し、やはり復元力を増す。上式でその補正は
-\[
- \left.\frac{k'-k}{k}\right|_{\mathrm{(a)}}
- =\frac{8r q^2\delta^2}{(1-r)^2}+O((q\delta)^4)>0.
-\]
-(b) は $d_*=L-\Delta+\delta$、(c) は $d_*=L+\Delta+\delta$ であり、$0<\delta\ll\Delta$ の範囲では先ほどの符号を保つ。本問は $\delta/\Delta$ の一次で打ち切るよう指定していないので、$k'>k$ となる答えは $\boxed{\text{(a), (c)}}$ である。(a) の硬化は一次の近似では見えない二次の効果である。
-
-\begin{center}
-\begin{tikzpicture}[>=Latex,xscale=1.25,yscale=1.45]
- \draw[->] (-2.3,0)--(2.4,0) node[right] {$d-L$};
- \draw[->] (-2.15,0)--(-2.15,2.0) node[above] {$P(d)$};
- \draw[thick,domain=-2:2,samples=100,smooth] plot (\x,{1.65/(1+3*(\x)^2)});
- \draw[dashed] (-2.05,0.825)--(2.05,0.825);
- \draw[dotted] (-0.577,0)--(-0.577,0.825);
- \draw[dotted] (0.577,0)--(0.577,0.825);
- \node[above left] at (-0.577,0.825) {(b)};
- \node[above] at (0,1.65) {(a) の共振位置};\fill (0.12,{1.65/(1+3*(0.12)^2)}) circle (1.2pt);
- \node[above right] at (0.577,0.825) {(c)};
- \node[below] at (-0.577,0) {$-\Delta$};
- \node[below] at (0,0) {$0$};
- \node[below] at (0.577,0) {$+\Delta$};
- \node[left] at (-2.15,0.825) {$P_{\max}/2$};
-\end{tikzpicture}
-
-{\small 共振近傍の光圧の模式図。(a) の実際の平衡点は共振位置より右にあり、黒点はその小さなずれを表す。}
-\end{center}
+共鳴点 $\Omega=2\omega_0$ では差周波側帯波が固有振動と一致し、通常は永年項を含むためこの有界な形の特解は得られない。$A=0$ なら一次の駆動自体がなく、$\theta_1=0$ は共鳴点でも解である。
 \end{document}

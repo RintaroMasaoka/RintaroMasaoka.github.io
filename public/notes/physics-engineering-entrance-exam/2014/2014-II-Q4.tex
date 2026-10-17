@@ -1,4 +1,4 @@
-% Original: 2014ap_exam.pdf, PDF pp.14--15.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h26ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
@@ -6,182 +6,77 @@
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta}
-\renewcommand{\figurename}{図}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2014年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2014年度 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 逆格子と第一ブリュアン域}
-逆格子の定義は $\boldsymbol a_i\cdot\boldsymbol b_j=2\pi\delta_{ij}$ である。$\boldsymbol b_1=(u,v)$ とすると
-\[
- \frac{\sqrt3a}{2}u+\frac a2v=2\pi,
- \qquad -\frac{\sqrt3a}{2}u+\frac a2v=0.
-\]
-和と差から $v=2\pi/a$, $u=2\pi/(\sqrt3a)$ を得る。同様に
+\section*{[1] 低周波の状態密度}
+$d$ 次元の波数空間で、半径 $k$ の球（円）に含まれる状態数は体積に比例し、$N(k)\propto k^d$ である。線形分散 $\omega=vk$ から $k=\omega/v$ なので
 \begin{equation}
- \boxed{\boldsymbol b_1=2\pi\left(\frac{1}{\sqrt3a},\frac1a\right),\qquad
- \boldsymbol b_2=2\pi\left(-\frac{1}{\sqrt3a},\frac1a\right).}
+ D(\omega)=\frac{dN}{d\omega}\propto\omega^{d-1}.
 \end{equation}
-第一ブリュアン域は、原点と最短の逆格子点との垂直二等分線に囲まれた領域である。最短の6点は
-$\pm\boldsymbol b_1,\pm\boldsymbol b_2,\pm(\boldsymbol b_1-\boldsymbol b_2)$。
-各境界は $\boldsymbol k\cdot\boldsymbol G=|\boldsymbol G|^2/2$ を満たす。
-$\boldsymbol G=\boldsymbol b_1-\boldsymbol b_2$ の境界は $k_x=2\pi/(\sqrt3a)$。
-$\boldsymbol b_1,\boldsymbol b_2$ の境界の交点は $k_x=0$, $k_y=4\pi/(3a)$ なので
-\begin{equation}
- \boxed{P=\left(\frac{2\pi}{\sqrt3a},0\right),\qquad
- Q=\left(0,\frac{4\pi}{3a}\right).}
-\end{equation}
-得られる領域は図の正六角形である。図中のOは波数原点を表す。
+従って3次元立方格子では $p=2$、2次元正方格子では $p=1$ である。
 
-\section*{[2] スピンを含めた自由電子の状態数}
-単位胞の面積を $s$、系全体の面積を $S$ とすると
-\[
- s=|\boldsymbol a_1\times\boldsymbol a_2|=\frac{\sqrt3}{2}a^2,
- \qquad \text{電子数}=\frac{2S}{s}.
-\]
-波数空間で単位面積あたりの状態数は $S/(2\pi)^2$。スピン2重を含めて円内の状態を数えると
+\section*{[2] 低温比熱}
+低周波の状態密度を $D(\omega)=A\omega^p$ と書く。Debye近似では、このべき則を有限個のモード数に合う上限角周波数 $\omega_D$ まで延長する。この近似での内部エネルギーは
 \begin{equation}
- 2\frac{S}{(2\pi)^2}\pi k_F^2=\frac{2S}{s},
- \qquad \boxed{k_F=\frac1a\sqrt{\frac{8\pi}{\sqrt3}}.}
+ U=\int_0^{\omega_D}d\omega\,D(\omega)
+ \frac{\hbar\omega}{e^{\hbar\omega/(k_BT)}-1}.
+\end{equation}
+十分低温では寄与する周波数は $k_BT/\hbar\ll\omega_D$ であり、上限を無限大まで延ばせる。$x=\hbar\omega/(k_BT)$ と置換すると
+\begin{equation}
+ U\propto T^{p+2}\int_0^\infty\frac{x^{p+1}}{e^x-1}\,dx,
+ \qquad C_V=\frac{dU}{dT}\propto T^{p+1}.
+\end{equation}
+よって3次元では $q=3$、2次元では $q=2$ となる。
+
+\section*{[3] 層状系の伝搬方向}
+図3(i)の帯域幅は $\omega_a$、(ii)は $\omega_b$ であり、$\omega_a\ll\omega_b$ である。面内では結合が強いため復元力と音速が大きく、面内方向の分散は広い帯域を持つ。従って(ii)が面内、分散の狭い(i)が弱く結合した面間方向である。
+
+\section*{[4] 等エネルギー面}
+面内波数を $k_\parallel=\sqrt{k_x^2+k_y^2}$、面間波数を $k_z$ とする。両方向で線形分散が成り立つ $\omega_0\ll\omega_a$ では、長波長の音響分散は
+\begin{equation}
+ \omega^2\simeq v_\parallel^2k_\parallel^2+v_\perp^2k_z^2.
+\end{equation}
+従って $\omega=\omega_0$ 面は
+\begin{equation}
+ v_\parallel^2(k_x^2+k_y^2)+v_\perp^2k_z^2=\omega_0^2,
+\end{equation}
+すなわち異方的な楕円体である。
+
+$\omega_a\ll\omega_0\ll\omega_b$ では、面内分散は線形の範囲にある。弱い面間方向の分散は $k_z$ に依存するが、その $\omega^2$ への寄与を $f(k_z)$ と書けば、通常の弱結合近似では $0\le f(k_z)\lesssim\omega_a^2\ll\omega_0^2$ である。したがって主項では
+\begin{equation}
+ v_\parallel^2(k_x^2+k_y^2)=\omega_0^2-f(k_z)\simeq\omega_0^2.
+\end{equation}
+面内波数の大きさは $k_\parallel\simeq\omega_0/v_\parallel$ でほぼ一定となり、等エネルギー面は $k_z$ 方向に第一ブリルアン領域全体へ延びる円筒面に近い。
+
+\section*{[5] 層状系の状態密度}
+低周波では楕円体の体積が $\omega^3$ に比例する。状態数 $N(\omega)\propto\omega^3$ を微分すれば
+\begin{equation}
+ D(\omega)\propto\omega^2,\qquad r=2\quad(\omega\ll\omega_a).
+\end{equation}
+中間域の円筒では、面間方向の波数幅はほぼ一定で、囲まれる状態数は面内円の面積に比例する。主項の半径は $k_\parallel\simeq\omega/v_\parallel$ なので、$\omega\gg\omega_a$ では $N(\omega)\propto\omega^2$、従って
+\begin{equation}
+ D(\omega)\propto\omega,\qquad r=1\quad(\omega_a\ll\omega\ll\omega_b).
 \end{equation}
 
-\section*{[3] フェルミ面と第一域の関係}
-円の面積は $\pi k_F^2=(2\pi)^2/s$ で、第一ブリュアン域の面積に等しい。
-ただし形は円と六角形で異なる。六角形の内接半径 $r_{\rm in}$ と外接半径 $r_{\rm out}$ は
-\[
- r_{\rm in}=\frac{2\pi}{\sqrt3a},\qquad
- r_{\rm out}=\frac{4\pi}{3a},\qquad r_{\rm in}<k_F<r_{\rm out}.
-\]
-したがってフェルミ面は各辺を横切るが、六角形の頂点には届かない。自由電子のフェルミ面は第一域の外にも続く円である。
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[>=Stealth,scale=1.55]
- \pgfmathsetmacro{\px}{2/sqrt(3)}
- \pgfmathsetmacro{\qy}{4/3}
- \pgfmathsetmacro{\sy}{\qy/2}
- \fill[blue!7] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
- \draw[thick,blue] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
- \draw[->] (-1.6,0)--(1.65,0) node[right] {$k_x/(\pi/a)$};
- \draw[->] (0,-1.5)--(0,2.35) node[above] {$k_y/(\pi/a)$};
- \draw[->,thick] (0,0)--(\px,2) node[above right] {$\boldsymbol b_1/(\pi/a)$};
- \draw[->,thick] (0,0)--(-\px,2) node[above left] {$\boldsymbol b_2/(\pi/a)$};
- \fill (\px,0) circle(1.4pt) node[above right] {$P$};
- \fill (0,\qy) circle(1.4pt) node[above left] {$Q$};
- \node[below left] at (0,0) {$O$};
-\end{tikzpicture}
-\hspace{5mm}
-\begin{tikzpicture}[>=Stealth,scale=1.55]
- \pgfmathsetmacro{\px}{2/sqrt(3)}
- \pgfmathsetmacro{\qy}{4/3}
- \pgfmathsetmacro{\sy}{\qy/2}
- \pgfmathsetmacro{\kf}{sqrt(8/(pi*sqrt(3)))}
- \fill[blue!7] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
- \draw[thick,blue] (0,\qy)--(\px,\sy)--(\px,-\sy)--(0,-\qy)--(-\px,-\sy)--(-\px,\sy)--cycle;
- \draw[->] (-1.5,0)--(1.7,0) node[right] {$k_x/(\pi/a)$};
- \draw[->] (0,-1.5)--(0,1.65) node[above] {$k_y/(\pi/a)$};
- \draw[red,thick,dashed] (0,0) circle(\kf);
- \draw[->,red] (0,0)--({\kf/sqrt(2)},{-\kf/sqrt(2)}) node[midway,below left] {$k_F/(\pi/a)$};
-\end{tikzpicture}
-\caption{左: 逆格子と第一域。座標の単位は $\pi/a$。右: 同じ縮尺の第一域（青線）と自由電子のフェルミ面（赤破線）。}
-\end{figure}
+\section*{[6] 層状系の比熱}
+熱的に寄与する周波数域全体で状態密度を $D(\omega)\propto\omega^r$ と近似できる場合、比熱積分で $x=\hbar\omega/(k_BT)$ と置けば
+\begin{equation}
+ C_V\propto T^{r+1}\int_0^\infty dx\,x^{r+2}\frac{e^x}{(e^x-1)^2}.
+\end{equation}
+この積分は温度によらない。$k_BT\ll\hbar\omega_a$ では熱的周波数域が低周波の $D(\omega)\propto\omega^2$ に収まるので $s=3$ となる。
 
-\section*{[4] 原子軌道への射影}
-原問の図2の配置に従って、Aから最近接Bへの変位を
+中間温度 $\hbar\omega_a\ll k_BT\ll\hbar\omega_b$ では、$D(\omega)\propto\omega$ が成り立つ領域の寄与は主項として
 \begin{equation}
- \boldsymbol\delta_1=\frac{\boldsymbol a_1+2\boldsymbol a_2}{3},\quad
- \boldsymbol\delta_2=\frac{\boldsymbol a_1-\boldsymbol a_2}{3},\quad
- \boldsymbol\delta_3=\frac{-2\boldsymbol a_1-\boldsymbol a_2}{3}
+ C_{V,\mathrm{mid}}\propto T^2
+ \int_{\hbar\omega_a/(k_BT)}^{\hbar\omega_b/(k_BT)}
+ dx\,x^3\frac{e^x}{(e^x-1)^2}
 \end{equation}
-と選ぶ。どれも長さ $a/\sqrt3$ である。最近接位相の和を
-\[
- f(\boldsymbol k)=\sum_{j=1}^3 e^{i\boldsymbol k\cdot\boldsymbol\delta_j}
-\]
-と定義する。以下 $\lambda^A=\lambda^A_{\boldsymbol k}$, $\lambda^B=\lambda^B_{\boldsymbol k}$ と略記する。
-A軌道への固有方程式の射影は、規格化積分と最近接行列要素だけを残して
-\begin{align}
- \int\phi_A(\boldsymbol r-\boldsymbol r_i^A)\mathcal H\psi_{\boldsymbol k}(\boldsymbol r)\,\mathrm d\boldsymbol r
- &=e^{i\boldsymbol k\cdot\boldsymbol r_i^A}
-   [\epsilon_A\lambda^A+\tau f(\boldsymbol k)\lambda^B],\\
- E(\boldsymbol k)\int\phi_A(\boldsymbol r-\boldsymbol r_i^A)\psi_{\boldsymbol k}(\boldsymbol r)\,\mathrm d\boldsymbol r
- &=e^{i\boldsymbol k\cdot\boldsymbol r_i^A}E(\boldsymbol k)\lambda^A.
-\end{align}
-BからAへの最近接変位は $-\boldsymbol\delta_j$ なので、Bへの射影には $f^*$ が現れる。
-共通の位相を除くと
-\begin{equation}
- \boxed{\begin{pmatrix}\epsilon_A&\tau f(\boldsymbol k)\\\tau f(\boldsymbol k)^*&\epsilon_B\end{pmatrix}
- \begin{pmatrix}\lambda^A\\\lambda^B\end{pmatrix}
- =E(\boldsymbol k)\begin{pmatrix}\lambda^A\\\lambda^B\end{pmatrix}.}
-\end{equation}
-これは係数に対する固有値方程式である。
+である。下端を0へ延ばす相対誤差は、被積分関数が $x\to0$ で $x$ に近づくため $O((\hbar\omega_a/k_BT)^2)$ となる。ただし実際の低周波モードをこの延長で置き換えたわけではない。[4] の非負で有界な面間寄与をもつ分散では、$\omega\lesssim\omega_a$ の状態数は面内半径 $\omega_a/v_\parallel$ の円筒内の状態数以下であり、熱的半径 $k_BT/(\hbar v_\parallel)$ の状態数に比べて $O((\hbar\omega_a/k_BT)^2)$ である。低周波の各モードの比熱は高々 $k_B$ なので、この部分も主項には影響しない。上端側は熱的占有の指数因子で抑えられる。従って面内線形分散が熱的周波数域で有効なこの温度範囲では $C_V\propto T^2$、すなわち $s=2$ である。$\hbar\omega_b\ll k_BT$ では全フォノンモードが古典極限に入り、各モードの比熱は温度によらず一定なので $s=0$ となる。
 
-\section*{[5] 二本のエネルギー帯}
-行列式がゼロになる条件は
-\[
- (E-\epsilon_A)(E-\epsilon_B)-\tau^2|f(\boldsymbol k)|^2=0.
-\]
-したがって上帯を $E_+$、下帯を $E_-$ とすると
-\begin{equation}
- \boxed{E_\pm(\boldsymbol k)=\frac{\epsilon_A+\epsilon_B}{2}
- \pm\sqrt{\frac{(\epsilon_A-\epsilon_B)^2}{4}+\tau^2|f(\boldsymbol k)|^2}.}
-\end{equation}
-位相の和の絶対値の二乗は
-\begin{align}
- |f|^2&=3+2\sum_{i<j}\cos[\boldsymbol k\cdot(\boldsymbol\delta_i-\boldsymbol\delta_j)]\\
- &=3+4\cos\left(\frac{\sqrt3a k_x}{2}\right)\cos\left(\frac{a k_y}{2}\right)
-       +2\cos(a k_y).
-\end{align}
-よってこの最後の式を代入すれば $k_x,k_y$ の明示的な関数になる。
-
-\section*{[6] 占有状態と最小ギャップ}
-各エネルギー帯は単位胞あたりスピン込みで2個の電子を収容する。
-電子が単位胞あたり2個なら下帯は満たされ、上帯は空である。
-$f=0$ で下帯が最大、上帯が最小となる。
-$k_x=0$ では
-\[
- |f|^2=1+4\cos\left(\frac{ak_y}{2}\right)+4\cos^2\left(\frac{ak_y}{2}\right)
-       =\left[1+2\cos\left(\frac{ak_y}{2}\right)\right]^2.
-\]
-ゼロになるのは $\cos(ak_y/2)=-1/2$。第一域にある点は
-\begin{equation}
- \boxed{X=\left(0,\pm\frac{4\pi}{3a}\right),\qquad
- E_1=\epsilon_B,\quad E_2=\epsilon_A,\quad E_g=\epsilon_A-\epsilon_B.}
-\end{equation}
-これらは図の上・下の頂点に当たる。以下では $X=(0,4\pi/(3a))$ を選ぶ。
-
-\section*{[7] X近傍の曲率と有効質量}
-$k_y=4\pi/(3a)+q$ とおき、$|aq|\ll1$ で展開すると
-\[
- 1+2\cos\left(\frac{2\pi}{3}+\frac{aq}{2}\right)
- =-\frac{\sqrt3a}{2}q+O(q^2).
-\]
-$E_g>0$ なので平方根を展開できる。原問の $E_g\gg|\tau|$ の範囲では
-\begin{align}
- E_+(q)&=\epsilon_A+\frac{3a^2\tau^2}{4E_g}q^2+O(q^3),\\
- E_-(q)&=\epsilon_B-\frac{3a^2\tau^2}{4E_g}q^2+O(q^3).
-\end{align}
-電子の有効質量を $1/m^*=(1/\hbar^2)\,\partial^2 E/\partial k_y^2$ で定義すると
-\begin{equation}
- \boxed{m^*_+=\frac{2\hbar^2 E_g}{3a^2\tau^2},\qquad
- m^*_-=-\frac{2\hbar^2 E_g}{3a^2\tau^2}.}
-\end{equation}
-上帯は極小なので正、下帯は極大なので負である。下帯のホールを用いる場合は、電子の符号付き曲率質量とは別に $m^*_{\rm hole}=|m^*_-|$ となる。
-
-\clearpage
-\section*{[8] すべて同じ原子にした場合}
-$\epsilon_B=\epsilon_A$ とするとギャップは消え、$k_x=0$ で
-\[
- E_\pm(k_y)=\epsilon_A\pm|\tau|\left|1+2\cos\left(\frac{ak_y}{2}\right)\right|.
-\]
-よってX近傍では
-\begin{equation}
- \boxed{E_\pm(q)=\epsilon_A\pm\frac{\sqrt3a|\tau|}{2}|q|+O(q^2),\qquad E_g=0.}
-\end{equation}
-上下のエネルギーを大小で並べると $|q|$ を含む直線的な交差になる。
-[7]の放物的な有効質量の式を、ギャップが消える場合にそのまま用いることはできない。
 \end{document}

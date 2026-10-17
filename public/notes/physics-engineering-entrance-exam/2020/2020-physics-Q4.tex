@@ -1,4 +1,4 @@
-% Source: public/notes/物工/問題/2020ap_exam.pdf, PDF pp. 22--23.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2020ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -6,130 +6,167 @@
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
-\usepackage{tikz}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2020年 物理学 第4問}
+\title{物理工学専攻 院試解答集\\2020年度 物理学 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 静的な双極子ポテンシャル}
-点1,2の位置は $z=\pm l/2$ なので、$r_\pm=(r^2\mp rl\cos\theta+l^2/4)^{1/2}$ である。$l/r$ の一次まで
+\section*{[1] ハミルトニアン}
+各方向の運動は一次元調和振動子である。定義された昇降演算子について
 \[
-\frac1{r_+}-\frac1{r_-}=\frac{l\cos\theta}{r^2}+O(l^3/r^4).
+ \frac{\hat p_x^2}{2m}+\frac12m\omega^2\hat x^2
+ =\hbar\omega\left(\hat a_x^\dagger\hat a_x+\frac12\right),
+ \qquad
+ \frac{\hat p_y^2}{2m}+\frac12m\omega^2\hat y^2
+ =\hbar\omega\left(\hat a_y^\dagger\hat a_y+\frac12\right).
 \]
-従って $q l=\alpha_0E_0$ を用いれば
-\[
-\varphi=\frac{\alpha_0E_0\cos\theta}{4\pi\varepsilon_0r^2},\qquad
-\boxed{C=0,\quad D=1}.
-\]
-
-\section*{[2] 遅延ポテンシャル}
-$\tau=t-r/c$ とおくと、$r_\pm\simeq r\mp(l/2)\cos\theta$ より
-\[
-q(t-r_\pm/c)l=\alpha_0E_0\cos\!\left(\omega_0\tau\pm\frac{\omega_0l\cos\theta}{2c}\right)
-\simeq \alpha_0E_0\left[\cos(\omega_0\tau)\mp\frac{\omega_0l\cos\theta}{2c}\sin(\omega_0\tau)\right].
-\]
-また $1/r_\pm\simeq r^{-1}\pm l\cos\theta/(2r^2)$. 代入すると
-\[
-\varphi=\frac{\alpha_0E_0\cos\theta}{4\pi\varepsilon_0}
-\left[ -\frac{\omega_0}{cr}\sin(\omega_0\tau)+\frac1{r^2}\cos(\omega_0\tau)\right],
-\]
-ゆえに
-\[
-\boxed{F=-\frac{\omega_0}{c}\sin(\omega_0\tau),\qquad G=\cos(\omega_0\tau)}.
-\]
-
-\section*{[3] ベクトルポテンシャル}
-$\boldsymbol e_z=\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta$ かつ $\dot p(\tau)=-\alpha_0E_0\omega_0\sin(\omega_0\tau)$ より
-\[
-\boxed{\boldsymbol A=-\frac{\alpha_0E_0\omega_0}{4\pi\varepsilon_0c^2r}\sin(\omega_0\tau)
-(\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta)}.
-\]
-
-\section*{[4] スカラーポテンシャルの勾配}
-放射場の次数だけを保つ。遅延時刻$\tau=t-r/c$を用いると、例えば
+従って全ハミルトニアンは
 \begin{equation}
- \partial_r\frac{\sin(\omega_0\tau)}r
- =-\frac{\omega_0\cos(\omega_0\tau)}{cr}
- -\frac{\sin(\omega_0\tau)}{r^2}
+ \hat H=\hbar\omega\left(\hat a_x^\dagger\hat a_x+
+                         \hat a_y^\dagger\hat a_y+1\right).
+ \label{eq:H-cart}
 \end{equation}
-であり、遅延引数の微分から$1/r$項が生じる。角度微分は$1/r^2$にとどまる。
-\[
-\boxed{\nabla\varphi=\frac{\alpha_0E_0\omega_0^2}{4\pi\varepsilon_0c^2r}
-\cos\theta\cos(\omega_0\tau)\boldsymbol e_r+O(r^{-2})}.
-\]
 
-\section*{[5] 放射電場と磁束密度}
-時間微分は $\partial_t\boldsymbol A=-\alpha_0E_0\omega_0^2\cos(\omega_0\tau)(\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta)/(4\pi\varepsilon_0c^2r)$. その動径成分は $-\nabla\varphi$ の動径成分と相殺し、
-\[
-\boxed{\boldsymbol E=-\frac{\alpha_0E_0\omega_0^2}{4\pi\varepsilon_0c^2r}
-\sin\theta\cos(\omega_0\tau)\boldsymbol e_\theta},\qquad
-\boxed{\boldsymbol B=-\frac{\alpha_0E_0\omega_0^2}{4\pi\varepsilon_0c^3r}
-\sin\theta\cos(\omega_0\tau)\boldsymbol e_\phi}.
-\]
-磁場の方位角成分は $B_\phi=r^{-1}\{\partial_r(rA_\theta)-\partial_\theta A_r\}$ である。$\partial_r\tau=-1/c$ により第1項から上の $1/r$ 項が生じ、第2項は $O(r^{-2})$ である。従って $B_\phi=E_\theta/c$。両場は動径方向に直交し、$\boldsymbol E\cdot\boldsymbol B=0$。
-
-\section*{[6] ポインティングベクトルと角度分布}
-$\boldsymbol e_\theta\times\boldsymbol e_\phi=\boldsymbol e_r$ なので、瞬時値は
-\[
-\boxed{\boldsymbol S=\frac{(\alpha_0E_0\omega_0^2)^2}{16\pi^2\varepsilon_0c^3r^2}
-\sin^2\theta\cos^2(\omega_0\tau)\boldsymbol e_r}.
-\]
-従って距離依存は $r^{-2}$、方位角 $\phi$ に依らない。時間平均した角度分布は $\langle|\boldsymbol S|\rangle\propto\sin^2\theta$ で、$\theta=0,\pi$ で零、$\theta=\pi/2$ で最大となる。下図は距離 $r$ を固定した時間平均の角度分布である。左は $\theta$ 依存性、右は $\theta=\pi/2$ に固定した $\phi$ 依存性を示す。瞬時値にも同じ角度因子があり、時刻による変化は $\cos^2(\omega_0\tau)$ による。
-\begin{center}
-\begin{tikzpicture}[x=1.35cm,y=1.6cm]
-\draw[->] (0,0)--(3.45,0) node[right] {$\theta$};
-\draw[->] (0,0)--(0,1.25) node[above] {$\langle|\boldsymbol S|\rangle/\langle|\boldsymbol S|\rangle_{\max}$};
-\draw[thick] plot[domain=0:pi,samples=121] (\x,{sin(deg(\x))^2});
-\foreach \x/\lab in {0/0,{pi/2}/{\pi/2},pi/{\pi}} {
- \draw (\x,0.02)--(\x,-0.02) node[below=3pt] {$\lab$};
-}
-\end{tikzpicture}
-\hspace{0.8cm}
-\begin{tikzpicture}[x=0.68cm,y=1.6cm]
-\draw[->] (0,0)--(6.65,0) node[right] {$\phi$};
-\draw[->] (0,0)--(0,1.25) node[above] {$\langle|\boldsymbol S|\rangle/\langle|\boldsymbol S|\rangle_{\max}$};
-\draw[thick] (0,1)--({2*pi},1);
-\foreach \x/\lab in {0/0,pi/{\pi},{2*pi}/{2\pi}} {
- \draw (\x,0.02)--(\x,-0.02) node[below=3pt] {$\lab$};
-}
-\draw (0.04,1)--(-0.04,1) node[left] {$1$};
-\node at (pi,0.55) {$\theta=\pi/2$};
-\end{tikzpicture}
-\end{center}
-
-\section*{[7] 変調された分極率と側帯波}
-[2]の同じ一次展開を任意の時間依存$p(t)$に適用し、[3]の電流からのポテンシャルと合わせると
+\section*{[2] エネルギーと縮退度}
+直積状態 $|n_x,n_y\rangle$ では各数演算子の固有値が $n_x,n_y$ なので、
 \begin{equation}
- \varphi=\frac{\cos\theta}{4\pi\varepsilon_0}
- \left[\frac{p(\tau)}{r^2}+\frac{\dot p(\tau)}{cr}\right],\qquad
- \boldsymbol A=\frac{\dot p(\tau)}{4\pi\varepsilon_0c^2r}\boldsymbol e_z.
+ E_{n_x,n_y}=\hbar\omega(n_x+n_y+1),\qquad n_x,n_y=0,1,2,\ldots.
+ \label{eq:E-cart}
 \end{equation}
-$\partial_r\tau=-1/c$より、放射場の$1/r$項は
+低い方から $N$ 番目の準位は $n_x+n_y=N-1$ に対応する。非負整数解は
+$(n_x,n_y)=(0,N-1),(1,N-2),\ldots,(N-1,0)$ の $N$ 通りであり、
+\begin{equation}
+ E_N=N\hbar\omega,\qquad g_N=N\quad(N=1,2,3,\ldots).
+\end{equation}
+
+\section*{[3] 角運動量と保存}
+昇降演算子の定義を足し引きすると
+\[
+ \hat x=\sqrt{\frac{\hbar}{2m\omega}}(\hat a_x+\hat a_x^\dagger),
+ \qquad
+ \hat p_x=i\sqrt{\frac{m\hbar\omega}{2}}
+                   (\hat a_x^\dagger-\hat a_x),
+\]
+であり、$y$ 成分も同様である。直交する方向の演算子は互いに可換なので、
 \begin{align}
- -\nabla\varphi\big|_{1/r}
- &=\frac{\ddot p(\tau)\cos\theta}{4\pi\varepsilon_0c^2r}\boldsymbol e_r,\\
- -\partial_t\boldsymbol A
- &=-\frac{\ddot p(\tau)}{4\pi\varepsilon_0c^2r}
- (\cos\theta\boldsymbol e_r-\sin\theta\boldsymbol e_\theta).
+ \hat l_z&=\hat x\hat p_y-\hat y\hat p_x\\
+ &=i\hbar(\hat a_y^\dagger\hat a_x-
+                   \hat a_x^\dagger\hat a_y).
+ \label{eq:l-cart}
 \end{align}
-動径成分が相殺するので、$\boldsymbol E=\sin\theta\,\ddot p(\tau)\boldsymbol e_\theta/(4\pi\varepsilon_0c^2r)$となる。積和公式を使うと
-\begin{align*}
- p(\tau)&=E_0\left[\alpha_0\cos(\omega_0\tau)+\frac{\alpha_1}{2}\cos((\omega_0+\omega_v)\tau)+\frac{\alpha_1}{2}\cos((\omega_0-\omega_v)\tau)\right],\\
- \ddot p(\tau)&=-E_0\left[\alpha_0\omega_0^2\cos(\omega_0\tau)
- +\frac{\alpha_1}{2}(\omega_0+\omega_v)^2\cos((\omega_0+\omega_v)\tau)
- +\frac{\alpha_1}{2}(\omega_0-\omega_v)^2\cos((\omega_0-\omega_v)\tau)\right].
-\end{align*}
-従って
+$[\hat a_j,\hat a_j^\dagger]=1$ と異なる方向間の可換性から
+\begin{align}
+ [\hat a_x^\dagger\hat a_x,\hat a_y^\dagger\hat a_x]&=-\hat a_y^\dagger\hat a_x,
+ & [\hat a_y^\dagger\hat a_y,\hat a_y^\dagger\hat a_x]&=\hat a_y^\dagger\hat a_x,\\
+ [\hat a_x^\dagger\hat a_x,\hat a_x^\dagger\hat a_y]&=\hat a_x^\dagger\hat a_y,
+ & [\hat a_y^\dagger\hat a_y,\hat a_x^\dagger\hat a_y]&=-\hat a_x^\dagger\hat a_y.
+\end{align}
+それぞれの和はゼロとなるため、式\eqref{eq:H-cart}より
+\begin{equation}
+ [\hat H,\hat l_z]=0.
+\end{equation}
+従って $\hat l_z$ は時間に依らない保存量である。
+
+\section*{[4] 交換関係による固有値の移動}
+仮定された交換関係を $|l_z\rangle$ に作用させると
+\begin{align}
+ \hat l_z\hat A|l_z\rangle
+ &=([\hat l_z,\hat A]+\hat A\hat l_z)|l_z\rangle\\
+ &=(\alpha+l_z)\hat A|l_z\rangle.
+\end{align}
+したがって $\hat A|l_z\rangle\ne0$ ならば、これは固有値
+$l_z+\alpha$ をもつ $\hat l_z$ の固有状態である。
+
+\section*{[5] 角運動量を一単位ずつ上げ下げする演算子}
+式\eqref{eq:l-cart}から
+\begin{equation}
+ [\hat l_z,\hat a_x^\dagger]=i\hbar\hat a_y^\dagger,
+ \qquad
+ [\hat l_z,\hat a_y^\dagger]=-i\hbar\hat a_x^\dagger.
+\end{equation}
+よって $\hat b^\dagger=C\hat a_x^\dagger+D\hat a_y^\dagger$ が
+$[\hat l_z,\hat b^\dagger]=\alpha\hat b^\dagger$ を満たす条件は
+\begin{equation}
+ -i\hbar D=\alpha C,\qquad i\hbar C=\alpha D.
+ \label{eq:CD}
+\end{equation}
+非自明解では $\alpha^2=\hbar^2$ である。$\alpha=+\hbar$ なら
+$D=iC$、$\alpha=-\hbar$ なら $D=-iC$ となる。$C\ge0$ と
+$|C|^2+|D|^2=1$ を用いると、二組は
+\begin{align}
+ \hat b_1^\dagger&=\frac{1}{\sqrt2}
+       (\hat a_x^\dagger+i\hat a_y^\dagger),&
+ \hat b_1&=\frac{1}{\sqrt2}(\hat a_x-i\hat a_y),&\alpha_1&=+\hbar,\\
+ \hat b_2^\dagger&=\frac{1}{\sqrt2}
+       (\hat a_x^\dagger-i\hat a_y^\dagger),&
+ \hat b_2&=\frac{1}{\sqrt2}(\hat a_x+i\hat a_y),&\alpha_2&=-\hbar.
+\end{align}
+\section*{[6] 円偏光型演算子の交換関係}
+異なる Cartesian 方向間の交換子はゼロであるから、上の定義を展開して
+\begin{align}
+ [\hat b_1,\hat b_1^\dagger]
+ &=\tfrac12\bigl([\hat a_x,\hat a_x^\dagger]+(-i)i[\hat a_y,\hat a_y^\dagger]\bigr)=1,\\
+ [\hat b_1,\hat b_2^\dagger]
+ &=\tfrac12\bigl([\hat a_x,\hat a_x^\dagger]+(-i)(-i)[\hat a_y,\hat a_y^\dagger]\bigr)=0.
+\end{align}
+同様にもう一つの対角交換子は1で、混合交換子の共役も0である。従って
+\begin{equation}
+ [\hat b_1,\hat b_1^\dagger]=1,\quad
+ [\hat b_2,\hat b_2^\dagger]=1,\quad
+ [\hat b_1,\hat b_2^\dagger]=0,\quad
+ [\hat b_2,\hat b_1^\dagger]=0.
+\end{equation}
+従って $\hat b_1,\hat b_2$ は互いに独立な二つのボース昇降演算子である。
+
+\section*{[7] 円偏光型演算子での表示}
+逆変換は
 \[
-\begin{aligned}
-\boldsymbol E(\boldsymbol r,t)=-\frac{E_0\sin\theta}{4\pi\varepsilon_0c^2r}\Bigl[&\alpha_0\omega_0^2\cos(\omega_0\tau)\\
-&+\frac{\alpha_1}{2}(\omega_0+\omega_v)^2\cos((\omega_0+\omega_v)\tau)\\
-&+\frac{\alpha_1}{2}(\omega_0-\omega_v)^2\cos((\omega_0-\omega_v)\tau)\Bigr]\boldsymbol e_\theta.
-\end{aligned}
+ \hat a_x=\frac{\hat b_1+\hat b_2}{\sqrt2},
+ \qquad
+ \hat a_y=\frac{i(\hat b_1-\hat b_2)}{\sqrt2}
 \]
-散乱波に含まれる正の角振動数は $\boxed{\omega_0,\ \omega_0+\omega_v,\ \omega_0-\omega_v}$ である（$\omega_v\ll\omega_0$）。
+である。これを式\eqref{eq:H-cart}, \eqref{eq:l-cart}に代入すると、整理前の積は
+\begin{align}
+ \hat a_x^\dagger\hat a_x+\hat a_y^\dagger\hat a_y
+ &=\frac12\Bigl[(\hat b_1^\dagger+\hat b_2^\dagger)(\hat b_1+\hat b_2)
+ +(\hat b_1^\dagger-\hat b_2^\dagger)(\hat b_1-\hat b_2)\Bigr],\\
+ \hat l_z&=\frac{\hbar}{2}\Bigl[(\hat b_1^\dagger-\hat b_2^\dagger)(\hat b_1+\hat b_2)
+ +(\hat b_1^\dagger+\hat b_2^\dagger)(\hat b_1-\hat b_2)\Bigr].
+\end{align}
+いずれも括弧を展開すると、$\hat b_1^\dagger\hat b_2$と$\hat b_2^\dagger\hat b_1$の交差項がそれぞれ相殺する。従って
+\begin{align}
+ \hat H&=\hbar\omega(\hat b_1^\dagger\hat b_1+
+                      \hat b_2^\dagger\hat b_2+1),\\
+ \hat l_z&=\hbar(\hat b_1^\dagger\hat b_1-
+                      \hat b_2^\dagger\hat b_2).
+ \label{eq:l-b}
+\end{align}
+元の直積真空$|0,0\rangle$は$\hat a_x,\hat a_y$に消されるので、上の定義から$\hat b_1|0,0\rangle=\hat b_2|0,0\rangle=0$である。交換関係を用いて$(\hat b_1^\dagger)^{n_1}(\hat b_2^\dagger)^{n_2}|0,0\rangle$を作ると、$\hat b_j^\dagger\hat b_j$の固有値はそれぞれ$n_j=0,1,2,\ldots$となる。同じ状態に式\eqref{eq:l-b}の二つの演算子を作用させれば、エネルギーと角運動量が同時に対角化される。
+
+\section*{[8] 第 $N$ 準位の角運動量}
+式\eqref{eq:l-b}から第 $N$ 準位では $n_1+n_2=N-1$ であり、
+$l_z=\hbar(n_1-n_2)$ となる。$n_1=0,1,\ldots,N-1$ を順に選ぶと
+\begin{equation}
+ l_z=\hbar\bigl(-(N-1),-(N-3),\ldots,N-3,N-1\bigr),
+\end{equation}
+すなわち同じ集合を大きい順に書けば
+\begin{equation}
+ \boxed{l_z=\hbar(N-1),\ \hbar(N-3),\ \ldots,\ -\hbar(N-1)}.
+\end{equation}
+値は $N$ 個で、隣り合う値の差は $2\hbar$ である。例えば基底準位 $N=1$
+では $l_z=0$ だけとなり、エネルギーと縮退度の結果にも一致する。
+
+\section*{[9] スピン軌道相互作用}
+$\sigma_z=s=\pm1$ は $\hat l_z$ と可換であるため、状態
+$|n_1,n_2;s\rangle$ は全ハミルトニアンの固有状態である。固有エネルギーは
+\begin{equation}
+ \boxed{E_{n_1,n_2,s}=\hbar\omega(n_1+n_2+1)
+       +\lambda\hbar s(n_1-n_2)},
+ \qquad n_1,n_2=0,1,2,\ldots,\quad s=\pm1.
+\end{equation}
+この表示は各量子数に対する準位を与える。$\lambda$ の値や符号によって
+準位の順序や縮退の一部が変わりうるため、ここでは特定の順序は仮定しない。
 \end{document}

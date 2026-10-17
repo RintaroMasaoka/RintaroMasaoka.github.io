@@ -1,124 +1,139 @@
-% Source problem: public/notes/物工/問題/2018ap_exam.pdf, pages 13–14.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h30ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
-\usepackage{amsmath,amssymb,tikz}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2018年 物理学II 第4問}
+\title{物理工学専攻 院試解答集\\2018年度 物理学II 第4問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1.1] 化学ポテンシャルと電荷移動}
-内部エネルギーを$U(S,V,N)$とすると化学ポテンシャルは
+\section*{[1.1] 電子の伝導率テンソル}
+$x=\omega_c\tau$とする。定常状態の運動方程式は
 \begin{equation}
- dU=T\,dS-p\,dV+\mu\,dN,\qquad
- \mu=\left(\frac{\partial U}{\partial N}\right)_{S,V}
+ \boldsymbol v=-\frac{e\tau}{m}(\boldsymbol E+\boldsymbol v\times\boldsymbol B),\qquad
+ v_x=-\frac{e\tau}{m}(E_x+Bv_y),\quad
+ v_y=-\frac{e\tau}{m}(E_y-Bv_x).
 \end{equation}
-で定義される。孤立したMの電子化学ポテンシャルは$-W$、Sでは$-\phi_s$である。接続すると電子は化学ポテンシャルの高い側から低い側へ移り、平衡では静電エネルギーを含む電気化学ポテンシャルが両側で一致する。$W>\phi_s$ならSからMへ移ってM側が負、S側が正になり、逆の大小関係なら電荷の向きは反転する。[1]では両方を含む電荷量の大きさを求める。
+電流密度は$\boldsymbol J=-ne\boldsymbol v$なので
+\begin{equation}
+ \begin{pmatrix}1&x\\-x&1\end{pmatrix}\begin{pmatrix}j_x\\j_y\end{pmatrix}
+ =\frac{ne^2\tau}{m}\begin{pmatrix}E_x\\E_y\end{pmatrix}.
+\end{equation}
+行列を反転すると、問題の形式
+\begin{equation}
+ \boxed{\widetilde{\sigma}=\frac{\sigma_0}{1+x^2}
+ \begin{pmatrix}1&-x\\x&1\end{pmatrix}},\qquad
+ \boxed{\sigma_0=\frac{ne^2\tau}{m}}
+\end{equation}
+を得る。
 
-\section*{[1.2] 誘起表面電荷}
-面積$A$の平行板容量は$C=\varepsilon_0A/d$である。S側の符号付き電荷を$q$と置く（$q>0$なら電子はSからMへ移る）。静電エネルギーは
+\section*{[1.2] Hall係数と縦伝導率}
+$\boldsymbol j=\widetilde{\sigma}\boldsymbol E$を反転し、$j_y=0$とすると
 \begin{equation}
- U_{\mathrm{es}}=\frac{q^2}{2C}=\frac{d q^2}{2\varepsilon_0A}.
+ E_x=\frac{j_x}{\sigma_0},\qquad E_y=-\frac{xj_x}{\sigma_0}.
 \end{equation}
-電子が移ることで化学自由エネルギーは$-(W-\phi_s)q/e$だけ変化する。従って全エネルギー
+従って
 \begin{equation}
- U(q)=\frac{d q^2}{2\varepsilon_0A}
- -\frac{W-\phi_s}{e}q
+ \boxed{R_H=-\frac{x}{\sigma_0B}=-\frac{1}{ne}},\qquad
+ \boxed{\sigma=\frac{j_x}{E_x}=\sigma_0=\frac{ne^2\tau}{m}}.
 \end{equation}
-を最小にする条件$\partial U/\partial q=0$から、S側の符号付き面電荷密度は$q/A=\varepsilon_0(W-\phi_s)/(ed)$である。求める大きさは
-\begin{equation}
- \boxed{\rho=\frac{\varepsilon_0}{ed}|W-\phi_s|}.
-\end{equation}
-ここでは$\rho$を大きさとして用いた。原問の$M$側$-\rho$、$S$側$+\rho$という記号を符号付き密度と読めば、$W<\phi_s$のとき$\rho$の符号が反転する。
+Hall係数が負なのは、担い手の電荷が$-e$であることを反映している。
 
-\section*{[1.3] 板間の引力}
-一方の板が作る電場は$\rho/(2\varepsilon_0)$である。もう一方の板に働く圧力は$\rho$とこの電場の積だから
+\section*{[2.1] 電子・正孔の伝導率テンソル}
+電子のテンソルは[1.1]の結果であり、正孔は反対符号の電荷を持つのでHall成分の符号が反転する。両者の電流を加えると
 \begin{equation}
- F=A\frac{\rho^2}{2\varepsilon_0}
- =\boxed{\frac{\varepsilon_0A}{2e^2d^2}|W-\phi_s|^2}.
+ \boxed{\widetilde{\sigma}=\frac{e^2\tau/m}{1+x^2}
+ \begin{pmatrix}n+p&-(n-p)x\\(n-p)x&n+p\end{pmatrix}}.
 \end{equation}
-圧力の次元は$\mathrm{N/m^2}$で、面積を掛けると力になる。
+ここで$x=\omega_c\tau$は正の量である。
 
-\section*{[1.4] 振動する間隔と電流}
-瞬時の平衡電荷密度は
+\section*{[2.2] Hall係数と縦伝導率}
+$u=n+p$、$d=n-p$とおく。伝導率行列の逆は
 \begin{equation}
- \frac{q(t)}{A}=\frac{\varepsilon_0(W-\phi_s)}{e[d+\delta\sin(\Omega t)]}
- \simeq\frac{\varepsilon_0(W-\phi_s)}{ed}
- \left[1-\frac{\delta}{d}\sin(\Omega t)\right]
+ \widetilde{\sigma}^{-1}=\frac{m(1+x^2)}{e^2\tau}
+ \frac{1}{u^2+d^2x^2}
+ \begin{pmatrix}u&dx\\-dx&u\end{pmatrix}.
 \end{equation}
-である。符号付き電荷の時間変化から$ I(t)=dq/dt$となり、振幅は
-\begin{equation}
- \boxed{I_0=\frac{\varepsilon_0A\delta\Omega}{ed^2}|W-\phi_s|}.
-\end{equation}
-ここでは$\delta/d$の一次まで残した。
+$j_y=0$では$\boldsymbol E=\widetilde{\sigma}^{-1}(j_x,0)^T$なので
+\begin{align}
+ R_H&=\frac{E_y}{j_xB}
+ =-\frac{d}{e}\frac{1+x^2}{u^2+d^2x^2}\\
+ &=\boxed{-\frac{n-p}{e}\frac{1+(\omega_c\tau)^2}{(n+p)^2+(n-p)^2(\omega_c\tau)^2}},\\
+ \sigma&=\frac{j_x}{E_x}
+ =\boxed{\frac{(n+p)e^2\tau}{m}
+ \frac{1+[(n-p)/(n+p)]^2x^2}{1+x^2}}.
+\end{align}
 
-\section*{[2.1] 半導体側のバンド曲がり}
-金属側の静電ポテンシャルを$\Phi_M$、半導体の十分内部のものを$\Phi_S$とし、同じ基準から測る。電子の静電エネルギーは$-e\Phi$なので、平衡での電気化学ポテンシャルの一致は
+\section*{[2.3] 低磁場・高磁場Hall係数}
+式の$x\to0$および$x\to\infty$の極限は
 \begin{equation}
- -W-e\Phi_M=-\phi_s-e\Phi_S,\qquad
- e(\Phi_S-\Phi_M)=W-\phi_s.
+ R_H^{(0)}=-\frac{n-p}{e(n+p)^2},\qquad
+ R_H^{(\infty)}=-\frac{1}{e(n-p)}.
 \end{equation}
-界面固有の状態による追加のエネルギー変化を無視する原問の理想接合では、伝導帯端も静電エネルギーだけシフトする。従って界面と十分内部との伝導帯端の差は
+従って
 \begin{equation}
- \boxed{\Delta_s=-e(\Phi_M-\Phi_S)=W-\phi_s}.
+ n-p=-\frac{1}{eR_H^{(\infty)}},\qquad
+ n+p=\frac{1}{e\sqrt{R_H^{(0)}R_H^{(\infty)}}},
 \end{equation}
-これは半導体内部から界面までの伝導帯端の上昇である。$E_F$ から界面伝導帯端までの障壁は $\Delta_s+(\phi_s-\chi_c)=W-\chi_c$。図ではこの二つの差を分けて示し、同じ静電シフトを価電子帯端にも適用した。図の縦横の長さは縮尺を表さず、異なるエネルギー差の大小比較には用いない。破線は端点を結ぶ案内で、空乏領域内の詳細な電位分布は原問で定まらない。
-\begin{center}
-\begin{tikzpicture}[x=1cm,y=0.62cm]
- \pgfmathsetmacro{\bulkEc}{0.8}
- \pgfmathsetmacro{\shiftE}{1.4}
- \pgfmathsetmacro{\gapE}{3.4}
- \pgfmathsetmacro{\interfaceEc}{\bulkEc+\shiftE}
- \pgfmathsetmacro{\bulkEv}{\bulkEc-\gapE}
- \pgfmathsetmacro{\interfaceEv}{\interfaceEc-\gapE}
- \draw[->] (-0.2,-3.0) -- (-0.2,3.1) node[above] {エネルギー};
- \draw[->] (-1.5,-0.8) -- (5.3,-0.8) node[right] {$x$};
- \draw[thick] (-1.3,0) -- (0,0);
- \draw[dashed] (-1.3,0) -- (5,0) node[right] {$E_F$};
- \draw[thick] (0,{\interfaceEc}) -- (0.65,{\interfaceEc});
- \draw[densely dashed,thick] (0.65,{\interfaceEc}) -- (1.35,{\bulkEc});
- \draw[thick] (1.35,{\bulkEc}) -- (4.8,{\bulkEc});
- \draw[thick] (0,{\interfaceEv}) -- (0.65,{\interfaceEv});
- \draw[densely dashed,thick] (0.65,{\interfaceEv}) -- (1.35,{\bulkEv});
- \draw[thick] (1.35,{\bulkEv}) -- (4.8,{\bulkEv});
- \draw[<->] (2.2,0) -- (2.2,{\bulkEc}) node[midway,right] {$\phi_s-\chi_c$};
- \draw[dashed] (0,{\interfaceEc})--(0.62,{\interfaceEc});
- \draw[dashed] (0.62,{\bulkEc})--(1.35,{\bulkEc});
- \draw[<->] (0.62,{\bulkEc}) -- (0.62,{\interfaceEc}) node[midway,left,xshift=-2pt] {$\Delta_s$};
- \draw[<->] (2.2,{\bulkEv}) -- (2.2,{\interfaceEv}) node[midway,right] {$\Delta_s$};
- \node at (3.6,1.12) {伝導帯端 $E_c$};
- \node[anchor=west] at (2.8,-2.3) {価電子帯端 $E_v$};
- \node at (-0.7,-0.5) {M};
- \node at (2.4,-0.5) {S};
- \node[align=center] at (3.7,2.35) {中間の形状は\\原問で未指定};
+ここで平方根は正の枝を取った。よって
+\begin{equation}
+ \boxed{n=\frac{1}{2e}\left[\frac{1}{\sqrt{R_H^{(0)}R_H^{(\infty)}}}-\frac{1}{R_H^{(\infty)}}\right]},\quad
+ \boxed{p=\frac{1}{2e}\left[\frac{1}{\sqrt{R_H^{(0)}R_H^{(\infty)}}}+\frac{1}{R_H^{(\infty)}}\right]}.
+\end{equation}
+非負密度を持つこのモデルの極限値は、同符号であることに加え
+\begin{equation}
+ 0<\frac{R_H^{(0)}}{R_H^{(\infty)}}
+ =\frac{d^2}{u^2}\le1
+\end{equation}
+を満たす。従って復元した$u$と$d$には$u\ge|d|$が成り立ち、$n=(u+d)/2$、$p=(u-d)/2$はともに非負となる。二つのHall係数を入力として使う場合にも、同符号と$|R_H^{(0)}|\le|R_H^{(\infty)}|$の両方が、このモデルとの適合条件である。
+
+\section*{[2.4] 縦伝導率の磁場依存性}
+\begin{equation}
+ \sigma(0)=\frac{(n+p)e^2\tau}{m},\qquad
+ \sigma(\infty)=\frac{(n-p)^2e^2\tau}{m(n+p)}.
+\end{equation}
+$n,p\ge0$なら$|(n-p)/(n+p)|\le1$なので、$p=0$では$\sigma$は一定、両種が存在し$n\ne p$なら単調に減少して正の高磁場極限へ近づく。代表的な曲線を規格化して示す（混合担体の曲線は$|n-p|/(n+p)=1/2$の例）。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[xscale=0.95,yscale=0.75,>=Stealth]
+ \begin{scope}
+  \draw[->] (0,0)--(5.6,0) node[right] {$x=\omega_c\tau$};
+  \draw[->] (0,0)--(0,3.0) node[above] {$\sigma/\sigma(0)$};
+  \draw (0,1)--(5.1,1);
+  \draw (0,0.08)--(0,-0.08) node[below] {$0$};
+  \node at (2.7,-0.55) {(a) $p/n=0$};
+  \node[left] at (0,1) {$1$};
+ \end{scope}
+ \begin{scope}[xshift=8.4cm]
+  \draw[->] (0,0)--(5.6,0) node[right] {$x=\omega_c\tau$};
+  \draw[->] (0,0)--(0,3.0) node[above] {$\sigma/\sigma(0)$};
+  \draw[dashed] (0,0.25)--(5.1,0.25);
+  \draw[thick,domain=0:5,samples=100] plot (\x,{(1+0.25*\x*\x)/(1+\x*\x)});
+  \draw (0,0.08)--(0,-0.08) node[below] {$0$};
+  \node at (2.7,-0.55) {(b) $p/n>0,\ p\ne n$};
+  \node[left] at (0,1) {$1$};
+ \end{scope}
 \end{tikzpicture}
-\end{center}
+\caption{縦伝導率の代表的な磁場依存性。右図では$[(n-p)/(n+p)]^2=1/4$の例を示す。}
+\end{figure}
 
-\section*{[2.2] 熱活性化と整流性}
-半導体内部のフェルミ準位は伝導帯端より$\phi_s-\chi_c>0$だけ低い。伝導帯内の状態のエネルギーを$E$、フェルミ準位を$E_F$とすると、非縮退近似でその状態の占有因子は$\exp[-(E-E_F)/(k_BT)]$である。界面では伝導帯端が$\Delta_s$だけ高くなるため、十分内部と同じ伝導帯端からのエネルギーを持つ状態同士の占有因子の比は
+\section*{[2.5] 電子・正孔密度が等しい場合}
+$p=n>0$では伝導率テンソルのHall成分が相殺する。[2.1]の行列から$j_y=2ne^2\tau E_y/[m(1+x^2)]$なので、全電流の条件$j_y=0$よりHall電場は$E_y=0$となる。このとき縦伝導率は
 \begin{equation}
- \frac{\exp[-(E+\Delta_s-E_F)/(k_BT)]}
-      {\exp[-(E-E_F)/(k_BT)]}
- =\exp\!\left(-\frac{\Delta_s}{k_BT}\right).
+ \sigma=\frac{2ne^2\tau/m}{1+x^2}\longrightarrow0\qquad(x\to\infty).
 \end{equation}
-従って平衡での界面近傍の伝導電子は少なく、半導体から金属への電子の供給は熱活性化によって抑えられる。
-
-平衡をゼロとする外部からの印加電圧を$V=V_M-V_S$とする。印加電圧が主に空乏層にかかる近似では、静電ポテンシャル差$\Phi_M-\Phi_S$は平衡値から$V$だけ変化する。電子の静電エネルギーは$-e\Phi$なので、
+$E_y=0$で各担体の定常運動方程式を解くと、縦速度は
 \begin{equation}
- \Delta_s(V)=\Delta_s(0)-eV.
+ \text{電子：}\quad v_x=-\frac{e\tau E_x}{m(1+x^2)},\qquad
+ \text{正孔：}\quad v_x=\frac{e\tau E_x}{m(1+x^2)},
 \end{equation}
-以下では半導体内部の温度と電子密度を一定とし、障壁を越える熱放出が電流を支配する範囲を考える。障壁が残り、界面を通過する割合の電圧依存を無視できるとき、SからMへの電子流は平衡時に比べて
-\begin{equation}
- \frac{\exp[-\Delta_s(V)/(k_BT)]}{\exp[-\Delta_s(0)/(k_BT)]}
- =\exp\!\left(\frac{eV}{k_BT}\right)
-\end{equation}
-倍となる。一方、Mのフェルミ準位と界面の伝導帯端はともに$-e\Phi_M$だけ動くため、その間の障壁$W-\chi_c$は変わらず、MからSへの電子流はほぼ一定である。
-
-平衡では両向きの電子流が釣り合う。Mを正にするとSからMへの流れが増え、その差として正味の電子流がSからMへ生じる。Mを負にするとSからMへの流れが抑えられ、ほぼ一定のMからSへの流れが残る。この非対称な電圧依存によって整流性が生じ、順方向の通常の電流は電子流と逆のMからSへ流れる。
+横速度はともに$v_y=-e\tau xE_x/[m(1+x^2)]$である。横速度は同方向だが電荷の符号が逆なので、等密度では横電流が相殺する。そのため、単一担体の場合のように横のローレンツ力を補償するHall電場が生じない。高磁場では縦速度が$1/(1+x^2)$の因子で抑えられ、電場方向の電流と縦伝導率がゼロへ近づく。
 \end{document}

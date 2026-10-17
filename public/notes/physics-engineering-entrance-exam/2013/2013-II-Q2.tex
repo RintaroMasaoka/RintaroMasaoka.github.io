@@ -1,123 +1,118 @@
-% Source problem: 2013ap_exam.pdf, PDF pp. 8--9.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h25ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=23mm]{geometry}
+\usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont{HaranoAjiMincho-Regular.otf}
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2013年 物理学II 第2問}
+\title{物理工学専攻 院試解答集\\2013年度 物理学II 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 速度空間でのミクロカノニカル分布}
-$N=2$ の全運動エネルギーは
+\section*{[1] Bose--Einstein分布}
+エネルギー $E$ の一粒子状態の平均占有数は
 \begin{equation}
- E=\frac{m}{2}(v_{x,1}^2+v_{y,1}^2+v_{x,2}^2+v_{y,2}^2).
+  \boxed{f_{BE}(E)=\frac{1}{\exp[(E-\mu)/(k_BT)]-1}.}
 \end{equation}
-したがって4成分を座標とする速度空間では、許される点は原点中心、半径
-\begin{equation}
- \boxed{R=\sqrt{\frac{2E}{m}}}
-\end{equation}
-の3次元球面上にある。ミクロカノニカル分布では、等しい微小エネルギー幅の殻に含まれる位相空間体積を等重みに数える。
-速度球面の面積要素を $dS$、半径方向の厚さを $dR$ とすると、殻の体積は $dS\,dR$ である。
-$E=mR^2/2$ を微分すれば
-\begin{equation}
-  dE=mR\,dR,\qquad dS\,dR=\frac{dS\,dE}{mR}.
-\end{equation}
-同じ球面上では $mR$ が一定なので、固定したエネルギー幅に対する重みは $dS$ に比例する。
-位置積分は速度方向に依存しない共通因子となり、ミクロカノニカル分布はこの球面に一様である。
+最低エネルギーを $E_0=0$ としたので、基底状態も含めて分母を正に保つには $\mu<0$ が必要である。凝縮相の熱力学極限では $\mu\to0^-$ を考え、励起状態 $E>0$ の分布には $\mu=0$ を用いる。この極限で基底状態の占有数は発散するため、凝縮粒子数は励起状態の分布と分けて数える。
 
-\section*{[2] $d$ 次元球面の表面積}
-半径 $r$ の球面を、最初の $d-1$ 座標 $q_1,\ldots,q_{d-1}$ で表すと
+\section*{[2] $\mu$ への依存}
+$E$ と $T>0$ を固定すると
 \begin{equation}
- q_d=\pm\sqrt{r^2-q_1^2-\cdots-q_{d-1}^2}.
+ \frac{\partial f_{BE}}{\partial\mu}
+ =\frac{e^{(E-\mu)/(k_BT)}}{k_BT\left(e^{(E-\mu)/(k_BT)}-1\right)^2}>0,
 \end{equation}
-各半球の面積要素はグラフ面積の公式から
-\begin{equation}
- dS=\sqrt{1+\sum_{j=1}^{d-1}\left(\frac{\partial q_d}{\partial q_j}\right)^2}
-       \,dq_1\cdots dq_{d-1}
-    =\frac{r}{\sqrt{r^2-\sum_{j=1}^{d-1}q_j^2}}\,dq_1\cdots dq_{d-1}.
-\end{equation}
-上下二つの半球を足し、各変数が残りの半径以内を動く積分にすると、問題文の式が得られる。たとえば
+なので $f_{BE}$ は $\mu$ とともに単調に増加する。以下は例として $E>0$ かつ $E/(k_BT)=1$ の概形である。許される $\mu\le0$ では $\mu=0$ に有限値で近づく。基底状態 $E=0$ では $\mu\to0^-$ で発散する。
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=3cm,>=Stealth]
+  \pgfmathsetmacro{\energyOverKT}{1}
+  \pgfmathsetmacro{\muMin}{-4}
+  \pgfmathsetmacro{\occupationAtZero}{1/(exp(\energyOverKT)-1)}
+  \draw[->] (-4.4,0)--(0.5,0) node[right] {$u=\mu/(k_BT)$};
+  \draw[->] (-4.3,0)--(-4.3,0.72) node[above] {$f_{BE}$};
+  \draw[dashed] (0,0)--(0,\occupationAtZero);
+  \draw[thick,samples=81] plot[domain=\muMin:0] (\x,{1/(exp(\energyOverKT-\x)-1)});
+  \draw (-4.35,0.5)--(-4.25,0.5) node[left,xshift=-3pt] {$0.5$};
+  \node[below] at (0,0) {$0$};
+  \node[below] at (\muMin,0) {$-4$};
+\end{tikzpicture}
+\end{center}
+
+\section*{[3] 状態密度}
+運動量空間でエネルギーが $E$ 以下の領域は半径 $\sqrt{2mE}$ の球である。スピン縮退がなく、状態を位相空間体積 $h^3$ ごとに数えると
 \begin{align}
- S_2(r)&=\int_{-r}^{r}dq_1\,\frac{2r}{\sqrt{r^2-q_1^2}},\\
- S_3(r)&=\int_{-r}^{r}dq_1
- \int_{-\sqrt{r^2-q_1^2}}^{\sqrt{r^2-q_1^2}}dq_2\,
- \frac{2r}{\sqrt{r^2-q_1^2-q_2^2}},\\
- S_4(r)&=\int_{-r}^{r}dq_1
- \int_{-\sqrt{r^2-q_1^2}}^{\sqrt{r^2-q_1^2}}dq_2
- \int_{-\sqrt{r^2-q_1^2-q_2^2}}^{\sqrt{r^2-q_1^2-q_2^2}}dq_3\,
- \frac{2r}{\sqrt{r^2-q_1^2-q_2^2-q_3^2}}.
+  \mathcal N(E)
+  &=\frac{V}{h^3}\frac{4\pi}{3}(2mE)^{3/2}
+   =\frac{V}{6\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{3/2},\\
+  D(E)&=\frac{d\mathcal N}{dE}
+   =\boxed{\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{1/2}.}
 \end{align}
-同じ構成を $d-1$ 重積分へ拡張できる。
 
-\section*{[3] $N=2$ の粒子1の速さ}
-速度ベクトル $\boldsymbol v_1$ が平面内で速さ $v_1$ と角度 $\theta$ を持つとする。エネルギー一定面上で粒子2の速さは
-\begin{equation}
- s=|\boldsymbol v_2|=\sqrt{R^2-v_1^2}.
-\end{equation}
-各 $\boldsymbol v_1$ に対し、残る2成分 $(v_{x,2},v_{y,2})$ は半径 $s$ の円周上を動く。エネルギーのデルタ関数を用いてその寄与を書くと
+\section*{[4] 励起粒子数の上限}
+固定した $E$ で占有数は $\mu$ とともに増すから、励起状態の粒子数は $\mu=0$ で最大となる。$\beta=1/(k_BT)$ とし $x=\beta E$ と変数変換すると
 \begin{align}
- P(v_1)\,dv_1
- &\propto \underbrace{2\pi v_1\,dv_1}_{\boldsymbol v_1\text{ の円環面積}}
- \int_{\mathbb R^2}d^2v_2\,
- \delta\!\left(E-\frac m2(v_1^2+v_2^2)\right)\\
- &\propto 2\pi v_1\,dv_1\,\frac{S_2(s)}{m s}.
+ N_t^{\max}
+ &=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}
+   (k_BT)^{3/2}\int_0^\infty\frac{x^{1/2}}{e^x-1}\,dx\\
+ &=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}
+   (k_BT)^{3/2}\Gamma(3/2)\zeta(3/2)\\
+ &=\boxed{V\zeta(3/2)\left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3/2}.}
 \end{align}
-$0<v_1<R$ で粒子2の速さを積分変数 $u$ とすると、デルタ関数の引数が0となるのは $u=s$ で、その微分の絶対値は $ms$ である。
-したがって上の殻積分は
-\begin{equation}
-  \int_0^\infty 2\pi u\,du\,
-  \delta\!\left(E-\frac m2(v_1^2+u^2)\right)
-  =\frac{2\pi s}{ms}=\frac{S_2(s)}{ms}=\frac{2\pi}{m}.
-\end{equation}
-ここで $S_2(s)=2\pi s$ は円周長であり、この殻積分は $v_1$ に依存しない。したがって速さの確率密度は
-\begin{equation}
- \boxed{P(v_1)\propto v_1\quad(0<v_1<R),\qquad
- P(v_1)=0\quad(v_1>R).}
-\end{equation}
-半径 $v_1$ の円環面積に比例するため、平面速度ベクトルの密度と速さの密度は異なる。
+従って $T\to0$ で $N_t^{\max}\to0$ となる。
 
-\section*{[4] 一般の $N$ に対する速さ分布}
-全エネルギー $E=N\epsilon$ のとき、$2N$ 次元速度球面の半径は
+\section*{[5] 臨界温度}
+臨界点では励起状態に全粒子を収容できる限界に達し、$N=N_t^{\max}(T_c)$ である。よって
 \begin{equation}
- R=\sqrt{\frac{2N\epsilon}{m}}.
+  \boxed{T_c=\frac{2\pi\hbar^2}{mk_B}
+  \left[\frac{N}{V\zeta(3/2)}\right]^{2/3}.}
 \end{equation}
-粒子1の二成分を固定すると、残る $2N-2$ 成分の速度空間は半径
-$s=\sqrt{R^2-v_1^2}$ の球面上にある。前問と同じエネルギー殻積分から
-\begin{equation}
- P(v_1)\,dv_1\propto 2\pi v_1\,dv_1\,
- \frac{S_{2N-2}(s)}{m s}.
-\end{equation}
-$d$ 次元球面の表面積は半径の $d-1$ 乗に比例するので
-$S_{2N-2}(s)\propto s^{2N-3}$。従って
-\begin{equation}
- \boxed{P(v_1)\propto v_1
- \left(\frac{2N\epsilon}{m}-v_1^2\right)^{N-2},\qquad
- 0<v_1<\sqrt{\frac{2N\epsilon}{m}}.}
-\end{equation}
-それより大きい速さでは $P(v_1)=0$ である。
 
-\section*{[5] Maxwell速さ分布への極限}
-$v_1$ を固定して $N\to\infty$ とする。$v_1$ に依らない係数を比例定数へまとめると
+\section*{[6] 凝縮成分}
+有限系での基底占有数は $N_0=f_{BE}(0)=[\exp(-\mu/k_BT)-1]^{-1}$ だから、$\mu=-k_BT\ln(1+1/N_0)$ である。$T<T_c$ では余剰粒子が基底状態を巨視的に占め、熱力学極限で $N_0\to\infty$ とともに $\mu\to0^-$ となる。この極限で励起状態の分布に $\mu=0$ を代入すると、その粒子数は $N_t^{\max}(T)$ に飽和する。残り
+\begin{equation}
+  N_0=N-N_t^{\max}(T)
+\end{equation}
+は $E=0$ の基底状態を巨視的に占める。したがって $E>0$ の連続状態の積分だけで凝縮粒子数を数えない。
+
+\section*{[7] 全エネルギーと定積熱容量}
+基底状態のエネルギーを0とすると、全エネルギーは励起状態の寄与だけである。
 \begin{align}
- P(v_1)&\propto v_1\left(1-\frac{mv_1^2}{2N\epsilon}\right)^{N-2}\\
- &\longrightarrow v_1\exp\!\left(-\frac{mv_1^2}{2\epsilon}\right).
+ U&=\int_0^\infty E D(E)f_{BE}(E)\,dE\\
+ &=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}
+   (k_BT)^{5/2}\int_0^\infty\frac{x^{3/2}}{e^x-1}\,dx\\
+ &=\boxed{\frac32V\zeta(5/2)
+   \left(\frac{m}{2\pi\hbar^2}\right)^{3/2}(k_BT)^{5/2}.}
 \end{align}
-これは二次元でのMaxwell速さ分布であり、先頭の $v_1$ は二次元の円環面積要素に由来する。
-
-\section*{[6] 温度}
-温度 $T$ の二次元Maxwell速さ分布は
-$P(v_1)\propto v_1\exp[-mv_1^2/(2k_BT)]$ である。指数を[5]と比べると
+固定 $N,V$ で微分する。凝縮相では $\mu=0$ であり、励起状態の $U$ は上式の温度依存だけを持つため
 \begin{equation}
- \boxed{T=\frac{\epsilon}{k_B}.}
+  \boxed{C_V=\left(\frac{\partial U}{\partial T}\right)_{N,V}
+   =\frac{15}{4}Vk_B\zeta(5/2)
+     \left(\frac{mk_BT}{2\pi\hbar^2}\right)^{3/2}.}
 \end{equation}
-これは各粒子に二つの並進自由度があり、平均運動エネルギーが
-$2(k_BT/2)=k_BT$ であることとも一致する。
+
+\section*{[8] 液体 $^4\mathrm{He}$ の数値評価}
+数密度を質量密度から求めると
+\begin{equation}
+ n=\frac{N}{V}=\frac{1.5\times10^2}{6.7\times10^{-27}}
+   =2.24\times10^{28}\ \mathrm{m^{-3}}.
+\end{equation}
+臨界温度は
+\begin{equation}
+ T_c=\frac{2\pi(1.1\times10^{-34}\,\mathrm{J\,s})^2}
+ { (6.7\times10^{-27}\,\mathrm{kg})(1.4\times10^{-23}\,\mathrm{J/K})}
+ \left(\frac{2.24\times10^{28}\,\mathrm{m^{-3}}}{2.61}\right)^{2/3}
+ =3.40\ \mathrm K.
+\end{equation}
+有効数字1桁では $\boxed{T_c\simeq3\ \mathrm K}$ である。
+
+\section*{[9] 理想気体模型との違い}
+実際の液体ヘリウムでは原子間相互作用を無視できず、相関のある液体となる。ここで用いた理想気体は相互作用を全く含まないため、その臨界温度は実験の超流動転移温度と一致する必要はない。
 
 \end{document}

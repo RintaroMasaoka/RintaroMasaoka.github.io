@@ -1,4 +1,5 @@
-% Source: 2024ap_exam.pdf, PDF p. 3.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/2024ap_exam.pdf
+% Source SHA-256: 303204b38405b7fed8cf6140ab3311e23d26c3bfd2afe778a46172dae774cfbc
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=23mm]{geometry}
 \usepackage{fontspec}
@@ -7,174 +8,159 @@
 \setCJKsansfont{HaranoAjiGothic-Medium.otf}
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,decorations.pathmorphing}
 \setlength{\parindent}{1em}
-\setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2024年 物理学 第2問}
+\setlength{\parskip}{0.4em}
+\title{物理工学専攻 院試解答集\\2024年度 物理学 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-\section*{[1] 障壁より低いエネルギー $0<\mathcal E<V_0$}
-原題の $A$ は左から入射する波の振幅、$B$ は反射波、$E$ は右へ透過する波の振幅である。障壁の左右でポテンシャルは同じなので両側の進行波数は $k$、障壁内の減衰定数は $\gamma$ である。
+$z$ 軸の正方向を鏡1から鏡2へとり、電場は $\boldsymbol{e}_x$、磁場は $\boldsymbol{e}_y$ の方向にとる。$\boldsymbol{e}_x\times\boldsymbol{e}_y=\boldsymbol{e}_z$ である。電場の複素振幅には問題文と同じく $e^{-i\omega t}$ の時間依存を用いる。真空中の波数を $q=\omega/c$ と記し、ばね定数 $k$ と区別する。
+以下の配置図はばねを付けた場合も示す。$A$は照射面積、$P$は後で求める鏡2への光圧で、矢印$AP$は鏡2を右へ押す力を表す。
 
-\subsection*{[1.1] $x=-a$ の接続}
-有限の段差では波動関数とその一階導関数が連続する。左側の $Ae^{ikx}+Be^{-ikx}$ と内部の $Ce^{\gamma x}+De^{-\gamma x}$ を $x=-a$ に代入して
-\begin{align}
- Ae^{-ika}+Be^{ika}&=Ce^{-\gamma a}+De^{\gamma a},\label{eq:left-psi}\\
- ik\bigl(Ae^{-ika}-Be^{ika}\bigr)&=\gamma\bigl(Ce^{-\gamma a}-De^{\gamma a}\bigr).\label{eq:left-der}
-\end{align}
-この二式が求める関係である。
-
-\subsection*{[1.2] $x=a$ の接続}
-内部解と右側の $Ee^{ikx}$ に同じ条件を課すと
-\begin{align}
- Ce^{\gamma a}+De^{-\gamma a}&=Ee^{ika},\label{eq:right-psi}\\
- \gamma\bigl(Ce^{\gamma a}-De^{-\gamma a}\bigr)&=ikEe^{ika}.\label{eq:right-der}
-\end{align}
-これが残る二式である。以下ではこれらを使って $A/E$ と $B/E$ を得る。
-
-\subsection*{[1.3] 透過率 $T_1$}
-式\eqref{eq:right-psi}, \eqref{eq:right-der} を加減すると
-\[
- Ce^{\gamma a}=\frac{E e^{ika}}2\left(1+\frac{ik}{\gamma}\right),\qquad
- De^{-\gamma a}=\frac{E e^{ika}}2\left(1-\frac{ik}{\gamma}\right).
-\]
-これを式\eqref{eq:left-psi}, \eqref{eq:left-der} に代入し、二式の和と差を取る。反射波については原題の式(3)に一致する
-\begin{align}
- \frac BE&=\frac{(ik-\gamma)(ik+\gamma)}{4ik\gamma}e^{-2\gamma a}
- -\frac{(ik+\gamma)(ik-\gamma)}{4ik\gamma}e^{2\gamma a}\notag\\
- &=-i\frac{k^2+\gamma^2}{2k\gamma}\sinh(2\gamma a).\label{eq:BE}
-\end{align}
-同じ計算で
-\begin{equation}
- \frac AE=e^{2ika}\left[\cosh(2\gamma a)
- +i\frac{\gamma^2-k^2}{2k\gamma}\sinh(2\gamma a)\right].\label{eq:AE}
-\end{equation}
-左右の波数が等しいため、入射・透過確率流の比は $T_1=|E/A|^2$ である。式\eqref{eq:AE} の絶対値を取って $\cosh^2u-\sinh^2u=1$ を使えば
-\begin{equation}
- \boxed{T_1=\left[1+\frac{(k^2+\gamma^2)^2}{4k^2\gamma^2}\sinh^2(2\gamma a)\right]^{-1}}.\label{eq:T1}
-\end{equation}
-実際、式\eqref{eq:BE}から $|B/A|^2=|B/E|^2T_1$ となり、式\eqref{eq:T1}は反射率と透過率の和が1であることとも一致する。
-
-\subsection*{[1.4] $\gamma/k\ll1$ かつ $a\gamma\ll1$}
-$\sinh(2\gamma a)=2\gamma a+O((\gamma a)^3)$ であり、$(k^2+\gamma^2)^2/k^4=1+O((\gamma/k)^2)$ である。式\eqref{eq:T1} の角括弧内の増分は、相対誤差 $O((\gamma/k)^2+(a\gamma)^2)$ で $k^2a^2$ となる。従って
-\[
- \boxed{T_1\simeq\frac{1}{1+k^2a^2}}\qquad(\gamma/k\ll1,\ a\gamma\ll1).
-\]
-ここでは $ka$ の大小は指定されておらず、この因子をさらに展開しない。
-
-\subsection*{[1.5] $a\gamma\gg1$}
-$\sinh^2(2\gamma a)\simeq e^{4\gamma a}/4$ を式\eqref{eq:T1} に入れる。指数項が支配的になるので
-\[
- \boxed{T_1\simeq\frac{16k^2\gamma^2}{(k^2+\gamma^2)^2}e^{-4\gamma a}}\qquad(a\gamma\gg1).
-\]
-指数 $4\gamma a$ は障壁の幅 $2a$ を確率（振幅二乗）で評価した結果である。
-
-\section*{[2] 障壁より高いエネルギー $\mathcal E>V_0$}
-\subsection*{[2.1] 透過率 $T_2(\mathcal E)$}
-障壁の内部も進行波となり、その波数は $q=\sqrt{2m(\mathcal E-V_0)}/\hbar$ である。両境界を連続につないで得た式\eqref{eq:T1}で $\gamma=iq$ と置いてもよい。$\sinh(2iqa)=i\sin(2qa)$ と $k^2-q^2=2mV_0/\hbar^2$ から
-\begin{equation}
- \boxed{T_2(\mathcal E)=\left[1+
- \frac{V_0^2}{4\mathcal E(\mathcal E-V_0)}
- \sin^2\!\left(\frac{2a\sqrt{2m(\mathcal E-V_0)}}{\hbar}\right)
- \right]^{-1}},\qquad \mathcal E>V_0.\label{eq:T2}
-\end{equation}
-
-\subsection*{[2.2] 概形と極大}
-式\eqref{eq:T2} の角括弧内で正弦二乗以外の因子は正である。従って $T_2\leq1$ であり、全ての透過率1の極大は
-\begin{equation}
- \boxed{\frac{2a\sqrt{2m(\mathcal E-V_0)}}{\hbar}=n\pi
- \quad\Longleftrightarrow\quad
- \mathcal E=V_0+\frac{n^2\pi^2\hbar^2}{8ma^2}},\qquad n=1,2,\ldots.\label{eq:resonance}
-\end{equation}
-これら以外に局所極大もない。$z=2aq$、$\beta=8ma^2V_0/\hbar^2>0$ と置くと、逆透過率の正の増分は
-\begin{equation}
- T_2^{-1}-1=\frac{\beta^2\sin^2z}{4z^2(z^2+\beta)}.
-\end{equation}
-$0<z<\pi$では$\sin z/z$も$1/(z^2+\beta)$も減少するため、$T_2$に内部の極大はない。$n\pi<z<(n+1)\pi$（$n\ge1$）では、この正の増分の対数微分の半分は
-\begin{equation}
- h(z)=\cot z-\frac1z-\frac{z}{z^2+\beta},\qquad
- h'(z)=-\csc^2z+\frac1{z^2}+\frac{z^2-\beta}{(z^2+\beta)^2}
- <-1+\frac2{\pi^2}<0.
-\end{equation}
-$h$は区間の左端で$+\infty$、右端で$-\infty$へ向かうので、零点は一つだけである。その点は逆透過率の極大、すなわち$T_2$の谷である。従って共鳴点以外に局所極大はない。
-
-$n=0$ は $\mathcal E=V_0$ であり、指定された $\mathcal E>V_0$ の範囲外である。境界の片側極限は $\sin z\sim z$ から
-\[
- \lim_{\mathcal E\downarrow V_0}T_2
- =\left(1+\frac{2mV_0a^2}{\hbar^2}\right)^{-1}.
-\]
-また $\mathcal E\gg V_0$ では振動する項の係数が $O(V_0^2/\mathcal E^2)$ となるため、$T_2\to1$ である。つまり共鳴の谷も高エネルギーでは1へ近づく。
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
- width=0.86\linewidth,height=61mm,
- xmin=1,xmax=5.45,ymin=0,ymax=1.08,
- xlabel={$\mathcal E/V_0$},ylabel={$T_2$},
- xtick={1,2,3,4,5},
- ytick={0,0.5,1},grid=major,
- tick label style={font=\small},
- label style={font=\normalsize},
- clip=false]
-\addplot[black,thick,samples=500,domain=1.001:5.45]
- {1/(1+(sin(deg(2*pi*sqrt(x-1)))^2)/(4*x*(x-1)))};
-\addplot[only marks,mark=o,mark size=1.6pt,black]
- coordinates {(1,0.0919997)};
-\addplot[only marks,mark=*,mark size=1.5pt,black]
- coordinates {(1.25,1) (2,1) (3.25,1) (5,1)};
-\end{axis}
+\begin{center}
+\begin{tikzpicture}[>=Latex,scale=0.92]
+ \draw[->] (-0.7,0)--(8.6,0) node[right] {$z$};
+ \draw[very thick] (0,-0.65)--(0,0.7) node[above] {鏡1};
+ \draw[very thick] (5,-0.65)--(5,0.7) node[above] {鏡2};
+ \draw[<->] (0,-0.45)--(5,-0.45) node[midway,below] {$d=z_2-z_1$};
+ \draw[decorate,decoration={coil,aspect=0.5,segment length=6pt,amplitude=4pt}] (5.05,0.30)--(7.2,0.30);
+ \draw[very thick] (7.25,-0.2)--(7.25,0.8);
+ \draw[->,thick] (5.1,0.9)--(6.1,0.9) node[right] {$A P$};
+ \node[below] at (0,-0.76) {$z_1$}; \node[below] at (5,-0.76) {$z_2$};
+ \node at (3.2,0.7) {$E_0$};
 \end{tikzpicture}
-\caption{$2a\sqrt{2mV_0}/\hbar=2\pi$ と選んだ場合の式\eqref{eq:T2} の概形。白丸は $\mathcal E=V_0$ の片側極限で、定義域には含まれない。黒点は透過率1の共鳴である。}
-\label{fig:T2}
-\end{figure}
-図\ref{fig:T2}は障壁の幅を一例に固定している。一般の幅ではピークの横位置は式\eqref{eq:resonance} に従う。
+\end{center}
 
-\section*{[3] 右側が $V(x)=-V_1$ の場合}
-\subsection*{[3.1] 透過率 $T_3$ と反射率 $R_3$}
-$0<\mathcal E<V_0$、$V_1>0$の範囲を保つ。左側と障壁内の解は [1] と同じで、右側の透過波は $Ee^{ik_1x}$ と書く。$k_1=\sqrt{2m(\mathcal E+V_1)}/\hbar$ である。右境界 $x=a$ では $\psi(a)=Ee^{ik_1a}$、$\psi'(a)=ik_1Ee^{ik_1a}$。障壁内では任意の点$x$で
-\begin{align*}
- \psi(x)&=\psi(a)\cosh[\gamma(x-a)]+\frac{\psi'(a)}\gamma\sinh[\gamma(x-a)],\\
- \psi'(x)&=\gamma\psi(a)\sinh[\gamma(x-a)]+\psi'(a)\cosh[\gamma(x-a)].
-\end{align*}
-この二式に$x=-a$を代入して右境界の値を幅$2a$だけ左境界まで運ぶと
-\begin{align*}
- \psi(-a)&=Ee^{ik_1a}\left[\cosh(2\gamma a)-i\frac{k_1}{\gamma}\sinh(2\gamma a)\right],\\
- \psi'(-a)&=Ee^{ik_1a}\left[-\gamma\sinh(2\gamma a)+ik_1\cosh(2\gamma a)\right].
-\end{align*}
-一方、左境界では $\psi(-a)=Ae^{-ika}+Be^{ika}$、$\psi'(-a)=ik(Ae^{-ika}-Be^{ika})$ である。和と差を解くと
-\begin{align}
- \frac{2Ae^{-ika}}{Ee^{ik_1a}}
- &=\left(1+\frac{k_1}{k}\right)\cosh(2\gamma a)
- +i\left(\frac{\gamma}{k}-\frac{k_1}{\gamma}\right)\sinh(2\gamma a),\label{eq:den3}\\
- \frac{2Be^{ika}}{Ee^{ik_1a}}
- &=\left(1-\frac{k_1}{k}\right)\cosh(2\gamma a)
- -i\left(\frac{\gamma}{k}+\frac{k_1}{\gamma}\right)\sinh(2\gamma a).\label{eq:num3}
-\end{align}
-進行波 $Fe^{ipx}$ の確率流は $\hbar p|F|^2/m$ である。右側の速度が違うため、透過率には $k_1/k$ が掛かる。式\eqref{eq:den3}, \eqref{eq:num3} の絶対値から
-\begin{equation}
- \boxed{T_3=\frac{k_1}{k}\left|\frac EA\right|^2
- =\frac{4kk_1}{(k+k_1)^2\cosh^2(2\gamma a)
- +(\gamma-kk_1/\gamma)^2\sinh^2(2\gamma a)}}.\label{eq:T3}
-\end{equation}
-\begin{equation}
- \boxed{R_3=\left|\frac BA\right|^2
- =\frac{(k-k_1)^2\cosh^2(2\gamma a)
- +(\gamma+kk_1/\gamma)^2\sinh^2(2\gamma a)}
- {(k+k_1)^2\cosh^2(2\gamma a)
- +(\gamma-kk_1/\gamma)^2\sinh^2(2\gamma a)}}.\label{eq:R3}
-\end{equation}
-二式の分母から $R_3$ の分子を引くと $4kk_1(\cosh^2-\sinh^2)=4kk_1$ となり、$R_3+T_3=1$ が確かめられる。また $k_1=k$ とすれば式\eqref{eq:T1}に戻る。
-
-\subsection*{[3.2] $\mathcal E$ 固定で $V_1\to\infty$}
-$V_1$ を大きくすると $k_1\to\infty$ だが、$k,\gamma,a$ は固定される。式\eqref{eq:T3} の分母の主要項は $k_1^2[\cosh^2(2\gamma a)+(k/\gamma)^2\sinh^2(2\gamma a)]$ なので
+\section*{[1.1] 完全反射鏡の間の角周波数}
+完全導体表面では接線方向の電場が零である。$u=z+L/2$ とおけば鏡間は $0<u<L$ であり、電場の空間部分は両端で零となる正弦波である。したがって
 \[
- T_3\sim\frac{4k}{k_1\{\cosh^2(2\gamma a)+(k/\gamma)^2\sinh^2(2\gamma a)\}}
- \propto V_1^{-1/2}.
+ \sin(q_nL)=0,\qquad q_n=\frac{n\pi}{L}\quad(n=1,2,\ldots),
+ \qquad \boxed{\omega_n=\frac{n\pi c}{L}}.
 \]
-従って求める漸近値は $\boxed{\lim_{V_1\to\infty}T_3=0}$ である。右側への速度は増すが、その速度差に伴う反射が強くなる。
+$n$ の偶奇にかかわらず許される。偶数 $n$ と奇数 $n$ はそれぞれ中心 $z=0$ に節をもつ状態と腹をもつ状態に対応する。
+
+\section*{[1.2] 電場・磁束密度の複素振幅}
+腹の電場振幅を $E_0$ とし、電場の全体位相を実数の正の係数に選ぶと
+\[
+ \boxed{\widetilde{\boldsymbol E}_n(z)
+ =E_0\sin\!\left[q_n\left(z+\frac L2\right)\right]\boldsymbol e_x}.
+\]
+ファラデーの法則 $\boldsymbol\nabla\times\boldsymbol E=-\partial_t\boldsymbol B$ の $y$ 成分は、上記の時間依存では
+$\partial_z\widetilde E_x=i\omega_n\widetilde B_y$ である。よって
+\[
+ \boxed{\widetilde{\boldsymbol B}_n(z)
+ =-i\frac{E_0}{c}\cos\!\left[q_n\left(z+\frac L2\right)\right]\boldsymbol e_y}.
+\]
+電場の節で磁束密度は腹になり、両者は時間的に $\pi/2$ だけずれる。これらを $e^{-i\omega_nt}$ に掛けて実部を取れば、実際の電場と磁束密度が得られる。
+
+\section*{[1.3] 鏡2への放射圧}
+$\widetilde{\boldsymbol H}=\widetilde{\boldsymbol B}/\mu_0$ を代入すると、$\widetilde{\boldsymbol E}_n\times\widetilde{\boldsymbol H}_n^*$ は純虚数である。従って鏡間の平均エネルギー流と平均運動量密度はともに零である。しかし、これは鏡への力が零であることを意味しない。定在波は振幅 $E_0/2$ の右向き進行波と左向き進行波に分解できる。右向き波の時間平均強度は $I=\tfrac12\varepsilon_0c(E_0/2)^2$ であり、鏡2で完全反射すると単位面積・単位時間あたりの運動量変化は $2I/c$ となる。従って $+z$ 方向に作用する圧力は
+\[
+ \boxed{P=\frac{2I}{c}=\frac{\varepsilon_0E_0^2}{4}}.
+\]
+別法として、鏡面では $E_x=0$ であり、$|B_y|$ の振幅が $E_0/c$ となることから、磁気圧の時間平均 $\langle B^2/(2\mu_0)\rangle=E_0^2/(4\mu_0c^2)$ も同じ値を与える。
+
+\section*{[2] ばねで支えられた完全反射鏡}
+鏡2に働く放射圧の力は $+z$ 方向に $AP$、自然長から $\delta$ だけ移動したばねの力は $-k\delta$ である。静的平衡条件 $AP-k\delta=0$ と [1.3] より
+\[
+ \boxed{\delta=\frac{\varepsilon_0AE_0^2}{4k}>0}.
+\]
+圧力に面積を掛けたものが力なので、右辺の単位は長さである。完全反射の定在波が成立する角周波数は移動後の鏡間長に応じて選ばれるが、腹の振幅を $E_0$ に固定したときの鏡面圧力は [1.3] と同じである。
+
+\section*{[3.1] 部分反射鏡を通して入射する光}
+鏡間長を $d=z_2-z_1$ とする。鏡1から鏡間へ入る進行波の複素振幅は $tE_1$、$t=\sqrt{1-r^2}$ である。鏡間で一往復すると、鏡1・鏡2でそれぞれ $-r,-1$ の反射と位相 $e^{2iqd}$ を受け、複素振幅は $r e^{2iqd}$ 倍される。$0<r<1$ だから多重反射の和は収束し、右向き進行波の振幅は
+\[
+ a=\frac{tE_1}{1-r e^{2iqd}}.
+\]
+完全反射する鏡2により左向き波の振幅の大きさも $|a|$ である。実際、鏡間の電場は
+\[
+ \widetilde{\boldsymbol E}(z)
+ =a\bigl[e^{iq(z-z_1)}-e^{2iqd}e^{-iq(z-z_1)}\bigr]\boldsymbol e_x
+ =2ia e^{iqd}\sin[q(z-z_2)]\boldsymbol e_x.
+\]
+鏡2の位置では零となり、腹では二つの進行波が同位相に重なるので $E_0=2|a|$ となる。$E_1$ を正の実振幅とすると
+\[
+ \boxed{\frac{E_0}{E_1}=
+ \frac{2\sqrt{1-r^2}}{\sqrt{(1-r)^2+4r\sin^2(qd)}}}.
+\]
+特に $z_1=-L/2,z_2=L/2$ では $d=L$ を代入する。共振条件 $qL=n\pi$ も満たす場合に限り、比は $2\sqrt{(1+r)/(1-r)}$ になる。[3.1]単独では $\omega$ にその条件は課されていないため、上式の $d=L$ が一般の答えである。
+
+\section*{[3.2] 半値となる鏡1の移動量}
+問題文の条件から、$z_1=-L/2$、すなわち $d=L$ で比が極大になるように $\omega$ を選ぶ。これは $qL=n\pi$ ($n$ は正の整数) を満たす選択であり、極大値は
+\[
+ \left(\frac{E_0}{E_1}\right)_{\!\max}
+ =\frac{2\sqrt{1-r^2}}{1-r}.
+\]
+鏡1を $\pm\Delta$ 動かすと $d=L\mp\Delta$ となる。比が極大値の $1/\sqrt2$ となる条件は、分母の二乗が共振時の2倍になること、すなわち
+\[
+ 4r\sin^2(q\Delta)=(1-r)^2.
+\]
+$0<q\Delta<\pi/2$ の枝を問題文が指定しているので
+\[
+ \boxed{\Delta=\frac{c}{\omega}
+ \arcsin\!\left(\frac{1-r}{2\sqrt r}\right)}.
+\]
+$1/2<r<1$ では逆正弦の引数は $0$ と $1$ の間にあり、指定された範囲に入る。
+
+\section*{[3.3] 微小振動の実効ばね定数}
+ここでは入射振幅 $E_1$ と角周波数 $\omega$ を固定し、光学場は鏡2の動きに即座に追従する。鏡2が右へ動けば $d=z_2-z_1$ が増す。[3.1] と [1.3] より、鏡2を右へ押す力は
+\[
+ F_{\mathrm{opt}}(d)=AP(d),\qquad
+ P(d)=\frac{\varepsilon_0E_0(d)^2}{4}
+ =\frac{\varepsilon_0(1-r^2)E_1^2}
+ {(1-r)^2+4r\sin^2(qd)}.
+\]
+鏡1を固定して鏡2の平衡位置を $z_{2*}=L/2+\delta$、平衡時の鏡間長を$d_*=z_{2*}-z_1$とする。平衡条件は $k\delta=F_{\mathrm{opt}}(d_*)$ であるから、入射光があるとき $\delta>0$ となる。平衡点からの微小変位 $x=z_2-z_{2*}$ に対する合力は
+\begin{equation}
+ F_{\mathrm{opt}}(d_*+x)-k(\delta+x)
+ =[F_{\mathrm{opt}}'(d_*)-k]x+O(x^2)
+\end{equation}
+である。従って一次項を $-k'x$ と書けば
+\begin{align*}
+ k'&=k-\left.\frac{dF_{\mathrm{opt}}}{dd}\right|_{d_*}\\
+ &=k+\frac{4Arq\varepsilon_0(1-r^2)E_1^2\sin(2qd_*)}
+ {\bigl[(1-r)^2+4r\sin^2(qd_*)\bigr]^2}.
+\end{align*}
+分母は正なので、$k'-k$ の符号は $\sin(2qd_*)$ で決まる。まず $|\delta|\ll\Delta$ に基づき、$\delta/\Delta$ の一次までの光ばね効果を比較する。平衡条件 $k\delta=F_{\mathrm{opt}}(d_*)$ を使うと
+\[
+ \frac{k'-k}{k}
+ =\frac{4rq\delta\sin(2qd_*)}
+ {(1-r)^2+4r\sin^2(qd_*)}.
+\]
+共振条件 $qL=n\pi$ より、(a) の基準位置 $d=L$ では光圧の傾きが零であり、一次では $k'\simeq k$ となる。(b) の基準位置 $d=L-\Delta$ では鏡2を右へ動かすと共振へ近づき、光圧が増して復元力を弱める。(c) の $d=L+\Delta$ では共振から遠ざかり、光圧が減って復元力を強める。実際、(b),(c) ではそれぞれ
+\[
+ \frac{k'-k}{k}=\mp q\delta\cot(q\Delta)
+ +O\!\left((\delta/\Delta)^2\right).
+\]
+ここで $\delta/\Delta$ の一次項だけを残す追加の近似をすれば、硬化がその次数で見えるのは (c) である。
+
+ただし、厳密な平衡点はどの配置でも自然長から $\delta>0$ だけ右にある。(a) では $d_*=L+\delta$ なので光圧は極大を少し過ぎて減少し、やはり復元力を増す。上式でその補正は
+\[
+ \left.\frac{k'-k}{k}\right|_{\mathrm{(a)}}
+ =\frac{8r q^2\delta^2}{(1-r)^2}+O((q\delta)^4)>0.
+\]
+(b) は $d_*=L-\Delta+\delta$、(c) は $d_*=L+\Delta+\delta$ であり、$0<\delta\ll\Delta$ の範囲では先ほどの符号を保つ。本問は $\delta/\Delta$ の一次で打ち切るよう指定していないので、$k'>k$ となる答えは $\boxed{\text{(a), (c)}}$ である。(a) の硬化は一次の近似では見えない二次の効果である。
+
+\begin{center}
+\begin{tikzpicture}[>=Latex,xscale=1.25,yscale=1.45]
+ \draw[->] (-2.3,0)--(2.4,0) node[right] {$d-L$};
+ \draw[->] (-2.15,0)--(-2.15,2.0) node[above] {$P(d)$};
+ \draw[thick,domain=-2:2,samples=100,smooth] plot (\x,{1.65/(1+3*(\x)^2)});
+ \draw[dashed] (-2.05,0.825)--(2.05,0.825);
+ \draw[dotted] (-0.577,0)--(-0.577,0.825);
+ \draw[dotted] (0.577,0)--(0.577,0.825);
+ \node[above left] at (-0.577,0.825) {(b)};
+ \node[above] at (0,1.65) {(a) の共振位置};\fill (0.12,{1.65/(1+3*(0.12)^2)}) circle (1.2pt);
+ \node[above right] at (0.577,0.825) {(c)};
+ \node[below] at (-0.577,0) {$-\Delta$};
+ \node[below] at (0,0) {$0$};
+ \node[below] at (0.577,0) {$+\Delta$};
+ \node[left] at (-2.15,0.825) {$P_{\max}/2$};
+\end{tikzpicture}
+
+{\small 共振近傍の光圧の模式図。(a) の実際の平衡点は共振位置より右にあり、黒点はその小さなずれを表す。}
+\end{center}
 \end{document}

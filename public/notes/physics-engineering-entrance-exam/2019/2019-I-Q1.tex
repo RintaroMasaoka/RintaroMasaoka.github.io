@@ -1,0 +1,92 @@
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h31ap_exam.pdf
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{HaranoAjiMincho-Regular.otf}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\title{物理工学専攻 院試解答集\\2019年度 物理学I 第1問}
+\author{政岡凜太郎}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{[1.1] 円軌道速度}
+半径$R$の円運動に必要な向心力と万有引力を等置すると
+\begin{equation}
+ \frac{mv_1^2}{R}=\frac{GMm}{R^2},\;
+ \boxed{v_1=\sqrt{\frac{GM}{R}}}.
+\end{equation}
+
+\section*{[1.2] 脱出速度}
+無限遠で速度がゼロとなる境界が脱出の最小速度である。重力位置エネルギーを無限遠でゼロとすると、この境界での全エネルギーはゼロなので
+\begin{equation}
+ \frac12mv_2^2-\frac{GMm}{R}=0,\;
+ \boxed{v_2=\sqrt{\frac{2GM}{R}}}.
+\end{equation}
+
+\section*{[1.3] 楕円軌道の長軸}
+初期の全エネルギーは$E=m(v^2/2-GM/R)<0$である。設問で与えられた軌道式から、最近点と最遠点の距離はそれぞれ$l/(1+\varepsilon)$、$l/(1-\varepsilon)$である。その和が長軸の長さなので、設問[1]の$l=h^2/(GM)$と$1-\varepsilon^2=-2h^2E/(G^2M^2m)$を代入すると
+\begin{equation}
+ L=\frac{l}{1+\varepsilon}+\frac{l}{1-\varepsilon}
+ =\frac{2l}{1-\varepsilon^2}=-\frac{GMm}{E}.
+\end{equation}
+従って
+\begin{equation}
+ \boxed{L=\frac{GMm}{-E}
+ =\frac{GM}{GM/R-v^2/2}}.
+\end{equation}
+$v=v_1$では$L=2R$、脱出境界$v\to v_2^-$では$L\to\infty$となり、円軌道・放物線軌道の極限とも整合する。
+
+\section*{[2.1] 系の公転角速度}
+ロッドの全質量は$2m$である。$l/R_0$の零次では二質点への重力の合力を重心に置いた質量$2m$への重力で近似でき、これが円運動の向心力を与える。
+\begin{equation}
+ 2mR_0\omega_0^2=\frac{GM(2m)}{R_0^2},\;
+ \boxed{\omega_0=\sqrt{\frac{GM}{R_0^3}}}.
+\end{equation}
+
+\section*{[2.2] 慣性モーメント}
+重心から各質点までの距離は$l/2$であるため、$z$軸まわりでは
+\begin{equation}
+ \boxed{I=2m\left(\frac l2\right)^2=\frac{ml^2}{2}}.
+\end{equation}
+
+\section*{[2.3] 重力トルク}
+$x$を半径方向、$y$を公転方向とし、ロッド方向を$\boldsymbol e_l=(\cos\phi,\sin\phi)$とする。質点の位置は$\boldsymbol R_\pm=\boldsymbol R_0\pm(l/2)\boldsymbol e_l$で、重力は$\boldsymbol F_\pm=-GMm\boldsymbol R_\pm/|\boldsymbol R_\pm|^3$である。重心まわりのトルクは
+\begin{align}
+ N_z&=\left[\frac l2\boldsymbol e_l\times\boldsymbol F_+ -\frac l2\boldsymbol e_l\times\boldsymbol F_-\right]_z\\
+ &=\frac{GMmR_0l}{2}\sin\phi\left[
+ (R_0^2+R_0l\cos\phi+l^2/4)^{-3/2}
+ -(R_0^2-R_0l\cos\phi+l^2/4)^{-3/2}\right].
+\end{align}
+$(1+z)^{-3/2}=1-3z/2+O(z^2)$を使い、各項を$l/R_0$の一次まで展開すると
+\begin{equation}
+ (R_0^2\pm R_0l\cos\phi+l^2/4)^{-3/2}
+ =\frac1{R_0^3}\left[1\mp\frac{3l\cos\phi}{2R_0}
+ +O\!\left(\frac{l^2}{R_0^2}\right)\right].
+\end{equation}
+二項の差は$l$を$-l$に変えると符号が反転するため、偶数次の項は相殺する。従って角括弧は$-3l\cos\phi/R_0^4+O(l^3/R_0^6)$となり、
+\begin{equation}
+ \boxed{N_z=-\frac32\frac{GMm l^2}{R_0^3}\sin\phi\cos\phi
+ =-\frac34ml^2\omega_0^2\sin2\phi+O\!\left(\frac{GMm l^4}{R_0^5}\right)}.
+\end{equation}
+正の$\phi$を半径方向から公転方向へ測るため、$\phi>0$の小さな傾きには負の復元トルクが働く。
+
+\section*{[2.4] 平衡角と安定性}
+$N_z=0$より
+\begin{equation}
+ \boxed{\phi_0=0,\ \frac\pi2,\ \pi,\ \frac{3\pi}{2}}.
+\end{equation}
+慣性系でのロッドの絶対角を$\psi(t)=\omega_0t+\phi(t)$とすると、公転角速度$\omega_0$は一定なので$\ddot\psi=\ddot\phi$である。従って$I\ddot\phi=N_z$を用い、$\phi=\phi_0+\delta\phi$とすると、一次の運動方程式は
+\begin{equation}
+ I\,\delta\ddot\phi=N_z'(\phi_0)\delta\phi,\;
+ \delta\ddot\phi=-3\omega_0^2\cos(2\phi_0)\delta\phi.
+\end{equation}
+$\phi_0=0,\pi$では復元力が働き、安定な小振動の角振動数は
+\begin{equation}
+ \boxed{\Omega=\sqrt3\,\omega_0}.
+\end{equation}
+$\phi_0=\pi/2,3\pi/2$では係数が正となるため、摂動は指数的に増大し不安定である。重力勾配はロッドを半径方向へ揃える。
+\end{document}

@@ -1,4 +1,4 @@
-% Source problem: 2012ap_exam.pdf, PDF pp. 4--5.
+% Source problem: https://www.ap.t.u-tokyo.ac.jp/themes/ap_t_u-tokyo/graduate/pdf/h24ap_exam.pdf
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=24mm]{geometry}
 \usepackage{fontspec}
@@ -10,83 +10,172 @@
 \usetikzlibrary{arrows.meta}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0.35em}
-\title{物理工学専攻 院試解答集\\2012年 物理学I 第2問}
+\renewcommand{\figurename}{図}
+\title{物理工学専攻 院試解答集\\2012年度 物理学I 第2問}
 \author{政岡凜太郎}
 \date{}
 \begin{document}
 \maketitle
 
-陰極を $x=0$、陽極を $x=L$ とし、電位差を $V>0$ とする。電子は陰極から陽極へ進む一方、慣用電流は逆向きである。原本の装置を一次元で表すと次のようになる。
-\begin{center}
-\begin{tikzpicture}[>=Stealth]
-  \pgfmathsetmacro{\gapLength}{5}
-  \pgfmathsetmacro{\electrodeHeight}{1.8}
-  \pgfmathsetmacro{\electrodeInset}{0.3}
-  \pgfmathsetmacro{\electrodeMidpoint}{\electrodeHeight/2}
-  \pgfmathsetmacro{\dimensionY}{-0.7*\electrodeHeight}
-  \draw[very thick] (0,0)--(0,\electrodeHeight) node[above] {陰極};
-  \draw[very thick] (\gapLength,0)--(\gapLength,\electrodeHeight) node[above] {陽極};
-  \draw[->,thick] (\electrodeInset,\electrodeMidpoint)--(\gapLength-\electrodeInset,\electrodeMidpoint) node[midway,above] {電子 $v>0$};
-  \draw[->,thick] (\gapLength-\electrodeInset,\electrodeHeight/5)--(\electrodeInset,\electrodeHeight/5) node[midway,below] {$i=-i_0$};
-  \node[below=3pt,align=center] at (0,0) {$x=0$\\$\phi=0$};
-  \node[below=3pt,align=center] at (\gapLength,0) {$x=L$\\$\phi=V$};
-  \draw[<->] (0,\dimensionY)--(\gapLength,\dimensionY) node[midway,below] {$L$};
+\section*{[1] 電子の散乱模型}
+散乱直後から次の散乱までの時間を $t$ とする。この間、電場を $\boldsymbol{E}=E\boldsymbol{e}_z$ と書けば、電子の電荷が符号付きの $q$ であることから
+\begin{equation}
+  m\frac{\mathrm{d}v_z}{\mathrm{d}t}=qE,\qquad
+  v_z(t)=\frac{qE}{m}t\quad(0\le t<2\tau).
+\end{equation}
+散乱周期 $2\tau$ で平均すると
+\begin{equation}
+  \boxed{v_a=\frac{1}{2\tau}\int_0^{2\tau}v_z(t)\,\mathrm{d}t
+  =\frac{qE\tau}{m}.}
+\end{equation}
+電子の数密度は $n$ なので電流密度は $j_z=nqv_a$ であり、電荷の符号を含めて
+\begin{equation}
+  \boldsymbol{j}=\frac{nq^2\tau}{m}\boldsymbol{E}=\sigma\boldsymbol{E},
+  \qquad \boxed{\sigma=\frac{nq^2\tau}{m}}.
+\end{equation}
+円柱の断面積は $\pi a^2$ だから、$I=j_z\pi a^2$、電圧の大きさは $V=EL$ である。したがって
+\begin{equation}
+  I=\frac{nq^2\tau\pi a^2}{mL}V=\frac{\sigma\pi a^2}{L}V,
+\end{equation}
+となり、電流は電圧に比例する。
+
+単位時間・単位体積あたりに電場が電子へ与える仕事は
+\begin{equation}
+  J=\boldsymbol{j}\cdot\boldsymbol{E}=\sigma E^2
+  =\boxed{\frac{I^2}{\sigma\pi^2a^4}}.
+\end{equation}
+一方、電子1個は一周期の終わりに速さ $|qE|2\tau/m$ となり、その運動エネルギーを散乱ごとに失う。散乱頻度は $1/(2\tau)$ なので、単位体積・単位時間あたりの損失は
+\begin{equation}
+  n\frac{1}{2\tau}\frac{m}{2}\left(\frac{2qE\tau}{m}\right)^2
+  =\frac{nq^2\tau}{m}E^2=\sigma E^2=J.
+\end{equation}
+電場が電子にする仕事が、散乱で失われる運動エネルギーに変わる。
+
+\section*{[2] 電磁場のエネルギー流}
+円柱軸を $+z$ 方向、横断面の極座標の方位角方向を $\boldsymbol{e}_\theta$ とする。問題の定常電流は $+z$ 向きである。長い導体の中央部を考え、端の影響を無視する。軸方向の電流に対して、局所オーム則 $\boldsymbol{j}=\sigma\boldsymbol{E}$ から電場も軸方向となる。軸対称な定常場を $\boldsymbol{E}=E_z(r)\boldsymbol{e}_z$ と書けば、$\nabla\times\boldsymbol{E}=0$ の方位角成分は $-\partial_rE_z=0$ だから、電場の大きさは横断面で一定である。磁場はこの直線状の円柱電流が作る場であり、右ねじの向きの方位角方向を向く。その大きさを、以下でアンペールの法則から求める。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth,scale=0.95]
+  \pgfmathsetmacro{\conductorRadius}{1}
+  \pgfmathsetmacro{\regionRatio}{0.56}
+  \pgfmathsetmacro{\regionRadius}{\regionRatio*\conductorRadius}
+  \pgfmathsetmacro{\ellipseRatio}{0.25}
+  \pgfmathsetmacro{\outerEllipseHeight}{\ellipseRatio*\conductorRadius}
+  \pgfmathsetmacro{\regionEllipseHeight}{\ellipseRatio*\regionRadius}
+  \pgfmathsetmacro{\cylinderLength}{2.55}
+  \pgfmathsetmacro{\fieldArrowLength}{0.45*\conductorRadius}
+  \pgfmathsetmacro{\fluxAngle}{-30}
+  % Cross-section: z is out of the page; H is tangential and S is inward.
+  \begin{scope}[xshift=-3.0cm]
+    \draw[thick] (0,0) circle (\conductorRadius);
+    \draw[orange!80!black,thick,dashed] (0,0) circle (\regionRadius);
+    \node at (0,0) {$\odot$};
+    \node[below left] at (-0.12,-0.12) {$C$};
+    \draw[->] (0,0) -- (\regionRadius,0) node[midway,above] {$r$};
+    \draw[blue,-{Stealth[length=2.5mm]},thick] (\regionRadius,0) -- (\regionRadius,\fieldArrowLength)
+      node[above] {$\boldsymbol{H}$};
+    \pgfmathsetmacro{\fluxStartX}{\regionRadius*cos(\fluxAngle)}
+    \pgfmathsetmacro{\fluxStartY}{\regionRadius*sin(\fluxAngle)}
+    \pgfmathsetmacro{\fluxEndRadius}{\regionRadius-\fieldArrowLength}
+    \pgfmathsetmacro{\fluxEndX}{\fluxEndRadius*cos(\fluxAngle)}
+    \pgfmathsetmacro{\fluxEndY}{\fluxEndRadius*sin(\fluxAngle)}
+    \draw[red!75!black,-{Stealth[length=2.5mm]},thick] (\fluxStartX,\fluxStartY) -- (\fluxEndX,\fluxEndY);
+    \node[red!75!black,below right] at (\fluxStartX,\fluxStartY) {$\boldsymbol{S}$};
+    \node[below] at (0,-1.45) {横断面（$\odot$: $+z$ 向き）};
+  \end{scope}
+  % Axial view: the same coaxial region C and positive current direction.
+  \begin{scope}[xshift=2.5cm]
+    \draw[thick] (0,0) ellipse [x radius=\conductorRadius,y radius=\outerEllipseHeight];
+    \draw[thick] (-\conductorRadius,0) -- (-\conductorRadius,-\cylinderLength);
+    \draw[thick] (\conductorRadius,0) -- (\conductorRadius,-\cylinderLength);
+    \draw[thick] (0,-\cylinderLength) ellipse [x radius=\conductorRadius,y radius=\outerEllipseHeight];
+    \draw[orange!80!black,dashed] (0,0) ellipse [x radius=\regionRadius,y radius=\regionEllipseHeight];
+    \draw[orange!80!black,dashed] (-\regionRadius,0) -- (-\regionRadius,-\cylinderLength);
+    \draw[orange!80!black,dashed] (\regionRadius,0) -- (\regionRadius,-\cylinderLength);
+    \draw[orange!80!black,dashed] (0,-\cylinderLength) ellipse [x radius=\regionRadius,y radius=\regionEllipseHeight];
+    \draw[very thick,blue,-{Stealth[length=2.5mm]}] (-0.25*\conductorRadius,-0.86*\cylinderLength) -- (-0.25*\conductorRadius,-0.16*\cylinderLength)
+      node[midway,left] {$I$};
+    \draw[very thick,blue,-{Stealth[length=2.5mm]}] (0.25*\conductorRadius,-0.86*\cylinderLength) -- (0.25*\conductorRadius,-0.16*\cylinderLength)
+      node[midway,right] {$\boldsymbol{E}$};
+    \draw[<->] (1.3*\conductorRadius,0) -- (1.3*\conductorRadius,-\cylinderLength) node[midway,right] {$L$};
+    \node[below] at (0,-1.15*\cylinderLength) {軸方向};
+  \end{scope}
 \end{tikzpicture}
-\end{center}
+\caption{横断面で $+z$ 方向電流は紙面手前向き。磁場は方位角方向、エネルギー流は半径内向きである。軸方向図は導体と領域 $C$ の同軸関係を示す。}
+\end{figure}
 
-\section*{[1] 電子の速度}
-電子が陰極を出るときの運動エネルギーを無視できる。電荷 $-e$ の電位エネルギーは $-e\phi$ なので、陰極から $x$ までのエネルギー保存は
+\subsection*{[2.1] 一様な導体}
+半径 $r<a$ の円周を貫く電流は $I(r)=\sigma E\pi r^2$ である。アンペールの法則 $\oint\boldsymbol{H}\cdot\mathrm{d}\boldsymbol{\ell}=I(r)$ より
 \begin{equation}
-  \frac12 m v(x)^2-e\phi(x)=0.
+  \boldsymbol{H}(r)=\frac{\sigma Er}{2}\boldsymbol{e}_\theta.
 \end{equation}
-従って陽極向きを正とする速度は
+したがって $\boldsymbol{e}_z\times\boldsymbol{e}_\theta=-\boldsymbol{e}_r$ を使うと
 \begin{equation}
-  \boxed{v(x)=\sqrt{\frac{2e\phi(x)}{m}}}.
+  \boxed{\boldsymbol{S}=\boldsymbol{E}\times\boldsymbol{H}
+  =-\frac{\sigma E^2r}{2}\boldsymbol{e}_r,\qquad
+  |\boldsymbol{S}|=\frac{\sigma E^2r}{2}.}
 \end{equation}
+エネルギーは導体表面から中心へ向かって流れる。
 
-\section*{[2] 定常電流}
-電荷保存則は $\partial\rho/\partial t+\partial i/\partial x=0$ である。定常状態では $\partial\rho/\partial t=0$ だから $\partial i/\partial x=0$、すなわち $i$ は一定である。電子数密度を $n>0$、速度を $v>0$ とすると電子の電荷は $-e$ なので
+\subsection*{[2.2] 半径 $r$ の円柱領域}
+領域 $C$ の側面積は $2\pi rL$ である。両端面では $\boldsymbol{S}$ が面に平行なので流束はなく、側面を通って $C$ へ入る電力は
 \begin{equation}
-  i=-env=-i_0,\qquad i_0>0.
+  P_{\mathrm{in}}=|\boldsymbol{S}|\,2\pi rL
+  =\pi r^2L\sigma E^2.
 \end{equation}
+体積 $\pi r^2L$ の領域内で発生するジュール熱は
+\begin{equation}
+  P_{\mathrm{J}}=\int_C\sigma E^2\,\mathrm{d}V
+  =\pi r^2L\sigma E^2=P_{\mathrm{in}}.
+\end{equation}
+定常状態では領域内に電磁エネルギーが蓄積しないため、流入した電磁エネルギーが同じ領域内のジュール熱に変わる。
 
-\section*{[3] 電位の微分方程式}
-定常電流から $n=i_0/(ev)$ であり、これをPoisson方程式 $\epsilon_0\phi''=en$ に代入すると
-\begin{align}
-  \phi''(x)
-  &=\frac{i_0}{\epsilon_0 v(x)}
-   =\frac{i_0}{\epsilon_0}\sqrt{\frac{m}{2e}}\,\phi(x)^{-1/2}.
-\end{align}
-従って
+\subsection*{[2.3] 半径に依存する電気伝導率}
+定常場では磁束密度 $\boldsymbol{B}$ が時間に依存せず、$\partial\boldsymbol{B}/\partial t=0$ なので、ファラデーの法則から
+$\boldsymbol{\nabla}\times\boldsymbol{E}=0$ である。軸方向の場を
+$\boldsymbol{E}=E_z(r)\boldsymbol{e}_z$ と書くと、その方位角成分は
 \begin{equation}
-  \boxed{A=\frac{i_0}{\epsilon_0}\sqrt{\frac{m}{2e}},\qquad \alpha=-\frac12.}
+  (\boldsymbol{\nabla}\times\boldsymbol{E})_\theta
+  =-\frac{\partial E_z}{\partial r}=0.
 \end{equation}
+従って電場は半径にも依存しない。以下ではこの一様な値を $E$ と書く。局所オーム則から
+\begin{equation}
+  \boldsymbol{j}(r)=\sigma(r)E\boldsymbol{e}_z.
+\end{equation}
+全電流を導体断面で積分すると
+\begin{equation}
+  I=2\pi E\int_0^a r'\sigma(r')\,\mathrm{d}r',
+  \qquad
+  \boxed{j(r)=\frac{\sigma(r)I}
+  {2\pi\displaystyle\int_0^a r'\sigma(r')\,\mathrm{d}r'}.}
+\end{equation}
+半径 $r$ 以内を流れる電流は $I(r)=2\pi E\int_0^r r'\sigma(r')\,\mathrm{d}r'$ だから、アンペールの法則から
+\begin{equation}
+  H_\theta(r)=\frac{E}{r}\int_0^r r'\sigma(r')\,\mathrm{d}r',
+  \qquad
+  \boldsymbol{S}(r)=-\frac{E^2}{r}\left(\int_0^r r'\sigma(r')\,\mathrm{d}r'\right)\boldsymbol{e}_r.
+\end{equation}
+側面を通じて領域 $C$ に流入する電力は
+\begin{equation}
+  P_{\mathrm{in}}=|\boldsymbol{S}(r)|\,2\pi rL
+  =2\pi LE^2\int_0^r r'\sigma(r')\,\mathrm{d}r'.
+\end{equation}
+これに対し、$C$ 内で発生するジュール熱は
+\begin{equation}
+  P_{\mathrm{J}}=\int_C\boldsymbol{j}\cdot\boldsymbol{E}\,\mathrm{d}V
+  =2\pi LE^2\int_0^r r'\sigma(r')\,\mathrm{d}r'=P_{\mathrm{in}}.
+\end{equation}
+よって導電率が半径方向に変わっても、電磁エネルギーの流入と局所的なジュール発熱は領域ごとに一致する。
 
-\section*{[4] 電位分布}
-$A>0$ であり、$x>0$ では $\phi$ は増加する。右辺の $\phi^{-1/2}$ は陰極端 $\phi=0$ で定義されないので、微分方程式は $x>0$ で積分し、$x\to0^+$ で $\phi,\phi'\to0$ を課して積分定数を定める。微分方程式に $\phi'$ を掛けると
+半径依存の式は $0<r<a$ で、示した積分が存在する範囲で成り立つ。中心での場の極限は $\sigma(r)$ の振る舞いにも依存する。例えば軸近傍で $0\le\sigma(r)\le\sigma_{\max}$ と有界なら
 \begin{equation}
-  \frac12\bigl(\phi'(x)\bigr)^2
-  =2A\sqrt{\phi(x)},\qquad
-  \phi'(x)=2\sqrt{A}\,\phi(x)^{1/4}.
+  0\le\int_0^r r'\sigma(r')\,\mathrm{d}r'
+  \le\frac{\sigma_{\max}r^2}{2},\qquad
+  |H_\theta(r)|\le\frac{|E|\sigma_{\max}r}{2},\qquad
+  |\boldsymbol S(r)|\le\frac{E^2\sigma_{\max}r}{2}.
 \end{equation}
-この式をさらに積分して
-\begin{equation}
-  \frac43\phi(x)^{3/4}=2\sqrt{A}\,x
-\end{equation}
-を得る。よって陰極境界を満たす電位は
-\begin{equation}
-  \boxed{\phi(x)=\left(\frac{9A}{4}\right)^{2/3}x^{4/3}
-  =\left[\frac{9i_0}{4\epsilon_0}\sqrt{\frac{m}{2e}}\right]^{2/3}x^{4/3}.}
-\end{equation}
-実際、この解は $\phi(0)=0$ および $\phi'(0)=0$ を満たし、$x>0$ で $\phi''>0$ となる。
-ただし $\phi''(x)=\frac49(9A/4)^{2/3}x^{-2/3}$ は $x\to0^+$ で発散する。したがって微分方程式は $x>0$ で用い、陰極での電位と電場の条件は $x\to0^+$ の極限として課している。
+従ってこの条件下では両者が $r\to0$ で0に近づき、中心の方位角・半径方向が一意に定まらなくても場のベクトルは連続に0へ延長できる。一様導体もこの場合に含まれる。
 
-\section*{[5] 電流電圧則}
-陽極で $\phi(L)=V$ とおくと、電位分布を $i_0$ について解いて
-\begin{equation}
-  \boxed{i_0=\frac49\epsilon_0\sqrt{\frac{2e}{m}}\,
-    \frac{V^{3/2}}{L^2}.}
-\end{equation}
-これは平板真空ダイオードの空間電荷制限電流密度である。$i_0$ は電圧の $3/2$ 乗に比例し、電極間隔の二乗に反比例する。符号付き慣用電流は $i=-i_0$ である。
 
 \end{document}
