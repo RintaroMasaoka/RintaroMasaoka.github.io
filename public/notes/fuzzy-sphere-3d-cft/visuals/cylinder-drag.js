@@ -3,7 +3,7 @@
  const tex=(el,s)=>{el.dataset.tex=s;katex.render(s,el,{throwOnError:true,output:'html',strict:'error'});};
  document.querySelectorAll('[data-tex]').forEach(el=>tex(el,el.dataset.tex));
  const defect=false;
- let activeTau=.45, geometry; 
+ let activeTau=.45, geometry;
  const NS='http://www.w3.org/2000/svg',times=[-1,0,1],dashes=['3 3','','8 3'];
  function shape(root,name,attrs){const n=document.createElementNS(NS,name);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));root.append(n);return n;}
  function panel(id){const root=document.getElementById(id);root.replaceChildren();const w=root.clientWidth,h=root.clientHeight;
