@@ -1,0 +1,68 @@
+{
+  "target": "src/content/notes/fuzzy-sphere-3d-cft.md",
+  "revision": {
+    "src/content/notes/fuzzy-sphere-3d-cft.md": "a0e7225b2f8be6d907518da01865f38cf9f51378c72c3c3a16a26944bbdbcf02",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/visuals.css": "41f5acf843c4f6532ecdeef2a03ff33825f8f024b6b98519a6b40fc8310b9f4e",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/orbitals.html": "5928e2eb4542dd63acdad2700b267743d91110ae4729eafe201e442d3ab13ab0",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/embed.js": "16b2f6eba75fe36ddd502f288a7ee16621b07190c0af0d1e4d686349eddd1161",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/spectrum.html": "c36765369b8300428ac25d1c8566707dff608df5ecf16285478d2d09785d6cfc",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/visuals.js": "44c308599d34893c90501d95f03d4e2af14daf8ce98a65472023c74586909154"
+  },
+  "reader_baseline": "Existing LLL wavefunction formulas and m/s labels; existing primary spectrum table and stress tensor calibration.",
+  "scope": "Two inserted visual units only; existing Japanese prose and equations unchanged.",
+  "isolation": "Three fresh no-history agents, each assigned one explicit perspective. Unit 1 frozen before unit 2 release; exact packet paths supplied. Reviewers forbidden discovery and suffix access.",
+  "lanes": {
+    "subject_prerequisite": {
+      "reviewer": "subject_reader",
+      "units": [
+        {
+          "id": 1,
+          "verdict": "PASS",
+          "witness": "Modulus of supplied spinor wavefunction gives latitude-only density; azimuth integration gives 2pi|psi|² probability per unit cos(theta). Caption bounds scale comparison to fixed s."
+        },
+        {
+          "id": 2,
+          "verdict": "PASS",
+          "witness": "Existing table gives operator identities, sectors, spin and dimension pairs; legend/axes/caption license comparing each pair; T calibration baseline is explicit."
+        }
+      ]
+    },
+    "explanation_act": {
+      "reviewer": "act_reader",
+      "units": [
+        {
+          "id": 1,
+          "verdict": "PASS",
+          "witness": "Continuous density, normalization, and shared fixed-s color scale direct distribution comparison without implying grid points."
+        },
+        {
+          "id": 2,
+          "verdict": "PASS",
+          "witness": "Eight selected primaries, named comparison marks, T calibration and omitted descendants keep scope and evidence status explicit."
+        }
+      ]
+    },
+    "visual_inference": {
+      "reviewer": "visual_reader",
+      "units": [
+        {
+          "id": 1,
+          "verdict": "PASS",
+          "witness": "Equatorial band and peak at cos(theta)=0 match. Supplemental s=3,m=±3 screenshots show north/south migration; s=1/8,m=0 show narrowing on common horizontal axis. Original static-only uncertainty retained."
+        },
+        {
+          "id": 2,
+          "verdict": "PASS",
+          "witness": "Four pairs at ell=0, three at ell=2, one at ell=4 match table. Filled/open legend and selected exact values identify comparison. Tiny differences require numerical readout."
+        }
+      ]
+    }
+  },
+  "limits": "Independent readers judged visible relations, not exhaustive scientific validity or runtime behavior. Runtime checks are separate in browser-check.json. Existing whole-note Japanese acceptance is not newly certified.",
+  "typography": {
+    "renderer": "KaTeX 0.16.47, output html",
+    "fonts": "Local shipped KaTeX_Main, KaTeX_Math, KaTeX_AMS loaded in both themes/viewports",
+    "labels": "data-tex attributes plus dynamic calls to tex() in visuals.js; controls and plot labels use KaTeX; prose caption remains native document text"
+  },
+  "production": "Fresh remote-main checkout: full Astro production build passed; static build browser checks at 1440/390px in both themes passed with no page errors. Density normalization error <1e-12; m clamp, odd-sector filtering and selected readout passed. Language/download CI preflights passed."
+}

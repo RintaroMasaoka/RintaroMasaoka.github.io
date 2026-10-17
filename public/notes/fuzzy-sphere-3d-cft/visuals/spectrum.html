@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ising primary dimensions</title>
+<link rel="stylesheet" href="vendor/katex.min.css"><link rel="stylesheet" href="visuals.css">
+<script defer src="vendor/katex.min.js"></script><script defer src="visuals.js"></script>
+</head><body data-view="spectrum">
+<main aria-labelledby="heading">
+<h2 id="heading" data-tex="\text{Ising primary dimensions}\quad (N=16)">Ising primary dimensions (N=16)</h2>
+<div class="controls"><div id="sector" class="sector" role="group" aria-label="Ising Z2 sector"><button type="button" data-value="all" data-tex="\text{All}" aria-pressed="true">All</button><button type="button" data-value="-" data-tex="\mathbb Z_2=-1" aria-pressed="false">Odd</button><button type="button" data-value="+" data-tex="\mathbb Z_2=+1" aria-pressed="false">Even</button></div>
+<div class="legend"><span><i class="filled"></i><span data-tex="\text{Fuzzy sphere}">Fuzzy sphere</span></span><span><i class="open"></i><span data-tex="\text{Reference}">Reference</span></span></div></div>
+<div id="spectrum" class="spectrum-plot plot"></div>
+<div class="state-picker" id="states" aria-label="Select a primary"></div>
+<div id="selected" class="selected" aria-live="polite"></div>
+<p class="caption">Eight primaries from the table above. Filled and open marks compare the same operator; the short line joins its two values. <span data-tex="T_{\mu\nu}">T</span> fixes the scale at <span data-tex="\Delta_T=3">Delta T=3</span>. Descendants are omitted.</p>
+<noscript>See the preceding table for all numerical values.</noscript>
+</main>
+</body></html>

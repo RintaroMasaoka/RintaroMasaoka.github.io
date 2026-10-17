@@ -1,0 +1,36 @@
+{
+  "orbitals.html": [
+    "\\text{LLL orbital density}",
+    "\\text{North}",
+    "\\text{South}",
+    "0",
+    "|\\psi_m(\\theta,\\phi)|^2",
+    "\\psi_m\\propto u^{s+m}v^{s-m},\\quad N_m=2s+1",
+    "\\cos\\theta",
+    "m",
+    "s"
+  ],
+  "spectrum.html": [
+    "\\text{Ising primary dimensions}\\quad (N=16)",
+    "\\text{All}",
+    "\\mathbb Z_2=-1",
+    "\\mathbb Z_2=+1",
+    "\\text{Fuzzy sphere}",
+    "\\text{Reference}",
+    "T_{\\mu\\nu}",
+    "\\Delta_T=3"
+  ],
+  "dynamic-labels": {
+    "source": "visuals.js",
+    "calls": [
+      "el,el.dataset.tex))",
+      "el,value)",
+      "document.getElementById('orbital-label'),`m=${m}`)",
+      "document.getElementById('spin-label'),`s=${s}`)",
+      "document.getElementById('count'),`N_m=${2*s+1}`)",
+      "document.getElementById('ceiling'),`\\\\frac{${2*s+1}}{4\\\\pi}`)",
+      "b,r.name)",
+      "document.getElementById('selected'),`${selectedRow.name}:\\\\quad\\\\Delta_{\\\\rm FS}=${selectedRow.fs.toFixed(3)},\\\\quad\\\\Delta_{\\\\rm ref}=${selectedRow.ref.toFixed(3)}`)"
+    ]
+  }
+}

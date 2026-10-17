@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLL orbital density</title>
+<link rel="stylesheet" href="vendor/katex.min.css"><link rel="stylesheet" href="visuals.css">
+<script defer src="vendor/katex.min.js"></script><script defer src="visuals.js"></script>
+</head>
+<body data-view="orbitals">
+<main aria-labelledby="heading">
+<h2 id="heading" data-tex="\text{LLL orbital density}">LLL orbital density</h2>
+<div class="controls">
+<label class="slider"><span id="spin-label"></span><input id="spin" type="range" min="1" max="8" step="1" value="3" aria-label="Monopole charge s"></label>
+<label class="slider"><span id="orbital-label" aria-live="polite"></span><input id="orbital" type="range" min="-3" max="3" value="0" step="1" aria-label="Orbital angular momentum m"></label>
+<span id="count"></span>
+</div>
+<div class="orbital-panels">
+<section class="sphere-panel" aria-label="Probability density on the sphere">
+<canvas id="sphere" width="520" height="440" role="img" aria-label="Continuous probability density on the sphere. The selected m state has rotationally symmetric density about the z axis."></canvas>
+<span class="north" data-tex="\text{North}">North</span><span class="south" data-tex="\text{South}">South</span>
+<div class="color-key"><span data-tex="0">0</span><span class="gradient" aria-hidden="true"></span><span id="ceiling"></span></div>
+<div data-tex="|\psi_m(\theta,\phi)|^2">Orbital density</div>
+</section>
+<section class="profile-panel" aria-label="Latitude probability profile"><div class="plot" id="profile"></div></section>
+</div>
+<div class="formula" data-tex="\psi_m\propto u^{s+m}v^{s-m},\quad N_m=2s+1">LLL wavefunction</div>
+<p class="caption">Continuous density on the sphere; the curve gives probability per unit <span data-tex="\cos\theta">cos(theta)</span>. Each state integrates to one. The color scale is shared across <span data-tex="m">m</span> at fixed <span data-tex="s">s</span>.</p>
+<noscript>Enable JavaScript to compare orbital densities.</noscript>
+</main>
+</body></html>

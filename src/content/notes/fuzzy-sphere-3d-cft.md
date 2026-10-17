@@ -139,6 +139,8 @@ $$
 
 この書き方では、$m=s$ の状態は $u^{2s}$、$m=-s$ の状態は $v^{2s}$ である。これらはそれぞれ北極・南極付近に重みを持つ。中間の $m$ は緯度方向に分布する。ただし、これらは厳密な位置固有状態ではない。$m$ basis は $L_z$ を対角化する便利な基底であり、「格子点」ではない。
 
+<iframe data-fuzzy-visual src="/notes/fuzzy-sphere-3d-cft/visuals/orbitals.html" title="LLL orbital density: vary s and m" width="100%" height="650" loading="lazy" style="border:0;display:block;margin:1.5rem 0;border-radius:8px;"></iframe>
+
 この holomorphic な同次多項式表示は LLL に特有である。高い Landau level では
 
 $$
@@ -855,6 +857,8 @@ $N=16$ の fuzzy-sphere spectrum では、次の primary operators が同定さ�
 | $\sigma'$ | $-$ | $+$ | 0 | 5.303 | 5.291 |
 | $T'_{\mu\nu}$ | $+$ | $+$ | 2 | 5.583 | 5.509 |
 | $\epsilon_{\mu_1\mu_2\mu_3\mu_4}$ | $+$ | $+$ | 4 | 5.103 | 5.023 |
+
+<iframe data-fuzzy-visual src="/notes/fuzzy-sphere-3d-cft/visuals/spectrum.html" title="N=16 Ising primary dimensions compared with reference values" width="100%" height="590" loading="lazy" style="border:0;display:block;margin:1.5rem 0;border-radius:8px;"></iframe>
 
 表にはさらに高い primary や、parity-odd primary の $\epsilon^{P-}$、$\sigma^{P-}$ も載っている。ただし、最初に確認すべきなのは、低い primary とその conformal multiplet の対応である。
 
@@ -1632,3 +1636,5 @@ Magnetic line defect は、全ての $S^2$ time slices の north/south pole に�
 - Hu, He, Zhu, "Operator Product Expansion Coefficients of the 3D Ising Criticality via Quantum Fuzzy Sphere," Phys. Rev. Lett. 131, 031601 (2023). arXiv: https://arxiv.org/abs/2303.08844
 - Han, Hu, Zhu, He, "Conformal four-point correlators of the 3D Ising transition via the quantum fuzzy sphere," Phys. Rev. B 108, 235123 (2023). arXiv: https://arxiv.org/abs/2306.04681
 - Hu, He, Zhu, "Solving Conformal Defects in 3D Conformal Field Theory using Fuzzy Sphere Regularization," Nature Communications 15, 3659 (2024). arXiv: https://arxiv.org/abs/2308.01903
+
+<script src="/notes/fuzzy-sphere-3d-cft/visuals/embed.js" defer></script>

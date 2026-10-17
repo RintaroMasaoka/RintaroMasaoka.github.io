@@ -1,0 +1,177 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "orbitals",
+      "height": 534.703125,
+      "viewport": 541,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "density-normalization",
+      "maxError": 9.769962616701378e-14
+    },
+    {
+      "test": "clamp",
+      "value": "1"
+    },
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "spectrum",
+      "height": 531.53125,
+      "viewport": 538,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "odd-sector",
+      "buttons": 3
+    },
+    {
+      "test": "selection",
+      "text": "σ\n′\n:Δ\nFS\n\t​\n\n=5.303,Δ\nref\n\t​\n\n=5.291"
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "orbitals",
+      "height": 534.703125,
+      "viewport": 541,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "density-normalization",
+      "maxError": 9.769962616701378e-14
+    },
+    {
+      "test": "clamp",
+      "value": "1"
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "spectrum",
+      "height": 531.53125,
+      "viewport": 538,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "odd-sector",
+      "buttons": 3
+    },
+    {
+      "test": "selection",
+      "text": "σ\n′\n:Δ\nFS\n\t​\n\n=5.303,Δ\nref\n\t​\n\n=5.291"
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "orbitals",
+      "height": 682.203125,
+      "viewport": 689,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "density-normalization",
+      "maxError": 9.769962616701378e-14
+    },
+    {
+      "test": "clamp",
+      "value": "1"
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "spectrum",
+      "height": 620.390625,
+      "viewport": 627,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "odd-sector",
+      "buttons": 3
+    },
+    {
+      "test": "selection",
+      "text": "σ\n′\n:Δ\nFS\n\t​\n\n=5.303,Δ\nref\n\t​\n\n=5.291"
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "orbitals",
+      "height": 682.203125,
+      "viewport": 689,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "density-normalization",
+      "maxError": 9.769962616701378e-14
+    },
+    {
+      "test": "clamp",
+      "value": "1"
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "spectrum",
+      "height": 620.390625,
+      "viewport": 627,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ]
+    },
+    {
+      "test": "odd-sector",
+      "buttons": 3
+    },
+    {
+      "test": "selection",
+      "text": "σ\n′\n:Δ\nFS\n\t​\n\n=5.303,Δ\nref\n\t​\n\n=5.291"
+    }
+  ],
+  "errors": []
+}
