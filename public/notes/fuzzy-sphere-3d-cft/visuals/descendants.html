@@ -4,21 +4,15 @@
 <title>Scalar conformal descendants</title>
 <link rel="stylesheet" href="vendor/katex.min.css"><link rel="stylesheet" href="visuals.css">
 <style>
-main{max-width:850px;padding:12px}h2{margin-bottom:8px}.level-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}.level-controls .buttons{display:flex;gap:6px}.level-controls button{cursor:pointer;min-width:38px}.level-controls button[aria-pressed=true]{border-color:var(--accent);box-shadow:inset 0 -3px var(--accent)}.graph{position:relative;height:315px;margin-top:6px}.graph svg{width:100%;height:100%;display:block;overflow:visible}.tex-label{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;font-size:14px}.graph .axis-title{font-size:13px}.level-summary{min-height:27px;text-align:center;font-size:14px}.key{font-size:13px;margin:4px 0;line-height:1.5}.key .katex{white-space:normal}.caption{margin-top:6px}.group{fill:var(--surface);stroke:var(--line);stroke-width:1}.group.active{stroke:var(--accent);stroke-width:2}.dot{fill:var(--muted)}.dot.active{fill:var(--accent)}.link{fill:none;stroke:var(--muted);stroke-width:1.3;opacity:.45}.link.active{stroke:var(--accent);stroke-width:2;opacity:1}.grid{stroke:var(--line);stroke-dasharray:3 5;stroke-width:.7}.active-band{fill:var(--surface)}
-@media(max-width:420px){.tex-label{font-size:12px}.graph{height:310px}.level-controls{gap:5px;font-size:13px}.level-controls button{padding:5px 7px;min-width:34px}.key{font-size:12px}.level-summary{font-size:13px}.caption{font-size:12px}h2{font-size:14px}}
+main{max-width:850px;padding:12px}h2{margin-bottom:8px}.graph{position:relative;height:315px;margin-top:6px}.graph svg{width:100%;height:100%;display:block;overflow:visible}.tex-label{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;font-size:14px}.graph .axis-title{font-size:13px}.level-summary{min-height:27px;text-align:center;font-size:14px}.key{font-size:13px;margin:4px 0;line-height:1.5}.key .katex{white-space:normal}.caption{margin-top:6px}.group{fill:var(--surface);stroke:var(--line);stroke-width:1}.group.active{stroke:var(--accent);stroke-width:2}.dot{fill:var(--muted)}.dot.active{fill:var(--accent)}.link{fill:none;stroke:var(--muted);stroke-width:1.3;opacity:.45}.link.active{stroke:var(--accent);stroke-width:2;opacity:1}.grid{stroke:var(--line);stroke-dasharray:3 5;stroke-width:.7}.active-band{fill:var(--surface)}
+@media(max-width:420px){.tex-label{font-size:12px}.graph{height:310px}.key{font-size:12px}.level-summary{font-size:13px}.caption{font-size:12px}h2{font-size:14px}}
 </style>
 <script defer src="vendor/katex.min.js"></script><script defer src="descendants.js"></script>
 </head><body><main aria-labelledby="heading">
 <h2 id="heading" data-tex="\text{Scalar conformal descendants}"></h2>
-<div class="level-controls"><span data-tex="\text{Derivative level}"></span><div class="buttons" role="group" aria-label="Derivative level">
-<button type="button" data-level="0" aria-pressed="false" aria-label="Select derivative level 0" data-tex="0"></button>
-<button type="button" data-level="1" aria-pressed="false" aria-label="Select derivative level 1" data-tex="1"></button>
-<button type="button" data-level="2" aria-pressed="true" aria-label="Select derivative level 2" data-tex="2"></button>
-<button type="button" data-level="3" aria-pressed="false" aria-label="Select derivative level 3" data-tex="3"></button>
-</div></div>
 <div id="graph" class="graph" role="img" aria-label="Scalar conformal multiplet without vanishing descendants. At dimensions Delta, Delta plus 1, Delta plus 2, and Delta plus 3, the spins are respectively 0; 1; 0 and 2; 1 and 3. Each spin group contains 2 ell plus 1 magnetic projections. Arrows connect neighboring levels under one translation generator followed by spin projection."></div>
-<div id="summary" class="level-summary" aria-live="polite"></div>
+<div id="summary" class="level-summary"></div>
 <p class="key"><span data-tex="\text{One dot: one magnetic projection}"></span><br><span data-tex="\text{Arrow: }P_\mu\text{, then spin projection}"></span></p>
-<p class="caption">Ideal CFT pattern for a scalar primary with no vanishing descendants, through three derivatives. The highlighted level is selected above; arrows into it show the allowed spin projections. Each spin group has <span data-tex="2\ell+1"></span> states. At level 2, the trace <span data-tex="\square O"></span> has spin 0, and the traceless second derivative has spin 2. Finite size can shift the spacings between spin multiplets; exact rotation symmetry preserves the magnetic degeneracy within each multiplet.</p>
-<noscript>Enable JavaScript to inspect derivative levels.</noscript>
+<p class="caption">Ideal CFT pattern for a scalar primary with no vanishing descendants, through three derivatives. The highlighted second level exhibits the trace and traceless split. Each spin group has <span data-tex="2\ell+1"></span> states. At level 2, the trace <span data-tex="\square O"></span> has spin 0, and the traceless second derivative has spin 2. Finite size can shift the spacings between spin multiplets; exact rotation symmetry preserves the magnetic degeneracy within each multiplet.</p>
+<noscript>Enable JavaScript to display the diagram.</noscript>
 </main></body></html>

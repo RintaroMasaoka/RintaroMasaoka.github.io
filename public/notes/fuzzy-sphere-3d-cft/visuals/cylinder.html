@@ -5,15 +5,12 @@
 <script defer src="vendor/katex.min.js"></script><script defer src="geometry.js"></script>
 </head><body data-geometry="cylinder"><main>
 <h2 data-tex="\text{Radial quantization: flat space to cylinder}">Radial quantization: flat space to cylinder</h2>
-<div class="controls">
-<label class="slider"><span id="tau-label"></span><input id="tau" type="range" min="-1" max="1" value="0" step="0.01" aria-label="Radial time tau"></label>
-<label class="slider"><span id="angle-label"></span><input id="angle" type="range" min="0" max="180" value="60" step="1" aria-label="Polar angle theta in degrees"></label>
-</div>
+<div class="mapping" data-tex="\tau=\log r,\qquad r\mapsto er\;\Longleftrightarrow\;\tau\mapsto\tau+1"></div>
 <div class="map-panels">
 <section><div class="domain" data-tex="\mathbb R^3\setminus\{0\}">Punctured flat space</div><div id="flat" class="map-plot" role="img" aria-label="Concentric sphere sections in flat space; selected radius and direction"></div></section>
 <section><div class="domain" data-tex="S^2\times\mathbb R_\tau">Cylinder</div><div id="cylinder" class="map-plot" role="img" aria-label="Fixed-radius sphere slices with radial time increasing upwards"></div></section>
 </div>
-<div class="map-status" id="status" aria-live="polite"></div>
+<div id="correspondences" aria-label="Radius and time correspondences"></div>
 <div class="metric" data-tex="\begin{aligned}ds^2_{\rm flat}&=dr^2+r^2d\Omega_2^2\\&=e^{2\tau}(d\tau^2+d\Omega_2^2)\\ds^2_{\rm cyl}&=d\tau^2+d\Omega_2^2\end{aligned}">Flat and cylinder metrics</div>
-<p class="caption">Here <span data-tex="r">r</span> is dimensionless and <span data-tex="d\Omega_2^2">dOmega2</span> is the unit-sphere metric. The highlighted sphere and point correspond under <span data-tex="\tau=\log r">tau=log r</span>; the angular direction is preserved. Removing the factor <span data-tex="e^{2\tau}">exp(2tau)</span> by Weyl rescaling gives the unit cylinder. Left: a plane through the origin. Right: each ellipse represents a whole <span data-tex="S^2">S2</span> slice, with one angular direction suppressed. The insertion <span data-tex="O(0)">O(0)</span> prepares <span data-tex="|O\rangle">the state O</span> at <span data-tex="\tau\to-\infty">past infinity</span>.</p>
+<p class="caption">Equal time intervals correspond to equal ratios of radii. Colors and line styles pair each sphere with its cylinder slice. The three marked points share one radial ray on the left and one fixed angular position on the right. Left circles are sphere sections; right ellipses denote whole <span data-tex="S^2"></span> slices with one angular direction suppressed. Here <span data-tex="r"></span> is dimensionless and <span data-tex="d\Omega_2^2"></span> is the unit-sphere metric. Weyl rescaling removes the factor <span data-tex="e^{2\tau}"></span>. The insertion <span data-tex="O(0)"></span> prepares <span data-tex="|O\rangle"></span> at <span data-tex="\tau\to-\infty"></span>.</p>
 </main></body></html>

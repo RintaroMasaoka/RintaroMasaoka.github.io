@@ -9,7 +9,7 @@
 (() => {
   const levels = [[0], [1], [0, 2], [1, 3]];
   const edges = [[0,0,1,1], [1,1,2,0], [1,1,2,2], [2,0,3,1], [2,2,3,1], [2,2,3,3]];
-  let active = 2;
+  const active = 2; // Fixed emphasis on the second-derivative worked example.
   const graph = document.getElementById('graph');
   const tex = (node, source) => {node.dataset.tex = source; katex.render(source, node, {throwOnError:true, output:'htmlAndMathml'});};
   document.querySelectorAll('[data-tex]').forEach(node => tex(node, node.dataset.tex));
@@ -56,8 +56,5 @@
     const spins=levels[active], count=spins.reduce((n,ell)=>n+2*ell+1,0);
     tex(document.getElementById('summary'),`\\text{Level }${active}:\\quad\\ell=${spins.join(',')}\\qquad ${count}\\text{ ${count===1?'state':'states'}}`);
   }
-  document.querySelectorAll('button[data-level]').forEach(button=>button.addEventListener('click',()=>{
-    active=Number(button.dataset.level);document.querySelectorAll('button[data-level]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));draw();
-  }));
   new ResizeObserver(draw).observe(graph);draw();
 })();

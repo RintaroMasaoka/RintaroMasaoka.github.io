@@ -1,0 +1,393 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "cylinder",
+      "height": 588.34375,
+      "viewport": 595,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          13.73653124851619,
+          37.3397632789014,
+          101.50000000000001
+        ],
+        "slices": [
+          {
+            "rx": 110,
+            "cy": 220.39999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 136.29999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 52.19999999999999
+          }
+        ],
+        "points": 3,
+        "defectSourcePoints": 0,
+        "defectTargetPoints": 0,
+        "worldlines": 0,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "defect",
+      "height": 528.3125,
+      "viewport": 535,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          13.73653124851619,
+          37.3397632789014,
+          101.50000000000001
+        ],
+        "slices": [
+          {
+            "rx": 110,
+            "cy": 220.39999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 136.29999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 52.19999999999999
+          }
+        ],
+        "points": 0,
+        "defectSourcePoints": 6,
+        "defectTargetPoints": 6,
+        "worldlines": 2,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "descendants",
+      "height": 521.625,
+      "viewport": 528,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": []
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "cylinder",
+      "height": 588.34375,
+      "viewport": 595,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          13.73653124851619,
+          37.3397632789014,
+          101.50000000000001
+        ],
+        "slices": [
+          {
+            "rx": 110,
+            "cy": 220.39999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 136.29999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 52.19999999999999
+          }
+        ],
+        "points": 3,
+        "defectSourcePoints": 0,
+        "defectTargetPoints": 0,
+        "worldlines": 0,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "defect",
+      "height": 528.3125,
+      "viewport": 535,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          13.73653124851619,
+          37.3397632789014,
+          101.50000000000001
+        ],
+        "slices": [
+          {
+            "rx": 110,
+            "cy": 220.39999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 136.29999999999998
+          },
+          {
+            "rx": 110,
+            "cy": 52.19999999999999
+          }
+        ],
+        "points": 0,
+        "defectSourcePoints": 6,
+        "defectTargetPoints": 6,
+        "worldlines": 2,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "descendants",
+      "height": 521.625,
+      "viewport": 528,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": []
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "cylinder",
+      "height": 625,
+      "viewport": 631,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          8.600557249686736,
+          23.378738486445158,
+          63.54999999999999
+        ],
+        "slices": [
+          {
+            "rx": 46.5,
+            "cy": 174.79999999999998
+          },
+          {
+            "rx": 46.5,
+            "cy": 108.1
+          },
+          {
+            "rx": 46.5,
+            "cy": 41.400000000000006
+          }
+        ],
+        "points": 3,
+        "defectSourcePoints": 0,
+        "defectTargetPoints": 0,
+        "worldlines": 0,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "defect",
+      "height": 552.96875,
+      "viewport": 559,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          8.600557249686736,
+          23.378738486445158,
+          63.54999999999999
+        ],
+        "slices": [
+          {
+            "rx": 46.5,
+            "cy": 174.79999999999998
+          },
+          {
+            "rx": 46.5,
+            "cy": 108.1
+          },
+          {
+            "rx": 46.5,
+            "cy": 41.400000000000006
+          }
+        ],
+        "points": 0,
+        "defectSourcePoints": 6,
+        "defectTargetPoints": 6,
+        "worldlines": 2,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "descendants",
+      "height": 577.796875,
+      "viewport": 584,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": []
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "cylinder",
+      "height": 625,
+      "viewport": 631,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          8.600557249686736,
+          23.378738486445158,
+          63.54999999999999
+        ],
+        "slices": [
+          {
+            "rx": 46.5,
+            "cy": 174.79999999999998
+          },
+          {
+            "rx": 46.5,
+            "cy": 108.1
+          },
+          {
+            "rx": 46.5,
+            "cy": 41.400000000000006
+          }
+        ],
+        "points": 3,
+        "defectSourcePoints": 0,
+        "defectTargetPoints": 0,
+        "worldlines": 0,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "defect",
+      "height": 552.96875,
+      "viewport": 559,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": [],
+      "geometry": {
+        "spheres": [
+          8.600557249686736,
+          23.378738486445158,
+          63.54999999999999
+        ],
+        "slices": [
+          {
+            "rx": 46.5,
+            "cy": 174.79999999999998
+          },
+          {
+            "rx": 46.5,
+            "cy": 108.1
+          },
+          {
+            "rx": 46.5,
+            "cy": 41.400000000000006
+          }
+        ],
+        "points": 0,
+        "defectSourcePoints": 6,
+        "defectTargetPoints": 6,
+        "worldlines": 2,
+        "pairs": 3
+      }
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "descendants",
+      "height": 577.796875,
+      "viewport": 584,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "clipped": []
+    }
+  ],
+  "errors": []
+}

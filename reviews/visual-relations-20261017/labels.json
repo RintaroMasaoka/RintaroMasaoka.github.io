@@ -1,0 +1,53 @@
+{
+  "orbitals.html": [
+    "\\text{LLL orbital density}",
+    "\\text{North}",
+    "\\text{South}",
+    "0",
+    "|\\psi_m(\\theta,\\phi)|^2",
+    "\\psi_m\\propto u^{s+m}v^{s-m},\\quad N_m=2s+1",
+    "\\cos\\theta",
+    "m",
+    "s"
+  ],
+  "spectrum.html": [
+    "\\text{Ising primary dimensions}\\quad (N=16)",
+    "\\text{All}",
+    "\\mathbb Z_2=-1",
+    "\\mathbb Z_2=+1",
+    "\\text{Fuzzy sphere}",
+    "\\text{Reference}",
+    "T_{\\mu\\nu}",
+    "\\Delta_T=3"
+  ],
+  "cylinder.html": [
+    "\\text{Radial quantization: flat space to cylinder}",
+    "\\tau=\\log r,\\qquad r\\mapsto er\\;\\Longleftrightarrow\\;\\tau\\mapsto\\tau+1",
+    "\\mathbb R^3\\setminus\\{0\\}",
+    "S^2\\times\\mathbb R_\\tau",
+    "\\begin{aligned}ds^2_{\\rm flat}&=dr^2+r^2d\\Omega_2^2\\\\&=e^{2\\tau}(d\\tau^2+d\\Omega_2^2)\\\\ds^2_{\\rm cyl}&=d\\tau^2+d\\Omega_2^2\\end{aligned}",
+    "S^2",
+    "r",
+    "d\\Omega_2^2",
+    "e^{2\\tau}",
+    "O(0)",
+    "|O\\rangle",
+    "\\tau\\to-\\infty"
+  ],
+  "defect.html": [
+    "\\text{A line defect on the cylinder}",
+    "\\mathbb R^3\\setminus\\{0\\}",
+    "S^2\\times\\mathbb R_\\tau",
+    "\\mathbb R\\setminus\\{0\\}\\ \\longleftrightarrow\\ S^0\\times\\mathbb R_\\tau",
+    "\\tau=\\text{constant}:\\quad S^0=\\{N,S\\}",
+    "N,S",
+    "S^2"
+  ],
+  "descendants.html": [
+    "\\text{Scalar conformal descendants}",
+    "\\text{One dot: one magnetic projection}",
+    "\\text{Arrow: }P_\\mu\\text{, then spin projection}",
+    "2\\ell+1",
+    "\\square O"
+  ]
+}
