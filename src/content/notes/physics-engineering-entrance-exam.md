@@ -1,10 +1,10 @@
 ---
 title: "物理工学専攻 大学院入試解答（2012–2027年度）"
 lang: ja
-description: "AI生成の物理工学専攻大学院入試解答。年度別の解答PDF、原題PDFへのリンク、LaTeXソース。"
+description: "物理工学専攻大学院入試の解答集。年度別の解答PDF、原題PDFへのリンク、LaTeXソース。"
 ---
 
-> **AI生成の解答集です。**
+解答の正しさは保証しません。
 
 [全年度の解答をまとめて読む（2012–2027年度・PDF）](/notes/physics-engineering-entrance-exam/physics-engineering-entrance-exam-solutions-2012-2027.pdf)
 
