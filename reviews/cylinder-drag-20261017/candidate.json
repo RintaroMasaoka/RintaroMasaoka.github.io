@@ -1,0 +1,21 @@
+{
+  "scope": "Cylinder direct manipulation and Ising primary selection visibility",
+  "baseline": "9dc1900",
+  "files": {
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html": "90568ab08a891f8704a3255e70e4e76074d5341ecf8c6623bc196dbcb9e3d8a2",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder-drag.js": "0be613566387a1ef0bc9cb72f94b900355f99459810933069a520761f96cd197",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder-drag.css": "75a68daf815f785d4533a4f5683883e111853208842832d37b001b9b6cebb920",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/spectrum.html": "20405574be8c7ccba9c878090227e60fe2efbf42c698bb505a79ddc9ba023152",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/spectrum-selection.js": "e48faf5b7425e8cfecb566949d9e6c2230a68887451d74f152d38dceb66c2b55",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/spectrum-selection.css": "13a620d461ef09f5c0cf8e9b5c4ec4f1297677d39741a03174eb92d0aa9fc911"
+  },
+  "scientific_content": "Existing transformation, metric and primary dimensions preserved. English figure interaction/selection presentation changed; Japanese note prose unchanged.",
+  "runtime_checks": [
+    "Embedded desktop/mobile light/dark pointer drags in both directions",
+    "Touch drag",
+    "Exponential radius and linear time geometry",
+    "Keyboard Home/Arrow",
+    "State persists across theme and viewport change",
+    "Selected pair and inline operator label"
+  ]
+}

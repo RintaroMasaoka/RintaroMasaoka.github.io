@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "dark": false,
+      "sourceTau": -0.3,
+      "targetTau": 0.7,
+      "keyboard": true,
+      "selectedPair": true
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "sourceTau": -0.3,
+      "targetTau": 0.7,
+      "keyboard": true,
+      "selectedPair": true
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "sourceTau": -0.3,
+      "targetTau": 0.7,
+      "keyboard": true,
+      "selectedPair": true
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "sourceTau": -0.3,
+      "targetTau": 0.7,
+      "keyboard": true,
+      "selectedPair": true
+    }
+  ],
+  "errors": []
+}

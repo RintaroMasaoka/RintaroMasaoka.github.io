@@ -1,0 +1,6 @@
+{
+  "touchTau": -0.4,
+  "exponentialRadius": true,
+  "linearTime": true,
+  "themeResizePersistence": true
+}

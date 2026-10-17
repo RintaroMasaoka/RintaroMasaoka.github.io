@@ -1,16 +1,18 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Radial quantization and the cylinder</title>
-<link rel="stylesheet" href="vendor/katex.min.css"><link rel="stylesheet" href="visuals.css"><link rel="stylesheet" href="geometry-overview.css">
-<script defer src="vendor/katex.min.js"></script><script defer src="geometry-overview.js"></script>
+<link rel="stylesheet" href="vendor/katex.min.css"><link rel="stylesheet" href="visuals.css"><link rel="stylesheet" href="geometry-overview.css"><link rel="stylesheet" href="cylinder-drag.css">
+<script defer src="vendor/katex.min.js"></script><script defer src="cylinder-drag.js"></script>
 </head><body data-geometry="cylinder"><main>
 <h2 data-tex="\text{Radial quantization: flat space to cylinder}">Radial quantization: flat space to cylinder</h2>
 <div class="mapping" data-tex="\tau=\log r,\qquad r\mapsto er\;\Longleftrightarrow\;\tau\mapsto\tau+1"></div>
+<p class="drag-instruction">Drag the sphere or the time slice. Arrow keys also move the selected slice.</p>
 <div class="map-panels">
-<section><div class="domain" data-tex="\mathbb R^3\setminus\{0\}">Punctured flat space</div><div id="flat" class="map-plot" role="img" aria-label="Concentric sphere sections in flat space; selected radius and direction"></div></section>
-<section><div class="domain" data-tex="S^2\times\mathbb R_\tau">Cylinder</div><div id="cylinder" class="map-plot" role="img" aria-label="Fixed-radius sphere slices with radial time increasing upwards"></div></section>
+<section><div class="domain" data-tex="\mathbb R^3\setminus\{0\}">Punctured flat space</div><div id="flat" class="map-plot" role="slider" tabindex="0" aria-valuemin="-1" aria-valuemax="1" aria-label="Drag sphere radius; radial time"></div></section>
+<section><div class="domain" data-tex="S^2\times\mathbb R_\tau">Cylinder</div><div id="cylinder" class="map-plot" role="slider" tabindex="0" aria-valuemin="-1" aria-valuemax="1" aria-orientation="vertical" aria-label="Drag cylinder time slice"></div></section>
 </div>
+<div id="active-values" aria-live="off"></div>
 <div id="correspondences" aria-label="Radius and time correspondences"></div>
 <div class="metric" data-tex="\begin{aligned}ds^2_{\rm flat}&=dr^2+r^2d\Omega_2^2\\&=e^{2\tau}(d\tau^2+d\Omega_2^2)\\ds^2_{\rm cyl}&=d\tau^2+d\Omega_2^2\end{aligned}">Flat and cylinder metrics</div>
-<p class="caption">Equal time intervals correspond to equal ratios of radii. Colors and line styles pair each sphere with its cylinder slice. The three marked points share one radial ray on the left and one fixed angular position on the right. Left circles are sphere sections; right ellipses denote whole <span data-tex="S^2"></span> slices with one angular direction suppressed. Here <span data-tex="r"></span> is dimensionless and <span data-tex="d\Omega_2^2"></span> is the unit-sphere metric. Weyl rescaling removes the factor <span data-tex="e^{2\tau}"></span>. The insertion <span data-tex="O(0)"></span> prepares <span data-tex="|O\rangle"></span> at <span data-tex="\tau\to-\infty"></span>.</p>
+<p class="caption">Equal time intervals correspond to equal ratios of radii. The bold contour and large point mark the movable pair. Colors and line styles pair the three reference spheres with their cylinder slices. The three marked points share one radial ray on the left and one fixed angular position on the right. Left circles are sphere sections; right ellipses denote whole <span data-tex="S^2"></span> slices with one angular direction suppressed. Here <span data-tex="r"></span> is dimensionless and <span data-tex="d\Omega_2^2"></span> is the unit-sphere metric. Weyl rescaling removes the factor <span data-tex="e^{2\tau}"></span>. The insertion <span data-tex="O(0)"></span> prepares <span data-tex="|O\rangle"></span> at <span data-tex="\tau\to-\infty"></span>.</p>
 </main></body></html>
