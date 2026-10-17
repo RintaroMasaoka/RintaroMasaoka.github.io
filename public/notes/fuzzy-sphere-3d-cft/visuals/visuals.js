@@ -26,6 +26,7 @@
   };
   if(document.body.dataset.view==='orbitals') {
     const input=document.getElementById('orbital'),spin=document.getElementById('spin');
+    let requestedM=Number(input.value);
     function binomial(n,k){let v=1;for(let i=1;i<=k;i++)v=v*(n-i+1)/i;return v;}
     const prob=(s,m,z)=>((2*s+1)/2)*binomial(2*s,s+m)*((1+z)/2)**(s+m)*((1-z)/2)**(s-m);
     function draw(){
@@ -67,8 +68,14 @@
       p.label('\\text{South}',p.x(-1)+17,p.box.top-12);p.label('\\text{North}',p.x(1)-17,p.box.top-12);
       canvas.setAttribute('aria-label',`Probability density for s=${s}, m=${m}; ${m===s?'concentrated near the north pole':m===-s?'concentrated near the south pole':'a continuous latitude distribution'}.`);
     }
-    spin.addEventListener('input',()=>{const s=Number(spin.value);input.min=-s;input.max=s;input.value=String(Math.max(-s,Math.min(s,Number(input.value))));draw();});
-    input.addEventListener('input',draw);redraw=draw;
+    spin.addEventListener('input',()=>{
+      const s=Number(spin.value);
+      requestedM=Math.max(-s,Math.min(s,requestedM));
+      // Valid states are m=-s+j with integer j in [0,2s].
+      const index=Math.max(0,Math.min(2*s,Math.round(requestedM+s)));
+      input.min=-s;input.max=s;input.value=String(index-s);draw();
+    });
+    input.addEventListener('input',()=>{requestedM=Number(input.value);draw();});redraw=draw;
     // Exposed pure model for reproducible normalization tests, not an external API.
     window.orbitalDensity={prob};
   } else {

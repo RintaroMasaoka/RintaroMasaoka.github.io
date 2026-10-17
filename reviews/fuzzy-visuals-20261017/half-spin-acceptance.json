@@ -1,0 +1,16 @@
+{
+  "scope": "Half-integer s support in the existing LLL orbital visual. Prose, formulas, plot encodings and spectrum view unchanged.",
+  "revision": {
+    "public/notes/fuzzy-sphere-3d-cft/visuals/orbitals.html": "d61280a919b39ee546d4de2607c8e2bd4f2644bc8f63a3a14ed308c413ab152a",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/visuals.js": "f177bfe457a1dd1d67c4e3a54269b35a301e43cfdf0dc587e1bf0fd80b4eced9"
+  },
+  "behavior": "s=0.5,...,8 in steps of 0.5; m=-s+j, integer j=0,...,2s. Keep the requested m across rounding so s changes do not accumulate drift; clamp when the range shrinks.",
+  "production": "Astro build passed. Tested all 16 s settings, all 152 states for normalization, summed density identity, m range/parity, endpoint clamp, and integer/half-integer round trips. Mobile view has no overflow or runtime error.",
+  "independent_visual_review": {
+    "reviewer": "half_spin_visual",
+    "isolation": "fresh no-history context; only two named screenshots and licensed formula baseline; one visual-inference perspective",
+    "verdict": "PASS",
+    "witness": "s=0.5,m=\u00b10.5,Nm=2 visible; South/North shading and falling/rising profiles expose the contrast.",
+    "limitation": "Static-state review does not certify behavior or scientific truth."
+  }
+}
