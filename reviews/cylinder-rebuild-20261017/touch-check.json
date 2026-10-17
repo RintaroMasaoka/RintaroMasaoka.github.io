@@ -1,0 +1,7 @@
+{
+  "noGrabJump": true,
+  "touchMovesTime": true,
+  "retainedDOM": true,
+  "themeResizeState": true,
+  "tau": 0.601
+}

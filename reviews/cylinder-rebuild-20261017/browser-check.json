@@ -1,0 +1,42 @@
+[
+  {
+    "width": 1440,
+    "dark": false,
+    "noGrabJump": true,
+    "radiusDrag": true,
+    "timeDrag": true,
+    "keyboard": true,
+    "geometric": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "dark": true,
+    "noGrabJump": true,
+    "radiusDrag": true,
+    "timeDrag": true,
+    "keyboard": true,
+    "geometric": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "dark": false,
+    "noGrabJump": true,
+    "radiusDrag": true,
+    "timeDrag": true,
+    "keyboard": true,
+    "geometric": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "dark": true,
+    "noGrabJump": true,
+    "radiusDrag": true,
+    "timeDrag": true,
+    "keyboard": true,
+    "geometric": true,
+    "errors": []
+  }
+]

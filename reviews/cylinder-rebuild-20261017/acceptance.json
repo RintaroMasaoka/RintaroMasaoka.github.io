@@ -1,0 +1,28 @@
+{
+  "scope": "Cylinder figure rebuilt from empty composition and new interaction model",
+  "baseline": "617e412",
+  "files": {
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html": "ab8b0c47e1f5f1048eb47aca2e606b74753bc3c4aa941a18409f2010c04dfe43",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder-map-v2.js": "1f60ab8063cfd4c3b98e0dc6b3f52f40639bf68a823cb409443a244011727073",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder-map-v2.css": "193a63f220d42b177cdc7c4092fd8067538bac81a7953fe1bcc3f3701ba361f3"
+  },
+  "mobile_height": "~530px closed at viewport width430; actual embedded opened height705px",
+  "typography": "English labels rendered by local KaTeX; figure/source retained",
+  "runtime": "browser-check.json and touch-check.json",
+  "unchanged": "Other figures, dimensions data and Japanese note prose",
+  "independent_review": {
+    "closed_path": {
+      "subject": "PASS",
+      "explanation-act": "PASS",
+      "visual": "PASS"
+    },
+    "opened_metric": {
+      "subject": "PASS",
+      "explanation-act": "PASS",
+      "visual": "PASS"
+    },
+    "isolation": "Fresh no-history contexts, single perspective per reader; unit one frozen before disclosure released. Only packet/rubric access reported.",
+    "revision_binding": "Subject/act closed verdict inspected the same text and mapping; final visual verdict covers the final geometry after removing source unit guide and its label. All opened disclosure verdicts cover opened-metric.png.",
+    "limitations": "Reader verdicts are separate from browser and scientific verification. Core coordinate/metric relation retained from published note."
+  }
+}
