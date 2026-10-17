@@ -1,0 +1,18 @@
+{
+  "subject": {
+    "unit1": "PASS",
+    "unit2": "PASS; table pure-spin-2 derivative uses implicit traceless projection",
+    "unit3": "FAIL: n^z equal-sign coupling not licensed by geometric prefix"
+  },
+  "explanation_act": {
+    "unit1": "PASS",
+    "unit2": "PASS",
+    "unit3": "FAIL: specific coupling presented as geometric consequence"
+  },
+  "visual": {
+    "unit1": "PASS with numeric theta reference unverified",
+    "unit2": "PASS",
+    "unit3": "PASS"
+  },
+  "status": "Superseded candidate; original verdicts preserved."
+}

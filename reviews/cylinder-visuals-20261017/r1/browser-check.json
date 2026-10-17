@@ -1,0 +1,853 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "cylinder",
+      "height": 600.34375,
+      "frameHeight": 607,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "sourceNorm": 1.0000000000000016,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": -1,
+      "angle": 60,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "sourceNorm": 1.000000000000001,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": -1,
+      "angle": 180,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "sourceNorm": 1.0000000000000016,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": 0,
+      "angle": 60,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "sourceNorm": 1.0000000000000002,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": 0,
+      "angle": 180,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "sourceNorm": 1.0000000000000007,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": 1,
+      "angle": 60,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": false,
+      "tau": 1,
+      "angle": 180,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "sourceNorm": 1.0000000000000002,
+        "targetNorm": 1
+      }
+    },
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "descendants",
+      "height": 544.03125,
+      "frameHeight": 551,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "width": 1440,
+      "dark": false,
+      "name": "defect",
+      "height": 592.71875,
+      "frameHeight": 599,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "defect",
+      "width": 1440,
+      "dark": false,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 1440,
+      "dark": false,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 1440,
+      "dark": false,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "cylinder",
+      "height": 600.34375,
+      "frameHeight": 607,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "sourceNorm": 1.0000000000000016,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": -1,
+      "angle": 60,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "sourceNorm": 1.000000000000001,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": -1,
+      "angle": 180,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "sourceNorm": 1.0000000000000016,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": 0,
+      "angle": 60,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "sourceNorm": 1.0000000000000002,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": 0,
+      "angle": 180,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "sourceNorm": 1.0000000000000007,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": 1,
+      "angle": 60,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 1440,
+      "dark": true,
+      "tau": 1,
+      "angle": 180,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "sourceNorm": 1.0000000000000002,
+        "targetNorm": 1
+      }
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "descendants",
+      "height": 544.03125,
+      "frameHeight": 551,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "width": 1440,
+      "dark": true,
+      "name": "defect",
+      "height": 592.71875,
+      "frameHeight": 599,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "defect",
+      "width": 1440,
+      "dark": true,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 13.73653124851619,
+        "rx": 110,
+        "y": 223.29999999999998,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 1440,
+      "dark": true,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 37.3397632789014,
+        "rx": 110,
+        "y": 139.2,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 1440,
+      "dark": true,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 101.50000000000001,
+        "rx": 110,
+        "y": 55.099999999999994,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "cylinder",
+      "height": 654.421875,
+      "frameHeight": 661,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "sourceNorm": 0.9999999999999987,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": -1,
+      "angle": 60,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "sourceNorm": 0.9999999999999992,
+        "targetNorm": 0.999999999999999
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": -1,
+      "angle": 180,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "sourceNorm": 0.9999999999999987,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": 0,
+      "angle": 60,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "sourceNorm": 0.9999999999999998,
+        "targetNorm": 1.000000000000001
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": 0,
+      "angle": 180,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": 1,
+      "angle": 60,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "sourceNorm": 0.9999999999999997,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": false,
+      "tau": 1,
+      "angle": 180,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "sourceNorm": 1.0000000000000002,
+        "targetNorm": 1
+      }
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "descendants",
+      "height": 601.796875,
+      "frameHeight": 608,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "name": "defect",
+      "height": 595.1875,
+      "frameHeight": 602,
+      "overflow": false,
+      "theme": "",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "defect",
+      "width": 390,
+      "dark": false,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 390,
+      "dark": false,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 390,
+      "dark": false,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "cylinder",
+      "height": 654.421875,
+      "frameHeight": 661,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "sourceNorm": 0.9999999999999987,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": -1,
+      "angle": 60,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "sourceNorm": 0.9999999999999992,
+        "targetNorm": 0.999999999999999
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": -1,
+      "angle": 180,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "sourceNorm": 0.9999999999999987,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": 0,
+      "angle": 60,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "sourceNorm": 0.9999999999999998,
+        "targetNorm": 1.000000000000001
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": 0,
+      "angle": 180,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "sourceNorm": 1,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": 1,
+      "angle": 60,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "sourceNorm": 0.9999999999999997,
+        "targetNorm": 1
+      }
+    },
+    {
+      "name": "cylinder",
+      "width": 390,
+      "dark": true,
+      "tau": 1,
+      "angle": 180,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "sourceNorm": 1.0000000000000002,
+        "targetNorm": 1
+      }
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "descendants",
+      "height": 601.796875,
+      "frameHeight": 608,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "name": "defect",
+      "height": 595.1875,
+      "frameHeight": 602,
+      "overflow": false,
+      "theme": "dark",
+      "fonts": [
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math"
+      ],
+      "badLabels": []
+    },
+    {
+      "name": "defect",
+      "width": 390,
+      "dark": true,
+      "tau": -1,
+      "angle": 0,
+      "geometry": {
+        "r": 8.600557249686736,
+        "rx": 46.5,
+        "y": 177.09999999999997,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 390,
+      "dark": true,
+      "tau": 0,
+      "angle": 0,
+      "geometry": {
+        "r": 23.378738486445158,
+        "rx": 46.5,
+        "y": 110.39999999999999,
+        "poles": 2,
+        "lines": 2
+      }
+    },
+    {
+      "name": "defect",
+      "width": 390,
+      "dark": true,
+      "tau": 1,
+      "angle": 0,
+      "geometry": {
+        "r": 63.54999999999999,
+        "rx": 46.5,
+        "y": 43.7,
+        "poles": 2,
+        "lines": 2
+      }
+    }
+  ],
+  "errors": []
+}

@@ -5,7 +5,7 @@ description: "球面上の lowest Landau level から 3d CFT の conformal data 
 tags: ["CFT", "fuzzy sphere", "3d Ising", "conformal data"]
 ---
 
-Fuzzy sphere regularization は、3d CFT を $S^2\times\mathbb{R}$ 上の有限サイズ量子多体系として調べる方法である。Radial quantization では 3d CFT の局所演算子が $S^2$ 上の状態に対応するので、有限サイズ Hamiltonian の spectrum、matrix element、correlator から conformal data を抽出できる。
+Fuzzy sphere regularization は、3d CFT を $S^2\times\mathbb{R}$ 上の有限サイズ量子多体系として調べる方法である。[Radial quantization](#cylinder-map) では 3d CFT の局所演算子が $S^2$ 上の状態に対応するので、有限サイズ Hamiltonian の spectrum、matrix element、correlator から conformal data を抽出できる。
 
 問題は、$S^2$ 上で自由度を有限個に減らしながら回転対称性を壊さない cutoff をどう作るかである。Spherical lowest Landau level はそのための一粒子空間を与える。この空間の上に対称性を保つ many-body Hamiltonian を置き、critical point に tune すると、対応する 3d CFT の spectrum や matrix element を調べられる。
 
@@ -663,6 +663,8 @@ CFT の spectrum data が、fuzzy sphere の有限サイズ Hamiltonian 問題�
 
 state-operator correspondence を使うと、平坦空間の原点に挿入した局所演算子は、$S^2 \times \mathbb{R}$ 上の状態に対応する。ここで $\mathbb{R}$ は radial quantization の時間方向であり、$S^2$ は原点を囲む球面である。
 
+<iframe id="cylinder-map" data-fuzzy-visual src="/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html" title="Radial quantization: spheres in flat space map to cylinder time slices" width="100%" height="650" loading="lazy" style="border:0;display:block;margin:1.5rem 0;border-radius:8px;"></iframe>
+
 この対応により、CFT 演算子の scaling dimension $\Delta$ は、球面上の Hamiltonian のエネルギーに対応する。球面半径を $R$ とすると、
 
 $$
@@ -1003,13 +1005,19 @@ $$
 
 である。ここで $\square=\partial^2$ は 3d Euclidean space の Laplacian を表す。したがって scalar primary は、予測できる spin と energy shift の塔を作る。例えば、
 
+<div style="overflow-x:auto" role="region" aria-label="Scalar descendant examples" tabindex="0">
+
 | primary | descendant | expected $(\Delta,\ell)$ |
 |---|---|---|
 | $\sigma$ | $\partial_\mu\sigma$ | $(\Delta_\sigma+1,1)$ |
 | $\sigma$ | $\square\sigma$ | $(\Delta_\sigma+2,0)$ |
-| $\sigma$ | $\partial_{\mu_1}\partial_{\mu_2}\sigma$ | $(\Delta_\sigma+2,2)$ |
+| $\sigma$ | $(\partial_{\mu_1}\partial_{\mu_2}-\delta_{\mu_1\mu_2}\square/3)\sigma$ | $(\Delta_\sigma+2,2)$ |
 | $\epsilon$ | $\partial_\mu\epsilon$ | $(\Delta_\epsilon+1,1)$ |
 | $\epsilon$ | $\square\epsilon$ | $(\Delta_\epsilon+2,0)$ |
+
+</div>
+
+<iframe id="descendant-tower" data-fuzzy-visual src="/notes/fuzzy-sphere-3d-cft/visuals/descendants.html" title="Scalar conformal descendant levels and rotation multiplets" width="100%" height="600" loading="lazy" style="border:0;display:block;margin:1.5rem 0;border-radius:8px;"></iframe>
 
 spinning primary $O_{\mu_1\cdots\mu_\ell}$ では、derivative が spin を上げるだけでなく、index contraction によって spin を下げる descendant も出る。また、$\varepsilon_{\mu\nu\rho}$ を含む descendant は spacetime parity $P$ を反転させる。このため、parity-even の spinning primary から parity-odd descendant が出ることがある。
 
@@ -1474,6 +1482,8 @@ S^{p-1}=S^0
 $$
 
 である。$S^0$ は二点集合である。具体的には、原点中心の各 $S^2$ slice は中心を通る line defect と二点で交わり、この二点を north pole と south pole に取る。したがって、cylinder $S^2\times\mathbb{R}$ 上では、defect は north/south pole に沿って time direction に伸びる二本の $0+1$d impurity line として見える。
+
+<iframe id="line-defect-map" data-fuzzy-visual src="/notes/fuzzy-sphere-3d-cft/visuals/defect.html" title="A through-origin line maps to North and South defect worldlines" width="100%" height="600" loading="lazy" style="border:0;display:block;margin:1.5rem 0;border-radius:8px;"></iframe>
 
 Hamiltonian は固定した radial-time slice 上の generator なので、fuzzy sphere ではその slice 上の二点に局在した項として入る。schematic には
 

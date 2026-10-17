@@ -1,0 +1,77 @@
+{
+  "authority": "src/content/notes/fuzzy-sphere-3d-cft.md",
+  "final_hashes": {
+    "src/content/notes/fuzzy-sphere-3d-cft.md": "8d1daf4aa14e32fab26efb189f54077a2e334bf4b0b16c3ebbf050c7ab6012ab",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants.js": "aa7aaa39972d85881d8bb04e16749b86f70145a73d55b114cf9f30202b6ef898",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/visuals.css": "41f5acf843c4f6532ecdeef2a03ff33825f8f024b6b98519a6b40fc8310b9f4e",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/orbitals.html": "d61280a919b39ee546d4de2607c8e2bd4f2644bc8f63a3a14ed308c413ab152a",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/embed.js": "16b2f6eba75fe36ddd502f288a7ee16621b07190c0af0d1e4d686349eddd1161",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry.css": "c9ee469b3db84d71dbc883d039445d8cd73a08ba1472df5fe45b3a6ec78df4bc",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/spectrum.html": "c36765369b8300428ac25d1c8566707dff608df5ecf16285478d2d09785d6cfc",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/visuals.js": "f177bfe457a1dd1d67c4e3a54269b35a301e43cfdf0dc587e1bf0fd80b4eced9",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html": "b11f56b6082e185a8891086a5ce5814793a2052d54e0ec2b6b03a29e805a67a7",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/defect.html": "c2d46b6cb7324b41c6dd1887a07f0ab1f031cbb78caa46fea94cc4309f61d8ee",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/geometry.js": "a9d5f0c24ee817008f98f668782b81e443237bdf624c662c2557f45cf294f331",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/descendants.html": "5146efd0b22e9b17762fc97acf535ccdfc2a90781d4c9af9956258adb803923f"
+  },
+  "scope": "Three new embedded visual units. Existing Japanese prose unchanged; intro phrase linked to cylinder map. Spin-2 table cell now explicitly subtracts the trace. This widened table is locally scrollable.",
+  "review_contract": "Three fresh no-history readers per candidate, each one explicit perspective; release one paragraph with its figure/table at a time, freeze before next. No source code, author rationale, later units or prior verdicts supplied. Actual release records retained in chat; packet files and screenshots retained here.",
+  "first_candidate": "r1 source/snapshots/verdicts retained; defect Hamiltonian claim was not licensed at this prefix. Candidate superseded. Numeric-angle reference was also unverified.",
+  "final_lanes": {
+    "subject_prerequisite": {
+      "reader": "map_final_subject",
+      "unit1": {
+        "verdict": "PASS",
+        "witness": "Paragraph/caption supply local insertion-state map, dimensionless r, tau=log r, unit-sphere metric and removal of common Weyl factor. No blocking missing premise for reading the map."
+      },
+      "unit2": {
+        "verdict": "PASS",
+        "witness": "Formula/table/axes show dimension-spins and magnetic 2ell+1 counts. Trace subtraction is explicit; level2 trace/traceless split supplies operation. No projection coefficients are claimed."
+      },
+      "unit3": {
+        "verdict": "PASS",
+        "witness": "S0 two intersections plus prior cylinder convention supplies two worldlines and two sites on each fixed time slice; no coupling-strength claim is made."
+      }
+    },
+    "explanation_act": {
+      "reader": "map_final_act",
+      "unit1": {
+        "verdict": "PASS",
+        "witness": "Coordinate relation and separate Weyl operation direct the comparison; projection and limiting-origin labels bound use."
+      },
+      "unit2": {
+        "verdict": "PASS",
+        "witness": "Ideal pattern, scope without vanishing descendants, selected level, projected arrows and exact magnetic degeneracy are distinguished from finite-size spacing shifts."
+      },
+      "unit3": {
+        "verdict": "PASS",
+        "witness": "Two rays, worldlines and same-slice sites are linked without claiming a specific interaction or independent original defects."
+      }
+    },
+    "visual_inference": {
+      "reader": "map_final_visual",
+      "unit1": {
+        "verdict": "PASS",
+        "witness": "r=.37,1,2.72 maps to lower/middle/upper slice; matching marked point and theta=0/60 polar references expose angular correspondence. Full suppressed phi not inspected."
+      },
+      "unit2": {
+        "verdict": "PASS",
+        "witness": "Delta+2 row has spin0 one dot, spin2 five dots, two incoming projected arrows, total6. Other rows match1,3,10. Individual-m transition amplitudes not depicted."
+      },
+      "unit3": {
+        "verdict": "PASS",
+        "witness": "Two colored source intersections map to persistent N/S worldlines. Each selected slice intersects both; r/tau changes keep labels and topology consistent."
+      }
+    }
+  },
+  "scientific_checks": [
+    "dr=exp(tau)dtau yields ds_flat^2=exp(2tau)(dtau^2+dOmega_2^2); Weyl factor removal is distinct from coordinate substitution. Unit cylinder only; no field-correlation transformation is asserted.",
+    "Commuting derivative products Sym^q(spin1), q=0..3, decompose into spins q,q-2,... with counts1,3,6,10, agreeing with C(q+2,2). Generic scalar without null descendants. Magnetic SO(3) degeneracy is exact; inter-multiplet conformal spacing can shift.",
+    "Trace of (partial_mu partial_nu-delta_mu_nu box/3)O vanishes in three Euclidean dimensions, so the table representative has pure spin2.",
+    "A through-origin line minus its origin has two components; radius exp(tau) maps each to one N/S worldline. Geometry specifies sites, not defect couplings."
+  ],
+  "production": "Browser script checks actual embedded output at1440/390 in light/dark. All three new iframes fit; fonts KaTeX Main/Math/AMS loaded; no page errors/clipped labels. Tau/theta tests preserve source-circle and target-ellipse incidence. Defect has2 lines/2 sites. All derivative selections have1,3,6,10 magnetic dots.",
+  "typography": "English figure labels/control text through shipped KaTeX; sources in HTML data-tex and geometry.js/descendants.js. Native prose captions are outside graphical lettering.",
+  "carry_forward": "After final reader freeze, only a scroll wrapper was added around the unchanged table; visible prose, mathematics and figure images remain identical. No new Japanese prose or whole-manuscript wording certification.",
+  "limits": "Readers certify their stated bounded lanes, not scientific truth. Only sampled UI states were inspected independently; runtime state coverage is supplied by browser checks. Existing note-wide claims outside these units are not audited."
+}
