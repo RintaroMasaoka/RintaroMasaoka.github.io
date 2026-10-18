@@ -1,0 +1,86 @@
+[
+  {
+    "width": 1440,
+    "dark": false,
+    "states": [
+      {
+        "target": "radius",
+        "keyStroke": "rgb(36, 49, 65)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      },
+      {
+        "target": "time",
+        "keyStroke": "rgb(36, 49, 65)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "dark": true,
+    "states": [
+      {
+        "target": "radius",
+        "keyStroke": "rgb(229, 237, 245)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      },
+      {
+        "target": "time",
+        "keyStroke": "rgb(229, 237, 245)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "dark": false,
+    "states": [
+      {
+        "target": "radius",
+        "keyStroke": "rgb(36, 49, 65)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      },
+      {
+        "target": "time",
+        "keyStroke": "rgb(36, 49, 65)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "dark": true,
+    "states": [
+      {
+        "target": "radius",
+        "keyStroke": "rgb(229, 237, 245)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      },
+      {
+        "target": "time",
+        "keyStroke": "rgb(229, 237, 245)",
+        "pointerHitStroke": "rgba(0, 0, 0, 0)",
+        "tabReturnsKeyboard": true,
+        "touchHidesHitTarget": true
+      }
+    ],
+    "errors": []
+  }
+]

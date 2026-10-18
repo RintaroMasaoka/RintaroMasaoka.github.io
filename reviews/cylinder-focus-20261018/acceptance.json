@@ -1,0 +1,15 @@
+{
+  "baseline": "ed4f04d1c092a7fe0653f55eba3c29ed7b73ddef",
+  "files": {
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder.html": "9ba17168001b3437bbcd7143b303e4051d7a5e5d52e9d5769e233d72a593baef",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder-map-input.js": "041e536576768b335698cfed781e70f60c6f7da62957fc80f0967f0556828a4f",
+    "public/notes/fuzzy-sphere-3d-cft/visuals/cylinder-map-input.css": "41bfcc93179f41d2854ab7f4921b96a3a0d006d780c5bc7e74513c4b10017487"
+  },
+  "change": "Hit areas remain invisible under pointer/touch; keyboard focus changes the small visible point border.",
+  "legacy": "Published v2 bytes retained for cached HTML. Captured candidate bytes moved unchanged to dedicated input asset filenames.",
+  "perceptual_gate": {
+    "radius_states": "PASS (trial-y.md, fresh no-history reviewer)",
+    "time_states": "PASS (time-gate.md, fresh no-history reviewer)",
+    "method": "Changed input appearance only; no scholarly content changes. Pointer/drag/release and keyboard views inspected; event/style checks separate."
+  }
+}
