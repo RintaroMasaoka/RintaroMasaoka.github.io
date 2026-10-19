@@ -1,0 +1,15 @@
+import {createRequire} from 'node:module';
+import {dirname,join,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {cpSync,mkdirSync,readFileSync,writeFileSync} from 'node:fs';
+const project=resolve(dirname(fileURLToPath(import.meta.url)),'../../..');
+const rootRequire=createRequire(join(project,'package.json'));
+const dist=dirname(createRequire(rootRequire.resolve('rehype-katex')).resolve('katex'));
+const destination=join(project,'public/notes/KdV/katex');
+mkdirSync(destination,{recursive:true});
+cpSync(join(dist,'katex.min.css'),join(destination,'katex.min.css'));
+cpSync(join(dist,'fonts'),join(destination,'fonts'),{recursive:true});
+cpSync(join(dist,'../LICENSE'),join(destination,'LICENSE'));
+const pkg=JSON.parse(readFileSync(join(dist,'../package.json'),'utf8'));
+writeFileSync(join(destination,'version.txt'),`KaTeX ${pkg.version}\nLocal assets copied from the locked rehype-katex dependency.\n`);
+console.log(`Copied KaTeX ${pkg.version} CSS, fonts and license.`);

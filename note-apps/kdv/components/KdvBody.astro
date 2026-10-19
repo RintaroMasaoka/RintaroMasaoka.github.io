@@ -1,0 +1,10 @@
+---
+let html = await Astro.slots.render('default');
+for (const name of ['contour', 'reconstruction']) {
+  const visual = await Astro.slots.render(name);
+  const pattern = new RegExp(`<div\\s+data-visual-slot=["']${name}["']\\s*>\\s*</div>`);
+  if (!pattern.test(html)) throw new Error(`Missing KdV visual slot: ${name}`);
+  html = html.replace(pattern, () => visual);
+}
+---
+<article id="manuscript" set:html={html} />

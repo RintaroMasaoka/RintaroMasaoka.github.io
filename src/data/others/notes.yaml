@@ -135,10 +135,10 @@ items:
       en: KdV Equation
       ja: KdV方程式
     category: mathematical-physics
-    filename: KdV/source/数理班_政岡凜太郎.pdf
+    url: /notes/kdv/
     description:
-      en: A note on the KdV equation
-      ja: KdV方程式に関するノート
+      en: Derive the GLM equation from scattering data and reconstruct a soliton, with contour diagrams and an interactive example.
+      ja: 積分の目的と根拠からGLM方程式を導き、図と対話的な例でソリトンを再構成する。
 
   - title:
       en: "Introduction to Fuzzy Sphere Regularization"

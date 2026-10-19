@@ -1,0 +1,57 @@
+---
+import { createRequire } from 'node:module';
+const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
+const tex = (t: string) => katex.renderToString(t,{throwOnError:true});
+const px = (x:number) => 65+(x+7)*460/14;
+const py = (y:number) => 57+(0-y)*27;
+const curve = (kind:string) => Array.from({length:281},(_,i)=>{
+ const x=-7+i*.05;
+ const y=kind==='u' ? -2/Math.cosh(x)**2 : -(1-Math.tanh(x));
+ return `${i?'L':'M'}${px(x).toFixed(3)},${py(y).toFixed(3)}`;
+}).join(' ');
+const labels = (kind:string) => [
+ {x:65,y:2,w:115,t:kind==='u'?'u(x)':'K(x,x)'},
+ {x:522,y:45,w:35,t:'x'},
+ {x:px(-6)-20,y:66,w:40,t:'-6'}, {x:px(0)-20,y:66,w:40,t:'0'}, {x:px(6)-20,y:66,w:40,t:'6'},
+ {x:13,y:42,w:38,t:'0'}, {x:13,y:py(-2)-15,w:38,t:'-2'}, {x:13,y:py(-6)-15,w:38,t:'-6'},
+];
+---
+<figure class="kdv-reconstruction" data-kdv-reconstruction aria-labelledby="kdv-reconstruction-caption">
+  <div class="kdv-control-grid">
+    <label for="kdv-kappa">束縛状態のパラメータ <span set:html={tex('\\kappa')}/><output for="kdv-kappa" data-kdv-kappa-output>1.00</output><input id="kdv-kappa" data-kdv-kappa type="range" min="0.45" max="1.6" step="0.01" value="1" /></label>
+    <label for="kdv-center">中心位置 <span set:html={tex('x_0')}/><output for="kdv-center" data-kdv-center-output>0.00</output><input id="kdv-center" data-kdv-center type="range" min="-2" max="2" step="0.05" value="0" /></label>
+    <button type="button" data-kdv-reset>初期値に戻す</button>
+  </div>
+  <p class="kdv-parameter-values" aria-live="polite" aria-atomic="true" data-kdv-values>最小値 −2.00 ／ 幅の尺度 1.00 ／ 規格化定数の二乗 2.00</p>
+  <div class="kdv-plot-grid">
+  {['u','K'].map(kind => <svg viewBox="0 0 575 255" role="img" aria-label={kind==='u'?'Reconstructed potential at time zero':'Transformation kernel on the diagonal at time zero'}>
+    <defs><clipPath id={`kdv-clip-${kind}`}><rect x="65" y="41" width="460" height="188" /></clipPath></defs>
+    <path d="M65 57 H525 M65 41 V229" stroke="var(--muted)" fill="none" stroke-width="1.2"/>
+    <path d="M65 111 H525 M65 219 H525" stroke="var(--line)" fill="none" stroke-dasharray="3 5"/>
+    {[-6,0,6].map(x => <path d={`M${px(x)} 53 V61`} stroke="var(--muted)"/>)}
+    <path data-kdv-curve={kind} d={curve(kind)} stroke={kind==='u'?'var(--accent)':'var(--blue)'} stroke-width="3" fill="none" clip-path={`url(#kdv-clip-${kind})`} />
+    <path data-kdv-center-guide d="M295 41 V229" stroke="var(--muted)" stroke-dasharray="5 5" opacity=".55"/>
+    {labels(kind).map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="37"><div class="tex-label" set:html={tex(l.t)}/></foreignObject>)}
+  </svg>)}
+  </div>
+  <div class="kdv-relation" set:html={tex('u(x)=-2\\dfrac{d}{dx}K(x,x),\\qquad c^2=2\\kappa e^{2\\kappa x_0},\\qquad t=0')} />
+  <figcaption id="kdv-reconstruction-caption">反射がなく束縛状態が一つの場合の再構成。上段はポテンシャル、下段は変換核の対角値で、破線は中心位置を示す。中心位置を動かすと両曲線が平行移動する。束縛状態のパラメータを大きくすると、ポテンシャルの最小値はより負になり、幅の尺度は小さくなる。対角値の傾きに −2 を掛けると、上段のポテンシャルになる。</figcaption>
+</figure>
+<style>
+.kdv-reconstruction {margin:2rem 0;border:1px solid var(--line);border-radius:12px;padding:1.2rem;background:var(--paper)}
+.kdv-control-grid {display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem;align-items:end}
+.kdv-control-grid label {display:grid;grid-template-columns:1fr auto;gap:.4rem;font-size:.9rem;line-height:1.8}
+.kdv-control-grid label span {grid-column:1;grid-row:2}
+.kdv-control-grid label output {grid-column:2;grid-row:2;font-variant-numeric:tabular-nums;color:var(--accent)}
+.kdv-control-grid input {grid-column:1/-1;width:100%;accent-color:var(--accent);cursor:pointer;min-height:26px}
+.kdv-control-grid button {grid-column:1/-1;justify-self:start;border:1px solid var(--line);border-radius:6px;padding:.3rem .8rem;background:var(--paper);color:var(--ink);font:inherit;cursor:pointer}
+.kdv-control-grid :is(input,button):focus-visible {outline:2px solid var(--accent);outline-offset:4px}
+.kdv-parameter-values {font-size:.82rem;color:var(--muted);line-height:1.8;margin:.8rem 0}
+.kdv-plot-grid {display:grid;grid-template-columns:1fr;gap:.25rem;max-width:620px;margin:0 auto}
+.kdv-plot-grid svg {display:block;width:100%;height:auto;overflow:visible}
+.tex-label {color:var(--ink);font-size:21px;line-height:1.5;white-space:nowrap;text-align:center}
+.kdv-relation {font-size:.94rem;text-align:center;padding:.5rem 0;overflow-x:auto;color:var(--ink)}
+.kdv-reconstruction figcaption {color:var(--muted);font-size:.88rem;line-height:1.8;margin-top:.6rem}
+@media(max-width:480px){.kdv-reconstruction{padding:.7rem .2rem}.kdv-control-grid,.kdv-parameter-values,.kdv-reconstruction figcaption{margin-left:.5rem;margin-right:.5rem}.kdv-control-grid{grid-template-columns:1fr;gap:.6rem}.tex-label{font-size:23px}.kdv-relation{font-size:.72rem}}
+</style>

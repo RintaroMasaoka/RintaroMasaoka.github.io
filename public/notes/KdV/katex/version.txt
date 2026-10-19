@@ -1,0 +1,2 @@
+KaTeX 0.16.47
+Local assets copied from the locked rehype-katex dependency.

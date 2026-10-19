@@ -1,0 +1,10 @@
+{
+  "specVersion": "1.0.1",
+  "id": "kdv",
+  "title": "KdV方程式と逆散乱法",
+  "description": "散乱データからポテンシャルへ — GLM方程式の導出",
+  "language": "ja",
+  "source": {"title": "Korteweg–de Vries方程式と逆散乱法", "authors": ["政岡凜太郎"], "locator": "2023年版ノート 第3章「散乱の逆問題」"},
+  "chapters": [{"id": "glm", "section": "1", "title": "GLM方程式の導出", "description": "フーリエ変換と留数から積分方程式を組み立てる", "plainTitle": "GLM方程式の導出", "plainDescription": "積分の目的と各操作の根拠をたどり、1ソリトンを再構成する。", "file": "glm.md"}],
+  "publication": {"provider": "github-pages", "projectId": null, "url": null, "visibility": "public"}
+}

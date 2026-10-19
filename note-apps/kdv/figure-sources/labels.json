@@ -1,0 +1,37 @@
+{
+  "renderer": "KaTeX renderToString with throwOnError=true; local KaTeX font assets supplied by page",
+  "font_family": "KaTeX_Main and KaTeX_Math",
+  "geometry_sources": [
+    "../components/ContourFigure.astro",
+    "../components/ReconstructionFigure.astro"
+  ],
+  "generation": "npm run build",
+  "contour": {
+    "real_axis": "\\operatorname{Re}k",
+    "imaginary_axis": "\\operatorname{Im}k",
+    "left_endpoint": "-R",
+    "right_endpoint": "R",
+    "origin": "0",
+    "first_schematic_pole": "i\\kappa_1",
+    "second_schematic_pole": "i\\kappa_2",
+    "upper_arc": "\\Gamma_R",
+    "condition": "y>x",
+    "exponential_magnitude": "|e^{ik(y-x)}|=e^{-\\operatorname{Im}k(y-x)}"
+  },
+  "reconstruction": {
+    "potential": "u(x)",
+    "diagonal_kernel": "K(x,x)",
+    "horizontal_axis": "x",
+    "horizontal_ticks": [
+      "-6",
+      "0",
+      "6"
+    ],
+    "vertical_ticks": [
+      "0",
+      "-2",
+      "-6"
+    ],
+    "relation": "u(x)=-2\\dfrac{d}{dx}K(x,x),\\qquad c^2=2\\kappa e^{2\\kappa x_0},\\qquad t=0"
+  }
+}
