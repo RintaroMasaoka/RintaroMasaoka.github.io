@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
@@ -26,7 +27,7 @@ const labels = [
 ];
 ---
 <figure class="kdv-operator-projection" aria-labelledby="kdv-operator-projection-caption">
-  <div class="kdv-operator-headings"><span><span set:html={tex('\\text{negative}')} /><span set:html={tex('\\text{powers}')} /></span><span><span set:html={tex('\\text{nonnegative}')} /><span set:html={tex('\\text{powers}')} /></span></div>
+  <FigureViewport label="作用素の図を左右にスクロール"><div class="kdv-operator-headings"><span><span set:html={tex('\\text{negative}')} /><span set:html={tex('\\text{powers}')} /></span><span><span set:html={tex('\\text{nonnegative}')} /><span set:html={tex('\\text{powers}')} /></span></div>
   <svg viewBox="0 0 600 330" role="img" aria-labelledby="kdv-operator-title kdv-operator-desc">
     <title id="kdv-operator-title">Nonnegative-power projection and residue of a pseudodifferential operator</title>
     <desc id="kdv-operator-desc">The operator series is grouped by negative and nonnegative powers. The projection keeps the nonnegative terms, while the residue selects the coefficient attached to the minus-one power.</desc>
@@ -47,7 +48,7 @@ const labels = [
     <path d="M18 247 H284" fill="none" stroke="var(--line)" />
     <path d="M330 247 H590" fill="none" stroke="var(--line)" />
     {labels.map(l => <foreignObject x={l.x} y={l.y - 8} width={l.w} height="48"><div class="kdv-tex" set:html={tex(l.t)} /></foreignObject>)}
-  </svg>
+  </svg></FigureViewport>
   <figcaption id="kdv-operator-projection-caption" set:html={caption} />
 </figure>
 <style>

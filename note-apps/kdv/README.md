@@ -29,3 +29,9 @@ The introduction's collision image and three-frame simulation are replaced by tw
 The solver evolves `v=-u`, `v_t=-3(v²)_x-v_xxx`, on a periodic interval of length100 with512 points and `dt=.0025`. Each Strang step applies an exact Fourier linear half-step, an RK4 nonlinear step with the2/3 spectral cutoff, and another linear half-step. Frames are saved every.05 through t=8, before the main pulses cross the boundary. The collision begins with two well-separated sech² pulses; breakup begins with a Gaussian pulse. The original source images remain in the source archive.
 
 Reproduce scientific checks with `node note-apps/kdv/scripts/check-numerics.mjs`: direct-DFT/FFT comparison, inverse normalization, comparison and time-step convergence against the exact one-soliton solution, conservation drift, and comparison with a finer space/time grid. This checks through t=12, beyond the displayed interval. These are numerical checks, not a general error bound. New plot labels are editable KaTeX sources in the component, using the same local KaTeX fonts as the note.
+
+## Portrait layout
+
+`FigureViewport.astro` gives each scientific figure a fixed reading canvas (480px, or420px for the360-unit figures). Only that region scrolls horizontally; the note, captions and input controls remain within the reading column. Labels keep their desktop font sizes instead of changing at a phone breakpoint. A ResizeObserver shows the scroll hint only when the canvas exceeds the region. Native touch panning and keyboard arrow scrolling work without a custom drag handler.
+
+Simulation controls use two equal button columns and a separate speed row at every width. Their14px type and44px minimum control height are constant. Plot legends use a consistent two-row layout. Preserve this separation when adding figures: shared width rules must not rescale scientific canvases or KaTeX's internal SVG glyphs.

@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
@@ -29,7 +30,7 @@ const labels = [
 <figure class="kdv-isospectral" aria-labelledby="kdv-isospectral-caption">
   <div class="kdv-iso-title" set:html={tex('\\text{Exact one-soliton example}')} />
   <div class="kdv-iso-time-legend" aria-label="Time legend">{times.map(({ t, color, dash }) => <span><svg viewBox="0 0 32 12" aria-hidden="true"><path d="M1 6 H31" stroke={color} stroke-width="2.7" stroke-dasharray={dash || undefined} /></svg><span set:html={tex(`t=${t}`)} /></span>)}</div>
-  <svg viewBox="0 0 600 530" role="img" aria-labelledby="kdv-isospectral-title kdv-isospectral-desc">
+  <FigureViewport><svg viewBox="0 0 600 530" role="img" aria-labelledby="kdv-isospectral-title kdv-isospectral-desc">
     <title id="kdv-isospectral-title">Isospectral evolution of the exact one-soliton operator</title>
     <desc id="kdv-isospectral-desc">Three translated potential profiles at times minus two, zero, and two correspond by color to the same discrete eigenvalue and unchanged continuous spectrum.</desc>
     <defs><clipPath id="kdv-iso-potential-clip"><rect x="70" y="55" width="480" height="210" /></clipPath></defs>
@@ -50,7 +51,7 @@ const labels = [
       <path d={`M${lambdaX(-0.5)} ${y - 8} V${y + 8}`} stroke={color} stroke-width="1.5" />
     </g>)}
     {labels.map(l => <foreignObject x={l.x} y={l.y - 8} width={l.w} height="48"><div class="kdv-tex" set:html={tex(l.t)} /></foreignObject>)}
-  </svg>
+  </svg></FigureViewport>
   <div class="kdv-continuum-key"><span class="kdv-spectrum-name" set:html={tex('\\text{Spectrum}')} /><svg viewBox="0 0 42 14" aria-hidden="true"><path d="M1 7 H36" stroke="var(--blue)" stroke-width="2" /><path d="M32 2 L41 7 L32 12 Z" fill="var(--blue)" /></svg><span set:html={tex('\\text{continuous spectrum }(\\lambda\\ge0)')} /></div>
   <figcaption id="kdv-isospectral-caption" set:html={caption} />
 </figure>

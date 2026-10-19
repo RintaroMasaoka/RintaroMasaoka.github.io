@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
@@ -24,7 +25,7 @@ const labels = (kind:string) => [
     <button type="button" data-kdv-reset>初期値に戻す</button>
   </div>
   <p class="kdv-parameter-values" aria-live="polite" aria-atomic="true" data-kdv-values>最小値 −2.00 ／ 幅の尺度 1.00 ／ 規格化定数の二乗 2.00</p>
-  <div class="kdv-plot-grid">
+  <FigureViewport width={420} label="ポテンシャルと核の図を左右にスクロール"><div class="kdv-plot-grid">
   {['u','K'].map(kind => <svg viewBox="0 0 360 242" role="img" aria-label={kind==='u'?'Reconstructed potential at time zero':'Transformation kernel on the diagonal at time zero'}>
     <defs><clipPath id={`kdv-clip-${kind}`}><rect x="53" y="76" width="280" height="138" /></clipPath></defs>
     <path d="M53 76 H333 M53 76 V214" stroke="var(--muted)" fill="none" stroke-width="1.2"/>
@@ -34,7 +35,7 @@ const labels = (kind:string) => [
     <path data-kdv-center-guide d="M193 76 V214" stroke="var(--muted)" stroke-dasharray="5 5" opacity=".55"/>
     {labels(kind).map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={tex(l.t)}/></foreignObject>)}
   </svg>)}
-  </div>
+  </div></FigureViewport>
   <div class="kdv-relation">{['u(x)=-2\\dfrac{d}{dx}K(x,x)', 'c^2=2\\kappa e^{2\\kappa x_0}', 't=0'].map(t => <span set:html={tex(t)} />)}</div>
   <figcaption id="kdv-reconstruction-caption">上段はポテンシャル、下段は変換核の対角値。破線は中心位置を示す。いずれも固定した時刻の再構成である。</figcaption>
 </figure>

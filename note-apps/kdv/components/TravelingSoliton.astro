@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
@@ -25,7 +26,7 @@ const caption = `解析式を直接プロットした。縦軸は正の量 ${tex
     <label for="kdv-soliton-t"><span class="kdv-control-name">時刻 <span set:html={tex('t')} /></span><output data-soliton-t-output for="kdv-soliton-t">0.00</output><input id="kdv-soliton-t" data-soliton-t type="range" min="-2" max="2" step="0.01" value="0" /></label>
     <button type="button" data-soliton-reset>初期値に戻す</button>
   </div>
-  <div class="kdv-soliton-formula" set:html={formula} />
+  <FigureViewport label="ソリトンの図を左右にスクロール"><div class="kdv-soliton-formula" set:html={formula} />
   <svg viewBox="0 0 600 320" role="img" aria-labelledby="kdv-soliton-title kdv-soliton-desc">
     <title id="kdv-soliton-title">Analytic one-soliton profile and its translation</title>
     <desc id="kdv-soliton-desc">The positive profile minus u is shown at the selected time as a solid curve and at time zero as a dashed reference.</desc>
@@ -38,7 +39,7 @@ const caption = `解析式を直接プロットした。縦軸は正の量 ${tex
     <path data-soliton-reference d={soliton(2, 0)} fill="none" stroke="var(--muted)" stroke-width="5" stroke-dasharray="8 6" clip-path="url(#kdv-soliton-clip)" />
     <path data-soliton-current d={soliton(2, 0)} fill="none" stroke="var(--accent)" stroke-width="2.7" clip-path="url(#kdv-soliton-clip)" />
     {labels.map(l => <foreignObject x={l.x} y={l.y - 8} width={l.w} height="48"><div class="kdv-tex" set:html={tex(l.t)} /></foreignObject>)}
-  </svg>
+  </svg></FigureViewport>
   <div class="kdv-soliton-legend" aria-label="Curve legend">
     <span><svg viewBox="0 0 32 12" aria-hidden="true"><path d="M1 6 H31" stroke="var(--accent)" stroke-width="2.7" /></svg><span set:html={tex('\\text{current profile}')} /></span>
     <span><svg viewBox="0 0 32 12" aria-hidden="true"><path d="M1 6 H31" stroke="var(--muted)" stroke-width="5" stroke-dasharray="8 6" /></svg><span set:html={tex('\\text{time-zero reference}')} /></span>

@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
@@ -14,7 +15,7 @@ const labels = [
 ];
 ---
 <figure class="kdv-contour" aria-labelledby="kdv-contour-caption">
-  <svg viewBox="0 0 360 229" role="img" aria-labelledby="kdv-contour-title kdv-contour-desc">
+  <FigureViewport width={420}><svg viewBox="0 0 360 229" role="img" aria-labelledby="kdv-contour-title kdv-contour-desc">
     <title id="kdv-contour-title">Upper half-plane contour</title>
     <desc id="kdv-contour-desc">The real segment runs from minus R to R; the upper arc returns from R to minus R counterclockwise. Two schematic bound-state poles lie on the positive imaginary axis. The exponential decays above the real line when y is greater than x.</desc>
     <defs><marker id="kdv-contour-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--accent)" /></marker><marker id="kdv-axis-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--muted)" /></marker></defs>
@@ -24,7 +25,7 @@ const labels = [
     {['M95 184 H131','M255 184 H277','M259 89 A126 126 0 0 0 222 66','M74 110 A126 126 0 0 0 58 139'].map(d=><path d={d} fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#kdv-contour-arrow)" />)}
     <g fill="var(--ink)" stroke="var(--paper)" stroke-width="2"><circle cx="176" cy="148" r="4"/><circle cx="176" cy="111" r="4"/></g>
     {labels.map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={katex.renderToString(l.t,{throwOnError:true})}/></foreignObject>)}
-  </svg>
+  </svg></FigureViewport>
   <div class="kdv-contour-decay" set:html={katex.renderToString('|e^{ik(y-x)}|=e^{-\\operatorname{Im}k(y-x)}',{throwOnError:true})} />
   <figcaption id="kdv-contour-caption">実軸を左から右へ進み、上半円で戻る積分路。矢印は積分の向き、黒点は束縛状態の極を示す。極の配置は模式的である。</figcaption>
 </figure>
