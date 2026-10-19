@@ -5,8 +5,8 @@ export function initKdvVisuals() {
     root.dataset.kdvInitialized = 'true';
     const kappa = root.querySelector('[data-kdv-kappa]');
     const center = root.querySelector('[data-kdv-center]');
-    const px = x => 65 + (x + 7) * 460 / 14;
-    const py = y => 57 - y * 27;
+    const px = x => 53 + (x + 7) * 280 / 14;
+    const py = y => 76 - y * 23;
     const update = () => {
       const k = Number(kappa.value), x0 = Number(center.value);
       root.querySelector('[data-kdv-kappa-output]').value = k.toFixed(2);
@@ -21,7 +21,7 @@ export function initKdvVisuals() {
         }).join(' ');
         path.setAttribute('d',d);
       });
-      root.querySelectorAll('[data-kdv-center-guide]').forEach(path => path.setAttribute('d', `M${px(x0)} 41 V229`));
+      root.querySelectorAll('[data-kdv-center-guide]').forEach(path => path.setAttribute('d', `M${px(x0)} 76 V214`));
     };
     kappa.addEventListener('input', update);
     center.addEventListener('input', update);
