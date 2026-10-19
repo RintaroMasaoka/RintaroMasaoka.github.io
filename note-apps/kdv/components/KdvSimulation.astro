@@ -1,0 +1,62 @@
+---
+import { createRequire } from 'node:module';
+import { initialProfile } from '../visuals/kdv-solver.js';
+const require = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (s: string) => katex.renderToString(s,{throwOnError:true});
+const {mode='collision'} = Astro.props;
+const collision=mode==='collision';
+const id=`kdv-numerical-${mode}`;
+const path = Array.from({ length: 513 }, (_, j) => {
+  const x = -50 + j * 100 / 512;
+  const px = 62 + j * 500 / 512;
+  const py = 245 - initialProfile(x, mode) * 52;
+  return `${j ? 'L' : 'M'}${px.toFixed(2)},${py.toFixed(2)}`;
+}).join(' ');
+const initial=collision?'v(x,0)=2\\,\\operatorname{sech}^2(x+20)+\\tfrac12\\,\\operatorname{sech}^2((x+8)/2)':'v(x,0)=1.8\\exp[-((x+20)/6)^2]';
+---
+<figure class="kdv-numerical" data-kdv-numerical={mode} aria-labelledby={`${id}-caption`}>
+  <div class="simulation-heading">{collision?'2つのソリトンの衝突':'幅の広い波の分裂'}<span>数値シミュレーション</span></div>
+  <div class="simulation-controls">
+    <button type="button" data-sim-play disabled>計算して再生</button>
+    <button type="button" data-sim-reset disabled>最初に戻す</button>
+    <label>再生速度 <select data-sim-speed disabled aria-label="再生速度"><option value=".5">0.5倍</option><option value="1" selected>1倍</option><option value="2">2倍</option></select></label>
+  </div>
+  <label class="simulation-time" for={`${id}-time`}><span>時刻 <span set:html={tex('t')} /></span><output data-sim-time>0.00</output><input id={`${id}-time`} data-sim-seek type="range" min="0" max="160" step="1" value="0" disabled /></label>
+  <svg viewBox="0 0 600 330" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
+    <title id={`${id}-title`}>{collision?'Numerical KdV soliton collision':'Numerical KdV evolution of a broad pulse'}</title>
+    <desc id={`${id}-desc`}>Solid curve: numerically evolved minus u. Dashed curve: initial profile. Time can be selected with the slider.</desc>
+    <defs><clipPath id={`${id}-clip`}><rect x="62" y="42" width="500" height="225" /></clipPath></defs>
+    <path d="M62 42 V267 M62 245 H562" stroke="var(--muted)" fill="none" stroke-width="1.2" />
+    {[1,2,3].map(y=><path d={`M62 ${245-y*52} H562`} stroke="var(--line)" stroke-dasharray="3 5" />)}
+    {[-50,0,50].map(x=><g><path d={`M${62+(x+50)*5} 245 v5`} stroke="var(--muted)" /><foreignObject x={62+(x+50)*5-40} y="270" width="80" height="55"><div class="simulation-tex" set:html={tex(String(x))} /></foreignObject></g>)}
+    {[0,1,2,3].map(y=><foreignObject x="2" y={245-y*52-27.5} width="54" height="55"><div class="simulation-tex" set:html={tex(String(y))} /></foreignObject>)}
+    <foreignObject x="0" y="-4" width="160" height="55"><div class="simulation-tex" set:html={tex('v=-u')} /></foreignObject>
+    <foreignObject x="554" y="213" width="46" height="55"><div class="simulation-tex" set:html={tex('x')} /></foreignObject>
+    <path d={path} data-sim-initial fill="none" stroke="var(--muted)" stroke-width="3" stroke-dasharray="7 6" clip-path={`url(#${id}-clip)`} />
+    <path d={path} data-sim-curve fill="none" stroke="var(--accent)" stroke-width="2.7" clip-path={`url(#${id}-clip)`} />
+  </svg>
+  <div class="simulation-legend"><span><i class="current"></i><span set:html={tex('\\text{numerical solution}')} /></span><span><i class="initial"></i><span set:html={tex('\\text{initial profile}')} /></span></div>
+  <p data-sim-status class="simulation-status" role="status">再生すると、このブラウザで初期波形から計算します。</p>
+  <figcaption id={`${id}-caption`}>{collision?'高い波が低い波に追いつく。衝突中の形と、離れた後の2つの波を、再生または時刻スライダーで比べてみよう。':'初めはなだらかな1つの波でも、時間を進めると高さと速さの異なる波に分かれていく。後方に残る小さな振動にも注目してみよう。'} 破線は初期波形。縦軸は <span set:html={tex('v=-u')} />。</figcaption>
+  <details class="simulation-method"><summary>初期条件・計算方法</summary>
+    <p>本文のKdV方程式を、<span set:html={tex('v=-u')} /> とおいて <span set:html={tex('v_t+6vv_x+v_{xxx}=0')} /> の形で数値積分する。</p>
+    <div class="simulation-initial-formula" set:html={tex(initial)} />
+    <p>周期区間 <span set:html={tex('-50\\le x<50')} /> を512点に分け、刻み幅 <span set:html={tex('\\Delta t=0.0025')} /> で <span set:html={tex('0\\le t\\le8')} /> を計算する。空間微分はフーリエ法、時間発展は線形分散と非線形項のStrang分割を用いる。線形部分はフーリエ空間で厳密に進め、非線形部分は4次Runge–Kutta法で進める。高波数の混入を抑えるため、非線形積の計算では2/3則を用いる。</p>
+    <p>実線は各時刻の数値解で、表示フレームの間隔は <span set:html={tex('0.05')} />。無限区間の厳密解を表示しているわけではない。周期境界では波が端を越えると反対側から戻るため、ここでは主要な波が端を越える前までを表示する。</p>
+    <p data-sim-diagnostics>計算後に、保存量の相対変化をここに表示する。</p>
+    <p>分割法の参考：<a href="https://www.math.umd.edu/~tadmor/spectral_viscosity/Holden_et_al_KdV_splitting_JCP99.pdf">Holden, Karlsen &amp; Risebro (1999)</a>。</p>
+  </details>
+  <noscript><p>再生にはJavaScriptが必要です。上の図は初期波形です。</p></noscript>
+</figure>
+<style>
+.kdv-numerical{border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1.8rem 0;background:var(--paper)}
+.simulation-heading{font-weight:600;display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem}.simulation-heading>span{font-size:.78rem;color:var(--muted);font-weight:400}
+.simulation-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin:1rem 0 .6rem}.simulation-controls :is(button,select){font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.35rem .65rem;min-height:40px}.simulation-controls label{font-size:.85rem;display:flex;align-items:center;gap:.3rem}.simulation-controls button:first-child{border-color:var(--accent);color:var(--accent);min-width:8em}.simulation-controls button{cursor:pointer}.simulation-controls :disabled{opacity:.55;cursor:default}
+.simulation-time{display:grid;grid-template-columns:1fr auto;gap:.25rem .5rem;font-size:.9rem}.simulation-time>span{display:flex;gap:.3rem;align-items:baseline}.simulation-time output{font-variant-numeric:tabular-nums}.simulation-time input{grid-column:1/-1;width:100%;accent-color:var(--accent);min-height:30px}
+.kdv-numerical :is(button,select,input):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.kdv-numerical>svg{display:block;width:100%;max-width:600px;height:auto;margin:auto}.simulation-tex{display:flex;align-items:center;justify-content:center;height:100%;font-size:22px;line-height:1;color:var(--ink);white-space:nowrap}
+.simulation-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;font-size:14px}.simulation-legend>span{display:flex;align-items:center;gap:.4rem}.simulation-legend i{display:block;width:25px;border-top:3px solid var(--accent)}.simulation-legend i.initial{border-top:3px dashed var(--muted)}
+.simulation-status{font-size:.8rem;color:var(--muted);min-height:1.8em;margin:.7rem 0}.kdv-numerical figcaption{font-size:.88rem;line-height:1.8;color:var(--muted)}.simulation-method{margin-top:.8rem;font-size:.85rem}.simulation-initial-formula{max-width:100%;overflow-x:auto;padding:.5rem 0}
+@media(max-width:480px){.kdv-numerical{padding:.7rem .35rem}.simulation-heading,.simulation-controls,.simulation-time,.simulation-status,.kdv-numerical figcaption,.simulation-method{margin-left:.25rem;margin-right:.25rem}.simulation-tex{font-size:30px}.simulation-controls{gap:.4rem}.simulation-controls :is(button,select){font-size:.8rem;padding:.35rem .5rem}.simulation-legend{font-size:12px}}
+</style>

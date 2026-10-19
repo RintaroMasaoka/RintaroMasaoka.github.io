@@ -454,6 +454,8 @@ def main() -> None:
         if title not in result:
             raise ValueError(f'missing visual placement: {title}')
         result = result.replace(title, f'<div data-extra-visual="{slot}"></div>\n\n{title}', 1)
+    result = re.sub(r'!\[2つのソリトンの衝突\]\([^\n]+\)\n\n2つのソリトンの衝突', '<div data-extra-visual="collision"></div>', result, count=1)
+    result = re.sub(r'\| !\[KdV simulation frame 1\][\s\S]*?(?=またKdV方程式は)', '<div data-extra-visual="breakup"></div>\n\n', result, count=1)
     OUTPUT.write_text(result.rstrip() + "\n", encoding="utf-8")
 
 

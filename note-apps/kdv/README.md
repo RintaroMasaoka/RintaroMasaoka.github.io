@@ -21,3 +21,11 @@ The `/notes/kdv/` route contains the complete note. `content/full.md` preserves 
 `TravelingSoliton.astro` and `visuals/soliton.js` plot the analytic one-soliton profile with native speed/time inputs. `IsospectralFigure.astro` compares three translates of the c=2 potential with its unchanged spectrum. `OperatorProjection.astro` separates power projection from coefficient extraction. Their insertion points are preserved by `scripts/restore_original_source.py`; English plot lettering is rendered through KaTeX from `figure-sources/extra-labels.json` and the component sources.
 
 The five original raster images keep their source pixels. Light mode uses multiply compositing; dark mode uses inversion with screen compositing so the white backing follows the reading surface and the colored curve remains distinct. Native image buttons open a zoom dialog supporting keyboard dismissal and scroll/pan. Generic diagram SVG sizing is limited to figure SVGs so KaTeX radical glyphs retain their own geometry.
+
+## Live KdV simulations
+
+The introduction's collision image and three-frame simulation are replaced by two instances of `KdvSimulation.astro`. `visuals/kdv-worker.js` computes the PDE in a Web Worker using `kdv-solver.js`; the player uses those computed frames, not an analytic animation. Nothing computes or moves until the reader starts playback.
+
+The solver evolves `v=-u`, `v_t=-3(v²)_x-v_xxx`, on a periodic interval of length100 with512 points and `dt=.0025`. Each Strang step applies an exact Fourier linear half-step, an RK4 nonlinear step with the2/3 spectral cutoff, and another linear half-step. Frames are saved every.05 through t=8, before the main pulses cross the boundary. The collision begins with two well-separated sech² pulses; breakup begins with a Gaussian pulse. The original source images remain in the source archive.
+
+Reproduce scientific checks with `node note-apps/kdv/scripts/check-numerics.mjs`: direct-DFT/FFT comparison, inverse normalization, comparison and time-step convergence against the exact one-soliton solution, conservation drift, and comparison with a finer space/time grid. This checks through t=12, beyond the displayed interval. These are numerical checks, not a general error bound. New plot labels are editable KaTeX sources in the component, using the same local KaTeX fonts as the note.
