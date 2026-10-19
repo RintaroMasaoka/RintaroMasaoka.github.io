@@ -18,7 +18,7 @@ The `/notes/kdv/` route contains the complete note. `content/full.md` preserves 
 
 ## Explanatory visuals outside GLM
 
-`TravelingSoliton.astro` and `visuals/soliton.js` plot the analytic one-soliton profile with native speed/time inputs. `IsospectralFigure.astro` compares three translates of the c=2 potential with its unchanged spectrum. `OperatorProjection.astro` separates power projection from coefficient extraction. Their insertion points are preserved by `scripts/restore_original_source.py`; English plot lettering is rendered through KaTeX from `figure-sources/extra-labels.json` and the component sources.
+`TravelingSoliton.astro` and `visuals/soliton.js` plot the analytic one-soliton profile with native speed/time inputs. `OperatorProjection.astro` separates power projection from coefficient extraction. Their insertion points are preserved by `scripts/restore_original_source.py`; English plot lettering is rendered through KaTeX from `figure-sources/extra-labels.json` and the component sources.
 
 The five original raster images keep their source pixels. Light mode uses multiply compositing; dark mode uses inversion with screen compositing so the white backing follows the reading surface and the colored curve remains distinct. Native image buttons open a zoom dialog supporting keyboard dismissal and scroll/pan. Generic diagram SVG sizing is limited to figure SVGs so KaTeX radical glyphs retain their own geometry.
 

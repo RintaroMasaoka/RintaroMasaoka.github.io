@@ -45,56 +45,6 @@
       ],
       "interactive_values": "Slider values are rendered as ordinary accessible HTML outputs outside the plot. The curve geometry is evaluated analytically in soliton.js."
     },
-    "isospectral": {
-      "component": "../components/IsospectralFigure.astro",
-      "labels": [
-        {
-          "meaning": "potential",
-          "role": "vertical axis",
-          "tex": "u"
-        },
-        {
-          "meaning": "position",
-          "role": "horizontal axis",
-          "tex": "x"
-        },
-        {
-          "meaning": "potential ticks",
-          "role": "axis ticks",
-          "tex": "0; -1"
-        },
-        {
-          "meaning": "position ticks",
-          "role": "axis ticks",
-          "tex": "-12; 0; 12"
-        },
-        {
-          "meaning": "time series and line-style key",
-          "role": "external legend",
-          "tex": "t=-2; t=0; t=2"
-        },
-        {
-          "meaning": "spectral coordinate",
-          "role": "axis",
-          "tex": "\\lambda"
-        },
-        {
-          "meaning": "discrete eigenvalue and continuum threshold ticks",
-          "role": "axis ticks",
-          "tex": "-\\dfrac{1}{2}; 0; 1"
-        },
-        {
-          "meaning": "scope of the example and unbounded continuum",
-          "role": "external labels",
-          "tex": "\\text{Exact one-soliton example}; \\text{Spectrum}; \\text{continuous spectrum }(\\lambda\\ge0)"
-        },
-        {
-          "meaning": "explicit time for each spectrum row, independent of color",
-          "role": "row labels",
-          "tex": "t=-2; t=0; t=2"
-        }
-      ]
-    },
     "operator_projection": {
       "component": "../components/OperatorProjection.astro",
       "labels": [

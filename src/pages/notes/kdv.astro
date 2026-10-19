@@ -6,7 +6,6 @@ import config from '../../../note-apps/kdv/note.config.json';
 import ContourFigure from '../../../note-apps/kdv/components/ContourFigure.astro';
 import ReconstructionFigure from '../../../note-apps/kdv/components/ReconstructionFigure.astro';
 import TravelingSoliton from '../../../note-apps/kdv/components/TravelingSoliton.astro';
-import IsospectralFigure from '../../../note-apps/kdv/components/IsospectralFigure.astro';
 import KdvSimulation from '../../../note-apps/kdv/components/KdvSimulation.astro';
 import OperatorProjection from '../../../note-apps/kdv/components/OperatorProjection.astro';
 const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h => ({...h, text: h.text.startsWith('3.5.') ? '3.5. ψₙ(x) が固有関数であることの証明' : h.text.startsWith('3.6.') ? '3.6. u(x) の ψₙ(x) による表示' : h.text.replace(/\$/g, '').replace(/\\psi/g, 'ψ')})).flatMap(h => [h, ...(h.depth === 2 && h.text.startsWith('3.') ? getGlmHeadings().filter(g => g.depth === 2).map(g => ({...g, depth: 3, text: g.text.replace(/^\d+\.\s*/, '')})) : [])]);
@@ -48,7 +47,7 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
       </header>
       <details class="mobile-index"><summary>目次を開く</summary><nav><ol>{headings.map(h => <li class:list={{subsection: h.depth === 3}}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details>
       <div class="reading-actions"><button type="button" id="expand-details">補足をすべて開く</button><button type="button" id="collapse-details">補足をすべて閉じる</button></div>
-      <KdvBody><Content /><GlmContent slot="glm" /><ContourFigure slot="contour" /><ReconstructionFigure slot="reconstruction" /><TravelingSoliton slot="traveling" /><IsospectralFigure slot="isospectral" /><OperatorProjection slot="operator" /><KdvSimulation slot="collision" mode="collision" /><KdvSimulation slot="breakup" mode="breakup" /></KdvBody>
+      <KdvBody><Content /><GlmContent slot="glm" /><ContourFigure slot="contour" /><ReconstructionFigure slot="reconstruction" /><TravelingSoliton slot="traveling" /><OperatorProjection slot="operator" /><KdvSimulation slot="collision" mode="collision" /><KdvSimulation slot="breakup" mode="breakup" /></KdvBody>
       <div id="equation-preview" role="dialog" aria-label="参照した数式" hidden><button id="close-equation" type="button" aria-label="数式プレビューを閉じる">閉じる ×</button><div id="equation-preview-content"></div></div>
       <dialog id="legacy-image-dialog" aria-label="原図を拡大表示">
         <div class="image-viewer-toolbar"><button type="button" id="image-zoom-out" aria-label="図を縮小">−</button><output id="image-zoom-value" aria-live="polite">100%</output><button type="button" id="image-zoom-in" aria-label="図を拡大">＋</button><button type="button" id="image-viewer-close">閉じる</button></div>
@@ -201,13 +200,13 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
 :is(#manuscript,#equation-preview) .katex-display>.katex>.katex-html:has(>.tag)>.base:first-child{margin-left:auto}
 :is(#manuscript,#legacy-image-dialog) img[src^="/notes/KdV/images/"]{mix-blend-mode:multiply}:root.dark :is(#manuscript,#legacy-image-dialog) img[src^="/notes/KdV/images/"]{filter:invert(1);mix-blend-mode:screen}
 #manuscript .legacy-image-button{display:block;width:100%;padding:0;border:0;min-height:0;background:transparent;cursor:zoom-in}#manuscript .legacy-zoom-label{display:block;text-align:right;font:11px/1.8 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--accent);padding:4px 0}#legacy-image-dialog{padding:14px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);width:min(1100px,calc(100vw - 20px));max-height:90vh}#legacy-image-dialog::backdrop{background:#0009}.image-viewer-toolbar{display:flex;align-items:center;gap:10px;padding-bottom:12px}.image-viewer-toolbar output{min-width:44px;text-align:center;font:13px ui-monospace,monospace}#image-viewer-close{margin-left:auto}#legacy-image-scroll{overflow:auto;max-height:calc(90vh - 95px)}#legacy-image-expanded{display:block;max-width:none;height:auto}button:disabled{opacity:.4;cursor:default}
-#manuscript :is(.kdv-traveling-soliton,.kdv-isospectral,.kdv-operator-projection,.kdv-numerical)>svg{display:block;width:100%;max-width:600px;height:auto;margin-left:auto;margin-right:auto}
+#manuscript :is(.kdv-traveling-soliton,.kdv-operator-projection,.kdv-numerical)>svg{display:block;width:100%;max-width:600px;height:auto;margin-left:auto;margin-right:auto}
 
 /* Keep scientific canvases and controls stable across portrait widths. */
 #manuscript .kdv-figure-canvas>svg{display:block;width:100%;max-width:none;height:auto}
 #manuscript .kdv-figure-canvas .kdv-plot-grid{width:420px;max-width:none}
 #manuscript .kdv-figure-canvas .kdv-plot-grid>svg{width:420px;max-width:none;height:auto}
-#manuscript :is(.kdv-traveling-soliton,.kdv-isospectral) .kdv-tex{font-size:22px}
+#manuscript :is(.kdv-traveling-soliton) .kdv-tex{font-size:22px}
 #manuscript .simulation-tex{font-size:22px}
 #manuscript :is(.kdv-contour,.kdv-reconstruction) .tex-label{font-size:18px}
 #manuscript .kdv-soliton-formula{font-size:18px;white-space:nowrap}
@@ -221,5 +220,5 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
 #manuscript :is(.simulation-legend,.kdv-soliton-legend){display:grid;grid-template-columns:1fr;justify-items:center;gap:6px;font-size:14px}
 #manuscript .kdv-control-grid{grid-template-columns:1fr;gap:12px}
 #manuscript .kdv-contour-decay{font-size:15px;overflow-x:auto;padding:4px 0}
-@media(max-width:480px){main{padding-left:16px;padding-right:16px}.reader-title{min-width:0;flex:1}.reader-header button{flex:none}#manuscript :is(.kdv-numerical,.kdv-traveling-soliton,.kdv-isospectral,.kdv-operator-projection,.kdv-contour,.kdv-reconstruction){padding:12px 8px}#manuscript .kdv-soliton-controls{grid-template-columns:1fr;gap:10px;margin-left:4px;margin-right:4px}}
+@media(max-width:480px){main{padding-left:16px;padding-right:16px}.reader-title{min-width:0;flex:1}.reader-header button{flex:none}#manuscript :is(.kdv-numerical,.kdv-traveling-soliton,.kdv-operator-projection,.kdv-contour,.kdv-reconstruction){padding:12px 8px}#manuscript .kdv-soliton-controls{grid-template-columns:1fr;gap:10px;margin-left:4px;margin-right:4px}}
 </style>
