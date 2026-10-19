@@ -5,6 +5,9 @@ import KdvBody from '../../../note-apps/kdv/components/KdvBody.astro';
 import config from '../../../note-apps/kdv/note.config.json';
 import ContourFigure from '../../../note-apps/kdv/components/ContourFigure.astro';
 import ReconstructionFigure from '../../../note-apps/kdv/components/ReconstructionFigure.astro';
+import TravelingSoliton from '../../../note-apps/kdv/components/TravelingSoliton.astro';
+import IsospectralFigure from '../../../note-apps/kdv/components/IsospectralFigure.astro';
+import OperatorProjection from '../../../note-apps/kdv/components/OperatorProjection.astro';
 const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h => ({...h, text: h.text.startsWith('3.5.') ? '3.5. ψₙ(x) が固有関数であることの証明' : h.text.startsWith('3.6.') ? '3.6. u(x) の ψₙ(x) による表示' : h.text.replace(/\$/g, '').replace(/\\psi/g, 'ψ')})).flatMap(h => [h, ...(h.depth === 2 && h.text.startsWith('3.') ? getGlmHeadings().filter(g => g.depth === 2).map(g => ({...g, depth: 3, text: g.text.replace(/^\d+\.\s*/, '')})) : [])]);
 ---
 <!doctype html>
@@ -44,14 +47,20 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
       </header>
       <details class="mobile-index"><summary>目次を開く</summary><nav><ol>{headings.map(h => <li class:list={{subsection: h.depth === 3}}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details>
       <div class="reading-actions"><button type="button" id="expand-details">補足をすべて開く</button><button type="button" id="collapse-details">補足をすべて閉じる</button></div>
-      <KdvBody><Content /><GlmContent slot="glm" /><ContourFigure slot="contour" /><ReconstructionFigure slot="reconstruction" /></KdvBody>
+      <KdvBody><Content /><GlmContent slot="glm" /><ContourFigure slot="contour" /><ReconstructionFigure slot="reconstruction" /><TravelingSoliton slot="traveling" /><IsospectralFigure slot="isospectral" /><OperatorProjection slot="operator" /></KdvBody>
       <div id="equation-preview" role="dialog" aria-label="参照した数式" hidden><button id="close-equation" type="button" aria-label="数式プレビューを閉じる">閉じる ×</button><div id="equation-preview-content"></div></div>
+      <dialog id="legacy-image-dialog" aria-label="原図を拡大表示">
+        <div class="image-viewer-toolbar"><button type="button" id="image-zoom-out" aria-label="図を縮小">−</button><output id="image-zoom-value" aria-live="polite">100%</output><button type="button" id="image-zoom-in" aria-label="図を拡大">＋</button><button type="button" id="image-viewer-close">閉じる</button></div>
+        <div id="legacy-image-scroll"><img id="legacy-image-expanded" alt="" /></div>
+      </dialog>
       <footer class="note-footer"><a href="/ja/notes/">← ノート一覧</a><a href="#top">ページの先頭へ ↑</a></footer>
     </main>
   </div>
   <script>
     import { initKdvVisuals } from '../../../note-apps/kdv/visuals/contours.js';
     initKdvVisuals();
+    import { initTravelingSoliton } from '../../../note-apps/kdv/visuals/soliton.js';
+    initTravelingSoliton();
     document.getElementById('theme-button')?.addEventListener('click', () => {
       const dark = document.documentElement.classList.toggle('dark');
       try { localStorage.setItem('kdv.theme', dark ? 'dark' : 'light'); } catch {}
@@ -61,6 +70,31 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
         document.querySelectorAll<HTMLDetailsElement>('#manuscript details').forEach(el => el.open = open);
       });
     }
+    const imageDialog = document.getElementById('legacy-image-dialog') as HTMLDialogElement;
+    const expandedImage = document.getElementById('legacy-image-expanded') as HTMLImageElement;
+    const imageScroll = document.getElementById('legacy-image-scroll')!;
+    let imageZoom = 1;
+    const renderImageZoom = () => {
+      expandedImage.style.width = `${Math.min(expandedImage.naturalWidth, imageScroll.clientWidth) * imageZoom}px`;
+      document.getElementById('image-zoom-value')!.textContent = `${Math.round(imageZoom * 100)}%`;
+      (document.getElementById('image-zoom-out') as HTMLButtonElement).disabled = imageZoom <= 1;
+      (document.getElementById('image-zoom-in') as HTMLButtonElement).disabled = imageZoom >= 4;
+    };
+    document.querySelectorAll<HTMLImageElement>('#manuscript img[src^="/notes/KdV/images/"]').forEach(img => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'legacy-image-button';
+      button.setAttribute('aria-label', `図を拡大: ${img.alt}`); button.setAttribute('aria-haspopup', 'dialog');
+      img.replaceWith(button); button.append(img);
+      const label = document.createElement('span'); label.className = 'legacy-zoom-label'; label.textContent = '図を拡大'; button.append(label);
+      button.addEventListener('click', () => {
+        imageZoom = 1; expandedImage.alt = img.alt; expandedImage.onload = renderImageZoom; expandedImage.src = img.getAttribute('src')!;
+        imageDialog.showModal(); renderImageZoom(); imageScroll.scrollTo(0, 0);
+      });
+    });
+    document.getElementById('image-viewer-close')!.addEventListener('click', () => imageDialog.close());
+    document.getElementById('image-zoom-in')!.addEventListener('click', () => { imageZoom = Math.min(4, imageZoom + .5); renderImageZoom(); });
+    document.getElementById('image-zoom-out')!.addEventListener('click', () => { imageZoom = Math.max(1, imageZoom - .5); renderImageZoom(); });
+    addEventListener('resize', () => { if (imageDialog.open) renderImageZoom(); });
     const preview = document.getElementById('equation-preview')!;
     const previewContent = document.getElementById('equation-preview-content')!;
     const equations = new Map<string, Element>();
@@ -142,7 +176,7 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
   .reader-header{position:sticky;top:0;z-index:20;height:65px;display:flex;align-items:center;gap:24px;padding:0 28px;background:var(--paper);border-bottom:1px solid var(--line)}.reader-header a{text-decoration:none}.back{font-size:14px;white-space:nowrap}.reader-title{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:18px;font-weight:600;letter-spacing:.04em}.reader-header button{margin-left:auto;font-size:12px}
   .reading-layout{max-width:1440px;margin:auto;display:grid;grid-template-columns:255px minmax(0,1fr)}.index{position:sticky;top:65px;height:calc(100vh - 65px);padding:42px 26px;border-right:1px solid var(--line);overflow:auto}.index-heading{font-size:13px;letter-spacing:.04em;color:var(--muted);margin-bottom:20px}.index ol{list-style:none;margin:0;padding:0;counter-reset:section}.index li{counter-increment:section;margin:0 0 8px}.index nav a{display:block;font-size:13px;line-height:1.6;padding:9px 0;text-decoration:none;color:var(--muted)}.index nav a::before{content:counter(section,decimal-leading-zero);font-family:ui-monospace,monospace;font-size:10px;margin-right:9px;color:var(--accent)}.index nav a[aria-current]{color:var(--accent);font-weight:700}.originals{display:grid;gap:14px;margin-top:36px;padding-top:26px;border-top:1px solid var(--line);font-size:12px}.originals a{text-decoration:none}
   main{min-width:0;background:var(--surface);padding:54px clamp(24px,5vw,80px) 32px}.chapter-head{padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:24px}.eyebrow{font-size:11px;color:var(--accent);letter-spacing:.18em;margin:0 0 18px}.chapter-head h1{font:500 clamp(28px,3.5vw,42px)/1.5 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.02em;margin:0 0 14px}.deck{font-size:14px;line-height:1.9;color:var(--muted);margin:0}.reading-actions{display:flex;gap:10px;justify-content:flex-end;margin-bottom:32px}.reading-actions button{font-size:11px;border:none;padding:7px 3px;text-decoration:underline;text-underline-offset:4px}.mobile-index{display:none}
-  #manuscript{font:16px/2.05 "Hiragino Mincho ProN","Yu Mincho",serif;overflow-wrap:break-word}#manuscript p{margin:0 0 22px}#manuscript h2{font-size:24px;line-height:1.6;font-weight:600;margin:62px 0 24px;padding-top:26px;border-top:1px solid var(--line);scroll-margin-top:85px}#manuscript h2:first-child{margin-top:16px;border-top:none;padding-top:0}#manuscript h3{font-size:18px;margin:32px 0 16px}#manuscript ul{padding-left:24px}#manuscript li{margin:7px 0}#manuscript blockquote{margin:26px 0;padding:18px 22px;border-left:3px solid var(--accent);background:var(--soft)}#manuscript blockquote p:last-child{margin:0}#manuscript .katex-display{overflow-x:auto;overflow-y:hidden;padding:10px 2px;margin:20px 0;font-size:.95em}#manuscript details{border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0 20px;margin:25px 0;font-size:15px}#manuscript details summary{font:500 13px/1.7 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;padding:16px 0;color:var(--accent)}#manuscript details[open] summary{margin-bottom:16px;border-bottom:1px solid var(--line)}#manuscript details p:last-child{margin-bottom:18px}#manuscript figure{margin:30px 0}#manuscript figcaption{font:13px/1.8 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--muted);margin-top:14px}#manuscript svg{max-width:100%;height:auto}#manuscript table{border-collapse:collapse;width:100%;font-size:14px}#manuscript th,#manuscript td{border-bottom:1px solid var(--line);padding:10px;text-align:left}
+  #manuscript{font:16px/2.05 "Hiragino Mincho ProN","Yu Mincho",serif;overflow-wrap:break-word}#manuscript p{margin:0 0 22px}#manuscript h2{font-size:24px;line-height:1.6;font-weight:600;margin:62px 0 24px;padding-top:26px;border-top:1px solid var(--line);scroll-margin-top:85px}#manuscript h2:first-child{margin-top:16px;border-top:none;padding-top:0}#manuscript h3{font-size:18px;margin:32px 0 16px}#manuscript ul{padding-left:24px}#manuscript li{margin:7px 0}#manuscript blockquote{margin:26px 0;padding:18px 22px;border-left:3px solid var(--accent);background:var(--soft)}#manuscript blockquote p:last-child{margin:0}#manuscript .katex-display{overflow-x:auto;overflow-y:hidden;padding:10px 2px;margin:20px 0;font-size:.95em}#manuscript details{border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0 20px;margin:25px 0;font-size:15px}#manuscript details summary{font:500 13px/1.7 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;padding:16px 0;color:var(--accent)}#manuscript details[open] summary{margin-bottom:16px;border-bottom:1px solid var(--line)}#manuscript details p:last-child{margin-bottom:18px}#manuscript figure{margin:30px 0}#manuscript figcaption{font:13px/1.8 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--muted);margin-top:14px}#manuscript figure>svg{max-width:100%;height:auto}#manuscript table{border-collapse:collapse;width:100%;font-size:14px}#manuscript th,#manuscript td{border-bottom:1px solid var(--line);padding:10px;text-align:left}
   .note-footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:24px;margin-top:64px;font-size:12px}button,input{min-height:38px}.visual-card{font-family:-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.7}.visual-card label{font-size:13px}.visual-card input[type=range]{accent-color:var(--accent);max-width:100%}
   #reading-progress{position:fixed;z-index:30;left:0;top:0;height:3px;background:var(--accent);width:0;pointer-events:none}#equation-preview{position:fixed;z-index:50;width:min(680px,calc(100vw - 24px));max-height:calc(100vh - 100px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;box-shadow:0 12px 40px #0002}#equation-preview[hidden]{display:none}#close-equation{display:block;margin-left:auto;font-size:11px}#equation-preview .katex-display{overflow-x:auto;overflow-y:hidden;font-size:.9em;padding:8px 0}#manuscript .equation-reference{display:inline;border:0;border-bottom:1px dotted var(--accent);border-radius:0;padding:0 2px;min-height:0;color:var(--accent);font:inherit;line-height:inherit}
   @media(min-width:1450px){main{padding-right:100px}}@media(max-width:850px){.reading-layout{grid-template-columns:1fr}.index{display:none}main{padding:34px 24px}.reader-header{padding:0 18px;gap:16px}.reader-title{font-size:15px}.mobile-index{display:block;margin:24px 0;font-size:13px;border:1px solid var(--line);border-radius:5px;padding:12px 16px}.mobile-index summary{color:var(--accent)}.mobile-index li{padding:5px 0}.reading-actions{margin-bottom:22px}#manuscript{font-size:15.5px}#manuscript h2{font-size:22px;margin-top:48px}.back span{display:none}}
@@ -153,8 +187,11 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
 .index li.subsection{margin-bottom:2px;padding-left:14px}.index li.subsection a{font-size:12px;padding:5px 0}.index nav a::before{content:none}.index li:not(.subsection) a{font-weight:600}.mobile-index li.subsection{padding-left:14px;font-size:12px}#manuscript h3{scroll-margin-top:85px}#manuscript img{max-width:100%;height:auto}#manuscript .source-figure{background:white;padding:12px;border-radius:4px}#manuscript .source-figure figcaption{color:#34443b}#manuscript .footnotes{font-size:13px;border-top:1px solid var(--line);padding-top:16px}
 
 
-#manuscript table:has(img){table-layout:fixed}#manuscript table:has(img) td{padding:3px}#manuscript table:has(img) img{display:block;width:100%}@media(max-width:600px){#manuscript table:has(img),#manuscript table:has(img) tbody,#manuscript table:has(img) tr,#manuscript table:has(img) td{display:block;width:100%}#manuscript table:has(img) thead{display:none}#manuscript table:has(img) td{border:0;padding:8px 0}}
+#manuscript table:has(img){table-layout:fixed}#manuscript table:has(img) td{padding:3px}#manuscript table:has(img) img{display:block;width:100%}@media(max-width:600px){#manuscript table:has(img),#manuscript table:has(img) thead,#manuscript table:has(img) tbody,#manuscript table:has(img) tr,#manuscript table:has(img) th,#manuscript table:has(img) td{display:block;width:100%}#manuscript table:has(img) :is(th,td){border:0;padding:8px 0}}
 
 :is(#manuscript,#equation-preview) .katex-display>.katex>.katex-html{display:flex;align-items:baseline;justify-content:center;gap:1.5em;width:max-content;min-width:100%}:is(#manuscript,#equation-preview) .katex-display>.katex>.katex-html>.base{flex-shrink:0}:is(#manuscript,#equation-preview) .katex-display .tag{position:static;flex-shrink:0;margin-left:auto}
 :is(#manuscript,#equation-preview) .katex-display>.katex>.katex-html:has(>.tag)>.base:first-child{margin-left:auto}
+:is(#manuscript,#legacy-image-dialog) img[src^="/notes/KdV/images/"]{mix-blend-mode:multiply}:root.dark :is(#manuscript,#legacy-image-dialog) img[src^="/notes/KdV/images/"]{filter:invert(1);mix-blend-mode:screen}
+#manuscript .legacy-image-button{display:block;width:100%;padding:0;border:0;min-height:0;background:transparent;cursor:zoom-in}#manuscript .legacy-zoom-label{display:block;text-align:right;font:11px/1.8 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--accent);padding:4px 0}#legacy-image-dialog{padding:14px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);width:min(1100px,calc(100vw - 20px));max-height:90vh}#legacy-image-dialog::backdrop{background:#0009}.image-viewer-toolbar{display:flex;align-items:center;gap:10px;padding-bottom:12px}.image-viewer-toolbar output{min-width:44px;text-align:center;font:13px ui-monospace,monospace}#image-viewer-close{margin-left:auto}#legacy-image-scroll{overflow:auto;max-height:calc(90vh - 95px)}#legacy-image-expanded{display:block;max-width:none;height:auto}button:disabled{opacity:.4;cursor:default}
+#manuscript :is(.kdv-traveling-soliton,.kdv-isospectral,.kdv-operator-projection)>svg{display:block;width:100%;max-width:600px;height:auto;margin-left:auto;margin-right:auto}
 </style>

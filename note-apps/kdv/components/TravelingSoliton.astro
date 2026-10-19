@@ -1,0 +1,68 @@
+---
+import { createRequire } from 'node:module';
+const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
+const x0 = (x: number) => 62 + (x + 12) * 500 / 24;
+const y0 = (y: number) => 266 - y * (210 / 2.2);
+const soliton = (c: number, t: number) => Array.from({ length: 401 }, (_, i) => {
+  const x = -12 + i * 24 / 400;
+  const z = Math.sqrt(c) * (x - c * t) / 2;
+  const value = c / (2 * Math.cosh(z) ** 2);
+  return `${i ? 'L' : 'M'}${x0(x).toFixed(2)},${y0(value).toFixed(2)}`;
+}).join(' ');
+const labels = [
+  { x: 565, y: 220, w: 35, t: 'x' },
+  { x: 7, y: y0(2) - 15, w: 45, t: '2' }, { x: 7, y: y0(0) - 15, w: 45, t: '0' },
+  { x: x0(-12) - 37.5, y: 271, w: 75, t: '-12' }, { x: x0(0) - 28, y: 271, w: 56, t: '0' }, { x: x0(12) - 28, y: 271, w: 56, t: '12' },
+];
+const formula = tex('-u(x,t)=\\dfrac{c}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{c}}{2}(x-ct)\\right)');
+const caption = `解析式を直接プロットした。縦軸は正の量 ${tex('-u')}。${tex('c')} を変えると速度・高さ・幅が連動して変わり、${tex('t')} は形を保ったまま平行移動させる。破線は ${tex('t=0')} の基準。`;
+---
+<figure class="kdv-traveling-soliton" data-kdv-soliton aria-labelledby="kdv-soliton-caption">
+  <div class="kdv-soliton-controls">
+    <label for="kdv-soliton-c"><span class="kdv-control-name">速度 <span set:html={tex('c')} /></span><output data-soliton-c-output for="kdv-soliton-c">2.00</output><input id="kdv-soliton-c" data-soliton-c type="range" min="1" max="4" step="0.01" value="2" /></label>
+    <label for="kdv-soliton-t"><span class="kdv-control-name">時刻 <span set:html={tex('t')} /></span><output data-soliton-t-output for="kdv-soliton-t">0.00</output><input id="kdv-soliton-t" data-soliton-t type="range" min="-2" max="2" step="0.01" value="0" /></label>
+    <button type="button" data-soliton-reset>初期値に戻す</button>
+  </div>
+  <div class="kdv-soliton-formula" set:html={formula} />
+  <svg viewBox="0 0 600 320" role="img" aria-labelledby="kdv-soliton-title kdv-soliton-desc">
+    <title id="kdv-soliton-title">Analytic one-soliton profile and its translation</title>
+    <desc id="kdv-soliton-desc">The positive profile minus u is shown at the selected time as a solid curve and at time zero as a dashed reference.</desc>
+    <defs><clipPath id="kdv-soliton-clip"><rect x="62" y="56" width="500" height="210" /></clipPath></defs>
+    <path d="M62 56 V266 H562" fill="none" stroke="var(--muted)" stroke-width="1.3" />
+    <foreignObject x="-4" y="0" width="70" height="55"><div class="kdv-tex" set:html={tex('-u')} /></foreignObject>
+    <path d="M62 56 H562" fill="none" stroke="var(--line)" stroke-dasharray="3 5" />
+    {[-12, 0, 12].map(x => <path d={`M${x0(x)} 266 v5`} stroke="var(--muted)" />)}
+    {[0, 2].map(y => <path d={`M57 ${y0(y)} h5`} stroke="var(--muted)" />)}
+    <path data-soliton-reference d={soliton(2, 0)} fill="none" stroke="var(--muted)" stroke-width="5" stroke-dasharray="8 6" clip-path="url(#kdv-soliton-clip)" />
+    <path data-soliton-current d={soliton(2, 0)} fill="none" stroke="var(--accent)" stroke-width="2.7" clip-path="url(#kdv-soliton-clip)" />
+    {labels.map(l => <foreignObject x={l.x} y={l.y - 8} width={l.w} height="48"><div class="kdv-tex" set:html={tex(l.t)} /></foreignObject>)}
+  </svg>
+  <div class="kdv-soliton-legend" aria-label="Curve legend">
+    <span><svg viewBox="0 0 32 12" aria-hidden="true"><path d="M1 6 H31" stroke="var(--accent)" stroke-width="2.7" /></svg><span set:html={tex('\\text{current profile}')} /></span>
+    <span><svg viewBox="0 0 32 12" aria-hidden="true"><path d="M1 6 H31" stroke="var(--muted)" stroke-width="5" stroke-dasharray="8 6" /></svg><span set:html={tex('\\text{time-zero reference}')} /></span>
+  </div>
+  <figcaption id="kdv-soliton-caption" set:html={caption} />
+</figure>
+<script>
+  import { initTravelingSoliton } from '../visuals/soliton.js';
+  initTravelingSoliton();
+</script>
+<style>
+.kdv-traveling-soliton{margin:2rem 0;border:1px solid var(--line);border-radius:12px;padding:1rem;background:var(--paper)}
+.kdv-soliton-controls{display:grid;grid-template-columns:1fr 1fr;gap:.75rem 1.4rem;align-items:end;max-width:600px;margin:.1rem auto .35rem}
+.kdv-soliton-controls label{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:.25rem .6rem;font-size:.88rem;line-height:1.6}
+.kdv-soliton-controls .kdv-control-name{grid-column:1;grid-row:1;display:inline-flex;align-items:baseline;gap:.3rem}.kdv-soliton-controls output{grid-column:2;grid-row:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.kdv-soliton-controls input{grid-column:1/-1;grid-row:2;width:100%;min-height:26px;accent-color:var(--accent)}
+.kdv-soliton-controls button{grid-column:1/-1;justify-self:start;border:1px solid var(--line);border-radius:6px;padding:.25rem .7rem;background:var(--paper);color:var(--ink);font:inherit;cursor:pointer}
+.kdv-soliton-controls :is(input,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.kdv-traveling-soliton > svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
+.kdv-soliton-formula{color:var(--ink);font-size:clamp(14px,4vw,18px);line-height:1.5;text-align:center;margin:.3rem auto .1rem;max-width:100%;overflow-wrap:anywhere}
+.kdv-soliton-formula :global(.katex){white-space:normal}
+.kdv-tex{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink);font-size:22px;line-height:1;text-align:center;white-space:nowrap}
+.kdv-soliton-legend{display:flex;justify-content:center;gap:.7rem 1.5rem;flex-wrap:wrap;margin:.15rem auto .35rem;font-size:14px}
+.kdv-soliton-legend>span{display:inline-flex;align-items:center;gap:.35rem;color:var(--ink)}.kdv-soliton-legend svg{width:28px;height:12px;flex:none}
+.kdv-traveling-soliton figcaption{color:var(--muted);font-size:.88rem;line-height:1.8;margin:.5rem .25rem 0}.kdv-traveling-soliton figcaption :global(.katex){color:var(--ink)}
+@media(max-width:480px){.kdv-traveling-soliton{padding:.7rem .15rem}.kdv-soliton-controls{margin:0 .5rem .35rem;gap:.4rem .8rem}.kdv-tex{font-size:32px}.kdv-soliton-legend{gap:.4rem .8rem}}
+</style>

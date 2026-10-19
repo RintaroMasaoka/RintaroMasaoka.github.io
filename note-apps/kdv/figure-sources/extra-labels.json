@@ -1,0 +1,139 @@
+{
+  "renderer": "KaTeX renderToString with throwOnError=true; compact SVG labels use foreignObject and long headings/equations use HTML; local KaTeX font assets supplied by the page",
+  "font_family": "KaTeX_Main and KaTeX_Math",
+  "generation": "npm run build",
+  "figures": {
+    "traveling_soliton": {
+      "component": "../components/TravelingSoliton.astro",
+      "script": "../visuals/soliton.js",
+      "labels": [
+        {
+          "meaning": "analytic positive one-soliton profile",
+          "role": "equation",
+          "tex": "-u(x,t)=\\dfrac{c}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{c}}{2}(x-ct)\\right)"
+        },
+        {
+          "meaning": "horizontal position",
+          "role": "axis",
+          "tex": "x"
+        },
+        {
+          "meaning": "positive plotted field",
+          "role": "vertical axis",
+          "tex": "-u"
+        },
+        {
+          "meaning": "vertical profile values",
+          "role": "axis ticks",
+          "tex": "0; 2"
+        },
+        {
+          "meaning": "horizontal position ticks",
+          "role": "axis ticks",
+          "tex": "-12; 0; 12"
+        },
+        {
+          "meaning": "selected solid curve",
+          "role": "legend",
+          "tex": "\\text{current profile}"
+        },
+        {
+          "meaning": "dashed reference curve",
+          "role": "legend",
+          "tex": "\\text{time-zero reference}"
+        }
+      ],
+      "interactive_values": "Slider values are rendered as ordinary accessible HTML outputs outside the plot. The curve geometry is evaluated analytically in soliton.js."
+    },
+    "isospectral": {
+      "component": "../components/IsospectralFigure.astro",
+      "labels": [
+        {
+          "meaning": "potential",
+          "role": "vertical axis",
+          "tex": "u"
+        },
+        {
+          "meaning": "position",
+          "role": "horizontal axis",
+          "tex": "x"
+        },
+        {
+          "meaning": "potential ticks",
+          "role": "axis ticks",
+          "tex": "0; -1"
+        },
+        {
+          "meaning": "position ticks",
+          "role": "axis ticks",
+          "tex": "-12; 0; 12"
+        },
+        {
+          "meaning": "time series and line-style key",
+          "role": "external legend",
+          "tex": "t=-2; t=0; t=2"
+        },
+        {
+          "meaning": "spectral coordinate",
+          "role": "axis",
+          "tex": "\\lambda"
+        },
+        {
+          "meaning": "discrete eigenvalue and continuum threshold ticks",
+          "role": "axis ticks",
+          "tex": "-\\dfrac{1}{2}; 0; 1"
+        },
+        {
+          "meaning": "scope of the example and unbounded continuum",
+          "role": "external labels",
+          "tex": "\\text{Exact one-soliton example}; \\text{Spectrum}; \\text{continuous spectrum }(\\lambda\\ge0)"
+        },
+        {
+          "meaning": "explicit time for each spectrum row, independent of color",
+          "role": "row labels",
+          "tex": "t=-2; t=0; t=2"
+        }
+      ]
+    },
+    "operator_projection": {
+      "component": "../components/OperatorProjection.astro",
+      "labels": [
+        {
+          "meaning": "operator series",
+          "role": "equation",
+          "tex": "A="
+        },
+        {
+          "meaning": "power-class headings",
+          "role": "external group labels",
+          "tex": "\\text{negative}; \\text{powers}; \\text{nonnegative}; \\text{powers}"
+        },
+        {
+          "meaning": "negative-power sample terms",
+          "role": "coefficient and power cells",
+          "tex": "a_{-2}; \\partial^{-2}; a_{-1}; \\partial^{-1}"
+        },
+        {
+          "meaning": "nonnegative-power sample terms through finite highest power",
+          "role": "coefficient and power cells",
+          "tex": "a_0; \\partial^0; a_1; \\partial^1; a_m; \\partial^m"
+        },
+        {
+          "meaning": "nonnegative-power projection",
+          "role": "output",
+          "tex": "(A)_{\\ge0}"
+        },
+        {
+          "meaning": "residue and selected coefficient",
+          "role": "output",
+          "tex": "\\operatorname{Res}(A); a_{-1}"
+        },
+        {
+          "meaning": "the displayed operator terms stay paired in the source series",
+          "role": "operation",
+          "tex": "a_j\\partial^j"
+        }
+      ]
+    }
+  }
+}

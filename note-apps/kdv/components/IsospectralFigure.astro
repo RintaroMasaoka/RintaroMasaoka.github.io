@@ -1,0 +1,67 @@
+---
+import { createRequire } from 'node:module';
+const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
+const px = (x: number) => 70 + (x + 12) * 480 / 24;
+const py = (u: number) => 55 - u * 150;
+const lambdaX = (lambda: number) => 70 + (lambda + 0.8) * 480 / 2.2;
+const potential = (t: number) => Array.from({ length: 301 }, (_, i) => {
+  const x = -12 + i * 24 / 300;
+  const z = (x - 2 * t) / Math.sqrt(2);
+  const u = -1 / Math.cosh(z) ** 2;
+  return `${i ? 'L' : 'M'}${px(x).toFixed(2)},${py(u).toFixed(2)}`;
+}).join(' ');
+const times = [
+  { t: -2, color: 'var(--accent)', dash: '7 5', y: 383 },
+  { t: 0, color: 'var(--blue)', dash: '', y: 421 },
+  { t: 2, color: 'var(--muted)', dash: '2 5', y: 459 },
+];
+const caption = `厳密な1-ソリトン例（${tex('c=2')}）。上段ではポテンシャルを時刻ごとに色と線種で対応させた。下段の各時刻で離散固有値 ${tex('\\lambda=-c/4=-1/2')} は同じ位置にあり、連続スペクトル ${tex('\\lambda\\ge0')} も共通する。矢印は連続スペクトルが正の方向へ続くことを示す。`;
+const labels = [
+  { x: 15, y: 93, w: 48, t: 'u' }, { x: 555, y: 80, w: 32, t: 'x' },
+  { x: px(-12) - 37.5, y: 8, w: 75, t: '-12' }, { x: px(0) - 28, y: 8, w: 56, t: '0' }, { x: px(12) - 28, y: 8, w: 56, t: '12' },
+  { x: 9, y: py(0) - 15, w: 45, t: '0' }, { x: 3.5, y: py(-1) - 15, w: 56, t: '-1' },
+  { x: 571, y: 345, w: 28, t: '\\lambda' },
+  { x: lambdaX(-0.5) - 35, y: 288, w: 70, t: '-\\dfrac{1}{2}' }, { x: lambdaX(0) - 22, y: 288, w: 44, t: '0' }, { x: lambdaX(1) - 22, y: 288, w: 44, t: '1' },
+];
+---
+<figure class="kdv-isospectral" aria-labelledby="kdv-isospectral-caption">
+  <div class="kdv-iso-title" set:html={tex('\\text{Exact one-soliton example}')} />
+  <div class="kdv-iso-time-legend" aria-label="Time legend">{times.map(({ t, color, dash }) => <span><svg viewBox="0 0 32 12" aria-hidden="true"><path d="M1 6 H31" stroke={color} stroke-width="2.7" stroke-dasharray={dash || undefined} /></svg><span set:html={tex(`t=${t}`)} /></span>)}</div>
+  <svg viewBox="0 0 600 530" role="img" aria-labelledby="kdv-isospectral-title kdv-isospectral-desc">
+    <title id="kdv-isospectral-title">Isospectral evolution of the exact one-soliton operator</title>
+    <desc id="kdv-isospectral-desc">Three translated potential profiles at times minus two, zero, and two correspond by color to the same discrete eigenvalue and unchanged continuous spectrum.</desc>
+    <defs><clipPath id="kdv-iso-potential-clip"><rect x="70" y="55" width="480" height="210" /></clipPath></defs>
+    <path d="M70 55 V265 M70 55 H550" fill="none" stroke="var(--muted)" stroke-width="1.2" />
+    <path d={`M70 ${py(-1)} H550`} fill="none" stroke="var(--line)" stroke-dasharray="3 5" />
+    {[-12, 0, 12].map(x => <path d={`M${px(x)} 55 v5`} stroke="var(--muted)" />)}
+    {times.map(({ t, color, dash }) => <path d={potential(t)} fill="none" stroke={color} stroke-width="2.7" stroke-dasharray={dash || undefined} clip-path="url(#kdv-iso-potential-clip)" />)}
+    <defs><marker id="kdv-spectrum-continuum-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--blue)" /></marker></defs>
+    <path d="M70 345 H570" fill="none" stroke="var(--muted)" stroke-width="1.4" />
+    {[ -0.5, 0, 1 ].map(lambda => <path d={`M${lambdaX(lambda)} 337 V353`} stroke="var(--muted)" />)}
+    <rect x={lambdaX(0)} y="333" width={570 - lambdaX(0)} height="24" fill="var(--blue)" opacity=".14" />
+    {times.map(({ t, color, y }) => <g>
+      <foreignObject x="0" y={y - 24} width="104" height="48"><div class="kdv-tex kdv-time-row" set:html={tex(`t=${t}`)} /></foreignObject>
+      <path d={`M110 ${y} H570`} stroke="var(--line)" stroke-width="1" />
+      <rect x={lambdaX(0)} y={y - 7} width={570 - lambdaX(0)} height="14" fill="var(--blue)" opacity=".10" />
+      <path d={`M${lambdaX(0)} ${y} H570`} stroke="var(--blue)" stroke-width="1.8" marker-end="url(#kdv-spectrum-continuum-arrow)" />
+      <circle cx={lambdaX(-0.5)} cy={y} r="5.5" fill={color} stroke="var(--paper)" stroke-width="1.5" />
+      <path d={`M${lambdaX(-0.5)} ${y - 8} V${y + 8}`} stroke={color} stroke-width="1.5" />
+    </g>)}
+    {labels.map(l => <foreignObject x={l.x} y={l.y - 8} width={l.w} height="48"><div class="kdv-tex" set:html={tex(l.t)} /></foreignObject>)}
+  </svg>
+  <div class="kdv-continuum-key"><span class="kdv-spectrum-name" set:html={tex('\\text{Spectrum}')} /><svg viewBox="0 0 42 14" aria-hidden="true"><path d="M1 7 H36" stroke="var(--blue)" stroke-width="2" /><path d="M32 2 L41 7 L32 12 Z" fill="var(--blue)" /></svg><span set:html={tex('\\text{continuous spectrum }(\\lambda\\ge0)')} /></div>
+  <figcaption id="kdv-isospectral-caption" set:html={caption} />
+</figure>
+<style>
+.kdv-isospectral{margin:2rem 0;border:1px solid var(--line);border-radius:12px;padding:1rem;background:var(--paper)}
+.kdv-iso-title{color:var(--ink);font-size:14px;line-height:1.5;text-align:center;margin:.15rem auto .2rem}
+.kdv-iso-time-legend{display:flex;justify-content:center;gap:.5rem 1.2rem;flex-wrap:wrap;margin:0 auto .35rem;font-size:14px}.kdv-iso-time-legend>span{display:inline-flex;align-items:center;gap:.3rem;color:var(--ink)}.kdv-iso-time-legend svg{width:28px;height:12px;flex:none}
+.kdv-isospectral > svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
+.kdv-tex{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink);font-size:25px;line-height:1;text-align:center;white-space:nowrap}
+.kdv-continuum-key{display:flex;justify-content:center;align-items:center;gap:.4rem;flex-wrap:wrap;margin:.1rem auto .3rem;font-size:14px;color:var(--ink)}.kdv-continuum-key svg{width:34px;height:12px;flex:none}
+.kdv-isospectral figcaption{color:var(--muted);font-size:.88rem;line-height:1.8;margin:.5rem .25rem 0}
+@media(max-width:480px){.kdv-isospectral{padding:.7rem .15rem}.kdv-tex{font-size:32px}.kdv-iso-time-legend{gap:.35rem .8rem}}
+.kdv-isospectral .kdv-time-row{font-size:25px}
+</style>

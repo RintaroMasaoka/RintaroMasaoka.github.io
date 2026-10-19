@@ -1,0 +1,60 @@
+---
+import { createRequire } from 'node:module';
+const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
+const caption = `上段は ${tex('A=\\sum_{j=-\\infty}^{m}a_j\\partial^j')} の模式表示で、係数と冪を別々に示す。${tex('(A)_{\\ge0}')} は右側の非負冪だけを残し、${tex('\\operatorname{Res}(A)')} は ${tex('\\partial^{-1}')} に付く係数 ${tex('a_{-1}')} を取り出す。同じ切り分けを ${tex('L_{\\mathrm{KP}}^{2n+1}')} に適用すると ${tex('B_{2n+1}')} が得られる。`;
+const labels = [
+  { x: 0, y: 15, w: 75, t: 'A=' },
+  { x: 43, y: 69, w: 38, t: '\\cdots' },
+  { x: 98, y: 51, w: 72, t: 'a_{-2}' }, { x: 104, y: 91, w: 60, t: '\\partial^{-2}' },
+  { x: 195, y: 51, w: 72, t: 'a_{-1}' }, { x: 201, y: 91, w: 60, t: '\\partial^{-1}' },
+  { x: 295, y: 69, w: 35, t: '+' },
+  { x: 343, y: 51, w: 55, t: 'a_0' }, { x: 346, y: 91, w: 55, t: '\\partial^0' },
+  { x: 408, y: 69, w: 36, t: '+' },
+  { x: 447, y: 51, w: 55, t: 'a_1' }, { x: 450, y: 91, w: 55, t: '\\partial^1' },
+  { x: 505, y: 69, w: 40, t: '\\cdots' },
+  { x: 546, y: 51, w: 48, t: 'a_m' }, { x: 542, y: 91, w: 55, t: '\\partial^m' },
+  { x: 15, y: 163, w: 130, t: '(A)_{\\ge0}' },
+  { x: 155, y: 163, w: 38, t: '=' },
+  { x: 202, y: 163, w: 55, t: 'a_0' }, { x: 204, y: 202, w: 55, t: '\\partial^0' },
+  { x: 263, y: 181, w: 36, t: '+' },
+  { x: 307, y: 163, w: 55, t: 'a_1' }, { x: 309, y: 202, w: 55, t: '\\partial^1' },
+  { x: 372, y: 181, w: 40, t: '\\cdots' },
+  { x: 417, y: 163, w: 48, t: 'a_m' }, { x: 412, y: 202, w: 55, t: '\\partial^m' },
+  { x: 15, y: 277, w: 280, t: '\\operatorname{Res}(A)=a_{-1}' },
+];
+---
+<figure class="kdv-operator-projection" aria-labelledby="kdv-operator-projection-caption">
+  <div class="kdv-operator-headings"><span><span set:html={tex('\\text{negative}')} /><span set:html={tex('\\text{powers}')} /></span><span><span set:html={tex('\\text{nonnegative}')} /><span set:html={tex('\\text{powers}')} /></span></div>
+  <svg viewBox="0 0 600 330" role="img" aria-labelledby="kdv-operator-title kdv-operator-desc">
+    <title id="kdv-operator-title">Nonnegative-power projection and residue of a pseudodifferential operator</title>
+    <desc id="kdv-operator-desc">The operator series is grouped by negative and nonnegative powers. The projection keeps the nonnegative terms, while the residue selects the coefficient attached to the minus-one power.</desc>
+    <path d="M80 47 H270 M303 47 H590" fill="none" stroke="var(--line)" stroke-width="1.2" />
+    <path d="M283 45 V139" fill="none" stroke="var(--muted)" stroke-dasharray="3 5" />
+    <rect x="91" y="48" width="82" height="40" rx="7" fill="none" stroke="var(--line)" />
+    <rect x="91" y="90" width="82" height="41" rx="7" fill="none" stroke="var(--line)" />
+    <rect x="188" y="48" width="82" height="40" rx="7" fill="var(--accent)" opacity=".12" stroke="var(--accent)" stroke-width="1.8" />
+    <rect x="188" y="90" width="82" height="41" rx="7" fill="none" stroke="var(--line)" />
+    <rect x="335" y="48" width="70" height="40" rx="7" fill="var(--blue)" opacity=".08" stroke="var(--blue)" />
+    <rect x="335" y="90" width="70" height="41" rx="7" fill="none" stroke="var(--line)" />
+    <rect x="440" y="48" width="70" height="40" rx="7" fill="var(--blue)" opacity=".08" stroke="var(--blue)" />
+    <rect x="440" y="90" width="70" height="41" rx="7" fill="none" stroke="var(--line)" />
+    <rect x="538" y="48" width="60" height="40" rx="7" fill="var(--blue)" opacity=".08" stroke="var(--blue)" />
+    <rect x="538" y="90" width="60" height="41" rx="7" fill="none" stroke="var(--line)" />
+    <path d="M335 139 H598 M466 139 V159" fill="none" stroke="var(--blue)" stroke-width="1.8" />
+    <path d="M229 88 H300 V250 H245 V267" fill="none" stroke="var(--accent)" stroke-width="1.8" />
+    <path d="M18 247 H284" fill="none" stroke="var(--line)" />
+    <path d="M330 247 H590" fill="none" stroke="var(--line)" />
+    {labels.map(l => <foreignObject x={l.x} y={l.y - 8} width={l.w} height="48"><div class="kdv-tex" set:html={tex(l.t)} /></foreignObject>)}
+  </svg>
+  <figcaption id="kdv-operator-projection-caption" set:html={caption} />
+</figure>
+<style>
+.kdv-operator-projection{margin:2rem 0;border:1px solid var(--line);border-radius:12px;padding:1rem;background:var(--paper)}
+.kdv-operator-headings{display:grid;grid-template-columns:47% 53%;max-width:600px;margin:0 auto .25rem;text-align:center;color:var(--ink);font-size:14px;line-height:1.3}.kdv-operator-headings>span{display:flex;justify-content:center;gap:.25rem;flex-wrap:wrap}
+.kdv-operator-projection svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
+.kdv-tex{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink);font-size:27px;line-height:1;text-align:center;white-space:nowrap}
+.kdv-operator-projection figcaption{color:var(--muted);font-size:.88rem;line-height:1.8;margin:.5rem .25rem 0}
+@media(max-width:480px){.kdv-operator-projection{padding:.65rem .1rem}}
+</style>
