@@ -1,18 +1,19 @@
 ---
-import { Content, getHeadings } from '../../../note-apps/kdv/content/glm.md';
+import { Content as GlmContent, getHeadings as getGlmHeadings } from '../../../note-apps/kdv/content/glm.md';
+import { Content, getHeadings } from '../../../note-apps/kdv/content/full.md';
 import KdvBody from '../../../note-apps/kdv/components/KdvBody.astro';
 import config from '../../../note-apps/kdv/note.config.json';
 import ContourFigure from '../../../note-apps/kdv/components/ContourFigure.astro';
 import ReconstructionFigure from '../../../note-apps/kdv/components/ReconstructionFigure.astro';
-const headings = getHeadings().filter(h => h.depth === 2).map(h => ({...h, text: h.text.replace(/^\d+\.\s*/, '')}));
+const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h => ({...h, text: h.text.startsWith('3.5.') ? '3.5. ψₙ(x) が固有関数であることの証明' : h.text.startsWith('3.6.') ? '3.6. u(x) の ψₙ(x) による表示' : h.text.replace(/\$/g, '').replace(/\\psi/g, 'ψ')})).flatMap(h => [h, ...(h.depth === 2 && h.text.startsWith('3.') ? getGlmHeadings().filter(g => g.depth === 2).map(g => ({...g, depth: 3, text: g.text.replace(/^\d+\.\s*/, '')})) : [])]);
 ---
 <!doctype html>
 <html lang={config.language}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content={config.chapters[0].plainDescription} />
-  <title>{config.chapters[0].plainTitle} | {config.title}</title>
+  <meta name="description" content={config.description} />
+  <title>{config.title}</title>
   <link rel="stylesheet" href="/notes/KdV/katex/katex.min.css" />
   <script is:inline>
     try { if ((localStorage.getItem('kdv.theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark') document.documentElement.classList.add('dark'); } catch {}
@@ -28,8 +29,8 @@ const headings = getHeadings().filter(h => h.depth === 2).map(h => ({...h, text:
   </header>
   <div class="reading-layout">
     <aside class="index" aria-label="ページ内の目次">
-      <div class="index-heading">{config.chapters[0].plainTitle}</div>
-      <nav><ol>{headings.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav>
+      <div class="index-heading">全体の目次</div>
+      <nav><ol>{headings.map(h => <li class:list={{subsection: h.depth === 3}}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav>
       <div class="originals">
         <a href="/notes/KdV/source/数理班_政岡凜太郎.pdf">元のノート全文 ↗</a>
         <a href="/notes/KdV/source/KdV.tex">LaTeX ソース ↗</a>
@@ -37,13 +38,13 @@ const headings = getHeadings().filter(h => h.depth === 2).map(h => ({...h, text:
     </aside>
     <main id="main" tabindex="-1">
       <header id="top" class="chapter-head">
-        <p class="eyebrow">INVERSE SCATTERING</p>
-        <h1>{config.chapters[0].title}</h1>
+        <p class="eyebrow">KORTEWEG–DE VRIES EQUATION</p>
+        <h1>{config.title}</h1>
         <p class="deck">{config.description}</p>
       </header>
-      <details class="mobile-index"><summary>目次を開く</summary><nav><ol>{headings.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details>
+      <details class="mobile-index"><summary>目次を開く</summary><nav><ol>{headings.map(h => <li class:list={{subsection: h.depth === 3}}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details>
       <div class="reading-actions"><button type="button" id="expand-details">補足をすべて開く</button><button type="button" id="collapse-details">補足をすべて閉じる</button></div>
-      <KdvBody><Content /><ContourFigure slot="contour" /><ReconstructionFigure slot="reconstruction" /></KdvBody>
+      <KdvBody><Content /><GlmContent slot="glm" /><ContourFigure slot="contour" /><ReconstructionFigure slot="reconstruction" /></KdvBody>
       <div id="equation-preview" role="dialog" aria-label="参照した数式" hidden><button id="close-equation" type="button" aria-label="数式プレビューを閉じる">閉じる ×</button><div id="equation-preview-content"></div></div>
       <footer class="note-footer"><a href="/ja/notes/">← ノート一覧</a><a href="#top">ページの先頭へ ↑</a></footer>
     </main>
@@ -64,14 +65,14 @@ const headings = getHeadings().filter(h => h.depth === 2).map(h => ({...h, text:
     const previewContent = document.getElementById('equation-preview-content')!;
     const equations = new Map<string, Element>();
     document.querySelectorAll('#manuscript .katex-display').forEach(eq => {
-      const tag = eq.querySelector('.tag')?.textContent?.match(/\((\d+)\)/);
+      const tag = eq.querySelector('.tag')?.textContent?.match(/\((\d+(?:\.\d+)?)\)/);
       if (tag) equations.set(tag[1], eq);
     });
     const walker = document.createTreeWalker(document.getElementById('manuscript')!, NodeFilter.SHOW_TEXT);
     const textNodes: Text[] = [];
     for (let n = walker.nextNode(); n; n = walker.nextNode()) {
       const text = n as Text;
-      if (!text.parentElement?.closest('.katex, a, button, summary, h2, h3, code, svg') && /\(\d+\)/.test(text.data)) textNodes.push(text);
+      if (!text.parentElement?.closest('.katex, a, button, summary, h2, h3, code, svg') && /\(\d+(?:\.\d+)?\)/.test(text.data)) textNodes.push(text);
     }
     let pinned = false, anchor: HTMLButtonElement | null = null;
     const close = () => { preview.hidden = true; pinned = false; anchor?.setAttribute('aria-expanded','false'); };
@@ -87,7 +88,7 @@ const headings = getHeadings().filter(h => h.depth === 2).map(h => ({...h, text:
     };
     for (const text of textNodes) {
       const fragment = document.createDocumentFragment(); let offset = 0;
-      for (const match of text.data.matchAll(/\((\d+)\)/g)) {
+      for (const match of text.data.matchAll(/\((\d+(?:\.\d+)?)\)/g)) {
         if (!equations.has(match[1])) continue;
         fragment.append(text.data.slice(offset, match.index));
         const button = document.createElement('button'); button.className = 'equation-reference'; button.type = 'button';
@@ -126,11 +127,15 @@ const headings = getHeadings().filter(h => h.depth === 2).map(h => ({...h, text:
         });
       }
     }, { rootMargin: '-15% 0px -65% 0px' });
-    document.querySelectorAll('#manuscript h2').forEach(h => observer.observe(h));
+    document.querySelectorAll('#manuscript h2, #manuscript h3').forEach(h => observer.observe(h));
   </script>
 </body>
 </html>
+
+
+
 <style is:global>
+
   :root{color-scheme:light;--paper:#f4f3ef;--surface:#fbfaf7;--ink:#202c29;--muted:#5b6862;--line:#d8ddd6;--accent:#265b4b;--blue:#355e8a;--soft:#eef1eb}
   :root.dark{color-scheme:dark;--paper:#141b18;--surface:#1b2420;--ink:#e1e8df;--muted:#acb9ae;--line:#3b4941;--accent:#a4d1b7;--blue:#a8c8e5;--soft:#222f28}
   *{box-sizing:border-box}html{scroll-behavior:auto;scroll-padding-top:84px}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}a{color:var(--accent);text-underline-offset:4px}button,input{font:inherit;color:inherit}button,summary{cursor:pointer}button{background:transparent;border:1px solid var(--line);border-radius:5px;padding:9px 13px}button:hover{background:var(--soft)}:focus-visible{outline:3px solid var(--blue);outline-offset:4px}button:focus:not(:focus-visible){outline:none}.skip{position:fixed;left:10px;top:-90px;z-index:100;background:var(--surface);padding:12px}.skip:focus{top:10px}
@@ -143,4 +148,13 @@ const headings = getHeadings().filter(h => h.depth === 2).map(h => ({...h, text:
   @media(min-width:1450px){main{padding-right:100px}}@media(max-width:850px){.reading-layout{grid-template-columns:1fr}.index{display:none}main{padding:34px 24px}.reader-header{padding:0 18px;gap:16px}.reader-title{font-size:15px}.mobile-index{display:block;margin:24px 0;font-size:13px;border:1px solid var(--line);border-radius:5px;padding:12px 16px}.mobile-index summary{color:var(--accent)}.mobile-index li{padding:5px 0}.reading-actions{margin-bottom:22px}#manuscript{font-size:15.5px}#manuscript h2{font-size:22px;margin-top:48px}.back span{display:none}}
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
   @media print{:root,:root.dark{color-scheme:light;--paper:#fff;--surface:#fff;--ink:#111;--muted:#555;--line:#ccc;--accent:#265b4b;--blue:#355e8a}.reader-header,.index,.reading-actions,.mobile-index,#reading-progress,#equation-preview{display:none}main{padding:0}.reading-layout{display:block}details{break-inside:avoid}.note-footer{display:none}}
+
+
+.index li.subsection{margin-bottom:2px;padding-left:14px}.index li.subsection a{font-size:12px;padding:5px 0}.index nav a::before{content:none}.index li:not(.subsection) a{font-weight:600}.mobile-index li.subsection{padding-left:14px;font-size:12px}#manuscript h3{scroll-margin-top:85px}#manuscript img{max-width:100%;height:auto}#manuscript .source-figure{background:white;padding:12px;border-radius:4px}#manuscript .source-figure figcaption{color:#34443b}#manuscript .footnotes{font-size:13px;border-top:1px solid var(--line);padding-top:16px}
+
+
+#manuscript table:has(img){table-layout:fixed}#manuscript table:has(img) td{padding:3px}#manuscript table:has(img) img{display:block;width:100%}@media(max-width:600px){#manuscript table:has(img),#manuscript table:has(img) tbody,#manuscript table:has(img) tr,#manuscript table:has(img) td{display:block;width:100%}#manuscript table:has(img) thead{display:none}#manuscript table:has(img) td{border:0;padding:8px 0}}
+
+:is(#manuscript,#equation-preview) .katex-display>.katex>.katex-html{display:flex;align-items:baseline;justify-content:center;gap:1.5em;width:max-content;min-width:100%}:is(#manuscript,#equation-preview) .katex-display>.katex>.katex-html>.base{flex-shrink:0}:is(#manuscript,#equation-preview) .katex-display .tag{position:static;flex-shrink:0;margin-left:auto}
+:is(#manuscript,#equation-preview) .katex-display>.katex>.katex-html:has(>.tag)>.base:first-child{margin-left:auto}
 </style>

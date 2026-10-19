@@ -2,9 +2,30 @@
   "specVersion": "1.0.1",
   "id": "kdv",
   "title": "KdV方程式と逆散乱法",
-  "description": "散乱データからポテンシャルへ — GLM方程式の導出",
+  "description": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
   "language": "ja",
-  "source": {"title": "Korteweg–de Vries方程式と逆散乱法", "authors": ["政岡凜太郎"], "locator": "2023年版ノート 第3章「散乱の逆問題」"},
-  "chapters": [{"id": "glm", "section": "1", "title": "GLM方程式の導出", "description": "フーリエ変換と留数から積分方程式を組み立てる", "plainTitle": "GLM方程式の導出", "plainDescription": "積分の目的と各操作の根拠をたどり、1ソリトンを再構成する。", "file": "glm.md"}],
-  "publication": {"provider": "github-pages", "projectId": null, "url": null, "visibility": "public"}
+  "source": {
+    "title": "Korteweg–de Vries方程式と逆散乱法",
+    "authors": [
+      "政岡凜太郎"
+    ],
+    "locator": "2023年版ノート全体。散乱の逆問題のGLM導出を改稿。"
+  },
+  "chapters": [
+    {
+      "id": "full",
+      "section": "1–4",
+      "title": "KdV方程式と逆散乱法",
+      "description": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
+      "plainTitle": "KdV方程式と逆散乱法",
+      "plainDescription": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
+      "file": "full.md"
+    }
+  ],
+  "publication": {
+    "provider": "github-pages",
+    "projectId": null,
+    "url": null,
+    "visibility": "public"
+  }
 }

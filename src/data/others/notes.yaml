@@ -137,8 +137,8 @@ items:
     category: mathematical-physics
     url: /notes/kdv/
     description:
-      en: Derive the GLM equation from scattering data and reconstruct a soliton, with contour diagrams and an interactive example.
-      ja: 積分の目的と根拠からGLM方程式を導き、図と対話的な例でソリトンを再構成する。
+      en: Solitons, Lax pairs, inverse scattering, the KdV hierarchy, and conservation laws, with a revised GLM derivation.
+      ja: ソリトン解・Lax表示・逆散乱法からKdV階層と保存量まで。GLM方程式の導出を改稿。
 
   - title:
       en: "Introduction to Fuzzy Sphere Regularization"

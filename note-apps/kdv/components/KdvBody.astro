@@ -1,5 +1,9 @@
 ---
 let html = await Astro.slots.render('default');
+const chapter = (await Astro.slots.render('glm')).replace(/<h2(\s[^>]*)?>\d+\.\s*/g, '<h3$1>').replace(/<\/h2>/g, '</h3>');
+const chapterPattern = /<div\s+data-chapter-slot=["']glm["']\s*>\s*<\/div>/;
+if (!chapterPattern.test(html)) throw new Error('Missing KdV GLM chapter slot');
+html = html.replace(chapterPattern, () => chapter);
 for (const name of ['contour', 'reconstruction']) {
   const visual = await Astro.slots.render(name);
   const pattern = new RegExp(`<div\\s+data-visual-slot=["']${name}["']\\s*>\\s*</div>`);
