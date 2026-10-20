@@ -215,7 +215,10 @@ def macro_transform_math(text: str) -> str:
             # A macro may follow an even-length escaped row separator (`\\\foo`).
             # Do not mistake the second slash in `\\foo` for a new command.
             preceding = len(text[:match.start()]) - len(text[:match.start()].rstrip("\\"))
-            return match.group(0) if preceding % 2 else new
+            if preceding % 2:
+                return match.group(0)
+            # Do not fuse an accent command with an unbraced letter: \~B -> \tilde B.
+            return new + (" " if match.end() < len(text) and text[match.end()].isalpha() else "")
         text = pattern.sub(replace_command, text)
     text = re.sub(r"\\t(?![A-Za-z])\s*\{", r"\\text{", text)
     text = re.sub(r"\\d(?![A-Za-z])\s*\{([^{}]*)\}", r"\\,\\mathrm{d}\1", text)
