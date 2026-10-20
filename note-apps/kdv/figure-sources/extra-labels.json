@@ -47,41 +47,47 @@
     },
     "operator_projection": {
       "component": "../components/OperatorProjection.astro",
+      "renderer": "Native HTML table; every header and mathematical cell rendered by KaTeX",
       "labels": [
         {
-          "meaning": "operator series",
-          "role": "equation",
-          "tex": "A="
+          "meaning": "input term",
+          "role": "column header",
+          "tex": "\\text{Term}"
         },
         {
-          "meaning": "power-class headings",
-          "role": "external group labels",
-          "tex": "\\text{negative}; \\text{powers}; \\text{nonnegative}; \\text{powers}"
+          "meaning": "nonnegative-power projection applied to each row term",
+          "role": "column header",
+          "tex": "(\\,\\cdot\\,)_{\\ge0}"
         },
         {
-          "meaning": "negative-power sample terms",
-          "role": "coefficient and power cells",
-          "tex": "a_{-2}; \\partial^{-2}; a_{-1}; \\partial^{-1}"
+          "meaning": "residue applied to each row term",
+          "role": "column header",
+          "tex": "\\operatorname{Res}(\\,\\cdot\\,)"
         },
         {
-          "meaning": "nonnegative-power sample terms through finite highest power",
-          "role": "coefficient and power cells",
-          "tex": "a_0; \\partial^0; a_1; \\partial^1; a_m; \\partial^m"
+          "meaning": "positive- and zero-power input terms, retained by projection",
+          "role": "input/output cells",
+          "tex": "a_1\\partial; a_0"
         },
         {
-          "meaning": "nonnegative-power projection",
-          "role": "output",
-          "tex": "(A)_{\\ge0}"
+          "meaning": "coefficient highlighted inside the minus-one-power term",
+          "role": "input cell",
+          "tex": "\\boxed{a_{-1}}\\,\\partial^{-1}"
         },
         {
-          "meaning": "residue and selected coefficient",
-          "role": "output",
-          "tex": "\\operatorname{Res}(A); a_{-1}"
+          "meaning": "minus-two-power input term",
+          "role": "input cell",
+          "tex": "a_{-2}\\partial^{-2}"
         },
         {
-          "meaning": "the displayed operator terms stay paired in the source series",
-          "role": "operation",
-          "tex": "a_j\\partial^j"
+          "meaning": "vanishing term projection or residue",
+          "role": "output cells",
+          "tex": "0"
+        },
+        {
+          "meaning": "coefficient extracted as residue",
+          "role": "output cell",
+          "tex": "\\boxed{a_{-1}}"
         }
       ]
     }
