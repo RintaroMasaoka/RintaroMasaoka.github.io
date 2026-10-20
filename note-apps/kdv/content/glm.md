@@ -382,5 +382,3 @@ $$
 <div data-visual-slot="reconstruction"></div>
 
 反射がゼロでも、束縛状態の項が $F$ に残り、そこから非零のポテンシャルが復元された。一般の場合にも (12) が反射と束縛状態の両方を受け取り、同じ GLM 方程式がポテンシャルの再構成を担う。
-
-KdV 方程式との関係や散乱データの時間発展は、[元のノート全体（PDF）](/notes/KdV/source/数理班_政岡凜太郎.pdf) と [LaTeX ソース](/notes/KdV/source/KdV.tex) を参照してほしい。逆散乱の全体像と無反射の場合の計算は [Aktosun、§VI–IX](https://arxiv.org/pdf/0905.4746) にまとまっている。
