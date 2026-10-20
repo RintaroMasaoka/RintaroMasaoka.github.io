@@ -9,7 +9,7 @@ export function initKdvSimulations() {
       if(frames)curve.setAttribute('d',Array.from(frames[index],(v,j)=>`${j?'L':'M'}${(62+j*500/512).toFixed(2)},${(245-v*52).toFixed(2)}`).join(' '));
       figure.dataset.simFrame=String(index);
     };
-    const pause=()=>{running=false;cancelAnimationFrame(raf);last=0;play.textContent=frames?'再生':'計算して再生';play.setAttribute('aria-pressed','false');};
+    const pause=()=>{running=false;cancelAnimationFrame(raf);last=0;play.textContent='再生';play.setAttribute('aria-pressed','false');};
     const tick=now=>{
       if(!running)return;
       if(last)position+=Math.min(now-last,100)/1000*20*Number(speed.value);
