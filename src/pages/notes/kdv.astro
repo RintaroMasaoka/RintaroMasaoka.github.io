@@ -9,7 +9,7 @@ import ContourFigure from '../../../note-apps/kdv/components/ContourFigure.astro
 import ReconstructionFigure from '../../../note-apps/kdv/components/ReconstructionFigure.astro';
 import TravelingSoliton from '../../../note-apps/kdv/components/TravelingSoliton.astro';
 import KdvSimulation from '../../../note-apps/kdv/components/KdvSimulation.astro';
-const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h => ({...h, text: h.text.startsWith('3.5.') ? '3.5. ψₙ(x) が固有関数であることの証明' : h.text.startsWith('3.6.') ? '3.6. u(x) の ψₙ(x) による表示' : h.text.replace(/\$/g, '').replace(/\\psi/g, 'ψ')})).flatMap(h => [h, ...(h.depth === 2 && h.text.startsWith('3.') ? getGlmHeadings().filter(g => g.depth === 2).map(g => ({...g, depth: 3, text: g.text.replace(/^\d+\.\s*/, '')})) : [])]);
+const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h => ({...h, text: h.text.replace(/\$/g, '').replace(/\\psi/g, 'ψ')})).flatMap(h => [h, ...(h.depth === 2 && h.text.startsWith('3.') ? getGlmHeadings().filter(g => g.depth === 2).map(g => ({...g, depth: 3, text: g.text.replace(/^\d+\.\s*/, '')})) : [])]);
 ---
 <!doctype html>
 <html lang={config.language}>

@@ -1,4 +1,4 @@
-### 3.4. 無反射ならGLM方程式は連立方程式になる
+### 3.4. 無反射の場合のGLM方程式の行列表示
 
 一つの束縛状態からソリトンを復元できた。同じ構成を $N$ 個の束縛状態へ広げよう。反射がないとき、散乱データに残るのは固有値 $-\kappa_n^2$ と左端の規格化定数 $c_n$ である。まず時刻を固定し、それぞれの束縛状態の左端での形を
 $$
@@ -51,7 +51,7 @@ $$
 となる。$I$ は $N$ 次の単位行列である。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (@equation-6b629c0eb4) が得られる。
 
 <details id="reflectionless-invertibility">
-<summary>連立方程式が一意に解ける理由</summary>
+<summary>連立方程式の一意可解性</summary>
 
 実列ベクトル $\boldsymbol\alpha=(\alpha_1,\ldots,\alpha_N)^{\mathsf T}\ne0$ に対し、$C$ の積分表示から
 $$
@@ -62,7 +62,7 @@ $$
 
 </details>
 
-### 3.5. 核の対角から多ソリトン解を得る
+### 3.5. 多ソリトン解の行列式表示
 
 ポテンシャルの復元に必要なのは核の対角値である。式 (@equation-6b629c0eb4) で $y=x$ とすれば
 $$
@@ -134,7 +134,7 @@ $$
 </details>
 
 <details id="reflectionless-density">
-<summary>ポテンシャルを束縛状態の二乗和で表す計算</summary>
+<summary>束縛状態の二乗和によるポテンシャルの表示</summary>
 
 $e_n=\psi_n+\sum_mC_{nm}\psi_m$、$C_{mn}=C_{nm}$ および $(\kappa_m+\kappa_n)C_{mn}=e_me_n$ より
 $$
