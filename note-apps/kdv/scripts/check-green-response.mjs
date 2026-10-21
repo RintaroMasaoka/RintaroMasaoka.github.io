@@ -25,7 +25,7 @@ const fourierError=Math.abs(integral-Math.exp(-kap*d));if(fourierError>.0002)thr
 console.log(JSON.stringify({maxODE,maxPoleError,sourceJump:'+1',finiteSourceGreenIdentity:'pass',upperFourierImaginaryPart:integral,expected:Math.exp(-kap*d),fourierError},null,2));
 
 // Every selectable energy draws both complete profiles on the common linear axes.
-for(let j=0;j<=200;j++){
+for(let j=0;j<=1000;j++){
  const E=energyDomain[0]+j/1000,p=matchingPaths(E),q=Math.sqrt(-E),f0=q/(q+1);
  if(Math.abs(f0*f0*(p.rightSlope-p.leftSlope)-response(E,0).W)>1e-12)throw Error('normalized slopes and W');
  for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight','leftTangent','rightTangent']){
@@ -33,6 +33,8 @@ for(let j=0;j<=200;j++){
   const points=[...p[key].matchAll(/[ML]([\d.-]+),([\d.-]+)/g)].map(m=>[+m[1],+m[2]]);
   if(points[0][0]!==52||points.at(-1)[0]!==300)throw Error('incomplete solution domain');
   if(key.startsWith('overview') && points.some(([,y])=>y<63.999||y>218.001))throw Error('overview clipped');
+  // The fixed magnifier intentionally clips departures outside [.96,1.04];
+  // the overview must retain both complete displayed profiles.
  }
  if(p.ticks.length>8)throw Error('tick overflow');
 }
@@ -40,11 +42,11 @@ for(let j=0;j<=320;j++){
  const x=-4+j/40,v=response(-1,x);
  if(Math.abs(v.left-1/Math.cosh(x))>1e-12||Math.abs(v.right-v.left)>1e-12)throw Error('full-interval coincidence');
 }
-console.log('201 matching energies: complete profiles, finite axes, slope/W identity; E=-1 full-interval coincidence: pass');
+console.log('1001 matching energies: complete profiles, finite axes, slope/W identity; E=-1 full-interval coincidence: pass');
 
 // Energy changes must not move axes or the reference point, or cause scale jumps.
 const axis=JSON.stringify(matchingPaths(-1).ticks);let maxPixelStep=0;
-for(let j=0;j<=200;j++){
+for(let j=0;j<=1000;j++){
  const E=energyDomain[0]+j/1000,p=matchingPaths(E);
  if(JSON.stringify(p.ticks)!==axis||p.zeroY!==matchingPaths(-1).zeroY||p.overviewPoint[1]!==matchingPaths(-1).overviewPoint[1])throw Error('moving matching axes');
  if(j){

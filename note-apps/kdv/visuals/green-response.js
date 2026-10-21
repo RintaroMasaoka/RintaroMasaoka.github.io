@@ -1,7 +1,7 @@
 // Exact stationary Green response for L=-d_x^2-2 sech^2(x).
 // E=-q^2<0, k=i q. q is an internal trial decay rate, not a reader-facing alias.
-export const energyDomain = [-1.1, -.9];
-export const initialEnergy = -1.05;
+export const energyDomain = [-1.5, -.5];
+export const initialEnergy = -1.25;
 export function response(E, x) {
   const q = Math.sqrt(-E), t = Math.tanh(x), d = Math.abs(x);
   return {
@@ -20,21 +20,21 @@ const path = points => points.map(([x,y],i)=>`${i?'L':'M'}${x.toFixed(3)},${y.to
 // Fixed linear axes in both panels: changing energy moves only the solutions.
 // Zoom: fixed linear axes, so tangent slopes can be compared across energies.
 export const MX = x => 52+(x+3)*248/6;
-export const ZX = x => 52+(x+.5)*248;
-export const ZY = y => 210-(y-.8)*480;
+export const ZX = x => 52+(x+.1)*1240;
+export const ZY = y => 210-(y-.96)*1800;
 export function matchingPaths(E) {
   const xs=Array.from({length:321},(_,j)=>-3+j*6/320), values=xs.map(x=>response(E,x));
-  const y=value=>218-(value+1)/2.5*154;
-  const ticks=[-1,0,1,1.5].map(value=>({value,y:y(value)}));
-  const zoomXs=Array.from({length:101},(_,j)=>-.5+j/100), slope=response(E,0).slope;
+  const y=value=>218-(value+4)/12*154;
+  const ticks=[-4,0,4,8].map(value=>({value,y:y(value)}));
+  const zoomXs=Array.from({length:101},(_,j)=>-.1+j/500), slope=response(E,0).slope;
   return {
     overviewLeft:path(xs.map((x,j)=>[MX(x),y(values[j].left)])),
     overviewRight:path(xs.map((x,j)=>[MX(x),y(values[j].right)])),
     overviewPoint:[MX(0),y(1)], zeroY:y(0), ticks,
     zoomLeft:path(zoomXs.map(x=>[ZX(x),ZY(response(E,x).left)])),
     zoomRight:path(zoomXs.map(x=>[ZX(x),ZY(response(E,x).right)])),
-    leftTangent:path([-.5,.5].map(x=>[ZX(x),ZY(1+slope*x)])),
-    rightTangent:path([-.5,.5].map(x=>[ZX(x),ZY(1-slope*x)])),
+    leftTangent:path([-.1,.1].map(x=>[ZX(x),ZY(1+slope*x)])),
+    rightTangent:path([-.1,.1].map(x=>[ZX(x),ZY(1-slope*x)])),
     leftSlope:slope, rightSlope:-slope,
   };
 }
