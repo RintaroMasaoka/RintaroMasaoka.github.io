@@ -33,7 +33,7 @@
       "-2",
       "-6"
     ],
-    "relation": "u(x)=2\\dfrac{d}{dx}K(x,x),\\qquad c^2=2\\kappa e^{-2\\kappa x_0},\\qquad t=0"
+    "relation": "u(x)=2\\dfrac{d}{dx}K(x,x),\\qquad c_1^2=2\\kappa_1 e^{-2\\kappa_1 x_0},\\qquad t=0"
   },
   "dyson_domain": {
     "axes": [

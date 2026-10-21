@@ -1,153 +1,161 @@
-### 3.4. 無反射ポテンシャルに対するGLM方程式の解
+### 3.4. 無反射ならGLM方程式は連立方程式になる
 
-前節で得た左 GLM 方程式を無反射の場合に解く。反射係数が $b(k,t)=0$ なら散乱データ関数は束縛状態の項だけになり、(2.20) の時間発展を含めて
+一つの束縛状態からソリトンを復元できた。同じ構成を $N$ 個の束縛状態へ広げよう。反射がないとき、散乱データに残るのは固有値 $-\kappa_n^2$ と左端の規格化定数 $c_n$ である。まず時刻を固定し、それぞれの束縛状態の左端での形を
 $$
-F(s,t)=\sum_{n=1}^N c_n(t)^2e^{\kappa_ns},\qquad
-c_n(t)=c_n(0)e^{-4\kappa_n^3t}.
+e_n(x)=c_ne^{\kappa_nx},\qquad n=1,\ldots,N
 \tag{3.60}
 $$
-左 GLM 方程式は
-$$
-K(x,y)+\sum_{m=1}^N c_m^2e^{\kappa_m(x+y)}
-+\sum_{m=1}^N c_m^2e^{\kappa_my}
-  \int_{-\infty}^xK(x,z)e^{\kappa_mz}\,dz=0,
-\qquad y<x.
-\tag{3.61}
-$$
-ここでは $c_n=c_n(t)$ とする。有限個の指数関数が $y$ に現れるため、核を
-$$
-K(x,y)=-\sum_{n=1}^N c_n\psi_n(x)e^{\kappa_ny}
-\tag{3.62}
-$$
-と置く。各 $e^{\kappa_my}$ の係数を等しくすると
-$$
-\psi_m(x)=c_me^{\kappa_mx}
--\sum_{n=1}^N c_mc_n\psi_n(x)
-  \int_{-\infty}^xe^{(\kappa_m+\kappa_n)z}\,dz.
-\tag{3.63}
-$$
-成分 $e_n(x)=c_ne^{\kappa_nx}$ と行列
-$$
-C_{mn}(x)=\frac{e_m(x)e_n(x)}{\kappa_m+\kappa_n}
-=\int_{-\infty}^xe_m(z)e_n(z)\,dz
-\tag{3.64}
-$$
-を定義すれば、係数方程式は
-$$
-(I+C)\boldsymbol\psi=\boldsymbol e,
-\qquad
-\boldsymbol\psi=(\psi_1,\ldots,\psi_N)^{\mathsf T},\quad
-\boldsymbol e=(e_1,\ldots,e_N)^{\mathsf T}.
-\tag{3.65}
-$$
-任意の $v\in\mathbb R^N$ に対して
-$$
-v^{\mathsf T}Cv=\int_{-\infty}^x\left(\sum_{n=1}^Nv_ne_n(z)\right)^2dz\ge0,
-$$
-$\kappa_n$ は相異なるので指数関数 $e^{\kappa_n z}$ は線形独立であり、$v\ne0$ ならこの積分は正になる。したがって $C$ は正定値であり、$I+C$ も正定値だから、(3.65) は一意な解をもつ。
+と書く。
 
-この解は $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ である。$\tau=\det(I+C)$ と置くと、$C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と行列式の微分公式から
-$$
-\frac{d}{dx}\log\tau
-=\operatorname{tr}\!\left((I+C)^{-1}C'\right)
-=\boldsymbol e^{\mathsf T}\boldsymbol\psi.
-\tag{3.66}
-$$
-従って核の対角値は
-$$
-K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi
-=-\frac{d}{dx}\log\tau.
-\tag{3.67}
-$$
-左変換核の対角復元公式 $u=2\,dK(x,x)/dx$ を使えば、
-$$
-u(x,t)=-2\frac{\partial^2}{\partial x^2}\log\det(I+C(x,t))
-\tag{3.68}
-$$
-を得る。ここで $e_n(x,t)=c_n(t)e^{\kappa_nx}$ であり、時間依存性はすべて第2節で求めた $c_n(t)$ に含まれている。
-
-### 3.5. $\psi_n(x)$が固有関数であることの証明
-
-(3.65) で得た係数 $\psi_n$ が固有値 $-\kappa_n^2$ の固有関数であることを確認する。$E=\operatorname{diag}(\kappa_1,\ldots,\kappa_N)$ と置く。(3.64) の定義から
-$$
-\boldsymbol e'=E\boldsymbol e,\qquad
-C'=\boldsymbol e\boldsymbol e^{\mathsf T},\qquad
-EC+CE=\boldsymbol e\boldsymbol e^{\mathsf T}.
-\tag{3.69}
-$$
-最後の等式は成分ごとに $(\kappa_m+\kappa_n)C_{mn}=e_me_n$ と書いたものだ。さらに (3.62) の対角微分から
-$$
-u=2\frac{d}{dx}K(x,x)
-=-2\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi).
-\tag{3.70}
-$$
-$L=-\partial_x^2+u$ を (3.65) の各成分に作用させる。積の微分則で $C_{mn}\psi_n$ を微分し、上の関係を用いると
+前半で作った変換 $T$ は、この指数波をポテンシャル中の束縛状態へ変える。Jost 解の核表示に $k=-i\kappa_n$ を入れると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
 $$
 \begin{aligned}
-\sum_n(\delta_{mn}+C_{mn})L\psi_n
-&=-\kappa_m^2e_m+\kappa_me_m\sum_n e_n\psi_n
-  -e_m\sum_n\kappa_ne_n\psi_n\\
-&=-\kappa_m^2e_m+\sum_n(\kappa_m-\kappa_n)e_me_n\psi_n.
+\psi_n(x)&=(Te_n)(x)\\
+&=e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz.
 \end{aligned}
+\tag{3.61}
+$$
+となる。$e_n$ は左端の形を全空間へ延ばした指数関数であり、$\psi_n$ が復元したい束縛状態の波形である。
+
+無反射の散乱データは $F(x+y)=\sum_n e_n(x)e_n(y)$ と変数を分離して書ける。これを GLM 方程式に代入すると
+$$
+K(x,y)+\sum_{n=1}^N e_n(y)
+\left[e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz\right]=0.
+\tag{3.62}
+$$
+角括弧はちょうど $Te_n=\psi_n$ なので、
+$$
+\boxed{K(x,y)=-\sum_{n=1}^N\psi_n(x)e_n(y).}
+\tag{3.63}
+$$
+指数波を束縛状態へ変える核が、その束縛状態自身で書けた。固定した $x$ では、核の $y$ 依存性は既知の $N$ 個の指数関数で決まり、未知なのは $N$ 個の値 $\psi_n(x)$ だけである。
+
+この核を $\psi_m=Te_m$ の式 (3.61) に戻すと、束縛状態を決める方程式が閉じる。
+$$
+\psi_m(x)+\sum_{n=1}^N
+\left[\int_{-\infty}^x e_m(z)e_n(z)\,dz\right]\psi_n(x)=e_m(x).
+\tag{3.64}
+$$
+角括弧は、二つの指数波の積を左端から $x$ まで積分した既知の量である。これを行列の成分
+$$
+C_{mn}(x)=\int_{-\infty}^x e_m(z)e_n(z)\,dz
+=\frac{e_m(x)e_n(x)}{\kappa_m+\kappa_n}
+\tag{3.65}
+$$
+と書けば、式 (3.64) は
+$$
+(I+C)\boldsymbol\psi=\boldsymbol e,\qquad
+\boldsymbol\psi=(\psi_1,\ldots,\psi_N)^{\mathsf T},\quad
+\boldsymbol e=(e_1,\ldots,e_N)^{\mathsf T}
+\tag{3.66}
+$$
+となる。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (3.63) が得られる。
+
+<details id="reflectionless-invertibility">
+<summary>連立方程式が一意に解ける理由</summary>
+
+実ベクトル $\boldsymbol\alpha\ne0$ に対し、$C$ の積分表示から
+$$
+\boldsymbol\alpha^{\mathsf T}C\boldsymbol\alpha
+=\int_{-\infty}^x\left(\sum_n\alpha_ne_n(z)\right)^2dz>0.
+$$
+固有値に対応する $\kappa_n$ は互いに異なり、指数関数 $e^{\kappa_nz}$ は線形独立なので、不等号は厳密である。従って $C$ と $I+C$ は正定値であり、逆行列をもつ。
+
+</details>
+
+### 3.5. 核の対角から多ソリトン解を得る
+
+ポテンシャルの復元に必要なのは核の対角値である。式 (3.63) で $y=x$ とすれば
+$$
+K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi,
+\qquad
+u(x)=-2\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi).
+\tag{3.67}
+$$
+この計算は行列式でまとめられる。$C$ の積分表示を微分すると $C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ だから、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
+$$
+\begin{aligned}
+\frac{d}{dx}\log\det(I+C)
+&=\operatorname{tr}\!\left((I+C)^{-1}C'\right)\\
+&=\boldsymbol e^{\mathsf T}(I+C)^{-1}\boldsymbol e
+=\boldsymbol e^{\mathsf T}\boldsymbol\psi.
+\end{aligned}
+\tag{3.68}
+$$
+従って、求めるポテンシャルは
+$$
+\boxed{u(x)=-2\frac{d^2}{dx^2}\log\det(I+C(x)).}
+\tag{3.69}
+$$
+
+時間発展を戻すには、第2節で求めた $c_n(t)=c_n(0)e^{-4\kappa_n^3t}$ を使えばよい。すなわち
+$$
+e_n(x,t)=c_n(0)e^{\kappa_nx-4\kappa_n^3t},\qquad
+C_{mn}(x,t)=\frac{e_m(x,t)e_n(x,t)}{\kappa_m+\kappa_n}
+\tag{3.70}
+$$
+を式 (3.69) に入れると、$N$ ソリトン解が得られる。散乱データの指数関数的な時間発展が、同じ行列の成分を通じて波形の時間発展に変わる。$N=1$ では $\det(I+C)=1+c(t)^2e^{2\kappa x}/(2\kappa)$ となり、先ほどの一ソリトン解を再現する。
+
+復元したポテンシャルは、束縛状態の波形を使って
+$$
+u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2
 \tag{3.71}
 $$
-一方 $e_m=\sum_n(\delta_{mn}+C_{mn})\psi_n$ であり、
-$(\kappa_m^2-\kappa_n^2)C_{mn}=(\kappa_m-\kappa_n)e_me_n$ だから、右辺は
-$$
--\sum_n(\delta_{mn}+C_{mn})\kappa_n^2\psi_n
-$$
-に等しい。(3.65) の $I+C$ は可逆なので
-$$
-(-\partial_x^2+u)\psi_n=-\kappa_n^2\psi_n.
-\tag{3.72}
-$$
+とも表せる。左端の指数波から連立方程式で求めた $\psi_n$ は、規格化された束縛状態であり、その二乗の重み付き和がポテンシャルを与える。この表示の導出と規格化の確認を以下の補足に示す。この表示の導出と規格化の確認を以下の補足に示す。
 
-### 3.6. 固有関数の規格化とポテンシャル表示
+<details id="reflectionless-normalization">
+<summary>束縛状態の固有方程式と規格化</summary>
 
-続いて、係数 $\psi_n$ が $L^2$ 規格化されていることと、ポテンシャルをそれらで表せることを示す。まず逆行列の微分公式を (3.69) に適用すると
+式 (3.61) は $\psi_n=c_nf_-(x,-i\kappa_n)$ の核表示である。この複素波数では指数波が左端で減衰し、左積分は収束する。$Lf_-(x,k)=k^2f_-(x,k)$ より
+$$
+L\psi_n=-\kappa_n^2\psi_n.
+$$
+これは前半の $LT=TL_0$ と同じ、自由な固有関数をポテンシャル中の固有関数へ移す関係を、束縛状態の波数で見たものである。
+
+規格化は連立方程式からも確かめられる。$C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分公式から
 $$
 \frac{d}{dx}(I+C)^{-1}
 =-(I+C)^{-1}\boldsymbol e\boldsymbol e^{\mathsf T}(I+C)^{-1}
 =-\boldsymbol\psi\boldsymbol\psi^{\mathsf T}.
-\tag{3.73}
+\tag{3.72}
 $$
-$x\to-\infty$ では $C\to0$ なので $(I+C)^{-1}\to I$。また
-$C_{mn}(x)=e^{\kappa_mx}C_{mn}(0)e^{\kappa_nx}$ なので、逆行列は成分ごとに
+$x\to-\infty$ では $C\to0$ なので $(I+C)^{-1}\to I$。他方、$C_{mn}(x)=e^{\kappa_mx}C_{mn}(0)e^{\kappa_nx}$ より
 $$
 [C(x)^{-1}]_{mn}=e^{-\kappa_mx}[C(0)^{-1}]_{mn}e^{-\kappa_nx}\longrightarrow0
 \qquad(x\to+\infty).
 $$
-$C(0)$ の可逆性は上で示した正定値性による。従って
-$(I+C)^{-1}=C^{-1}(I+C^{-1})^{-1}\to0$ となる。(3.73) を両端の間で積分すれば
+従って $(I+C)^{-1}=C^{-1}(I+C^{-1})^{-1}\to0$ である。式 (3.72) を両端の間で積分すると
 $$
-\int_{-\infty}^{\infty}\psi_m(x)\psi_n(x)\,dx=\delta_{mn}.
-\tag{3.74}
+\int_{\mathbb R}\psi_m(x)\psi_n(x)\,dx=\delta_{mn}
+\tag{3.73}
 $$
-従って (3.72) の実固有関数は互いに直交し、それぞれノルム1である。
+を得る。
 
-最後に、対角値 $K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi$ を微分してポテンシャルを求める。$C$ と $E$ が対称行列なので、$\boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi=\boldsymbol\psi^{\mathsf T}EC\boldsymbol\psi$ である。$\boldsymbol e=(I+C)\boldsymbol\psi$ と $CE+EC=\boldsymbol e\boldsymbol e^{\mathsf T}$ を使うと
+</details>
+
+<details id="reflectionless-density">
+<summary>ポテンシャルを束縛状態の二乗和で表す計算</summary>
+
+$e_n=\psi_n+\sum_mC_{nm}\psi_m$、$C_{mn}=C_{nm}$ および $(\kappa_m+\kappa_n)C_{mn}=e_me_n$ より
 $$
 \begin{aligned}
-2\boldsymbol e^{\mathsf T}E\boldsymbol\psi
-&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
-+\boldsymbol\psi^{\mathsf T}(CE+EC)\boldsymbol\psi\\
-&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
-+(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2.
+2\sum_n\kappa_ne_n\psi_n
+&=2\sum_n\kappa_n\psi_n^2
+ +\sum_{m,n}(\kappa_m+\kappa_n)C_{mn}\psi_m\psi_n\\
+&=2\sum_n\kappa_n\psi_n^2
+ +(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2.
 \end{aligned}
+\tag{3.74}
 $$
-一方、$\boldsymbol e'=E\boldsymbol e$ と逆行列の微分 (3.73) より、
+一方、$\boldsymbol e^{\mathsf T}\boldsymbol\psi=\boldsymbol e^{\mathsf T}(I+C)^{-1}\boldsymbol e$ を微分する。左右の $e_n'=\kappa_ne_n$ の寄与を足し、逆行列の微分 (3.72) を使うと
 $$
 \begin{aligned}
 \frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi)
-&=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi
- -(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2\\
-&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
-=2\sum_{n=1}^N\kappa_n\psi_n^2.
+&=2\sum_n\kappa_ne_n\psi_n-(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2\\
+&=2\sum_n\kappa_n\psi_n^2.
 \end{aligned}
 \tag{3.75}
 $$
-$u=2\,dK(x,x)/dx=-2\,d(\boldsymbol e^{\mathsf T}\boldsymbol\psi)/dx$ だから、求める表示は
-$$
-u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2.
-\tag{3.76}
-$$
+これを対角復元式 (3.67) に代入すれば $u=-4\sum_n\kappa_n\psi_n^2$ が従う。
+
+</details>

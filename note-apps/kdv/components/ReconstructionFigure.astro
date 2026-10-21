@@ -20,7 +20,7 @@ const labels = (kind:string) => [
 ---
 <figure class="kdv-reconstruction" data-kdv-reconstruction aria-labelledby="kdv-reconstruction-caption">
   <div class="kdv-control-grid">
-    <label for="kdv-kappa">束縛状態のパラメータ <span set:html={tex('\\kappa')}/><output for="kdv-kappa" data-kdv-kappa-output>1.00</output><input id="kdv-kappa" data-kdv-kappa type="range" min="0.45" max="1.6" step="0.01" value="1" /></label>
+    <label for="kdv-kappa">束縛状態のパラメータ <span set:html={tex('\\kappa_1')}/><output for="kdv-kappa" data-kdv-kappa-output>1.00</output><input id="kdv-kappa" data-kdv-kappa type="range" min="0.45" max="1.6" step="0.01" value="1" /></label>
     <label for="kdv-center">中心位置 <span set:html={tex('x_0')}/><output for="kdv-center" data-kdv-center-output>0.00</output><input id="kdv-center" data-kdv-center type="range" min="-2" max="2" step="0.05" value="0" /></label>
     <button type="button" data-kdv-reset>初期値に戻す</button>
   </div>
@@ -36,7 +36,7 @@ const labels = (kind:string) => [
     {labels(kind).map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={tex(l.t)}/></foreignObject>)}
   </svg>)}
   </div></FigureViewport>
-  <div class="kdv-relation">{['u(x)=2\\dfrac{d}{dx}K(x,x)', 'c^2=2\\kappa e^{-2\\kappa x_0}', 't=0'].map(t => <span set:html={tex(t)} />)}</div>
+  <div class="kdv-relation">{['u(x)=2\\dfrac{d}{dx}K(x,x)', 'c_1^2=2\\kappa_1 e^{-2\\kappa_1 x_0}', 't=0'].map(t => <span set:html={tex(t)} />)}</div>
   <figcaption id="kdv-reconstruction-caption">上段はポテンシャル、下段は変換核の対角値。破線は中心位置を示す。いずれも固定した時刻の再構成である。</figcaption>
 </figure>
 <style>
