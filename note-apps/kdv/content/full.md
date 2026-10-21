@@ -192,16 +192,7 @@ $$
 \end{aligned}\tag{equation-c5292b67c8}
 $$
 
- を課す。$I$ は恒等演算子である。$u$ は実数値とし、滑らかで無限遠で急減衰する関数を考える。部分積分では境界項が消えるので $\partial^\dagger=-\partial$ であり、実数値の $u$ による掛け算は $u^\dagger=u$ を満たす。
-
-積の随伴では順序が逆になる。そこで、積の微分則 $\partial u=u\partial+u_x$ を使って $B$ を書き直すと、反エルミート性が次のように確かめられる。
-$$
-\begin{aligned}
-B&=-4\partial^3+3(u\partial+\partial u),\\
-B^\dagger&=4\partial^3-3(\partial u+u\partial)=-B.
-\end{aligned}
-$$
-従って $U(t)$ はユニタリ変換であり、波動関数のノルムを保つ。次に Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
+ を課す。$I$ は恒等演算子である。Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
 
 (@equation-7de551f92c)の両辺に左から$U(t)$を掛けると、
 
@@ -244,6 +235,18 @@ L(t)\psi(x, t) = \lambda \psi(x, t)
 $$
 
  となる。 すなわち、$B(t)$によって時間発展する波動関数$\psi(x, t)$は、任意の時刻で$L(t)$の固有関数である。 さらに、$\psi(x,t)$に対する$L(t)$の固有値は常に$\lambda$で時間に依存しない。 [^src-3-1]
+
+固有値保存に加えて、$U(t)$ はユニタリなので波動関数のノルムも保つ。このユニタリ性は、発展方程式 $\mathrm{d}U/\mathrm{d}t=B(t)U(t)$ の生成子 $B$ が反エルミートであることから従う。以下で $B^\dagger=-B$ を示す。
+
+ここでは実数値の $u$ と、滑らかで無限遠で急減衰する関数を考える。部分積分で境界項が消えるため $\partial^\dagger=-\partial$ であり、$u$ による掛け算は自己随伴である。
+
+反エルミート性は、$u\partial$ と $\partial u$ を対にした形に直すと見える。積の微分則 $\partial u=u\partial+u_x$ で $B$ を書き直し、積の随伴では順序を逆にすると、
+$$
+\begin{aligned}
+B&=-4\partial^3+3(u\partial+\partial u),\\
+B^\dagger&=4\partial^3-3(\partial u+u\partial)=-B.
+\end{aligned}
+$$
 
 [^src-3-1]: 逆に$L(t)$の固有値が時間変化しない条件としてLax方程式を導ける。
 
