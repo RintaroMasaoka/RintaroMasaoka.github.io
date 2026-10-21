@@ -1,9 +1,9 @@
-import {response} from '../visuals/green-response.js';
+import {response,matchingPaths} from '../visuals/green-response.js';
 const h=1e-4, errors=[];
-for(const E of [-2.25,-1.8,-1,-.6,-.25])for(const x of[-3,-.7,.4,2]){
- const fn=x=>x<0?response(E,x).left:response(E,x).right;
+for(const E of [-2.25,-1.8,-1,-.6,-.25])for(const x of[-4,-3,-.7,.4,2,4])for(const side of ['left','right']){
+ const fn=x=>response(E,x)[side];
  const second=(fn(x+h)-2*fn(x)+fn(x-h))/h**2;
- errors.push(Math.abs(-second-2/Math.cosh(x)**2*fn(x)-E*fn(x)));
+ errors.push(Math.abs(-second-2/Math.cosh(x)**2*fn(x)-E*fn(x))/Math.max(1,Math.abs(fn(x))));
 }
 const maxODE=Math.max(...errors);if(maxODE>1e-6)throw Error(`ODE ${maxODE}`);
 for(const E of[-2.25,-1.8,-.6,-.25]){
@@ -23,3 +23,21 @@ const kap=.7,d=1.3,R=1000*Math.PI/d,n=400000,dk=R/n;
 let integral=0;for(let j=0;j<=n;j++){const k=j*dk,v=(k*Math.sin(k*d)+kap*Math.cos(k*d))/(k*k+kap*kap);integral+=(j===0||j===n?.5:1)*v*dk/Math.PI;}
 const fourierError=Math.abs(integral-Math.exp(-kap*d));if(fourierError>.0002)throw Error('Fourier residue sign');
 console.log(JSON.stringify({maxODE,maxPoleError,sourceJump:'+1',finiteSourceGreenIdentity:'pass',upperFourierImaginaryPart:integral,expected:Math.exp(-kap*d),fourierError},null,2));
+
+// Every selectable energy draws both complete profiles on the common linear axes.
+for(let j=0;j<=200;j++){
+ const E=-2.25+j/100,p=matchingPaths(E),q=Math.sqrt(-E),f0=q/(q+1);
+ if(Math.abs(f0*f0*(p.rightSlope-p.leftSlope)-response(E,0).W)>1e-12)throw Error('normalized slopes and W');
+ for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight','leftTangent','rightTangent']){
+  if(/NaN|Infinity/.test(p[key]))throw Error('nonfinite matching geometry');
+  const points=[...p[key].matchAll(/[ML]([\d.-]+),([\d.-]+)/g)].map(m=>[+m[1],+m[2]]);
+  if(points[0][0]!==52||points.at(-1)[0]!==300)throw Error('incomplete solution domain');
+  if(key.startsWith('overview') && points.some(([,y])=>y<63.999||y>218.001))throw Error('overview clipped');
+ }
+ if(p.ticks.length>8)throw Error('tick overflow');
+}
+for(let j=0;j<=320;j++){
+ const x=-4+j/40,v=response(-1,x);
+ if(Math.abs(v.left-1/Math.cosh(x))>1e-12||Math.abs(v.right-v.left)>1e-12)throw Error('full-interval coincidence');
+}
+console.log('201 matching energies: complete profiles, finite axes, slope/W identity; E=-1 full-interval coincidence: pass');

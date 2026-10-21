@@ -14,21 +14,42 @@ export function response(E, x) {
 }
 export const X = x => 56+(x+4)*48;
 export const Y = y => 232-y*160/1.8;
-export const EX = E => 56+(E+2.25)*192;
-export const WY = w => 410-(w+.65)*100;
 export const PY = y => 230-y*180/.85;
 const path = points => points.map(([x,y],i)=>`${i?'L':'M'}${x.toFixed(3)},${y.toFixed(3)}`).join(' ');
-export function paths(E) {
-  const xs=Array.from({length:241},(_,j)=>-4+j/30), v=response(E,0);
+// Overview: all samples, one shared linear amplitude scale for the two solutions.
+// Zoom: fixed linear axes, so tangent slopes can be compared across energies.
+export const MX = x => 52+(x+4)*31;
+export const ZX = x => 52+(x+.5)*248;
+export const ZY = y => 210-y*72;
+export function matchingPaths(E) {
+  const xs=Array.from({length:321},(_,j)=>-4+j/40), values=xs.map(x=>response(E,x));
+  const lo=Math.min(0,...values.flatMap(v=>[v.left,v.right]));
+  const hi=Math.max(1,...values.flatMap(v=>[v.left,v.right]));
+  const span=hi-lo, rawStep=span/4, decade=10**Math.floor(Math.log10(rawStep));
+  const step=([1,2,5,10].find(n=>n*decade>=rawStep))*decade;
+  const lower=Math.floor(lo/step)*step, upper=Math.ceil(hi/step)*step;
+  const y=value=>218-(value-lower)/(upper-lower)*154;
+  const ticks=[];
+  for(let value=lower;value<=upper+step/2;value+=step)ticks.push({value:+value.toPrecision(10),y:y(value)});
+  const zoomXs=Array.from({length:101},(_,j)=>-.5+j/100), slope=response(E,0).slope;
   return {
-    left:path(xs.filter(x=>x<=0).map(x=>[X(x),Y(response(E,x).left)])),
-    right:path(xs.filter(x=>x>=0).map(x=>[X(x),Y(response(E,x).right)])),
-    leftTangent:path([-.45,0].map(x=>[X(x),Y(1+v.slope*x)])),
-    rightTangent:path([0,.45].map(x=>[X(x),Y(1-v.slope*x)])),
-    W:path(Array.from({length:201},(_,j)=>{const e=-2.25+j/100;return[EX(e),WY(response(e,0).W)]})),
+    overviewLeft:path(xs.map((x,j)=>[MX(x),y(values[j].left)])),
+    overviewRight:path(xs.map((x,j)=>[MX(x),y(values[j].right)])),
+    overviewPoint:[MX(0),y(1)], zeroY:y(0), ticks,
+    zoomLeft:path(zoomXs.map(x=>[ZX(x),ZY(response(E,x).left)])),
+    zoomRight:path(zoomXs.map(x=>[ZX(x),ZY(response(E,x).right)])),
+    leftTangent:path([-.5,.5].map(x=>[ZX(x),ZY(1+slope*x)])),
+    rightTangent:path([-.5,.5].map(x=>[ZX(x),ZY(1-slope*x)])),
+    leftSlope:slope, rightSlope:-slope,
+  };
+}
+export function paths(E) {
+  const xs=Array.from({length:241},(_,j)=>-4+j/30);
+  return {
+    ...matchingPaths(E),
     regularized:path(xs.map(x=>[X(x),PY(response(E,x).regularized)])),
     projector:path(xs.map(x=>[X(x),PY(response(E,x).projector)])),
-    marker:[EX(E),WY(v.W)], Wvalue:v.W,
+    Wvalue:response(E,0).W,
   };
 }
 export function initGreenResponse() {
@@ -39,13 +60,28 @@ export function initGreenResponse() {
     const p=paths(E), pole=Math.abs(E+1)<1e-8;
     el.querySelector('[data-green-energy]').value=String(E);
     el.querySelector('[data-green-energy-output]').textContent=E.toFixed(2);
-    for(const key of ['left','right','leftTangent','rightTangent','regularized'])
+    for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight','leftTangent','rightTangent','regularized'])
       el.querySelector(`[data-green-path="${key}"]`)?.setAttribute('d',p[key]);
-    const dot=el.querySelector('[data-green-marker]');
-    if(dot){dot.setAttribute('cx',p.marker[0]);dot.setAttribute('cy',p.marker[1]);}
+    const dot=el.querySelector('[data-green-overview-point]');
+    if(dot)dot.setAttribute('cy',p.overviewPoint[1]);
+    el.querySelector('[data-green-zero]')?.setAttribute('d',`M52 ${p.zeroY} H300`);
+    const tickNodes=el.querySelectorAll('[data-green-tick]');
+    tickNodes.forEach((node,j)=>{
+      const tick=p.ticks[j];node.toggleAttribute('hidden',!tick);
+      if(tick){
+        node.setAttribute('transform',`translate(0,${tick.y})`);
+        // Clone the matching tick's server-rendered KaTeX, never raw SVG text.
+        const template=el.querySelector(`template[data-tick-value="${tick.value}"]`);
+        node.querySelector('[data-green-tick-label]').replaceChildren(template.content.cloneNode(true));
+      }
+    });
+    for(const side of ['left','right']){
+      const output=el.querySelector(`[data-green-${side}-slope]`);
+      if(output)output.textContent=Math.abs(p[side+'Slope'])<1e-9?'0.000':p[side+'Slope'].toFixed(3);
+    }
     const w=el.querySelector('[data-green-w]');if(w)w.textContent=Math.abs(p.Wvalue)<1e-9?'0.000':p.Wvalue.toFixed(3);
     el.querySelector('[data-green-status]').textContent=el.dataset.greenStage==='matching'
-      ?(pole?'値と傾きが一致し、一つの束縛状態につながる。':'接続点の値は一致するが、左右の傾きは異なる。')
+      ?(pole?'二本の解が表示区間全体で一致する。両端で減衰する束縛状態である。':'x = 0 の値はどちらも1だが、傾きが異なり、二本の解は一致しない。')
       :(pole?'E = −1 での極限。二つの曲線は一致する。':'エネルギーを E = −1 に近づけると、極の係数の形に近づく。');
   });
   roots.forEach(el=>{
