@@ -261,7 +261,7 @@ $$
 \psi_n(x,t)\sim c_n(t)e^{\kappa_nx}\quad(x\to-\infty),\qquad c_n(t)>0.
 \tag{equation-cdc8dfdf01}
 $$
-この左端振幅 $c_n(t)$ が、後で左 GLM 方程式に入る規格化定数である。
+この左端振幅 $c_n(t)$ を、束縛状態の規格化定数と呼ぶ。
 
 散乱状態では $\lambda=k^2$ とし、左から入射する解を選ぶ。その遠方での形を
 $$
