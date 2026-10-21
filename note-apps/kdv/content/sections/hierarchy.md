@@ -16,7 +16,7 @@ $$
 $$
 である。$L$ の平方根を微分の冪で表すには負の冪も必要になるため、それらを含む形式的な演算子を用意する。以後 $\partial=\partial_x$ と書き、擬微分演算子を
 $$
-A=\sum_{j=-\infty}^{m}a_j(x,t)\partial^j
+A=\sum_{j=-\infty}^{m}\alpha_j(x,t)\partial^j
 $$
 の形の形式級数として扱う。次数には上限 $m$ があり、積は一般化 Leibniz 則
 $$
@@ -54,16 +54,16 @@ $$
 $$
 負冪部分の最高次数は $\partial^{-1}$ である。$L=-\partial^2+u$ と負冪項の交換子では、たとえば $[-\partial^2,\alpha\partial^{-1}]=-2\alpha_x-\alpha_{xx}\partial^{-1}$ のように最高次項が相殺し、次数は $0$ 以下となる。一方、左辺は微分作用素なので負の冪を含まない。両辺が一致するには次数 $0$ の項だけが残るため、交換子は掛け算演算子となる。したがって各 $B_{2n+1}$ は $L$ との Lax 方程式
 $$
-L_{t_{2n+1}}=[B_{2n+1},L]
+\frac{\partial L}{\partial t_{2n+1}}=[B_{2n+1},L]
 \tag{4.5}
 $$
 を与える。$n=1$ が通常の KdV 方程式であり、より高い $n$ は空間微分の階数がより高い方程式を与える。$t_{2n+1}$ はそれぞれの発展に割り当てた時間変数である。これらをまとめて KdV 階層と呼ぶ。
 
 ### 4.2. 擬微分演算子と留数
 
-保存量を取り出すため、擬微分演算子 $A=\sum_j a_j\partial^j$ の留数を、$\partial^{-1}$ の係数
+保存量を取り出すため、擬微分演算子 $A=\sum_j \alpha_j\partial^j$ の留数を、$\partial^{-1}$ の係数
 $$
-\operatorname{res}_{\partial}A=a_{-1}
+\operatorname{res}_{\partial}A=\alpha_{-1}
 \tag{4.6}
 $$
 と定義する。非負冪への射影 $(A)_{\ge0}$ は $\partial^0,\partial^1,\ldots$ の項を残し、留数は負冪のうち $\partial^{-1}$ の係数だけを選ぶ。この二つの取り出し方を区別しておく。
@@ -128,7 +128,7 @@ $$
 $$
 一方、積の微分を展開すると中間項が隣り合って相殺し、
 $$
-\frac{\partial}{\partial x}\left(\sum_{k=0}^{r-1}(-1)^k\alpha^{(k)}\beta^{(r-1-k)}\right)
+\frac{\partial}{\partial x}\left(\sum_{j=0}^{r-1}(-1)^j\alpha^{(j)}\beta^{(r-1-j)}\right)
 =\alpha\beta^{(r)}-(-1)^r\alpha^{(r)}\beta.
 \tag{4.14}
 $$

@@ -7,7 +7,7 @@ e_n(x)=c_ne^{\kappa_nx},\qquad n=1,\ldots,N
 $$
 と書く。
 
-前半で作った変換 $T$ は、この指数波をポテンシャル中の束縛状態へ変える。Jost 解の核表示に $k=-i\kappa_n$ を入れると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
+前半で作った変換 $T$ は、この指数関数をポテンシャル中の束縛状態へ変える。Jost 解の核表示に $k=-i\kappa_n$ を入れると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
 $$
 \begin{aligned}
 \psi_n(x)&=(Te_n)(x)\\
@@ -28,7 +28,7 @@ $$
 \boxed{K(x,y)=-\sum_{n=1}^N\psi_n(x)e_n(y).}
 \tag{3.63}
 $$
-指数波を束縛状態へ変える核が、その束縛状態自身で書けた。固定した $x$ では、核の $y$ 依存性は既知の $N$ 個の指数関数で決まり、未知なのは $N$ 個の値 $\psi_n(x)$ だけである。
+指数関数を束縛状態へ変える核が、その束縛状態自身で書けた。固定した $x$ では、核の $y$ 依存性は既知の $N$ 個の指数関数で決まり、未知なのは $N$ 個の値 $\psi_n(x)$ だけである。
 
 この核を $\psi_m=Te_m$ の式 (3.61) に戻すと、束縛状態を決める方程式が閉じる。
 $$
@@ -36,7 +36,7 @@ $$
 \left[\int_{-\infty}^x e_m(z)e_n(z)\,dz\right]\psi_n(x)=e_m(x).
 \tag{3.64}
 $$
-角括弧は、二つの指数波の積を左端から $x$ まで積分した既知の量である。これを行列の成分
+角括弧は、二つの指数関数の積を左端から $x$ まで積分した既知の量である。これを行列の成分
 $$
 C_{mn}(x)=\int_{-\infty}^x e_m(z)e_n(z)\,dz
 =\frac{e_m(x)e_n(x)}{\kappa_m+\kappa_n}
@@ -49,12 +49,12 @@ $$
 \boldsymbol e=(e_1,\ldots,e_N)^{\mathsf T}
 \tag{3.66}
 $$
-となる。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (3.63) が得られる。
+となる。$I$ は $N$ 次の単位行列である。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (3.63) が得られる。
 
 <details id="reflectionless-invertibility">
 <summary>連立方程式が一意に解ける理由</summary>
 
-実ベクトル $\boldsymbol\alpha\ne0$ に対し、$C$ の積分表示から
+実列ベクトル $\boldsymbol\alpha=(\alpha_1,\ldots,\alpha_N)^{\mathsf T}\ne0$ に対し、$C$ の積分表示から
 $$
 \boldsymbol\alpha^{\mathsf T}C\boldsymbol\alpha
 =\int_{-\infty}^x\left(\sum_n\alpha_ne_n(z)\right)^2dz>0.
@@ -72,11 +72,11 @@ K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi,
 u(x)=-2\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi).
 \tag{3.67}
 $$
-この計算は行列式でまとめられる。$C$ の積分表示を微分すると $C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ だから、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
+この計算は行列式でまとめられる。$C$ の積分表示を微分すると $\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ だから、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
 $$
 \begin{aligned}
 \frac{d}{dx}\log\det(I+C)
-&=\operatorname{tr}\!\left((I+C)^{-1}C'\right)\\
+&=\operatorname{tr}\!\left((I+C)^{-1}\frac{dC}{dx}\right)\\
 &=\boldsymbol e^{\mathsf T}(I+C)^{-1}\boldsymbol e
 =\boldsymbol e^{\mathsf T}\boldsymbol\psi.
 \end{aligned}
@@ -101,18 +101,18 @@ $$
 u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2
 \tag{3.71}
 $$
-とも表せる。左端の指数波から連立方程式で求めた $\psi_n$ は、規格化された束縛状態であり、その二乗の重み付き和がポテンシャルを与える。この表示の導出と規格化の確認を以下の補足に示す。この表示の導出と規格化の確認を以下の補足に示す。
+とも表せる。左端の指数関数から連立方程式で求めた $\psi_n$ は、規格化された束縛状態であり、その二乗の重み付き和がポテンシャルを与える。この表示の導出と規格化の確認を以下の補足に示す。この表示の導出と規格化の確認を以下の補足に示す。
 
 <details id="reflectionless-normalization">
 <summary>束縛状態の固有方程式と規格化</summary>
 
-式 (3.61) は $\psi_n=c_nf_-(x,-i\kappa_n)$ の核表示である。この複素波数では指数波が左端で減衰し、左積分は収束する。$Lf_-(x,k)=k^2f_-(x,k)$ より
+式 (3.61) は $\psi_n=c_nf_-(x,-i\kappa_n)$ の核表示である。この複素波数では指数関数が左端で減衰し、左積分は収束する。$Lf_-(x,k)=k^2f_-(x,k)$ より
 $$
 L\psi_n=-\kappa_n^2\psi_n.
 $$
 これは前半の $LT=TL_0$ と同じ、自由な固有関数をポテンシャル中の固有関数へ移す関係を、束縛状態の波数で見たものである。
 
-規格化は連立方程式からも確かめられる。$C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分公式から
+規格化は連立方程式からも確かめられる。$\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分公式から
 $$
 \frac{d}{dx}(I+C)^{-1}
 =-(I+C)^{-1}\boldsymbol e\boldsymbol e^{\mathsf T}(I+C)^{-1}
@@ -129,7 +129,7 @@ $$
 \int_{\mathbb R}\psi_m(x)\psi_n(x)\,dx=\delta_{mn}
 \tag{3.73}
 $$
-を得る。
+を得る。ここで $\delta_{mn}$ は $m=n$ のとき1、それ以外で0である。
 
 </details>
 

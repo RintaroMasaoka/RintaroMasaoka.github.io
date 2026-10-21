@@ -10,7 +10,7 @@
         {
           "meaning": "analytic positive one-soliton profile",
           "role": "equation",
-          "tex": "-u(x,t)=\\dfrac{c}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{c}}{2}(x-ct)\\right)"
+          "tex": "-u(x,t)=\\dfrac{v}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{v}}{2}(x-vt)\\right)"
         },
         {
           "meaning": "horizontal position",

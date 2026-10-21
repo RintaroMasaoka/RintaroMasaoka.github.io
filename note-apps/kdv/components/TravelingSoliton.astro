@@ -17,12 +17,12 @@ const labels = [
   { x: 7, y: y0(2) - 15, w: 45, t: '2' }, { x: 7, y: y0(0) - 15, w: 45, t: '0' },
   { x: x0(-12) - 37.5, y: 271, w: 75, t: '-12' }, { x: x0(0) - 28, y: 271, w: 56, t: '0' }, { x: x0(12) - 28, y: 271, w: 56, t: '12' },
 ];
-const formula = tex('-u(x,t)=\\dfrac{c}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{c}}{2}(x-ct)\\right)');
-const caption = `解析式を直接プロットした。縦軸は正の量 ${tex('-u')}。${tex('c')} を変えると速度・高さ・幅が連動して変わり、${tex('t')} は形を保ったまま平行移動させる。破線は ${tex('t=0')} の基準。`;
+const formula = tex('-u(x,t)=\\dfrac{v}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{v}}{2}(x-vt)\\right)');
+const caption = `解析式を直接プロットした。縦軸は正の量 ${tex('-u')}。${tex('v')} を変えると速度・高さ・幅が連動して変わり、${tex('t')} は形を保ったまま平行移動させる。破線は ${tex('t=0')} の基準。`;
 ---
 <figure class="kdv-traveling-soliton" data-kdv-soliton aria-labelledby="kdv-soliton-caption">
   <div class="kdv-soliton-controls">
-    <label for="kdv-soliton-c"><span class="kdv-control-name">速度 <span set:html={tex('c')} /></span><output data-soliton-c-output for="kdv-soliton-c">2.00</output><input id="kdv-soliton-c" data-soliton-c type="range" min="1" max="4" step="0.01" value="2" /></label>
+    <label for="kdv-soliton-c"><span class="kdv-control-name">速度 <span set:html={tex('v')} /></span><output data-soliton-c-output for="kdv-soliton-c">2.00</output><input id="kdv-soliton-c" data-soliton-c type="range" min="1" max="4" step="0.01" value="2" /></label>
     <label for="kdv-soliton-t"><span class="kdv-control-name">時刻 <span set:html={tex('t')} /></span><output data-soliton-t-output for="kdv-soliton-t">0.00</output><input id="kdv-soliton-t" data-soliton-t type="range" min="-2" max="2" step="0.01" value="0" /></label>
     <button type="button" data-soliton-reset>初期値に戻す</button>
   </div>

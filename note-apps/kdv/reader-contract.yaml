@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 8,
+    "version": 9,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -80,8 +80,12 @@
       "left incidence b,c throughout the note",
       "Fourier extraction exp(-iky)/(2pi); y<x",
       "left K; u=+2 dK(x,x)/dx",
-      "Direct substitution into Duhamel closes an equation for K(x,y); integration coordinates x',y'; no auxiliary coupling or f_n decomposition",
-      "same left kernels and normalization throughout scattering time evolution and multi-state reconstruction"
+      "Direct substitution into the source-integral equation closes an equation for K(x,y); integration coordinates x',y'; no auxiliary coupling or f_n decomposition",
+      "same left kernels and normalization throughout scattering time evolution and multi-state reconstruction",
+      "v is physical soliton speed; c_n are normalized left-tail amplitudes; one-state uses c_1,kappa_1",
+      "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
+      "display spatial state (f,f_x) and its matrices directly; U(t) reserved for norm-preserving Lax-time evolution",
+      "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction"
     ],
     "new_or_unconfirmed": [
       "Jost解の規格化・Volterra核表示・逆散乱法で使う解析性、束縛状態と散乱係数の極・留数の関係を既知とは置かない。既知のSchrödinger方程式の概念と、このノート固有の未導入な対象・規約を区別する。",

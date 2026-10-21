@@ -34,79 +34,46 @@ KdV方程式はソリトンという興味深い解をもつことが知られ�
 
 ### 2.1. 1-ソリトン解
 
-まず単純な形で表せる1-ソリトン解を見ておこう。 解として、進行波$u(t,x) = u(x-ct)$を仮定する。 この形を(1.1)に代入して整理すると、以下の常微分方程式を得る。
-
+まず、形を保って速度 $v>0$ で移動する進行波 $u(x,t)=u(x-vt,0)$ を求めよう。この小節のプライムは、時刻0の波形 $u(x,0)$ の $x$ 微分を表す。KdV 方程式に代入すると
 $$
-\begin{aligned}
-u''' = 6uu' + cu'
-\end{aligned}\tag{2.1}
+u'''=6uu'+vu'.
+\tag{2.1}
 $$
-
- これを積分すると、
-
+$u,u',u''$ が両端で0に減衰すると仮定し、無限遠での値を使って積分すると
 $$
-\begin{aligned}
-u'' = 3u^2 + cu + \frac{b}{2}
-\end{aligned}\tag{2.2}
+u''=3u^2+vu.
+\tag{2.2}
 $$
-
- となる。$b$は積分定数である。 さらに$2u'$を掛けて積分すると、
-
+さらに $2u'$ を掛けると、両辺が全微分になる。
 $$
-\begin{aligned}
-u'^2 = 2u^3 + cu^2 + bu + a
-\end{aligned}\tag{2.3}
+\frac{d}{dx}(u')^2=\frac{d}{dx}(2u^3+vu^2).
+\tag{2.3}
 $$
-
- となる。 [^src-2-1] $a$は積分定数である。
-
-$u$が$|x| → ∞$で十分速く$0$に収束すると仮定すると、(2.2)、(2.3)から$b = 0,~ a = 0$となる。したがって、$u(x)$の満たす方程式は、
-
+もう一度無限遠の境界条件を使って積分すれば
 $$
-\begin{aligned}
-u'^2 = 2u^3 + cu^2
-\end{aligned}\tag{2.4}
+(u')^2=2u^3+vu^2.
+\tag{2.4}
 $$
-
- となる。この方程式には以下の1-ソリトン解が存在することが簡単に確認できる。 [^src-2-2]
-
+この方程式には次の局在した波形がある。
 $$
-\begin{aligned}
-u(x) = -\frac{c}{2}\operatorname{sech}^2\left(\frac{\sqrt{c}\,}{2}x\right)
-\end{aligned}\tag{2.8}
+u(x,0)=-\frac v2\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right).
+\tag{2.8}
 $$
+ここで $\operatorname{sech}x=1/\cosh x$ である。[^soliton-check] 時刻 $t$ では $x$ を $x-vt$ に置き換える。振幅の大きさは $v/2$、幅の尺度は $2/\sqrt v$ なので、高い波ほど速く、幅は狭くなる。
 
- ただし、$\operatorname{sech}^2 x = (\cosh x)^{-2}$である。 1-ソリトン解の高さは速度$c$に比例する。また幅は$1/\sqrt{c}\,$に比例する。
-
-[^src-2-1]: (2.3)は、Weierstrassの楕円関数が満たす微分方程式と同じである。
-
-[^src-2-2]: $u(x)$を微分すると、
+[^soliton-check]: 式 (2.8) を微分すると
 
     $$
-    \begin{aligned}
-    u'(x) = -c \operatorname{sech}^{3}\left(\frac{\sqrt{c}\,}{2}x\right) \cdot \frac{\sqrt{c}\,}{2}\sinh(\frac{\sqrt{c}\,}{2}x).
-    \end{aligned}\tag{2.5}
+    u'(x,0)=\frac{v^{3/2}}{2}\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right)\tanh\!\left(\frac{\sqrt v}{2}x\right).
+    \tag{2.5}
     $$
 
-     したがって、
+    従って $\tanh^2=1-\operatorname{sech}^2$ より
 
     $$
-    \begin{aligned}
-    u'(x)^2
-                &
-                = \frac{c^3}{4} \operatorname{sech}^{6}\left(\frac{\sqrt{c}\,}{2}x\right)
-                \left(\cosh^2\left(\frac{\sqrt{c}\,}{2}x\right) - 1\right)
-    \end{aligned}\tag{2.6}
+    (u')^2=\frac{v^3}{4}\operatorname{sech}^4\!\left(\frac{\sqrt v}{2}x\right)\left[1-\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right)\right]=2u^3+vu^2.
+    \tag{2.6}
     $$
-
-    $$
-    \begin{aligned}
-    &
-                = 2u^3 + cu^2
-    \end{aligned}\tag{2.7}
-    $$
-
-     となり、(2.4)が成り立つことが分かる。
 
 <div data-extra-visual="traveling"></div>
 
@@ -118,14 +85,14 @@ KdV方程式を解くにあたって、まず、天下りにうまい変換を�
 
 $$
 \begin{aligned}
-L(t) = -∂^2 + u,\quad
-    B(t) = -4∂^3 + 6u∂ + 3u_x
+L(t) = -\partial^2 + u,\quad
+    B(t) = -4\partial^3 + 6u\partial + 3u_x
 \end{aligned}\tag{2.9}
 $$
 
- 表記について注意をすると、$∂$は$x$に関する偏微分を表す演算子とする。 また$u$と書いた場合、$u(t,x)$を左から掛ける演算子を表すことにする。$u_x$などに関しても同様である。
+ 表記について注意をすると、$\partial$は$x$に関する偏微分を表す演算子とする。 また$u$と書いた場合、$u(x,t)$を左から掛ける演算子を表すことにする。$u_x$などに関しても同様である。
 
-$L(t),B(t)$をLax対と呼ぶ。 また$L(t)$はLax演算子と呼ばれ、今の場合1次元の量子力学のHaniltonianと同じ形をしている。 $L(t), B(t)$によって、KdV方程式(1.1)は
+$L(t),B(t)$をLax対と呼ぶ。 また$L(t)$はLax演算子と呼ばれ、今の場合1次元の量子力学のHamiltonianと同じ形をしている。 $L(t), B(t)$によって、KdV方程式(1.1)は
 
 $$
 \begin{aligned}
@@ -149,28 +116,28 @@ $$
 \begin{aligned}
 [B(t), L(t)]
     &
-    = [-4∂^3 + 6u∂ + 3u_x, -∂^2 + u]
+    = [-4\partial^3 + 6u\partial + 3u_x, -\partial^2 + u]
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
 &
-    = -4(u_{xxx} + \cancel{3u_{xx}∂} + \bcancel{3u_x∂^2})+ 6uu_x
+    = -4(u_{xxx} + \cancel{3u_{xx}\partial} + \bcancel{3u_x\partial^2})+ 6uu_x
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
 &\quad
-    + 6(\cancel{u_{xx}∂} +\bcancel{ 2u_x∂^2})
+    + 6(\cancel{u_{xx}\partial} +\bcancel{ 2u_x\partial^2})
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
 &\quad
-    + 3(u_{xxx} + \cancel{2u_{xx}∂})
+    + 3(u_{xxx} + \cancel{2u_{xx}\partial})
 \end{aligned}
 $$
 
@@ -181,37 +148,42 @@ $$
 \end{aligned}
 $$
 
- となる。両辺を等号で結ぶことでKdV方程式を得る。Lax方程式は演算子の等式であったが、両辺が微分演算子$∂$を含まないために、$u$に対する偏微分方程式とみなせる。
+ となる。両辺を等号で結ぶことでKdV方程式を得る。Lax方程式は演算子の等式であったが、両辺が微分演算子$\partial$を含まないために、$u$に対する偏微分方程式とみなせる。
 
 Lax方程式(2.10)では、$B(t)$は時間発展の生成子となっている。するとLax方程式は Hamiltonian $L(t)$の$B(t)$による時間発展を考えていることになる。 ここで、$L(0)$を対角化して
 
 $$
 \begin{aligned}
-L(0)ψ(x, 0) = λ ψ(x, 0)
+L(0)\psi(x, 0) = \lambda \psi(x, 0)
 \end{aligned}\tag{2.11}
 $$
 
- と書く。$ψ(x, 0)$は$L(0)$の固有値$λ$の固有関数である。これを時間発展させてみよう。 $ψ(x, t)$の時間発展を記述する方程式として、
+ と書く。$\psi(x, 0)$は$L(0)$の固有値$\lambda$の固有関数である。これを時間発展させてみよう。 $\psi(x, t)$の時間発展を記述する方程式として、
 
 $$
 \begin{aligned}
-ψ(x, t) = U(t)ψ(x, 0),\quad
+\psi(x, t) = U(t)\psi(x, 0),\quad
     \frac{\mathrm{d} U(t)}{\mathrm{d} t} = B(t)U(t),\quad
-    U(0) = 1
+    U(0) = I
 \end{aligned}\tag{2.12}
 $$
 
- を課す。 すると、$ψ(x, t)$は$L(t)$の固有関数であることが示せる。
+ を課す。$I$ は恒等演算子である。以下のノルムの計算では $u$ は実数値とし、$u,\psi$ と必要な微分は滑らかで急減衰し、積分と時間微分を交換できるとする。部分積分により
+$$
+\frac{d}{dt}\int_{\mathbb R}|\psi(x,t)|^2dx
+=2\operatorname{Re}\int_{\mathbb R}\overline\psi\,B\psi\,dx=0
+$$
+となる。従ってこの時間発展は波動関数のノルムを保つ。次に Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
 
 (2.11)の両辺に左から$U(t)$を掛けると、
 
 $$
 \begin{aligned}
-U(t)L(0)U(t)^{-1}ψ(x,t) = λ ψ(x,t).
+U(t)L(0)U(t)^{-1}\psi(x,t) = \lambda \psi(x,t).
 \end{aligned}\tag{2.13}
 $$
 
- となる。ここで、$U(t)L(0)U(t)^{-1}$を時間微分する。 $U(t)U(t)^{-1} = 1$を時間微分すると
+ となる。ここで、$U(t)L(0)U(t)^{-1}$を時間微分する。 $U(t)U(t)^{-1} = I$を時間微分すると
 
 $$
 \begin{aligned}
@@ -235,21 +207,21 @@ U(t)L(0)U(t)^{-1} = L(t)
 \end{aligned}\tag{2.16}
 $$
 
- となる。この両辺を$ψ(x,t)$に作用させて、
+ となる。この両辺を$\psi(x,t)$に作用させて、
 
 $$
 \begin{aligned}
-L(t)ψ(x, t) = λ ψ(x, t)
+L(t)\psi(x, t) = \lambda \psi(x, t)
 \end{aligned}\tag{2.17}
 $$
 
- となる。 すなわち、$B(t)$によって時間発展する波動関数$ψ(x, t)$は、任意の時刻で$L(t)$の固有関数である。 さらに、$ψ(x,t)$に対する$L(t)$の固有値は常に$λ$で時間に依存しない。 [^src-3-1]
+ となる。 すなわち、$B(t)$によって時間発展する波動関数$\psi(x, t)$は、任意の時刻で$L(t)$の固有関数である。 さらに、$\psi(x,t)$に対する$L(t)$の固有値は常に$\lambda$で時間に依存しない。 [^src-3-1]
 
 [^src-3-1]: 逆に$L(t)$の固有値が時間変化しない条件としてLax方程式を導ける。
 
 ### 2.3. 逆散乱法
 
-Lax方程式が$L(t) = -∂^2 + u$の等スペクトル条件を意味することを見た。これを利用して、KdV方程式を量子力学における散乱の逆問題に置き換えることができる。この解法を逆散乱法と呼ぶ。
+Lax方程式が$L(t) = -\partial^2 + u$の等スペクトル条件を意味することを見た。これを利用して、KdV方程式を量子力学における散乱の逆問題に置き換えることができる。この解法を逆散乱法と呼ぶ。
 
 逆散乱法では、まず散乱データと呼ばれる量を求める。これはポテンシャル$u(x, t)$に対するスペクトルと、束縛解・散乱解の遠方での漸近的な振る舞いをまとめたものである。 実は$t = 0$での散乱データが分かれば、任意の$t$での散乱データは簡単に分かってしまう。スペクトルに関しては、これが時間変化しないことから明らかだろう。
 
@@ -323,7 +295,7 @@ e_n(x)=c_ne^{\kappa_nx},\qquad n=1,\ldots,N
 $$
 と書く。
 
-前半で作った変換 $T$ は、この指数波をポテンシャル中の束縛状態へ変える。Jost 解の核表示に $k=-i\kappa_n$ を入れると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
+前半で作った変換 $T$ は、この指数関数をポテンシャル中の束縛状態へ変える。Jost 解の核表示に $k=-i\kappa_n$ を入れると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
 $$
 \begin{aligned}
 \psi_n(x)&=(Te_n)(x)\\
@@ -344,7 +316,7 @@ $$
 \boxed{K(x,y)=-\sum_{n=1}^N\psi_n(x)e_n(y).}
 \tag{3.63}
 $$
-指数波を束縛状態へ変える核が、その束縛状態自身で書けた。固定した $x$ では、核の $y$ 依存性は既知の $N$ 個の指数関数で決まり、未知なのは $N$ 個の値 $\psi_n(x)$ だけである。
+指数関数を束縛状態へ変える核が、その束縛状態自身で書けた。固定した $x$ では、核の $y$ 依存性は既知の $N$ 個の指数関数で決まり、未知なのは $N$ 個の値 $\psi_n(x)$ だけである。
 
 この核を $\psi_m=Te_m$ の式 (3.61) に戻すと、束縛状態を決める方程式が閉じる。
 $$
@@ -352,7 +324,7 @@ $$
 \left[\int_{-\infty}^x e_m(z)e_n(z)\,dz\right]\psi_n(x)=e_m(x).
 \tag{3.64}
 $$
-角括弧は、二つの指数波の積を左端から $x$ まで積分した既知の量である。これを行列の成分
+角括弧は、二つの指数関数の積を左端から $x$ まで積分した既知の量である。これを行列の成分
 $$
 C_{mn}(x)=\int_{-\infty}^x e_m(z)e_n(z)\,dz
 =\frac{e_m(x)e_n(x)}{\kappa_m+\kappa_n}
@@ -365,12 +337,12 @@ $$
 \boldsymbol e=(e_1,\ldots,e_N)^{\mathsf T}
 \tag{3.66}
 $$
-となる。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (3.63) が得られる。
+となる。$I$ は $N$ 次の単位行列である。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (3.63) が得られる。
 
 <details id="reflectionless-invertibility">
 <summary>連立方程式が一意に解ける理由</summary>
 
-実ベクトル $\boldsymbol\alpha\ne0$ に対し、$C$ の積分表示から
+実列ベクトル $\boldsymbol\alpha=(\alpha_1,\ldots,\alpha_N)^{\mathsf T}\ne0$ に対し、$C$ の積分表示から
 $$
 \boldsymbol\alpha^{\mathsf T}C\boldsymbol\alpha
 =\int_{-\infty}^x\left(\sum_n\alpha_ne_n(z)\right)^2dz>0.
@@ -388,11 +360,11 @@ K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi,
 u(x)=-2\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi).
 \tag{3.67}
 $$
-この計算は行列式でまとめられる。$C$ の積分表示を微分すると $C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ だから、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
+この計算は行列式でまとめられる。$C$ の積分表示を微分すると $\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ だから、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
 $$
 \begin{aligned}
 \frac{d}{dx}\log\det(I+C)
-&=\operatorname{tr}\!\left((I+C)^{-1}C'\right)\\
+&=\operatorname{tr}\!\left((I+C)^{-1}\frac{dC}{dx}\right)\\
 &=\boldsymbol e^{\mathsf T}(I+C)^{-1}\boldsymbol e
 =\boldsymbol e^{\mathsf T}\boldsymbol\psi.
 \end{aligned}
@@ -417,18 +389,18 @@ $$
 u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2
 \tag{3.71}
 $$
-とも表せる。左端の指数波から連立方程式で求めた $\psi_n$ は、規格化された束縛状態であり、その二乗の重み付き和がポテンシャルを与える。この表示の導出と規格化の確認を以下の補足に示す。この表示の導出と規格化の確認を以下の補足に示す。
+とも表せる。左端の指数関数から連立方程式で求めた $\psi_n$ は、規格化された束縛状態であり、その二乗の重み付き和がポテンシャルを与える。この表示の導出と規格化の確認を以下の補足に示す。この表示の導出と規格化の確認を以下の補足に示す。
 
 <details id="reflectionless-normalization">
 <summary>束縛状態の固有方程式と規格化</summary>
 
-式 (3.61) は $\psi_n=c_nf_-(x,-i\kappa_n)$ の核表示である。この複素波数では指数波が左端で減衰し、左積分は収束する。$Lf_-(x,k)=k^2f_-(x,k)$ より
+式 (3.61) は $\psi_n=c_nf_-(x,-i\kappa_n)$ の核表示である。この複素波数では指数関数が左端で減衰し、左積分は収束する。$Lf_-(x,k)=k^2f_-(x,k)$ より
 $$
 L\psi_n=-\kappa_n^2\psi_n.
 $$
 これは前半の $LT=TL_0$ と同じ、自由な固有関数をポテンシャル中の固有関数へ移す関係を、束縛状態の波数で見たものである。
 
-規格化は連立方程式からも確かめられる。$C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分公式から
+規格化は連立方程式からも確かめられる。$\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分公式から
 $$
 \frac{d}{dx}(I+C)^{-1}
 =-(I+C)^{-1}\boldsymbol e\boldsymbol e^{\mathsf T}(I+C)^{-1}
@@ -445,7 +417,7 @@ $$
 \int_{\mathbb R}\psi_m(x)\psi_n(x)\,dx=\delta_{mn}
 \tag{3.73}
 $$
-を得る。
+を得る。ここで $\delta_{mn}$ は $m=n$ のとき1、それ以外で0である。
 
 </details>
 
@@ -494,7 +466,7 @@ $$
 $$
 である。$L$ の平方根を微分の冪で表すには負の冪も必要になるため、それらを含む形式的な演算子を用意する。以後 $\partial=\partial_x$ と書き、擬微分演算子を
 $$
-A=\sum_{j=-\infty}^{m}a_j(x,t)\partial^j
+A=\sum_{j=-\infty}^{m}\alpha_j(x,t)\partial^j
 $$
 の形の形式級数として扱う。次数には上限 $m$ があり、積は一般化 Leibniz 則
 $$
@@ -532,16 +504,16 @@ $$
 $$
 負冪部分の最高次数は $\partial^{-1}$ である。$L=-\partial^2+u$ と負冪項の交換子では、たとえば $[-\partial^2,\alpha\partial^{-1}]=-2\alpha_x-\alpha_{xx}\partial^{-1}$ のように最高次項が相殺し、次数は $0$ 以下となる。一方、左辺は微分作用素なので負の冪を含まない。両辺が一致するには次数 $0$ の項だけが残るため、交換子は掛け算演算子となる。したがって各 $B_{2n+1}$ は $L$ との Lax 方程式
 $$
-L_{t_{2n+1}}=[B_{2n+1},L]
+\frac{\partial L}{\partial t_{2n+1}}=[B_{2n+1},L]
 \tag{4.5}
 $$
 を与える。$n=1$ が通常の KdV 方程式であり、より高い $n$ は空間微分の階数がより高い方程式を与える。$t_{2n+1}$ はそれぞれの発展に割り当てた時間変数である。これらをまとめて KdV 階層と呼ぶ。
 
 ### 4.2. 擬微分演算子と留数
 
-保存量を取り出すため、擬微分演算子 $A=\sum_j a_j\partial^j$ の留数を、$\partial^{-1}$ の係数
+保存量を取り出すため、擬微分演算子 $A=\sum_j \alpha_j\partial^j$ の留数を、$\partial^{-1}$ の係数
 $$
-\operatorname{res}_{\partial}A=a_{-1}
+\operatorname{res}_{\partial}A=\alpha_{-1}
 \tag{4.6}
 $$
 と定義する。非負冪への射影 $(A)_{\ge0}$ は $\partial^0,\partial^1,\ldots$ の項を残し、留数は負冪のうち $\partial^{-1}$ の係数だけを選ぶ。この二つの取り出し方を区別しておく。
@@ -606,7 +578,7 @@ $$
 $$
 一方、積の微分を展開すると中間項が隣り合って相殺し、
 $$
-\frac{\partial}{\partial x}\left(\sum_{k=0}^{r-1}(-1)^k\alpha^{(k)}\beta^{(r-1-k)}\right)
+\frac{\partial}{\partial x}\left(\sum_{j=0}^{r-1}(-1)^j\alpha^{(j)}\beta^{(r-1-j)}\right)
 =\alpha\beta^{(r)}-(-1)^r\alpha^{(r)}\beta.
 \tag{4.14}
 $$

@@ -1,0 +1,141 @@
+### 2.2. Lax表示
+
+KdV方程式を解くにあたって、まず、天下りにうまい変換を与えることにする。
+
+以下のような2つの演算子を定義する。
+
+$$
+\begin{aligned}
+L(t) = -\partial^2 + u,\quad
+    B(t) = -4\partial^3 + 6u\partial + 3u_x
+\end{aligned}\tag{2.9}
+$$
+
+ 表記について注意をすると、$\partial$は$x$に関する偏微分を表す演算子とする。 また$u$と書いた場合、$u(x,t)$を左から掛ける演算子を表すことにする。$u_x$などに関しても同様である。
+
+$L(t),B(t)$をLax対と呼ぶ。 また$L(t)$はLax演算子と呼ばれ、今の場合1次元の量子力学のHamiltonianと同じ形をしている。 $L(t), B(t)$によって、KdV方程式(1.1)は
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} L}{\mathrm{d} t} = [B(t), L(t)]
+\end{aligned}\tag{2.10}
+$$
+
+ と書き換えられる。これをLax方程式と呼ぶ。また与えられた方程式を(2.10)のように表すことをLax表示という。 Lax表示はKdV方程式に特有のものではなく、多くの可積分系に対するLax表示が知られている。
+
+KdV方程式とLax方程式(2.10)が同値であることを証明しよう。 (2.10)の左辺は
+
+$$
+\begin{aligned}
+\frac{\mathrm{d} L}{\mathrm{d} t} = u_t
+\end{aligned}
+$$
+
+ となる。つぎに右辺を計算すると、
+
+$$
+\begin{aligned}
+[B(t), L(t)]
+    &
+    = [-4\partial^3 + 6u\partial + 3u_x, -\partial^2 + u]
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&
+    = -4(u_{xxx} + \cancel{3u_{xx}\partial} + \bcancel{3u_x\partial^2})+ 6uu_x
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&\quad
+    + 6(\cancel{u_{xx}\partial} +\bcancel{ 2u_x\partial^2})
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&\quad
+    + 3(u_{xxx} + \cancel{2u_{xx}\partial})
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&
+    = 6uu_x - u_{xxx}
+\end{aligned}
+$$
+
+ となる。両辺を等号で結ぶことでKdV方程式を得る。Lax方程式は演算子の等式であったが、両辺が微分演算子$\partial$を含まないために、$u$に対する偏微分方程式とみなせる。
+
+Lax方程式(2.10)では、$B(t)$は時間発展の生成子となっている。するとLax方程式は Hamiltonian $L(t)$の$B(t)$による時間発展を考えていることになる。 ここで、$L(0)$を対角化して
+
+$$
+\begin{aligned}
+L(0)\psi(x, 0) = \lambda \psi(x, 0)
+\end{aligned}\tag{2.11}
+$$
+
+ と書く。$\psi(x, 0)$は$L(0)$の固有値$\lambda$の固有関数である。これを時間発展させてみよう。 $\psi(x, t)$の時間発展を記述する方程式として、
+
+$$
+\begin{aligned}
+\psi(x, t) = U(t)\psi(x, 0),\quad
+    \frac{\mathrm{d} U(t)}{\mathrm{d} t} = B(t)U(t),\quad
+    U(0) = I
+\end{aligned}\tag{2.12}
+$$
+
+ を課す。$I$ は恒等演算子である。以下のノルムの計算では $u$ は実数値とし、$u,\psi$ と必要な微分は滑らかで急減衰し、積分と時間微分を交換できるとする。部分積分により
+$$
+\frac{d}{dt}\int_{\mathbb R}|\psi(x,t)|^2dx
+=2\operatorname{Re}\int_{\mathbb R}\overline\psi\,B\psi\,dx=0
+$$
+となる。従ってこの時間発展は波動関数のノルムを保つ。次に Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
+
+(2.11)の両辺に左から$U(t)$を掛けると、
+
+$$
+\begin{aligned}
+U(t)L(0)U(t)^{-1}\psi(x,t) = \lambda \psi(x,t).
+\end{aligned}\tag{2.13}
+$$
+
+ となる。ここで、$U(t)L(0)U(t)^{-1}$を時間微分する。 $U(t)U(t)^{-1} = I$を時間微分すると
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t}U(t)^{-1} = - U(t)^{-1}B(t)
+\end{aligned}\tag{2.14}
+$$
+
+ が分かるので、
+
+$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t}\left(U(t)L(0)U(t)^{-1}\right) = [B(t), U(t)L(0)U(t)^{-1}]
+\end{aligned}\tag{2.15}
+$$
+
+ となる。これはLax方程式なので、初期条件$U(0)L(0)U(0)^{-1} = L(0)$から、
+
+$$
+\begin{aligned}
+U(t)L(0)U(t)^{-1} = L(t)
+\end{aligned}\tag{2.16}
+$$
+
+ となる。この両辺を$\psi(x,t)$に作用させて、
+
+$$
+\begin{aligned}
+L(t)\psi(x, t) = \lambda \psi(x, t)
+\end{aligned}\tag{2.17}
+$$
+
+ となる。 すなわち、$B(t)$によって時間発展する波動関数$\psi(x, t)$は、任意の時刻で$L(t)$の固有関数である。 さらに、$\psi(x,t)$に対する$L(t)$の固有値は常に$\lambda$で時間に依存しない。 [^src-3-1]
+
+[^src-3-1]: 逆に$L(t)$の固有値が時間変化しない条件としてLax方程式を導ける。

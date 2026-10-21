@@ -29,7 +29,7 @@ export function initKdvSimulations() {
           if(data.type==='progress'){status.textContent=`初期波形から数値計算しています… ${Math.round(data.value*100)}%`;return;}
           if(data.type!=='ready'){fail();return;}
           frames=data.frames;worker.terminate();worker=null;play.disabled=false;reset.disabled=false;seek.disabled=false;speed.disabled=false;
-          figure.querySelector('[data-sim-diagnostics]').textContent=`計算区間全体での最大相対変化：∫v dx は ${data.maxMassDrift.toExponential(1)}、∫v² dx は ${data.maxSquareDrift.toExponential(1)}。これらは保存量の変化であり、解そのものの誤差ではない。`;
+          figure.querySelector('[data-sim-diagnostics]').textContent=`計算区間全体での最大相対変化：∫u dx は ${data.maxMassDrift.toExponential(1)}、∫u² dx は ${data.maxSquareDrift.toExponential(1)}。これらは保存量の変化であり、解そのものの誤差ではない。`;
           figure.dataset.simComputed='true';draw();start();
         };
         worker.postMessage({mode:figure.dataset.kdvNumerical});
