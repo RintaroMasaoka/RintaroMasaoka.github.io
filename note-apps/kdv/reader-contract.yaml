@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 21,
+    "version": 22,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -176,7 +176,14 @@
         "general subset pair-product statement"
       ],
       "supplement": "Principal-minor expansion and elementary row-elimination proof of the Cauchy determinant; existing eigenstate normalization and density proofs retained.",
-      "figure": "Determinant.astro + visuals/determinant.js; exact kappa=(1,2), C11=3 exp(2x-8t), C22=3 exp(4x-64t); fractions normalized by determinant; shared x coordinates."
+      "figure": "Determinant.astro + visuals/determinant.js; exact kappa=(1,2), C11=3 exp(2x-8t), C22=3 exp(4x-64t); fractions normalized by determinant; shared x coordinates.",
+      "local_dependencies": [
+        "Restate the Jost kernel representation before substituting k=-i kappa_n and multiplying by c_n.",
+        "State the reflectionless F(s) and its separated F(x+y) form beside the actual GLM equation before substitution; do not require distant definition recall.",
+        "Identify the Gram matrix before using nonnegative eigenvalues and the invertibility of I+C.",
+        "Show the one-soliton potential as -8 kappa_1^2 C11/(1+C11)^2 before using C11=1 as center.",
+        "Define C_SS and explain column multilinearity and identity-column cofactor expansion in the principal-minor disclosure."
+      ]
     }
   }
 }

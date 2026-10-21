@@ -7,19 +7,38 @@ e_n(x)=c_ne^{\kappa_nx},\qquad n=1,\ldots,N
 $$
 と書く。
 
-Jost 解の核表示に $k=-i\kappa_n$ を代入し、$c_n$ を掛けると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
+束縛状態の波形も、この指数関数と核 $K$ で表せる。Jost 解の核表示は
 $$
-\begin{aligned}
+f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,z)e^{ikz}\,dz
+$$
+である。$k=-i\kappa_n$ を代入して $c_n$ を掛けると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
+$$
 \psi_n(x)=e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz.
-\end{aligned}
 \tag{equation-b57207a680}
 $$
-となる。$e_n$ は左端の形を全空間へ延ばした指数関数であり、$\psi_n$ が復元したい束縛状態の波形である。
+$e_n$ は左端の形を全空間へ延ばした指数関数であり、$\psi_n$ はポテンシャルに対応する束縛状態の波形である。
 
-無反射の散乱データは $F(x+y)=\sum_n e_n(x)e_n(y)$ と変数を分離して書ける。これを GLM 方程式に代入すると
+核を求める GLM 方程式の既知関数 $F$ は、無反射の場合には束縛状態の散乱データだけで決まり、
 $$
-K(x,y)+\sum_{n=1}^N e_n(y)
-\left[e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz\right]=0.
+\begin{aligned}
+F(s)&=\sum_{n=1}^N c_n^2e^{\kappa_ns},\\
+F(x+y)&=\sum_{n=1}^N e_n(x)e_n(y)
+\end{aligned}
+$$
+となる。この $F$ から未知の $K$ を求める GLM 方程式は
+$$
+\begin{gathered}
+K(x,y)+F(x+y)\\
++\int_{-\infty}^xK(x,z)F(z+y)\,dz=0,\qquad y<x.
+\end{gathered}
+$$
+
+ここに上の指数関数の和を代入し、$e_n(y)$ ごとにまとめると、
+$$
+\begin{aligned}
+K(x,y)&+\sum_{n=1}^N e_n(y)\Bigl[e_n(x)\\
+&\quad+\int_{-\infty}^xK(x,z)e_n(z)\,dz\Bigr]=0.
+\end{aligned}
 \tag{equation-6ab543eb8f}
 $$
 角括弧は式 (@equation-b57207a680) の $\psi_n(x)$ なので、
@@ -48,9 +67,9 @@ $$
 \boldsymbol e=(e_1,\ldots,e_N)^{\mathsf T}
 \tag{equation-434990ec06}
 $$
-となる。$I$ は $N$ 次の単位行列である。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (@equation-6b629c0eb4) が得られる。
+となる。$I$ は $N$ 次の単位行列である。$C$ は、区間 $(-\infty,x]$ 上の指数関数 $e_1,\ldots,e_N$ のグラム行列であり、各成分は上の積分で定まる内積である。従って $C$ の固有値は非負で、$I+C$ の固有値は全て $1$ 以上となり、$I+C$ は可逆である。各 $x$ で連立方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (@equation-6b629c0eb4) が得られる。
 
-$C$ は、区間 $(-\infty,x]$ 上の指数関数 $e_1,\ldots,e_N$ のグラム行列である。各成分は上の積分で定まる内積であり、非対角成分 $C_{mn}$ があるため、第 $m$ の方程式にも他の $\psi_n$ が現れる。従って、束縛状態はそれぞれを独立に求めるのではなく、この一つの連立方程式から求める。
+非対角成分 $C_{mn}$ があるため、第 $m$ の方程式にも他の $\psi_n$ が現れる。束縛状態はそれぞれを独立に求めるのではなく、この一つの連立方程式から求める。
 
 <details id="reflectionless-invertibility">
 <summary>連立方程式の一意可解性</summary>
@@ -126,6 +145,13 @@ $$
 $$
 $\log C_{22}$ は $x$ の一次式なので、その二階微分は $0$ である。従って、第1のソリトンの近くの波形は、どちらの場合も $-2\partial_x^2\log(1+\text{定数}\times C_{11})$ という一ソリトンの形になる。
 
+まず、一ソリトンの谷の中心を式で確かめよう。$C_{11}$ の $x$ 依存性は $e^{2\kappa_1x}$ に比例するので、
+$$
+-2\partial_x^2\log(1+C_{11})
+=-8\kappa_1^2\frac{C_{11}}{(1+C_{11})^2}.
+$$
+$C_{11}>0$ では $C_{11}/(1+C_{11})^2$ が最大になるのは $C_{11}=1$ のときであり、そこがポテンシャルの最小点、すなわち谷の中心となる。
+
 $C_{11}\propto e^{2\kappa_1x-8\kappa_1^3t}$ なので、この定数倍は形や速度を変えず、中心の位置を変える。二つの領域での中心条件はそれぞれ
 $$
 C_{11}=1,\qquad
@@ -144,7 +170,7 @@ $$
 <details id="reflectionless-principal-minors">
 <summary>主小行列式と相互作用因子</summary>
 
-空集合の主小行列式を $1$ と約束すると、
+$C_{S,S}$ を、$S$ に属する行と列だけを残した行列とする。$I+C$ の行列式を各列についての多重線形性で展開すると、各列で $I$ の列か $C$ の列を選ぶことになる。$C$ の列を選んだ添字の集合を $S$ とすれば、残りの単位行列の列に沿う余因子展開により、その項は $\det C_{S,S}$ になる。空集合の主小行列式を $1$ と約束すると、
 $$
 \det(I+C)=\sum_{S\subseteq\{1,\ldots,N\}}\det C_{S,S}
 \tag{principal-minor-expansion}
