@@ -59,3 +59,10 @@ GLM §§5–7 construct `G=(k²−L)⁻¹` from the two endpoint-decaying soluti
 ## Automatic equation numbering
 
 The site default is documented in `docs/note-format.md`. `KdvBody.astro` calls the shared `src/utils/note-equations.mjs` after composing all chapters and figures. Source tags identify equations; `(@ID)` references resolve at build time. Display numbers follow the final manuscript order, including disclosures and footnotes. Never add a numeric suffix or manually update reference numbers. `scripts/legacy-equation-keys.json` is used only to translate the preserved archive on reimport; it does not determine display numbers.
+
+
+## Bound-state motion and explanatory coverage
+
+The figure below the tail-motion equation is `BoundStates.astro`, driven by `visuals/bound-states.js`. It solves the finite left Marchenko system at each plotted point with kappa=(1,2,3) and c(0)^2=(12,60,60). Its initial potential is -12 sech²x. The plotted eigenfunctions are normalized instantaneous eigenfunctions, not arbitrary curves moved by hand; their phases follow the positive-left-tail convention continuously. Run `node note-apps/kdv/scripts/check-bound-states.mjs` for independent finite-difference Schrödinger/KdV residuals and norm/orthogonality quadrature. Initial, intermediate and separated states must be inspected in both themes and portrait width.
+
+The source of §§2.4–2.5 is `content/sections/scattering.md`; assembled `full.md` must match it. Run `node note-apps/kdv/scripts/check-section-sync.mjs` before publishing changes to either. For a substantive rewrite, compare the original explanatory roles as well as equations and headings. Record which roles remain, which are replaced by a supported explanation, and why any role is no longer needed. A defect in one argument does not by itself justify deleting its useful explanatory job. Use `reader-contract.yaml`'s retained explanatory jobs for the required scope. Acceptance checks apply to the edited section source and its final assembled placement. This permits justified reorganization and deletion; it requires evidence for their effect on reader coverage.

@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 15,
+    "version": 16,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -151,6 +151,15 @@
       "basis": "Authoring choice serving the same user objective and confirmed basic-Fourier baseline; no additional knowledge licensed or acceptance requirement relaxed.",
       "scope": "Subtract the known free plane wave on both sides before Fourier inversion; explain its matching use in the contour integral. Distribution machinery is unnecessary for this route.",
       "invariants": "All transform meanings, applicable inversion conditions, contour bounds, bound-state residues, and GLM assembly remain required."
-    }
+    },
+    "retained_explanatory_jobs": [
+      {
+        "range": "§2.5 散乱データとソリトンの運動",
+        "job": "散乱データの尾の速度、各時刻で共通のポテンシャルに属する固有状態、ポテンシャルの分裂を結び付ける。式と後の復元への案内だけではこの説明を満たさない。",
+        "support": "ψ_n≠0 で u=−κ_n²+ψ_n,xx/ψ_n。|ψ_n| の局所極大では u≤−κ_n²。状態ごとの局在とポテンシャルの対応を計算例で示す。尾の式や規格化だけから全波形の剛体移動を結論しない。",
+        "verification": "大幅な改稿では、この説明の仕事が改稿後のどの本文・図に残るかを確認する。元の根拠に誤りがあれば修正し、説明ごと黙って削除しない。",
+        "canonical_source": "content/sections/scattering.md"
+      }
+    ]
   }
 }
