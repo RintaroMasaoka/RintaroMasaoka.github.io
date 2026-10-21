@@ -11,33 +11,38 @@ $$
 
 Schrödinger 方程式を $f_{xx}+k^2f=uf$ と書く。自由方程式による変化を先に取り除けば、残る変化はポテンシャルの作用だけになる。量子力学の相互作用描像と同じ手順を、時間ではなく位置 $x$ に沿って行おう。
 
-まず値と傾きを並べた状態を $\boldsymbol f=(f,f_x)^{\mathsf T}$ と書く。ポテンシャルの作用を表す行列 $V(x)$ を分けると、
+まず値と傾きを並べた状態を $\boldsymbol f=(f,f_x)^{\mathsf T}$ と書く。自由解では $f_{xx}=-k^2f$ なので、$x$ 微分はこの二つの成分を $(f_x,-k^2f)^{\mathsf T}$ に移す。その作用を表す行列を $D_0$ と書く：
 $$
-\frac{d\boldsymbol f}{dx}
-=\begin{pmatrix}0&1\\-k^2&0\end{pmatrix}\boldsymbol f+V(x)\boldsymbol f,
+D_0=\begin{pmatrix}0&1\\-k^2&0\end{pmatrix},\qquad
+\frac{d\boldsymbol f}{dx}=D_0\boldsymbol f\quad(u=0).
+$$
+$D$ は微分を、添字 $0$ は $u=0$ の自由系を表す。ポテンシャルの作用を表す行列 $V(x)$ を加えると、元の方程式は
+$$
+\frac{d\boldsymbol f}{dx}=(D_0+V(x))\boldsymbol f,
 \qquad V(x)=\begin{pmatrix}0&0\\u(x)&0\end{pmatrix}.
 \tag{2}
 $$
-自由方程式の基本解行列を $F_0$ と書く。これは、距離 $x-x'$ の自由伝播を
+まず実数 $k\ne0$ を考え、$k=0$ では $\sin(kd)/k$ を極限 $d$ で読む。自由系での有限な位置差 $d$ の伝播は、微分を表す行列の指数関数 $e^{dD_0}$ で与えられる。$I$ を $2\times2$ の単位行列とすると $D_0^2=-k^2I$ なので、指数関数の偶数次と奇数次をまとめると
 $$
-F_0(x-x')=
-\begin{pmatrix}
-\cos k(x-x')&\sin k(x-x')/k\\
--k\sin k(x-x')&\cos k(x-x')
-\end{pmatrix},\qquad
-\boldsymbol f(x)=F_0(x-x')\boldsymbol f(x')\quad(u=0)
+\begin{aligned}
+e^{dD_0}&=\cos(kd)I+\frac{\sin(kd)}{k}D_0\\
+&=\begin{pmatrix}
+\cos(kd)&\sin(kd)/k\\
+-k\sin(kd)&\cos(kd)
+\end{pmatrix},
+\end{aligned}
 \tag{3}
 $$
-と表す行列である。まず実数 $k\ne0$ を考え、$k=0$ では $\sin(kd)/k$ を極限 $d$ で読む。自由伝播を続けて行うことから $F_0(a)F_0(b)=F_0(a+b)$、特に $F_0(-d)=F_0(d)^{-1}$ である。
+となり、$\boldsymbol f(x)=e^{(x-x')D_0}\boldsymbol f(x')$（$u=0$）と伝わる。同じ行列の指数なので $e^{aD_0}e^{bD_0}=e^{(a+b)D_0}$ となり、逆向きの自由伝播は $e^{-dD_0}$ である。
 
 有限な始点 $x_*$ を固定する。位置 $x$ の状態から、始点以来の自由伝播を逆にたどって取り除いたものが、相互作用描像の状態
 $$
-\boldsymbol f_I(x)=F_0(x_*-x)\boldsymbol f(x)
+\boldsymbol f_I(x)=e^{-(x-x_*)D_0}\boldsymbol f(x)
 $$
-である。$u=0$ ならこれは始点の状態のまま変わらない。微分して式 (2) を使うと、$F_0(x_*-x)$ の微分と自由方程式の項が打ち消し合い、
+である。$u=0$ ならこれは始点の状態のまま変わらない。微分して式 (2) を使うと、$e^{-(x-x_*)D_0}$ の微分と自由方程式の項が打ち消し合い、
 $$
 \frac{d\boldsymbol f_I}{dx}=V_I(x)\boldsymbol f_I(x),\qquad
-V_I(x)=F_0(x_*-x)V(x)F_0(x-x_*)
+V_I(x)=e^{-(x-x_*)D_0}V(x)e^{(x-x_*)D_0}
 $$
 だけが残る。$V_I$ は、位置 $x$ まで自由伝播し、そこでポテンシャルを作用させ、自由伝播を取り除く操作である。したがって、各位置の作用をこの共通の表示で積み重ねればよい。
 
@@ -54,17 +59,17 @@ $$
 V_I(x')V_I(x'')+\cdots\Bigg]\boldsymbol f(x_*).
 \end{aligned}
 $$
-ここで $I$ は $2\times2$ の単位行列である。二次の項では $x''\le x'$ で、先に通る位置 $x''$ の行列が右に来る。高次でも、左から右へ進む間に出会うポテンシャルの作用を、その順序のまま重ねている。
+二次の項では $x''\le x'$ で、先に通る位置 $x''$ の行列が右に来る。高次でも、左から右へ進む間に出会うポテンシャルの作用を、その順序のまま重ねている。
 
-この順序付き発展を、積分核を取り出せる形に直そう。まず相互作用描像の微分方程式を一度積分し、左から $F_0(x-x_*)$ を掛けて元の状態へ戻すと
+この順序付き発展を、積分核を取り出せる形に直そう。まず相互作用描像の微分方程式を一度積分し、左から $e^{(x-x_*)D_0}$ を掛けて元の状態へ戻すと
 $$
 \begin{aligned}
 \boldsymbol f(x)
-&=F_0(x-x_*)\boldsymbol f(x_*)\\
-&\quad+\int_{x_*}^x F_0(x-x')V(x')\boldsymbol f(x')\,dx'.
+&=e^{(x-x_*)D_0}\boldsymbol f(x_*)\\
+&\quad+\int_{x_*}^x e^{(x-x')D_0}V(x')\boldsymbol f(x')\,dx'.
 \end{aligned}
 $$
-ここでは、作用位置 $x'$ までの状態はすでに $\boldsymbol f(x')$ に含まれ、そこに $V(x')$ が作用した後を $F_0(x-x')$ で自由に伝える。$V(x')\boldsymbol f(x')=(0,u(x')f(x'))^{\mathsf T}$ なので、第一成分を取ると
+ここでは、作用位置 $x'$ までの状態はすでに $\boldsymbol f(x')$ に含まれ、そこに $V(x')$ が作用した後を $e^{(x-x')D_0}$ で自由に伝える。$V(x')\boldsymbol f(x')=(0,u(x')f(x'))^{\mathsf T}$ なので、第一成分を取ると
 $$
 \begin{aligned}
 f(x)={}&f(x_*)\cos k(x-x_*)
