@@ -47,3 +47,5 @@ Notation: v is soliton speed; c_n are left-tail norming amplitudes. The one-stat
 ## Wave-height and potential signs
 
 The introduction and §2.1 use upward-positive scaled surface displacement eta. All three early plots show eta directly. At §2.2 the text defines u=-eta and supplies u_t=6uu_x-u_xxx before the Lax operators; u denotes the potential throughout the remainder. At the recovered single soliton, eta=-u is recalled once to read its physical height. Speed is v throughout. `content/sections/introduction.md` is the authored introduction and is included by `restore_original_source.py`; changing signs only in assembled `full.md` would not persist.
+
+The kernel K collects the plane-wave weights of all ordered potential corrections, with the free wave kept separately. The main route derives its support and recursion by direct substitution; the kernel-convergence disclosure checks summability and continuity of the weights.

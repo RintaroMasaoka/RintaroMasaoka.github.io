@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 12,
+    "version": 13,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -51,6 +51,11 @@
         "item": "時間順序付き発展とDyson展開",
         "scope": "量子系の順序付き発展を既知の足場に使う。位置順序付き2x2方程式への対応とKへの再整理は本文で導く。",
         "basis": "2026-10-21 ユーザーがこの対応を理解として明示的に採用。"
+      },
+      {
+        "item": "線形変換の形式的な積分核表示",
+        "scope": "入力の平面波ごとの応答を重ね合わせ、線形変換を積分核として記述する見方を既知の足場にする。一般の任意の線形写像に通常関数の核があるという定理は仮定しない。今回の三角支持・波数に共通する重み・再帰式を本文で導き、通常関数としての収束・連続性は補足で扱う。",
+        "basis": "2026-10-21 ユーザー明示: Kの存在を新しい問題にせず、既にある線形変換の位置順の全補正を核にまとめる表現として導入する。"
       }
     ],
     "detail_to_recover": [
@@ -81,7 +86,7 @@
       "left incidence b,c throughout the note",
       "Fourier extraction exp(-iky)/(2pi); y<x",
       "left K; u=+2 dK(x,x)/dx",
-      "Direct substitution into the source-integral equation closes an equation for K(x,y); integration coordinates x',y'; no auxiliary coupling or f_n decomposition",
+      "K is the combined plane-wave weight of all ordered potential corrections to the fixed-u linear transformation; free identity is outside K. Derive its representation/support/recursion, with convergence and regularity in the disclosure. Direct substitution into the source-integral equation closes an equation for K(x,y); integration coordinates x',y'; no auxiliary coupling or f_n decomposition",
       "same left kernels and normalization throughout scattering time evolution and multi-state reconstruction",
       "v is physical soliton speed; c_n are normalized left-tail amplitudes; one-state uses c_1,kappa_1",
       "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
