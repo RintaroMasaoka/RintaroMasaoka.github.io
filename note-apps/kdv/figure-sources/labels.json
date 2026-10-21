@@ -37,16 +37,16 @@
   },
   "dyson_domain": {
     "axes": [
-      "z",
-      "v"
+      "x'",
+      "y'"
     ],
     "fixed_endpoint": "x",
-    "control": "x-s",
+    "control": "x-y",
     "constraints": [
-      "v\\le z",
-      "v\\ge z-(x-s)",
-      "v\\le x+s-z"
+      "y'\\le x'",
+      "y'\\ge x'-(x-y)",
+      "y'\\le x+y-x'"
     ],
-    "diagonal": "s=x"
+    "diagonal": "y=x: y'=x'"
   }
 }

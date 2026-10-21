@@ -3,15 +3,15 @@ import { createRequire } from 'node:module';
 const req = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(req.resolve('rehype-katex'))('katex');
 const tex = (s: string) => katex.renderToString(s, { throwOnError: true });
-const labels = [{x:218,y:92,w:22,t:'z'},{x:114,y:0,w:22,t:'v'},{x:156,y:109,w:24,t:'x'}];
+const labels = [{x:207,y:92,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:109,w:24,t:'x'}];
 ---
 <figure class="kdv-dyson-domain" data-dyson-domain aria-labelledby="dyson-domain-caption">
-  <label class="domain-control" for="dyson-gap">対角からの距離 <span set:html={tex('x-s')} /><output data-dyson-gap-output>1.00</output>
+  <label class="domain-control" for="dyson-gap">対角からの距離 <span set:html={tex('x-y')} /><output data-dyson-gap-output>1.00</output>
     <input id="dyson-gap" data-dyson-gap type="range" min="0" max="2" step="0.02" value="1" />
   </label>
   <svg width="240" height="260" viewBox="0 0 240 260" role="img" aria-labelledby="dyson-domain-title dyson-domain-desc">
-    <title id="dyson-domain-title">Integration domain in the z–v plane</title>
-    <desc id="dyson-domain-desc">The shaded intersection lies below v equals z, above v equals z minus x plus s, and below v equals x plus s minus z. It continues to minus infinity. As s approaches x, the domain collapses to the line v equals z.</desc>
+    <title id="dyson-domain-title">Integration domain in the x-prime–y-prime plane</title>
+    <desc id="dyson-domain-desc">The shaded region satisfies y-prime less than or equal to x-prime, x-prime less than or equal to x, and absolute y minus y-prime less than or equal to x minus x-prime. It extends toward minus infinity. As y approaches x, it collapses to the diagonal y-prime equals x-prime.</desc>
     <defs><clipPath id="dyson-domain-clip"><rect x="24" y="32" width="180" height="216" /></clipPath></defs>
     <g clip-path="url(#dyson-domain-clip)">
       <path data-dyson-fill d="M24 212 L150 86 L168 104 L24 248 Z" fill="var(--accent)" opacity=".18" />
@@ -26,12 +26,12 @@ const labels = [{x:218,y:92,w:22,t:'z'},{x:114,y:0,w:22,t:'v'},{x:156,y:109,w:24
     {labels.map(l=><foreignObject x={l.x} y={l.y} width={l.w} height="28"><div class="domain-tex" set:html={tex(l.t)} /></foreignObject>)}
   </svg>
   <ul class="domain-legend">
-    <li><span class="sample original"></span><span set:html={tex('v\\le z')} /></li>
-    <li><span class="sample lower"></span><span set:html={tex('v\\ge z-(x-s)')} /></li>
-    <li><span class="sample upper"></span><span set:html={tex('v\\le x+s-z')} /></li>
+    <li><span class="sample original"></span><span set:html={tex("y'\\le x'")} /></li>
+    <li><span class="sample lower"></span><span set:html={tex("y'\\ge x'-(x-y)")} /></li>
+    <li><span class="sample upper"></span><span set:html={tex("y'\\le x+y-x'")} /></li>
   </ul>
   <p class="domain-status" data-dyson-status aria-live="polite">色の付いた領域の内部を積分する。</p>
-  <figcaption id="dyson-domain-caption">横軸は作用位置 <span set:html={tex('z')} />、縦軸は前の補正の平面波成分を表す <span set:html={tex('v')} />。三つの不等式を満たす領域を塗っている。左下の矢印は領域が無限遠まで続くことを示す。<span set:html={tex('s=x')} /> では領域が <span set:html={tex('v=z')} /> の線に潰れ、二重積分の寄与が消える。</figcaption>
+  <figcaption id="dyson-domain-caption">横軸は作用位置 <span set:html={tex("x'")} />、縦軸は <span set:html={tex("K(x',y')")} /> に含まれる平面波成分の座標 <span set:html={tex("y'")} />。<span set:html={tex("x'\\le x")} /> の範囲で三つの不等式を満たす領域を塗っている。左下の矢印は領域が無限遠まで続くことを示す。<span set:html={tex('y=x')} /> では領域が <span set:html={tex("y'=x'")} /> の線に潰れ、再帰式の二重積分が消える。</figcaption>
 </figure>
 <style>
 .kdv-dyson-domain{margin:2rem 0;padding:1rem .5rem;border:1px solid var(--line);border-radius:12px;background:var(--paper)}

@@ -1,6 +1,6 @@
 ## 1. 固定したポテンシャルから波の変形を作る
 
-時間を固定し、滑らかで、すべての導関数が無限遠で任意のべきより速く減衰する実ポテンシャル $u$（Schwartz ポテンシャル） に対する
+時間を固定し、滑らかで、すべての導関数が無限遠で任意のべきより速く減衰する実ポテンシャル $u$（Schwartz ポテンシャル）に対する
 $$
 Lf=k^2f,\qquad L=-\partial_x^2+u(x)
 \tag{1}
@@ -9,18 +9,18 @@ $$
 
 ## 2. 位置順序付き発展から変換核を作る
 
-ポテンシャルの作用回数を数えるため、いったん $u$ を $\lambda u$ に置き換える。補助変数 $\lambda$ を $1$ に戻せば元の問題になる。この二階方程式を $Y=(f,f')^{\mathsf T}$ の一階の系にすると
+二階方程式を $Y=(f,f')^{\mathsf T}$ の一階の系にすると
 $$
-Y'(x)=\left[M_0(k)+\lambda V(x)\right]Y(x),\quad
+Y'(x)=\left[M_0(k)+V(x)\right]Y(x),\quad
 M_0(k)=\begin{pmatrix}0&1\\-k^2&0\end{pmatrix},\quad
 V(x)=\begin{pmatrix}0&0\\u(x)&0\end{pmatrix}.
 \tag{2}
 $$
-有限な始点 $x_*<x$ での伝播を位置順序付き指数
+この節では $Y$ に作用する $2×2$ 行列として、有限な始点 $x_*<x$ での伝播を位置順序付き指数
 $$
-U_\lambda(x,x_*)=\mathcal P\exp\!\left(\int_{x_*}^x[M_0(k)+\lambda V(z)]\,dz\right)
+U(x,x_*)=\mathcal P\exp\!\left(\int_{x_*}^x[M_0(k)+V(z)]\,dz\right)
 $$
-で表す。$\mathcal P$ は大きい位置が左に並ぶ順序を指定する。すなわち展開の $n$ 次項は $x_*<z_n<\cdots<z_1<x$ 上の積 $(M_0+\lambda V)(z_1)\cdots(M_0+\lambda V)(z_n)$ を積分する。有限始点で $Y_\lambda(x_*)$ を指定すれば $Y_\lambda(x)=U_\lambda(x,x_*)Y_\lambda(x_*)$ である。
+で表す。$\mathcal P$ は大きい位置が左に並ぶ順序を指定する。すなわち展開の $n$ 次項は $x_*<z_n<\cdots<z_1<x$ 上の積 $(M_0+V)(z_1)\cdots(M_0+V)(z_n)$ を積分する。有限始点で $Y(x_*)$ を指定すれば $Y(x)=U(x,x_*)Y(x_*)$ である。
 
 自由伝播を $U_0(\ell)=e^{\ell M_0}$ と書くと、
 $$
@@ -29,86 +29,85 @@ U_0(\ell)=\begin{pmatrix}\cos k\ell&\sin(k\ell)/k\\-k\sin(k\ell)&\cos k\ell\end{
 $$
 $k=0$ では $\sin(k\ell)/k=\ell$ と読む。位置順序付き指数を自由伝播との相互作用表示に直すと
 $$
-U_\lambda(x,x_*)=U_0(x-x_*)+\lambda\int_{x_*}^xU_0(x-z)V(z)U_\lambda(z,x_*)\,dz.
+U(x,x_*)=U_0(x-x_*)+\int_{x_*}^xU_0(x-z)V(z)U(z,x_*)\,dz.
 \tag{4}
 $$
 これは各ポテンシャル作用点の間を自由伝播でつなぐ Duhamel 公式である。左端の Jost 解は $x_*\to-\infty$ の境界極限で、始点値を自由解 $(e^{ikx_*},ik e^{ikx_*})^{\mathsf T}$ に漸近させて得る。積の第1成分では $U_0$ の $(1,2)$ 成分が $VY=(0,uf)^{\mathsf T}$ に掛かるので、
 $$
-f_\lambda(x,k)=e^{ikx}+\lambda\int_{-\infty}^x\frac{\sin k(x-z)}{k}u(z)f_\lambda(z,k)\,dz.
+f_-(x,k)=e^{ikx}+\int_{-\infty}^x\frac{\sin k(x-x')}{k}u(x')f_-(x',k)\,dx'.
 \tag{5}
 $$
-これが左端条件を含むスカラー Duhamel 方程式である。位置が $z\le x$ の順に積分されるため、反復項ではポテンシャル作用点が左から右へ順序づけられる。
+これが左端条件を含むスカラー Duhamel 方程式である。作用位置 $x'\le x$ の順に積分されるため、反復項でもポテンシャル作用点は位置順序を保つ。
 
-$\lambda$ のべき級数を $f_\lambda=\sum_{n=0}^\infty\lambda^n f_n$ と定める。式 (5) の係数比較から
+目標は、$f_-$ を各波数に同じ重みを用いる変換
 $$
-f_0=e^{ikx},\qquad f_{n+1}(x,k)=\int_{-\infty}^x\frac{\sin k(x-z)}{k}u(z)f_n(z,k)\,dz
+f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,y)e^{iky}\,dy
 \tag{6}
 $$
-を得る。この $f_n$ が、ポテンシャルが $n$ 回作用する Dyson 展開の係数である。各段階の波数依存を平面波に集められるか、まず最初の補正で確かめよう。
+で表すことである。$K(x,y)$ が波数 $k$ に依存しなければ、一つの核で全波数の波の変形を扱える。Duhamel の積分がこの形を保つ鍵は、正弦核が平面波を有限区間上の平面波の重ね合わせに変える恒等式
 $$
-\frac{\sin k(x-z)}{k}e^{ikz}=\frac12\int_{2z-x}^{x}e^{iks}\,ds.
+\frac{\sin k(x-x')}{k}e^{iky'}=\frac12\int_{y'-(x-x')}^{y'+(x-x')}e^{iky}\,dy
 \tag{7}
 $$
-積分領域は $z\le x$ かつ $2z-x\le s\le x$ である。順序を入れ替えると $s\le x$ を固定したとき $z\le(x+s)/2$ となるため
+である。自由波 $e^{ikx'}$ を積分に入れた寄与では $y'=x'$ となり、積分区間の条件 $y\le x$ と $y\ge 2x'-x$ を満たす作用位置は $x'\le(x+y)/2$ である。したがって自由波から生じる重みは $\frac12\int_{-\infty}^{(x+y)/2}u(x')\,dx'$ となる。
+
+次に、同じ表示を作用位置 $x'$ で用い、$f_-(x',k)$ の補正 $\int_{-\infty}^{x'}K(x',y')e^{iky'}dy'$ を式 (5) に代入する。その寄与は
 $$
-f_1(x,k)=\int_{-\infty}^x K_1(x,s)e^{iks}\,ds,\qquad
-K_1(x,s)=\frac12\int_{-\infty}^{(x+s)/2}u(z)\,dz.
+\int_{-\infty}^x\!dx'\int_{-\infty}^{x'}\!dy'\,
+u(x')K(x',y')\frac{\sin k(x-x')}{k}e^{iky'}.
 \tag{8}
 $$
-この重み $K_1$ には $k$ がない。波数を変えても同じ重みを使い、入力する平面波だけを替えればよい。
-
-同じ整理が次の係数にも使える。$f_n(z,k)=\int_{-\infty}^zK_n(z,v)e^{ikv}\,dv$ と仮定する。式 (6) にこの表示を代入すると、次の補正は
+積分変数は $x'\le x$ と $y'\le x'$ を満たし、正弦核の恒等式から $|y-y'|\le x-x'$ となる。恒等式で $y$ の区間積分に直し、$y$ を外側の積分変数にすると、固定した $y$ の係数にはこの三つの条件を満たす $x',y'$ だけが寄与する。自由波からの寄与と合わせた閉じた核方程式は
 $$
-f_{n+1}(x,k)=\int_{-\infty}^x dz\int_{-\infty}^z dv\;
-u(z)K_n(z,v)\frac{\sin k(x-z)}{k}e^{ikv}
-$$
-となる。作用位置は $z\le x$、前の補正の平面波成分は $v\le z$ を満たす。ここでも
-
-$$
-\frac{\sin k(x-z)}{k}e^{ikv}=\frac12\int_{v-(x-z)}^{v+(x-z)}e^{iks}\,ds
-$$
-なので、生成される平面波 $e^{iks}$ の変数 $s$ は $|s-v|\le x-z$ を満たす。指定した $e^{iks}$ を生む組 $(z,v)$ を集めると、その係数として
-$$
-K_{n+1}(x,s)=\frac12\iint_{\substack{v\le z\le x\\|s-v|\le x-z}}u(z)K_n(z,v)\,dv\,dz
+K(x,y)=\frac12\int_{-\infty}^{(x+y)/2}u(x')\,dx'
++\frac12\iint_{\substack{y'\le x'\le x\\|y-y'|\le x-x'}}u(x')K(x',y')\,dy'\,dx',\qquad y\le x.
 \tag{9}
 $$
-を得る（$n\ge1$、$s\le x$）。この積分の領域は、固定した $x,s\le x$ に対する $(z,v)$ 平面上で、$v\le z\le x$ かつ $|s-v|\le x-z$ の共通部分である。$z$ 方向には左へ無限に続き、$s=x$ では帯状条件が $v=z$ に縮退する。
+第一項はポテンシャルが自由波に作用して生じる重み、第二項はすでに変換された波に次の作用を加えた重みである。固定した $x,y$ に対し、二重積分の領域は $(x',y')$ 平面で $y'\le x'\le x$ と $|y-y'|\le x-x'$ の共通部分である。
 
 <div data-visual-slot="dyson-domain"></div>
 
-Schwartz 条件の下で、この核の級数は対角を含めて局所一様に収束する。以下の補足で、反復積分の位置順序から収束を確認する。したがって $\lambda=1$ として $K=\sum_{n\ge1}K_n$ と置けば、
+この核方程式の解は、右辺へ順に代入して構成できる。Schwartz 条件の下でその反復積分は対角を含めて局所一様に収束することを補足で確かめる。得られた核を用いると
 $$
-f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,s)e^{iks}\,ds
+f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,y)e^{iky}\,dy
 \tag{10}
 $$
-となる。ここで $K_n$ は反復積分から得た係数核であり、$K$ は全次数を足した変換核である。
-
+となる。$K$ は反復代入で得た平面波の重みをまとめたものであり、波数 $k$ に依存しない。
 
 <details id="kernel-convergence">
-<summary>核の係数を足し合わせられることの確認</summary>
+<summary>核方程式の反復が収束することの確認</summary>
 
-核級数には同じ位置順序と、内側の $v$ 区間の長さ $2(x-z)$ を使う。$A(x)=\int_{-\infty}^x|u(z)|dz$、$B(x)=\int_{-\infty}^x(x-z)|u(z)|dz$ と置けば帰納的に
+式 (9) の右辺を反復する項を明示する。まず
 $$
-|K_n(x,s)|\le\frac{A(x)B(x)^{n-1}}{2(n-1)!},\qquad s\le x,
+K_1(x,y)=\frac12\int_{-\infty}^{(x+y)/2}u(x')\,dx'
 $$
-を得る。これは固定 $x$ で $s\le x$ に一様であり、$\sum_nK_n$ の局所一様収束を保証する。各係数は連続であり、一様収束する和も対角まで連続である。対角値を求めてから、その明示式を微分すればよい。
+とし、$n\ge1$ に対して
+$$
+K_{n+1}(x,y)=\frac12\iint_{\substack{y'\le x'\le x\\|y-y'|\le x-x'}}u(x')K_n(x',y')\,dy'\,dx'
+$$
+と定める。すると式 (9) の解は $K=\sum_{n\ge1}K_n$ である。$A(x)=\int_{-\infty}^x|u(x')|dx'$、$B(x)=\int_{-\infty}^x(x-x')|u(x')|dx'$ と置くと、位置順序と各内側区間の長さ $2(x-x')$ を使った帰納評価
+$$
+|K_n(x,y)|\le\frac{A(x)B(x)^{n-1}}{2(n-1)!},\qquad y\le x,
+$$
+を得る。固定した $x$ でこの評価は $y\le x$ に一様であり、核級数の局所一様収束を与える。各反復項は連続なので和も対角まで連続である。対角では式 (9) の二重積分が消えるため、和の対角値は第一項の明示積分に等しい。
+
 絶対値を取った反復積分にも同じ評価が使える。核の可積分性とフーリエ表示は、Schwartz 条件下の変換作用素の標準結果を用いる。対応する構成は [Egorova ほか、§2](https://arxiv.org/pdf/1411.0021) にある。
 
 </details>
 
 ## 3. 対角値がポテンシャルを決める
 
-式 (9) の内側の領域を $s=x$ に置くと、$z\le x$、$v\le z$、$|x-v|\le x-z$ となる。最後の不等式の下側は $v\ge z$ を意味するので $v=z$ に限られる。従ってすべての $n\ge1$ で $K_{n+1}(x,x)=0$ であり、対角には第一係数だけが残る。
+式 (9) で $y=x$ とすると、二重積分の条件は $y'\le x'$ と $|x-y'|\le x-x'$ である。後者の下側から $y'\ge x'$ が従うため $y'=x'$ に限られ、この領域は面積ゼロである。したがって対角では二重積分が消え、自由波からの第一項だけが残る。
 $$
-K(x,x)=K_1(x,x)=\frac12\int_{-\infty}^xu(z)\,dz,\qquad
+K(x,x)=\frac12\int_{-\infty}^xu(x')\,dx',\qquad
 u(x)=2\frac{d}{dx}K(x,x).
 \tag{11}
 $$
-微分は $x$ と二つ目の引数を同時に動かす対角方向の全微分である。係数級数の局所一様収束により対角で和を取れる。対角和は右辺の明示積分そのものなので、Schwartz 条件の下でその積分を微分する。この関係は全次数の和に対して成り立つ。
+微分は $x$ と二つ目の引数を同時に動かす対角方向の全微分である。Schwartz 条件の下で明示積分を微分すれば、ポテンシャルが直接得られる。後で散乱データから GLM 方程式を解いてこの同じ核 $K$ を得るので、式 (11) によりポテンシャルを復元できる。
 
 変換核 $K$ は自由波をポテンシャル付きの波へ移す共通作用素を定める。
 $$
-(Tg)(x)=g(x)+\int_{-\infty}^xK(x,z)g(z)\,dz,\qquad L_0=-\partial_x^2.
+(Tg)(x)=g(x)+\int_{-\infty}^xK(x,y)g(y)\,dy,\qquad L_0=-\partial_x^2.
 \tag{12}
 $$
 式 (10) は $T e^{ikx}=f_-(x,k)$ を示し、これを微分方程式へ代入すると $LT e^{ikx}=k^2T e^{ikx}=TL_0e^{ikx}$ となる。フーリエ反転により十分滑らかで減衰する関数にも拡張され、

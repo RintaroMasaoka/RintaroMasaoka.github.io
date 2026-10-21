@@ -125,30 +125,28 @@ $$
 $$
 従って (3.72) の実固有関数は互いに直交し、それぞれノルム1である。
 
-ポテンシャル表示のため $q=\boldsymbol e^{\mathsf T}\boldsymbol\psi$ と置く。(3.65) から $\boldsymbol e=(I+C)\boldsymbol\psi$ なので、(3.69) を使って
+最後に、対角値 $K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi$ を微分してポテンシャルを求める。$C$ と $E$ が対称行列なので、$\boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi=\boldsymbol\psi^{\mathsf T}EC\boldsymbol\psi$ である。$\boldsymbol e=(I+C)\boldsymbol\psi$ と $CE+EC=\boldsymbol e\boldsymbol e^{\mathsf T}$ を使うと
 $$
-\boldsymbol e^{\mathsf T}E\boldsymbol\psi
-=\boldsymbol\psi^{\mathsf T}(I+C)E\boldsymbol\psi
-=\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi+
-  \boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi.
+\begin{aligned}
+2\boldsymbol e^{\mathsf T}E\boldsymbol\psi
+&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
++\boldsymbol\psi^{\mathsf T}(CE+EC)\boldsymbol\psi\\
+&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
++(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2.
+\end{aligned}
 $$
-ここで $EC+CE=\boldsymbol e\boldsymbol e^{\mathsf T}$ と $C\boldsymbol\psi=\boldsymbol e-\boldsymbol\psi$ より
+一方、$\boldsymbol e'=E\boldsymbol e$ と逆行列の微分 (3.73) より、
 $$
-\boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi
-=q^2-\boldsymbol\psi^{\mathsf T}EC\boldsymbol\psi
-=q^2-\boldsymbol e^{\mathsf T}E\boldsymbol\psi+
-  \boldsymbol\psi^{\mathsf T}E\boldsymbol\psi.
-$$
-従って $\boldsymbol e^{\mathsf T}E\boldsymbol\psi
-=\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi+q^2/2$。
-一方、$q'=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi-q^2$ は $C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分から従うため、
-$$
-q'=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi-q^2
-=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
+\begin{aligned}
+\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi)
+&=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi
+ -(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2\\
+&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
 =2\sum_{n=1}^N\kappa_n\psi_n^2.
+\end{aligned}
 \tag{3.75}
 $$
-(3.70) で $u=-2q'$ としたので、求める表示は
+$u=2\,dK(x,x)/dx=-2\,d(\boldsymbol e^{\mathsf T}\boldsymbol\psi)/dx$ だから、求める表示は
 $$
 u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2.
 \tag{3.76}

@@ -441,30 +441,28 @@ $$
 $$
 従って (3.72) の実固有関数は互いに直交し、それぞれノルム1である。
 
-ポテンシャル表示のため $q=\boldsymbol e^{\mathsf T}\boldsymbol\psi$ と置く。(3.65) から $\boldsymbol e=(I+C)\boldsymbol\psi$ なので、(3.69) を使って
+最後に、対角値 $K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi$ を微分してポテンシャルを求める。$C$ と $E$ が対称行列なので、$\boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi=\boldsymbol\psi^{\mathsf T}EC\boldsymbol\psi$ である。$\boldsymbol e=(I+C)\boldsymbol\psi$ と $CE+EC=\boldsymbol e\boldsymbol e^{\mathsf T}$ を使うと
 $$
-\boldsymbol e^{\mathsf T}E\boldsymbol\psi
-=\boldsymbol\psi^{\mathsf T}(I+C)E\boldsymbol\psi
-=\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi+
-  \boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi.
+\begin{aligned}
+2\boldsymbol e^{\mathsf T}E\boldsymbol\psi
+&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
++\boldsymbol\psi^{\mathsf T}(CE+EC)\boldsymbol\psi\\
+&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
++(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2.
+\end{aligned}
 $$
-ここで $EC+CE=\boldsymbol e\boldsymbol e^{\mathsf T}$ と $C\boldsymbol\psi=\boldsymbol e-\boldsymbol\psi$ より
+一方、$\boldsymbol e'=E\boldsymbol e$ と逆行列の微分 (3.73) より、
 $$
-\boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi
-=q^2-\boldsymbol\psi^{\mathsf T}EC\boldsymbol\psi
-=q^2-\boldsymbol e^{\mathsf T}E\boldsymbol\psi+
-  \boldsymbol\psi^{\mathsf T}E\boldsymbol\psi.
-$$
-従って $\boldsymbol e^{\mathsf T}E\boldsymbol\psi
-=\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi+q^2/2$。
-一方、$q'=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi-q^2$ は $C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分から従うため、
-$$
-q'=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi-q^2
-=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
+\begin{aligned}
+\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi)
+&=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi
+ -(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2\\
+&=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
 =2\sum_{n=1}^N\kappa_n\psi_n^2.
+\end{aligned}
 \tag{3.75}
 $$
-(3.70) で $u=-2q'$ としたので、求める表示は
+$u=2\,dK(x,x)/dx=-2\,d(\boldsymbol e^{\mathsf T}\boldsymbol\psi)/dx$ だから、求める表示は
 $$
 u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2.
 \tag{3.76}
@@ -474,376 +472,141 @@ $$
 
 ### 4.1. 高次KdV方程式
 
-KdV方程式をより高次の偏微分方程式に一般化する。KdV方程式のLax表示では、$[B(t), L(t)]$が微分演算子を含まないということが重要であった。 一般に、微分演算子$B, L$の交換関係$[B, L]$が$∂$の0次の演算子、つまり単なる関数となるとき、$B$と$L$は準可換であるという。
-
-この節では逆に、$L = -∂^2 + u(x)$に対し準可換となるような演算子$B$を求めてみよう。 素朴で泥臭い方法をとるが、次節ではスマートな方法を紹介する。
-
-ここまでとは定義を変えて$L ≔ ∂^2 ＋ u(x)$と定義する。 $L$と準可換な演算子の線型結合も準可換なので、準可換な演算子が張る空間の基底を求めればよい。 以下の演算子を考える。
-
-$$
-\begin{aligned}
-B_m = ∑_{i=0}^m a_i(x) ∂^i
-    \quad
-    (m \ge 1)
-\end{aligned}\tag{4.1}
-$$
-
- $B_m$は$L$と準可換であるとする。 $∂$の最高次に注目すると、
-
-$$
-\begin{aligned}
-[L, B_m] = a_m'(x)∂^{m+1} + (\text{$∂$の低次})
-\end{aligned}\tag{4.2}
-$$
-
- より$a_m'(x) = 0$であり、$a_m(x)$は定数でなければならない。したがって、$B_m$を定数倍して定義し直せば、$a_m(x) = 1$とおける。
-
-さらに$m$が偶数の場合、$m = 2n$とおくと$\tilde B = B_m - L^n$によって$2n - 1$次以下の演算子$\tilde B$を作ることができる。 $[L,\tilde B] = [L, B_m]$より、$\tilde B$は$L$と準可換であるから、$m$は奇数だとしてよい。
-
-以降の議論では、(4.1)の代わりに$B_m$を
-
-$$
-\begin{aligned}
-B_{2n+1} = ∑_{i=0}^n (R_i(x)∂ + S_i(x))L^{n-i}
-    \quad
-    (R_0(x) = 1)
-\end{aligned}\tag{4.3}
-$$
-
- という表示に書き換えておく。 $[L, B_{2n+1}]$を計算すると、
-
-$$
-\begin{aligned}
-[L, B_{2n+1}]
-    = ∑_{i=0}^n [L, R_i∂ + S_i]L^{n-i}.
-\end{aligned}\tag{4.4}
-$$
-
- ここで、
-
-$$
-\begin{aligned}
-[L, R_i∂ + S_i]
-    &
-    = [∂^2 + u, R_i∂ + S_i]
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-&
-    = (2R_i'∂ + R_i'')∂ + (2S_i'∂ + S_i'') - R_i u'
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-&
-    = 2R_i'L + (S_i'' - 2R_i'u - R_iu') + (R_i'' + 2S_i')∂
-\end{aligned}\tag{4.5}
-$$
-
- であるから、
-
-$$
-\begin{aligned}
-[L, B_{2n+1}]
-    &
-    = ∑_{i=1}^{n}
-    (S_{i}'' - 2R_{i}'u - R_{i}u' + 2R_{i+1}')L^{n-i}
-    + ∑_{i=0}^n (R_i'' + 2S_i')∂L^{n-i}
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-&\quad
-    + 2R_0'L^{n+1} + (S_n'' - 2R_n' u - R_n u').
-\end{aligned}\tag{4.6}
-$$
-
- $B_{2n+1}$と$L$が準可換であるとき、第1項、第2項、第3項の係数は全て$0$になる。 したがって、$R_i(x),S_i(x)$に対する微分方程式
-
-$$
-\begin{aligned}
-&
-    R_0' = 0,
-\end{aligned}\tag{4.7}
-$$
-
-$$
-\begin{aligned}
-&
-    S_i' = -\frac{1}{2}R_i'',
-\end{aligned}\tag{4.8}
-$$
-
-$$
-\begin{aligned}
-&
-    R_{i+1}' = -\frac{1}{2}S_i'' + R_i'u + \frac{1}{2}R_iu'
-\end{aligned}\tag{4.9}
-$$
-
- を得る。 1つ目の式は$R_0(x) = 1$としているので成り立つ。 次に、2つ目の式から$S_i = -R_i'/2 + (\text{定数})$となるが、$B_{2n+1}$から$L^{n-i}$の定数倍を引いて定義し直すことで、$S_i = -R_i'/2$とおける。
-
-3つ目の式は必ず積分できることが数学的帰納法から示せるがここでは証明しない。 $B_{2n+1}$から$B_{2(n-i)-1}$の定数倍を引いて再定義すれば、3つ目の式を積分する際の積分定数も$0$とおける。 以上より、漸化式
-
-$$
-\begin{aligned}
-&
-    R_0 = 1,
-\end{aligned}\tag{4.10}
-$$
-
-$$
-\begin{aligned}
-&
-    S_i = -\frac{1}{2} R_i',
-\end{aligned}\tag{4.11}
-$$
-
-$$
-\begin{aligned}
-&
-    R_{i+1} = ∫ \left(\frac{1}{4} R_i''' + R_i'u + \frac{1}{2} R_iu'\right)\,\mathrm{d}x
-\end{aligned}\tag{4.12}
-$$
-
- を得る。ただし、3つ目の式の積分定数は0とする。 具体的に$R_i$を$i=0$から順に表示すると、
-
-$$
-\begin{aligned}
-R_0 &= 1,
-\end{aligned}\tag{4.13}
-$$
-
-$$
-\begin{aligned}
-R_1 &= \frac{1}{2}u,
-\end{aligned}\tag{4.14}
-$$
-
-$$
-\begin{aligned}
-R_2 &= \frac{1}{8}u'' + \frac{3}{8} u^2,
-\end{aligned}\tag{4.15}
-$$
-
-$$
-\begin{aligned}
-& ~⋮
-\end{aligned}
-$$
-
- となる。
-
-$2n+1 = 3$の場合、
-
-$$
-\begin{aligned}
-B_3 &= \left(R_0∂ - \frac{1}{2} R_0'\right)L + \left(R_1∂ - \frac{1}{2}R_1'\right)
-\end{aligned}
+前節までの KdV 方程式は、
 $$
-
-$$
-\begin{aligned}
-&
-    = ∂^3 + ∂ u + \frac{1}{2}u∂ - \frac{1}{4}u'
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-&
-    = ∂^3 + \frac{3}{2}u∂ +\frac{3}{4}u'
-\end{aligned}\tag{4.16}
+L=-\partial_x^2+u(x,t),\qquad
+L_t=[B_3,L],\qquad
+B_3=-4\partial_x^3+6u\partial_x+3u_x
 $$
-
- となり、この演算子からLax方程式を立てると、KdV方程式が得られる。 さらに、この結果は容易により高次の場合に拡張できる。高次の$B_{2n+1}$からLax方程式を立てて得られる偏微分方程式を高次KdV方程式と呼ぶ。 またこのような方法で得られる無数の偏微分方程式の一群を、KdV階層という。
-
-### 4.2. 擬微分演算子
+という Lax 方程式で表された。ここで交換子は $[A,C]=AC-CA$ である。右辺の交換子を計算すると $L_t$ は掛け算演算子となり、$u$ の時間発展方程式が得られる。この節では、$B_3$ を含む無限個の時間発展をひとつの演算子から作り、それぞれに保存量があることを示す。
 
-以上で述べたKdV方程式の一般化は、$∂$の負冪を許すような擬微分演算子を用いることでより簡潔に述べることができる。 まず微分演算子$∂$と掛け算演算子$a$に対し、に対しLeibniz則
-
+演算子の積では、係数関数と微分が可換ではない。たとえば
 $$
-\begin{aligned}
-∂^n a = ∑_{j=0}^∞ \begin{pmatrix}n \\ j\end{pmatrix}a^{(r)}∂^{n-j},
-    \quad
-    (n > 0)
-\end{aligned}\tag{4.17}
+\partial_x \alpha=\alpha\partial_x+\alpha_x
 $$
-
- が成り立つ。ただし、2項係数は
-
+である。$L$ の平方根を微分の冪で表すには負の冪も必要になるため、それらを含む形式的な演算子を用意する。以後 $\partial=\partial_x$ と書き、擬微分演算子を
 $$
-\begin{aligned}
-\begin{pmatrix}n \\ j\end{pmatrix} = \frac{n(n-1)⋯(n-j+1)}{j!}
-\end{aligned}\tag{4.18}
+A=\sum_{j=-\infty}^{m}a_j(x,t)\partial^j
 $$
-
- と定義される。これを$n < 0$にも拡張する。例えば、
-
+の形の形式級数として扱う。次数には上限 $m$ があり、積は一般化 Leibniz 則
 $$
-\begin{aligned}
-∂^{-1}a &= a∂^{-1} - a'∂^{-2} + a''∂^{-3} - ⋯
-\end{aligned}\tag{4.19}
+\partial^m\alpha=\sum_{j\ge0}\binom{m}{j}\bigl(\partial_x^j\alpha\bigr)\partial^{m-j},\qquad
+\binom{m}{j}=\frac{m(m-1)\cdots(m-j+1)}{j!},\quad \binom m0=1
 $$
+で定める。たとえば $\partial^{-1}\alpha=\alpha\partial^{-1}-\alpha_x\partial^{-2}+\alpha_{xx}\partial^{-3}-\cdots$ となる。負冪はこの形式積の記号であり、ここでは関数へ作用する積分演算子として解釈しない。
 
+微分作用素 $-L=\partial^2-u$ の平方根を、最高次項が $\partial$ となる形式級数 $P$ として取る。
 $$
-\begin{aligned}
-∂^{-2}a &= a∂^{-2} -2a'∂^{-3} + 3a''∂^{-4} - ⋯
-\end{aligned}\tag{4.20}
+P=(-L)^{1/2}=\partial-\frac{u}{2}\partial^{-1}+\frac{u_x}{4}\partial^{-2}+\cdots,
+\qquad P^2=-L.
+\tag{4.1}
 $$
+この展開は $P^2=-L$ の各冪の係数を順に比較して決まる。たとえば $\partial\,\alpha=\alpha\partial+\alpha_x$ を使うと、$\partial^0$ の係数から $P$ の $\partial^{-1}$ の係数が $-u/2$、$\partial^{-1}$ の係数から $\partial^{-2}$ の係数が $u_x/4$ と定まる。以後も同様に、すでに決まった高い冪の係数を使って次の係数を一つずつ決める。
 
- である。$∂$の負冪はあくまで形式的なものであり、演算子どうしの和や積は許されているが、関数への作用は定義されていない。 擬微分演算子は、
-
+$P$ の奇数乗は $P^2=-L$ と可換である。擬微分演算子 $A$ を $A=A_{\ge0}+A_{<0}$ と分け、$A_{\ge0}$ を非負の冪 $\partial^j$（$j\ge0$）だけからなる部分とする。そこで
 $$
-\begin{aligned}
-A = ∑_{j=-∞}^m a_j ∂^j
-\end{aligned}\tag{4.21}
+B_{2n+1}=(-4)^n\bigl(P^{2n+1}\bigr)_{\ge0},\qquad n=0,1,2,\ldots
+\tag{4.2}
 $$
-
- と定義される。擬微分演算子どうしの積は、Leibniz則と
-
+と定める。特に、展開で $P^3$ の非負冪を集めると
 $$
-\begin{aligned}
-∂^n∂^m = ∂^{n+m},\quad n,m ∈ ℤ
-\end{aligned}\tag{4.22}
+(P^3)_{\ge0}=\partial^3-\frac32u\partial-\frac34u_x,
+\qquad
+B_3=-4\partial^3+6u\partial+3u_x,
+\tag{4.3}
 $$
-
- によって定まる。
-
-前節では、$L = -∂^2 + u$と準可換な演算子を漸化式でコツコツ求めたが、擬微分演算子を用いると高次KdV方程式を簡潔に表示することができる。
+となり、これは先に使った Lax 演算子と一致する。
 
+$P^{2n+1}$ 全体は $L$ と可換なので、$B_{2n+1}$ と $L$ の交換子は負冪部分 $\bigl(P^{2n+1}\bigr)_{<0}$ との交換子だけで決まる。
 $$
-\begin{aligned}
-L_\text{KP} ≔ L^{1/2}
-    = ∂ -\frac{u}{2}∂^{-1}+\frac{u'}{4}∂^{-2}+⋯
-\end{aligned}\tag{4.23}
+[L,B_{2n+1}]=-(-4)^n\left[L,\bigl(P^{2n+1}\bigr)_{<0}\right].
+\tag{4.4}
 $$
-
- として、
-
+負冪部分の最高次数は $\partial^{-1}$ である。$L=-\partial^2+u$ と負冪項の交換子では、たとえば $[-\partial^2,\alpha\partial^{-1}]=-2\alpha_x-\alpha_{xx}\partial^{-1}$ のように最高次項が相殺し、次数は $0$ 以下となる。一方、左辺は微分作用素なので負の冪を含まない。両辺が一致するには次数 $0$ の項だけが残るため、交換子は掛け算演算子となる。したがって各 $B_{2n+1}$ は $L$ との Lax 方程式
 $$
-\begin{aligned}
-B_{2n+1} ≔ (L_\text{KP}^{2n+1})_{≥0}
-\end{aligned}\tag{4.24}
+L_{t_{2n+1}}=[B_{2n+1},L]
+\tag{4.5}
 $$
+を与える。$n=1$ が通常の KdV 方程式であり、より高い $n$ は空間微分の階数がより高い方程式を与える。$t_{2n+1}$ はそれぞれの発展に割り当てた時間変数である。これらをまとめて KdV 階層と呼ぶ。
 
- とする。ただし$()_{≥0}$は$∂$の非負の冪のみを取り出すことを意味する。 $L_\text{KP}^{2n+1}$が$L$と可換であることから、
+### 4.2. 擬微分演算子と留数
 
+保存量を取り出すため、擬微分演算子 $A=\sum_j a_j\partial^j$ の留数を、$\partial^{-1}$ の係数
 $$
-\begin{aligned}
-[L, B_{2n+1}] = -[L, (L_\text{KP}^{2n+1})_{<0}]
-\end{aligned}\tag{4.25}
+\operatorname{res}_{\partial}A=a_{-1}
+\tag{4.6}
 $$
+と定義する。非負冪への射影 $(A)_{\ge0}$ は $\partial^0,\partial^1,\ldots$ の項を残し、留数は負冪のうち $\partial^{-1}$ の係数だけを選ぶ。この二つの取り出し方を区別しておく。
 
- が成り立つ。ただし$()_{<0}$は$∂$の負の冪のみを取り出すことを意味する。 ここで、右辺の$∂$の次数を勘定すると、現れる$∂$の最高次は0次である。 一方左辺は微分演算子の交換関係なので、微分演算子である。 すなわち、両辺が等号で結ばれるためには$∂$の0次しか現れてはいけない。 したがって、$B_{2n+1}$は$L$と準可換になる。 $B_{2n+1}$の最高次は$∂^{2n+1}$であり、他の係数は$u,u',u'',…$のみで表示されているので、これは前節で求めたものと同じである。 また前節の$R_n$は
-
+平方根 $P$ の奇数乗から次の関数を定める。
 $$
-\begin{aligned}
-R_n = \operatorname{Res}(L_\text{KP}^{2n-1})
-\end{aligned}\tag{4.26}
+R_n(x,t)=\operatorname{res}_{\partial}P^{2n-1},\qquad n=1,2,\ldots
+\tag{4.7}
 $$
-
- と書くことができる。 ここで、$\operatorname{Res}()$は擬微分演算子のうち$∂^{-1}$に比例する係数を取り出したものである。
+たとえば $P$ の $\partial^{-1}$ 係数から $R_1=-u/2$ を得る。各 $R_n$ は $u$ とその空間微分だけで書ける局所密度であり、その空間積分が保存量の候補となる。
 
-### 4.3. 無限個の保存量
+### 4.3. 留数の時間変化は全微分
 
-KdV方程式に無限個の保存量が存在することを証明しよう。
-
-$$
-\begin{aligned}
-\frac{\mathrm{d} R_n}{\mathrm{d} t}
-    &
-    = \frac{\mathrm{d}}{\mathrm{d} t}\operatorname{Res}(L_\text{KP}^{2n-1})
-\end{aligned}\tag{4.27}
-$$
-
+通常の KdV 時間 $t=t_3$ を考える。Lax 方程式 $L_t=[B_3,L]$ と $P^2=-L$ に対応する平方根の発展は
 $$
-\begin{aligned}
-&
-    = \operatorname{Res}(\frac{\mathrm{d} L_\text{KP}^{2n-1}}{\mathrm{d} t})
-\end{aligned}\tag{4.28}
+P_t=[B_3,P].
+\tag{4.8}
 $$
-
+実際、$P^2=-L$ を時間微分すると $P_tP+PP_t=-L_t$ となる。一方、$L_t=[B_3,L]$ から $[B_3,P]P+P[B_3,P]=-L_t$ である。差 $D=P_t-[B_3,P]$ が $DP+PD=0$ を満たすとき、$D$ の最高次項と $P$ の最高次項 $\partial$ の積はその係数の2倍を最高次に持つため、その係数はゼロでなければならない。次数を下げて同じ議論を繰り返すと $D=0$ となる。この関係を積の微分則へ適用すると、各正整数 $n$ について
 $$
-\begin{aligned}
-&
-    = \operatorname{Res}[B_m,L_\text{KP}^{2n-1}]
-\end{aligned}\tag{4.29}
+\frac{\partial}{\partial t}P^{2n-1}=[B_3,P^{2n-1}],
+\qquad
+\frac{\partial R_n}{\partial t}=\operatorname{res}_{\partial}[B_3,P^{2n-1}].
+\tag{4.9}
 $$
+よって残るのは、擬微分演算子の交換子を取ったとき、その $\partial^{-1}$ 係数が $x$ の全微分になることの確認である。
 
- である。 擬微分演算子の交換関係の留数は
+この確認では演算子全体を展開する必要はない。二つの単項式 $\alpha\partial^m$ と $\beta\partial^n$ を取り、積の中から留数に寄与する項だけを拾う。一般化 Leibniz 則で $\partial^m\beta$ を展開すると、$\partial^{m+n-r}$ の項が現れる。これが $\partial^{-1}$ になるには $r=m+n+1$ でなければならない。$r<0$ なら微分回数が負となるので寄与はなく、$r=0$ なら係数は $\alpha\beta-\beta\alpha=0$ で相殺する。したがって $r\ge1$ の場合だけを調べればよい。
 
+補足では、この単項式計算を一般化二項係数で進め、寄与が明示的な全微分であることを示す。有限和に戻せるため、$B_3$ と $P^{2n-1}$ の級数では各次数ごとに適用でき、留数全体も全微分となる。よってある局所関数 $J_n(x,t)$ が存在して
 $$
-\begin{aligned}
-\operatorname{Res}[a∂^m,b∂^n]
-    = \begin{pmatrix}m\\m+n+1\end{pmatrix}ab^{(m+n+1)} - \begin{pmatrix}n\\m+n+1\end{pmatrix}a^{(m+n+1)}b
-\end{aligned}\tag{4.30}
+\frac{\partial R_n}{\partial t}=\frac{\partial J_n}{\partial x}.
+\tag{4.10}
 $$
-
- によって計算できる。 ここで
-
+$u$ とその導関数が $x\to\pm\infty$ で十分速く減衰すれば $J_n$ の境界値の差は消える。したがって
 $$
-\begin{aligned}
-\begin{pmatrix}n\\m+n+1\end{pmatrix}
-    = \frac{n(n-1)⋯(-m)}{m+n+1},
-    \quad
-    \begin{pmatrix}n\\m+n+1\end{pmatrix}
-    =\frac{m(m-1)⋯(-n)}{m+n+1}
-\end{aligned}\tag{4.31}
+I_n(t)=\int_{-\infty}^{\infty}R_n(x,t)\,dx
+\tag{4.11}
 $$
+は時間に依存しない。すべての $n\ge1$ でこの議論が成り立つため、KdV 方程式には無限個の保存量がある。
 
- から、
+<details id="residue-commutator">
+<summary>単項式の交換子の留数が全微分になる計算</summary>
 
+一般化二項係数を $\binom{q}{r}=q(q-1)\cdots(q-r+1)/r!$（$r\ge1$）、$\binom{q}{0}=1$ と定める。整数 $q$ に対し負の $q$ でもこの定義を使うと
 $$
-\begin{aligned}
-\begin{pmatrix}n\\m+n+1\end{pmatrix}=(-1)^{m+n+1}\begin{pmatrix}m\\m+n+1\end{pmatrix}
-\end{aligned}\tag{4.32}
+\partial^q\beta=\sum_{r\ge0}\binom{q}{r}\beta^{(r)}\partial^{q-r}
 $$
+は擬微分演算子の形式積の Leibniz 則である。ここで $\beta^{(r)}=\partial_x^r\beta$ とし、和は形式級数として扱う。
 
- が分かる。 よって
-
+単項式 $\alpha\partial^m$ と $\beta\partial^n$ の交換子の留数を計算する。$r=m+n+1$ とおく。$r<0$ では $\partial^{-1}$ を作る項がなく、$r=0$ では交換子の係数は $\alpha\beta-\beta\alpha=0$ である。$r\ge1$ なら
 $$
-\begin{aligned}
-\operatorname{Res}[a∂^m,b∂^n]
-    &
-    = \begin{pmatrix}m\\m+n+1\end{pmatrix}
-    \left(ab^{(m+n+1)}-(-1)^{m+n+1}a^{(m+n+1)}b\right)
-\end{aligned}\tag{4.33}
+\operatorname{res}_{\partial}[\alpha\partial^m,\beta\partial^n]
+=\binom{m}{r}\alpha\beta^{(r)}-\binom{n}{r}\beta\alpha^{(r)}.
+\tag{4.12}
 $$
-
+このとき $n=r-m-1$ なので、積の定義から $\binom{n}{r}=(-1)^r\binom{m}{r}$ となる。実際、$n(n-1)\cdots(n-r+1)$ の因子は $r-m-1,r-m-2,\ldots,-m$ で、これは $(-1)^r m(m-1)\cdots(m-r+1)$ と同じ積である。したがって
 $$
-\begin{aligned}
-&
-    = \begin{pmatrix}m\\m+n+1\end{pmatrix}\frac{\partial}{\partial x}\left(
-        ∑_{k=0}^{m+n}
-        (-1)^ka^{(k)}b^{(m+n-k)}
-    \right)
-\end{aligned}\tag{4.34}
+\operatorname{res}_{\partial}[\alpha\partial^m,\beta\partial^n]
+=\binom{m}{r}\left(\alpha\beta^{(r)}-(-1)^r\alpha^{(r)}\beta\right).
+\tag{4.13}
 $$
-
- となる。 したがって、$u$から得られる関数$J(x,t)$が存在して
-
+一方、積の微分を展開すると中間項が隣り合って相殺し、
 $$
-\begin{aligned}
-\frac{\partial R_n}{\partial t}
-    = \operatorname{Res}[B_3,L_\text{KP}^{2n-1}]
-    = \frac{\partial}{\partial x}J(x,t)
-\end{aligned}\tag{4.35}
+\frac{\partial}{\partial x}\left(\sum_{k=0}^{r-1}(-1)^k\alpha^{(k)}\beta^{(r-1-k)}\right)
+=\alpha\beta^{(r)}-(-1)^r\alpha^{(r)}\beta.
+\tag{4.14}
 $$
-
- と書ける。 $x → ±∞$で$u(x,t)$が十分速く減衰するという仮定のもとで、
+したがって (4.13) は全微分である。$r=0$ の場合は対応する和を空和と見れば微分は $0$ となり、先の直接計算と一致する。$r<0$ では寄与も和もない。
 
-$$
-\begin{aligned}
-∫_{-∞}^∞ R_n\,\mathrm{d}x
-\end{aligned}\tag{4.36}
-$$
+一般の擬微分演算子は単項式の和である。各固定された次数で留数に寄与する単項式の組は有限個なので、この結果を項ごとに足せる。これを (4.9) に適用すれば (4.10) が従う。この形式計算については [Batlle, §2.1 の命題2.6・2.8および §2.2](https://web.mat.upc.edu/carles.batlle/fitxers/kdv.pdf) も参照できる。
 
- はKdV方程式の保存量となっている。
+</details>
 
 ## 参考文献
 
