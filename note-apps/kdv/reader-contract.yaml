@@ -91,12 +91,14 @@
       "v is physical soliton speed; c_n are normalized left-tail amplitudes; one-state uses c_1,kappa_1",
       "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
       "bold f=(f,f_x); D_0=[[0,1],[-k^2,0]] represents x differentiation on free solutions; free propagation is exp(d D_0); V is potential action; I subscript denotes interaction picture on state and action. Keep P-ordered interaction evolution visible and derive the sine integral by restoring free propagation; U(t) remains Lax-time evolution",
-      "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction"
+      "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction",
+      "Green response is G=(k²−L)^−1, with derivative jump +1; W=det[(f_-(x,-k),f_+(x,k));(∂xf_-(x,-k),∂xf_+(x,k))], a=2ik/W. Point-source coordinate x′ is distinct from Fourier/kernel coordinate y. Figure energy E=k²<0, k=i√(-E); value-at-zero scaling of matching curves is distinct from unit-L² normalization of psi_n. The pole-removed response (E+1)G at E=-1 is displayed by its continuous limit, never as the undefined raw inverse."
     ],
     "new_or_unconfirmed": [
       "Jost解の規格化・Volterra核表示・逆散乱法で使う解析性、束縛状態と散乱係数の極・留数の関係を既知とは置かない。既知のSchrödinger方程式の概念と、このノート固有の未導入な対象・規約を区別する。",
       "分布・L1記法はフーリエ変換の基本を知ることだけから全細部を既知としない。使用する恒等式と条件を局所的に回復する。",
-      "標準結果の証明の全細部を一律に要求しない。ただし今回の推論で使う内容、適用条件、数学的接続を、名や引用だけで代用しない。"
+      "標準結果の証明の全細部を一律に要求しない。ただし今回の推論で使う内容、適用条件、数学的接続を、名や引用だけで代用しない。",
+      "Green関数は点源応答と(k²−L)の逆演算子の積分核として局所導入する。固有状態への射影の作用を内積と固有関数の積で説明し、固有状態表示と境界条件表示の同じGを比較して透過波の留数を導く。"
     ],
     "probes": [
       {

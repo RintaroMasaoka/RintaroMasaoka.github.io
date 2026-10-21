@@ -4,6 +4,7 @@ import { Content, getHeadings } from '../../../note-apps/kdv/content/full.md';
 import KdvBody from '../../../note-apps/kdv/components/KdvBody.astro';
 import config from '../../../note-apps/kdv/note.config.json';
 import DysonDomain from '../../../note-apps/kdv/components/DysonDomain.astro';
+import GreenResponse from '../../../note-apps/kdv/components/GreenResponse.astro';
 import ContourFigure from '../../../note-apps/kdv/components/ContourFigure.astro';
 import ReconstructionFigure from '../../../note-apps/kdv/components/ReconstructionFigure.astro';
 import TravelingSoliton from '../../../note-apps/kdv/components/TravelingSoliton.astro';
@@ -47,7 +48,7 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
       </header>
       <details class="mobile-index"><summary>目次を開く</summary><nav><ol>{headings.map(h => <li class:list={{subsection: h.depth === 3}}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details>
       <div class="reading-actions"><button type="button" id="expand-details">補足をすべて開く</button><button type="button" id="collapse-details">補足をすべて閉じる</button></div>
-      <KdvBody><Content /><GlmContent slot="glm" /><ContourFigure slot="contour" /><DysonDomain slot="dyson-domain" /><ReconstructionFigure slot="reconstruction" /><TravelingSoliton slot="traveling" /><KdvSimulation slot="collision" mode="collision" /><KdvSimulation slot="breakup" mode="breakup" /></KdvBody>
+      <KdvBody><Content /><GlmContent slot="glm" /><GreenResponse slot="green-matching" stage="matching" /><GreenResponse slot="green-projector" stage="projector" /><ContourFigure slot="contour" /><DysonDomain slot="dyson-domain" /><ReconstructionFigure slot="reconstruction" /><TravelingSoliton slot="traveling" /><KdvSimulation slot="collision" mode="collision" /><KdvSimulation slot="breakup" mode="breakup" /></KdvBody>
       <div id="equation-preview" role="dialog" aria-label="参照した数式" hidden><button id="close-equation" type="button" aria-label="数式プレビューを閉じる">閉じる ×</button><div id="equation-preview-content"></div></div>
       <dialog id="legacy-image-dialog" aria-label="原図を拡大表示">
         <div class="image-viewer-toolbar"><button type="button" id="image-zoom-out" aria-label="図を縮小">−</button><output id="image-zoom-value" aria-live="polite">100%</output><button type="button" id="image-zoom-in" aria-label="図を拡大">＋</button><button type="button" id="image-viewer-close">閉じる</button></div>
