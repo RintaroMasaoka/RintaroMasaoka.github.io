@@ -7,7 +7,7 @@ $$
 \psi_n(x,t)\sim c_n(t)e^{\kappa_nx}\quad(x\to-\infty),\qquad c_n(t)>0.
 \tag{equation-cdc8dfdf01}
 $$
-この左端振幅 $c_n(t)$ を、束縛状態の規格化定数と呼ぶ。
+この左端振幅 $c_n(t)$ が、束縛状態の規格化定数である。
 
 散乱状態では $\lambda=k^2$ とし、左から入射する解を選ぶ。その遠方での形を
 $$
