@@ -72,7 +72,14 @@ K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi,
 u(x)=-2\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi).
 \tag{equation-c09e1229fc}
 $$
-この計算は行列式でまとめられる。$C$ の積分表示を微分すると $\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ だから、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
+ここまでは連立方程式で $\boldsymbol\psi$ を求めてからポテンシャルを計算する形だった。ポテンシャルだけなら、既知の行列 $C$ を使って直接
+$$
+\boxed{u(x)=-2\frac{d^2}{dx^2}\log\det(I+C(x))}
+\tag{equation-1f3f118d6b}
+$$
+と表せる。これなら各束縛状態の波形 $\psi_n$ を求めずに、散乱データからポテンシャルを得られる。
+
+この式を確かめるには、対角値に現れた $\boldsymbol e^{\mathsf T}\boldsymbol\psi$ が $\log\det(I+C)$ の微分に等しいことを示せばよい。$C$ の積分表示から $\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ なので、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
 $$
 \begin{aligned}
 \frac{d}{dx}\log\det(I+C)
@@ -82,11 +89,7 @@ $$
 \end{aligned}
 \tag{equation-ec581bb65a}
 $$
-従って、求めるポテンシャルは
-$$
-\boxed{u(x)=-2\frac{d^2}{dx^2}\log\det(I+C(x)).}
-\tag{equation-1f3f118d6b}
-$$
+これを対角復元式 (@equation-c09e1229fc) に代入すれば、上のポテンシャルの表示が得られる。
 
 時間発展を戻すには、第2節で求めた $c_n(t)=c_n(0)e^{-4\kappa_n^3t}$ を使えばよい。すなわち
 $$
