@@ -25,8 +25,8 @@ export function initGreenKernel(){
         }
       }
       root.querySelector('[data-kernel-status]').textContent=Math.abs(source)<.05
-        ?'点源と束縛状態のピークが原点で一致し、下段の振幅は最大になる。'
-        :`点源は${source<0?'左':'右'}側にあり、束縛状態に沿う応答のピークは原点にある。`;
+        ?'点源位置と下段の曲線のピークが原点で一致し、下段の振幅は最大になる。'
+        :`点源は${source<0?'左':'右'}側にあり、下段の曲線のピークは原点にある。`;
     };
     slider.addEventListener('input',draw);
     root.querySelector('[data-center-source]').addEventListener('click',()=>{slider.value='0';draw()});

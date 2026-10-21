@@ -387,7 +387,7 @@ G(x,x';k)=f_-(x',-k)\frac{a(k)f_+(x,k)}{2ik},\qquad x>x'
 $$
 とも書ける。ここでは点源位置 $x'$ の依存が $f_-(x',-k)$ に、観測位置 $x$ の依存が透過波 $a(k)f_+(x,k)$ に分かれている。次に、同じ応答を束縛状態の成分から計算し、この二つの表示を比較する。
 
-束縛状態に沿う応答の大きさを調べるため、固有関数のノルムを1にそろえる。固有値 $-\kappa_n^2$ に対し、§2で導入した規格化定数を用いて
+応答に含まれる束縛状態の係数を求めるため、固有関数のノルムを1にそろえる。固有値 $-\kappa_n^2$ に対し、§2で導入した規格化定数を用いて
 $$
 \psi_n(x)=c_nf_-(x,-i\kappa_n),\qquad
 c_n^{-2}=\int_{\mathbb R}f_-(x,-i\kappa_n)^2\,dx
@@ -440,7 +440,7 @@ G(x,x';k)=\frac{\psi_n(x)\psi_n(x')}{k^2+\kappa_n^2}
 $$
 を得る。
 
-例えば $u(x)=-2\operatorname{sech}^2x$ では、$L\operatorname{sech}x=-\operatorname{sech}x$ と $\int_{\mathbb R}\operatorname{sech}^2x\,dx=2$ から、正規化固有関数は $\psi_1(x)=\operatorname{sech}x/\sqrt2$ である。この場合、束縛状態に沿う応答は
+例えば $u(x)=-2\operatorname{sech}^2x$ では、$L\operatorname{sech}x=-\operatorname{sech}x$ と $\int_{\mathbb R}\operatorname{sech}^2x\,dx=2$ から、正規化固有関数は $\psi_1(x)=\operatorname{sech}x/\sqrt2$ である。この場合、応答の $\psi_1$ 成分は
 $$
 \frac{\psi_1(x')}{E+1}\,\psi_1(x)
 $$

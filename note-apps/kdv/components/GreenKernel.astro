@@ -39,8 +39,8 @@ const path=(factor:number)=>Array.from({length:161},(_,i)=>{const x=-4+i/20;retu
     {[0,.5].map(y=><foreignObject data-kernel-y={y} x="0" y={Y(y)-12} width="32" height="24"><div class="kernel-tex" set:html={tex(String(y))} /></foreignObject>)}
     <foreignObject data-kernel-axis-name x={right-10} y="115" width="26" height="24"><div class="kernel-tex" set:html={tex('x')} /></foreignObject>
   </svg>
-  <p class="kernel-status" data-kernel-status role="status" aria-live="polite">点源は左側にあり、束縛状態に沿う応答のピークは原点にある。</p>
-  <figcaption id="green-kernel-caption">四角は単位点源の位置、丸はその位置での束縛状態の値。下段は束縛状態に沿う応答の分子である。点源を動かすと下段の高さは変わるが、波形とピーク位置は変わらない。</figcaption>
+  <p class="kernel-status" data-kernel-status role="status" aria-live="polite">点源は左側にあり、下段の曲線のピークは原点にある。</p>
+  <figcaption id="green-kernel-caption">四角は単位点源の位置、丸はその位置での束縛状態の値。下段は応答の <span set:html={tex("\\psi_1")} /> 成分の分子である。点源を動かすと下段の高さは変わるが、波形とピーク位置は変わらない。</figcaption>
 </figure>
 <script>
   import { initGreenKernel } from '../visuals/green-kernel.js';
