@@ -44,52 +44,6 @@
         }
       ],
       "interactive_values": "Slider values are rendered as ordinary accessible HTML outputs outside the plot. The curve geometry is evaluated analytically in soliton.js."
-    },
-    "operator_projection": {
-      "component": "../components/OperatorProjection.astro",
-      "renderer": "Native HTML table; every header and mathematical cell rendered by KaTeX",
-      "labels": [
-        {
-          "meaning": "input term",
-          "role": "column header",
-          "tex": "\\text{Term}"
-        },
-        {
-          "meaning": "nonnegative-power projection applied to each row term",
-          "role": "column header",
-          "tex": "(\\,\\cdot\\,)_{\\ge0}"
-        },
-        {
-          "meaning": "residue applied to each row term",
-          "role": "column header",
-          "tex": "\\operatorname{Res}(\\,\\cdot\\,)"
-        },
-        {
-          "meaning": "positive- and zero-power input terms, retained by projection",
-          "role": "input/output cells",
-          "tex": "a_1\\partial; a_0"
-        },
-        {
-          "meaning": "coefficient highlighted inside the minus-one-power term",
-          "role": "input cell",
-          "tex": "\\boxed{a_{-1}}\\,\\partial^{-1}"
-        },
-        {
-          "meaning": "minus-two-power input term",
-          "role": "input cell",
-          "tex": "a_{-2}\\partial^{-2}"
-        },
-        {
-          "meaning": "vanishing term projection or residue",
-          "role": "output cells",
-          "tex": "0"
-        },
-        {
-          "meaning": "coefficient extracted as residue",
-          "role": "output cell",
-          "tex": "\\boxed{a_{-1}}"
-        }
-      ]
     }
   }
 }

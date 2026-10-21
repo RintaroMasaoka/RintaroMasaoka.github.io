@@ -453,7 +453,7 @@ def main() -> None:
     result = result.replace("u(x) = 4 ∑_n κ_n ψ_n^2", "u(x) = -4 ∑_n κ_n ψ_n^2")
     result = result.replace(r"4 ∑_m κ_m ψ_m^2 = -2(𝝍^{\mathrm{T}}𝒆)' = u(x)", r"4 ∑_m κ_m ψ_m^2 = -2(𝝍^{\mathrm{T}}𝒆)' = -u(x)")
     result = re.sub(r"[ \t]+$", "", result, flags=re.M)
-    for title, slot in [('### 2.2. Lax表示', 'traveling'), ('### 4.3. 無限個の保存量', 'operator')]:
+    for title, slot in [('### 2.2. Lax表示', 'traveling')]:
         if title not in result:
             raise ValueError(f'missing visual placement: {title}')
         result = result.replace(title, f'<div data-extra-visual="{slot}"></div>\n\n{title}', 1)
