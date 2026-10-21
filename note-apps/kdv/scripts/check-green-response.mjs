@@ -1,4 +1,4 @@
-import {response,matchingPaths} from '../visuals/green-response.js';
+import {response,matchingPaths,energyDomain} from '../visuals/green-response.js';
 const h=1e-4, errors=[];
 for(const E of [-2.25,-1.8,-1,-.6,-.25])for(const x of[-4,-3,-.7,.4,2,4])for(const side of ['left','right']){
  const fn=x=>response(E,x)[side];
@@ -26,7 +26,7 @@ console.log(JSON.stringify({maxODE,maxPoleError,sourceJump:'+1',finiteSourceGree
 
 // Every selectable energy draws both complete profiles on the common linear axes.
 for(let j=0;j<=200;j++){
- const E=-2.25+j/100,p=matchingPaths(E),q=Math.sqrt(-E),f0=q/(q+1);
+ const E=energyDomain[0]+j/1000,p=matchingPaths(E),q=Math.sqrt(-E),f0=q/(q+1);
  if(Math.abs(f0*f0*(p.rightSlope-p.leftSlope)-response(E,0).W)>1e-12)throw Error('normalized slopes and W');
  for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight','leftTangent','rightTangent']){
   if(/NaN|Infinity/.test(p[key]))throw Error('nonfinite matching geometry');
@@ -41,3 +41,19 @@ for(let j=0;j<=320;j++){
  if(Math.abs(v.left-1/Math.cosh(x))>1e-12||Math.abs(v.right-v.left)>1e-12)throw Error('full-interval coincidence');
 }
 console.log('201 matching energies: complete profiles, finite axes, slope/W identity; E=-1 full-interval coincidence: pass');
+
+// Energy changes must not move axes or the reference point, or cause scale jumps.
+const axis=JSON.stringify(matchingPaths(-1).ticks);let maxPixelStep=0;
+for(let j=0;j<=200;j++){
+ const E=energyDomain[0]+j/1000,p=matchingPaths(E);
+ if(JSON.stringify(p.ticks)!==axis||p.zeroY!==matchingPaths(-1).zeroY||p.overviewPoint[1]!==matchingPaths(-1).overviewPoint[1])throw Error('moving matching axes');
+ if(j){
+  const prev=matchingPaths(E-.001);
+  for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight']){
+   const ys=path=>[...path.matchAll(/[ML][\d.-]+,([\d.-]+)/g)].map(m=>+m[1]);
+   const a=ys(prev[key]),b=ys(p[key]);for(let n=0;n<a.length;n++)maxPixelStep=Math.max(maxPixelStep,Math.abs(a[n]-b[n]));
+  }
+ }
+}
+if(maxPixelStep>1)throw Error('coarse motion '+maxPixelStep);
+console.log({fixedAxes:'pass',maxPixelStep});

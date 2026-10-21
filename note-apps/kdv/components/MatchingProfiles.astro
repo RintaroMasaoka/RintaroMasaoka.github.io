@@ -1,39 +1,35 @@
 ---
 import { createRequire } from 'node:module';
-import { matchingPaths, MX, ZX, ZY } from '../visuals/green-response.js';
+import { MX, ZX, ZY } from '../visuals/green-response.js';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const {initial}=Astro.props;
-const tickValues=[...new Set(Array.from({length:201},(_,j)=>matchingPaths(-2.25+j/100).ticks.map(t=>t.value)).flat())];
 const topLabels=[
  {x:60,y:0,w:240,t:'\\text{Full profiles}'},
  {x:0,y:30,w:98,t:'f/f(0)'}, {x:297,y:197,w:22,t:'x'},
- ...[-4,0,4].map(x=>({x:MX(x)-20,y:224,w:40,t:String(x)})),
+ ...[-3,0,3].map(x=>({x:MX(x)-20,y:224,w:40,t:String(x)})),
 ];
 const zoomLabels=[
  {x:60,y:0,w:240,t:'\\text{Near }x=0'},
  {x:0,y:30,w:98,t:'f/f(0)'}, {x:297,y:189,w:22,t:'x'},
- ...[0,1,2].map(y=>({x:0,y:ZY(y)-15,w:43,t:String(y)})),
+ ...[.8,1,1.1].map(y=>({x:0,y:ZY(y)-15,w:43,t:String(y)})),
  ...[-.5,0,.5].map(x=>({x:ZX(x)-26,y:214,w:52,t:String(x)})),
 ];
 ---
-{tickValues.map(v=><template data-tick-value={v}><span set:html={tex(String(v))} /></template>)}
 <svg class="matching-plot" viewBox="0 0 320 258" role="img" aria-labelledby="green-matching-title green-matching-desc">
   <title id="green-matching-title">Two endpoint-decaying solutions on the same interval</title>
-  <desc id="green-matching-desc">Both exact solutions are drawn from x minus four to four, each divided by its value at zero. The solid curve decays toward the left infinity and the dashed curve toward the right infinity. The amplitude axis adjusts to show both entire profiles. The shaded x interval is enlarged in the next plot.</desc>
+  <desc id="green-matching-desc">Both exact solutions are drawn from x minus three to three, each divided by its value at zero. The solid curve decays toward the left infinity and the dashed curve toward the right infinity. The linear amplitude axes stay fixed as energy changes. The shaded x interval is enlarged in the next plot.</desc>
   <defs><clipPath id="green-overview-clip"><rect x="52" y="56" width="248" height="170" /></clipPath></defs>
   <rect x={MX(-.5)} y="56" width={MX(.5)-MX(-.5)} height="162" fill="var(--accent)" opacity=".13" />
   <path d="M52 56 V218 H300" fill="none" stroke="var(--muted)" stroke-width="1" />
   <path data-green-zero d={`M52 ${initial.zeroY} H300`} stroke="var(--line)" />
   <path d={`M${MX(0)} 56 V218`} stroke="var(--line)" stroke-dasharray="3 5" />
-  {Array.from({length:8},(_,j)=>{
-    const tick=initial.ticks[j];return <g data-green-tick hidden={!tick} transform={`translate(0,${tick?.y??0})`}>
-      <path d="M48 0 H52" stroke="var(--muted)" />
-      <foreignObject x="0" y="-14" width="43" height="28"><div class="matching-tex" data-green-tick-label set:html={tick?tex(String(tick.value)):''} /></foreignObject>
-    </g>;
-  })}
-  {[-4,0,4].map(x=><path d={`M${MX(x)} 218 v5`} stroke="var(--muted)" />)}
+  {initial.ticks.map(tick=><g transform={`translate(0,${tick.y})`}>
+    <path d="M48 0 H52" stroke="var(--muted)" />
+    <foreignObject x="0" y="-14" width="43" height="28"><div class="matching-tex" set:html={tex(String(tick.value))} /></foreignObject>
+  </g>)}
+  {[-3,0,3].map(x=><path d={`M${MX(x)} 218 v5`} stroke="var(--muted)" />)}
   <g clip-path="url(#green-overview-clip)">
     <path class="left-profile" data-green-path="overviewLeft" d={initial.overviewLeft} />
     <path class="right-profile" data-green-path="overviewRight" d={initial.overviewRight} />
@@ -43,11 +39,11 @@ const zoomLabels=[
 </svg>
 <svg class="matching-plot" viewBox="0 0 320 248" role="img" aria-labelledby="green-zoom-title green-zoom-desc">
   <title id="green-zoom-title">Magnified solutions and their tangents at zero</title>
-  <desc id="green-zoom-desc">The shaded interval from minus one half to one half is shown on fixed amplitude axes, zero to two. Thin straight lines are the tangents to the two solutions at zero. At energy minus one the tangents and both complete solutions coincide.</desc>
+  <desc id="green-zoom-desc">The shaded interval from minus one half to one half is shown on fixed amplitude axes, zero point eight to one point one. Thin straight lines are the tangents to the two solutions at zero. At energy minus one the tangents and both complete solutions coincide.</desc>
   <defs><clipPath id="green-zoom-clip"><rect x="52" y="60" width="248" height="150" /></clipPath></defs>
   <path d="M52 60 V210 H300" fill="none" stroke="var(--muted)" stroke-width="1" />
   <path d={`M52 ${ZY(1)} H300 M${ZX(0)} 60 V210`} fill="none" stroke="var(--line)" stroke-dasharray="3 5" />
-  {[0,1,2].map(y=><path d={`M48 ${ZY(y)} H52`} stroke="var(--muted)" />)}
+  {[.8,1,1.1].map(y=><path d={`M48 ${ZY(y)} H52`} stroke="var(--muted)" />)}
   {[-.5,0,.5].map(x=><path d={`M${ZX(x)} 210 v5`} stroke="var(--muted)" />)}
   <g clip-path="url(#green-zoom-clip)">
     <path class="left-profile tangent" data-green-path="leftTangent" d={initial.leftTangent} />

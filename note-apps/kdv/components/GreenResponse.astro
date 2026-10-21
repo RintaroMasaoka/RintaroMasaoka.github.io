@@ -2,12 +2,12 @@
 import FigureViewport from './FigureViewport.astro';
 import MatchingProfiles from './MatchingProfiles.astro';
 import { createRequire } from 'node:module';
-import { paths, X } from '../visuals/green-response.js';
+import { paths, X, energyDomain, initialEnergy } from '../visuals/green-response.js';
 const require = createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const {stage='matching'}=Astro.props;
-const matching=stage==='matching', id=`green-${stage}`, initial=paths(-1.8);
+const matching=stage==='matching', id=`green-${stage}`, initial=paths(initialEnergy);
 const labels=[
  {x:90,y:0,w:310,t:'(E+1)G(x,0;k)'},
  {x:441,y:220,w:30,t:'x'}, {x:12,y:214,w:35,t:'0'}, {x:3,y:109,w:47,t:'0.5'},
@@ -16,7 +16,7 @@ const labels=[
 ---
 <figure id={id} class="green-response" data-green-stage={stage} aria-labelledby={`${id}-caption`}>
   <div class="green-controls">
-    <label for={`${id}-energy`}><span>エネルギー <span set:html={tex('E=k^2')} /></span><output data-green-energy-output for={`${id}-energy`}>−1.80</output><input data-green-energy id={`${id}-energy`} type="range" min="-2.25" max="-.25" step=".01" value="-1.8" /></label>
+    <label for={`${id}-energy`}><span>エネルギー <span set:html={tex('E=k^2')} /></span><output data-green-energy-output for={`${id}-energy`}>{initialEnergy.toFixed(3)}</output><input data-green-energy id={`${id}-energy`} type="range" min={energyDomain[0]} max={energyDomain[1]} step=".001" value={initialEnergy} /></label>
     <div class="green-buttons"><button data-green-pole type="button"><span set:html={tex('E=-1')} /> に合わせる</button><button data-green-reset type="button">初期値に戻す</button></div>
     <p data-green-status role="status" aria-live="polite">{matching?'x = 0 の値はどちらも1だが、傾きが異なり、二本の解は一致しない。':'エネルギーを E = −1 に近づけると、極の係数の形に近づく。'}</p>
   </div>
@@ -43,7 +43,7 @@ const labels=[
     </>}
   </FigureViewport>
   {matching && <div class="green-w-value"><span set:html={tex('W(k)')} /><span> = </span><output data-green-w>{initial.Wvalue.toFixed(3)}</output></div>}
-  <figcaption id={`${id}-caption`}>{matching ? <>上図では二本の解をともに表示区間全体で描いている。淡い帯の区間を下図に拡大し、細線でそれぞれの解の接線を示した。全体図の縦軸は自動調整、拡大図の尺度は固定である。接続点で傾きも一致すると、Wronskian は0になり、二本の解は全区間で一致する。</> : <>実線は点源の応答から極の分母を除いた量、破線は規格化された束縛状態への射影の積分核。固有値に近づくと二つの曲線が一致する。図のエネルギーは前の接続図と連動している。</>}</figcaption>
+  <figcaption id={`${id}-caption`}>{matching ? <>上図では二本の解をともに表示区間全体で描いている。淡い帯の区間を下図に拡大し、細線でそれぞれの解の接線を示した。全体図・拡大図ともに尺度は固定である。接続点で傾きも一致すると、Wronskian は0になり、二本の解は全区間で一致する。</> : <>実線は点源の応答から極の分母を除いた量、破線は規格化された束縛状態への射影の積分核。固有値に近づくと二つの曲線が一致する。図のエネルギーは前の接続図と連動している。</>}</figcaption>
 </figure>
 <script>
   import { initGreenResponse } from '../visuals/green-response.js';
@@ -54,7 +54,9 @@ const labels=[
 .green-controls{max-width:480px;margin:0 auto .6rem;font-size:.9rem;line-height:1.7}
 .green-controls label{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem .7rem}
 .green-controls input{grid-column:1/-1;width:100%;min-height:44px;accent-color:var(--accent)}
-.green-controls output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.green-controls output{font-variant-numeric:tabular-nums;color:var(--accent);min-width:7ch;text-align:right}
+.green-response[data-green-stage="matching"] .green-controls p{min-height:5.1em}
+.green-w-value output{min-width:7ch;text-align:right;font-variant-numeric:tabular-nums}
 .green-buttons{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0}
 .green-buttons button{border:1px solid var(--line);border-radius:6px;min-height:44px;padding:.25rem .65rem;background:var(--paper);color:var(--ink);font:inherit;cursor:pointer}
 .green-controls :is(input,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
