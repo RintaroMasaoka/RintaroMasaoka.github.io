@@ -50,6 +50,8 @@ $$
 $$
 となる。$I$ は $N$ 次の単位行列である。$C$ は正定値なので $I+C$ は可逆である。各 $x$ でこの連立一次方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (@equation-6b629c0eb4) が得られる。
 
+$C$ は、区間 $(-\infty,x]$ 上の指数関数 $e_1,\ldots,e_N$ のグラム行列である。各成分は上の積分で定まる内積であり、非対角成分 $C_{mn}$ があるため、第 $m$ の方程式にも他の $\psi_n$ が現れる。従って、束縛状態はそれぞれを独立に求めるのではなく、この一つの連立方程式から求める。
+
 <details id="reflectionless-invertibility">
 <summary>連立方程式の一意可解性</summary>
 
@@ -97,6 +99,99 @@ C_{mn}(x,t)=\frac{e_m(x,t)e_n(x,t)}{\kappa_m+\kappa_n}
 \tag{equation-485df2d91c}
 $$
 を式 (@equation-1f3f118d6b) に入れると、$N$ ソリトン解が得られる。散乱データの指数関数的な時間発展が、同じ行列の成分を通じて波形の時間発展に変わる。$N=1$ では $\det(I+C)=1+c(t)^2e^{2\kappa x}/(2\kappa)$ となり、先ほどの一ソリトン解を再現する。
+
+二つの束縛状態があるとき、二ソリトン解と、一ソリトンを二つ足した波形はどこが違うのだろうか。行列式を展開すると、
+$$
+\begin{aligned}
+\det(I+C)
+&=1+C_{11}+C_{22}+C_{11}C_{22}-C_{12}^2\\
+&=1+C_{11}+C_{22}
++\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2C_{11}C_{22}.
+\end{aligned}
+\tag{two-soliton-determinant}
+$$
+となる。二行目では $C_{12}^2/(C_{11}C_{22})=4\kappa_1\kappa_2/(\kappa_1+\kappa_2)^2$ を使った。
+
+これを $(1+C_{11})(1+C_{22})$ と比較しよう。もしこの積なら、
+$$
+-2\partial_x^2\log[(1+C_{11})(1+C_{22})]
+=-2\partial_x^2\log(1+C_{11})-2\partial_x^2\log(1+C_{22}),
+$$
+となり、ポテンシャルは二つの一ソリトンの単純な和になる。実際の行列式では、$C_{11}C_{22}$ の係数が $1$ から $((\kappa_1-\kappa_2)/(\kappa_1+\kappa_2))^2$ に変わる。この係数が、二ソリトン解を単純な和と異なる波形にする。
+
+その違いを、衝突前後の位置のずれとして読んでみよう。二つのソリトンが十分離れたとき、第1のソリトンの中心付近で $C_{22}$ が十分小さければ、行列式は $1+C_{11}$ に近い。一方、$C_{22}$ が十分大きければ、
+$$
+\det(I+C)\simeq C_{22}\left[1+
+\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2 C_{11}\right].
+$$
+$\log C_{22}$ は $x$ の一次式なので、その二階微分は $0$ である。従って、第1のソリトンの近くの波形は、どちらの場合も $-2\partial_x^2\log(1+\text{定数}\times C_{11})$ という一ソリトンの形になる。
+
+$C_{11}\propto e^{2\kappa_1x-8\kappa_1^3t}$ なので、この定数倍は形や速度を変えず、中心の位置を変える。二つの領域での中心条件はそれぞれ
+$$
+C_{11}=1,\qquad
+\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2 C_{11}=1
+$$
+であり、後者の中心は前者より
+$$
+-\frac{1}{2\kappa_1}\log\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2
+$$
+だけ右にある。ここでは二つの領域の位置を比較した。時間の順序も、$x\simeq4\kappa_1^2t+\text{定数}$ に沿って $C_{22}\propto\exp[8\kappa_2(\kappa_1^2-\kappa_2^2)t]$ と書けばわかる。$\kappa_1>\kappa_2$ なら第1のソリトンは衝突後にこの距離だけ前進し、$\kappa_1<\kappa_2$ なら逆の順序をたどって後退する。衝突後に形と速度が保たれることも、中心の位置がずれることも、行列式のこの係数からわかる。
+
+<div data-extra-visual="determinant"></div>
+
+一般の $N$ では、行列式の各項は部分集合 $S\subseteq\{1,\ldots,N\}$ に対応する主小行列式の和になる。それぞれの係数は、二ソリトンで現れた $((\kappa_i-\kappa_j)/(\kappa_i+\kappa_j))^2$ を、その集合に含まれる全ての組について掛けたものである。一般式と計算を次の補足に示す。
+
+<details id="reflectionless-principal-minors">
+<summary>主小行列式と相互作用因子</summary>
+
+空集合の主小行列式を $1$ と約束すると、
+$$
+\det(I+C)=\sum_{S\subseteq\{1,\ldots,N\}}\det C_{S,S}
+\tag{principal-minor-expansion}
+$$
+である。各行と各列から $e_i$ をくくり出すと、
+$$
+\det C_{S,S}=\left(\prod_{i\in S}e_i^2\right)
+\det\left[\frac{1}{\kappa_i+\kappa_j}\right]_{i,j\in S}.
+$$
+残った行列式は Cauchy の行列式であり、
+$$
+\det\left[\frac{1}{\kappa_i+\kappa_j}\right]_{i,j\in S}
+=\left(\prod_{i\in S}\frac{1}{2\kappa_i}\right)
+\prod_{\substack{i<j\\i,j\in S}}
+\left(\frac{\kappa_i-\kappa_j}{\kappa_i+\kappa_j}\right)^2
+$$
+となる。従って、
+$$
+\det C_{S,S}
+=\prod_{i\in S}C_{ii}
+\prod_{\substack{i<j\\i,j\in S}}
+\left(\frac{\kappa_i-\kappa_j}{\kappa_i+\kappa_j}\right)^2.
+\tag{cauchy-principal-minor}
+$$
+各部分集合の項には、その中の全ての組の係数が一つずつ現れる。
+
+Cauchy の行列式の公式も、行の基本変形で確認できる。まず添字全体 $1,\ldots,N$ で計算しよう。第 $m$ 行（$m\ge2$）から、第1行の $2\kappa_1/(\kappa_m+\kappa_1)$ 倍を引くと、第一列の第2行以降は $0$ になる。残る $m,n\ge2$ の成分は
+$$
+\begin{aligned}
+\frac{1}{\kappa_m+\kappa_n}
+-\frac{2\kappa_1}{(\kappa_m+\kappa_1)(\kappa_1+\kappa_n)}
+&=\frac{\kappa_m-\kappa_1}{\kappa_m+\kappa_1}
+\frac{1}{\kappa_m+\kappa_n}
+\frac{\kappa_n-\kappa_1}{\kappa_n+\kappa_1}.
+\end{aligned}
+$$
+
+第一列で余因子展開し、残る行と列から左右の因子をそれぞれくくり出すと、
+$$
+\det\left[\frac{1}{\kappa_m+\kappa_n}\right]_{m,n=1}^N
+=\frac{1}{2\kappa_1}
+\prod_{n=2}^N\left(\frac{\kappa_n-\kappa_1}{\kappa_n+\kappa_1}\right)^2
+\det\left[\frac{1}{\kappa_m+\kappa_n}\right]_{m,n=2}^N.
+$$
+同じ操作を繰り返すと、各添字から $1/(2\kappa_i)$ が一つ、各組から差と和の比の二乗が一つずつ現れる。任意の部分集合 $S$ にも同じ計算が適用でき、上の公式を得る。
+
+</details>
 
 復元したポテンシャルは、束縛状態の波形を使って
 $$

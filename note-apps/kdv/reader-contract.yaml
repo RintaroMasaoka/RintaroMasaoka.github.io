@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 20,
+    "version": 21,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -161,6 +161,22 @@
         "verification": "大幅な改稿では、この説明の仕事が改稿後のどの本文・図に残るかを確認する。元の根拠に誤りがあれば修正し、説明ごと黙って削除しない。",
         "canonical_source": "content/sections/scattering.md"
       }
-    ]
+    ],
+    "reflectionless_solution_route": {
+      "scope": "§§3.4–3.5",
+      "reader_exit": "Finite-rank GLM becomes one Gram-matrix linear system; the N=2 determinant differs from a product by one pair factor, which explains preserved asymptotic shapes/speeds and collision position shifts.",
+      "main_path": [
+        "finite-rank reduction",
+        "Gram matrix and coupled solve",
+        "rank-one derivative and log determinant",
+        "time-dependent entries",
+        "explicit two-state determinant versus product",
+        "separated limits, centers and time ordering",
+        "computed synchronized potential/term-fraction figure",
+        "general subset pair-product statement"
+      ],
+      "supplement": "Principal-minor expansion and elementary row-elimination proof of the Cauchy determinant; existing eigenstate normalization and density proofs retained.",
+      "figure": "Determinant.astro + visuals/determinant.js; exact kappa=(1,2), C11=3 exp(2x-8t), C22=3 exp(4x-64t); fractions normalized by determinant; shared x coordinates."
+    }
   }
 }
