@@ -3,42 +3,42 @@
 一つの波が形を保って進むとき、その波形はどのように決まるのだろうか。まず、形を保って速度 $v>0$ で移動する進行波 $\eta(x,t)=\eta(x-vt,0)$ を求めよう。この小節のプライムは、時刻0の波形 $\eta(x,0)$ の $x$ 微分を表す。KdV 方程式に代入すると
 $$
 \eta'''=v\eta'-6\eta\eta'.
-\tag{2.1}
+\tag{equation-c1de586e9e}
 $$
 $\eta,\eta',\eta''$ が両端で0に減衰すると仮定し、無限遠での値を使って積分すると
 $$
 \eta''=v\eta-3\eta^2.
-\tag{2.2}
+\tag{equation-f9f013bed9}
 $$
 さらに $2\eta'$ を掛けると、両辺が全微分になる。
 $$
 \frac{d}{dx}(\eta')^2=\frac{d}{dx}(v\eta^2-2\eta^3).
-\tag{2.3}
+\tag{equation-cfca48d936}
 $$
 もう一度無限遠の境界条件を使って積分すれば
 $$
 (\eta')^2=v\eta^2-2\eta^3.
-\tag{2.4}
+\tag{equation-b9960a89fd}
 $$
 この方程式には次の局在した波形がある。
 $$
 \eta(x,0)=\frac v2\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right).
-\tag{2.8}
+\tag{equation-cd51ce0162}
 $$
 ここで $\operatorname{sech}x=1/\cosh x$ である。[^soliton-check] 時刻 $t$ では $x$ を $x-vt$ に置き換える。振幅は $v/2$、幅の尺度は $2/\sqrt v$ なので、高い波ほど速く、幅は狭くなる。
 
-[^soliton-check]: 式 (2.8) を微分すると
+[^soliton-check]: 式 (@equation-cd51ce0162) を微分すると
 
     $$
     \eta'(x,0)=-\frac{v^{3/2}}{2}\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right)\tanh\!\left(\frac{\sqrt v}{2}x\right).
-    \tag{2.5}
+    \tag{equation-7747abb85e}
     $$
 
     従って $\tanh^2=1-\operatorname{sech}^2$ より
 
     $$
     (\eta')^2=\frac{v^3}{4}\operatorname{sech}^4\!\left(\frac{\sqrt v}{2}x\right)\left[1-\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right)\right]=v\eta^2-2\eta^3.
-    \tag{2.6}
+    \tag{equation-d0224c59e1}
     $$
 
 <div data-extra-visual="traveling"></div>
@@ -54,7 +54,7 @@ $$
 1+e^{\theta_1}+e^{\theta_2}
 +\left(\frac{\sqrt{v_1}-\sqrt{v_2}}{\sqrt{v_1}+\sqrt{v_2}}\right)^2e^{\theta_1+\theta_2}
 \Biggr].
-\tag{2.8a}
+\tag{equation-5083fcf451}
 $$
 衝突の十分前と十分後には、振幅が $v_1/2$ と $v_2/2$、速度が $v_1$ と $v_2$ の二つの1ソリトンが現れる。衝突の間は単純な和にはならないが、衝突後もそれぞれの形と速さは保たれ、位置にずれが残る。
 

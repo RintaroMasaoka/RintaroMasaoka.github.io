@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import json
 import subprocess
 import tempfile
 from pathlib import Path
@@ -396,6 +397,18 @@ def convert_fragment(tex: str, labels: dict[str, str], figure_map: dict[str, str
     return md
 
 
+def use_equation_keys(text: str) -> str:
+    """Translate archive equation identities; display numbers belong to the renderer."""
+    keys = json.loads(Path(__file__).with_name("legacy-equation-keys.json").read_text())
+    protected = re.compile(r"(\$\$.*?\$\$|\$[^$\n]*\$|```.*?```|`[^`]*`|\[[^\]\n]*\]\([^\n]*?\))", re.S)
+    parts = protected.split(text)
+    for i, part in enumerate(parts):
+        if i % 2 == 0:
+            part = re.sub(r"\((\d+(?:\.\d+)?[a-z]?)\)", lambda m: "(@" + keys[m[1]] + ")" if m[1] in keys else m[0], part)
+        parts[i] = re.sub(r"\\tag\{([^}]+)\}", lambda m: r"\tag{" + keys.get(m[1], m[1]) + "}", part)
+    return "".join(parts)
+
+
 def revised_sections(text: str) -> str:
     """Use the authored left-convention sections as the canonical source."""
     for name, start, end in [("introduction", "## 1.", "## 2."), ("soliton", "### 2.1.", "### 2.2."), ("lax", "### 2.2.", "### 2.3."), ("scattering", "### 2.4.", "## 3."), ("reflectionless", "### 3.4.", "## 4."), ("hierarchy", "## 4.", "## 参考文献")]:
@@ -465,7 +478,7 @@ def main() -> None:
         result = result.replace(title, f'<div data-extra-visual="{slot}"></div>\n\n{title}', 1)
     result = re.sub(r'!\[2つのソリトンの衝突\]\([^\n]+\)\n\n2つのソリトンの衝突', '<div data-extra-visual="collision"></div>', result, count=1)
     result = re.sub(r'\| !\[KdV simulation frame 1\][\s\S]*?(?=またKdV方程式は)', '<div data-extra-visual="breakup"></div>\n\n', result, count=1)
-    result = revised_sections(result)
+    result = use_equation_keys(revised_sections(result))
     result = result.replace("[B(t), U(t)L(t)U(t)^{-1}]", "[B(t), U(t)L(0)U(t)^{-1}]")
     OUTPUT.write_text(result.rstrip() + "\n", encoding="utf-8")
 

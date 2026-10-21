@@ -124,7 +124,9 @@ const headings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h
       if (pinned && !pin) return;
       if (pinned && anchor === button && pin) { close(); return; }
       anchor?.setAttribute('aria-expanded','false'); anchor = button; pinned = pin;
-      previewContent.replaceChildren(equations.get(number)!.cloneNode(true));
+      const copy = equations.get(number)!.cloneNode(true) as Element;
+      copy.removeAttribute('id');
+      previewContent.replaceChildren(copy);
       preview.hidden = false; button.setAttribute('aria-expanded','true');
       const rect = button.getBoundingClientRect();
       preview.style.left = `${Math.max(12, Math.min(rect.left, innerWidth - preview.offsetWidth - 12))}px`;

@@ -14,7 +14,7 @@ To refresh local mathematical assets after a lockfile update, run `node note-app
 
 ## Full-note composition
 
-The `/notes/kdv/` route contains the complete note. `content/full.md` contains the introduction, soliton/Lax sections and conservation-law appendix, together with the rewritten left-incidence scattering-data and reflectionless reconstruction sections. Its GLM slot is filled from `content/glm.md`, which remains the independently editable revised derivation. `KdvBody.astro` composes these sources and the embedded explanatory figures. The original chapter order is retained; original section-numbered equations and the revised GLM equations use distinct number forms. Restoring the original text is a format migration and does not confer a new scientific or linguistic acceptance certificate on it.
+The `/notes/kdv/` route contains the complete note. `content/full.md` contains the introduction, soliton/Lax sections and conservation-law appendix, together with the rewritten left-incidence scattering-data and reflectionless reconstruction sections. Its GLM slot is filled from `content/glm.md`, which remains the independently editable revised derivation. `KdvBody.astro` composes these sources and the embedded explanatory figures. The original chapter order is retained; website equation numbers are generated across the complete composed note from stable source identities. Restoring the original text is a format migration and does not confer a new scientific or linguistic acceptance certificate on it.
 
 ## Explanatory visuals outside GLM
 
@@ -55,3 +55,7 @@ The kernel K collects the plane-wave weights of all ordered potential correction
 GLM §§5–7 construct `G=(k²−L)⁻¹` from the two endpoint-decaying solutions before using its eigenstate pole. The derivative jump is +1; `W` uses the columns `(f_-(x,-k),∂xf_-(x,-k))` and `(f_+(x,k),∂xf_+(x,k))`, giving `a=2ik/W`. The exact finite-source identity connects this response to the transmitted wave, avoiding an additional source-at-infinity limit. Normalized bound states determine its pole coefficient; only then is the Fourier contour evaluated.
 
 `GreenResponse.astro` and `visuals/green-response.js` supply two synchronized energy views at their respective explanatory positions: endpoint matching with Wronskian, then the pole-removed point-source response and bound-state projector. They use exact formulas for `u=-2 sech²x`. At the eigenvalue the second view displays the continuous limit of `(E+1)G`, not the undefined raw inverse. The first view's value-at-zero scaling is distinct from L² normalization. Controls keep 44px touch targets, and scientific canvases retain fixed typography inside local horizontal viewports.
+
+## Automatic equation numbering
+
+The site default is documented in `docs/note-format.md`. `KdvBody.astro` calls the shared `src/utils/note-equations.mjs` after composing all chapters and figures. Source tags identify equations; `(@ID)` references resolve at build time. Display numbers follow the final manuscript order, including disclosures and footnotes. Never add a numeric suffix or manually update reference numbers. `scripts/legacy-equation-keys.json` is used only to translate the preserved archive on reimport; it does not determine display numbers.
