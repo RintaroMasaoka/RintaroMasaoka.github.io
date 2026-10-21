@@ -1,0 +1,64 @@
+---
+import { createRequire } from 'node:module';
+const require=createRequire(new URL('../../../package.json',import.meta.url));
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
+const psi=(x:number)=>1/(Math.sqrt(2)*Math.cosh(x));
+const start=-2, width=288, left=40, right=width-18, bottom=136, top=10;
+const X=(x:number)=>left+(x+4)*(right-left)/8, Y=(y:number)=>bottom-y*(bottom-top)/.8;
+const path=(factor:number)=>Array.from({length:161},(_,i)=>{const x=-4+i/20;return `${i?'L':'M'}${X(x).toFixed(2)},${Y(factor*psi(x)).toFixed(2)}`}).join(' ');
+---
+<figure id="green-kernel" class="green-kernel" data-green-kernel aria-labelledby="green-kernel-caption">
+  <div class="kernel-controls">
+    <label for="green-source-position"><span set:html={tex("\\text{Source position }x'")} /><output data-source-position for="green-source-position">−2.0</output></label>
+    <input id="green-source-position" data-source-position-slider type="range" min="-3" max="3" step=".1" value={start} />
+    <button type="button" data-center-source><span set:html={tex("\\text{Place source at }x'=0")} /></button>
+  </div>
+  <div class="kernel-panel-title" set:html={tex('\\psi_1(x)=1/(\\sqrt2\\cosh x)')} />
+  <svg data-kernel-plot="input" width="100%" height="174" role="img" aria-labelledby="kernel-input-title kernel-input-desc">
+    <title id="kernel-input-title">Evaluate the bound state at the source position</title>
+    <desc id="kernel-input-desc">The fixed curve is the normalized bound state. A square on the horizontal axis locates the unit point source. A vertical guide reaches a circular point on the curve: its height is the source overlap psi one at x prime.</desc>
+    <path data-kernel-axes d={`M${left} ${top} V${bottom} H${right}`} fill="none" stroke="var(--muted)" />
+    <path data-kernel-curve d={path(1)} fill="none" stroke="var(--accent)" stroke-width="2.8" />
+    <path data-source-guide d={`M${X(start)} ${bottom} V${Y(psi(start))}`} fill="none" stroke="var(--muted)" stroke-dasharray="3 4" />
+    <rect data-source-marker x={X(start)-4} y={bottom-4} width="8" height="8" fill="var(--ink)" />
+    <circle data-overlap-marker cx={X(start)} cy={Y(psi(start))} r="5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.5" />
+    {[-4,0,4].map(x=><foreignObject data-kernel-x={x} x={X(x)-17} y="142" width="34" height="24"><div class="kernel-tex" set:html={tex(String(x))} /></foreignObject>)}
+    {[0,.5].map(y=><foreignObject data-kernel-y={y} x="0" y={Y(y)-12} width="32" height="24"><div class="kernel-tex" set:html={tex(String(y))} /></foreignObject>)}
+    <foreignObject data-kernel-axis-name x={right-10} y="115" width="26" height="24"><div class="kernel-tex" set:html={tex('x')} /></foreignObject>
+  </svg>
+  <div class="kernel-overlap"><span set:html={tex("\\psi_1(x')=")} /><output data-source-overlap>{psi(start).toFixed(3)}</output></div>
+  <div class="kernel-operation" set:html={tex('\\mathop{\\downarrow}\\limits^{\\times\\,\\psi_1(x)}')} />
+  <div class="kernel-panel-title" set:html={tex("\\psi_1(x')\\psi_1(x)")} />
+  <svg data-kernel-plot="output" width="100%" height="174" role="img" aria-labelledby="kernel-output-title kernel-output-desc">
+    <title id="kernel-output-title">The source changes the coefficient, while the bound-state waveform stays fixed</title>
+    <desc id="kernel-output-desc">This curve is the numerator of the bound-state pole contribution, psi one at x prime times psi one at x. Moving the source changes its amplitude; its peak stays at zero rather than following the source.</desc>
+    <path data-kernel-axes d={`M${left} ${top} V${bottom} H${right}`} fill="none" stroke="var(--muted)" />
+    <path data-kernel-curve d={path(psi(start))} fill="none" stroke="var(--accent)" stroke-width="2.8" />
+    {[-4,0,4].map(x=><foreignObject data-kernel-x={x} x={X(x)-17} y="142" width="34" height="24"><div class="kernel-tex" set:html={tex(String(x))} /></foreignObject>)}
+    {[0,.5].map(y=><foreignObject data-kernel-y={y} x="0" y={Y(y)-12} width="32" height="24"><div class="kernel-tex" set:html={tex(String(y))} /></foreignObject>)}
+    <foreignObject data-kernel-axis-name x={right-10} y="115" width="26" height="24"><div class="kernel-tex" set:html={tex('x')} /></foreignObject>
+  </svg>
+  <p class="kernel-status" data-kernel-status role="status" aria-live="polite">点源は左側にあり、束縛状態に沿う応答のピークは原点にある。</p>
+  <figcaption id="green-kernel-caption">四角は単位点源の位置、丸はその位置での束縛状態の値。下段は束縛状態に沿う応答の分子である。点源を動かすと下段の高さは変わるが、波形とピーク位置は変わらない。</figcaption>
+</figure>
+<script>
+  import { initGreenKernel } from '../visuals/green-kernel.js';
+  initGreenKernel();
+</script>
+<style>
+.green-kernel{box-sizing:border-box;max-width:480px;width:100%;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.kernel-controls label{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline;font-size:.95rem}
+.kernel-controls input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
+.kernel-controls button{display:block;max-width:100%;min-height:44px;margin:.25rem 0 1rem;border:1px solid var(--line);border-radius:6px;padding:.3rem .65rem;background:var(--paper);color:var(--ink);font-size:.86rem;cursor:pointer}
+.kernel-controls :is(input,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.kernel-controls output,.kernel-overlap output{font-variant-numeric:tabular-nums;color:var(--accent);min-width:5ch;text-align:right}
+.kernel-panel-title{text-align:center;font-size:16px;line-height:1.6;margin:.1rem 0 .3rem}
+.green-kernel svg{display:block;width:100%;height:174px}
+.kernel-tex{display:flex;justify-content:center;align-items:center;height:100%;color:var(--ink);font-size:14px;line-height:1;white-space:nowrap}
+.kernel-overlap{display:flex;justify-content:center;align-items:baseline;gap:.4rem;font-size:16px}
+.kernel-operation{height:42px;text-align:center;color:var(--ink);font-size:18px;margin:.15rem 0 .3rem}
+.kernel-status{font-size:.85rem;line-height:1.7;min-height:3.4em;margin:.3rem 0;color:var(--ink)}
+.green-kernel figcaption{font-size:.85rem;line-height:1.8;margin:.7rem 0 0;color:var(--muted)}
+@media(max-width:380px){.green-kernel{padding:.6rem}.kernel-controls button{font-size:.8rem}}
+</style>

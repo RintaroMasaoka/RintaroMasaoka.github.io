@@ -342,89 +342,118 @@ $$
 
 </details>
 
-この接続を、既に現れた1ソリトンのポテンシャル $u(x)=-2\operatorname{sech}^2x$ で見る。図ではエネルギー $E=k^2<0$ を動かし、左右の減衰解を接続点 $x=0$ で値が1になるようにそれぞれ定数倍している。これは傾きを比べるための尺度合わせで、二乗積分による規格化ではない。$E=-1$ では傾きも一致し、一つの固有関数につながる。
-
-<div data-visual-slot="green-matching"></div>
-
-<details id="green-matching-formulas">
-<summary>図の減衰解とWronskianの式</summary>
-
-$E=-\kappa^2$、$\kappa>0$ と書くと、$u=-2\operatorname{sech}^2x$ に対して
-$$
-\begin{aligned}
-f_-(x,-i\kappa)&=e^{\kappa x}\frac{\kappa-\tanh x}{\kappa+1},\\
-f_+(x,i\kappa)&=e^{-\kappa x}\frac{\kappa+\tanh x}{\kappa+1}
-\end{aligned}
-$$
-となる。それぞれ微分方程式へ代入して解であることを確認でき、対応する端では必要な指数関数に近づく。$x=0$ では両解の値が $\kappa/(\kappa+1)$、傾きがそれぞれ $\kappa-1$ と $1-\kappa$ なので
-$$
-W(i\kappa)=-\frac{2\kappa(\kappa-1)}{\kappa+1}.
-$$
-図の二本の曲線は、各解をその $x=0$ での値で割ったものである。その傾きはそれぞれ $(\kappa^2-1)/\kappa$ と $(1-\kappa^2)/\kappa$ となり、$\kappa=1$ で一致する。このとき二本とも $\operatorname{sech}x$ となる。
-
-</details>
+<span id="green-matching-caption"></span>
 
 ## 7. Green 関数から留数を求める
 
-極の位置が分かったので、次に、その束縛状態が透過波へどれだけ寄与するかを求めたい。透過波は左から波を送り込んだときの応答である。入力する波の代わりに一点に波源を置けば、束縛状態への寄与を、その波源と束縛状態の波形との重なりから計算できる。この点源への応答と透過波を結び付けて、留数を求めよう。
+極の位置は分かった。残る課題は、束縛状態が透過波の留数に現れる係数を求めることである。ここで使うのは、点源より右側の応答が、透過波と同じ右減衰解 $f_+(x,k)$ に比例するという関係である。点源より右には波源がなく、同じ Schrödinger 方程式と右端の減衰条件を満たすからである。この応答を束縛状態の波形でも表せば、二つの表示の比較から留数の係数を求められる。
 
-位置 $x'$ に単位の点源を置き、両端で小さくなる応答を $G(x,x';k)$ と書く。$x$ は観測位置、$x'$ は点源の位置である。$\operatorname{Im}k>0$ で
+その比較に使うのが Green 関数である。$E=k^2$ とし、$x$ を観測位置、$x'$ を点源の位置とする。束縛状態の極を除く $\operatorname{Im}k>0$ で、両端で減衰する単位点源への応答 $G(x,x';k)$ を
 $$
-(k^2-L)G(x,x';k)=\delta(x-x'),\qquad L=-\partial_x^2+u(x)
+(E-L)G(x,x';k)=\delta(x-x')
 $$
-を満たすこの応答を Green 関数と呼ぶ。点源より右側には波源がないため、その波形は右端で規格化した $f_+(x,k)$ に比例する。左側には左端で小さくなる $f_-(x,-k)$ を使い、点源の位置でつなぐと
+で定める。点源から離れた左右では斉次 Schrödinger 方程式を満たし、それぞれ左端・右端で減衰する解だから、左側には $f_-(x,-k)$、右側には $f_+(x,k)$ が現れる。
+
+<span id="green-source-normalization"></span>
+
+値に跳びがあると $G$ の二階微分にデルタ関数の微分が現れるが、定義した点源にはその項がない。従って $G$ は点源位置で連続であり、$u$ とともに点源の近くで有界である。点源を挟む区間 $(x'-\epsilon,x'+\epsilon)$ で定義式を積分すると、$E G$ と $uG$ の積分は $\epsilon\to0$ で消え、$-L=\partial_x^2-u$ の二階微分だけが左右の傾きの差を残す。右傾きから左傾きを引いた値は、右辺のデルタ関数の積分、すなわち1である：
 $$
-G(x,x';k)=\frac{f_-(x',-k)f_+(x,k)}{W(k)},\qquad x>x'.
+\partial_xG(x'+0,x';k)-\partial_xG(x'-0,x';k)=1.
+$$
+左右の減衰解から、点源位置で連続になる積を作る：
+$$
+\begin{cases}
+f_-(x,-k)f_+(x',k),&x<x',\\
+f_-(x',-k)f_+(x,k),&x>x'.
+\end{cases}
+$$
+この積の右微分から左微分を引くと、既に導入した Wronskian に一致する：
+$$
+f_-(x',-k)\partial_xf_+(x',k)-\partial_xf_-(x',-k)f_+(x',k)=W(k).
+$$
+従って積全体を $W(k)$ で割れば、傾きの跳びが1になり、単位点源への応答が得られる：
+$$
+G(x,x';k)=\begin{cases}
+\dfrac{f_-(x,-k)f_+(x',k)}{W(k)},&x<x',\\[6pt]
+\dfrac{f_-(x',-k)f_+(x,k)}{W(k)},&x>x'.
+\end{cases}
 \tag{green-boundary}
 $$
 
-$a(k)=2ik/W(k)$ を使えば、この応答と透過波の関係は
+前節で求めた $a(k)=2ik/W(k)$ を使えば、同じ応答は透過波を使って
 $$
 G(x,x';k)=f_-(x',-k)\frac{a(k)f_+(x,k)}{2ik},\qquad x>x'
 \tag{green-transmission}
 $$
-となる。観測位置 $x$ での波形は透過波 $a f_+$ そのものであり、点源位置 $x'$ への依存が別の因子に分かれている。この同じ $G$ を束縛状態の波形で表せば、透過波の留数を読み取れる。点源の強さが1になる規格化は、次の補足で確かめる。
+とも書ける。ここでは点源位置 $x'$ の依存が $f_-(x',-k)$ に、観測位置 $x$ の依存が透過波 $a(k)f_+(x,k)$ に分かれている。次に、同じ応答を束縛状態の成分から計算し、この二つの表示を比較する。
 
-<details id="green-source-normalization">
-<summary>左右の解をつなぎ、点源の強さを1にする</summary>
-
-点源以外では同じ Schrödinger 方程式を満たすため、両端で小さくなる解を用いて
-$$
-\begin{cases}
-f_-(x,-k)f_+(x',k),&x<x',\\
-f_-(x',-k)f_+(x,k),&x>x'
-\end{cases}
-$$
-と作ると、点源位置で値が連続になる。右微分から左微分を引くと、式 (@wronskian) の $W(k)$ が現れる。一方、$(k^2-L)G=\delta$ を点源の前後で積分すると、必要な微分の跳びは
-$$
-\partial_xG(x'+0,x';k)-\partial_xG(x'-0,x';k)=1
-$$
-である。二階微分の係数が $+1$ なので符号も正である。従って、上の連続な積を $W(k)$ で割れば単位の点源への応答となり、式 (@green-boundary) が得られる。
-
-</details>
-
-第2節の規格化定数を使い、束縛状態を
+束縛状態に沿う応答の大きさを調べるため、固有関数のノルムを1にそろえる。固有値 $-\kappa_n^2$ に対し、§2で導入した規格化定数を用いて
 $$
 \psi_n(x)=c_nf_-(x,-i\kappa_n),\qquad
 c_n^{-2}=\int_{\mathbb R}f_-(x,-i\kappa_n)^2\,dx
 \tag{bound-normalization}
 $$
-と書く。この実固有関数は $\int\psi_n(x)^2dx=1$ を満たす。左端では $\psi_n(x)\sim c_ne^{\kappa_nx}$ なので、$c_n$ は単位ノルムにした束縛状態の左端での振幅でもある。
+と置く。これにより $\int_{\mathbb R}\psi_n(x)^2dx=1$ であり、$L\psi_n=-\kappa_n^2\psi_n$ となる。実ポテンシャルではこの固有関数を実数に選べる。
 
-任意の波源への応答は、点源への応答 $G$ を波源の分布で積分すれば得られる。従って $G$ は逆演算子 $(k^2-L)^{-1}$ の積分核である。$L\psi_n=-\kappa_n^2\psi_n$ だから、逆演算子はこの状態の成分に対して
+求めたいのは、応答 $G$ に含まれるこの $\psi_n$ の係数である。$x\ne x'$ では $LG=EG$（$E=k^2$）であり、$L\psi_n=-\kappa_n^2\psi_n$ である。両辺に掛ける関数を明示すると
 $$
-(k^2-L)^{-1}\psi_n=\frac{\psi_n}{k^2+\kappa_n^2}
+\begin{aligned}
+E\,\psi_nG&=\psi_n\,LG,\\
+-\kappa_n^2\,\psi_nG&=G\,L\psi_n.
+\end{aligned}
 $$
-と働く。任意の波源からこの状態に沿う成分を取り出すには、まず $\psi_n$ との内積を取り、$\psi_n(x)$ を掛ける。その操作の積分核が $\psi_n(x)\psi_n(x')$ なので、$k=i\kappa_n$ の近くで
+二式の差を取り、$L=-\partial_x^2+u$ を代入すると、ポテンシャルの項は相殺される：
+$$
+\begin{aligned}
+(E+\kappa_n^2)\psi_nG
+&=\psi_n LG-G L\psi_n\\
+&=\psi_n''G-\psi_n\partial_x^2G\\
+&=\partial_x\!\left(\psi_n'G-\psi_n\partial_xG\right).
+\end{aligned}
+$$
+この等式を $(-\infty,x')$ と $(x',\infty)$ で別々に積分する。無限遠の境界項は減衰によって0になり、接続点の左右の項だけが残る。$G$ が連続なので $\psi_n'G$ の二項は相殺され、
+$$
+\begin{aligned}
+&\left[\psi_n'G-\psi_n\partial_xG\right]_{x=x'-0}\\
+&\quad-\left[\psi_n'G-\psi_n\partial_xG\right]_{x=x'+0}\\
+&=\psi_n(x')\left[\partial_xG\right]_{x=x'-0}^{x=x'+0}\\
+&=\psi_n(x').
+\end{aligned}
+$$
+最後の等号は、単位点源に対応する傾きの跳びが1であることによる。従って
+$$
+(E+\kappa_n^2)\int_{\mathbb R}\psi_nG\,dx=\psi_n(x').
+\tag{green-bound-component}
+$$
+
+$\psi_n$ のノルムは1なので、積分 $\int\psi_n(x)G(x,x';k)dx$ がこの固有関数の係数である。従って、応答の $\psi_n$ 成分は
+$$
+\frac{\psi_n(x')}{E+\kappa_n^2}\,\psi_n(x)
+$$
+となる。点源位置での値 $\psi_n(x')$ が係数に現れ、応答は $\psi_n(x)$ の波形を持ち、分母は固有エネルギーとの差である。
+
+この負の固有値は孤立しているため、直交する成分はその近くで正則である。その根拠は[補足](#residue-proof)で示す。この結果と式 (@green-bound-component) を合わせると、
 $$
 G(x,x';k)=\frac{\psi_n(x)\psi_n(x')}{k^2+\kappa_n^2}
-+\text{この極の近くで正則な部分}.
++\text{この極の近くで正則な部分}
 \tag{green-projector}
 $$
-分子は、入力からこの固有状態に沿う成分を取り出し、同じ固有関数の形で返す射影の積分核である。極以外の成分が正則である根拠を補足に示す。
+を得る。
+
+例えば $u(x)=-2\operatorname{sech}^2x$ では、$L\operatorname{sech}x=-\operatorname{sech}x$ と $\int_{\mathbb R}\operatorname{sech}^2x\,dx=2$ から、正規化固有関数は $\psi_1(x)=\operatorname{sech}x/\sqrt2$ である。この場合、束縛状態に沿う応答は
+$$
+\frac{\psi_1(x')}{E+1}\,\psi_1(x)
+$$
+となる。点源位置 $x'$ に依存するのは係数 $\psi_1(x')$ であり、応答の波形 $\psi_1(x)$ はポテンシャルによって定まっている。従って点源を動かしても、この成分のピークが点源について移動するわけではない。
+
+次の図では、この関係を分子 $\psi_1(x')\psi_1(x)$ で確かめる。上段の曲線は $\psi_1(x)$、四角は点源位置 $x'$、丸の高さはその位置での値 $\psi_1(x')$ である。この値を $\psi_1(x)$ に掛けたものが下段の曲線になる。スライダーで点源を動かし、下段の高さが変わる一方で、ピークは原点にとどまることを見てほしい。
+
+<div data-visual-slot="green-kernel"></div>
 
 <details id="residue-proof">
 <summary>極以外の成分が正則である理由</summary>
+
+任意の波源への応答は、点源応答 $G$ をその波源の分布で積分すれば得られる。従って $G$ は逆演算子 $(k^2-L)^{-1}$ の積分核である。
 
 実減衰ポテンシャルに対する $L$ は自己共役で、負の固有値は連続スペクトル $[0,\infty)$ から離れた孤立固有値である。また一次元では、両端で減衰する二つの解は Wronskian が0となって比例するため、各固有空間は一次元である。
 
@@ -432,29 +461,18 @@ $$
 
 </details>
 
-同じ例 $u=-2\operatorname{sech}^2x$ では、$L\operatorname{sech}x=-\operatorname{sech}x$ と $\int_{\mathbb R}\operatorname{sech}^2x\,dx=2$ から $\psi_1(x)=\operatorname{sech}x/\sqrt2$ である。点源を $x'=0$ に置き、応答に極の分母 $E+1$ を掛けると、$E\to-1$ で $\psi_1(x)\psi_1(0)=1/(2\cosh x)$ が残る。図が示すのはこの極を除いた量であり、極で発散する $G$ 自体ではない。
-
-<div data-visual-slot="green-projector"></div>
-
-<details id="green-projector-formula">
-<summary>極を除いた応答の式</summary>
-
-上の例の減衰解と式 (@green-boundary) を使うと、$E=-\kappa^2$、$\kappa\ne1$ で
+式 (@green-projector) の $k=i\kappa_n$ における留数は、分母 $k^2+\kappa_n^2$ の微分が $2i\kappa_n$ であることから
 $$
-(E+1)G(x,0;i\kappa)=\frac12 e^{-\kappa|x|}(\kappa+\tanh|x|).
+\operatorname*{Res}_{k=i\kappa_n}G(x,x';k)=\frac{\psi_n(x)\psi_n(x')}{2i\kappa_n}.
 $$
-右辺は $\kappa=1$ でも連続で、その値は $\operatorname{sech}x/2$ である。図はこの連続な式を使い、元の $G$ が定義されない固有値でも極限の形を表示している。
-
-</details>
-
-式 (@green-projector) の極の留数は、$k^2+\kappa_n^2$ の傾きが $2i\kappa_n$ であることから $\psi_n(x)\psi_n(x')/(2i\kappa_n)$ となる。一方、式 (@green-transmission) では $\psi_n(x')=c_nf_-(x',-i\kappa_n)$ である。両表示の $f_-(x',-i\kappa_n)$ の係数を比較すると
+一方、式 (@green-transmission) は同じ $G$ を境界解と透過波で表す。$\psi_n(x')=c_nf_-(x',-i\kappa_n)$ を用いて二つの留数を比較すると
 $$
 \operatorname*{Res}_{k=i\kappa_n}[a(k)f_+(x,k)]
 =i c_n\psi_n(x)
 =i c_n^2f_-(x,-i\kappa_n).
 \tag{transmission-residue}
 $$
-係数 $i$ は、式 (@green-transmission) の $2ik$ を極で評価した $2i(i\kappa_n)$ と、極の分母の傾き $2i\kappa_n$ の比から出る。これで留数和の極と係数が定まり、式 (@transmission-residue-sum) を評価できる。
+ここで係数 $i$ は、$G$ の固有状態表示の留数に式 (@green-transmission) の分母 $2ik$ を掛けて極で評価すると生じる。これで式 (@transmission-residue-sum) に必要な透過波の留数が得られる。
 
 式 (@transmission-residue-sum) で、各極 $k=i\kappa_n$ における留数は、式 (@transmission-residue) に $e^{\kappa_n y}$ を掛けたものである。従って、
 $$
@@ -523,6 +541,7 @@ $$
 左辺は非負なので $\widehat g=0$ ほとんど至る所、Plancherel により $g=0$ である。これによりここで指定した関数クラスで解が一意である。
 
 </details>
+
 
 ## 8. 一ソリトン解の復元
 

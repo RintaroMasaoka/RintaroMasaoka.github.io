@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 19,
+    "version": 20,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -97,7 +97,7 @@
       "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
       "bold f=(f,f_x); D_0=[[0,1],[-k^2,0]] represents x differentiation on free solutions; free propagation is exp(d D_0); V is potential action; I subscript denotes interaction picture on state and action. Keep P-ordered interaction evolution visible and derive the sine integral by restoring free propagation; U(t) remains Lax-time evolution",
       "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction",
-      "Green response is G=(k²−L)^−1, with derivative jump +1; W=det[(f_-(x,-k),f_+(x,k));(∂xf_-(x,-k),∂xf_+(x,k))], a=2ik/W. Point-source coordinate x′ is distinct from Fourier/kernel coordinate y. Figure energy E=k²<0, k=i√(-E); value-at-zero scaling of matching curves is distinct from unit-L² normalization of psi_n. The pole-removed response (E+1)G at E=-1 is displayed by its continuous limit, never as the undefined raw inverse.",
+      "Green response G(x,x′;k) is the integral kernel of (k²−L)^−1, with derivative jump +1 derived directly from a unit point source. E=k²; point-source x′ is distinct from observation x and Fourier/kernel y. W and a=2ik/W are established before G. Normalize psi_n before projecting G; the integral against psi_n is its coefficient, and multiplying by psi_n(x) gives the component. New figure uses u=−2sech²x, psi_1=sech x/sqrt(2). Source position changes the coefficient psi_1(x′); the lower plot is precisely the numerator psi_1(x′)psi_1(x), not raw G. Introduce both formula and square/circle/upper/lower encoding in prose BEFORE the inline figure. Recompute plot coordinates to available width, keep lettering readable, and provide no horizontal figure scroll.",
       "Bound-state tails: c_n(t) is the normalized left-tail coefficient, tilde c_n(t) the right-tail coefficient; psi_n~c_n(t) exp(kappa_n x) at minus infinity and ~tilde c_n(t) exp(-kappa_n x) at plus infinity. Left coefficient evolves by exp(-4 kappa_n^3 t), right by exp(+4 kappa_n^3 t)."
     ],
     "new_or_unconfirmed": [
