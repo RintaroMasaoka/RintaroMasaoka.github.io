@@ -1,0 +1,62 @@
+---
+import { createRequire } from 'node:module';
+import { boundStatePaths, finalTime } from '../visuals/bound-states.js';
+const require=createRequire(new URL('../../../package.json',import.meta.url));
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
+const initial=boundStatePaths(0);
+const panels=[
+ {label:'u(x,t)',color:'var(--ink)'},
+ ...[1,2,3].map((k,i)=>({label:`\\psi_${i+1}(x,t),\\quad \\lambda_${i+1}=-${k*k}`,color:['var(--state-one)','var(--state-two)','var(--state-three)'][i]}))
+];
+---
+<figure class="bound-states" data-bound-states aria-labelledby="bound-states-caption">
+  <div class="bound-controls">
+    <div class="bound-actions"><button type="button" data-bound-play aria-pressed="false">再生</button><button type="button" data-bound-reset>最初に戻す</button><label for="bound-time">時刻 <span set:html={tex('t')} /> <output for="bound-time">0.000</output></label></div>
+    <input id="bound-time" aria-label="ポテンシャルと固有状態の時刻" type="range" min="0" max={finalTime} step=".001" value="0" />
+  </div>
+  <div class="bound-plots" role="img" aria-label="3ソリトン解のポテンシャルと、固有値がマイナス1、マイナス4、マイナス9の規格化された固有関数。同じ横軸と時刻で表示。">
+    {panels.map((panel,i)=><div class="bound-panel" style={`--curve:${panel.color}`}>
+      <div class="bound-panel-label" set:html={tex(panel.label)} />
+      <div class="bound-chart">
+        <svg viewBox="0 0 480 91" preserveAspectRatio="none" aria-hidden="true">
+          <path d={`M40 ${i===0?19:53} H460 M136.923 7 V86`} fill="none" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke" />
+          <path data-bound-curve d={initial[i]} fill="none" stroke="var(--curve)" stroke-width="2" vector-effect="non-scaling-stroke" />
+        </svg>
+        {(i===0?[{v:'0',y:19},{v:'-20',y:75}]:[{v:'1',y:23},{v:'0',y:53},{v:'-1',y:83}]).map(tick=><span class="bound-y" style={`top:${tick.y}px`} set:html={tex(tick.v)} />)}
+      </div>
+    </div>)}
+    <div class="bound-x-axis">
+      {[-5,0,5,10,15,20].map(x=><span style={`left:${(40+(x+6)/26*420)/480*100}%`} set:html={tex(String(x))} />)}
+      <span class="bound-x-name" set:html={tex('x')} />
+    </div>
+  </div>
+  <figcaption id="bound-states-caption">初期ポテンシャルは <span set:html={tex('u(x,0)=-12\\operatorname{sech}^2x')} />。下の3段は、その時刻の Schrödinger 演算子の固有関数で、各々の二乗積分を1に規格化している。縦軸は各段に示した値であり、固有値の高さに重ねた表示ではない。固有値は変わらず、ポテンシャルが分かれると各固有関数も異なる速さで移動する。</figcaption>
+  <details><summary>計算方法と表示範囲</summary><p>反射係数が0、<span set:html={tex('\\kappa_1=1,\\;\\kappa_2=2,\\;\\kappa_3=3')} />、左端振幅が <span set:html={tex('(c_1(0)^2,c_2(0)^2,c_3(0)^2)=(12,60,60)')} /> の散乱データを使う。後の無反射の場合の復元式を3状態に適用し、各時刻のポテンシャルと規格化された固有関数をブラウザで計算する。初期ポテンシャルと各固有状態の確率密度は <span set:html={tex('x=0')} /> に関して対称である。横軸と各段の縦軸は再生中も固定し、固有関数の符号も時間を通じてそろえている。表示時刻は <span set:html={tex('0\\le t\\le0.45')} />。</p></details>
+</figure>
+<script>
+import {initBoundStates} from '../visuals/bound-states.js';
+initBoundStates();
+</script>
+<style>
+.bound-states{--state-one:#157a93;--state-two:#b0630b;--state-three:#9c4894;margin:1.7rem 0;padding:1rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+:global(.dark) .bound-states,:global([data-theme="dark"]) .bound-states{--state-one:#6dcee3;--state-two:#f0b558;--state-three:#e6a3dc}
+.bound-controls{margin:0 .3rem .7rem;font-size:.9rem}
+.bound-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem}
+.bound-actions button{min-height:44px;padding:.35rem .65rem;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:6px;font:inherit;cursor:pointer}
+.bound-actions label{margin-left:auto;display:flex;align-items:baseline;gap:.45rem}
+.bound-actions output{font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+.bound-controls input{width:100%;min-height:44px;accent-color:var(--accent)}
+.bound-controls :is(input,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.bound-panel{margin-top:.3rem}
+.bound-panel-label{font-size:16px;color:var(--curve);margin-left:8.333%;height:25px}
+.bound-chart{height:91px;position:relative}
+.bound-chart svg{display:block;width:100%;height:91px;overflow:visible}
+.bound-y{position:absolute;left:0;width:7%;text-align:right;transform:translateY(-50%);font-size:12px;line-height:1;white-space:nowrap}
+.bound-x-axis{height:45px;position:relative;font-size:13px;margin-top:4px}
+.bound-x-axis>span{position:absolute;transform:translateX(-50%)}
+.bound-x-axis .bound-x-name{left:95.833%;top:18px}
+.bound-states figcaption{font-size:.88rem;line-height:1.8;color:var(--muted);margin:.5rem .3rem 0}
+.bound-states details{font-size:.85rem;margin:.65rem .3rem 0}
+@media(prefers-reduced-motion:reduce){.bound-states *{scroll-behavior:auto}}
+</style>
