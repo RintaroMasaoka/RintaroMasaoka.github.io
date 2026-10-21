@@ -326,11 +326,10 @@ e_n(x)=c_ne^{\kappa_nx},\qquad n=1,\ldots,N
 $$
 と書く。
 
-前半で作った変換 $T$ は、この指数関数をポテンシャル中の束縛状態へ変える。Jost 解の核表示に $k=-i\kappa_n$ を入れると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
+Jost 解の核表示に $k=-i\kappa_n$ を代入し、$c_n$ を掛けると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
 $$
 \begin{aligned}
-\psi_n(x)&=(Te_n)(x)\\
-&=e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz.
+\psi_n(x)=e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz.
 \end{aligned}
 \tag{equation-b57207a680}
 $$
@@ -342,14 +341,14 @@ K(x,y)+\sum_{n=1}^N e_n(y)
 \left[e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz\right]=0.
 \tag{equation-6ab543eb8f}
 $$
-角括弧はちょうど $Te_n=\psi_n$ なので、
+角括弧は式 (@equation-b57207a680) の $\psi_n(x)$ なので、
 $$
 \boxed{K(x,y)=-\sum_{n=1}^N\psi_n(x)e_n(y).}
 \tag{equation-6b629c0eb4}
 $$
 指数関数を束縛状態へ変える核が、その束縛状態自身で書けた。固定した $x$ では、核の $y$ 依存性は既知の $N$ 個の指数関数で決まり、未知なのは $N$ 個の値 $\psi_n(x)$ だけである。
 
-この核を $\psi_m=Te_m$ の式 (@equation-b57207a680) に戻すと、束縛状態を決める方程式が閉じる。
+この核を $\psi_m$ の積分表示 (@equation-b57207a680) に戻すと、束縛状態を決める方程式が閉じる。
 $$
 \psi_m(x)+\sum_{n=1}^N
 \left[\int_{-\infty}^x e_m(z)e_n(z)\,dz\right]\psi_n(x)=e_m(x).
@@ -432,8 +431,6 @@ $$
 $$
 L\psi_n=-\kappa_n^2\psi_n.
 $$
-これは前半の $LT=TL_0$ と同じ、自由な固有関数をポテンシャル中の固有関数へ移す関係を、束縛状態の波数で見たものである。
-
 規格化は連立方程式からも確かめられる。$\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分公式から
 $$
 \frac{d}{dx}(I+C)^{-1}

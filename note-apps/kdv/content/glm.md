@@ -173,37 +173,6 @@ u(x)=2\frac{d}{dx}K(x,x).
 $$
 微分は $x$ と二つ目の引数を同時に動かす対角方向の全微分である。Schwartz 条件の下で明示積分を微分すれば、ポテンシャルが直接得られる。後で散乱データから GLM 方程式を解いてこの同じ核 $K$ を得るので、式 (@potential-from-diagonal) によりポテンシャルを復元できる。
 
-変換核 $K$ は自由波をポテンシャル付きの波へ移す共通作用素を定める。
-$$
-(Tg)(x)=g(x)+\int_{-\infty}^xK(x,y)g(y)\,dy,\qquad L_0=-\partial_x^2.
-\tag{transformation-operator}
-$$
-式 (@jost-transform) は $T e^{ikx}=f_-(x,k)$ を示し、これを微分方程式へ代入すると $LT e^{ikx}=k^2T e^{ikx}=TL_0e^{ikx}$ となる。フーリエ反転により十分滑らかで減衰する関数にも拡張され、
-$$
-LT=TL_0.
-\tag{intertwining}
-$$
-したがって同じ $K$ がすべての波数の自由固有関数を Schrödinger 固有関数へ移す。散乱関係を一つの核で表せるのはこの共通変換による。
-
-<details id="intertwining-proof">
-<summary>平面波から一般の関数へ変換恒等式を広げる</summary>
-
-Schwartz 関数 $g$ に対し、$\widehat g(k)=\int_{\mathbb R}g(x)e^{-ikx}\,dx$ とする。フーリエ反転を (@transformation-operator) に代入し、$K(x,\cdot)$ の可積分性を使って積分順序を入れ替えると
-$$
-(Tg)(x)=\frac1{2\pi}\int_{\mathbb R}\widehat g(k)f_-(x,k)\,dk.
-$$
-式 (@left-jost-integral) とその $x$ 微分から、実 $k$ に対して $f_-$ と $\partial_xf_-$ は、局所的な $x$ の範囲でそれぞれ $O(1)$、$O(1+|k|)$ に抑えられる。さらに $\partial_x^2f_-=(u-k^2)f_-$ だから二階微分も $O(1+k^2)$ である。$\widehat g$ は急減衰するので、上の積分を2回微分できる。
-
-各平面波成分に $Lf_-=k^2f_-$ を適用すると
-$$
-L(Tg)=\frac1{2\pi}\int_{\mathbb R}k^2\widehat g(k)f_-(x,k)\,dk
-=T(L_0g).
-$$
-最後の等式は、$L_0g=-g''$ のフーリエ変換が $k^2\widehat g$ であることによる。
-
-</details>
-
-
 ## 4. 左入射の散乱関係をフーリエ変換する
 
 ここで散乱データを導入する。$k>0$ の左入射波は左端で入射波 $f_-(x,k)$ と反射波 $b(k)f_-(x,-k)$ の和、右端で透過波 $a(k)f_+(x,k)$ と書ける。$a$ は透過係数、$b$ は左反射係数であり、同じ解の二つの表示から実軸上
@@ -218,12 +187,10 @@ $$
 f_-(x,k)-e^{ikx}=\int_{-\infty}^xK(x,z)e^{ikz}\,dz.
 \tag{incident-correction}
 $$
-核そのものを求めるには、この平面波の係数をフーリエ反転で取り出せばよい。以下では $y<x$ とする。すなわち、
+$y<x$ とし、両辺に $e^{-iky}/(2\pi)$ を掛けて $k$ について積分すると、平面波の重ね合わせの重み $K(x,y)$ が取り出せる。
 $$
 \lim_{R\to\infty}\frac{1}{2\pi}\int_{-R}^R[f_-(x,k)-e^{ikx}]e^{-iky}\,dk=K(x,y).
 $$
-Schwartz 減衰の下で通常のフーリエ反転が適用でき、$y<x$ は積分核の支持内部なので端点の値は関与しない。
-
 同じ操作を散乱関係の両辺に行い、残る二項も核と散乱データで表そう。反射係数 $b$ のフーリエ変換を
 $$
 \widehat b(s)=\int_{\mathbb R}b(k)e^{-iks}\,dk
@@ -489,15 +456,14 @@ $$
 $$
 e_1(x)=c_1e^{\kappa_1x}
 $$
-と書く。前半の変換 $T$ により、この指数関数から束縛状態の波形が得られる。
+と書く。Jost 解の核表示に $k=-i\kappa_1$ を代入し、$c_1$ を掛けると、規格化された束縛状態 $\psi_1=c_1f_-(x,-i\kappa_1)$ は
 $$
 \begin{aligned}
-\psi_1(x)&=(Te_1)(x)\\
-&=e_1(x)+\int_{-\infty}^xK(x,z)e_1(z)\,dz.
+\psi_1(x)=e_1(x)+\int_{-\infty}^xK(x,z)e_1(z)\,dz.
 \end{aligned}
 \tag{equation-4d4b5b9253}
 $$
-これは Jost 解の核表示に $k=-i\kappa_1$ を入れたもので、$\psi_1=c_1f_-(x,-i\kappa_1)$ である。
+と表される。
 
 ここで散乱データ関数は $F(x+y)=e_1(x)e_1(y)$ と分離できる。GLM 方程式 (@glm) は
 $$
