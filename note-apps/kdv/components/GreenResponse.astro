@@ -43,7 +43,7 @@ const labels=[
     </>}
   </FigureViewport>
   {matching && <div class="green-w-value"><span set:html={tex('W(k)')} /><span> = </span><output data-green-w>{initial.Wvalue.toFixed(3)}</output></div>}
-  <figcaption id={`${id}-caption`}>{matching ? <>上図では二本の解をともに表示区間全体で描いている。淡い帯の区間を下図に拡大し、拡大図の濃い直線はそれぞれの解の接線、淡い曲線は解を示す。全体図・拡大図ともに尺度は固定である。接続点で傾きも一致すると、Wronskian は0になり、二本の解は全区間で一致する。</> : <>実線は点源の応答から極の分母を除いた量、破線は規格化された束縛状態への射影の積分核。固有値に近づくと二つの曲線が一致する。図のエネルギーは前の接続図と連動している。</>}</figcaption>
+  <figcaption id={`${id}-caption`}>{matching ? <>上図では二本の解をともに表示区間全体で描いている。淡い帯の区間を下図に拡大した。全体図・拡大図ともに尺度は固定である。接続点で傾きも一致すると、Wronskian は0になり、二本の解は全区間で一致する。</> : <>実線は点源の応答から極の分母を除いた量、破線は規格化された束縛状態への射影の積分核。固有値に近づくと二つの曲線が一致する。図のエネルギーは前の接続図と連動している。</>}</figcaption>
 </figure>
 <script>
   import { initGreenResponse } from '../visuals/green-response.js';

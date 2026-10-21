@@ -18,7 +18,7 @@ export const Y = y => 232-y*160/1.8;
 export const PY = y => 230-y*180/.85;
 const path = points => points.map(([x,y],i)=>`${i?'L':'M'}${x.toFixed(3)},${y.toFixed(3)}`).join(' ');
 // Fixed linear axes in both panels: changing energy moves only the solutions.
-// Zoom: fixed linear axes, so tangent slopes can be compared across energies.
+// Zoom: the same two solutions, on fixed linear axes near the comparison point.
 export const MX = x => 52+(x+3)*248/6;
 export const ZX = x => 52+(x+.1)*1240;
 export const ZY = y => 210-(y-.96)*1800;
@@ -33,8 +33,6 @@ export function matchingPaths(E) {
     overviewPoint:[MX(0),y(1)], zeroY:y(0), ticks,
     zoomLeft:path(zoomXs.map(x=>[ZX(x),ZY(response(E,x).left)])),
     zoomRight:path(zoomXs.map(x=>[ZX(x),ZY(response(E,x).right)])),
-    leftTangent:path([-.1,.1].map(x=>[ZX(x),ZY(1+slope*x)])),
-    rightTangent:path([-.1,.1].map(x=>[ZX(x),ZY(1-slope*x)])),
     leftSlope:slope, rightSlope:-slope,
   };
 }
@@ -55,7 +53,7 @@ export function initGreenResponse() {
     const p=paths(E), pole=Math.abs(E+1)<1e-8;
     el.querySelector('[data-green-energy]').value=String(E);
     el.querySelector('[data-green-energy-output]').textContent=E.toFixed(3);
-    for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight','leftTangent','rightTangent','regularized'])
+    for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight','regularized'])
       el.querySelector(`[data-green-path="${key}"]`)?.setAttribute('d',p[key]);
     for(const side of ['left','right']){
       const output=el.querySelector(`[data-green-${side}-slope]`);

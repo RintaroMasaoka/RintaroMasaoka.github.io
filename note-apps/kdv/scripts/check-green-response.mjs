@@ -28,7 +28,7 @@ console.log(JSON.stringify({maxODE,maxPoleError,sourceJump:'+1',finiteSourceGree
 for(let j=0;j<=1000;j++){
  const E=energyDomain[0]+j/1000,p=matchingPaths(E),q=Math.sqrt(-E),f0=q/(q+1);
  if(Math.abs(f0*f0*(p.rightSlope-p.leftSlope)-response(E,0).W)>1e-12)throw Error('normalized slopes and W');
- for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight','leftTangent','rightTangent']){
+ for(const key of ['overviewLeft','overviewRight','zoomLeft','zoomRight']){
   if(/NaN|Infinity/.test(p[key]))throw Error('nonfinite matching geometry');
   const points=[...p[key].matchAll(/[ML]([\d.-]+),([\d.-]+)/g)].map(m=>[+m[1],+m[2]]);
   if(points[0][0]!==52||points.at(-1)[0]!==300)throw Error('incomplete solution domain');
