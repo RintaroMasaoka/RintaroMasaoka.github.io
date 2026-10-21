@@ -223,7 +223,7 @@ $$
 
 $$
 \begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d} t}\left(U(t)L(0)U(t)^{-1}\right) = [B(t), U(t)L(t)U(t)^{-1}]
+\frac{\mathrm{d}}{\mathrm{d} t}\left(U(t)L(0)U(t)^{-1}\right) = [B(t), U(t)L(0)U(t)^{-1}]
 \end{aligned}\tag{2.15}
 $$
 
@@ -257,98 +257,58 @@ Lax方程式が$L(t) = -∂^2 + u$の等スペクトル条件を意味するこ�
 
 ### 2.4. 散乱データ
 
-Schrödinger方程式$(-∂^2 + u(x, t))ψ(x, t) = λ ψ(x, t)$ に対し、束縛状態の固有値を$λ = -κ_n^2 ~ (n=1,…,N)$とする。
+以下では $u$ は実数値で滑らかとし、すべての導関数が両端で任意のべきより速く減衰すると仮定する。遠方では Schrödinger 方程式は自由方程式に近づく。負の固有値 $-\kappa_n^2$ に対する自由解は $e^{\pm\kappa_nx}$ であり、左端で減衰するのは $e^{\kappa_nx}$ である。
 
-遠方での解の振る舞いは、
-
+Schrödinger 方程式 $(-\partial_x^2+u(x,t))\psi(x,t)=\lambda\psi(x,t)$ の束縛状態の互いに異なる固有値を $\lambda=-\kappa_n^2$（$n=1,\ldots,N$）とする。束縛状態を $L^2(\mathbb R)$ で規格化し、左端の漸近形が正の係数をもつよう位相を選ぶと
 $$
-\begin{aligned}
-ψ(x, t) = \begin{cases}
-        c_n(t) e^{-κ_n x} & (x → +∞),
-        \\
-        \tilde{c}_n(t) e^{κ_n x} & (x → -∞)
-    \end{cases}
-\end{aligned}\tag{2.18}
+\psi_n(x,t)\sim c_n(t)e^{\kappa_nx}\quad(x\to-\infty),\qquad c_n(t)>0.
+\tag{2.18}
 $$
+この左端振幅 $c_n(t)$ が、後で左 GLM 方程式に入る規格化定数である。
 
- となる。また、散乱状態の固有値を$λ = k^2$とおく。散乱状態の遠方での振る舞いは、
-
+散乱状態では $\lambda=k^2$ とし、左から入射する解を選ぶ。その遠方での形を
 $$
-\begin{aligned}
-ψ(x, t) = \begin{cases}
-        e^{-ikx} + b(k, t)e^{ikx} & (x → +∞),
-        \\
-        a(k, t)e^{-ikx} & (x → -∞).
-    \end{cases}
-\end{aligned}\tag{2.19}
+\psi(x,t)\sim
+\begin{cases}
+e^{ikx}+b(k,t)e^{-ikx},&x\to-\infty,\\
+a(k,t)e^{ikx},&x\to+\infty
+\end{cases}
+\tag{2.19}
 $$
+とする。$a$ は透過係数、$b$ は左反射係数である。$\kappa_n,c_n(t),a(k,t),b(k,t)$をまとめたものを散乱データと呼ぶ。
 
- となる。散乱状態では独立な解がもう一つあるが、どちらか一方の情報だけで十分である。$κ_n, c_n(t), a(k,t), b(k,t)$からなる値の集合を散乱データと呼ぶ。
-
-波動関数は$B(t) = -4∂^3 + 6u∂ + 3u_x$によって生成される複雑な時間発展をするが、$x → ±∞$では$B(t) ≈ -4∂^3$と近似できる。したがって、
-
+遠方では $B(t)=-4\partial_x^3+6u\partial_x+3u_x$ の自由部分 $-4\partial_x^3$ が波の時間位相を決める。左端の束縛状態の尾 $e^{\kappa_nx}$ には $-4\kappa_n^3$ が掛かるので
 $$
-\begin{aligned}
-ψ(x, t) = \begin{cases}
-        e^{4κ_n^3 t} c_n(0) e^{-κ_n x} & (x → +∞),
-        \\
-        e^{-4κ_n^3 t}\tilde{c}_n(0) e^{κ_n x} & (x → -∞)
-    \end{cases}
-\end{aligned}\tag{2.20}
+c_n(t)=e^{-4\kappa_n^3t}c_n(0).
+\tag{2.20}
 $$
-
- と書ける。すなわち$c_n(t) = e^{4κ_n^3t}c_n(0)$である。同様に、
-
+散乱波では $e^{ikx}$ の時間因子が $e^{4ik^3t}$、$e^{-ikx}$ の時間因子が $e^{-4ik^3t}$ である。入射振幅をまだ1に戻していない時間発展解は左端で
 $$
-\begin{aligned}
-ψ(x, t) = \begin{cases}
-        e^{-4ik^3t}e^{-ikx} + e^{4ik^3t}b(k, 0)e^{ikx}
-        & (x → +∞),
-        \\
-        e^{-4ik^3t}a(k, 0)e^{-ikx}
-        & (x → -∞)
-    \end{cases}
-\end{aligned}\tag{2.21}
+e^{4ik^3t}e^{ikx}+b(k,0)e^{-4ik^3t}e^{-ikx},
 $$
-
- となる。位相を再定義すると、$a(k, t) = a(k, 0),~ b(k, t) = e^{8ik^3t}b(k, 0)$となる。以上の結果をまとめると、
-
+右端で $a(k,0)e^{4ik^3t}e^{ikx}$ となる。入射係数を1に戻すため全体を $e^{4ik^3t}$ で割ると
 $$
-\begin{aligned}
-c_n(t) = e^{4κ_n^3t}c_n(0),
-    \quad
-    a(k,t) = a(k,0),
-    \quad
-    b(k,t) = e^{8ik^3t}b(k,0).
-\end{aligned}\tag{2.22}
+a(k,t)=a(k,0),\qquad b(k,t)=e^{-8ik^3t}b(k,0).
+\tag{2.21}
 $$
+よって固有値と透過係数は一定であり、左端振幅と左反射係数は (2.20)、(2.21) に従って変化する。
 
 
 ### 2.5. ソリトン
 
-任意の時刻$t$での散乱データが求まったので、逆散乱問題を解けば$u(t,x)$が求まる。 ここで具体的な計算をする前に、まず目標である$N$-ソリトン解について感覚的な説明をしておく。
+散乱データの時間発展は、ソリトンの移動をどのように表すのだろうか。まず束縛状態の遠方での形を見る。
 
-束縛状態の時間発展は
-
+束縛状態の左端の尾は、(2.20)から
 $$
-\begin{aligned}
-ψ_n(x, t) = \begin{cases}
-        c_n(0) e^{-κ_n (x-4κ_n^2 t)} & (x → +∞),
-        \\
-       \tilde{c}_n(0) e^{κ_n (x-4κ_n^2t)} & (x → -∞)
-    \end{cases}
-\end{aligned}\tag{2.23}
+\psi_n(x,t)\sim c_n(0)e^{\kappa_n(x-4\kappa_n^2t)}\quad(x\to-\infty)
+\tag{2.22}
 $$
-
- と表せる。したがって、$ψ_n(x, t)$は$x→±∞$では速度$4κ_n^2$をもつ。 $|x|$が大きくない領域でも、$ψ_n(x,t)$はある程度この速度にしたがって移動するだろう。 さもなければ時間を進めた時に規格化条件$⟨ψ_n|ψ_n⟩ = 1$を保つことができない。
-
-複数の束縛状態がある場合、別々の速度で移動する$ψ_n(x,t)$は、依然として全てポテンシャル$u(t,x)$に対する固有状態でなければならない。 このため$u(x, t)$は全ての束縛状態の移動に追従しなければならず、結果的に複数のピークに分裂する。このピークがソリトンである。
+と書ける。この指数関数は $x-4\kappa_n^2t$ に依存する。異なる $\kappa_n$ は異なる移動速度を与える。次節では、こうした漸近形をもつ散乱データからポテンシャル全体を復元し、ソリトンの形と運動を求める。
 
 ![3-ソリトン解が分裂する様子](/notes/KdV/images/soliton_split.png)
 
-3-ソリトン解が分裂する様子。
 
-以上の説明では反射係数$b(k, t)$の時間発展については触れなかった。実は$N$-ソリトン解は$b(k, t) = 0$となるような無反射ポテンシャルに対して得られる解である。反射係数の影響は、束縛状態を持たないポテンシャルのさざなみとして表れる。
+$N$-ソリトン解は、反射係数が $b(k,t)=0$ となる無反射ポテンシャルから得られる。以下ではまず一般の散乱データから復元方程式を導き、その後で無反射の場合を具体的に解く。
 
 ## 3. 散乱の逆問題
 
@@ -356,273 +316,159 @@ $$
 
 ### 3.4. 無反射ポテンシャルに対するGLM方程式の解
 
-ポテンシャル$u(x, t)$として、反射係数$b(k) = 0$であるような無反射ポテンシャルを考える。ポテンシャルがKdV方程式に従うならば、$b(k) = 0$が保たれることに注意。このとき、
+前節で得た左 GLM 方程式を無反射の場合に解く。反射係数が $b(k,t)=0$ なら散乱データ関数は束縛状態の項だけになり、(2.20) の時間発展を含めて
+$$
+F(s,t)=\sum_{n=1}^N c_n(t)^2e^{\kappa_ns},\qquad
+c_n(t)=c_n(0)e^{-4\kappa_n^3t}.
+\tag{3.60}
+$$
+左 GLM 方程式は
+$$
+K(x,y)+\sum_{m=1}^N c_m^2e^{\kappa_m(x+y)}
++\sum_{m=1}^N c_m^2e^{\kappa_my}
+  \int_{-\infty}^xK(x,z)e^{\kappa_mz}\,dz=0,
+\qquad y<x.
+\tag{3.61}
+$$
+ここでは $c_n=c_n(t)$ とする。有限個の指数関数が $y$ に現れるため、核を
+$$
+K(x,y)=-\sum_{n=1}^N c_n\psi_n(x)e^{\kappa_ny}
+\tag{3.62}
+$$
+と置く。各 $e^{\kappa_my}$ の係数を等しくすると
+$$
+\psi_m(x)=c_me^{\kappa_mx}
+-\sum_{n=1}^N c_mc_n\psi_n(x)
+  \int_{-\infty}^xe^{(\kappa_m+\kappa_n)z}\,dz.
+\tag{3.63}
+$$
+成分 $e_n(x)=c_ne^{\kappa_nx}$ と行列
+$$
+C_{mn}(x)=\frac{e_m(x)e_n(x)}{\kappa_m+\kappa_n}
+=\int_{-\infty}^xe_m(z)e_n(z)\,dz
+\tag{3.64}
+$$
+を定義すれば、係数方程式は
+$$
+(I+C)\boldsymbol\psi=\boldsymbol e,
+\qquad
+\boldsymbol\psi=(\psi_1,\ldots,\psi_N)^{\mathsf T},\quad
+\boldsymbol e=(e_1,\ldots,e_N)^{\mathsf T}.
+\tag{3.65}
+$$
+任意の $v\in\mathbb R^N$ に対して
+$$
+v^{\mathsf T}Cv=\int_{-\infty}^x\left(\sum_{n=1}^Nv_ne_n(z)\right)^2dz\ge0,
+$$
+$\kappa_n$ は相異なるので指数関数 $e^{\kappa_n z}$ は線形独立であり、$v\ne0$ ならこの積分は正になる。したがって $C$ は正定値であり、$I+C$ も正定値だから、(3.65) は一意な解をもつ。
 
+この解は $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ である。$\tau=\det(I+C)$ と置くと、$C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と行列式の微分公式から
+$$
+\frac{d}{dx}\log\tau
+=\operatorname{tr}\!\left((I+C)^{-1}C'\right)
+=\boldsymbol e^{\mathsf T}\boldsymbol\psi.
+\tag{3.66}
+$$
+従って核の対角値は
+$$
+K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi
+=-\frac{d}{dx}\log\tau.
+\tag{3.67}
+$$
+左変換核の対角復元公式 $u=2\,dK(x,x)/dx$ を使えば、
+$$
+u(x,t)=-2\frac{\partial^2}{\partial x^2}\log\det(I+C(x,t))
+\tag{3.68}
+$$
+を得る。ここで $e_n(x,t)=c_n(t)e^{\kappa_nx}$ であり、時間依存性はすべて第2節で求めた $c_n(t)$ に含まれている。
+
+### 3.5. $\psi_n(x)$が固有関数であることの証明
+
+(3.65) で得た係数 $\psi_n$ が固有値 $-\kappa_n^2$ の固有関数であることを確認する。$E=\operatorname{diag}(\kappa_1,\ldots,\kappa_N)$ と置く。(3.64) の定義から
+$$
+\boldsymbol e'=E\boldsymbol e,\qquad
+C'=\boldsymbol e\boldsymbol e^{\mathsf T},\qquad
+EC+CE=\boldsymbol e\boldsymbol e^{\mathsf T}.
+\tag{3.69}
+$$
+最後の等式は成分ごとに $(\kappa_m+\kappa_n)C_{mn}=e_me_n$ と書いたものだ。さらに (3.62) の対角微分から
+$$
+u=2\frac{d}{dx}K(x,x)
+=-2\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi).
+\tag{3.70}
+$$
+$L=-\partial_x^2+u$ を (3.65) の各成分に作用させる。積の微分則で $C_{mn}\psi_n$ を微分し、上の関係を用いると
 $$
 \begin{aligned}
-F(x) = ∑_{n=1}^N c_n(t)^2 e^{-κ_n x}
-\end{aligned}\tag{3.60}
-$$
-
- となる。ただし(2.22)から$c_n(t) = e^{4κ_n^3 t}c_n(0)$である。GLM方程式は、
-
-$$
-\begin{aligned}
-K(x, y) + ∑_n c_n^2 e^{-κ_n(x+y)} + ∑_n c_n^2 e^{-κ_n y}∫_{x}^∞ \,\mathrm{d}z K(x,z) e^{-κ_n z} = 0.
-\end{aligned}\tag{3.61}
-$$
-
- ここで、$K(x,y)$の$y$依存性が$e^{-κ_n y}$の形で入っていることに注目して、
-
-$$
-\begin{aligned}
-K(x, y) = -∑_n c_n ψ_n(x)e^{-κ_n y}
-\end{aligned}\tag{3.62}
-$$
-
- とおく。$ψ_n(x)$は展開係数であるが、あとで規格化されたエネルギー固有関数であることが分かる。 (3.61)に(3.62)を代入し、$c_ne^{-κ_n y}$についての係数を取り出すと、
-
-$$
-\begin{aligned}
-ψ_m(x)
-    &
-    = c_m e^{-κ_m x} - ∑_n ψ_n(x) c_m c_n∫_{x}^{∞}e^{-(κ_m + κ_n)z}\,\mathrm{d}z
-\end{aligned}\tag{3.63}
-$$
-
-$$
-\begin{aligned}
-&
-    = c_me^{-κ_m x} - ∑_n ψ_n(x) c_m c_n \frac{e^{-(κ_m + κ_n)x}}{κ_n + κ_m}.
-\end{aligned}\tag{3.64}
-$$
-
- となる。 したがって、
-
-$$
-\begin{aligned}
-I_{mn} = δ_{mn},
-    \quad
-    C_{mn} = c_n c_m \frac{e^{-(κ_n + κ_m)x}}{κ_n + κ_m},
-    \quad
-    e_m =c_m e^{-κ_m x}
-\end{aligned}\tag{3.65}
-$$
-
- とおけば、
-
-$$
-\begin{aligned}
-(I + C)𝝍 = 𝒆
-\end{aligned}\tag{3.66}
-$$
-
- と書ける。
-
-$$
-\begin{aligned}
-I + C = I + ∫_x^∞ 𝒆(y)𝒆^{\mathrm{T}}(y) \,\mathrm{d}y
-\end{aligned}\tag{3.67}
-$$
-
- より$I+C$は正定値なので、(3.66)は一意な解をもつ。 $I+C$の行列式を$τ$と書けば、
-
-$$
-\begin{aligned}
-τ ≔ \det(I + C)
-    = ∑_m \left(
-        δ_{mn} + c_m c_n
-                \frac{e^{-(κ_m + κ_n)x}}{κ_m + κ_n}
-    \right)R_{mn}
-\end{aligned}\tag{3.68}
-$$
-
- である。ただし$R_{mn}$は$I+C$の余因子行列の$mn$成分である。Cramerの公式から、
-
-$$
-\begin{aligned}
-ψ_n(x)
-    = ∑_m ((I+C)^{-1})_{nm}e_m
-    = τ^{-1}∑_m R_{mn} c_m e^{-κ_m x}
-\end{aligned}\tag{3.69}
-$$
-
- が成り立つ。 また$\frac{\mathrm{d} τ}{\mathrm{d} x}$は、
-
-$$
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d} x}τ &= -∑_n ∑_m c_m c_n e^{-(κ_m + κ_n)x} R_{mn}
-\end{aligned}\tag{3.70}
-$$
-
- である。 ここから$K(x, x)$は、
-
-$$
-\begin{aligned}
-K(x, x) &
-    = - ∑_n c_n ψ_n(x)e^{-κ_n x}
+\sum_n(\delta_{mn}+C_{mn})L\psi_n
+&=-\kappa_m^2e_m+\kappa_me_m\sum_n e_n\psi_n
+  -e_m\sum_n\kappa_ne_n\psi_n\\
+&=-\kappa_m^2e_m+\sum_n(\kappa_m-\kappa_n)e_me_n\psi_n.
 \end{aligned}
+\tag{3.71}
+$$
+一方 $e_m=\sum_n(\delta_{mn}+C_{mn})\psi_n$ であり、
+$(\kappa_m^2-\kappa_n^2)C_{mn}=(\kappa_m-\kappa_n)e_me_n$ だから、右辺は
+$$
+-\sum_n(\delta_{mn}+C_{mn})\kappa_n^2\psi_n
+$$
+に等しい。(3.65) の $I+C$ は可逆なので
+$$
+(-\partial_x^2+u)\psi_n=-\kappa_n^2\psi_n.
+\tag{3.72}
 $$
 
-$$
-\begin{aligned}
-&
-    = -τ^{-1}∑_n ∑_m c_n c_m e^{-(κ_n + κ_m)x}R_{mn}
-\end{aligned}
-$$
+### 3.6. 固有関数の規格化とポテンシャル表示
 
+続いて、係数 $\psi_n$ が $L^2$ 規格化されていることと、ポテンシャルをそれらで表せることを示す。まず逆行列の微分公式を (3.69) に適用すると
 $$
-\begin{aligned}
-&
-    = τ^{-1}\frac{\mathrm{d} τ}{\mathrm{d} x} = \frac{\mathrm{d}}{\mathrm{d} x}\log τ
-\end{aligned}\tag{3.71}
+\frac{d}{dx}(I+C)^{-1}
+=-(I+C)^{-1}\boldsymbol e\boldsymbol e^{\mathsf T}(I+C)^{-1}
+=-\boldsymbol\psi\boldsymbol\psi^{\mathsf T}.
+\tag{3.73}
 $$
+$x\to-\infty$ では $C\to0$ なので $(I+C)^{-1}\to I$。また
+$C_{mn}(x)=e^{\kappa_mx}C_{mn}(0)e^{\kappa_nx}$ なので、逆行列は成分ごとに
+$$
+[C(x)^{-1}]_{mn}=e^{-\kappa_mx}[C(0)^{-1}]_{mn}e^{-\kappa_nx}\longrightarrow0
+\qquad(x\to+\infty).
+$$
+$C(0)$ の可逆性は上で示した正定値性による。従って
+$(I+C)^{-1}=C^{-1}(I+C^{-1})^{-1}\to0$ となる。(3.73) を両端の間で積分すれば
+$$
+\int_{-\infty}^{\infty}\psi_m(x)\psi_n(x)\,dx=\delta_{mn}.
+\tag{3.74}
+$$
+従って (3.72) の実固有関数は互いに直交し、それぞれノルム1である。
 
- と求まる。(3)より、$N$-ソリトン解
-
+ポテンシャル表示のため $q=\boldsymbol e^{\mathsf T}\boldsymbol\psi$ と置く。(3.65) から $\boldsymbol e=(I+C)\boldsymbol\psi$ なので、(3.69) を使って
 $$
-\begin{aligned}
-u(x, t) = -2\frac{\partial^2}{\partial x^{2}}\log \det\left(I + C\right)
-\end{aligned}\tag{3.72}
+\boldsymbol e^{\mathsf T}E\boldsymbol\psi
+=\boldsymbol\psi^{\mathsf T}(I+C)E\boldsymbol\psi
+=\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi+
+  \boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi.
 $$
-
- が得られる。
-
-### 3.5. $ψ_n(x)$が固有関数であることの証明
-
-(3.66)の両辺に$L = -∂^2 + u$を掛けると、
-
+ここで $EC+CE=\boldsymbol e\boldsymbol e^{\mathsf T}$ と $C\boldsymbol\psi=\boldsymbol e-\boldsymbol\psi$ より
 $$
-\begin{aligned}
-&
-    Lψ_m + ∑_n C_{mn}Lψ_n
-\end{aligned}\tag{3.73}
+\boldsymbol\psi^{\mathsf T}CE\boldsymbol\psi
+=q^2-\boldsymbol\psi^{\mathsf T}EC\boldsymbol\psi
+=q^2-\boldsymbol e^{\mathsf T}E\boldsymbol\psi+
+  \boldsymbol\psi^{\mathsf T}E\boldsymbol\psi.
 $$
-
+従って $\boldsymbol e^{\mathsf T}E\boldsymbol\psi
+=\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi+q^2/2$。
+一方、$q'=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi-q^2$ は $C'=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分から従うため、
 $$
-\begin{aligned}
-&\quad\quad
-        + 2 ∑_n e_m e_n ψ_n' - ∑_n (κ_m + κ_n) e_m e_n ψ_n
-\end{aligned}\tag{3.74}
+q'=2\boldsymbol e^{\mathsf T}E\boldsymbol\psi-q^2
+=2\boldsymbol\psi^{\mathsf T}E\boldsymbol\psi
+=2\sum_{n=1}^N\kappa_n\psi_n^2.
+\tag{3.75}
 $$
-
+(3.70) で $u=-2q'$ としたので、求める表示は
 $$
-\begin{aligned}
-&
-    = -κ_m^2 e_m + u e_m.
-\end{aligned}\tag{3.75}
+u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2.
+\tag{3.76}
 $$
-
- ただし、$C_{mn}' = -(κ_m+κ_n)C_{mn} = -e_m e_n$となることを用いた。 ここで、
-
-$$
-\begin{aligned}
-u(x) = -2\frac{\mathrm{d}}{\mathrm{d} x}K(x,x) = 2∑_n e_n ψ_n' - 2∑_n κ_n e_n ψ_n
-\end{aligned}\tag{3.76}
-$$
-
- より、
-
-$$
-\begin{aligned}
-&
-    ∑_n (δ_{mn} + C_{mn})Lψ_n
-\end{aligned}\tag{3.77}
-$$
-
-$$
-\begin{aligned}
-&
-    = -κ_m^2 e_m + ∑_n (κ_m - κ_n)e_me_nψ_n(x)
-\end{aligned}\tag{3.78}
-$$
-
-$$
-\begin{aligned}
-&
-    =∑_n\Bigl\{ - κ_m^2(δ_{mn} + C_{mn}) ψ_n
-    + (κ_m^2 - κ_n^2)C_{mn}ψ_n(x)\Bigr\}
-\end{aligned}\tag{3.79}
-$$
-
-$$
-\begin{aligned}
-&
-    = -∑_n(δ_{mn} + C_{mn})κ_n^2ψ_n(x).
-\end{aligned}\tag{3.80}
-$$
-
- したがって両辺に$I+C$の逆行列を掛けることで、
-
-$$
-\begin{aligned}
-Lψ_n(x) = -κ_n^2 ψ_n(x)
-\end{aligned}\tag{3.81}
-$$
-
- を得る。
-
-### 3.6. $u(x)$の$ψ_n(x)$による表示
-
-$u(x)$は固有状態$ψ_n(x)$によって
-
-$$
-\begin{aligned}
-u(x) = -4 ∑_n κ_n ψ_n^2
-\end{aligned}\tag{3.82}
-$$
-
- と表示できる。これを示そう。 まず $κ = \operatorname{diag}(κ_1,…,κ_N)$ とおく。
-
-$$
-\begin{aligned}
-𝒆' = -κ 𝒆,
-    \quad
-    C' = - κ C - C κ
-\end{aligned}\tag{3.83}
-$$
-
- が成り立つ。(3.64)の両辺に左から$2 𝝍^{\mathrm{T}}κ$を掛けると、
-
-$$
-\begin{aligned}
-4 𝝍^{\mathrm{T}}κ 𝝍 &
-    = 4 𝝍^{\mathrm{T}}κ𝒆 - 2𝝍^{\mathrm{T}}κ C 𝝍 - 2 𝝍^{\mathrm{T}}C κ 𝝍
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-&
-    =  -4 𝝍^{\mathrm{T}}𝒆' + 2𝝍^{\mathrm{T}}C' 𝝍.
-\end{aligned}
-$$
-
- (3.64)の両辺に$-2 𝝍'^{\mathrm{T}}$を掛けると、
-
-$$
-\begin{aligned}
--2𝝍'^{\mathrm{T}}𝝍 = -2𝝍'^{\mathrm{T}}𝒆 + 2𝝍'^{\mathrm{T}}C 𝝍.
-\end{aligned}\tag{3.84}
-$$
-
- また(3.64)を微分して$𝝍^{\mathrm{T}}$を掛けると、
-
-$$
-\begin{aligned}
-2𝝍^{\mathrm{T}}𝝍' = 2 𝝍^{\mathrm{T}}𝒆' - 2𝝍^{\mathrm{T}}C 𝝍' - 2𝝍^{\mathrm{T}}C'𝝍.
-\end{aligned}\tag{3.85}
-$$
-
- 以上を足し合わせることで、
-
-$$
-\begin{aligned}
-4 ∑_m κ_m ψ_m^2 = -2(𝝍^{\mathrm{T}}𝒆)' = -u(x)
-\end{aligned}\tag{3.86}
-$$
-
- を得る。
 
 ## 4. おまけ: 無限個の保存量の存在
 

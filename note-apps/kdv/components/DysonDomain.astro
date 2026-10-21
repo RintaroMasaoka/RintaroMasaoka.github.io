@@ -1,0 +1,49 @@
+---
+import { createRequire } from 'node:module';
+const req = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(req.resolve('rehype-katex'))('katex');
+const tex = (s: string) => katex.renderToString(s, { throwOnError: true });
+const labels = [{x:218,y:92,w:22,t:'z'},{x:114,y:0,w:22,t:'v'},{x:156,y:109,w:24,t:'x'}];
+---
+<figure class="kdv-dyson-domain" data-dyson-domain aria-labelledby="dyson-domain-caption">
+  <label class="domain-control" for="dyson-gap">対角からの距離 <span set:html={tex('x-s')} /><output data-dyson-gap-output>1.00</output>
+    <input id="dyson-gap" data-dyson-gap type="range" min="0" max="2" step="0.02" value="1" />
+  </label>
+  <svg width="240" height="260" viewBox="0 0 240 260" role="img" aria-labelledby="dyson-domain-title dyson-domain-desc">
+    <title id="dyson-domain-title">Integration domain in the z–v plane</title>
+    <desc id="dyson-domain-desc">The shaded intersection lies below v equals z, above v equals z minus x plus s, and below v equals x plus s minus z. It continues to minus infinity. As s approaches x, the domain collapses to the line v equals z.</desc>
+    <defs><clipPath id="dyson-domain-clip"><rect x="24" y="32" width="180" height="216" /></clipPath></defs>
+    <g clip-path="url(#dyson-domain-clip)">
+      <path data-dyson-fill d="M24 212 L150 86 L168 104 L24 248 Z" fill="var(--accent)" opacity=".18" />
+      <path d="M24 212 L204 32" fill="none" stroke="var(--ink)" stroke-width="1.6" />
+      <path data-dyson-lower d="M24 248 L204 68" fill="none" stroke="var(--blue)" stroke-width="1.6" stroke-dasharray="7 4" />
+      <path data-dyson-upper d="M24 -40 L204 140" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="2 4" />
+      <path d="M168 32 V248" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 6" />
+      <path data-dyson-edge d="M24 212 L150 86 L168 104 L24 248" fill="none" stroke="var(--accent)" stroke-width="2.2" />
+    </g>
+    <path d="M24 104 H221 l-5 -3 m5 3 l-5 3 M132 248 V26 l-3 5 m3 -5 l3 5" stroke="var(--muted)" fill="none" stroke-width="1" />
+    <path data-dyson-continuation d="M60 194 l-10 10 m0 -6 v6 h6" stroke="var(--accent)" fill="none" stroke-width="1.5" />
+    {labels.map(l=><foreignObject x={l.x} y={l.y} width={l.w} height="28"><div class="domain-tex" set:html={tex(l.t)} /></foreignObject>)}
+  </svg>
+  <ul class="domain-legend">
+    <li><span class="sample original"></span><span set:html={tex('v\\le z')} /></li>
+    <li><span class="sample lower"></span><span set:html={tex('v\\ge z-(x-s)')} /></li>
+    <li><span class="sample upper"></span><span set:html={tex('v\\le x+s-z')} /></li>
+  </ul>
+  <p class="domain-status" data-dyson-status aria-live="polite">色の付いた領域の内部を積分する。</p>
+  <figcaption id="dyson-domain-caption">横軸は作用位置 <span set:html={tex('z')} />、縦軸は前の補正の平面波成分を表す <span set:html={tex('v')} />。三つの不等式を満たす領域を塗っている。左下の矢印は領域が無限遠まで続くことを示す。<span set:html={tex('s=x')} /> では領域が <span set:html={tex('v=z')} /> の線に潰れ、二重積分の寄与が消える。</figcaption>
+</figure>
+<style>
+.kdv-dyson-domain{margin:2rem 0;padding:1rem .5rem;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.domain-control{display:grid;grid-template-columns:1fr auto auto;gap:.5rem;align-items:center;font-size:.88rem;padding:0 .3rem;max-width:420px;margin:0 auto}
+.domain-control input{grid-column:1/-1;width:100%;min-height:36px;accent-color:var(--accent)}
+.domain-control output{font-variant-numeric:tabular-nums;color:var(--ink)}
+.kdv-dyson-domain > svg{display:block;width:240px!important;max-width:none!important;height:260px;margin:.7rem auto}
+.domain-tex{font-size:16px;line-height:1.5;text-align:center;color:var(--ink);white-space:nowrap}
+.domain-legend{list-style:none!important;padding:0!important;margin:.5rem auto!important;max-width:260px;font-size:15px}
+.domain-legend li{display:flex;align-items:center;gap:12px;margin:.4rem 0!important;white-space:nowrap}
+.sample{display:inline-block;width:26px;flex:0 0 26px;border-top:2px solid var(--ink)}
+.sample.lower{border-color:var(--blue);border-top-style:dashed}.sample.upper{border-color:var(--accent);border-top-style:dotted}
+.domain-status{font-size:.85rem;line-height:1.7;margin:.8rem .3rem;color:var(--ink)}
+.kdv-dyson-domain figcaption{font-size:.88rem;line-height:1.8;margin:.8rem .3rem 0;color:var(--muted)}
+</style>

@@ -330,7 +330,7 @@ def replace_figures(tex: str) -> tuple[str, dict[str, str]]:
 def convert_fragment(tex: str, labels: dict[str, str], figure_map: dict[str, str], fragment_id: int) -> str:
     # References to omitted original §3.1–3.3 formulas map to the corresponding live GLM equation.
     labels = dict(labels)
-    labels["u-K relation"] = "3"
+    labels["u-K relation"] = "4"
     tex = re.sub(r"\\ref\{([^}]+)\}", lambda m: labels.get(m.group(1), "[UNMAPPED:" + m.group(1) + "]"), tex)
     tex = re.sub(r"\\cite\{Nakamura\}", "CITATION_NAKAMURA", tex)
     tex = re.sub(r"\\label\{[^}]+\}", "", tex)
@@ -396,6 +396,15 @@ def convert_fragment(tex: str, labels: dict[str, str], figure_map: dict[str, str
     return md
 
 
+def revised_sections(text: str) -> str:
+    """Use the authored left-convention sections as the canonical source."""
+    for name, start, end in [("scattering", "### 2.4.", "## 3."), ("reflectionless", "### 3.4.", "## 4.")]:
+        section = (OUTPUT.parent / "sections" / (name + ".md")).read_text(encoding="utf-8")
+        a, b = text.index(start), text.index(end)
+        text = text[:a] + section.rstrip() + "\n\n" + text[b:]
+    return text
+
+
 def main() -> None:
     source = SOURCE.read_text(encoding="utf-8")
     section_matches = list(re.finditer(r"\\section\s*\{\s*(.*?)\s*\}", source, re.S))
@@ -449,9 +458,6 @@ def main() -> None:
     chunks.append("## 4. おまけ: 無限個の保存量の存在\n\n" + "\n\n".join(f"### 4.{i}. {title}\n\n{body}" for i, ((title, _), body) in enumerate(zip(appendix_parts, appendix_md), 1)))
     chunks.append("## 参考文献\n\n[1] 中村佳正, 高崎金久, & 辻本諭. (2018). 可積分系の数理 (解析学百科 2). 朝倉書店.\n\n[2] 及川正行. (2013). 第 5 章 逆散乱法. ながれ: 日本流体力学会誌, 32(1), 39-53.\n\n[3] Miura, R. M., Gardner, C. S., & Kruskal, M. D. (1968). Korteweg-de vries equation and generalizations. II. Existence of conservation laws and constants of motion. Journal of Mathematical physics, 9(8), 1204-1209.")
     result = "\n\n".join(chunks)
-    result = result.replace("すなわち$c_n(t) = e^{4κ_n^3t}$である。", "すなわち$c_n(t) = e^{4κ_n^3t}c_n(0)$である。")
-    result = result.replace("u(x) = 4 ∑_n κ_n ψ_n^2", "u(x) = -4 ∑_n κ_n ψ_n^2")
-    result = result.replace(r"4 ∑_m κ_m ψ_m^2 = -2(𝝍^{\mathrm{T}}𝒆)' = u(x)", r"4 ∑_m κ_m ψ_m^2 = -2(𝝍^{\mathrm{T}}𝒆)' = -u(x)")
     result = re.sub(r"[ \t]+$", "", result, flags=re.M)
     for title, slot in [('### 2.2. Lax表示', 'traveling')]:
         if title not in result:
@@ -459,6 +465,8 @@ def main() -> None:
         result = result.replace(title, f'<div data-extra-visual="{slot}"></div>\n\n{title}', 1)
     result = re.sub(r'!\[2つのソリトンの衝突\]\([^\n]+\)\n\n2つのソリトンの衝突', '<div data-extra-visual="collision"></div>', result, count=1)
     result = re.sub(r'\| !\[KdV simulation frame 1\][\s\S]*?(?=またKdV方程式は)', '<div data-extra-visual="breakup"></div>\n\n', result, count=1)
+    result = revised_sections(result)
+    result = result.replace("[B(t), U(t)L(t)U(t)^{-1}]", "[B(t), U(t)L(0)U(t)^{-1}]")
     OUTPUT.write_text(result.rstrip() + "\n", encoding="utf-8")
 
 

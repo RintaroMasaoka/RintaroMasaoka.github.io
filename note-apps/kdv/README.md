@@ -1,6 +1,6 @@
 # KdV study note website adapter
 
-Editable bodies: `content/full.md` (original chapters) and `content/glm.md` (revised GLM derivation); sole chapter metadata: `note.config.json`. Dedicated Astro page: `src/pages/notes/kdv.astro`; import/render through Astro Markdown, remark-math and rehype-katex in the root locked dependency graph. Build with the root site command. Native details/summary are auxiliary dropdowns; displayed equations have click/tap/hover previews. Sidebar, mobile contents, local theme, progress, and keyboard-friendly analytic reconstruction figure are scoped to this note.
+Editable bodies: `content/full.md` (original chapters; revised section sources below) and `content/glm.md` (revised GLM derivation); sole chapter metadata: `note.config.json`. Dedicated Astro page: `src/pages/notes/kdv.astro`; import/render through Astro Markdown, remark-math and rehype-katex in the root locked dependency graph. Build with the root site command. Native details/summary are auxiliary dropdowns; displayed equations have click/tap/hover previews. Sidebar, mobile contents, local theme, progress, and keyboard-friendly analytic reconstruction figure are scoped to this note.
 
 The composite chapter `full` maps to `/notes/kdv/`. `content/full.md` supplies the original chapters and a GLM chapter slot; `KdvBody.astro` inserts `content/glm.md` at that slot without duplicating its text.
 
@@ -14,7 +14,7 @@ To refresh local mathematical assets after a lockfile update, run `node note-app
 
 ## Full-note composition
 
-The `/notes/kdv/` route contains the complete note. `content/full.md` preserves the original introduction, soliton/Lax/scattering-data sections, reflectionless many-state reconstruction and conservation-law appendix. Its GLM slot is filled from `content/glm.md`, which remains the independently editable revised derivation. `KdvBody.astro` composes these sources and the two existing explanatory figures. The original chapter order is retained; original section-numbered equations and the revised GLM equations use distinct number forms. Restoring the original text is a format migration and does not confer a new scientific or linguistic acceptance certificate on it.
+The `/notes/kdv/` route contains the complete note. `content/full.md` contains the introduction, soliton/Lax sections and conservation-law appendix, together with the rewritten left-incidence scattering-data and reflectionless reconstruction sections. Its GLM slot is filled from `content/glm.md`, which remains the independently editable revised derivation. `KdvBody.astro` composes these sources and the embedded explanatory figures. The original chapter order is retained; original section-numbered equations and the revised GLM equations use distinct number forms. Restoring the original text is a format migration and does not confer a new scientific or linguistic acceptance certificate on it.
 
 ## Explanatory visuals outside GLM
 
@@ -35,3 +35,9 @@ Reproduce scientific checks with `node note-apps/kdv/scripts/check-numerics.mjs`
 `FigureViewport.astro` gives each scientific figure a fixed reading canvas (480px, or420px for the360-unit figures). Only that region scrolls horizontally; the note, captions and input controls remain within the reading column. Labels keep their desktop font sizes instead of changing at a phone breakpoint. A ResizeObserver shows the scroll hint only when the canvas exceeds the region. Native touch panning and keyboard arrow scrolling work without a custom drag handler.
 
 Simulation controls use two equal button columns and a separate speed row at every width. Their14px type and44px minimum control height are constant. Plot legends use a consistent two-row layout. Preserve this separation when adding figures: shared width rules must not rescale scientific canvases or KaTeX's internal SVG glyphs.
+
+## Left-convention reconstruction
+
+`content/glm.md` is the authored ordered-evolution and left GLM derivation. The canonical replacements for §§2.4–2.5 and §§3.4–3.6 are `content/sections/scattering.md` and `content/sections/reflectionless.md`; `content/full.md` contains their assembled copies. Edit these section sources and refresh their corresponding ranges in `full.md` together. `scripts/restore_original_source.py` imports the archived TeX for remaining chapters and always inserts these revised sections. All scattering coefficients and norming constants use the left convention throughout.
+
+`DysonDomain.astro` and `visuals/dyson-domain.js` display the recursion domain at fixed x, with an x−s slider. The 240px plot canvas keeps its scale and label size in portrait layouts; the domain extends to negative infinity and collapses to the diagonal at s=x.

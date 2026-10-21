@@ -8,7 +8,7 @@ const px = (x:number) => 53+(x+7)*280/14;
 const py = (y:number) => 76+(0-y)*23;
 const curve = (kind:string) => Array.from({length:281},(_,i)=>{
  const x=-7+i*.05;
- const y=kind==='u' ? -2/Math.cosh(x)**2 : -(1-Math.tanh(x));
+ const y=kind==='u' ? -2/Math.cosh(x)**2 : -(1+Math.tanh(x));
  return `${i?'L':'M'}${px(x).toFixed(3)},${py(y).toFixed(3)}`;
 }).join(' ');
 const labels = (kind:string) => [
@@ -36,7 +36,7 @@ const labels = (kind:string) => [
     {labels(kind).map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={tex(l.t)}/></foreignObject>)}
   </svg>)}
   </div></FigureViewport>
-  <div class="kdv-relation">{['u(x)=-2\\dfrac{d}{dx}K(x,x)', 'c^2=2\\kappa e^{2\\kappa x_0}', 't=0'].map(t => <span set:html={tex(t)} />)}</div>
+  <div class="kdv-relation">{['u(x)=2\\dfrac{d}{dx}K(x,x)', 'c^2=2\\kappa e^{-2\\kappa x_0}', 't=0'].map(t => <span set:html={tex(t)} />)}</div>
   <figcaption id="kdv-reconstruction-caption">上段はポテンシャル、下段は変換核の対角値。破線は中心位置を示す。いずれも固定した時刻の再構成である。</figcaption>
 </figure>
 <style>

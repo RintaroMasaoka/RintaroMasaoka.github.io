@@ -11,13 +11,13 @@ const labels = [
   {x:184,y:132,w:58,t:'i\\kappa_1'},
   {x:184,y:95,w:58,t:'i\\kappa_2'},
   {x:17,y:92,w:58,t:'\\Gamma_R'},
-  {x:247,y:38,w:85,t:'y>x'},
+  {x:247,y:38,w:85,t:'y<x'},
 ];
 ---
 <figure class="kdv-contour" aria-labelledby="kdv-contour-caption">
   <FigureViewport width={420}><svg viewBox="0 0 360 229" role="img" aria-labelledby="kdv-contour-title kdv-contour-desc">
     <title id="kdv-contour-title">Upper half-plane contour</title>
-    <desc id="kdv-contour-desc">The real segment runs from minus R to R; the upper arc returns from R to minus R counterclockwise. Two schematic bound-state poles lie on the positive imaginary axis. The exponential decays above the real line when y is greater than x.</desc>
+    <desc id="kdv-contour-desc">The real segment runs from minus R to R; the upper arc returns from R to minus R counterclockwise. Two schematic bound-state poles lie on the positive imaginary axis. The exponential decays above the real line when y is less than x.</desc>
     <defs><marker id="kdv-contour-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--accent)" /></marker><marker id="kdv-axis-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--muted)" /></marker></defs>
     <path d="M50 184 A126 126 0 0 1 302 184 L50 184" fill="var(--accent)" opacity=".055" />
     {['M15 184 H346','M176 204 V32'].map(d=><path d={d} fill="none" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#kdv-axis-arrow)" />)}
@@ -26,7 +26,7 @@ const labels = [
     <g fill="var(--ink)" stroke="var(--paper)" stroke-width="2"><circle cx="176" cy="148" r="4"/><circle cx="176" cy="111" r="4"/></g>
     {labels.map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={katex.renderToString(l.t,{throwOnError:true})}/></foreignObject>)}
   </svg></FigureViewport>
-  <div class="kdv-contour-decay" set:html={katex.renderToString('|e^{ik(y-x)}|=e^{-\\operatorname{Im}k(y-x)}',{throwOnError:true})} />
+  <div class="kdv-contour-decay" set:html={katex.renderToString('|e^{ik(x-y)}|=e^{-\\operatorname{Im}k(x-y)}',{throwOnError:true})} />
   <figcaption id="kdv-contour-caption">実軸を左から右へ進み、上半円で戻る積分路。矢印は積分の向き、黒点は束縛状態の極を示す。極の配置は模式的である。</figcaption>
 </figure>
 <style>

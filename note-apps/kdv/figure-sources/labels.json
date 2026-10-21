@@ -3,7 +3,8 @@
   "font_family": "KaTeX_Main and KaTeX_Math",
   "geometry_sources": [
     "../components/ContourFigure.astro",
-    "../components/ReconstructionFigure.astro"
+    "../components/ReconstructionFigure.astro",
+    "../components/DysonDomain.astro"
   ],
   "generation": "npm run build",
   "contour": {
@@ -15,8 +16,8 @@
     "first_schematic_pole": "i\\kappa_1",
     "second_schematic_pole": "i\\kappa_2",
     "upper_arc": "\\Gamma_R",
-    "condition": "y>x",
-    "exponential_magnitude": "|e^{ik(y-x)}|=e^{-\\operatorname{Im}k(y-x)}"
+    "condition": "y<x",
+    "exponential_magnitude": "|e^{ik(x-y)}|=e^{-\\operatorname{Im}k(x-y)}"
   },
   "reconstruction": {
     "potential": "u(x)",
@@ -32,6 +33,20 @@
       "-2",
       "-6"
     ],
-    "relation": "u(x)=-2\\dfrac{d}{dx}K(x,x),\\qquad c^2=2\\kappa e^{2\\kappa x_0},\\qquad t=0"
+    "relation": "u(x)=2\\dfrac{d}{dx}K(x,x),\\qquad c^2=2\\kappa e^{-2\\kappa x_0},\\qquad t=0"
+  },
+  "dyson_domain": {
+    "axes": [
+      "z",
+      "v"
+    ],
+    "fixed_endpoint": "x",
+    "control": "x-s",
+    "constraints": [
+      "v\\le z",
+      "v\\ge z-(x-s)",
+      "v\\le x+s-z"
+    ],
+    "diagonal": "s=x"
   }
 }

@@ -1,0 +1,139 @@
+{
+  "reader_contract": {
+    "version": 7,
+    "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
+    "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
+    "concept_available": [
+      {
+        "item": "微積分",
+        "scope": "指数関数の積分、微分、部分積分、通常の変数変換を使う。収束・交換の条件は本文で必要に応じ示す。",
+        "basis": "ユーザーの明示回答",
+        "recognizable_forms": [
+          "微分",
+          "積分",
+          "部分積分",
+          "指数関数"
+        ]
+      },
+      {
+        "item": "フーリエ変換",
+        "scope": "変換と反転の基本概念、指数関数の係数を取り出す操作。符号・正規化と今回の適用を本文で指定する。",
+        "basis": "ユーザーの明示回答",
+        "recognizable_forms": [
+          "フーリエ変換",
+          "フーリエ反転",
+          "e^{iky}"
+        ]
+      },
+      {
+        "item": "留数定理",
+        "scope": "極と留数、閉曲線積分を留数の和に変える基本定理。対象の正則性・極の同定・積分路の評価は本文で回復する。",
+        "basis": "ユーザーの明示回答",
+        "recognizable_forms": [
+          "留数定理",
+          "留数",
+          "極",
+          "閉曲線積分"
+        ]
+      },
+      {
+        "item": "Schrödinger方程式",
+        "scope": "方程式、波動関数、ポテンシャルの基本的な対象は既知として扱う。既知の概念が本文でまだ登場していないこと自体は飛躍としない。今回の演算子の符号・境界条件・散乱係数や逆散乱固有の関係は局所的に導入する。",
+        "basis": "2026-10-19 ユーザー追加明示: Schroedinger方程式は既知だよ。既知と未導入はちがう。",
+        "recognizable_forms": [
+          "Schrödinger方程式",
+          "波動関数",
+          "ポテンシャル",
+          "Lf=k²f"
+        ]
+      },
+      {
+        "item": "時間順序付き発展とDyson展開",
+        "scope": "量子系の順序付き発展を既知の足場に使う。位置順序付き2x2方程式への対応とKへの再整理は本文で導く。",
+        "basis": "2026-10-21 ユーザーがこの対応を理解として明示的に採用。"
+      }
+    ],
+    "detail_to_recover": [
+      {
+        "item": "実軸上の散乱関係からフーリエ反転へ進む計算",
+        "scope": "各項の変換、既知の自由平面波の分離、畳み込みと積分範囲。分布を使うこと自体は到達目標ではない。",
+        "basis": "今回の導出そのもの"
+      },
+      {
+        "item": "Jost解と変換核、対角復元式の関係",
+        "scope": "核が存在する表示の意味と使う機構、対角値からuを得る計算",
+        "basis": "逆散乱法固有の関係は説明が必要というユーザー指定"
+      },
+      {
+        "item": "上半平面の解析性・束縛状態の極・規格化と留数",
+        "scope": "どの関数をどう続け、どこに極があり、なぜその留数が必要な値か",
+        "basis": "同上"
+      },
+      {
+        "item": "GLMの組み立てと一束縛状態の計算",
+        "scope": "変換した三項を組み合わせ、既知Fを作り、Kとuを実際に求める",
+        "basis": "同上"
+      }
+    ],
+    "conventions_to_supply": [
+      "L=-∂x²+u; f±~exp(ikx) at ±infinity",
+      "left incidence b,c throughout the note",
+      "Fourier extraction exp(-iky)/(2pi); y<x",
+      "left K; u=+2 dK(x,x)/dx",
+      "lambda u expansion coefficients f_n,K_n, original lambda=1",
+      "same left kernels and normalization throughout scattering time evolution and multi-state reconstruction"
+    ],
+    "new_or_unconfirmed": [
+      "Jost解の規格化・Volterra核表示・逆散乱法で使う解析性、束縛状態と散乱係数の極・留数の関係を既知とは置かない。既知のSchrödinger方程式の概念と、このノート固有の未導入な対象・規約を区別する。",
+      "分布・L1記法はフーリエ変換の基本を知ることだけから全細部を既知としない。使用する恒等式と条件を局所的に回復する。",
+      "標準結果の証明の全細部を一律に要求しない。ただし今回の推論で使う内容、適用条件、数学的接続を、名や引用だけで代用しない。"
+    ],
+    "probes": [
+      {
+        "kind": "concept",
+        "target": "フーリエ反転の導入",
+        "expected": "基本定理を再教育せず、今回どの係数を取り出すかを式でつなぐ。",
+        "applicability": "applicable",
+        "basis": "明示された既知概念",
+        "observed": "not_assessed"
+      },
+      {
+        "kind": "detail",
+        "target": "留数公式と対角復元式",
+        "expected": "逆散乱固有の係数や機構を標準という名前だけで既知へ上げない。",
+        "applicability": "applicable",
+        "basis": "明示された要説明範囲",
+        "observed": "not_assessed"
+      },
+      {
+        "kind": "convention",
+        "target": "散乱係数と変換",
+        "expected": "入射/反射/透過と±k、符号、規格化を初使用前に供給。",
+        "applicability": "applicable",
+        "basis": "教材依存の規約",
+        "observed": "not_assessed"
+      },
+      {
+        "kind": "recognition",
+        "target": "既知の概念と今回の表記の対応",
+        "expected": "既知の内容は適切な記号指定だけでその場で正しく読める。推測・翻訳・離れた照合を必要とする場合は再構成可能性だけでPASSにしない。",
+        "applicability": "applicable",
+        "basis": "ユーザー明示のコストゼロ理解基準",
+        "observed": "not_assessed"
+      }
+    ],
+    "fit": "not_assessed",
+    "recognition_criterion": {
+      "scope": "既知の概念・関係を今回の表記で理解する場面。新しい導出そのものの計算量をゼロにする要求ではない。",
+      "rule": "読者の既知知識と適切な記号・規約指定から、既知の内容として即座に一意に読める場合は、本文で再説明されていなくても利用可能とする。",
+      "failure": "原理的に再構成できるだけでは足りない。省略された対応づけ、符号規約の推測、離れた定義の照合、意図の逆算などの復元作業を読者に課して理解を成立させてはならない。",
+      "evidence": "現在の表記と既知の形の直接の対応、局所的に読める規約、初読時に迷わず得られた意味を点検する。既知の語が未登場であることだけを欠落としない。",
+      "basis": "2026-10-19 ユーザー追加明示。"
+    },
+    "route_choice": {
+      "basis": "Authoring choice serving the same user objective and confirmed basic-Fourier baseline; no additional knowledge licensed or acceptance requirement relaxed.",
+      "scope": "Subtract the known free plane wave on both sides before Fourier inversion; explain its matching use in the contour integral. Distribution machinery is unnecessary for this route.",
+      "invariants": "All transform meanings, applicable inversion conditions, contour bounds, bound-state residues, and GLM assembly remain required."
+    }
+  }
+}
