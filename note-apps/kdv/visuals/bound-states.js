@@ -28,13 +28,15 @@ export function boundStateSample(x,t) {
   return {u:2*s*s-4*weighted, psi:h.map((v,i)=>v/r[i])};
 }
 const X=x=>40+(x-spatialDomain[0])/(spatialDomain[1]-spatialDomain[0])*420;
+// Common energy-axis display; wavefunction amplitude has a fixed visual factor 2.
+export const boundStateY=value=>12+(3-value)*14;
 export function boundStatePaths(t) {
   const series=[[],[],[],[]];
   for(let j=0;j<=780;j++) {
     const x=spatialDomain[0]+(spatialDomain[1]-spatialDomain[0])*j/780;
     const {u,psi}=boundStateSample(x,t);
-    series[0].push([X(x),19-u*2.8]);
-    psi.forEach((v,i)=>series[i+1].push([X(x),53-v*30]));
+    series[0].push([X(x),boundStateY(u)]);
+    psi.forEach((v,i)=>series[i+1].push([X(x),boundStateY(-(kappas[i]**2)+2*v)]));
   }
   return series.map(points=>points.map(([x,y],i)=>`${i?'L':'M'}${x.toFixed(3)},${y.toFixed(3)}`).join(' '));
 }

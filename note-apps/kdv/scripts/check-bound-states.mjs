@@ -23,7 +23,7 @@ for(const t of [0,.12,.45]) {
   const dt=1e-5, ut=(sample(x,t+dt).u-sample(x,t-dt).u)/(2*dt);
   kdv=Math.max(kdv,Math.abs(ut-6*v.u*ux+uxxx));
  }
- for(const d of boundStatePaths(t)){assert(!/NaN|Infinity/.test(d));const ys=[...d.matchAll(/[ML][\d.]+,(-?[\d.]+)/g)].map(m=>Number(m[1]));assert(ys.every(y=>y>=7&&y<=88),'plotted curve leaves its panel');}
+ for(const d of boundStatePaths(t)){assert(!/NaN|Infinity/.test(d));const ys=[...d.matchAll(/[ML][\d.]+,(-?[\d.]+)/g)].map(m=>Number(m[1]));assert(ys.every(y=>y>=7&&y<=345),'plotted curve leaves its panel');}
 }
 assert(initial<1e-8,`initial ${initial}`);
 assert(ode<.0005,`Schrodinger residual ${ode}`);
