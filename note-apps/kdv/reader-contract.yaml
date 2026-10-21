@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 9,
+    "version": 10,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -84,7 +84,7 @@
       "same left kernels and normalization throughout scattering time evolution and multi-state reconstruction",
       "v is physical soliton speed; c_n are normalized left-tail amplitudes; one-state uses c_1,kappa_1",
       "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
-      "display spatial state (f,f_x) and its matrices directly; U(t) reserved for norm-preserving Lax-time evolution",
+      "bold f=(f,f_x); F_0 is the free fundamental solution matrix; V is potential action; I subscript denotes interaction picture on state and action. Keep P-ordered interaction evolution visible and derive the sine integral by restoring free propagation; U(t) remains Lax-time evolution",
       "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction"
     ],
     "new_or_unconfirmed": [

@@ -9,26 +9,62 @@ $$
 
 ## 2. 位置順序付き発展から変換核を作る
 
-Schrödinger 方程式を $f_{xx}+k^2f=uf$ と書く。右辺を、自由方程式 $f_{xx}+k^2f=0$ の解に各位置で加わる寄与として扱おう。$f$ とその傾きを一緒に並べると
+Schrödinger 方程式を $f_{xx}+k^2f=uf$ と書く。自由方程式による変化を先に取り除けば、残る変化はポテンシャルの作用だけになる。量子力学の相互作用描像と同じ手順を、時間ではなく位置 $x$ に沿って行おう。
+
+まず値と傾きを並べた状態を $\boldsymbol f=(f,f_x)^{\mathsf T}$ と書く。ポテンシャルの作用を表す行列 $V(x)$ を分けると、
 $$
-\frac{d}{dx}\begin{pmatrix}f\\f_x\end{pmatrix}
-=\begin{pmatrix}0&1\\-k^2&0\end{pmatrix}\begin{pmatrix}f\\f_x\end{pmatrix}
-+\begin{pmatrix}0\\uf\end{pmatrix}.
+\frac{d\boldsymbol f}{dx}
+=\begin{pmatrix}0&1\\-k^2&0\end{pmatrix}\boldsymbol f+V(x)\boldsymbol f,
+\qquad V(x)=\begin{pmatrix}0&0\\u(x)&0\end{pmatrix}.
 \tag{2}
 $$
-自由方程式では、まず $k\ne0$ とすると、位置 $x'$ で与えた値と傾きが
+自由方程式の基本解行列を $F_0$ と書く。これは、距離 $x-x'$ の自由伝播を
 $$
-\begin{pmatrix}f(x)\\f_x(x)\end{pmatrix}
-=\begin{pmatrix}
+F_0(x-x')=
+\begin{pmatrix}
 \cos k(x-x')&\sin k(x-x')/k\\
 -k\sin k(x-x')&\cos k(x-x')
-\end{pmatrix}
-\begin{pmatrix}f(x')\\f_x(x')\end{pmatrix}
+\end{pmatrix},\qquad
+\boldsymbol f(x)=F_0(x-x')\boldsymbol f(x')\quad(u=0)
 \tag{3}
 $$
-に従って伝わる。特に、$x'$ で値を変えずに傾きを1だけ増やしたとき、位置 $x$ の値に加わるのは $\sin k(x-x')/k$ である。これは自由方程式の解で、$x=x'$ で値が0、傾きが1になることからも確認できる。$k=0$ ではこの応答は $x-x'$ となる。
+と表す行列である。まず実数 $k\ne0$ を考え、$k=0$ では $\sin(kd)/k$ を極限 $d$ で読む。自由伝播を続けて行うことから $F_0(a)F_0(b)=F_0(a+b)$、特に $F_0(-d)=F_0(d)^{-1}$ である。
 
-式 (2) のポテンシャル項は、微小区間 $dx'$ で傾きに $u(x')f(x')\,dx'$ を加える。それを式 (3) で位置 $x$ まで伝え、始点 $x_*<x$ からの寄与を足し合わせると
+有限な始点 $x_*$ を固定する。位置 $x$ の状態から、始点以来の自由伝播を逆にたどって取り除いたものが、相互作用描像の状態
+$$
+\boldsymbol f_I(x)=F_0(x_*-x)\boldsymbol f(x)
+$$
+である。$u=0$ ならこれは始点の状態のまま変わらない。微分して式 (2) を使うと、$F_0(x_*-x)$ の微分と自由方程式の項が打ち消し合い、
+$$
+\frac{d\boldsymbol f_I}{dx}=V_I(x)\boldsymbol f_I(x),\qquad
+V_I(x)=F_0(x_*-x)V(x)F_0(x-x_*)
+$$
+だけが残る。$V_I$ は、位置 $x$ まで自由伝播し、そこでポテンシャルを作用させ、自由伝播を取り除く操作である。したがって、各位置の作用をこの共通の表示で積み重ねればよい。
+
+$\mathcal P$ を、大きい位置の行列を左に置く位置順序とする。上の方程式を始点から解くと
+$$
+\boldsymbol f_I(x)=\mathcal P\exp\!\left[\int_{x_*}^xV_I(x')\,dx'\right]\boldsymbol f(x_*).
+$$
+これは量子力学の Dyson 展開と同じ順序付きの積分であり、最初の三項は
+$$
+\begin{aligned}
+\boldsymbol f_I(x)=\Bigg[I
+&+\int_{x_*}^x V_I(x')\,dx'\\
+&+\int_{x_*}^x\!dx'\int_{x_*}^{x'}\!dx''\,
+V_I(x')V_I(x'')+\cdots\Bigg]\boldsymbol f(x_*).
+\end{aligned}
+$$
+ここで $I$ は $2\times2$ の単位行列である。二次の項では $x''\le x'$ で、先に通る位置 $x''$ の行列が右に来る。高次でも、左から右へ進む間に出会うポテンシャルの作用を、その順序のまま重ねている。
+
+この順序付き発展を、積分核を取り出せる形に直そう。まず相互作用描像の微分方程式を一度積分し、左から $F_0(x-x_*)$ を掛けて元の状態へ戻すと
+$$
+\begin{aligned}
+\boldsymbol f(x)
+&=F_0(x-x_*)\boldsymbol f(x_*)\\
+&\quad+\int_{x_*}^x F_0(x-x')V(x')\boldsymbol f(x')\,dx'.
+\end{aligned}
+$$
+ここでは、作用位置 $x'$ までの状態はすでに $\boldsymbol f(x')$ に含まれ、そこに $V(x')$ が作用した後を $F_0(x-x')$ で自由に伝える。$V(x')\boldsymbol f(x')=(0,u(x')f(x'))^{\mathsf T}$ なので、第一成分を取ると
 $$
 \begin{aligned}
 f(x)={}&f(x_*)\cos k(x-x_*)
@@ -37,34 +73,14 @@ f(x)={}&f(x_*)\cos k(x-x_*)
 \end{aligned}
 \tag{4}
 $$
-左端で自由波に一致する解 $f_-$ では、$x_*\to-\infty$ で始点の値と傾きを $(e^{ikx_*},ik e^{ikx_*})$ に近づける。最初の二項が $e^{ikx}$ になるので
+正弦核は、ポテンシャルの作用を受けた状態を、自由伝播行列の第一成分へ移したときに現れた。
+
+左端で自由波に一致する解 $f_-$ を得るには、有限な $x_*$ で始点の状態を $(e^{ikx_*},ik e^{ikx_*})^{\mathsf T}$ としてから $x_*\to-\infty$ とする。式 (4) の最初の二項は $e^{ikx}$ となり、Schwartz 条件の下で左端までの積分が収束するので
 $$
 f_-(x,k)=e^{ikx}+\int_{-\infty}^x\frac{\sin k(x-x')}{k}u(x')f_-(x',k)\,dx'.
 \tag{5}
 $$
-これで、左端の境界条件を含む積分方程式が得られた。右辺の $f_-$ に同じ式を代入すれば、作用点は $x''\le x'\le x$ と並ぶ。たとえばポテンシャルが2回作用する寄与は
-$$
-\int_{-\infty}^x\!dx'\int_{-\infty}^{x'}\!dx''\,
-\frac{\sin k(x-x')}{k}u(x')
-\frac{\sin k(x'-x'')}{k}u(x'')e^{ikx''}.
-$$
-位置の小さい側から順にポテンシャルが作用し、その間を自由方程式に従って伝わる。量子力学の Dyson 展開で時刻を順序づけるのと同じく、ここでは作用位置を順序づけている。
-
-<details id="position-ordered-exponential">
-<summary>一階の系を位置順序付き指数で書く</summary>
-
-有限な始点 $x_*$ からの解は、式 (2) の二つの項をまとめた行列を使って
-$$
-\begin{pmatrix}f(x)\\f_x(x)\end{pmatrix}
-=\mathcal P\exp\!\left[
-\int_{x_*}^x
-\begin{pmatrix}0&1\\u(x')-k^2&0\end{pmatrix}dx'
-\right]
-\begin{pmatrix}f(x_*)\\f_x(x_*)\end{pmatrix}
-$$
-と書ける。$\mathcal P$ は大きい位置の行列を左に置く順序を表す。展開の $n$ 次の積分領域は $x_*<x_n<\cdots<x_1<x$ で、行列は位置 $x_1,\ldots,x_n$ の順に掛かる。式 (4) は、同じ解を自由伝播とポテンシャルの作用に分けて書いたものである。
-
-</details>
+この積分方程式は、相互作用描像で位置順に積み重ねたすべての作用を含む。次はそれらを、波数によらない一つの核にまとめる。
 
 目標は、$f_-$ を各波数に同じ重みを用いる変換
 $$
