@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 18,
+    "version": 19,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -97,7 +97,8 @@
       "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
       "bold f=(f,f_x); D_0=[[0,1],[-k^2,0]] represents x differentiation on free solutions; free propagation is exp(d D_0); V is potential action; I subscript denotes interaction picture on state and action. Keep P-ordered interaction evolution visible and derive the sine integral by restoring free propagation; U(t) remains Lax-time evolution",
       "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction",
-      "Green response is G=(k²−L)^−1, with derivative jump +1; W=det[(f_-(x,-k),f_+(x,k));(∂xf_-(x,-k),∂xf_+(x,k))], a=2ik/W. Point-source coordinate x′ is distinct from Fourier/kernel coordinate y. Figure energy E=k²<0, k=i√(-E); value-at-zero scaling of matching curves is distinct from unit-L² normalization of psi_n. The pole-removed response (E+1)G at E=-1 is displayed by its continuous limit, never as the undefined raw inverse."
+      "Green response is G=(k²−L)^−1, with derivative jump +1; W=det[(f_-(x,-k),f_+(x,k));(∂xf_-(x,-k),∂xf_+(x,k))], a=2ik/W. Point-source coordinate x′ is distinct from Fourier/kernel coordinate y. Figure energy E=k²<0, k=i√(-E); value-at-zero scaling of matching curves is distinct from unit-L² normalization of psi_n. The pole-removed response (E+1)G at E=-1 is displayed by its continuous limit, never as the undefined raw inverse.",
+      "Bound-state tails: c_n(t) is the normalized left-tail coefficient, tilde c_n(t) the right-tail coefficient; psi_n~c_n(t) exp(kappa_n x) at minus infinity and ~tilde c_n(t) exp(-kappa_n x) at plus infinity. Left coefficient evolves by exp(-4 kappa_n^3 t), right by exp(+4 kappa_n^3 t)."
     ],
     "new_or_unconfirmed": [
       "Jost解の規格化・Volterra核表示・逆散乱法で使う解析性、束縛状態と散乱係数の極・留数の関係を既知とは置かない。既知のSchrödinger方程式の概念と、このノート固有の未導入な対象・規約を区別する。",
@@ -156,7 +157,7 @@
       {
         "range": "§2.5 散乱データとソリトンの運動",
         "job": "散乱データの尾の速度、各時刻で共通のポテンシャルに属する固有状態、ポテンシャルの分裂を結び付ける。式と後の復元への案内だけではこの説明を満たさない。",
-        "support": "元の説明の運びを保持する。尾の平行移動形は各束縛状態の移動を示唆し、異なる速度で移動する全状態が同じuの瞬間的固有状態であり続けることから、局在を支えるuも複数の谷へ分裂するという感覚的理解を伝える。規格化だけを全体移動の証明にしない。追加の導出や後半の復元公式の先取りは行わない。具体的な時間発展を既存計算図で確かめる。",
+        "support": "2026-10-21 ユーザー採用稿。左右の尾をc_n(0), tilde c_n(0)で明示し、同じ速さで進む両尾と、その間にほぼ全ノルムがあることから主要部分の移動を感覚的に理解する。全状態が共通のuの瞬間的固有状態であり続けることから分裂へつなぐ。主語を一つのポテンシャルと明示する。追加の導出・後半の復元公式の先取り・全波形の剛体移動に関する不要な留保は課さない。",
         "verification": "大幅な改稿では、この説明の仕事が改稿後のどの本文・図に残るかを確認する。元の根拠に誤りがあれば修正し、説明ごと黙って削除しない。",
         "canonical_source": "content/sections/scattering.md"
       }
