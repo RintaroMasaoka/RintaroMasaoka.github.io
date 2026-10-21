@@ -265,16 +265,13 @@ f_-(x,-k)&f_-(x,k)\\
 \end{pmatrix}.
 $$
 
-この Wronskian は、波数 $k$ を固定すると位置 $x$ によらない。証明は次の補足に示す。
+<span id="wronskian-constancy"></span>
 
-<details id="wronskian-constancy">
-<summary>Wronskian が位置によらない理由</summary>
+この Wronskian は、波数 $k$ を固定すると位置 $x$ によらない。
 
 行列式の微分は、一行ずつ微分した行列式の和である。式 (@wronskian) で上の行を微分すると下の行と同じになるので、この項は0になる。
 
 一方、両解は $f_{xx}=(u(x)-k^2)f$ を満たすため、下の行を微分すると、上の行の $u(x)-k^2$ 倍になる。この項も二行が比例するので0である。従って $\partial_xW(k)=0$ となる。
-
-</details>
 
 従って、反射項を消した先の表示で左端の極限を取り、Jost 解とその微分を自由波の表示に置き換えれば
 $$
