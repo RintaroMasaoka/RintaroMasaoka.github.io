@@ -13,10 +13,9 @@
     "left_endpoint": "-R",
     "right_endpoint": "R",
     "origin": "0",
-    "first_schematic_pole": "i\\kappa_1",
-    "second_schematic_pole": "i\\kappa_2",
     "condition": "y<x",
-    "exponential_magnitude": "|e^{ik(x-y)}|=e^{-\\operatorname{Im}k(x-y)}"
+    "exponential_magnitude": "|e^{ik(x-y)}|=e^{-\\operatorname{Im}k(x-y)}",
+    "contour_scope": "Generic upper-half-plane closure before pole identification; small clockwise indentation avoids k=0."
   },
   "reconstruction": {
     "potential": "u(x)",

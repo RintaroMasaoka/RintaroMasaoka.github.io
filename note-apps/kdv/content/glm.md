@@ -204,80 +204,19 @@ $$
 $$
 自由波では指数が $e^{-ik(x+y)}$、核の項では $e^{-ik(z+y)}$ となるため、それぞれ $\widehat b$ の引数が $x+y,z+y$ になる。積分交換は $K(x,\cdot)$ の可積分性と反射係数の減衰で許される。
 
-## 5. Green関数の構成
+## 5. 積分路を閉じて留数の和を得る
 
-残る透過項 $a(k)f_+(x,k)$ のフーリエ積分を求めるには、この波が複素波数で持つ極と、その係数を知る必要がある。そのために、左側に置いた波源への応答を調べる。波源から観測点までの応答を左右の境界条件から作ると、透過波と束縛状態を同じ関数で扱える。
+式 (@scattering-relation) を逆フーリエ変換し、式 (@incident-correction) から核 $K(x,y)$ を取り出す。残る透過項では、同じ自由波を差し引くと
+$$
+[a(k)f_+(x,k)-e^{ikx}]e^{-iky}
+=[a(k)f_+(x,k)e^{-ikx}-1]e^{ik(x-y)}.
+$$
+ここで $y<x$ とする。指数因子 $e^{ik(x-y)}$ は上半平面で減衰するので、実軸を左から右へ進み、上半円で戻る積分路を考える。括弧内の $a(k)f_+(x,k)e^{-ikx}-1$ は上半平面で有理型であり、大きな $|k|$ で $O(|k|^{-1})$、原点近傍で有界である。従って大半円と原点を避ける小半円の寄与は消える。評価の根拠は補足に示す。
 
-位置 $x'$ に単位の点源を置き、その応答を $G(x,x';k)$ と書く。$x$ は観測位置、$x'$ は点源の位置であり、フーリエ変換で取り出す核の引数 $y$ とは区別する。$G$ を、点源の位置では連続で、
-$$
-(k^2-L)G(x,x';k)=\delta(x-x'),\qquad L=-\partial_x^2+u(x)
-$$
-を満たすように作る。これをGreen関数と呼ぶ。点源の強さが1なので、方程式を $x'$ の前後の微小区間で積分すると
-$$
-\partial_xG(x'+0,x';k)-\partial_xG(x'-0,x';k)=1.
-$$
-ここでは $k^2-L$ の二階微分の係数が $+1$ であるため、跳びの符号も正になる。
-
-まず $\operatorname{Im}k>0$ とする。このとき自由波 $e^{-ikx}$ は左端で、$e^{ikx}$ は右端で減衰する。対応するポテンシャル付きの解は、それぞれ $f_-(x,-k)$ と $f_+(x,k)$ である。これらの解は上半平面で正則である。この性質は、端での漸近条件から定める積分方程式を反復して示せる。具体的な積分表示と評価は下の補足に置く。
-
-点源の左には左端で減衰する解、右には右端で減衰する解を置く。まず連続につながる積を
-$$
-\begin{cases}
-f_-(x,-k)f_+(x',k),&x<x',\\
-f_-(x',-k)f_+(x,k),&x>x'
-\end{cases}
-$$
-と作る。接続点 $x'$ でこの積の右微分から左微分を引くと、二つの解の値と傾きからなる行列式
-$$
-W(k)=\det\begin{pmatrix}
-f_-(x,-k)&f_+(x,k)\\
-\partial_xf_-(x,-k)&\partial_xf_+(x,k)
-\end{pmatrix}
-\tag{wronskian}
-$$
-が現れる。この行列式を Wronskian と呼ぶ。両解に $f_{xx}=(u-k^2)f$ を使うと $\partial_xW=f_-f_{+,xx}-f_{-,xx}f_+=0$ なので、どの接続点で計算しても同じ値になる。
-
-必要な微分の跳びは1だから、上の積を $W(k)$ で割ればよい。$W(k)\ne0$ のとき、たとえば点源より右側では
-$$
-G(x,x';k)=\frac{f_-(x',-k)f_+(x,k)}{W(k)},\qquad x>x'.
-\tag{green-boundary}
-$$
-Wronskian が分母に現れるのは、点源の強さに合わせて左右の解を接続するためである。
-
-$W(k)=0$ では、同じ位置で比較した二つの状態 $(f,f_x)$ が比例する。従って左端で減衰する解と右端で減衰する解が一つにつながり、両端で減衰する固有関数が得られる。自己共役性から固有値 $k^2$ は実数であり、上半平面では $k=i\kappa_n$、$\kappa_n>0$ に限られる。この固有値は $-\kappa_n^2$ で、対応する解が束縛状態である。Schwartz ポテンシャルではその個数 $N$ は有限である。
-
-この接続を、既に現れた1ソリトンのポテンシャル $u(x)=-2\operatorname{sech}^2x$ で見る。図ではエネルギー $E=k^2<0$ を動かし、左右の減衰解を、接続点 $x=0$ で値が1になるようにそれぞれ定数倍している。これは傾きを比べるための尺度合わせであり、まだ二乗積分による規格化ではない。$E=-1$ では傾きも一致し、一つの固有関数につながる。
-
-<div data-visual-slot="green-matching"></div>
-
-<details id="green-matching-formulas">
-<summary>減衰解とWronskian</summary>
-
-$E=-\kappa^2$、$\kappa>0$ と書くと、$u=-2\operatorname{sech}^2x$ に対して
-$$
-\begin{aligned}
-f_-(x,-i\kappa)&=e^{\kappa x}\frac{\kappa-\tanh x}{\kappa+1},\\
-f_+(x,i\kappa)&=e^{-\kappa x}\frac{\kappa+\tanh x}{\kappa+1}
-\end{aligned}
-$$
-となる。それぞれ微分方程式へ代入して解であることを確認でき、対応する端では必要な指数関数に近づく。接続点 $x=0$ では両解の値が $\kappa/(\kappa+1)$、傾きがそれぞれ $\kappa-1$ と $1-\kappa$ なので、
-$$
-W(i\kappa)=-\frac{2\kappa(\kappa-1)}{\kappa+1}.
-$$
-上段の曲線は各解をその $x=0$ での値で割ったもの、下段はこの $W$ をエネルギー $E=-\kappa^2$ に対して描いたものである。
-
-</details>
-
-
-実軸上の散乱関係 (@scattering-relation) から、左端での $f_+(x,k)$ の $e^{ikx}$ 係数は $1/a(k)$ である。これを $e^{-ikx}$ に規格化した左端解と組み合わせると、自由波同士の Wronskian が $2ik$ であることから $W=2ik/a$、すなわち $a=2ik/W$ を得る。この右辺が透過係数の上半平面への有理型延長を与える。式 (@green-boundary) はそこで
-$$
-G(x,x';k)=f_-(x',-k)\frac{a(k)f_+(x,k)}{2ik},\qquad x'<x
-\tag{green-transmission}
-$$
-となる。従って透過波の極の係数は、同じ応答 $G$ の極の係数から求められる。
+<div data-visual-slot="contour"></div>
 
 <details id="analytic-estimates">
-<summary>Jost解の解析性と漸近評価</summary>
+<summary>散乱解の解析領域、大きな波数と原点の評価</summary>
 
 上半平面で正則な左端解 $f_-(x,-k)$ から平面波因子を除くと、式 (@left-jost-integral) は
 $$
@@ -293,36 +232,140 @@ $$
 $$
 \frac1{j!}\left(\int_{-\infty}^x(x-z)|u(z)|\,dz\right)^j
 $$
-で抑えられる。従って級数は局所一様に収束し、左辺 $e^{ikx}f_-(x,-k)$ は上半平面で正則、実軸まで連続である。$k$ 微分には $d^2$ の評価と Schwartz 条件の重み付き積分を使うので、境界までの微分可能性も得られる。大きな $|k|$ では核を $O(|k|^{-1})$ で抑える。右 Jost 解にも同じ評価を適用すると、Wronskian (@wronskian) は $2ik[1+O(|k|^{-1})]$、従って $a(k)=1+O(|k|^{-1})$ となる。これらの積分表示と評価は [Egorova ほか、§2 の (2.1)–(2.4)](https://arxiv.org/pdf/1411.0021) の標準構成に対応する。ここでは左側の積分端と $k\mapsto-k$ を明示して用いた。
+で抑えられる。従って級数は局所一様に収束し、$e^{ikx}f_-(x,-k)$ は上半平面で正則、実軸まで連続である。$k$ 微分には $d^2$ の評価と Schwartz 条件の重み付き積分を使うので、閉上半平面で境界まで微分可能となり、その微分も連続である。大きな $|k|$ では積分核を $O(|k|^{-1})$ で抑えられる。右 Jost 解にも同じ評価を適用できる。
+
+ここで、位置によらず一定な Wronskian を
+$$
+W(k)=\det\begin{pmatrix}
+f_-(x,-k)&f_+(x,k)\\
+\partial_xf_-(x,-k)&\partial_xf_+(x,k)
+\end{pmatrix}
+$$
+と置く。両解が $f_{xx}=(u-k^2)f$ を満たすため、$\partial_xW=0$ である。実軸上の散乱関係 (@scattering-relation) から、左端での $f_+$ の $e^{ikx}$ の係数は $1/a(k)$ となる。左端で $e^{-ikx}$ に規格化した解 $f_-(x,-k)$ と比べると、自由波の Wronskian が $2ik$ だから
+$$
+W(k)=\frac{2ik}{a(k)},\qquad a(k)=\frac{2ik}{W(k)}.
+$$
+右 Jost 解にも上の大波数評価を使うと $W(k)=2ik[1+O(|k|^{-1})]$、従って $a(k)=1+O(|k|^{-1})$ となる。$W$ は上半平面で正則なので、この商はそこで有理型であり、$a(k)f_+(x,k)e^{-ikx}-1$ も有理型である。これらの積分表示と評価は [Egorova ほか、§2 の (2.1)–(2.4)](https://arxiv.org/pdf/1411.0021) の標準構成に対応する。ここでは左側の積分端と $k\mapsto-k$ を明示して用いた。
+
+原点の零エネルギー共鳴とは、両端で有界だが平方可積分ではない非零解がある場合をいう。共鳴がなければ $W(0)\ne0$ なので $a(k)=O(k)$ である。共鳴があれば $W(0)=0$ となる。実軸の流束保存 $|a(k)|^2+|b(k)|^2=1$ と $aW=2ik$ から $|W(k)|\ge2|k|$。閉上半平面での境界微分可能性から、共鳴の場合も $W(k)=W'(0)k+o(|k|)$ となる。この展開は $W(k)-W(0)=k\int_0^1W'(sk)\,ds$ と $W'$ の連続性から、上半平面から近づく方向によらず成り立つ。実軸方向の評価は $|W'(0)|\ge2$ を与える。従って $a(k)=2ik/W(k)$ は原点へ上半平面から近づいても有界である。括弧 $a(k)f_+(x,k)e^{-ikx}-1$ も有界なので、小半円の寄与はその長さ $\pi\epsilon$ に比例し、$O(\epsilon)$ で消える。
+
+大半円を $k=Re^{i\theta}$（$0\le\theta\le\pi$）とする。変換被積分関数は
+$$
+[a(k)f_+(x,k)e^{-ikx}-1]e^{ik(x-y)}.
+$$
+括弧内は $O(R^{-1})$、線素は $R\,d\theta$ である。よって半円積分の絶対値は、$R$ に依存しない正の定数 $C$ に対し
+$$
+C\int_0^\pi e^{-R(x-y)\sin\theta}\,d\theta
+=O\!\left(\frac1{R(x-y)}\right)\longrightarrow0.
+$$
+ここでは $0\le\theta\le\pi/2$ で $\sin\theta\ge2\theta/\pi$ を使い、残りは対称性から従う。共鳴は負の固有値に対応する束縛状態の和には含まれない。
 
 </details>
 
-## 6. 束縛状態の射影核と透過波の留数
+従って、求める積分は上半平面にある極の留数の和になる。
+$$
+\begin{aligned}
+&\lim_{R\to\infty}\frac1{2\pi}\int_{-R}^R[a(k)f_+(x,k)-e^{ikx}]e^{-iky}\,dk\\
+&\qquad=i\sum_{\text{上半平面の各極}}\operatorname*{Res}\!\left[(a(k)f_+(x,k)-e^{ikx})e^{-iky}\right].
+\end{aligned}
+\tag{transmission-residue-sum}
+$$
+右辺では、各極での被積分関数全体の留数を足している。積分を具体的に求めるために残るのは、極がどこにあり、その留数がいくらかという問題である。
 
-Green 関数は、点源以外の波源に対しても、その波源を積分して応答を作る。演算子で書けば $(k^2-L)^{-1}$ の積分核である。この同じ逆演算子を固有状態に作用させると、束縛状態が極として現れる理由と係数が分かる。
+## 6. Green 関数で極の位置を特定する
+
+透過波 $a(k)f_+(x,k)$ は、左側に置いた点源から右へ伝わる応答にも現れる。この応答を左右の境界条件から構成すると、極が生じる条件を調べられる。位置 $x'$ に単位の点源を置き、その応答を $G(x,x';k)$ と書く。$x$ は観測位置、$x'$ は点源の位置であり、フーリエ変換で取り出す核の引数 $y$ とは区別する。$G$ を点源位置で連続にし、
+$$
+(k^2-L)G(x,x';k)=\delta(x-x'),\qquad L=-\partial_x^2+u(x)
+$$
+を満たすように作る。この応答関数を Green 関数と呼ぶ。点源の強さが1なので、方程式を $x'$ の前後の微小区間で積分すると
+$$
+\partial_xG(x'+0,x';k)-\partial_xG(x'-0,x';k)=1.
+$$
+微分の跳びが正なのは、演算子 $k^2-L$ の二階微分の係数が $+1$ だからである。
+
+まず $\operatorname{Im}k>0$ とする。このとき自由波 $e^{-ikx}$ は左端で、$e^{ikx}$ は右端で減衰する。対応する解はそれぞれ $f_-(x,-k)$ と $f_+(x,k)$ であり、いずれも上半平面で正則である。点源の左には左端で減衰する解、右には右端で減衰する解を置く。連続につなぐ積を
+$$
+\begin{cases}
+f_-(x,-k)f_+(x',k),&x<x',\\
+f_-(x',-k)f_+(x,k),&x>x'
+\end{cases}
+$$
+と作る。接続点 $x'$ で右微分から左微分を引くと、二つの解の値と傾きからなる行列式
+$$
+W(k)=\det\begin{pmatrix}
+f_-(x,-k)&f_+(x,k)\\
+\partial_xf_-(x,-k)&\partial_xf_+(x,k)
+\end{pmatrix}
+\tag{wronskian}
+$$
+が現れる。この行列式を Wronskian と呼ぶ。両解は $f_{xx}=(u-k^2)f$ を満たすため $W$ は一定であり、$W(k)\ne0$ のとき積を $W$ で割れば必要な微分の跳びが1になる。従って点源より右側では
+$$
+G(x,x';k)=\frac{f_-(x',-k)f_+(x,k)}{W(k)},\qquad x>x'.
+\tag{green-boundary}
+$$
+
+実軸上の散乱関係 (@scattering-relation) を左端で解くと
+$$
+f_+(x,k)=\frac1{a(k)}f_-(x,k)+\frac{b(k)}{a(k)}f_-(x,-k).
+$$
+ここで $f_-(x,-k)$ と $f_-(x,k)$ の自由波はそれぞれ $e^{-ikx}$ と $e^{ikx}$ なので、その Wronskian は $2ik$ である。従って $W(k)=2ik/a(k)$、すなわち $a(k)=2ik/W(k)$ となり、この式は上半平面への有理型延長でも成り立つ。そこで式 (@green-boundary) は
+$$
+G(x,x';k)=f_-(x',-k)\frac{a(k)f_+(x,k)}{2ik},\qquad x>x'
+\tag{green-transmission}
+$$
+となる。透過波の極は分母の $W(k)$ が0になる位置に限られる。その条件がどの状態を表すかを見よう。
+
+$W(k)=0$ なら、同じ位置で比較した二つの状態 $(f,f_x)$ が比例する。左端で減衰する解と右端で減衰する解がつながり、両端で減衰する固有関数が得られる。$L$ の自己共役性により固有値 $k^2$ は実数であり、上半平面の零点は $k=i\kappa_n$（$\kappa_n>0$）に限られる。固有値は $-\kappa_n^2$ であり、その固有関数が束縛状態である。Schwartz ポテンシャルでは負の固有値は有限個である。これらが留数和で調べるべき極の候補になる。
+
+この接続を、既に現れた1ソリトンのポテンシャル $u(x)=-2\operatorname{sech}^2x$ で見る。図ではエネルギー $E=k^2<0$ を動かし、左右の減衰解を接続点 $x=0$ で値が1になるようにそれぞれ定数倍している。これは傾きを比べるための尺度合わせで、二乗積分による規格化ではない。$E=-1$ では傾きも一致し、一つの固有関数につながる。
+
+<div data-visual-slot="green-matching"></div>
+
+<details id="green-matching-formulas">
+<summary>図の減衰解とWronskianの式</summary>
+
+$E=-\kappa^2$、$\kappa>0$ と書くと、$u=-2\operatorname{sech}^2x$ に対して
+$$
+\begin{aligned}
+f_-(x,-i\kappa)&=e^{\kappa x}\frac{\kappa-\tanh x}{\kappa+1},\\
+f_+(x,i\kappa)&=e^{-\kappa x}\frac{\kappa+\tanh x}{\kappa+1}
+\end{aligned}
+$$
+となる。それぞれ微分方程式へ代入して解であることを確認でき、対応する端では必要な指数関数に近づく。$x=0$ では両解の値が $\kappa/(\kappa+1)$、傾きがそれぞれ $\kappa-1$ と $1-\kappa$ なので
+$$
+W(i\kappa)=-\frac{2\kappa(\kappa-1)}{\kappa+1}.
+$$
+上段の曲線は各解をその $x=0$ での値で割ったもの、下段はこの $W$ をエネルギー $E=-\kappa^2$ に対して描いたものである。
+
+</details>
+
+## 7. 束縛状態から留数を求める
+
+Green 関数は、点源以外の波源に対しても、その波源を積分して応答を作る。演算子で書けば $(k^2-L)^{-1}$ の積分核である。この逆演算子に束縛状態成分がどう現れるかを見れば、候補となる極の係数が分かる。
 
 第2節の規格化定数を使い、束縛状態を
 $$
-\psi_n(x)=c_n f_-(x,-i\kappa_n),\qquad
+\psi_n(x)=c_nf_-(x,-i\kappa_n),\qquad
 c_n^{-2}=\int_{\mathbb R}f_-(x,-i\kappa_n)^2\,dx
 \tag{bound-normalization}
 $$
-と書く。この実固有関数は $\int\psi_n(x)^2dx=1$ を満たす。左端の漸近形は $\psi_n(x)\sim c_ne^{\kappa_nx}$ であり、$c_n$ は単位ノルムにした束縛状態の左端での振幅でもある。
+と書く。この実固有関数は $\int\psi_n(x)^2dx=1$ を満たす。左端では $\psi_n(x)\sim c_ne^{\kappa_nx}$ なので、$c_n$ は単位ノルムにした束縛状態の左端での振幅でもある。
 
-$L\psi_n=-\kappa_n^2\psi_n$ だから、逆演算子はこの成分に対して
+$L\psi_n=-\kappa_n^2\psi_n$ だから、逆演算子はこの状態の成分に対して
 $$
 (k^2-L)^{-1}\psi_n=\frac{\psi_n}{k^2+\kappa_n^2}
 $$
-と働く。任意の波源からこの状態に沿う成分を取り出すには、まず $\psi_n$ との内積を取り、$\psi_n(x)$ を掛ける。その操作の積分核が $\psi_n(x)\psi_n(x')$ だから、$k=i\kappa_n$ の近くで
+と働く。任意の波源からこの状態に沿う成分を取り出すには、まず $\psi_n$ との内積を取り、$\psi_n(x)$ を掛ける。その操作の積分核が $\psi_n(x)\psi_n(x')$ なので、$k=i\kappa_n$ の近くで
 $$
 G(x,x';k)=\frac{\psi_n(x)\psi_n(x')}{k^2+\kappa_n^2}
 +\text{この極の近くで正則な部分}.
 \tag{green-projector}
 $$
-分子 $\psi_n(x)\psi_n(x')$ は、入力からこの固有状態に沿う成分を取り出し、同じ固有関数の形で返す射影の積分核である。正則な部分は、この孤立した固有値の固有関数に直交する成分の応答である。その理由を補足に示す。
+分子は、入力からこの固有状態に沿う成分を取り出し、同じ固有関数の形で返す射影の積分核である。極以外の成分が正則である根拠を補足に示す。
 
 <details id="residue-proof">
-<summary>Green関数の正則部分</summary>
+<summary>極以外の成分が正則である理由</summary>
 
 実減衰ポテンシャルに対する $L$ は自己共役で、負の固有値は連続スペクトル $[0,\infty)$ から離れた孤立固有値である。また一次元では、両端で減衰する二つの解は Wronskian が0となって比例するため、各固有空間は一次元である。
 
@@ -330,12 +373,12 @@ $$
 
 </details>
 
-同じ例 $u=-2\operatorname{sech}^2x$ では、$L\operatorname{sech}x=-\operatorname{sech}x$ と $\int_{\mathbb R}\operatorname{sech}^2x\,dx=2$ から、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ である。点源を $x'=0$ に置き、応答に極の分母 $E+1$ を掛けると、$E\to-1$ で $\psi_1(x)\psi_1(0)=1/(2\cosh x)$ が残る。次の図で示すのはこの極を除いた量であり、極で発散する $G$ 自体ではない。
+同じ例 $u=-2\operatorname{sech}^2x$ では、$L\operatorname{sech}x=-\operatorname{sech}x$ と $\int_{\mathbb R}\operatorname{sech}^2x\,dx=2$ から $\psi_1(x)=\operatorname{sech}x/\sqrt2$ である。点源を $x'=0$ に置き、応答に極の分母 $E+1$ を掛けると、$E\to-1$ で $\psi_1(x)\psi_1(0)=1/(2\cosh x)$ が残る。図が示すのはこの極を除いた量であり、極で発散する $G$ 自体ではない。
 
 <div data-visual-slot="green-projector"></div>
 
 <details id="green-projector-formula">
-<summary>固有値近傍でのGreen関数の表示</summary>
+<summary>極を除いた応答の式</summary>
 
 上の例の減衰解と式 (@green-boundary) を使うと、$E=-\kappa^2$、$\kappa\ne1$ で
 $$
@@ -345,85 +388,57 @@ $$
 
 </details>
 
-
-透過波の留数に戻る。$k=i\kappa_n$ では $k^2+\kappa_n^2$ の傾きが $2i\kappa_n$ なので、式 (@green-projector) の留数は $\psi_n(x)\psi_n(x')/(2i\kappa_n)$ である。一方、同じ $G$ の式 (@green-transmission) では $\psi_n(x')=c_nf_-(x',-i\kappa_n)$ を使える。両表示に共通する $f_-(x',-i\kappa_n)$ の係数を比較すると
+式 (@green-projector) の極の留数は、$k^2+\kappa_n^2$ の傾きが $2i\kappa_n$ であることから $\psi_n(x)\psi_n(x')/(2i\kappa_n)$ となる。一方、式 (@green-transmission) では $\psi_n(x')=c_nf_-(x',-i\kappa_n)$ である。両表示の $f_-(x',-i\kappa_n)$ の係数を比較すると
 $$
 \operatorname*{Res}_{k=i\kappa_n}[a(k)f_+(x,k)]
 =i c_n\psi_n(x)
-=i c_n^2 f_-(x,-i\kappa_n).
+=i c_n^2f_-(x,-i\kappa_n).
 \tag{transmission-residue}
 $$
-係数 $i$ は、式 (@green-transmission) の $2ik$ を極で評価した $2i(i\kappa_n)$ と、極の分母の傾き $2i\kappa_n$ の比から出る。透過波の留数は、規格化された束縛状態への射影を、左端の波の規格化で読み直したものである。
+係数 $i$ は、式 (@green-transmission) の $2ik$ を極で評価した $2i(i\kappa_n)$ と、極の分母の傾き $2i\kappa_n$ の比から出る。これで留数和の極と係数が定まり、式 (@transmission-residue-sum) を評価できる。
 
-## 7. GLM方程式の導出
-
-式 (@reflected-transform) で反射項の変換は既知データと核で表せた。残る透過項にも、核を取り出すときと同じ自由波の差し引きとフーリエ変換を施す。その被積分関数は
+式 (@transmission-residue-sum) で、各極 $k=i\kappa_n$ における留数は、式 (@transmission-residue) に $e^{\kappa_n y}$ を掛けたものである。従って、
 $$
-[a(k)f_+(x,k)-e^{ikx}]e^{-iky}
-=[a(k)f_+(x,k)e^{-ikx}-1]e^{ik(x-y)}.
+\lim_{R\to\infty}\frac1{2\pi}\int_{-R}^R[a(k)f_+(x,k)-e^{ikx}]e^{-iky}\,dk
+=-\sum_{n=1}^N c_n^2f_-(x,-i\kappa_n)e^{\kappa_n y}.
+\tag{transmitted-transform}
 $$
-$y<x$ では $|e^{ik(x-y)}|=e^{-\operatorname{Im}k(x-y)}$ が上半平面で減衰する。従って実軸を左から右へ進み、上半円で戻る正向きの積分路を使う。括弧内は大きな波数で $O(k^{-1})$、原点近傍では有界であり、大半円と原点を避ける小半円の寄与は消える。評価の詳細は下の補足に置く。
+となる。負号は極の係数の $i$ とフーリエ積分の $i$ の積から生じる。
 
-<div data-visual-slot="contour"></div>
+<details id="simple-pole-fourier-proof">
+<summary>一つの単純極が与える積分</summary>
 
-この操作が取り出すものを、まず一つの極で見る。上半平面の極 $i\kappa_n$ に対して
+上半平面の極 $i\kappa_n$ に対して、
 $$
-\frac1{2\pi}\int_{\mathbb R}
-\frac{e^{ik(x-y)}}{k-i\kappa_n}\,dk
+\frac1{2\pi}\int_{\mathbb R}\frac{e^{ik(x-y)}}{k-i\kappa_n}\,dk
 =i e^{-\kappa_n(x-y)},\qquad y<x.
 \tag{simple-pole-fourier}
 $$
-これは正向きの留数定理を $2\pi$ で割った因子 $i$ と、極での指数関数の値である。
-
-自由波を除いた透過項 $a(k)f_+(x,k)e^{-ikx}-1$ から、全ての極の主要部を差し引くと、上半平面で正則な部分が残る。その部分の積分は同じ積分路で0になる。各極の係数は式 (@transmission-residue) に $e^{\kappa_nx}$ を掛けたものなので、式 (@simple-pole-fourier) を適用すると
-$$
-\lim_{R\to\infty}\frac1{2\pi}\int_{-R}^R[a(k)f_+(x,k)-e^{ikx}]e^{-iky}\,dk
-=-\sum_{n=1}^N c_n^2 f_-(x,-i\kappa_n)e^{\kappa_n y}.
-\tag{transmitted-transform}
-$$
-負号は、極の係数にある $i$ とフーリエ積分の $i$ の積から出る。残った各項は、束縛状態の波形と左端の振幅を持つ。留数積分は、この透過応答に含まれる束縛状態の成分を一つずつ取り出している。
-
-<details id="contour-estimates">
-<summary>積分路の大半円と原点近傍</summary>
-
-大半円を $k=Re^{i\theta}$（$0\le\theta\le\pi$）とする。変換被積分関数は
-$$
-[a(k)f_+(x,k)e^{-ikx}-1]e^{ik(x-y)}.
-$$
-括弧内は前の補足から $O(R^{-1})$、線素は $R\,d\theta$ である。以下の $C$ は $R$ に依存しない正の評価定数とする。よって半円積分の絶対値は
-$$
-C\int_0^\pi e^{-R(x-y)\sin\theta}\,d\theta
-=O\!\left(\frac1{R(x-y)}\right)\longrightarrow0.
-$$
-評価は $0\le\theta\le\pi/2$ で $\sin\theta\ge2\theta/\pi$ を使い、残りは対称性で従う。
-
-原点の零エネルギー共鳴は、両端で有界だが平方可積分ではない非零解が存在する場合をいう。共鳴なしなら $W(0)\ne0$ なので $a=2ik/W=O(k)$。共鳴ありなら $W(0)=0$ である。実軸の流束保存 $|a(k)|^2+|b(k)|^2=1$ と $W=2ik/a$ から $|W(k)|\ge2|k|$。先の境界微分可能性から $W(k)=W'(0)k+o(|k|)$ となり、実軸上の評価で $|W'(0)|\ge2$、よって複素方向からも $a$ は原点近傍で有界である。括弧も有界であり、小半円の長さは $\pi\epsilon$ なので寄与は $O(\epsilon)$。共鳴は負の固有値に対応する束縛状態の和には含まれない。
+正向きの留数定理を $2\pi$ で割った因子 $i$ と、極での指数関数の値が現れる。
 
 </details>
 
-
-
-式 (@incident-correction) から (@transmitted-transform) までの変換を散乱関係へ代入し、左辺の透過項を留数で置き換える。束縛状態の波形にも同じ変換核 (@jost-transform) が使えるため
+式 (@reflected-transform) の反射項は既知データと核で表せている。式 (@transmitted-transform) を散乱関係の変換へ代入するため、束縛状態の波形にも同じ核表示 (@jost-transform) を使うと
 $$
 f_-(x,-i\kappa_n)e^{\kappa_n y}
 =e^{\kappa_n(x+y)}+\int_{-\infty}^xK(x,z)e^{\kappa_n(z+y)}\,dz.
 \tag{bound-transform}
 $$
-連続部分と束縛状態部分に現れる二種類の既知データをまとめて
+連続部分と束縛状態部分に現れる既知データをまとめて
 $$
 F(s)=\widehat b(s)/(2\pi)+\sum_{n=1}^Nc_n^2e^{\kappa_ns}
 \tag{scattering-data-kernel}
 $$
-と定義する。式 (@reflected-transform) の二項は反射由来の $\widehat b(x+y)/(2\pi)$ とその核積分であり、式 (@transmitted-transform) の透過変換を右辺へ移すと、式 (@bound-transform) の自由波と核積分がそれぞれ束縛状態項を加える。従って、変換された散乱関係の三項は
+と定義する。式 (@reflected-transform) の二項は反射由来の $\widehat b(x+y)/(2\pi)$ とその核積分である。透過変換を右辺へ移すと、式 (@bound-transform) の自由波と核積分が束縛状態項を加える。変換された散乱関係は
 $$
 \boxed{K(x,y)+F(x+y)+\int_{-\infty}^xK(x,z)F(z+y)\,dz=0,\qquad y<x.}
 \tag{glm}
 $$
-これが左 GLM 方程式である。既知の $F$ に対して、これは $K(x,\cdot)$ の線形積分方程式である。実際のポテンシャルから得た散乱データには、ここまで構成した核が解として存在する。補足で示す一意性により、その核を散乱データから決められる。解を対角へ連続に延長し、式 (@potential-from-diagonal) の対角微分を取れば $u$ が復元される。
+となる。これが左 GLM 方程式である。既知の $F$ に対して、これは $K(x,\cdot)$ の線形積分方程式である。実際のポテンシャルから得た散乱データには、ここまで構成した核が解として存在する。補足で示す一意性により、その核を散乱データから決められる。解を対角へ連続に延長し、式 (@potential-from-diagonal) の対角微分を取れば $u$ が復元される。
 
 
 <details id="glm-uniqueness">
-<summary>左GLM方程式の解の一意性</summary>
+<summary>左 GLM 方程式の解の一意性</summary>
 
 固定した $x$ で、二つの解の差 $g$ が $(-\infty,x)$ 上で 絶対可積分かつ二乗可積分（$L^1\cap L^2$）とする。その差は
 $$
