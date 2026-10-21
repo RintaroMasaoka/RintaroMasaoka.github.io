@@ -192,12 +192,45 @@ $$
 \end{aligned}\tag{equation-c5292b67c8}
 $$
 
- を課す。$I$ は恒等演算子である。以下のノルムの計算では $u$ は実数値とし、$u,\psi$ と必要な微分は滑らかで急減衰し、積分と時間微分を交換できるとする。部分積分により
+ を課す。$I$ は恒等演算子である。まず、この発展で波動関数のノルムが保たれることを確かめよう。以下では $u$ は実数値とし、$u,\psi$ と必要な微分は滑らかで急減衰し、積分と時間微分を交換できるとする。
+
+$\psi_t=B\psi$ なので、ノルムの二乗の時間変化は
 $$
-\frac{d}{dt}\int_{\mathbb R}|\psi(x,t)|^2dx
-=2\operatorname{Re}\int_{\mathbb R}\overline\psi\,B\psi\,dx=0
+\begin{aligned}
+\frac{d}{dt}\int_{\mathbb R}|\psi|^2dx
+&=2\operatorname{Re}\int_{\mathbb R}\overline\psi\,\psi_t\,dx\\
+&=2\operatorname{Re}\int_{\mathbb R}\overline\psi\,
+(-4\psi_{xxx}+6u\psi_x+3u_x\psi)\,dx.
+\end{aligned}
 $$
-となる。従ってこの時間発展は波動関数のノルムを保つ。次に Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
+ここで $B$ の三階微分の項と、$u$ を含む二項を分けて計算する。
+
+三階微分の項は、部分積分と $\partial_x|\psi_x|^2=2\operatorname{Re}(\overline{\psi_x}\psi_{xx})$ により
+$$
+\begin{aligned}
+\operatorname{Re}\int_{\mathbb R}\overline\psi\,\psi_{xxx}\,dx
+&=-\operatorname{Re}\int_{\mathbb R}\overline{\psi_x}\,\psi_{xx}\,dx\\
+&=-\frac12\int_{\mathbb R}\partial_x|\psi_x|^2dx=0.
+\end{aligned}
+$$
+最初の部分積分の境界項も、最後の全微分の積分も、無限遠での減衰により消える。
+
+残りの二項は、$u$ が実数値であることと $\partial_x|\psi|^2=2\operatorname{Re}(\overline\psi\psi_x)$ を使うと、一つの全微分にまとまる。
+$$
+\begin{aligned}
+2\operatorname{Re}\int_{\mathbb R}\overline\psi\,(6u\psi_x+3u_x\psi)\,dx
+&=6\int_{\mathbb R}\bigl(u\partial_x|\psi|^2+u_x|\psi|^2\bigr)dx\\
+&=6\int_{\mathbb R}\partial_x\bigl(u|\psi|^2\bigr)dx=0.
+\end{aligned}
+$$
+ここでも境界項は減衰により消える。$B$ の $6u\partial$ と $3u_x$ がこの組合せになっているため、$u$ を含む項もノルムを変えない。
+
+従ってノルムの二乗の時間微分は0であり、
+$$
+\int_{\mathbb R}|\psi(x,t)|^2dx
+=\int_{\mathbb R}|\psi(x,0)|^2dx
+$$
+となる。特に、初めに規格化した固有関数は規格化されたまま時間発展する。次に Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
 
 (@equation-7de551f92c)の両辺に左から$U(t)$を掛けると、
 
