@@ -7,7 +7,7 @@ const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const initial=boundStatePaths(0);
 const curves=[
  {label:'u(x,t)',color:'var(--ink)'},
- ...[1,2,3].map((k,i)=>({label:`\\lambda_${i+1}+2\\psi_${i+1}(x,t)`,color:['var(--state-one)','var(--state-two)','var(--state-three)'][i]}))
+ ...[1,2,3].map((k,i)=>({label:`\\psi_${i+1}(x,t)`,color:['var(--state-one)','var(--state-two)','var(--state-three)'][i]}))
 ];
 ---
 <figure class="bound-states" data-bound-states aria-labelledby="bound-states-caption">
@@ -18,7 +18,7 @@ const curves=[
   <div class="bound-legend">
     {curves.map((curve,i)=><span style={`--curve:${curve.color}`}><svg viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5 H28" fill="none" stroke="var(--curve)" stroke-width="2" stroke-dasharray={i?'5 3':undefined} /></svg><span set:html={tex(curve.label)} /></span>)}
   </div>
-  <div class="bound-plots" role="img" aria-label="同じポテンシャルの上に、3つの規格化された固有関数を各固有値の高さに重ねた図。固有値はマイナス1、マイナス4、マイナス9。波形の表示倍率は2で固定。">
+  <div class="bound-plots" role="img" aria-label="ポテンシャルと3つの束縛状態の波形を重ねた図。固有値はマイナス1、マイナス4、マイナス9。">
     <div class="bound-chart">
       <svg viewBox="0 0 480 350" preserveAspectRatio="none" aria-hidden="true">
         <path d={`M40 ${boundStateY(0)} H460 M136.923 8 V340`} fill="none" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke" />
@@ -32,7 +32,7 @@ const curves=[
       <span class="bound-x-name" set:html={tex('x')} />
     </div>
   </div>
-  <figcaption id="bound-states-caption">実線はポテンシャル <span set:html={tex('u(x,t)')} />、破線は規格化された固有関数を各固有値の高さに重ねた <span set:html={tex('\\lambda_n+2\\psi_n(x,t)')} /> である。固有値は <span set:html={tex('\\lambda_1=-1,\\;\\lambda_2=-4,\\;\\lambda_3=-9')} />。細い点線が各固有値の高さを示す。波形の表示倍率2は時間を通じて固定している。再生すると、同じ位置にあったポテンシャルと固有状態が分かれて移動する。</figcaption>
+  <figcaption id="bound-states-caption">実線はポテンシャル <span set:html={tex('u(x,t)')} />、破線は三つの束縛状態の固有関数 <span set:html={tex('\\psi_n(x,t)')} /> である。固有値は <span set:html={tex('\\lambda_1=-1,\\;\\lambda_2=-4,\\;\\lambda_3=-9')} />。細い点線が各固有値の高さを示す。再生すると、同じ位置にあったポテンシャルと固有状態が分かれて移動する。</figcaption>
   <details><summary>計算方法と表示範囲</summary><p>初期ポテンシャルは <span set:html={tex('u(x,0)=-12\\operatorname{sech}^2x')} />。反射係数が0、<span set:html={tex('\\kappa_1=1,\\;\\kappa_2=2,\\;\\kappa_3=3')} />、左端振幅が <span set:html={tex('(c_1(0)^2,c_2(0)^2,c_3(0)^2)=(12,60,60)')} /> の散乱データを使う。後の無反射の場合の復元式を3状態に適用し、各時刻のポテンシャルと規格化された固有関数をブラウザで計算する。初期ポテンシャルと各固有状態の確率密度は <span set:html={tex('x=0')} /> に関して対称である。各固有関数の二乗積分は1である。横軸と縦軸は再生中も固定し、固有関数の符号も時間を通じてそろえている。表示時刻は <span set:html={tex('0\\le t\\le0.45')} />。</p></details>
 </figure>
 <script>
