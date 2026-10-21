@@ -187,7 +187,7 @@ $$
 f_-(x,k)-e^{ikx}=\int_{-\infty}^xK(x,z)e^{ikz}\,dz.
 \tag{incident-correction}
 $$
-$y<x$ とし、両辺に $e^{-iky}/(2\pi)$ を掛けて $k$ について積分すると、平面波の重ね合わせの重み $K(x,y)$ が取り出せる。
+逆フーリエ変換で、平面波の重ね合わせの重み $K(x,y)$ を取り出す。$y<x$ では、
 $$
 \lim_{R\to\infty}\frac{1}{2\pi}\int_{-R}^R[f_-(x,k)-e^{ikx}]e^{-iky}\,dk=K(x,y).
 $$
