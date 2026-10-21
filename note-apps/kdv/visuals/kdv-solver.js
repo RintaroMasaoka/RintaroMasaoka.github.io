@@ -1,4 +1,4 @@
-// v=-u; v_t=-3(v^2)_x-v_xxx on a periodic interval.
+// Internal buffer v stores surface displacement eta: eta_t=-3(eta^2)_x-eta_xxx.
 // Forward FFT: sum_j v_j exp(-2 pi i j m/N); inverse includes 1/N.
 export function fft(re, im, inverse = false) {
   const n = re.length;

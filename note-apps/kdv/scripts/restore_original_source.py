@@ -398,7 +398,7 @@ def convert_fragment(tex: str, labels: dict[str, str], figure_map: dict[str, str
 
 def revised_sections(text: str) -> str:
     """Use the authored left-convention sections as the canonical source."""
-    for name, start, end in [("soliton", "### 2.1.", "### 2.2."), ("lax", "### 2.2.", "### 2.3."), ("scattering", "### 2.4.", "## 3."), ("reflectionless", "### 3.4.", "## 4."), ("hierarchy", "## 4.", "## 参考文献")]:
+    for name, start, end in [("introduction", "## 1.", "## 2."), ("soliton", "### 2.1.", "### 2.2."), ("lax", "### 2.2.", "### 2.3."), ("scattering", "### 2.4.", "## 3."), ("reflectionless", "### 3.4.", "## 4."), ("hierarchy", "## 4.", "## 参考文献")]:
         section = (OUTPUT.parent / "sections" / (name + ".md")).read_text(encoding="utf-8")
         a, b = text.index(start), text.index(end)
         text = text[:a] + section.rstrip() + "\n\n" + text[b:]
