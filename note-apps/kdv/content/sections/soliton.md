@@ -44,11 +44,14 @@ $$
 <div data-extra-visual="traveling"></div>
 
 
-二つのソリトンが衝突する場合にも、たとえば次の解を具体的に書ける。
+二つのソリトンが衝突する解も書ける。速度 $v_1>v_2>0$ と位置を指定する実定数 $x_1,x_2$ を用い、$\theta_j=\sqrt{v_j}(x-v_jt-x_j)$（$j=1,2$）と置くと、
 $$
-\eta(x,t)=2\frac{\partial^2}{\partial x^2}\log\left[
-1+e^{2x-8t}+e^{x-t}+\frac19e^{3x-9t}
-\right].
+\eta(x,t)=2\partial_x^2\log\Biggl[
+\begin{gathered}
+1+e^{\theta_1}+e^{\theta_2}\\
++\left(\frac{\sqrt{v_1}-\sqrt{v_2}}{\sqrt{v_1}+\sqrt{v_2}}\right)^2e^{\theta_1+\theta_2}
+\end{gathered}
+\Biggr].
 \tag{equation-5083fcf451}
 $$
 

@@ -14,12 +14,10 @@ export function initTravelingSoliton() {
     const cOutput = figure.querySelector('[data-soliton-c-output]');
     const tOutput = figure.querySelector('[data-soliton-t-output]');
     const current = figure.querySelector('[data-soliton-current]');
-    const reference = figure.querySelector('[data-soliton-reference]');
     const update = () => {
       const c = Number(cInput.value);
       const t = Number(tInput.value);
       current.setAttribute('d', curvePath(c, t));
-      reference.setAttribute('d', curvePath(c, 0));
       cOutput.value = c.toFixed(2);
       cOutput.textContent = c.toFixed(2);
       tOutput.value = t.toFixed(2);
