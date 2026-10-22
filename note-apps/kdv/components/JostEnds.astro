@@ -14,11 +14,10 @@ const wave=(row:number)=>Array.from({length:121},(_,i)=>{
 <figure id="scattering-intro-jost" class="jost-ends" aria-labelledby="jost-ends-caption">
  <FigureViewport width={480}><svg width="480" height="340" role="img" aria-labelledby="jost-ends-title jost-ends-desc">
   <title id="jost-ends-title">Minus: left end. Plus: right end.</title>
-  <desc id="jost-ends-desc">Two separate rows show f minus and f plus. The left end of f minus is highlighted and labeled e to the ikx as x tends to minus infinity. The right end of f plus is highlighted and labeled with the same free wave as x tends to plus infinity. Only the normalized end is drawn as the real part of a free wave. A question mark replaces the unspecified profile in the rest of each row.</desc>
+  <desc id="jost-ends-desc">Two separate rows show f minus and f plus. The left end of f minus is drawn and labeled e to the ikx as x tends to minus infinity. The right end of f plus is drawn and labeled with the same free wave as x tends to plus infinity. Only the normalized end is drawn as the real part of a free wave. A question mark replaces the unspecified profile in the rest of each row.</desc>
   <rect x={potentialLeft} y="40" width={potentialRight-potentialLeft} height="264" rx="12" fill="var(--line)" opacity=".5" />
   {[0,1].map(row=><>
    <foreignObject x="170" y={row*168} width="140" height="40"><div class="state-name" set:html={tex(row===0?'f_-(x,k)':'f_+(x,k)')} /></foreignObject>
-   <rect x={row===0?10:potentialRight} y={row*168+44} width={row===0?potentialLeft-10:470-potentialRight} height="92" rx="10" fill="var(--accent)" opacity=".09" />
    <path d={wave(row)} fill="none" stroke="var(--accent)" stroke-width="3.4" />
    <foreignObject x={row===0?275:115} y={row*168+70} width="90" height="55"><div class="unknown-wave" set:html={tex('\\text{?}')} /></foreignObject>
    <foreignObject x={row===0?10:potentialRight} y={row*168+43} width={row===0?potentialLeft-10:470-potentialRight} height="34"><div class="free-wave" set:html={tex('e^{ikx}')} /></foreignObject>
@@ -26,7 +25,7 @@ const wave=(row:number)=>Array.from({length:121},(_,i)=>{
   </>)}
   <foreignObject x="205" y="44" width="70" height="30"><div class="potential" set:html={tex('u(x)')} /></foreignObject>
  </svg></FigureViewport>
- <figcaption id="jost-ends-caption"><span set:html={tex('f_-')} /> は左端、<span set:html={tex('f_+')} /> は右端で <span set:html={tex('e^{ikx}')} /> に一致する。陰影は、その自由波で規格化する端を表す。曲線は自由波の実部の模式図で、「?」の領域の波形は示していない。</figcaption>
+ <figcaption id="jost-ends-caption"><span set:html={tex('f_-')} /> は左端、<span set:html={tex('f_+')} /> は右端で <span set:html={tex('e^{ikx}')} /> に一致する。曲線は自由波の実部の模式図で、「?」の領域の波形は示していない。</figcaption>
 </figure>
 <style>
 .jost-ends{scroll-margin-top:78px;width:100%;margin:1.5rem auto;color:var(--ink)}
