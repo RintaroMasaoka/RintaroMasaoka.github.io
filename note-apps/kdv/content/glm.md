@@ -472,14 +472,33 @@ f_-(x,-i\kappa_n)e^{\kappa_n y}
 =e^{\kappa_n(x+y)}+\int_{-\infty}^xK(x,z)e^{\kappa_n(z+y)}\,dz.
 \tag{bound-transform}
 $$
-連続部分と束縛状態部分に現れる既知データをまとめて
+反射項には $\widehat b(s)/(2\pi)$、束縛状態項には $\sum_{n=1}^N c_n^2e^{\kappa_ns}$ が現れる。どちらも、積分の外では $s=x+y$、核の積分内では $s=z+y$ という同じ引数で評価される。そこで、この二つの既知データの和を一つの関数にまとめる：
 $$
-F(s)=\widehat b(s)/(2\pi)+\sum_{n=1}^Nc_n^2e^{\kappa_ns}
+F(s)=\underbrace{\frac1{2\pi}\int_{\mathbb R}b(k)e^{-iks}\,dk}_{\widehat b(s)/(2\pi)}
++\sum_{n=1}^Nc_n^2e^{\kappa_ns}.
 \tag{scattering-data-kernel}
 $$
-と定義する。式 (@reflected-transform) の二項は反射由来の $\widehat b(x+y)/(2\pi)$ とその核積分である。透過変換を右辺へ移すと、式 (@bound-transform) の自由波と核積分が束縛状態項を加える。変換された散乱関係は
+入射項と反射項の変換の和から透過項の変換を引くと0になる。式 (@reflected-transform)、(@transmitted-transform)、(@bound-transform) を代入すると、透過項を引く負号と式 (@transmitted-transform) の負号により、束縛状態項は正となる：
 $$
-\boxed{K(x,y)+F(x+y)+\int_{-\infty}^xK(x,z)F(z+y)\,dz=0,\qquad y<x.}
+\begin{aligned}
+0={}&K(x,y)\\
+&+\underbrace{\frac{\widehat b(x+y)}{2\pi}
++\sum_{n=1}^Nc_n^2e^{\kappa_n(x+y)}}_{F(x+y)}\\
+&+\int_{-\infty}^xK(x,z)\,\Bigl[\\
+&\quad\underbrace{\frac{\widehat b(z+y)}{2\pi}
++\sum_{n=1}^Nc_n^2e^{\kappa_n(z+y)}}_{F(z+y)}\Bigr]\,dz.
+\end{aligned}
+\tag{glm-data-assembly}
+$$
+となる。積分の外の二項は $F(x+y)$、積分内の二項は $F(z+y)$ そのものである。従って、
+$$
+\begin{gathered}
+\boxed{\begin{aligned}
+0={}&K(x,y)+F(x+y)\\
+&+\int_{-\infty}^xK(x,z)F(z+y)\,dz.
+\end{aligned}}\\
+y<x.
+\end{gathered}
 \tag{glm}
 $$
 となる。これが左 GLM 方程式である。既知の $F$ に対して、これは $K(x,\cdot)$ の線形積分方程式である。実際のポテンシャルから得た散乱データには、ここまで構成した核が解として存在する。補足で示す一意性により、その核を散乱データから決められる。解を対角へ連続に延長し、式 (@potential-from-diagonal) の対角微分を取れば $u$ が復元される。
