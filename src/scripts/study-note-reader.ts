@@ -9,6 +9,7 @@ if (root.hasAttribute('data-study-note-reader') && manuscript) {
   const nav = document.getElementById('chapter-index')!;
   const menu = document.getElementById('reader-menu')!;
   const main = document.getElementById('main')!;
+  const header = document.querySelector<HTMLElement>('[data-reader-header]')!;
   const backdrop = document.querySelector<HTMLButtonElement>('.screen-backdrop')!;
   const mobile = matchMedia('(max-width: 800px)');
   let desktopOpen = true;
@@ -20,10 +21,13 @@ if (root.hasAttribute('data-study-note-reader') && manuscript) {
     shell.classList.toggle('nav-collapsed', !open || mobile.matches);
     backdrop.hidden = !mobile.matches || !open;
     main.inert = mobile.matches && open;
+    header.inert = mobile.matches && open;
+    root.classList.toggle('contents-open', open);
     menu.setAttribute('aria-expanded', String(open));
-    menu.hidden = open;
+    const label = open ? 'Close contents' : 'Open contents';
+    menu.setAttribute('aria-label', label); menu.setAttribute('title', label);
   };
-  menu.addEventListener('click', () => { if (mobile.matches) menuOpen = !menuOpen; else desktopOpen = !desktopOpen; updateMenu(); if (!nav.hidden) nav.querySelector<HTMLElement>('button,a')?.focus(); });
+  menu.addEventListener('click', () => { if (mobile.matches) menuOpen = !menuOpen; else desktopOpen = !desktopOpen; updateMenu();  });
   const closeMenu = (restore = false) => { if (mobile.matches) menuOpen = false; else desktopOpen = false; updateMenu(); if (restore) menu.focus(); };
   document.querySelectorAll('[data-menu-close]').forEach(button => button.addEventListener('click', () => closeMenu(true)));
   nav.addEventListener('click', event => { if (mobile.matches && (event.target as Element).closest('a')) closeMenu(true); });
@@ -119,7 +123,7 @@ if (root.hasAttribute('data-study-note-reader') && manuscript) {
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') { if (!preview.hidden) closePreview(true); else if (menuOpen) closeMenu(true); }
     if (event.key === 'Tab' && mobile.matches && menuOpen) {
-      const items = Array.from(nav.querySelectorAll<HTMLElement>('a,button')).filter(el => !el.hidden);
+      const items = [menu, ...Array.from(nav.querySelectorAll<HTMLElement>('a,button'))].filter(el => !el.hidden);
       const first = items[0], last = items.at(-1);
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
       if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }

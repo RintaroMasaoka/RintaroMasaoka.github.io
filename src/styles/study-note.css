@@ -28,18 +28,19 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 button, input { font: inherit; color: inherit; }
 button { cursor: pointer; }
 
-.reader-shell { --pane-width: 256px; min-height: 100vh; display: grid; grid-template-columns: var(--pane-width) minmax(0, 1fr); }
+:root { --pane-width: 256px; }
+.reader-shell { min-height: 100vh; display: grid; grid-template-columns: var(--pane-width) minmax(0, 1fr); }
 .reader-shell.nav-collapsed { grid-template-columns: 0 minmax(0, 1fr); }
 .progress-line { position: fixed; inset: 0 auto auto 0; z-index: 100; height: 2px; background: var(--accent); }
 
-.reader-header { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 64px; display: flex; align-items: center; gap: 14px; padding: 0 20px; border-bottom: 1px solid var(--line); background: var(--header); }
+.reader-header { position: fixed; inset: 0 0 auto 56px; z-index: 50; height: 64px; display: flex; align-items: center; gap: 14px; padding: 0 20px; border-bottom: 1px solid var(--line); background: var(--header); }
 .header-icon { width: 40px; height: 40px; display: grid; place-items: center; flex: none; border: 0; border-radius: 6px; background: transparent; color: var(--secondary); }
 .header-icon:hover { background: var(--hover); }
 .header-icon:focus-visible, .reader-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .reader-title { min-width: 0; color: var(--heading); font: 600 19px/1.5 var(--font-title); letter-spacing: .025em; text-decoration: none; }
 .header-actions { display: flex; align-items: center; gap: 10px; flex: none; margin-left: auto; }
 
-.chapter-index { position: fixed; z-index: 30; top: 64px; bottom: 0; left: 0; width: var(--pane-width); display: flex; flex-direction: column; border-right: 1px solid var(--line); background: var(--sidebar); }
+.chapter-index { position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; width: var(--pane-width); display: flex; flex-direction: column; border-right: 1px solid var(--line); background: var(--sidebar); }
 .chapter-index[hidden] { display: none; }
 .chapter-list { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; }
 .chapter-group { border-bottom: 1px solid var(--line); }
@@ -185,7 +186,7 @@ button { cursor: pointer; }
 .screen-backdrop { display: none; }
 
 @media (max-width: 1120px) {
-  .reader-shell { --pane-width: 232px; }
+  :root { --pane-width: 232px; }
 }
 
 @media (max-width: 800px) {
@@ -194,7 +195,7 @@ button { cursor: pointer; }
   .reader-title { font-size: 14px; line-height: 1.6; }
   .header-actions { gap: 4px; }
   .chapter-index { z-index: 80; width: min(88vw, 320px); }
-  .screen-backdrop { display: block; position: fixed; inset: 64px 0 0; z-index: 70; border: 0; background: rgba(20,24,21,.28); }
+  .screen-backdrop { display: block; position: fixed; inset: 0; z-index: 70; border: 0; background: rgba(20,24,21,.28); }
   .article-inner { padding: 38px 22px 70px; }
   .note-content { font-size: 14px; line-height: 1.95; }
   .note-content h1 { font-size: 31px; }
@@ -357,11 +358,11 @@ html { scroll-padding-top: 84px; }
   .reader-title { font-size: 15px; }
   .reader-header { padding: 0 10px; gap: 8px; }
   .header-actions { gap: 4px; }
-  .screen-backdrop { position: fixed; inset: 64px 0 0; z-index: 80; border: 0; background: rgba(0,0,0,.35); }
+  .screen-backdrop { position: fixed; inset: 0; z-index: 80; border: 0; background: rgba(0,0,0,.35); }
   .article-inner { padding: 36px 24px 64px; }
 }
 @media print {
-  .reader-header, .chapter-index, .progress-line, .skip, .screen-backdrop, #reader-preview, .chapter-pager, .math-supplement-trigger { display: none !important; }
+  .reader-header, .contents-toggle, .chapter-index, .progress-line, .skip, .screen-backdrop, #reader-preview, .chapter-pager, .math-supplement-trigger { display: none !important; }
   .reader-shell, .reader-shell.nav-collapsed { display: block; }
   .article-column { padding-top: 0; min-height: 0; }
   .article-inner { max-width: none; padding: 0; }
@@ -375,8 +376,13 @@ html { scroll-padding-top: 84px; }
 .reading-actions button { color: var(--secondary); border: 0; background: transparent; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; padding: 8px 0; }
 @media print { .reading-actions { display: none; } }
 
-/* Contents controls stay with the pane; its header opener appears only while closed. */
-.contents-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; padding: 8px 12px 8px 18px; color: var(--secondary); font: 500 12px/1.5 ui-sans-serif, system-ui, sans-serif; }
+/* One fixed control anchors the full-height contents pane in both states. */
+.contents-toggle { position: fixed; z-index: 100; top: 10px; left: 10px; }
+.contents-icon-close { display: none; }
+.contents-open .contents-icon-close { display: contents; }
+.contents-open .contents-icon-open { display: none; }
+@media (min-width: 801px) { .contents-open .reader-header { left: var(--pane-width); } }
+.contents-head { display: flex; flex: none; align-items: center; height: 64px; padding: 8px 18px 8px 68px; color: var(--secondary); font: 500 12px/1.5 ui-sans-serif, system-ui, sans-serif; }
 .theme-icon-light { display: none; }
 :root[data-theme="dark"] .theme-icon-dark { display: none; }
 :root[data-theme="dark"] .theme-icon-light { display: contents; }

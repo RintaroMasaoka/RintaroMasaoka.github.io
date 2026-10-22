@@ -40,9 +40,9 @@ const payload = JSON.stringify({previews, referenceIndex, equationIndex}).replac
 <body>
   <a class="skip" href="#main">{'Skip to content'}</a>
   <div id="reading-progress" class="progress-line" aria-hidden="true"></div>
+  <button class="header-icon contents-toggle" id="reader-menu" type="button" aria-controls="chapter-index" aria-expanded="true" aria-label="Close contents" title="Close contents"><span class="contents-icon-open"><ReaderIcon name="panel-left" size={22} /></span><span class="contents-icon-close"><ReaderIcon name="panel-left-close" size={22} /></span></button>
   <header class="reader-header" data-reader-header>
     <a class="header-icon note-back" href={notesHref} aria-label={'Back to notes'}><ReaderIcon name="arrow-left" size={22} /></a>
-    <button class="header-icon" id="reader-menu" type="button" aria-controls="chapter-index" aria-expanded="true" aria-label={'Open contents'} title="Open contents"><ReaderIcon name="panel-left" size={22} /></button>
     <a class="reader-title" href={mode === 'routed' ? base : '#top'}>{note.title}</a>
     <div class="header-actions">
       <button class="theme-toggle" id="theme-button" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><span class="theme-icon-dark"><ReaderIcon name="moon" /></span><span class="theme-icon-light"><ReaderIcon name="sun" /></span></button>
@@ -50,7 +50,7 @@ const payload = JSON.stringify({previews, referenceIndex, equationIndex}).replac
   </header>
   <div class="reader-shell" data-reader-shell>
     <aside id="chapter-index" class="chapter-index" aria-label={'Chapters and sections'}>
-      <div class="contents-head"><span>Contents</span><button class="header-icon" type="button" data-menu-close aria-label="Close contents" title="Close contents"><ReaderIcon name="panel-left-close" /></button></div>
+      <div class="contents-head"><span>Contents</span></div>
       <nav class="chapter-list">{chapters.map((chapter, index) => <div class="chapter-group"><a class:list={['chapter-link', {'is-active': index === activeIndex}]} href={chapterHref(chapter)} aria-current={mode === 'routed' && index === activeIndex ? 'page' : undefined}><span class="chapter-label">{chapters.length > 1 && chapter.section && <b>{chapter.section}</b>}<strong set:html={chapter.titleHtml || chapter.title} /></span></a>{(mode === 'continuous' || index === activeIndex) && <ol class="subsection-list">{headings.filter(h => !h.chapterId || h.chapterId === chapter.id).map(h => <li class={`depth-${h.depth}`}><a href={h.href || `#${h.id}`} set:html={h.labelHtml || h.label || h.text || h.id} /></li>)}</ol>}</div>)}</nav>
     </aside>
     <main class="article-column" id="main" tabindex="-1"><div class="article-inner" id="top"><span id="article-top" aria-hidden="true"></span>
