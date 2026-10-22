@@ -20,7 +20,12 @@ const {id}=Astro.props;
 .bound-choices button{min-inline-size:0;max-inline-size:100%;min-height:44px;padding:.4rem .65rem;border:1px solid var(--line);border-radius:6px;color:var(--ink);background:var(--paper);cursor:pointer;font-size:14px}
 .bound-choices button[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
 .bound-controls label{display:flex;justify-content:space-between;align-items:baseline}
-.bound-controls input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
+.bound-controls input{display:block;box-sizing:border-box;appearance:none;-webkit-appearance:none;width:calc(100% - var(--plot-left,44px) - var(--plot-right,28px) + 16px);margin:0 calc(var(--plot-right,28px) - 8px) 0 calc(var(--plot-left,44px) - 8px);padding:0;min-width:0;height:44px;background:transparent;cursor:pointer}
+.bound-controls input::-webkit-slider-runnable-track{height:4px;background:var(--line);border:0;border-radius:2px}
+.bound-controls input::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;margin-top:-6px;border:0;border-radius:50%;background:var(--accent)}
+.bound-controls input::-moz-range-track{height:4px;background:var(--line);border:0;border-radius:2px}
+.bound-controls input::-moz-range-thumb{width:16px;height:16px;border:0;border-radius:50%;background:var(--accent)}
+.bound-controls input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .bound-window{text-align:center;font-size:13px;color:var(--muted)}
 .bound-controls output{font-variant-numeric:tabular-nums}
 </style>

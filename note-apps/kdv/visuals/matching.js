@@ -12,7 +12,14 @@ export function initMatchingFigure(){
       const spectrum=root.querySelector('[data-w-spectrum]');
       const [emin,emax]=energyRange,es=Array.from({length:401},(_,i)=>emin+(emax-emin)*i/400);
       const [wmin,wmax]=fittedRange(es.map(e=>response(e,0).W),{includeZero:true});
-      const a=44,b=spectrum.clientWidth-28,top=12,bottom=142;
+      const style=getComputedStyle(root);
+      const insetLeft=parseFloat(style.getPropertyValue('--plot-left'))||44;
+      const insetRight=parseFloat(style.getPropertyValue('--plot-right'))||28;
+      const a=insetLeft,b=spectrum.clientWidth-insetRight,top=12;
+      const spectrumHeight=Math.max(130,Math.min(230,(b-a)*.28)),bottom=top+spectrumHeight;
+      spectrum.setAttribute('height',bottom+42);
+      for(const label of spectrum.querySelectorAll('[data-w-energy]'))label.setAttribute('y',bottom+6);
+      spectrum.querySelector('[data-w-energy-axis]').setAttribute('y',bottom-17);
       const XE=e=>a+(e-emin)*(b-a)/(emax-emin),YW=w=>bottom-(w-wmin)*(bottom-top)/(wmax-wmin);
       spectrum.querySelector('[data-w-axes]').setAttribute('d',`M${a} ${top} V${bottom} H${b}`);
       spectrum.querySelector('[data-w-zero]').setAttribute('d',`M${a} ${YW(0)} H${b}`);
@@ -23,7 +30,12 @@ export function initMatchingFigure(){
       spectrum.querySelector('[data-w-energy-axis]').setAttribute('x',b+2);
       placeVerticalTicks(spectrum,'[data-w-tick]',YW,wmin,wmax,[0]);
       for(const svg of root.querySelectorAll('[data-matching-panel]')){
-        const range=4,left=44,right=svg.clientWidth-28,top=10,bottom=180;
+        const range=4,left=insetLeft,right=svg.clientWidth-insetRight,top=10;
+        const plotHeight=Math.max(170,Math.min(320,(right-left)*.5)),bottom=top+plotHeight;
+        svg.setAttribute('height',bottom+44);
+        svg.querySelector('[data-matching-clip]').setAttribute('height',plotHeight);
+        for(const label of svg.querySelectorAll('[data-matching-x]'))label.setAttribute('y',bottom+14);
+        svg.querySelector('[data-matching-axis]').setAttribute('y',bottom-23);
         const X=x=>left+(x+range)*(right-left)/(2*range),Y=y=>bottom-(y+1.12)*(bottom-top)/2.24;
         svg.querySelector('[data-matching-clip]').setAttribute('width',Math.max(0,right-left));
         svg.querySelector('[data-matching-axes]').setAttribute('d',`M${left} ${top} V${bottom} H${right}`);
