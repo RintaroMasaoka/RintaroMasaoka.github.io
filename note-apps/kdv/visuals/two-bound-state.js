@@ -1,23 +1,28 @@
-// Symmetric reflectionless potential u=-2 d²/dx² log[cosh(2x)+10 cosh(x/5)].
-// Two Darboux seeds: cosh(.9x), sinh(1.1x); Jost amplitudes at infinity are one.
-const lower=.9,upper=1.1;
-export const boundEnergies={ground:-1.21,excited:-.81};
-const gap=boundEnergies.excited-boundEnergies.ground;
-// Equal half-gap context outside the two eigenvalues, rather than an inherited viewport.
-export const energyRange=[Number((boundEnergies.ground-gap/2).toFixed(2)),Number((boundEnergies.excited+gap/2).toFixed(2))];
+// Endpoint-normalized Jost solutions for the centered potential u=-6 sech²x.
+export const boundEnergies={ground:-4,excited:-1};
+const halfWidth=Math.abs(boundEnergies.excited)/2;
+export const energyRange=[boundEnergies.excited-halfWidth,boundEnergies.excited+halfWidth];
 export function twoBoundResponse(energy,x){
-  const q=Math.sqrt(-energy),a=lower,b=upper;
-  const c1=Math.cosh(a*x),s1=Math.sinh(a*x),c2=Math.cosh(b*x),s2=Math.sinh(b*x);
-  const seed=b*c1*c2-a*s1*s2,diff=b*b-a*a;
-  const w=diff*c1*s2/seed;
-  const wx=diff*(a*s1*s2+b*c1*c2)/seed-w*w;
-  const Q=a*b*(b*s1*s2-a*c1*c2)/seed;
-  const Qx=a*b*diff*s1*c2/seed-Q*w,d=(q+a)*(q+b);
-  const left=Math.exp(q*x)*(q*q-q*w+Q)/d,right=Math.exp(-q*x)*(q*q+q*w+Q)/d;
-  const leftDx=Math.exp(q*x)*(q*(q*q-q*w+Q)-q*wx+Qx)/d;
-  const rightDx=Math.exp(-q*x)*(-q*(q*q+q*w+Q)+q*wx+Qx)/d;
-  const W=(Math.abs(energy-boundEnergies.ground)<1e-13||Math.abs(energy-boundEnergies.excited)<1e-13)?0:-2*q*(q-a)*(q-b)/d;
-  return {left,right,leftDx,rightDx,W,potential:-2*wx};
+  const q=Math.sqrt(-energy),t=Math.tanh(x),d=(q+1)*(q+2),p=t=>q*q-1+3*q*t+3*t*t;
+  let left=Math.exp(q*x)*p(-t)/d,right=Math.exp(-q*x)*p(t)/d;
+  let leftDx=Math.exp(q*x)*(q*p(-t)-(3*q-6*t)*(1-t*t))/d;
+  let rightDx=Math.exp(-q*x)*(-q*p(t)+(3*q+6*t)*(1-t*t))/d;
+  if(q===1){right=.5/Math.cosh(x)*t;left=-right;rightDx=.5/Math.cosh(x)*(1-2*t*t);leftDx=-rightDx;}
+  if(q===2){left=right=.25/Math.cosh(x)**2;leftDx=rightDx=-2*t*left;}
+  const W=(q===1||q===2)?0:-2*q*(q-1)*(q-2)/d;
+  return {left,right,leftDx,rightDx,W,potential:-6*(1-t*t)};
+}
+export function jostNodes(energy,side){
+  const q=Math.sqrt(-energy),disc=12-3*q*q;
+  if(disc<0)return [];
+  return [-1,1].map(sign=>(-3*q+sign*Math.sqrt(disc))/6)
+    .filter(t=>Math.abs(t)<1).map(t=>(side==='left'?-1:1)*Math.atanh(t)).sort((a,b)=>a-b);
+}
+export function logJostSamples(energy,side,range=6){
+  const nodes=jostNodes(energy,side).filter(x=>Math.abs(x)<range);
+  const xs=Array.from({length:601},(_,i)=>-range+2*range*i/600);
+  for(const node of nodes){xs.push(node);for(let j=2;j<=10;j++){const dx=10**(-j);for(const x of [node-dx,node+dx])if(Math.abs(x)<range)xs.push(x);}}
+  return [...new Set(xs)].sort((a,b)=>a-b).map(x=>({x,y:nodes.some(n=>Math.abs(x-n)<1e-12)?null:Math.log(Math.abs(twoBoundResponse(energy,x)[side]))}));
 }
 export function joinedProfile(energy,x,point=1){
   const at=twoBoundResponse(energy,point),r=twoBoundResponse(energy,x);

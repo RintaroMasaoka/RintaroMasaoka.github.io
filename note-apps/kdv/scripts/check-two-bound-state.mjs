@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {twoBoundResponse as response,joinedProfile,matchingData,profileScales,energyRange,boundEnergies} from '../visuals/two-bound-state.js';
+import {twoBoundResponse as response,joinedProfile,matchingData,profileScales,logJostSamples,jostNodes,energyRange,boundEnergies} from '../visuals/two-bound-state.js';
 const h=1e-3;
 let maxResidual=0,maxWError=0,maxPointError=0;
 for(let i=0;i<=170;i++){
@@ -8,7 +8,7 @@ for(let i=0;i<=170;i++){
   const x=-4+j*.1,r=response(E,x),a=response(E,x-h),b=response(E,x+h);
   for(const side of ['left','right']){
    assert.ok(Number.isFinite(r[side])&&Math.abs(r[side]/scales[side])<1.001,'scaled profile clipped');
-   const residual=(-(b[side]-2*r[side]+a[side])/(h*h)+((()=>{const F=Math.cosh(2*x)+10*Math.cosh(x/5),Fx=2*Math.sinh(2*x)+2*Math.sinh(x/5),Fxx=4*Math.cosh(2*x)+.4*Math.cosh(x/5);return -2*(Fxx/F-(Fx/F)**2)})()-E)*r[side])/(1+Math.abs(r[side]));
+   const residual=(-(b[side]-2*r[side]+a[side])/(h*h)+(-6/Math.cosh(x)**2-E)*r[side])/(1+Math.abs(r[side]));
    maxResidual=Math.max(maxResidual,Math.abs(residual));
   }
   maxWError=Math.max(maxWError,Math.abs(r.left*r.rightDx-r.leftDx*r.right-r.W));
@@ -27,13 +27,13 @@ for(const E of Object.values(boundEnergies)){
  assert.equal(response(E,0).W,0);
  for(let i=0;i<=100;i++){
   const x=-4+i*.08,r=response(E,x);
-  const exactLeft=E===boundEnergies.ground?Math.cosh(.9*x)/(Math.cosh(2*x)+10*Math.cosh(x/5)):-Math.sinh(1.1*x)/(Math.cosh(2*x)+10*Math.cosh(x/5));
+  const exactLeft=E===boundEnergies.ground?1/(4*Math.cosh(x)**2):-Math.tanh(x)/(2*Math.cosh(x));
   assert.ok(Math.abs(r.left-exactLeft)<1e-10,'exact bound eigenfunction');
   assert.ok(Math.abs(r.right-(E===boundEnergies.ground?1:-1)*r.left)<1e-10,'bound proportionality');
  }
  let norm=0;const step=.005;
  for(let j=0;j<=8000;j++){const x=-20+j*step,w=(j===0||j===8000)?1:j%2?4:2;norm+=w*response(E,x).left**2*step/3;}
- const cn=E===boundEnergies.ground?Math.sqrt(22):Math.sqrt(18),de=1e-6;
+ const cn=E===boundEnergies.ground?Math.sqrt(12):Math.sqrt(6),de=1e-6;
  assert.ok(Math.abs(norm*cn*cn-1)<1e-9,'independent L2 normalization');
  for(const c of [-1.6,-.8,.3,1.3]){
   const at=response(E,c),psi=cn*at.left;
@@ -60,10 +60,10 @@ for(const [component,runtime] of [['MatchingFigure.astro','matching.js'],['Point
  assert.ok(source.includes('min-inline-size:0;width:100%;'));
  assert.ok(source.includes('inline-size:100%;max-inline-size:100%'));
  assert.ok(!/overflow-x\s*:\s*(auto|scroll)|min-width\s*:\s*\d+px|viewBox=/.test(source),'fixed canvas or horizontal scrolling');
- assert.ok(js.includes('getBoundingClientRect().width')&&js.includes('ResizeObserver(draw)'),'coordinates must follow the container');
+ assert.ok(source.includes('<FigureViewport')&&js.includes('.clientWidth')&&js.includes('ResizeObserver(draw)'),'coordinates must use untransformed design space');
 }
 const controls=await readFile(new URL('../components/BoundStateControls.astro',import.meta.url),'utf8');
-assert.ok(controls.includes('repeat(auto-fit,minmax(min(100%,11rem),1fr))'),'controls must reflow within the available width');
+assert.ok(controls.includes('display:flex;flex-wrap:wrap'),'controls must reflow within the available width');
 console.log('Container-sized plots and intrinsic control reflow: structural layout contract passed.');
 
 const matchSource=await readFile(new URL('../components/MatchingFigure.astro',import.meta.url),'utf8');
@@ -71,3 +71,13 @@ const joinSource=await readFile(new URL('../components/PointSpectrum.astro',impo
 assert.ok(matchSource.includes('data-w-spectrum')&&matchSource.includes('data-w-root'),'the full energy comparison must exist');
 assert.ok(!matchSource.includes('data-matching-left-slope')&&!matchSource.includes('f_-(0,-k)'),'Wronskian plot must not normalize at a matching point');
 assert.ok(joinSource.includes('data-point-position')&&joinSource.includes('f(x;E,x_*)'),'joined wave must expose its independent matching point');
+
+for(const E of [-1.5,-1,-.5])for(const side of ['left','right']){
+ const samples=logJostSamples(E,side);
+ for(const p of samples)if(p.y!==null){assert.ok(Number.isFinite(p.y));assert.ok(Math.abs(Math.exp(p.y)-Math.abs(response(E,p.x)[side]))<1e-11);}
+ for(const x of jostNodes(E,side)){assert.ok(Math.abs(response(E,x)[side])<1e-12);assert.ok(samples.some(p=>Math.abs(p.x-x)<1e-12&&p.y===null));}
+ const x=side==='left'?-6:6,sign=side==='left'?1:-1;
+ const slope=(Math.log(Math.abs(response(E,x+.001)[side]))-Math.log(Math.abs(response(E,x-.001)[side])))/.002;
+ assert.ok(Math.abs(slope-sign*Math.sqrt(-E))<.001,'endpoint exponential slope');
+}
+console.log('Natural-log magnitudes, endpoint slopes, and node path breaks passed.');

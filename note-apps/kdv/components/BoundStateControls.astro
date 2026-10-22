@@ -8,16 +8,15 @@ const {id}=Astro.props;
 ---
 <div class="bound-controls">
   <div class="bound-choices">
-    <button type="button" data-bound-state="ground" data-bound-energy={boundEnergies.ground} aria-pressed="false" set:html={tex(`\\text{Ground state: } E=${boundEnergies.ground}`)} />
     <button type="button" data-bound-state="excited" data-bound-energy={boundEnergies.excited} aria-pressed="true" set:html={tex(`\\text{Excited state: } E=${boundEnergies.excited}`)} />
   </div>
-  <label for={id}><span set:html={tex('E=k^2')} /><output data-two-energy-output>−0.810</output></label>
+  <label for={id}><span set:html={tex('E=k^2')} /><output data-two-energy-output>−1.000</output></label>
   <input id={id} data-two-energy type="range" min={energyRange[0]} max={energyRange[1]} step=".001" value={boundEnergies.excited} aria-label="Spectral energy" />
   <div class="bound-window" set:html={tex(`${energyRange[0]}\\le E\\le ${energyRange[1]}`)} />
 </div>
 <style>
 .bound-controls{inline-size:100%;min-inline-size:0;max-inline-size:100%}
-.bound-choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:.4rem;margin-bottom:.5rem}
+.bound-choices{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.5rem}
 .bound-choices button{min-inline-size:0;max-inline-size:100%;min-height:44px;padding:.4rem .65rem;border:1px solid var(--line);border-radius:6px;color:var(--ink);background:var(--paper);cursor:pointer;font-size:14px}
 .bound-choices button[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
 .bound-controls label{display:flex;justify-content:space-between;align-items:baseline}
