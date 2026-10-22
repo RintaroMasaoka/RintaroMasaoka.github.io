@@ -34,7 +34,7 @@ const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[0,.5,1,1.5,2],axis:
     </svg>
   </section>)}
   <p data-point-status role="status" aria-live="polite"></p>
-  <figcaption id={figureId}>{wave?<Fragment>実線は左端で減衰する解の <span set:html={tex('x<0')} /> の部分、破線は右端で減衰する解の <span set:html={tex('x>0')} /> の部分である。原点では両者の値を1にそろえた。エネルギーを変えると原点での傾きが変わり、<span set:html={tex('E=-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>} 横軸の範囲は固定し、縦軸は曲線全体に合わせている。</figcaption>
+  <figcaption id={figureId}>{wave?<Fragment>実線は左端で減衰する解の <span set:html={tex('x<0')} /> の部分、破線は右端で減衰する解の <span set:html={tex('x>0')} /> の部分である。原点では両者の値を1にそろえた。エネルギーを変えると原点での傾きが変わり、<span set:html={tex('E=-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
 </figure>
 <script>
 import { initPointSpectrum } from '../visuals/point-spectrum.js';

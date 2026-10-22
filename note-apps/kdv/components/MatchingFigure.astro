@@ -30,7 +30,7 @@ const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5
   </section>)}
   <div class="endpoint-slopes"><span set:html={tex('\\text{Slope at }x=0')} /><div><span class="endpoint-solid" aria-hidden="true"></span><output data-matching-left-slope></output><span class="endpoint-dashed" aria-hidden="true"></span><output data-matching-right-slope></output></div></div>
   <p data-matching-status role="status" aria-live="polite"></p>
-  <figcaption id="green-matching-caption">実線は左端で、破線は右端で減衰する解。原点での値をそれぞれ1にそろえた。横軸の範囲は固定し、縦軸は二本の曲線全体が収まる範囲へ連続的に調整している。<span set:html={tex('k^2=-1')} /> では傾きも一致し、二本の曲線は全区間で重なる。このとき <span set:html={tex('W=0')} /> となり、両端で減衰する束縛状態が得られる。</figcaption>
+  <figcaption id="green-matching-caption">実線は左端で、破線は右端で減衰する解。原点での値をそれぞれ1にそろえた。<span set:html={tex('k^2=-1')} /> では傾きも一致し、二本の曲線は全区間で重なる。このとき <span set:html={tex('W=0')} /> となり、両端で減衰する束縛状態が得られる。</figcaption>
 </figure>
 <script>
   import { initMatchingFigure } from '../visuals/matching.js';
