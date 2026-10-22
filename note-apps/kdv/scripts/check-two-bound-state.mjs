@@ -60,7 +60,7 @@ for(const [component,runtime] of [['MatchingFigure.astro','matching.js'],['Point
  assert.ok(source.includes('min-inline-size:0;width:100%;'));
  assert.ok(source.includes('inline-size:100%;max-inline-size:100%'));
  assert.ok(!/overflow-x\s*:\s*(auto|scroll)|min-width\s*:\s*\d+px|viewBox=/.test(source),'fixed canvas or horizontal scrolling');
- assert.ok(source.includes('<FigureViewport')&&js.includes('.clientWidth')&&js.includes('ResizeObserver(draw)'),'coordinates must use untransformed design space');
+ assert.ok(!source.includes('<FigureViewport')&&js.includes('.clientWidth')&&js.includes('ResizeObserver(draw)'),'native plot coordinates must preserve fixed type sizes');
 }
 const controls=await readFile(new URL('../components/BoundStateControls.astro',import.meta.url),'utf8');
 assert.ok(controls.includes('display:flex;flex-wrap:wrap'),'controls must reflow within the available width');
