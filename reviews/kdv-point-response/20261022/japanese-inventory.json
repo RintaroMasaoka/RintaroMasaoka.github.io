@@ -1,0 +1,260 @@
+{
+  "input": "reviews/kdv-point-response/20261022/candidate.md",
+  "input_sha256": "6efcdfd1b31263b405e134093364fa33d2f5b25c56994855ea13e7ad3a97ac27",
+  "review_lines": [
+    1,
+    55
+  ],
+  "kind": "surface_candidates_not_terms_or_defects",
+  "repeated_candidates": [
+    {
+      "id": "s22",
+      "surface": "エネルギー",
+      "occurrences": [
+        {
+          "line": 12,
+          "column": 20
+        },
+        {
+          "line": 14,
+          "column": 11
+        },
+        {
+          "line": 24,
+          "column": 53
+        },
+        {
+          "line": 27,
+          "column": 10
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "surface": "一次",
+      "occurrences": [
+        {
+          "line": 14,
+          "column": 17
+        },
+        {
+          "line": 24,
+          "column": 1
+        },
+        {
+          "line": 27,
+          "column": 16
+        },
+        {
+          "line": 29,
+          "column": 26
+        },
+        {
+          "line": 29,
+          "column": 77
+        },
+        {
+          "line": 47,
+          "column": 4
+        }
+      ]
+    },
+    {
+      "id": "s31",
+      "surface": "使",
+      "occurrences": [
+        {
+          "line": 7,
+          "column": 23
+        },
+        {
+          "line": 39,
+          "column": 41
+        },
+        {
+          "line": 51,
+          "column": 28
+        }
+      ]
+    },
+    {
+      "id": "s40",
+      "surface": "固有関数",
+      "occurrences": [
+        {
+          "line": 12,
+          "column": 31
+        },
+        {
+          "line": 29,
+          "column": 12
+        },
+        {
+          "line": 34,
+          "column": 17
+        }
+      ]
+    },
+    {
+      "id": "s41",
+      "surface": "変化",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 47
+        },
+        {
+          "line": 3,
+          "column": 61
+        },
+        {
+          "line": 14,
+          "column": 20
+        },
+        {
+          "line": 27,
+          "column": 19
+        },
+        {
+          "line": 34,
+          "column": 22
+        }
+      ]
+    },
+    {
+      "id": "s44",
+      "surface": "式",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 96
+        },
+        {
+          "line": 51,
+          "column": 1
+        },
+        {
+          "line": 55,
+          "column": 38
+        }
+      ]
+    },
+    {
+      "id": "s52",
+      "surface": "束縛状態",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 76
+        },
+        {
+          "line": 14,
+          "column": 30
+        },
+        {
+          "line": 14,
+          "column": 49
+        },
+        {
+          "line": 47,
+          "column": 20
+        }
+      ]
+    },
+    {
+      "id": "s59",
+      "surface": "点ポテンシャル",
+      "occurrences": [
+        {
+          "line": 1,
+          "column": 19
+        },
+        {
+          "line": 3,
+          "column": 65
+        },
+        {
+          "line": 12,
+          "column": 38
+        },
+        {
+          "line": 14,
+          "column": 1
+        },
+        {
+          "line": 24,
+          "column": 42
+        },
+        {
+          "line": 29,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "id": "s62",
+      "surface": "確率密度",
+      "occurrences": [
+        {
+          "line": 14,
+          "column": 35
+        },
+        {
+          "line": 24,
+          "column": 17
+        },
+        {
+          "line": 47,
+          "column": 25
+        },
+        {
+          "line": 55,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "id": "s71",
+      "surface": "透過項",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 51,
+          "column": 21
+        },
+        {
+          "line": 55,
+          "column": 76
+        }
+      ]
+    },
+    {
+      "id": "s73",
+      "surface": "項",
+      "occurrences": [
+        {
+          "line": 29,
+          "column": 80
+        },
+        {
+          "line": 34,
+          "column": 39
+        },
+        {
+          "line": 41,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "structural_candidates": [
+    {
+      "kind": "heading",
+      "line": 1,
+      "text": "3.2.5. 傾きの跳びと点ポテンシャル"
+    }
+  ]
+}

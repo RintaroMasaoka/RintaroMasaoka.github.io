@@ -1,0 +1,556 @@
+{
+  "input_sha256": "6efcdfd1b31263b405e134093364fa33d2f5b25c56994855ea13e7ad3a97ac27",
+  "review_lines": [
+    1,
+    55
+  ],
+  "manual_sweep": {
+    "completed": true,
+    "reviewed_lines": [
+      1,
+      55
+    ]
+  },
+  "supplemental_concepts": [
+    {
+      "id": "c_delta",
+      "surface": "デルタ関数",
+      "occurrences": [
+        {
+          "line": 41,
+          "column": 12
+        }
+      ],
+      "role": "disciplinary_name",
+      "referent": "点相互作用を表す分布δ(x−x₀)",
+      "impact": "high",
+      "decision": "KEEP",
+      "reason": "デルタ関数は標準的な分布名であり、δ(x−x₀)と点ポテンシャルの式が局所的に対応する。",
+      "comparison": {
+        "current": "デルタ関数",
+        "english_or_not_applicable": "English referent supplied by the project convention or standard notation.",
+        "alternatives_or_not_applicable": "No materially different established alternative is needed in this context.",
+        "audience_reason": "デルタ関数は標準的な分布名であり、δ(x−x₀)と点ポテンシャルの式が局所的に対応する。"
+      },
+      "project_authority": {
+        "locator": "reviews/kdv-glm/kdv.spec.md (Section7: distributional second derivative and explicit delta term)",
+        "rationale": "採用仕様は点ポテンシャルの分布二階微分でデルタ項を明示すると定める。"
+      },
+      "evidence_sources": [
+        {
+          "locator": "京都大学理学研究科「令和4年度大学院入学試験問題 I」II-2A, https://www.scphys.kyoto-u.ac.jp/education/inshi/kakomon/R4.pdf",
+          "usage": "「デルタ関数型の引力ポテンシャル」とδ(x)を同一問題内で使用。",
+          "genre": "大学院入試問題",
+          "community": "日本の量子力学教育"
+        },
+        {
+          "locator": "名古屋大学 OpenCourseWare「束縛状態: デルタ関数ポテンシャル」§4.6, https://ocw.nagoya-u.jp/files/487/qm1-17v2-public.pdf",
+          "usage": "デルタ関数ポテンシャル、束縛状態、微分不連続を説明。",
+          "genre": "大学講義ノート",
+          "community": "日本の量子力学教育"
+        }
+      ]
+    },
+    {
+      "id": "c_residue",
+      "surface": "留数",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 5
+        },
+        {
+          "line": 55,
+          "column": 80
+        }
+      ],
+      "role": "disciplinary_name",
+      "referent": "透過項の極の留数",
+      "impact": "high",
+      "decision": "KEEP",
+      "reason": "留数は読者契約で既知とされた留数定理の対象名で、節冒頭と結びで同じ透過項の留数を特定する。",
+      "comparison": {
+        "current": "留数",
+        "english_or_not_applicable": "English referent supplied by the project convention or standard notation.",
+        "alternatives_or_not_applicable": "No materially different established alternative is needed in this context.",
+        "audience_reason": "留数は読者契約で既知とされた留数定理の対象名で、節冒頭と結びで同じ透過項の留数を特定する。"
+      },
+      "project_authority": {
+        "locator": "note-apps/kdv/reader-contract.yaml (concept_available: 留数定理; conventions_to_supply: residues)",
+        "rationale": "読者契約は留数定理を既知概念として明示し、束縛状態の極と留数は導出対象として区別する。"
+      }
+    },
+    {
+      "id": "c_distribution_derivative",
+      "surface": "分布微分",
+      "occurrences": [
+        {
+          "line": 3,
+          "column": 150
+        }
+      ],
+      "role": "disciplinary_name",
+      "referent": "接続点にデルタ関数を生む二階分布微分",
+      "impact": "incidental",
+      "decision": "KEEP",
+      "reason": "一般的な数学語で、直後の明示式がこの用例の意味を完全に与える。",
+      "evidence": "一般的な数学語で、直後の明示式がこの用例の意味を完全に与える。"
+    },
+    {
+      "id": "c_selfadjoint",
+      "surface": "自己共役性",
+      "occurrences": [
+        {
+          "line": 39,
+          "column": 15
+        }
+      ],
+      "role": "disciplinary_name",
+      "referent": "Lの対称性を使った内積移項",
+      "impact": "incidental",
+      "decision": "KEEP",
+      "reason": "行内でLの自己共役性と固有方程式を根拠として明記し、名称の解釈を追加要求しない。",
+      "evidence": "行内でLの自己共役性と固有方程式を根拠として明記し、名称の解釈を追加要求しない。"
+    },
+    {
+      "id": "c_inner_product",
+      "surface": "内積",
+      "occurrences": [
+        {
+          "line": 34,
+          "column": 12
+        }
+      ],
+      "role": "disciplinary_name",
+      "referent": "ψ_nとの積分内積",
+      "impact": "incidental",
+      "decision": "KEEP",
+      "reason": "周囲の積分式に具体化されており、この語はその演算を指す一般用語である。",
+      "evidence": "周囲の積分式に具体化されており、この語はその演算を指す一般用語である。"
+    },
+    {
+      "id": "c_normalization",
+      "surface": "規格化条件",
+      "occurrences": [
+        {
+          "line": 41,
+          "column": 6
+        }
+      ],
+      "role": "disciplinary_name",
+      "referent": "積分二乗ノルムを1にする条件",
+      "impact": "incidental",
+      "decision": "KEEP",
+      "reason": "直後の積分表示と下線の1が意味を明示する。",
+      "evidence": "直後の積分表示と下線の1が意味を明示する。"
+    }
+  ],
+  "dispositions": [
+    {
+      "candidate_id": "s22",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 12,
+              "column": 20
+            },
+            {
+              "line": 14,
+              "column": 11
+            },
+            {
+              "line": 24,
+              "column": 53
+            },
+            {
+              "line": 27,
+              "column": 10
+            }
+          ],
+          "role": "ordinary_syntax",
+          "referent": "文中のエネルギー量およびその変化",
+          "impact": "incidental",
+          "decision": "KEEP",
+          "reason": "通常の物理語として自然で、E、E_n、δEとの対応が直近の式に明示されている。"
+        }
+      ]
+    },
+    {
+      "candidate_id": "s26",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 14,
+              "column": 17
+            },
+            {
+              "line": 24,
+              "column": 1
+            },
+            {
+              "line": 27,
+              "column": 16
+            },
+            {
+              "line": 29,
+              "column": 26
+            },
+            {
+              "line": 29,
+              "column": 77
+            },
+            {
+              "line": 47,
+              "column": 4
+            }
+          ],
+          "role": "ordinary_syntax",
+          "referent": "摂動展開の一次までを指す表現",
+          "impact": "incidental",
+          "decision": "KEEP",
+          "reason": "一次までという標準的な次数指定で、行ごとに計算対象も明示される。"
+        }
+      ]
+    },
+    {
+      "candidate_id": "s31",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 7,
+              "column": 23
+            },
+            {
+              "line": 39,
+              "column": 41
+            },
+            {
+              "line": 51,
+              "column": 28
+            }
+          ],
+          "role": "ordinary_syntax",
+          "referent": "「使う」の通常の動詞用法",
+          "impact": "incidental",
+          "decision": "KEEP",
+          "reason": "技術名ではなく、式の正規化条件または自己共役性の適用を述べる構文。"
+        }
+      ]
+    },
+    {
+      "candidate_id": "s40",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 12,
+              "column": 31
+            },
+            {
+              "line": 29,
+              "column": 12
+            },
+            {
+              "line": 34,
+              "column": 17
+            }
+          ],
+          "role": "disciplinary_name",
+          "referent": "固有値方程式の固有関数",
+          "impact": "high",
+          "decision": "KEEP",
+          "reason": "固有関数はこの読者に馴染みの標準語で、Lψ_n=E_nψ_nが直後に対応を固定する。",
+          "comparison": {
+            "current": "固有関数",
+            "english_or_not_applicable": "English referent is stated by the section context and project contract.",
+            "alternatives_or_not_applicable": "See report; no alternative changes the referent here.",
+            "audience_reason": "固有関数はこの読者に馴染みの標準語で、Lψ_n=E_nψ_nが直後に対応を固定する。"
+          },
+          "project_authority": {
+            "locator": "note-apps/kdv/reader-contract.yaml (detail_to_recover: point-potential slope jump and energy response; conventions_to_supply: residues)",
+            "rationale": "The adopted reader contract explicitly names 点ポテンシャル, 傾きの跳び, 束縛状態のエネルギー応答, and requires their local derivation; it governs this exact KdV note and audience."
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "s41",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 3,
+              "column": 47
+            },
+            {
+              "line": 3,
+              "column": 61
+            },
+            {
+              "line": 14,
+              "column": 20
+            },
+            {
+              "line": 27,
+              "column": 19
+            },
+            {
+              "line": 34,
+              "column": 22
+            }
+          ],
+          "role": "ordinary_syntax",
+          "referent": "量や関数の変化",
+          "impact": "incidental",
+          "decision": "KEEP",
+          "reason": "通常の説明語であり、各箇所で変化の対象が明示されている。"
+        }
+      ]
+    },
+    {
+      "candidate_id": "s44",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 3,
+              "column": 96
+            },
+            {
+              "line": 51,
+              "column": 1
+            },
+            {
+              "line": 55,
+              "column": 38
+            }
+          ],
+          "role": "ordinary_syntax",
+          "referent": "前後で参照する表示式",
+          "impact": "incidental",
+          "decision": "KEEP",
+          "reason": "通常の式参照で、安定した式IDが参照先を特定する。"
+        }
+      ]
+    },
+    {
+      "candidate_id": "s52",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 3,
+              "column": 76
+            },
+            {
+              "line": 14,
+              "column": 30
+            },
+            {
+              "line": 14,
+              "column": 49
+            },
+            {
+              "line": 47,
+              "column": 20
+            }
+          ],
+          "role": "disciplinary_name",
+          "referent": "束縛された固有状態",
+          "impact": "high",
+          "decision": "KEEP",
+          "reason": "束縛状態はプロジェクト読者契約に採用された物理用語で、状態方程式と規格化で対象を特定する。",
+          "comparison": {
+            "current": "束縛状態",
+            "english_or_not_applicable": "English referent is stated by the section context and project contract.",
+            "alternatives_or_not_applicable": "See report; no alternative changes the referent here.",
+            "audience_reason": "束縛状態はプロジェクト読者契約に採用された物理用語で、状態方程式と規格化で対象を特定する。"
+          },
+          "project_authority": {
+            "locator": "note-apps/kdv/reader-contract.yaml (detail_to_recover: point-potential slope jump and energy response; conventions_to_supply: residues)",
+            "rationale": "The adopted reader contract explicitly names 点ポテンシャル, 傾きの跳び, 束縛状態のエネルギー応答, and requires their local derivation; it governs this exact KdV note and audience."
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "s59",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 1,
+              "column": 19
+            },
+            {
+              "line": 3,
+              "column": 65
+            },
+            {
+              "line": 12,
+              "column": 38
+            },
+            {
+              "line": 14,
+              "column": 1
+            },
+            {
+              "line": 24,
+              "column": 42
+            },
+            {
+              "line": 29,
+              "column": 1
+            }
+          ],
+          "role": "disciplinary_name",
+          "referent": "デルタ型の点相互作用を表す点ポテンシャル",
+          "impact": "high",
+          "decision": "KEEP",
+          "reason": "読者契約がこの節の対象名として点ポテンシャルを明示し、強さΔ(E)との同一性も節内で定義される。",
+          "comparison": {
+            "current": "点ポテンシャル",
+            "english_or_not_applicable": "English referent is stated by the section context and project contract.",
+            "alternatives_or_not_applicable": "See report; no alternative changes the referent here.",
+            "audience_reason": "読者契約がこの節の対象名として点ポテンシャルを明示し、強さΔ(E)との同一性も節内で定義される。"
+          },
+          "project_authority": {
+            "locator": "note-apps/kdv/reader-contract.yaml (detail_to_recover: point-potential slope jump and energy response; conventions_to_supply: residues)",
+            "rationale": "The adopted reader contract explicitly names 点ポテンシャル, 傾きの跳び, 束縛状態のエネルギー応答, and requires their local derivation; it governs this exact KdV note and audience."
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "s62",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 14,
+              "column": 35
+            },
+            {
+              "line": 24,
+              "column": 17
+            },
+            {
+              "line": 47,
+              "column": 25
+            },
+            {
+              "line": 55,
+              "column": 6
+            }
+          ],
+          "role": "disciplinary_name",
+          "referent": "波動関数の絶対値二乗で表す確率密度",
+          "impact": "high",
+          "decision": "KEEP",
+          "reason": "確率密度は物理学の標準語で、本文の|ψ_n(x_0)|²が対象を直に示す。",
+          "comparison": {
+            "current": "確率密度",
+            "english_or_not_applicable": "English referent is stated by the section context and project contract.",
+            "alternatives_or_not_applicable": "See report; no alternative changes the referent here.",
+            "audience_reason": "確率密度は物理学の標準語で、本文の|ψ_n(x_0)|²が対象を直に示す。"
+          },
+          "project_authority": {
+            "locator": "note-apps/kdv/reader-contract.yaml (detail_to_recover: point-potential slope jump and energy response; conventions_to_supply: residues)",
+            "rationale": "The adopted reader contract explicitly names 点ポテンシャル, 傾きの跳び, 束縛状態のエネルギー応答, and requires their local derivation; it governs this exact KdV note and audience."
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "s71",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 3,
+              "column": 1
+            },
+            {
+              "line": 51,
+              "column": 21
+            },
+            {
+              "line": 55,
+              "column": 76
+            }
+          ],
+          "role": "ordinary_syntax",
+          "referent": "散乱解の透過に対応する項",
+          "impact": "incidental",
+          "decision": "KEEP",
+          "reason": "この節で既定の散乱振幅の成分を指す説明語で、同じ語が留数対象を一貫して指す。"
+        }
+      ]
+    },
+    {
+      "candidate_id": "s73",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 29,
+              "column": 80
+            },
+            {
+              "line": 34,
+              "column": 39
+            },
+            {
+              "line": 41,
+              "column": 3
+            }
+          ],
+          "role": "ordinary_syntax",
+          "referent": "方程式の一次部分、固有関数の変化項、残余項",
+          "impact": "incidental",
+          "decision": "KEEP",
+          "reason": "各出現は異なる普通名詞の用法で、前後の式が対象を一意に示す。"
+        }
+      ]
+    },
+    {
+      "candidate_id": "h1",
+      "groups": [
+        {
+          "occurrences": [
+            {
+              "line": 1,
+              "column": 1
+            }
+          ],
+          "role": "disciplinary_name",
+          "referent": "連続波形の左右微分値の差である導関数ジャンプ",
+          "impact": "high",
+          "decision": "KEEP",
+          "reason": "プロジェクトの読者契約が同じ量を傾きの跳び（右−左）として明示する。京都大学の量子力学入試問題もデルタ関数型ポテンシャルの波動関数について「傾きの『とび』」を使う。",
+          "comparison": {
+            "current": "傾きの跳び",
+            "english_or_not_applicable": "derivative/slope jump",
+            "alternatives_or_not_applicable": "微分係数の不連続、導関数の跳び",
+            "audience_reason": "傾きの跳びはこの連続波形の左右差を短く指し、読者契約の右−左という向き指定と整合する。京都大学の同分野の用法も直接一致する。"
+          },
+          "project_authority": {
+            "locator": "note-apps/kdv/reader-contract.yaml (conventions_to_supply: residues)",
+            "rationale": "同じ節の対象を「実際の右−左の微分ジャンプ」と指定し、Deltaと点ポテンシャル強度を同一視する。"
+          },
+          "evidence_sources": [
+            {
+              "locator": "京都大学理学研究科「令和4年度大学院入学試験問題 I」II-2A, (1), https://www.scphys.kyoto-u.ac.jp/education/inshi/kakomon/R4.pdf",
+              "usage": "デルタ関数型引力ポテンシャルで波動関数は連続だが傾きは不連続となり、その傾きの「とび」を定義。",
+              "genre": "大学院入試問題",
+              "community": "日本の量子力学・理論物理教育"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
