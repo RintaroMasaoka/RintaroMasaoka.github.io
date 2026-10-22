@@ -88,6 +88,7 @@
     "conventions_to_supply": [
       "Intro and section2.1: eta is scaled surface displacement, upward positive, eta_t+6eta eta_x+eta_xxx=0. At section2.2 define u=-eta once and use u as the Schrodinger potential thereafter; soliton speed v and all scattering/GLM conventions retained. Early plots and numerical frames show eta. A final eta=-u recall interprets recovered potential as wave height.",
       "L=-∂x²+u; f±~exp(ikx) at ±infinity",
+      "Prime retains its established x-derivative meaning; wave-number derivatives use ∂k, including ∂kW. W is defined as W(x,k); ∂xW=0 permits suppressing x without changing the underlying definition. Keep ∂k f_-(x,-k) unchanged.",
       "left incidence b,c throughout the note",
       "Fourier extraction exp(-iky)/(2pi); y<x",
       "left K; u=+2 dK(x,x)/dx",
