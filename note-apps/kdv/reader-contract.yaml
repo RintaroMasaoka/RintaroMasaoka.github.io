@@ -202,20 +202,20 @@
       "spec": "reviews/kdv-sato-voa/hierarchy.spec.md"
     },
     "heading_structure": {
-      "chapter3": "散乱データからポテンシャルを復元する",
+      "chapter3": "散乱の逆問題",
       "chapter3_main_questions": [
-        "変換核とポテンシャルの関係",
-        "散乱データからGLM方程式を導く",
-        "無反射データからソリトンを復元する"
+        "Jost解と変換核",
+        "GLM方程式",
+        "無反射ポテンシャルとソリトン"
       ],
-      "chapter4": "変換核からKdV階層へ",
+      "chapter4": "KdV階層と保存量",
       "chapter4_main_questions": [
-        "変換核から擬微分作用素へ",
-        "非負冪部分によるKdV階層の構成",
-        "交換子の留数から保存量を得る"
+        "積分変換と擬微分作用素",
+        "KdV階層",
+        "無限個の保存量"
       ],
       "navigation": "The contents show h2/h3 main questions; h4 headings are local body landmarks. Source levels/numbers are preserved in composition; prior shared heading URLs remain compatibility anchors.",
-      "authority": "reviews/kdv-structure/20261022/structure.spec.md"
+      "authority": "reviews/kdv-structure/20261022/headings.spec.md"
     }
   },
   "visualExamples": {

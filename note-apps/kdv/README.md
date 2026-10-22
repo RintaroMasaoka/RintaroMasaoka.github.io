@@ -78,3 +78,8 @@ The source of §§2.4–2.5 is `content/sections/scattering.md`; assembled `full
 ## Reading structure
 
 Chapter 3 groups the kernel/potential relation, derivation of GLM from scattering data, and reflectionless soliton reconstruction. Chapter 4 continues the kernel to formal operators, higher flows, and conserved quantities. Source h3 headings are the main reading map; h4 headings mark local questions within those sections. KdvBody preserves source levels and numbering, while headings.mjs selects the same source h2/h3 entries for the contents. It also retains old shared heading URLs as invisible compatibility anchors. Equation identities are independent of section names.
+
+
+### Heading wording
+
+Active heading authority: `reviews/kdv-structure/20261022/headings.spec.md`. The inverse-scattering overview is authored in `content/sections/overview.md`; the archive importer preserves that section and the current chapter labels. Main contents and local subsection headings identify the actual mathematical subjects. A separate §3.2.7 contains the final GLM assembly. All prior heading URLs resolve through `scripts/headings.mjs`.

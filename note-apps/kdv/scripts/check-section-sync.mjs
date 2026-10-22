@@ -15,3 +15,7 @@ console.log('KdV reflectionless source and assembled reading path agree.');
 const hierarchy=readFileSync(resolve('note-apps/kdv/content/sections/hierarchy.md'),'utf8').trim();
 assert.equal(full.slice(full.indexOf('## 4.'),full.indexOf('## 参考文献')).trim(),hierarchy,'§4 assembled content differs from canonical hierarchy.md; update both before publication.');
 console.log('KdV hierarchy source and assembled reading path agree.');
+
+const overview=readFileSync(resolve('note-apps/kdv/content/sections/overview.md'),'utf8').trim();
+assert.equal(full.slice(full.indexOf('### 2.3.'),full.indexOf('### 2.4.')).trim(),overview,'Inverse-scattering overview differs from its canonical section source.');
+console.log('KdV inverse-scattering overview and assembled reading path agree.');

@@ -411,7 +411,7 @@ def use_equation_keys(text: str) -> str:
 
 def revised_sections(text: str) -> str:
     """Use the authored left-convention sections as the canonical source."""
-    for name, start, end in [("introduction", "## 1.", "## 2."), ("soliton", "### 2.1.", "### 2.2."), ("lax", "### 2.2.", "### 2.3."), ("scattering", "### 2.4.", "## 3."), ("reflectionless", "### 3.4.", "## 4."), ("hierarchy", "## 4.", "## 参考文献")]:
+    for name, start, end in [("introduction", "## 1.", "## 2."), ("soliton", "### 2.1.", "### 2.2."), ("lax", "### 2.2.", "### 2.3."), ("overview", "### 2.3.", "### 2.4."), ("scattering", "### 2.4.", "## 3."), ("reflectionless", "### 3.4.", "## 4."), ("hierarchy", "## 4.", "## 参考文献")]:
         section = (OUTPUT.parent / "sections" / (name + ".md")).read_text(encoding="utf-8")
         a, b = text.index(start), text.index(end)
         if name == "reflectionless":
@@ -467,9 +467,9 @@ def main() -> None:
 
     # Convert headings separately so title levels and original section numbers stay explicit.
     chunks = ["## 1. 導入\n\n" + intro_md]
-    chunks.append("## 2. KdV方程式のソリトン解\n\n" + "\n\n".join(f"### 2.{i}. {title}\n\n{body}" for i, ((title, _), body) in enumerate(zip(soliton_parts, soliton_md), 1)))
+    chunks.append("## 2. ソリトンと等スペクトル変形\n\n" + "\n\n".join(f"### 2.{i}. {title}\n\n{body}" for i, ((title, _), body) in enumerate(zip(soliton_parts, soliton_md), 1)))
     inv_sections = [f"### 3.{i + 4}. {title}\n\n{body}" for i, ((title, _), body) in enumerate(zip(tagged_parts["inverse"], inverse_md))]
-    chunks.append("## 3. 散乱データからポテンシャルを復元する\n\n" + '<div data-chapter-slot="glm"></div>\n\n' + "\n\n".join(inv_sections))
+    chunks.append("## 3. 散乱の逆問題\n\n" + '<div data-chapter-slot="glm"></div>\n\n' + "\n\n".join(inv_sections))
     chunks.append("## 4. おまけ: 無限個の保存量の存在\n\n" + "\n\n".join(f"### 4.{i}. {title}\n\n{body}" for i, ((title, _), body) in enumerate(zip(appendix_parts, appendix_md), 1)))
     chunks.append("## 参考文献\n\n[1] 中村佳正, 高崎金久, & 辻本諭. (2018). 可積分系の数理 (解析学百科 2). 朝倉書店.\n\n[2] 及川正行. (2013). 第 5 章 逆散乱法. ながれ: 日本流体力学会誌, 32(1), 39-53.\n\n[3] Miura, R. M., Gardner, C. S., & Kruskal, M. D. (1968). Korteweg-de vries equation and generalizations. II. Existence of conservation laws and constants of motion. Journal of Mathematical physics, 9(8), 1204-1209.")
     result = "\n\n".join(chunks)

@@ -9,3 +9,8 @@ Chapter3 must expose its successive tasks: understand K and the potential relati
 All source headings express final chapter-relative numbering. Composition must preserve their levels and text verbatim. Body and TOC come from the same heading entries. Keep existing heading anchors as compatibility aliases, so prior shared links and equation URLs still work; aliases are navigation compatibility and not reader-facing explanatory bridges. Use stable marker boundaries for source assembly checks, not stale visible heading numbers. Update the introduction's claim that conservation is an optional appendix to match its now integral role. Preserve the book title if its subject remains unchanged; update the description to state the actual route.
 
 Acceptance: titles natural in Japanese, truthful to bounded body, meaningful in TOC with prior reader state; independent fresh Luna reviewers have separate reader-purpose vs naming perspectives, one released unit at a time. Changes to heading/transition meaning reviewed within exact scope; do not claim a whole-note scientific audit. Build, source/build reader guards, authoring self-test, body/TOC correspondence and parentage, ID uniqueness and old-link targets, source synchronization, equation IDs/mathblock preservation, actual public rendering and portrait navigation. Publish bounded diff from latest remote in isolated checkout, excluding unrelated root changes.
+
+
+## Current heading authority
+
+The visible labels are superseded by headings.spec.md. The subject progression and h2/h3/h4 roles above remain; they do not require question-shaped or action-shaped titles. A distinct §3.2.7 names the final GLM assembly.
