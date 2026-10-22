@@ -137,8 +137,8 @@ items:
     category: mathematical-physics
     url: /notes/kdv/
     description:
-      en: Solitons, Lax pairs, inverse scattering, the KdV hierarchy, and conservation laws, with a revised GLM derivation.
-      ja: ソリトン解・Lax表示・逆散乱法からKdV階層と保存量まで。GLM方程式の導出を改稿。
+      en: From solitons and Lax pairs to inverse reconstruction, the transformation kernel, the KdV hierarchy, and conservation laws.
+      ja: ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。
 
   - title:
       en: "Introduction to Fuzzy Sphere Regularization"

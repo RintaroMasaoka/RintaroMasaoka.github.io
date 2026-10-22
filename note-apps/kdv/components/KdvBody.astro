@@ -1,6 +1,7 @@
 ---
+import { addHeadingAliases } from '../scripts/headings.mjs';
 let html = await Astro.slots.render('default');
-const chapter = (await Astro.slots.render('glm')).replace(/<h2(\s[^>]*)?>\d+\.\s*/g, '<h3$1>').replace(/<\/h2>/g, '</h3>');
+const chapter = await Astro.slots.render('glm');
 const chapterPattern = /<div\s+data-chapter-slot=["']glm["']\s*>\s*<\/div>/;
 if (!chapterPattern.test(html)) throw new Error('Missing KdV GLM chapter slot');
 html = html.replace(chapterPattern, () => chapter);
@@ -16,5 +17,6 @@ for (const name of ['contour', 'reconstruction', 'dyson-domain', 'matching', 'jo
   if (!pattern.test(html)) throw new Error(`Missing KdV visual slot: ${name}`);
   html = html.replace(pattern, () => visual);
 }
+html = addHeadingAliases(html);
 ---
 <Fragment set:html={html} />

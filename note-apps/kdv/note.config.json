@@ -2,7 +2,7 @@
   "specVersion": "1.0.1",
   "id": "kdv",
   "title": "KdV方程式と逆散乱法",
-  "description": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
+  "description": "ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。",
   "language": "ja",
   "source": {
     "title": "Korteweg–de Vries方程式と逆散乱法",
@@ -15,9 +15,9 @@
       "id": "full",
       "section": "1–4",
       "title": "KdV方程式と逆散乱法",
-      "description": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
+      "description": "ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。",
       "plainTitle": "KdV方程式と逆散乱法",
-      "plainDescription": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
+      "plainDescription": "ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。",
       "file": "full.md",
       "href": "#top"
     }

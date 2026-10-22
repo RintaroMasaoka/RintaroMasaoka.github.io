@@ -5,6 +5,7 @@ import StudyNoteLayout from '../../layouts/StudyNoteLayout.astro';
 import '../../../note-apps/kdv/styles/figures.css';
 import { Content as GlmContent, getHeadings as getGlmHeadings } from '../../../note-apps/kdv/content/glm.md';
 import { Content, getHeadings } from '../../../note-apps/kdv/content/full.md';
+import { composeHeadings } from '../../../note-apps/kdv/scripts/headings.mjs';
 import KdvBody from '../../../note-apps/kdv/components/KdvBody.astro';
 import config from '../../../note-apps/kdv/note.config.json';
 import DressingSquare from '../../../note-apps/kdv/components/DressingSquare.astro';
@@ -20,7 +21,7 @@ import TravelingSoliton from '../../../note-apps/kdv/components/TravelingSoliton
 import Determinant from '../../../note-apps/kdv/components/Determinant.astro';
 import BoundStates from '../../../note-apps/kdv/components/BoundStates.astro';
 import KdvSimulation from '../../../note-apps/kdv/components/KdvSimulation.astro';
-const sourceHeadings = getHeadings().filter(h => h.depth === 2 || h.depth === 3).map(h => ({...h, text: h.text.replace(/\$/g, '').replace(/\\psi/g, 'ψ')})).flatMap(h => [h, ...(h.depth === 2 && h.text.startsWith('3.') ? getGlmHeadings().filter(g => g.depth === 2).map(g => ({...g, depth: 3, text: g.text.replace(/^\d+\.\s*/, '')})) : [])]);
+const sourceHeadings = composeHeadings(getHeadings(), getGlmHeadings());
 
 const headings = sourceHeadings.map(h => ({id: h.slug, depth: h.depth, labelHtml: h.text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;'), href: `#${h.slug}`}));
 ---

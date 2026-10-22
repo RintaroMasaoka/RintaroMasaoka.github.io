@@ -38,3 +38,7 @@ Author returns preparation before writing. Separate fresh Luna readers cover sci
 ## Scientific authority
 
 The accepted K→S→PS= S∂ relation and square-root derivation in the current user exchange; existing left GLM manuscript; direct algebra and formal asymptotic verification; Batlle's PDO calculus and Mulase's Algebraic Theory of the KP Equations for dressing/root normalization. Reader-order, notation and wording decisions follow the project study-note skill and the recovered philosophy in reviews/project-philosophy/20261022/principles.md.
+
+## Reading-structure revision
+
+The user-authorized chapters3–4 boundary/title revision is governed by reviews/kdv-structure/20261022/structure.spec.md. It supersedes the earlier before-section4 preservation rule for headings, roadmap, composition and local section references only. Equations, source claims and derivation order remain invariant. Chapter4 is now grouped as kernel→formal operator, nonnegative-power flow construction, and commutator residue/conservation; time evolution of powers is a subordinate step of the latter.
