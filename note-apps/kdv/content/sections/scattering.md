@@ -20,24 +20,7 @@ a(k,t)e^{ikx},&x\to+\infty
 $$
 とする。$a$ は透過係数、$b$ は左反射係数である。$\kappa_n,c_n(t),a(k,t),b(k,t)$をまとめたものを散乱データと呼ぶ。
 
-次の図は、時刻を固定したポテンシャル $u(x)=-\operatorname{sech}^2x$ の例である。散乱状態では波数を変え、$a,b$ と遠方の波形を比べられる。束縛状態へ切り替えると、規格化された波形と左端の尾、および固有値を表示する。
-
 <div data-extra-visual="scattering-intro"></div>
-
-<details>
-<summary>図の波形と計算方法</summary>
-
-散乱波は Schrödinger 方程式を数値積分し、左からの入射振幅が1になるよう規格化した。区間 $[-12,12]$ の右端で自由波の値と微分を与え、刻み幅 $0.005$ の4次 Runge–Kutta 法で積分している。両端では $|u|<1.6\times10^{-10}$ である。
-
-束縛状態は、このポテンシャルに対する
-$$
-\kappa_1=\frac{\sqrt5-1}{2},\qquad
-\psi_1(x)=\frac{\operatorname{sech}^{\kappa_1}x}
-{\left[\int_{\mathbb R}\operatorname{sech}^{2\kappa_1}z\,dz\right]^{1/2}}
-$$
-を描いた。$\kappa_1(\kappa_1+1)=1$ より、Schrödinger 方程式への代入で固有値 $-\kappa_1^2$ が確認できる。$\operatorname{sech}x\sim2e^x$（$x\to-\infty$）なので、左端の規格化定数は $c_1=2^{\kappa_1}\psi_1(0)$ である。
-
-</details>
 
 遠方では $B(t)=-4\partial_x^3+6u\partial_x+3u_x$ の自由部分 $-4\partial_x^3$ が波の時間位相を決める。左端の束縛状態の尾 $e^{\kappa_nx}$ には $-4\kappa_n^3$ が掛かるので
 $$

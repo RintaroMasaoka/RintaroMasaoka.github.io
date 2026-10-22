@@ -1,0 +1,66 @@
+---
+import { createRequire } from 'node:module';
+const require = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (s: string) => katex.renderToString(s, { throwOnError: true });
+const channels = [
+  { name: 'incident', title: '\\text{Incident}', formula: 'e^{ikx}', side: 'left', row: 0 },
+  { name: 'transmitted', title: '\\text{Transmitted}', formula: 'a(k)\\,e^{ikx}', side: 'right', row: 1 },
+  { name: 'reflected', title: '\\text{Reflected}', formula: 'b(k)\\,e^{-ikx}', side: 'left', row: 2 },
+];
+---
+<figure id="scattering-intro-data" class="scattering-channels" data-scattering-channels aria-labelledby="scattering-channels-caption">
+  <svg width="100%" height="364" role="img" aria-labelledby="scattering-channels-title scattering-channels-desc">
+    <title id="scattering-channels-title">Transmission a, reflection b</title>
+    <desc id="scattering-channels-desc">The incident wave points right from the upper left toward the potential. The transmitted wave a points right on a separate lower row to the right of the potential. The reflected wave b points left on the lowest row. Vertical offsets separate the three components schematically.</desc>
+    <defs><marker id="scattering-channel-tip" viewBox="0 0 10 10" markerWidth="7" markerHeight="7" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="context-stroke" /></marker></defs>
+    <rect data-channel-region y="16" height="320" rx="14" fill="var(--line)" opacity=".55" />
+    {channels.map(c=><g class={c.name}>
+      <foreignObject data-channel-title={c.name} width="160" height="26" y={c.row*112}><div class="channel-title" set:html={tex(c.title)} /></foreignObject>
+      <foreignObject data-channel-term={c.name} width="160" height="56" y={c.row*112+23}><div class="channel-term" set:html={tex(c.formula)} /></foreignObject>
+      <path data-channel-wave={c.name} fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" />
+      <path data-channel-direction={c.name} fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#scattering-channel-tip)" />
+    </g>)}
+    <foreignObject data-channel-potential width="64" height="26" y="337"><div class="potential-label" set:html={tex('u(x)')} /></foreignObject>
+  </svg>
+  <figcaption id="scattering-channels-caption">透過波の係数が <span set:html={tex('a')} />、反射波の係数が <span set:html={tex('b')} /> である。三つの波を区別できるよう上下に分けた模式図で、入射波の係数は1としている。</figcaption>
+</figure>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-scattering-channels]').forEach(root => {
+    const draw = () => {
+      const svg = root.querySelector('svg')!;
+      const width = svg.getBoundingClientRect().width, center=width/2;
+      const gap=25, left=8, right=width-8;
+      const region=svg.querySelector('[data-channel-region]')!;
+      region.setAttribute('x',String(center-14));region.setAttribute('width','28');
+      svg.querySelector('[data-channel-potential]')!.setAttribute('x',String(center-32));
+      ['incident','transmitted','reflected'].forEach((name,row)=>{
+        const from=name==='transmitted'?center+gap:left;
+        const to=name==='transmitted'?right:center-gap;
+        const mid=(from+to)/2;
+        const title=svg.querySelector(`[data-channel-title="${name}"]`)!;
+        title.setAttribute('x',String(mid-80));
+        const term=svg.querySelector(`[data-channel-term="${name}"]`)!;
+        term.setAttribute('x',String(mid-80));
+        const y=row*112+80;
+        const path=Array.from({length:161},(_,i)=>{
+          const s=i/160, envelope=Math.sin(Math.PI*s)**2;
+          return `${i?'L':'M'}${(from+(to-from)*s).toFixed(2)},${(y-10*envelope*Math.sin(6*Math.PI*s)).toFixed(2)}`;
+        }).join(' ');
+        svg.querySelector(`[data-channel-wave="${name}"]`)!.setAttribute('d',path);
+        const backward=name==='reflected';
+        svg.querySelector(`[data-channel-direction="${name}"]`)!.setAttribute('d',`M${backward?to:from} ${y+20} H${backward?from:to}`);
+      });
+    };
+    new ResizeObserver(draw).observe(root);draw();
+  });
+</script>
+<style>
+.scattering-channels{scroll-margin-top:78px;max-width:680px;margin:1.5rem auto;color:var(--ink)}
+.scattering-channels svg{display:block;width:100%;height:364px;overflow:visible}
+.channel-title,.channel-term,.potential-label{display:flex;align-items:center;justify-content:center;width:100%;height:100%;white-space:nowrap;line-height:1;color:inherit}
+.channel-title{font-size:16px}.channel-term{font-size:21px}.potential-label{font-size:16px}
+.transmitted{color:var(--accent)}.reflected{color:var(--ink)}.incident{color:var(--muted)}
+.scattering-channels figcaption{margin-top:10px;color:var(--muted);font-size:.88rem;line-height:1.65}
+.scattering-channels :global(.katex){color:inherit}
+</style>
