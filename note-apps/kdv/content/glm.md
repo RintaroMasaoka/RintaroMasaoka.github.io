@@ -358,7 +358,7 @@ f(x;E)=\frac{f_-(x,-k)}{f_-(0,-k)}\Theta(-x)
 +\frac{f_+(x,k)}{f_+(0,k)}\Theta(x).
 \tag{matching-def}
 $$
-ここで $\Theta$ は Heaviside 関数である。次の図は、この $f(x;E)$ を示す。実線は左の解の $x<0$ の部分、破線は右の解の $x>0$ の部分であり、原点での値はどちらも1である。
+ここで $\Theta$ は Heaviside 関数である。次の図は、前の図と同じ $u(x)=-2\operatorname{sech}^2x$ に対する $f(x;E)$ を示す。実線は左の解の $x<0$ の部分、破線は右の解の $x>0$ の部分であり、原点での値はどちらも1である。
 
 <div data-visual-slot="joined-wave"></div>
 
