@@ -389,8 +389,6 @@ $$
 \partial_E\Delta(E_n)=\frac{1}{|\psi_n(0)|^2}.
 \tag{matching-norm}
 $$
-例えば $u(x)=-2\operatorname{sech}^2x$ では、$E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、$E=-1+\Delta/2+O(\Delta^2)$ である。次の図は、横軸を $\Delta$、縦軸を $E$ として、厳密な固有エネルギーを実線、$\Delta=0$ での接線を破線で示す。塗りつぶした点は選んだ状態である。スライダーは先ほどの $f$ の図と連動している。接線の傾きは $|\psi_1(0)|^2=1/2$ である。
-
 <div data-visual-slot="point-spectrum"></div>
 
 <details>
