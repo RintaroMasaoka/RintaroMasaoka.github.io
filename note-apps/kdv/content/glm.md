@@ -350,13 +350,11 @@ $$
 
 </details>
 
-## 7. 接続に必要な点ポテンシャルから留数を求める
+## 7. 接続条件と束縛状態の留数
 
-前節では、左端と右端で減衰する二つの Jost 解が比例するとき、波数 $k=i\kappa_n$ が束縛状態の極になることを見た。ここでは極の留数を、その束縛状態の規格化から求める。鍵になるのは、二つの減衰解の値を原点で1にそろえたときの傾きの差である。
+極の位置が分かったので、次は透過項 $a(k)f_+(x,k)$ の留数を求めよう。前節では、左右の減衰解が比例するときに極が現れることを見た。接続点で両解の値をそろえると、この条件は傾きの一致になる。透過項もこの傾きの差を分母に持つ形に書けば、接続条件と留数の係数を同じ表示で調べられる。
 
-### 傾きの差は接続に必要な強さ
-
-以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、対象とする束縛状態の固有エネルギーの近くを考える。対象とする束縛状態 $\psi_n$ が0でない点を接続点に選び、その点を原点とする。左端で減衰する解を原点まで、右端で減衰する解を原点から使い、両者の値を1にそろえる。
+以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、束縛状態のエネルギー $E_n=-\kappa_n^2$ の近くを考える。束縛状態が0でない点を接続点に選び、その点を原点とする。左端で減衰する解を原点まで、右端で減衰する解を原点から使い、両者の値を1にそろえる：
 $$
 f(x;E)=\frac{f_-(x,-k)}{f_-(0,-k)}\Theta(-x)
 +\frac{f_+(x,k)}{f_+(0,k)}\Theta(x).
@@ -366,33 +364,89 @@ $$
 
 <div data-visual-slot="joined-wave"></div>
 
-原点での傾きの差を、右側の傾きから左側の傾きを引いて
+原点での右の傾きから左の傾きを引いた差を
 $$
 \Delta(E)=\frac{\partial_xf_+(0,k)}{f_+(0,k)}
 -\frac{\partial_xf_-(0,-k)}{f_-(0,-k)}
 \tag{matching-slope-difference}
 $$
-と定める。$f$ は原点で値1を保つので連続だが、一般には傾きが $\Delta(E)$ だけ跳ぶ。分布微分では、連続な関数の二階微分に現れるデルタ項の係数が傾きの跳びである。値そのものの跳びはないため $\delta'(x)$ の項は生じず、
+と定める。束縛状態では両解が比例し、値をそろえれば傾きも一致するので、$\Delta(E_n)=0$ である。
+
+原点で Wronskian の二列をそれぞれ $f_-(0,-k)$、$f_+(0,k)$ で割ると、第一行は $(1,1)$、第二行は左右の傾きとなる。その行列式が $\Delta(E)$ だから、
 $$
-(L-E)f=-\Delta(E)\delta(x),\qquad
+W(k)=f_-(0,-k)f_+(0,k)\Delta(E),\qquad E=k^2.
+\tag{matching-wronskian-factorization}
+$$
+$a=2ik/W$ に代入すれば、透過項は
+$$
+a(k)f_+(x,k)
+=\frac{2ik}{\Delta(E)}
+\frac{f_+(x,k)}{f_-(0,-k)f_+(0,k)}.
+\tag{transmission-from-matching}
+$$
+と書ける。右端の比は $E=E_n$ でも有限なので、極の係数を決めるのは $1/\Delta(E)$ の主要部である。これを、接続波形の満たす固有値方程式から求めよう。
+
+### 傾きの跳びは点ポテンシャルの強さである
+
+式 (@matching-def) の波形は原点で連続だが、傾きは $\Delta(E)$ だけ跳ぶ。分布微分では、この跳びが二階微分のデルタ項の係数となる。従って
+$$
+\begin{gathered}
+(L-E)f=-\Delta(E)\delta(x),\\
 [L+\Delta(E)\delta(x)]f=Ef.
+\end{gathered}
 \tag{matching-point-potential}
 $$
-となる。したがって $\Delta(E)$ は傾きの跳びであると同時に、エネルギー $E$ でこの波形を束縛状態にする点ポテンシャルの強さである。$\Delta=0$ なら元の演算子 $L$ の束縛状態となる。そのエネルギーを $E_n=-\kappa_n^2$ と書けば、$\Delta(E_n)=0$ である。
+つまり、$\Delta(E)$ は傾きの跳びであると同時に、この波形をエネルギー $E$ の束縛状態にする点ポテンシャルの強さそのものである。$\Delta=0$ なら、元の $L$ の束縛状態になる。
 
-点ポテンシャルの強さ $\Delta$ によるエネルギー変化を求めれば、$\partial_E\Delta(E_n)$ も分かる。$\psi_n$ は実数値に選び、$\int_{\mathbb R}\psi_n(x)^2dx=1$ と規格化しておく。この接続波形を与える点ポテンシャルの強さ $\Delta(E)$ が小さいとき、固有関数の一次の変化を $\delta\psi$、エネルギーの一次の変化を $\delta E$ とする。固有値方程式を一次まで展開すると
+元の束縛状態 $\psi_n$ を実数値に選び、$\int_{\mathbb R}\psi_n(x)^2dx=1$ と規格化する。点ポテンシャルの強さ $\Delta$ が小さいとき、固有関数とエネルギーの一次の変化をそれぞれ $\delta\psi$、$\delta E$ とする。固有値方程式の一次の項は
 $$
 (L-E_n)\delta\psi+\Delta\,\delta(x)\psi_n=\delta E\,\psi_n.
 $$
-両辺に $\psi_n$ を掛けて積分する。$L$ の自己共役性と $(L-E_n)\psi_n=0$ により第一項の積分は0となるので、$\delta E=\Delta|\psi_n(0)|^2$ を得る。従って、点ポテンシャルの強さと固有エネルギーの関係は
+両辺に $\psi_n$ を掛けて積分する。$L$ の自己共役性と $(L-E_n)\psi_n=0$ により第一項の積分は0になるので、$\delta E=\Delta|\psi_n(0)|^2$ を得る。従って
 $$
 E-E_n=\Delta\,|\psi_n(0)|^2+O(\Delta^2).
-$$
-である。$\Delta(E_n)=0$ なので、$E=E_n$ における $\Delta$ の傾きは、この一次関係の傾きの逆数となる：
-$$
-\partial_E\Delta(E_n)=\frac{1}{|\psi_n(0)|^2}.
 \tag{matching-norm}
 $$
+接続に必要な点ポテンシャルが0に近づくとき、その強さとエネルギーの変化を結ぶ係数は、規格化された束縛状態の原点での確率密度である。
+
+### 点ポテンシャルへの応答が留数を決める
+
+この一次関係を、透過項の分母にある $\Delta(E)$ に使おう。束縛状態では両 Jost 解が $\psi_n$ に比例するので、$E\to E_n$ で
+$$
+\frac{f_+(x,k)}{f_+(0,k)}\longrightarrow
+\frac{\psi_n(x)}{\psi_n(0)}.
+$$
+束縛状態の符号を左 Jost 解に合わせ、その規格化を
+$$
+\begin{gathered}
+\psi_n(x)=c_nf_-(x,-i\kappa_n),\qquad c_n>0,\\
+c_n^{-2}=\int_{\mathbb R}f_-(z,-i\kappa_n)^2\,dz.
+\end{gathered}
+\tag{bound-normalization}
+$$
+と書く。式 (@matching-norm) より $(E-E_n)/\Delta(E)\to\psi_n(0)^2$ だから、式 (@transmission-from-matching) の極の主要部は
+$$
+\begin{aligned}
+\frac{a(k)f_+(x,k)}{2ik}
+&=\frac{\psi_n(0)\psi_n(x)}
+{f_-(0,-i\kappa_n)(E-E_n)}+O(1)\\
+&=\frac{c_n\psi_n(x)}{E-E_n}+O(1).
+\end{aligned}
+\tag{transmission-energy-pole}
+$$
+となる。接続条件の零点に由来する極の係数が、点ポテンシャルへの応答を通じて、規格化された束縛状態で表された。
+
+最後に $E-E_n=(k-i\kappa_n)(k+i\kappa_n)$ より
+$$
+\frac{2ik}{E-E_n}=\frac{i}{k-i\kappa_n}+O(1).
+$$
+従って $a(k)$ は $k=i\kappa_n$ に単純極を持ち、透過項の留数は
+$$
+\operatorname*{Res}_{k=i\kappa_n}[a(k)f_+(x,k)]
+=i c_n\psi_n(x)=i c_n^2f_-(x,-i\kappa_n).
+\tag{transmission-residue}
+$$
+
 <div data-visual-slot="point-spectrum"></div>
 
 <details>
@@ -404,52 +458,14 @@ f(x;E)=e^{-\kappa|x|}\frac{\kappa+\tanh|x|}{\kappa}.
 $$
 その左右の傾きの差から
 $$
-\Delta=2(\kappa^{-1}-\kappa),\qquad
-E=-\left(\frac{\sqrt{\Delta^2+16}-\Delta}{4}\right)^2
+\begin{gathered}
+\Delta=2(\kappa^{-1}-\kappa),\\
+E=-\left(\frac{\sqrt{\Delta^2+16}-\Delta}{4}\right)^2.
+\end{gathered}
 $$
 を得る。図の実線には、この $\Delta$ と $E$ の厳密な関係を使っている。
 
 </details>
-
-### 規格化から透過波の留数へ
-
-透過波の留数を求めるには、$a(k)=2ik/W(k)$ の分母の零点付近での展開を、式 (@matching-norm) から求めればよい。Wronskian の二列をそれぞれ原点での値で割ると、第一行は $(1,1)$、第二行は左右の傾きとなる。その行列式は $\Delta(E)$ だから、
-$$
-W(k)=f_-(0,-k)f_+(0,k)\Delta(E),\qquad E=k^2.
-\tag{matching-wronskian-factorization}
-$$
-$\Delta$ はまず実数 $E<0$ に対して定義したが、Jost 解の正則性と、$k=i\kappa_n\ne0$ の近傍で $E=k^2$ が局所的に可逆であることから、この関係は $E_n$ の複素近傍へ正則に延長できる。したがって留数の計算にも同じ展開を使える。$\Delta(E_n)=0$ と式 (@matching-norm) より
-$$
-\Delta(E)=\frac{E-E_n}{\psi_n(0)^2}+O((E-E_n)^2).
-\tag{point-energy-response}
-$$
-留数を左 Jost 解で表すため、規格化定数 $c_n>0$ を
-$$
-\psi_n(x)=c_nf_-(x,-i\kappa_n),\qquad
-c_n^{-2}=\int_{\mathbb R}f_-(x,-i\kappa_n)^2\,dx
-\tag{bound-normalization}
-$$
-で定める。すると $\psi_n(0)=c_nf_-(0,-i\kappa_n)$ である。
-
-前節の $a(k)=2ik/W(k)$ と因数分解を使うと、$a(k)f_+(x,k)$ の極近傍で特異な部分は
-$$
-\begin{aligned}
-a(k)f_+(x,k)
-&=\frac{2ik}{f_-(0,-k)}\,
-  \frac{f_+(x,k)/f_+(0,k)}{\Delta(k^2)}\\
-&=\frac{2ik}{f_-(0,-i\kappa_n)}
-  \frac{\psi_n(x)/\psi_n(0)}{(k^2+\kappa_n^2)/\psi_n(0)^2}
-  +\text{正則項}\\
-&=\frac{2ik\,c_n\psi_n(x)}{k^2+\kappa_n^2}
-  +\text{正則項}.
-\end{aligned}
-$$
-二行目では $f_+(x,i\kappa_n)/f_+(0,i\kappa_n)=\psi_n(x)/\psi_n(0)$ を用いた。三行目では $f_-(0,-i\kappa_n)=\psi_n(0)/c_n$ と $\psi_n(0)^2$ の因子が約分される。したがって極での留数は
-$$
-\operatorname*{Res}_{k=i\kappa_n}[a(k)f_+(x,k)]
-=i c_n\psi_n(x)=i c_n^2f_-(x,-i\kappa_n).
-\tag{transmission-residue}
-$$
 
 式 (@transmission-residue-sum) で、各極 $k=i\kappa_n$ における留数は、式 (@transmission-residue) に $e^{\kappa_n y}$ を掛けたものである。従って、
 $$
