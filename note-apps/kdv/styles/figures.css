@@ -33,3 +33,9 @@
 /* Uniform figure fitting: scale the complete scientific canvas, including type and strokes. */
 #manuscript figure{box-sizing:border-box;min-inline-size:0}
 #manuscript .kdv-figure-canvas{margin:0;max-width:none}
+
+/* Fit within the reader column without expanding every figure to fill it. */
+#manuscript figure{inline-size:100%;max-inline-size:42rem;margin-inline:auto}
+/* Parameter controls have their own, shorter travel distance. */
+#manuscript figure input[type="range"]{box-sizing:border-box;inline-size:min(100%,18rem);max-inline-size:100%;min-inline-size:0;margin-inline:0;flex:none;justify-self:start}
+#manuscript figure :is(label:has(input[type="range"]),label:has(+input[type="range"])){max-inline-size:18rem}
