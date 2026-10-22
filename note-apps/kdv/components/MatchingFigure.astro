@@ -5,7 +5,7 @@ import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
-const panels=[{id:'full',title:'Jost magnitudes (natural log)',range:6,ys:[-12,-9,-6,-3,0,3,6]}];
+const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
 ---
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
   <BoundStateControls id="matching-wave-number" />
@@ -21,8 +21,8 @@ const panels=[{id:'full',title:'Jost magnitudes (natural log)',range:6,ys:[-12,-
     {[-.1,0,.05].map(y=><foreignObject data-w-tick={y} data-plot-tick={y} width="44" height="25" x="0"><div class="endpoint-tex" set:html={tex(String(y))} /></foreignObject>)}
     <foreignObject data-w-energy-axis width="24" height="25" y="125"><div class="endpoint-tex" set:html={tex('E')} /></foreignObject>
   </svg>
-  <div class="endpoint-legend"><span class="endpoint-solid" aria-hidden="true"></span><span set:html={tex('\\log|f_-(x,-k)|')} /></div>
-  <div class="endpoint-legend"><span class="endpoint-dashed" aria-hidden="true"></span><span set:html={tex('\\log|f_+(x,k)|')} /></div>
+  <div class="endpoint-legend"><span class="endpoint-solid" aria-hidden="true"></span><span set:html={tex('f_-(x,-k)')} /></div>
+  <div class="endpoint-legend"><span class="endpoint-dashed" aria-hidden="true"></span><span set:html={tex('f_+(x,k)')} /></div>
   {panels.map(panel=><section class="endpoint-panel">
     <div class="endpoint-heading" set:html={tex(`\\text{${panel.title}}`)} />
     <svg width="100%" height="224" data-matching-panel={panel.id} role="img" aria-label={panel.title}>
@@ -40,7 +40,7 @@ const panels=[{id:'full',title:'Jost magnitudes (natural log)',range:6,ys:[-12,-
   </section>)}
   </FigureViewport>
   <p data-matching-status role="status" aria-live="polite"></p>
-  <figcaption id="green-matching-caption">上段は <span set:html={tex('W(k)')} /> のエネルギー依存性、丸印は励起状態 <span set:html={tex('E=-1')} /> を示す。下段は Jost 解の絶対値の自然対数である。指数関数的な振る舞いは直線になり、<span set:html={tex('E=-1')} /> では両端で <span set:html={tex('\\log|f_\\pm|\\sim-|x|')} /> となる。二本の曲線は絶対値が等しいため重なる。原点の節では <span set:html={tex('\\log|f_\\pm|\\to-\\infty')} /> となり、描線は図の下端より下へ続く。</figcaption>
+  <figcaption id="green-matching-caption">上段は <span set:html={tex('W(k)')} /> のエネルギー依存性、丸印は励起状態 <span set:html={tex('E=-1')} /> を示す。下段は左右の Jost 解を符号を保って描いたもので、それぞれ表示区間での最大絶対値が1になるよう正の定数倍をしている。<span set:html={tex('E=-1')} /> では二つの解は逆符号で比例し、原点に節を一つ持つ。</figcaption>
 </figure>
 <script>
   import { initMatchingFigure } from '../visuals/matching.js';

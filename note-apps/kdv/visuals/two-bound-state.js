@@ -12,18 +12,6 @@ export function twoBoundResponse(energy,x){
   const W=(q===1||q===2)?0:-2*q*(q-1)*(q-2)/d;
   return {left,right,leftDx,rightDx,W,potential:-6*(1-t*t)};
 }
-export function jostNodes(energy,side){
-  const q=Math.sqrt(-energy),disc=12-3*q*q;
-  if(disc<0)return [];
-  return [-1,1].map(sign=>(-3*q+sign*Math.sqrt(disc))/6)
-    .filter(t=>Math.abs(t)<1).map(t=>(side==='left'?-1:1)*Math.atanh(t)).sort((a,b)=>a-b);
-}
-export function logJostSamples(energy,side,range=6){
-  const nodes=jostNodes(energy,side).filter(x=>Math.abs(x)<range);
-  const xs=Array.from({length:601},(_,i)=>-range+2*range*i/600);
-  for(const node of nodes){xs.push(node);for(let j=2;j<=10;j++){const dx=10**(-j);for(const x of [node-dx,node+dx])if(Math.abs(x)<range)xs.push(x);}}
-  return [...new Set(xs)].sort((a,b)=>a-b).map(x=>({x,y:nodes.some(n=>Math.abs(x-n)<1e-12)?null:Math.log(Math.abs(twoBoundResponse(energy,x)[side]))}));
-}
 export function joinedProfile(energy,x,point=1){
   const at=twoBoundResponse(energy,point),r=twoBoundResponse(energy,x);
   return x<=point?r.left*at.right:r.right*at.left;

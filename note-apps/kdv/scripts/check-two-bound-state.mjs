@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {twoBoundResponse as response,joinedProfile,matchingData,profileScales,logJostSamples,jostNodes,energyRange,boundEnergies} from '../visuals/two-bound-state.js';
+import {twoBoundResponse as response,joinedProfile,matchingData,profileScales,energyRange,boundEnergies} from '../visuals/two-bound-state.js';
 const h=1e-3;
 let maxResidual=0,maxWError=0,maxPointError=0;
 for(let i=0;i<=170;i++){
@@ -72,12 +72,4 @@ assert.ok(matchSource.includes('data-w-spectrum')&&matchSource.includes('data-w-
 assert.ok(!matchSource.includes('data-matching-left-slope')&&!matchSource.includes('f_-(0,-k)'),'Wronskian plot must not normalize at a matching point');
 assert.ok(joinSource.includes('data-point-position')&&joinSource.includes('f(x;E,x_*)'),'joined wave must expose its independent matching point');
 
-for(const E of [-1.5,-1,-.5])for(const side of ['left','right']){
- const samples=logJostSamples(E,side);
- for(const p of samples)if(p.y!==null){assert.ok(Number.isFinite(p.y));assert.ok(Math.abs(Math.exp(p.y)-Math.abs(response(E,p.x)[side]))<1e-11);}
- for(const x of jostNodes(E,side)){assert.ok(Math.abs(response(E,x)[side])<1e-12);assert.ok(samples.some(p=>Math.abs(p.x-x)<1e-12&&p.y===null));}
- const x=side==='left'?-6:6,sign=side==='left'?1:-1;
- const slope=(Math.log(Math.abs(response(E,x+.001)[side]))-Math.log(Math.abs(response(E,x-.001)[side])))/.002;
- assert.ok(Math.abs(slope-sign*Math.sqrt(-E))<.001,'endpoint exponential slope');
-}
-console.log('Natural-log magnitudes, endpoint slopes, and node path breaks passed.');
+assert.ok(!matchSource.includes('\\\\log'),'Jost figure must use signed linear profiles');
