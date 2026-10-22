@@ -42,22 +42,22 @@ const payload = JSON.stringify({previews, referenceIndex, equationIndex}).replac
   <div id="reading-progress" class="progress-line" aria-hidden="true"></div>
   <header class="reader-header" data-reader-header>
     <a class="header-icon note-back" href={notesHref} aria-label={'Back to notes'}><ReaderIcon name="arrow-left" size={22} /></a>
-    <button class="header-icon" id="reader-menu" type="button" aria-controls="chapter-index" aria-expanded="true" aria-label={'Toggle contents'}><ReaderIcon name="panel-left" size={22} /></button>
+    <button class="header-icon" id="reader-menu" type="button" aria-controls="chapter-index" aria-expanded="true" aria-label={'Open contents'} title="Open contents"><ReaderIcon name="panel-left" size={22} /></button>
     <a class="reader-title" href={mode === 'routed' ? base : '#top'}>{note.title}</a>
     <div class="header-actions">
-      {(note.source || note.resources?.length) && <details class="source-menu"><summary>{'Sources'}</summary><div class="source-panel">{note.source && <><cite>{note.source.title}</cite>{note.source.authors?.length && <p>{note.source.authors.join(', ')}</p>}<p>{note.source.locator}</p></>}{note.resources?.map(resource => <p><a href={resource.href}>{resource.label}</a></p>)}</div></details>}
-      <button class="theme-toggle" id="theme-button" type="button" aria-label={'Toggle color theme'}><ReaderIcon name="moon" /></button>
+      <button class="theme-toggle" id="theme-button" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><span class="theme-icon-dark"><ReaderIcon name="moon" /></span><span class="theme-icon-light"><ReaderIcon name="sun" /></span></button>
     </div>
   </header>
   <div class="reader-shell" data-reader-shell>
     <aside id="chapter-index" class="chapter-index" aria-label={'Chapters and sections'}>
-      <div class="panel-mobile-head"><span>{'Contents'}</span><button type="button" data-menu-close aria-label={'Close contents'}>×</button></div>
+      <div class="contents-head"><span>Contents</span><button class="header-icon" type="button" data-menu-close aria-label="Close contents" title="Close contents"><ReaderIcon name="panel-left-close" /></button></div>
       <nav class="chapter-list">{chapters.map((chapter, index) => <div class="chapter-group"><a class:list={['chapter-link', {'is-active': index === activeIndex}]} href={chapterHref(chapter)} aria-current={mode === 'routed' && index === activeIndex ? 'page' : undefined}><span class="chapter-label">{chapters.length > 1 && chapter.section && <b>{chapter.section}</b>}<strong set:html={chapter.titleHtml || chapter.title} /></span></a>{(mode === 'continuous' || index === activeIndex) && <ol class="subsection-list">{headings.filter(h => !h.chapterId || h.chapterId === chapter.id).map(h => <li class={`depth-${h.depth}`}><a href={h.href || `#${h.id}`} set:html={h.labelHtml || h.label || h.text || h.id} /></li>)}</ol>}</div>)}</nav>
     </aside>
     <main class="article-column" id="main" tabindex="-1"><div class="article-inner" id="top"><span id="article-top" aria-hidden="true"></span>
       {!hasBodyTitle && <h1 class="note-page-title">{activeChapterId ? active?.title : note.title}</h1>}
       {hasDisclosures && <div class="reading-actions"><button type="button" data-details-open>{'Expand supplements'}</button><button type="button" data-details-close>{'Collapse supplements'}</button></div>}
       <article class="note-content prose-note" id="manuscript" set:html={body} />
+      {(note.source || note.resources?.length) && <footer class="note-resources">{note.source && <div class="source-citation"><cite>{note.source.title}</cite>{note.source.authors?.length && <p>{note.source.authors.join(', ')}</p>}{note.source.locator && <p>{note.source.locator}</p>}</div>}{note.resources?.length && <ul aria-label="Related documents">{note.resources.map(resource => <li><a href={resource.href}>{resource.label}</a></li>)}</ul>}</footer>}
       {mode === 'routed' && chapters.length > 1 && <footer class="chapter-pager">{activeIndex > 0 ? <a class="previous-chapter" href={chapterHref(chapters[activeIndex-1])}><span>← {'Previous chapter'}</span><strong>{chapters[activeIndex-1].title}</strong></a> : <span />}{activeIndex < chapters.length-1 && <a class="next-chapter" href={chapterHref(chapters[activeIndex+1])}><span>{'Next chapter'} →</span><strong>{chapters[activeIndex+1].title}</strong></a>}</footer>}
     </div></main>
   </div>

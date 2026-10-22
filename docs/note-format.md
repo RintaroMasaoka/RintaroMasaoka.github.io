@@ -22,3 +22,7 @@ Duplicate IDs and unknown explicit references fail the build. The numbered equat
 This applies to newly authored and revised website notes. Archived original PDFs and TeX retain their historical numbering. KdV's archive-import script translates archived identities through its migration map before composing the web source.
 
 Run `node scripts/check-note-equations.mjs` to verify insertion/reordering, reference resolution, duplicate/missing-reference failures, and preservation of inline mathematics and source citations.
+
+## Shared reading controls
+
+Reader buttons use borderless Lucide icons with hover and keyboard-focus feedback. The color control shows the action available next: moon for dark mode, sun for light mode, with a matching accessible name. The contents pane owns its close control at every viewport size; the header offers an opener only while the pane is closed. Desktop section navigation keeps the pane open, while mobile section navigation closes the overlay and restores reading access. Optional source citations and resource links belong after the manuscript rather than in a generic header menu. Ordered lists, including footnotes, retain visible decimal markers.

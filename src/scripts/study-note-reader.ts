@@ -21,15 +21,23 @@ if (root.hasAttribute('data-study-note-reader') && manuscript) {
     backdrop.hidden = !mobile.matches || !open;
     main.inert = mobile.matches && open;
     menu.setAttribute('aria-expanded', String(open));
+    menu.hidden = open;
   };
-  menu.addEventListener('click', () => { if (mobile.matches) menuOpen = !menuOpen; else desktopOpen = !desktopOpen; updateMenu(); if (mobile.matches && menuOpen) nav.querySelector<HTMLElement>('button,a')?.focus(); });
-  const closeMenu = (restore = false) => { menuOpen = false; updateMenu(); if (restore) menu.focus(); };
+  menu.addEventListener('click', () => { if (mobile.matches) menuOpen = !menuOpen; else desktopOpen = !desktopOpen; updateMenu(); if (!nav.hidden) nav.querySelector<HTMLElement>('button,a')?.focus(); });
+  const closeMenu = (restore = false) => { if (mobile.matches) menuOpen = false; else desktopOpen = false; updateMenu(); if (restore) menu.focus(); };
   document.querySelectorAll('[data-menu-close]').forEach(button => button.addEventListener('click', () => closeMenu(true)));
-  nav.addEventListener('click', event => { if ((event.target as Element).closest('a')) closeMenu(); });
+  nav.addEventListener('click', event => { if (mobile.matches && (event.target as Element).closest('a')) closeMenu(true); });
   mobile.addEventListener('change', () => { menuOpen = false; updateMenu(); }); updateMenu();
-  document.getElementById('theme-button')?.addEventListener('click', () => {
+  const themeButton = document.getElementById('theme-button');
+  const updateThemeLabel = () => {
+    const label = root.dataset.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+    themeButton?.setAttribute('aria-label', label); themeButton?.setAttribute('title', label);
+  };
+  updateThemeLabel();
+  themeButton?.addEventListener('click', () => {
     const dark = root.dataset.theme !== 'dark';
     root.dataset.theme = dark ? 'dark' : 'light'; root.classList.toggle('dark', dark);
+    updateThemeLabel();
     try { localStorage.setItem(noteId + '.theme', dark ? 'dark' : 'light'); } catch {}
     dispatchEvent(new CustomEvent('study-note:theme', { detail: { dark } }));
   });
