@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import {createRequire} from 'node:module';
 import {determinantPaths} from '../visuals/determinant.js';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
@@ -9,20 +10,22 @@ const labels=['1','C_{11}','C_{22}','\\left(\\frac{\\kappa_1-\\kappa_2}{\\kappa_
 ---
 <figure class="determinant" data-determinant aria-labelledby="determinant-caption">
  <label class="det-time">Time <span set:html={tex('t')} /> <output>0.00</output><input type="range" min="-.6" max=".6" step=".005" value="0" aria-label="Two-soliton time" /></label>
+ <FigureViewport width={360}>
  <div class="det-title" set:html={tex('u(x,t)')} />
  <svg viewBox="0 0 360 130" role="img" aria-label="Computed two-soliton potential"><path d="M12 12H348" class="det-axis"/><path data-det-path d={paths[0]} class="det-potential" /></svg>
  <div class="det-title" set:html={tex('\\text{Fraction of }\\det(I+C)')} />
  <div class="det-legend">{labels.map((s,i)=><span class={`det-term term-${i}`}><i/><span set:html={tex(s)}/></span>)}</div>
  <svg viewBox="0 0 360 100" role="img" aria-label="Four determinant terms divided by their sum"><path d="M12 14H348 M12 86H348" class="det-axis"/>{paths.slice(1).map((d,i)=><path data-det-path d={d} class={`det-term term-${i}`} />)}</svg>
  <div class="det-ticks">{[-16,-8,0,8,16].map((x,i)=><span style={`left:${(12+i*84)/360*100}%`} set:html={tex(String(x))}/>)}<span class="det-axis-name" set:html={tex('x')}/></div>
+ </FigureViewport>
  <figcaption id="determinant-caption">上段は行列式から計算した二ソリトンのポテンシャル。下段は行列式の四つの項を、それぞれ行列式全体で割った値（0から1）である。時刻を変えると、二つの谷の移動と、各項の寄与が変わる位置を同じ横軸で比較できる。<span set:html={tex('\\kappa_1=1,\\;\\kappa_2=2,\\;C_{11}(x,0)=3e^{2x},\\;C_{22}(x,0)=3e^{4x}')} />。</figcaption>
 </figure>
 <script>import {initDeterminant} from '../visuals/determinant.js';initDeterminant();</script>
 <style>
-.determinant{--d0:#657080;--d1:#147b94;--d2:#ac600c;--d3:#984d9f;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:1rem;margin:1.5rem auto;max-width:600px}
+.determinant{--d0:#657080;--d1:#147b94;--d2:#ac600c;--d3:#984d9f;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:1rem;margin:1.5rem auto;}
 :global(.dark) .determinant,:global([data-theme="dark"]) .determinant{--d0:#b4bfcc;--d1:#72d4e7;--d2:#f0b75d;--d3:#e4a7eb}
 .det-time{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.9rem}.det-time input{flex:1;min-width:120px}.det-time output{min-width:3rem;font-variant-numeric:tabular-nums}
-.det-title{margin:.8rem 0 .2rem;font-size:.9rem}.determinant svg{display:block;width:100%;height:auto;overflow:visible}.determinant path{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}.determinant .det-axis{stroke:var(--line);stroke-width:1}.det-potential{stroke:var(--ink)}
+.det-title{margin:.8rem 0 .2rem;font-size:.9rem}.determinant svg{display:block;width:100%;height:auto;overflow:visible}.determinant path{fill:none;stroke-width:2;}.determinant .det-axis{stroke:var(--line);stroke-width:1}.det-potential{stroke:var(--ink)}
 .det-legend{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.82rem;margin:.5rem 0}.det-term{stroke:var(--term);--term:var(--d0)}.term-1{--term:var(--d1)}.term-2{--term:var(--d2)}.term-3{--term:var(--d3)}.det-legend>span{display:flex;align-items:center;gap:.35rem}.det-legend i{width:16px;border-top:2px solid var(--term)}
 .det-ticks{position:relative;height:2.4rem;font-size:.8rem}.det-ticks>span{position:absolute;transform:translateX(-50%)}.det-ticks>.det-axis-name{right:0;bottom:0;transform:none}.determinant figcaption{font-size:.86rem;line-height:1.8;margin-top:.8rem}.determinant figcaption :global(.katex){white-space:normal}
 </style>

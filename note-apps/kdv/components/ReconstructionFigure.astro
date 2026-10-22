@@ -35,8 +35,9 @@ const labels = (kind:string) => [
     <path data-kdv-center-guide d="M193 76 V214" stroke="var(--muted)" stroke-dasharray="5 5" opacity=".55"/>
     {labels(kind).map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={tex(l.t)}/></foreignObject>)}
   </svg>)}
-  </div></FigureViewport>
+  </div>
   <div class="kdv-relation">{['u(x)=2\\dfrac{d}{dx}K(x,x)', 'c_1^2=2\\kappa_1 e^{-2\\kappa_1 x_0}', 't=0'].map(t => <span set:html={tex(t)} />)}</div>
+  </FigureViewport>
   <figcaption id="kdv-reconstruction-caption">上段はポテンシャル、下段は変換核の対角値。破線は中心位置を示す。いずれも固定した時刻の再構成である。</figcaption>
 </figure>
 <style>

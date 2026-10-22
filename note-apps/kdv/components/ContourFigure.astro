@@ -21,13 +21,14 @@ const labels = [
     <path d="M50 184 H146 A10 10 0 0 1 166 184 H262 A106 106 0 0 0 50 184" fill="none" stroke="var(--accent)" stroke-width="3" />
     {['M85 184 H115','M225 184 H245','M226 105 A106 106 0 0 0 190 83','M70 122 A106 106 0 0 0 56 149'].map(d=><path d={d} fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#kdv-contour-arrow)" />)}
     {labels.map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={katex.renderToString(l.t,{throwOnError:true})}/></foreignObject>)}
-  </svg></FigureViewport>
+  </svg>
   <div class="kdv-contour-decay" set:html={katex.renderToString('|e^{ik(x-y)}|=e^{-\\operatorname{Im}k(x-y)}',{throwOnError:true})} />
+  </FigureViewport>
   <figcaption id="kdv-contour-caption">実軸を左から右へ進み、大きな上半円で戻る正向きの積分路。原点は小さな上半円で避ける。指数因子の減衰により、大半円の寄与は消える。</figcaption>
 </figure>
 <style>
 .kdv-contour { scroll-margin-top:80px; margin:2rem 0; border:1px solid var(--line); border-radius:12px; padding:1rem; background:var(--paper); }
-.kdv-contour svg { display:block; width:320px; margin:0 auto; height:auto; overflow:visible; }
+.kdv-contour svg { display:block; width:100%; margin:0 auto; height:auto; overflow:visible; }
 .tex-label { color:var(--ink); font-size:20px; line-height:1.5; text-align:center; white-space:nowrap; }
 .kdv-contour-decay {text-align:center;color:var(--ink);font-size:.95rem;white-space:nowrap;margin:.25rem 0 .75rem;}
 .kdv-contour figcaption { color:var(--muted); font-size:.88rem; line-height:1.8; margin-top:.5rem; }

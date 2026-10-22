@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const require = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(require.resolve('rehype-katex'))('katex');
@@ -16,6 +17,7 @@ const tabs = mode === 'data'
     {tabs.map((tab, i) => <button type="button" data-scattering-tab={tab.value} aria-pressed={i === 0 ? 'true' : 'false'}>{tab.label}</button>)}
   </div>
 
+  <FigureViewport width={448}>
   {mode === 'data' && <svg width="100%" height="126" class="channel-scene" data-open-channels role="img" aria-label="Incident and reflected waves on the left; transmitted wave on the right">
     <defs><marker id={`${id}-arrow`} markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="var(--accent)" /></marker></defs>
     {['incident','reflected','transmitted'].map(kind=><>
@@ -25,11 +27,13 @@ const tabs = mode === 'data'
     <foreignObject data-channel-origin width="50" height="24" y="96"><div class="scattering-tick" set:html={tex('x=0')} /></foreignObject>
   </svg>}
 
+  </FigureViewport>
   <div class="scattering-slider" data-scattering-k-control>
     <label for={`${id}-k`}><span set:html={tex('k')} /><span>Wave number</span><output data-scattering-k-value for={`${id}-k`}>0.65</output></label>
     <input id={`${id}-k`} data-scattering-k type="range" min="0.35" max={mode === 'jost' ? '1' : '2.5'} step="0.01" value="0.65" aria-label="Wave number k" />
   </div>
 
+  <FigureViewport width={448}>
   <div class="scattering-legend" data-scattering-legend>
     {mode === 'data' ? <>
       <span data-scattering-label="scattering"><i class="curve-key" aria-hidden="true"></i><span set:html={tex('\\operatorname{Re}\\,\\psi(x)')} /></span>
@@ -78,6 +82,7 @@ const tabs = mode === 'data'
     <span><span set:html={tex('c_1=')} /><output data-bound-tail>—</output></span>
   </div>
   {mode === 'jost' && <p class="scattering-status" data-scattering-status role="status" aria-live="polite">Left Jost solution: matches the free wave at the left endpoint.</p>}
+  </FigureViewport>
   <figcaption id={`${id}-caption`}>
     {mode === 'data' ? <><span data-state-caption="scattering">上段は散乱波の実部で、破線は左右それぞれの遠方での形を表す。下段はポテンシャルである。</span><span data-state-caption="bound" hidden>上段は規格化された束縛状態と左端の漸近形。下段の曲線はポテンシャル、水平破線は固有値である。</span></> : <>同じポテンシャルに対する解の実部を比較している。左・右 Jost 解は、陰影で示した端の無限遠で自由波 <span set:html={tex('e^{ikx}')} /> に一致する。陰影は規格化する端、破線は自由波の実部 <span set:html={tex('\\cos(kx)')} /> を表す。</>}
   </figcaption>

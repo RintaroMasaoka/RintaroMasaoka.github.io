@@ -9,7 +9,7 @@ export function initGreenKernel(){
       root.querySelector('[data-source-position]').textContent=source.toFixed(1);
       root.querySelector('[data-source-overlap]').textContent=overlap.toFixed(3);
       for(const svg of root.querySelectorAll('[data-kernel-plot]')){
-        const width=svg.getBoundingClientRect().width,left=40,right=width-18,bottom=136,top=10;
+        const width=svg.clientWidth,left=40,right=width-18,bottom=136,top=10;
         const X=x=>left+(x+4)*(right-left)/8,Y=y=>bottom-y*(bottom-top)/.8;
         const factor=svg.dataset.kernelPlot==='input'?1:overlap;
         const path=Array.from({length:161},(_,i)=>{const x=-4+i/20;return `${i?'L':'M'}${X(x).toFixed(2)},${Y(factor*boundState(x)).toFixed(2)}`}).join(' ');

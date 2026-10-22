@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
@@ -14,6 +15,7 @@ const path=(factor:number)=>Array.from({length:161},(_,i)=>{const x=-4+i/20;retu
     <input id="green-source-position" data-source-position-slider type="range" min="-3" max="3" step=".1" value={start} />
     <button type="button" data-center-source><span set:html={tex("\\text{Place source at }x'=0")} /></button>
   </div>
+  <FigureViewport width={448}>
   <div class="kernel-panel-title" set:html={tex('\\psi_1(x)=1/(\\sqrt2\\cosh x)')} />
   <svg data-kernel-plot="input" width="100%" height="174" role="img" aria-labelledby="kernel-input-title kernel-input-desc">
     <title id="kernel-input-title">Evaluate the bound state at the source position</title>
@@ -40,6 +42,7 @@ const path=(factor:number)=>Array.from({length:161},(_,i)=>{const x=-4+i/20;retu
     <foreignObject data-kernel-axis-name x={right-10} y="115" width="26" height="24"><div class="kernel-tex" set:html={tex('x')} /></foreignObject>
   </svg>
   <p class="kernel-status" data-kernel-status role="status" aria-live="polite">点源は左側にあり、下段の曲線のピークは原点にある。</p>
+  </FigureViewport>
   <figcaption id="green-kernel-caption">四角は単位点源の位置、丸はその位置での束縛状態の値。下段は応答の <span set:html={tex("\\psi_1")} /> 成分の分子である。点源を動かすと下段の高さは変わるが、波形とピーク位置は変わらない。</figcaption>
 </figure>
 <script>
@@ -47,7 +50,7 @@ const path=(factor:number)=>Array.from({length:161},(_,i)=>{const x=-4+i/20;retu
   initGreenKernel();
 </script>
 <style>
-.green-kernel{box-sizing:border-box;max-width:480px;width:100%;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.green-kernel{box-sizing:border-box;width:100%;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
 .kernel-controls label{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline;font-size:.95rem}
 .kernel-controls input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
 .kernel-controls button{display:block;max-width:100%;min-height:44px;margin:.25rem 0 1rem;border:1px solid var(--line);border-radius:6px;padding:.3rem .65rem;background:var(--paper);color:var(--ink);font-size:.86rem;cursor:pointer}

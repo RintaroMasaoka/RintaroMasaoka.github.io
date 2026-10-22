@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const require = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(require.resolve('rehype-katex'))('katex');
@@ -10,7 +11,7 @@ const channels = [
 ];
 ---
 <figure id="scattering-intro-data" class="scattering-channels" data-scattering-channels aria-labelledby="scattering-channels-caption">
-  <svg width="100%" height="364" role="img" aria-labelledby="scattering-channels-title scattering-channels-desc">
+  <FigureViewport width={680}><svg width="100%" height="364" role="img" aria-labelledby="scattering-channels-title scattering-channels-desc">
     <title id="scattering-channels-title">Transmission a, reflection b</title>
     <desc id="scattering-channels-desc">The incident wave points right from the upper left toward the potential. The transmitted wave a points right on a separate lower row to the right of the potential. The reflected wave b points left on the lowest row. Vertical offsets separate the three components schematically.</desc>
     <defs><marker id="scattering-channel-tip" viewBox="0 0 10 10" markerWidth="7" markerHeight="7" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="context-stroke" /></marker></defs>
@@ -22,14 +23,14 @@ const channels = [
       <path data-channel-direction={c.name} fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#scattering-channel-tip)" />
     </g>)}
     <foreignObject data-channel-potential width="64" height="26" y="337"><div class="potential-label" set:html={tex('u(x)')} /></foreignObject>
-  </svg>
+  </svg></FigureViewport>
   <figcaption id="scattering-channels-caption">透過波の係数が <span set:html={tex('a')} />、反射波の係数が <span set:html={tex('b')} /> である。三つの波を区別できるよう上下に分けた模式図で、入射波の係数は1としている。</figcaption>
 </figure>
 <script>
   document.querySelectorAll<HTMLElement>('[data-scattering-channels]').forEach(root => {
     const draw = () => {
       const svg = root.querySelector('svg')!;
-      const width = svg.getBoundingClientRect().width, center=width/2;
+      const width = svg.clientWidth, center=width/2;
       const gap=25, left=8, right=width-8;
       const region=svg.querySelector('[data-channel-region]')!;
       region.setAttribute('x',String(center-14));region.setAttribute('width','28');
@@ -56,7 +57,7 @@ const channels = [
   });
 </script>
 <style>
-.scattering-channels{scroll-margin-top:78px;max-width:680px;margin:1.5rem auto;color:var(--ink)}
+.scattering-channels{scroll-margin-top:78px;width:100%;margin:1.5rem auto;color:var(--ink)}
 .scattering-channels svg{display:block;width:100%;height:364px;overflow:visible}
 .channel-title,.channel-term,.potential-label{display:flex;align-items:center;justify-content:center;width:100%;height:100%;white-space:nowrap;line-height:1;color:inherit}
 .channel-title{font-size:16px}.channel-term{font-size:21px}.potential-label{font-size:16px}

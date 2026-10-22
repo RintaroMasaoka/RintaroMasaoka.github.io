@@ -1,15 +1,17 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
 const req = createRequire(new URL('../../../package.json', import.meta.url));
 const katex = createRequire(req.resolve('rehype-katex'))('katex');
 const tex = (s: string) => katex.renderToString(s, { throwOnError: true });
-const labels = [{x:207,y:92,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:109,w:24,t:'x'}];
+const labels = [{x:207,y:72,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:251,w:24,t:'x'}];
 ---
 <figure class="kdv-dyson-domain" data-dyson-domain aria-labelledby="dyson-domain-caption">
   <label class="domain-control" for="dyson-gap">Distance from diagonal <span set:html={tex('x-y')} /><output data-dyson-gap-output>1.00</output>
     <input id="dyson-gap" data-dyson-gap type="range" min="0" max="2" step="0.02" value="1" />
   </label>
-  <svg width="240" height="260" viewBox="0 0 240 260" role="img" aria-labelledby="dyson-domain-title dyson-domain-desc">
+  <FigureViewport width={240}>
+  <svg width="240" height="286" viewBox="0 0 240 286" role="img" aria-labelledby="dyson-domain-title dyson-domain-desc">
     <title id="dyson-domain-title">Integration domain in the x-prime–y-prime plane</title>
     <desc id="dyson-domain-desc">The shaded region satisfies y-prime less than or equal to x-prime, x-prime less than or equal to x, and absolute y minus y-prime less than or equal to x minus x-prime. It extends toward minus infinity. As y approaches x, it collapses to the diagonal y-prime equals x-prime.</desc>
     <defs><clipPath id="dyson-domain-clip"><rect x="24" y="32" width="180" height="216" /></clipPath></defs>
@@ -30,6 +32,7 @@ const labels = [{x:207,y:92,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:109,w:
     <li><span class="sample lower"></span><span set:html={tex("y'\\ge x'-(x-y)")} /></li>
     <li><span class="sample upper"></span><span set:html={tex("y'\\le x+y-x'")} /></li>
   </ul>
+  </FigureViewport>
   <p class="domain-status" data-dyson-status aria-live="polite">色の付いた領域の内部を積分する。</p>
   <figcaption id="dyson-domain-caption">横軸は作用位置 <span set:html={tex("x'")} />、縦軸は <span set:html={tex("K(x',y')")} /> に含まれる平面波成分の座標 <span set:html={tex("y'")} />。<span set:html={tex("x'\\le x")} /> の範囲で三つの不等式を満たす領域を塗っている。左下の矢印は領域が無限遠まで続くことを示す。<span set:html={tex('y=x')} /> では領域が <span set:html={tex("y'=x'")} /> の線に潰れ、再帰式の二重積分が消える。</figcaption>
 </figure>
@@ -38,7 +41,7 @@ const labels = [{x:207,y:92,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:109,w:
 .domain-control{display:grid;grid-template-columns:1fr auto auto;gap:.5rem;align-items:center;font-size:.88rem;padding:0 .3rem;max-width:420px;margin:0 auto}
 .domain-control input{grid-column:1/-1;width:100%;min-height:36px;accent-color:var(--accent)}
 .domain-control output{font-variant-numeric:tabular-nums;color:var(--ink)}
-.kdv-dyson-domain > svg{display:block;width:240px!important;max-width:none!important;height:260px;margin:.7rem auto}
+.kdv-dyson-domain > svg{display:block;width:240px!important;max-width:none!important;height:286px;margin:.7rem auto}
 .domain-tex{font-size:16px;line-height:1.5;text-align:center;color:var(--ink);white-space:nowrap}
 .domain-legend{list-style:none!important;padding:0!important;margin:.5rem auto!important;max-width:260px;font-size:15px}
 .domain-legend li{display:flex;align-items:center;gap:12px;margin:.4rem 0!important;white-space:nowrap}

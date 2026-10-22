@@ -30,7 +30,7 @@ export function initPointSpectrum(){
           :samples.flatMap(x=>[pointEnergy(x),-1+x/2]);
         const [ymin,ymax]=fittedRange(values,{includeZero:wave,floorSpan:wave&&magnitude<=1e-12?2:.1});
         svg.dataset.ymin=String(ymin);svg.dataset.ymax=String(ymax);
-        const left=46,right=svg.getBoundingClientRect().width-26,top=12,bottom=182;
+        const left=46,right=svg.clientWidth-26,top=12,bottom=182;
         const X=x=>left+(x-xmin)*(right-left)/(xmax-xmin),Y=y=>bottom-(y-ymin)*(bottom-top)/(ymax-ymin);
         svg.querySelector('rect').setAttribute('width',Math.max(0,right-left));
         svg.querySelector('[data-point-axes]').setAttribute('d',`M${left} ${top} V${bottom} H${right}`);

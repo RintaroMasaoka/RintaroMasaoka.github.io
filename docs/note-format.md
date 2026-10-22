@@ -29,4 +29,13 @@ Reader buttons use borderless Lucide icons with hover and keyboard-focus feedbac
 
 ## Responsive figure layout
 
-Responsive layout is an implementation invariant, not a manual phone-preview acceptance step. Use container-bounded widths, intrinsic wrapping/reflow, and container-derived plot coordinates; guard these constraints automatically. Do not rely on viewport-specific patches, shrinking scientific lettering, or horizontal figure panning to make a layout fit.
+Responsive layout is an implementation invariant. Reading controls wrap within the container; scientific canvases use the uniform fitting contract below. Guard those constraints automatically, then inspect the embedded result. Do not introduce viewport-specific changes to internal figure proportions or horizontal figure panning.
+
+
+## Uniform figure fitting
+
+Scientific figures use the available article width. Fit a complete authored canvas with one scalar scale factor: geometry, text, strokes, markers, internal spacing, legends and mathematical labels all receive exactly the same transformation. Preserve its internal aspect ratio. Do not stretch axes independently or resize/reposition its individual elements in response to screen width. Reader controls and manuscript captions remain outside that scientific canvas.
+
+KdV uses `FigureViewport.astro`: a design-width canvas, a top-left `scale(s)` with `s = availableWidth / designWidth`, and an outer height equal to the design height times that same factor. There is no horizontal panning and no phone-sized maximum on the outer figure. Measure the untransformed canvas when updating interactive content (`clientWidth`), and observe content-height changes as well as available width. Axis domains and parameter ranges are scientific decisions independent of this fitting operation.
+
+Verify the actual embedded narrow and wide views, both themes and affected input states. Check that horizontal and vertical scale factors are equal and that the complete canvas—including its lettering—retains its proportions; then inspect for baseline overlaps or clipping. Uniform fitting does not excuse a defect in the authored canvas.

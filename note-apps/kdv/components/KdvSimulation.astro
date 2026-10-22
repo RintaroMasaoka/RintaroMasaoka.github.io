@@ -36,8 +36,9 @@ const initial=collision?'\\eta(x,0)=2\\,\\operatorname{sech}^2(x+20)+\\tfrac12\\
     <foreignObject x="554" y="213" width="46" height="55"><div class="simulation-tex" set:html={tex('x')} /></foreignObject>
     <path d={path} data-sim-initial fill="none" stroke="var(--muted)" stroke-width="3" stroke-dasharray="7 6" clip-path={`url(#${id}-clip)`} />
     <path d={path} data-sim-curve fill="none" stroke="var(--accent)" stroke-width="2.7" clip-path={`url(#${id}-clip)`} />
-  </svg></FigureViewport>
+  </svg>
   <div class="simulation-legend"><span><i class="current"></i><span set:html={tex('\\text{numerical solution}')} /></span><span><i class="initial"></i><span set:html={tex('\\text{initial profile}')} /></span></div>
+  </FigureViewport>
   <p data-sim-status class="simulation-status" role="status">Press Play to compute the evolution in your browser.</p>
   <figcaption id={`${id}-caption`}>{collision?'高い波が低い波に追いつく。衝突中の形と、離れた後の2つの波を、再生または時刻スライダーで比べてみよう。':'初めはなだらかな1つの波でも、時間を進めると高さと速さの異なる波に分かれていく。'} 破線は初期波形。</figcaption>
   <details class="simulation-method"><summary>初期条件・計算方法</summary>

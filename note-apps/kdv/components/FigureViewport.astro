@@ -1,14 +1,18 @@
 ---
-const { width = 480, label = 'Scroll figure horizontally' } = Astro.props;
+const {width=480}=Astro.props;
 ---
-<div class="kdv-figure-viewport" role="region" aria-label={label} tabindex="0">
+<div class="kdv-figure-viewport" data-figure-scale>
   <div class="kdv-figure-canvas" style={`width:${width}px`}><slot /></div>
 </div>
-<div class="kdv-scroll-hint" aria-hidden="true" hidden>← Scroll figure horizontally →</div>
+<script>
+ document.querySelectorAll<HTMLElement>('[data-figure-scale]').forEach(frame=>{
+  if(frame.dataset.ready)return;frame.dataset.ready='true';
+  const canvas=frame.firstElementChild as HTMLElement;
+  const draw=()=>{const scale=frame.clientWidth/canvas.offsetWidth;canvas.style.transform=`scale(${scale})`;frame.style.height=`${canvas.offsetHeight*scale}px`;};
+  const observer=new ResizeObserver(draw);observer.observe(frame);observer.observe(canvas);draw();
+ });
+</script>
 <style>
-.kdv-figure-viewport{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding:8px 0;scrollbar-width:thin;scrollbar-color:var(--muted) var(--paper)}
-.kdv-figure-viewport:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.kdv-figure-canvas{flex:none;max-width:none;margin:0 auto}
-.kdv-scroll-hint{font:12px/1.6 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--muted);text-align:center;margin:.2rem 0 .65rem}
-.kdv-scroll-hint[hidden]{display:none}
+.kdv-figure-viewport{box-sizing:border-box;inline-size:100%;min-inline-size:0;position:relative;overflow:clip}
+.kdv-figure-canvas{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none}
 </style>

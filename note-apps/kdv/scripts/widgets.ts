@@ -7,11 +7,6 @@ import { initTravelingSoliton } from '../visuals/soliton.js';
 initTravelingSoliton();
 import { initKdvSimulations } from '../visuals/simulation.js';
 initKdvSimulations();
-document.querySelectorAll<HTMLElement>('.kdv-figure-viewport').forEach(view => {
-  const update = () => { const hint = view.nextElementSibling as HTMLElement; hint.hidden = view.scrollWidth <= view.clientWidth + 1; };
-  new ResizeObserver(update).observe(view);
-  update();
-});
 const imageDialog = document.getElementById('legacy-image-dialog') as HTMLDialogElement;
 const expandedImage = document.getElementById('legacy-image-expanded') as HTMLImageElement;
 const imageScroll = document.getElementById('legacy-image-scroll')!;

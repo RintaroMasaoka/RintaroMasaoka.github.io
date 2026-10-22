@@ -1,4 +1,5 @@
 ---
+import FigureViewport from './FigureViewport.astro';
 import BoundStateControls from './BoundStateControls.astro';
 import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
@@ -8,6 +9,7 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
 ---
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
   <BoundStateControls id="matching-wave-number" />
+  <FigureViewport width={448}>
   <div class="endpoint-w"><span set:html={tex('W(k)=' )} /><output data-matching-w></output></div>
   <svg width="100%" height="184" data-w-spectrum role="img" aria-label="Wronskian versus energy with two nearby bound-state zeros">
     <path data-w-axes fill="none" stroke="var(--muted)" />
@@ -37,6 +39,7 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
     </svg>
   </section>)}
   <p data-matching-status role="status" aria-live="polite"></p>
+  </FigureViewport>
   <figcaption id="green-matching-caption">上段は <span set:html={tex('W(k)')} /> のエネルギー依存性。白丸は二つの零点、塗りつぶした点は選択中のエネルギーを示す。下段は左端で減衰する解（実線）と右端で減衰する解（破線）であり、それぞれ表示区間内の最大絶対値が1になるよう正の定数倍をしている。<span set:html={tex('E=-1.21')} /> では二本は重なり、<span set:html={tex('E=-0.81')} /> では符号が逆になる。どちらも二本が比例するため <span set:html={tex('W=0')} /> である。</figcaption>
 </figure>
 <script>

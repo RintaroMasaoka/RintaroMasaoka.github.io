@@ -24,7 +24,7 @@ export default function initScatteringIntro(){
    root.querySelector('[data-bound-tail]').textContent=bound.tail.toFixed(4);
    root.querySelector('[data-bound-energy]').textContent=bound.energy.toFixed(4);
    const status=root.querySelector('[data-scattering-status]');if(status)status.textContent=kind==='minus'?'Left normalization: the solid and dashed curves agree at the left.':'Right normalization: the solid and dashed curves agree at the right.';
-   const svg=root.querySelector('[data-scattering-wave]'),width=svg.getBoundingClientRect().width;
+   const svg=root.querySelector('[data-scattering-wave]'),width=svg.clientWidth;
    const extent=mode==='jost'?20:8;
    const left=46,right=width-28,top=12,bottom=182,X=x=>left+(x+extent)*(right-left)/(2*extent);
    const samples=Array.from({length:1601},(_,j)=>-extent+2*extent*j/1600);
