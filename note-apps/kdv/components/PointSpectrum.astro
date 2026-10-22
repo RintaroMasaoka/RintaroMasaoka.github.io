@@ -3,11 +3,11 @@ import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
-const panels=[{id:'wave',title:'Joined bound state',xs:[-4,0,4],ys:[0,1],axis:'x'},{id:'energy',title:'Energy response',xs:[-.9,0,1.5],ys:[-1.6,-1,-.4],axis:'g'}];
+const panels=[{id:'wave',title:'Joined bound state',xs:[-4,0,4],ys:[0,1,1.8],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1,0],axis:'g'}];
 ---
 <figure class="point-spectrum" data-point-spectrum aria-labelledby="point-spectrum-caption">
   <label for="point-spectrum-energy"><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
-  <input id="point-spectrum-energy" type="range" min="-1.5" max="-.5" step=".001" value="-1.25" aria-label="Bound-state energy" />
+  <input id="point-spectrum-energy" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Bound-state energy" />
   <button type="button" set:html={tex('\\text{Original state: }g=0')} />
   <div class="point-readout"><span set:html={tex('g=\\Delta(E)=' )} /><output data-point-coupling></output></div>
   {panels.map(panel=><section>

@@ -13,7 +13,7 @@ export function initPointSpectrum(){
       root.querySelector('[data-point-status]').textContent=Math.abs(g)<1e-9?'No point potential: the slope is continuous.':g>0?'Positive point potential: the slope jumps upward.':'Negative point potential: the slope jumps downward.';
       for(const svg of root.querySelectorAll('svg[data-point-panel]')){
         const wave=svg.dataset.pointPanel==='wave';
-        const xmin=wave?-4:-.9,xmax=wave?4:1.5,ymin=wave?0:-1.6,ymax=wave?1.4:-.4;
+        const xmin=wave?-4:-1.25,xmax=wave?4:3.25,ymin=wave?0:-2,ymax=wave?1.8:0;
         const left=46,right=svg.getBoundingClientRect().width-26,top=12,bottom=182;
         const X=x=>left+(x-xmin)*(right-left)/(xmax-xmin),Y=y=>bottom-(y-ymin)*(bottom-top)/(ymax-ymin);
         svg.querySelector('rect').setAttribute('width',Math.max(0,right-left));

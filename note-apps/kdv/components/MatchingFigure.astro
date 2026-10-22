@@ -3,11 +3,11 @@ import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
-const panels=[{id:'full',title:'Full profiles',range:3,ys:[-4,0,4,8]},{id:'zoom',title:'Near the matching point',range:.1,ys:[.96,1,1.04]}];
+const panels=[{id:'full',title:'Full profiles',range:3,ys:[-8,0,8,16]},{id:'zoom',title:'Near the matching point',range:.1,ys:[.8,1,1.2]}];
 ---
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
   <label for="matching-wave-number"><span set:html={tex('k^2')} /><output data-matching-energy>−1.250</output></label>
-  <input id="matching-wave-number" type="range" min="-1.5" max="-.5" step=".001" value="-1.25" aria-label="Squared wave number" />
+  <input id="matching-wave-number" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Squared wave number" />
   <button type="button" data-matching-bound set:html={tex('\\text{Bound state: }k^2=-1')} />
   <div class="endpoint-legend"><span class="endpoint-solid" aria-hidden="true"></span><span set:html={tex('f_-(x,-k)/f_-(0,-k)')} /></div>
   <div class="endpoint-legend"><span class="endpoint-dashed" aria-hidden="true"></span><span set:html={tex('f_+(x,k)/f_+(0,k)')} /></div>

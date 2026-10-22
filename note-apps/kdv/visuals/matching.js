@@ -16,7 +16,7 @@ export function initMatchingFigure(){
         :'Same value, different slopes: the two solutions are distinct.';
       for(const svg of root.querySelectorAll('[data-matching-panel]')){
         const full=svg.dataset.matchingPanel==='full',range=full?3:.1;
-        const ymin=full?-4:.96,ymax=full?8:1.04;
+        const ymin=full?-8:.8,ymax=full?16:1.2;
         const left=44,right=svg.getBoundingClientRect().width-28,top=10,bottom=180;
         const X=x=>left+(x+range)*(right-left)/(2*range);
         const Y=y=>bottom-(y-ymin)*(bottom-top)/(ymax-ymin);
