@@ -19,7 +19,8 @@
       "description": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
       "plainTitle": "KdV方程式と逆散乱法",
       "plainDescription": "ソリトン解とLax表示から逆散乱法、KdV階層と無限個の保存量まで。",
-      "file": "full.md"
+      "file": "full.md",
+      "href": "#top"
     }
   ],
   "publication": {
@@ -27,5 +28,24 @@
     "projectId": null,
     "url": null,
     "visibility": "public"
-  }
+  },
+  "reader": {
+    "mode": "continuous",
+    "basePath": "/notes/kdv/",
+    "notesHref": "/ja/notes/",
+    "equationScope": "note",
+    "themeKeys": [
+      "kdv.theme"
+    ]
+  },
+  "resources": [
+    {
+      "label": "Original PDF ↗",
+      "href": "/notes/KdV/source/数理班_政岡凜太郎.pdf"
+    },
+    {
+      "label": "LaTeX source ↗",
+      "href": "/notes/KdV/source/KdV.tex"
+    }
+  ]
 }

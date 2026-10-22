@@ -1,5 +1,4 @@
 ---
-import { numberEquations } from '../../../src/utils/note-equations.mjs';
 let html = await Astro.slots.render('default');
 const chapter = (await Astro.slots.render('glm')).replace(/<h2(\s[^>]*)?>\d+\.\s*/g, '<h3$1>').replace(/<\/h2>/g, '</h3>');
 const chapterPattern = /<div\s+data-chapter-slot=["']glm["']\s*>\s*<\/div>/;
@@ -17,6 +16,5 @@ for (const name of ['contour', 'reconstruction', 'dyson-domain', 'matching', 'po
   if (!pattern.test(html)) throw new Error(`Missing KdV visual slot: ${name}`);
   html = html.replace(pattern, () => visual);
 }
-html = numberEquations(html);
 ---
-<article id="manuscript" set:html={html} />
+<Fragment set:html={html} />

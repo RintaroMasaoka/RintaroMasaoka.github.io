@@ -20,12 +20,12 @@ const labels = (kind:string) => [
 ---
 <figure class="kdv-reconstruction" data-kdv-reconstruction aria-labelledby="kdv-reconstruction-caption">
   <div class="kdv-control-grid">
-    <label for="kdv-kappa">束縛状態のパラメータ <span set:html={tex('\\kappa_1')}/><output for="kdv-kappa" data-kdv-kappa-output>1.00</output><input id="kdv-kappa" data-kdv-kappa type="range" min="0.45" max="1.6" step="0.01" value="1" /></label>
-    <label for="kdv-center">中心位置 <span set:html={tex('x_0')}/><output for="kdv-center" data-kdv-center-output>0.00</output><input id="kdv-center" data-kdv-center type="range" min="-2" max="2" step="0.05" value="0" /></label>
-    <button type="button" data-kdv-reset>初期値に戻す</button>
+    <label for="kdv-kappa">Bound-state parameter <span set:html={tex('\\kappa_1')}/><output for="kdv-kappa" data-kdv-kappa-output>1.00</output><input id="kdv-kappa" data-kdv-kappa type="range" min="0.45" max="1.6" step="0.01" value="1" /></label>
+    <label for="kdv-center">Center <span set:html={tex('x_0')}/><output for="kdv-center" data-kdv-center-output>0.00</output><input id="kdv-center" data-kdv-center type="range" min="-2" max="2" step="0.05" value="0" /></label>
+    <button type="button" data-kdv-reset>Reset</button>
   </div>
   <p class="kdv-parameter-values" aria-live="polite" aria-atomic="true" data-kdv-values>最小値 −2.00 ／ 幅の尺度 1.00 ／ 規格化定数の二乗 2.00</p>
-  <FigureViewport width={420} label="ポテンシャルと核の図を左右にスクロール"><div class="kdv-plot-grid">
+  <FigureViewport width={420} label="Scroll potential and kernel plots horizontally"><div class="kdv-plot-grid">
   {['u','K'].map(kind => <svg viewBox="0 0 360 242" role="img" aria-label={kind==='u'?'Reconstructed potential at time zero':'Transformation kernel on the diagonal at time zero'}>
     <defs><clipPath id={`kdv-clip-${kind}`}><rect x="53" y="76" width="280" height="138" /></clipPath></defs>
     <path d="M53 76 H333 M53 76 V214" stroke="var(--muted)" fill="none" stroke-width="1.2"/>

@@ -6,7 +6,7 @@ const tex = (s: string) => katex.renderToString(s, { throwOnError: true });
 const labels = [{x:207,y:92,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:109,w:24,t:'x'}];
 ---
 <figure class="kdv-dyson-domain" data-dyson-domain aria-labelledby="dyson-domain-caption">
-  <label class="domain-control" for="dyson-gap">対角からの距離 <span set:html={tex('x-y')} /><output data-dyson-gap-output>1.00</output>
+  <label class="domain-control" for="dyson-gap">Distance from diagonal <span set:html={tex('x-y')} /><output data-dyson-gap-output>1.00</output>
     <input id="dyson-gap" data-dyson-gap type="range" min="0" max="2" step="0.02" value="1" />
   </label>
   <svg width="240" height="260" viewBox="0 0 240 260" role="img" aria-labelledby="dyson-domain-title dyson-domain-desc">

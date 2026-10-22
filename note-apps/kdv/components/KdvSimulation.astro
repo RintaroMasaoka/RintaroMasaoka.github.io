@@ -19,11 +19,11 @@ const initial=collision?'\\eta(x,0)=2\\,\\operatorname{sech}^2(x+20)+\\tfrac12\\
 <figure class="kdv-numerical" data-kdv-numerical={mode} aria-labelledby={`${id}-caption`}>
   <div class="simulation-heading">{collision?'2つのソリトンの衝突':'幅の広い波の分裂'}<span>数値シミュレーション</span></div>
   <div class="simulation-controls">
-    <button type="button" data-sim-play disabled>再生</button>
-    <button type="button" data-sim-reset disabled>最初に戻す</button>
-    <label>再生速度 <select data-sim-speed disabled aria-label="再生速度"><option value=".5">0.5倍</option><option value="1" selected>1倍</option><option value="2">2倍</option></select></label>
+    <button type="button" data-sim-play disabled>Play</button>
+    <button type="button" data-sim-reset disabled>Reset</button>
+    <label>Speed <select data-sim-speed disabled aria-label="Playback speed"><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
   </div>
-  <label class="simulation-time" for={`${id}-time`}><span>時刻 <span set:html={tex('t')} /></span><output data-sim-time>0.00</output><input id={`${id}-time`} data-sim-seek type="range" min="0" max="160" step="1" value="0" disabled /></label>
+  <label class="simulation-time" for={`${id}-time`}><span>Time <span set:html={tex('t')} /></span><output data-sim-time>0.00</output><input id={`${id}-time`} data-sim-seek type="range" min="0" max="160" step="1" value="0" disabled /></label>
   <FigureViewport><svg viewBox="0 0 600 330" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
     <title id={`${id}-title`}>{collision?'Numerical KdV soliton collision':'Numerical KdV evolution of a broad pulse'}</title>
     <desc id={`${id}-desc`}>Solid curve: numerically evolved surface displacement eta. Dashed curve: initial profile. Time can be selected with the slider.</desc>
@@ -38,7 +38,7 @@ const initial=collision?'\\eta(x,0)=2\\,\\operatorname{sech}^2(x+20)+\\tfrac12\\
     <path d={path} data-sim-curve fill="none" stroke="var(--accent)" stroke-width="2.7" clip-path={`url(#${id}-clip)`} />
   </svg></FigureViewport>
   <div class="simulation-legend"><span><i class="current"></i><span set:html={tex('\\text{numerical solution}')} /></span><span><i class="initial"></i><span set:html={tex('\\text{initial profile}')} /></span></div>
-  <p data-sim-status class="simulation-status" role="status">再生すると、このブラウザで初期波形から計算します。</p>
+  <p data-sim-status class="simulation-status" role="status">Press Play to compute the evolution in your browser.</p>
   <figcaption id={`${id}-caption`}>{collision?'高い波が低い波に追いつく。衝突中の形と、離れた後の2つの波を、再生または時刻スライダーで比べてみよう。':'初めはなだらかな1つの波でも、時間を進めると高さと速さの異なる波に分かれていく。後方に残る小さな振動にも注目してみよう。'} 破線は初期波形。縦軸は <span set:html={tex('\\eta')} />。</figcaption>
   <details class="simulation-method"><summary>初期条件・計算方法</summary>
     <p>本文のKdV方程式 <span set:html={tex('\\eta_t+6\\eta\\eta_x+\\eta_{xxx}=0')} /> を数値積分し、グラフには <span set:html={tex('\\eta')} /> を表示する。</p>
@@ -48,7 +48,7 @@ const initial=collision?'\\eta(x,0)=2\\,\\operatorname{sech}^2(x+20)+\\tfrac12\\
     <p data-sim-diagnostics>計算後に、保存量の相対変化をここに表示する。</p>
     <p>分割法の参考：<a href="https://www.math.umd.edu/~tadmor/spectral_viscosity/Holden_et_al_KdV_splitting_JCP99.pdf">Holden, Karlsen &amp; Risebro (1999)</a>。</p>
   </details>
-  <noscript><p>再生にはJavaScriptが必要です。上の図は初期波形です。</p></noscript>
+  <noscript><p>JavaScript is required for playback. The initial profile is shown above.</p></noscript>
 </figure>
 <style>
 .kdv-numerical{border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1.8rem 0;background:var(--paper)}

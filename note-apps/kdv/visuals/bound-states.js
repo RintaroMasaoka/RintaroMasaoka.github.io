@@ -51,7 +51,7 @@ export function initBoundStates() {
       boundStatePaths(t).forEach((d,i)=>plots[i].setAttribute('d',d));
       slider.value=String(t); output.textContent=t.toFixed(3);
     };
-    const stop=()=>{playing=false;cancelAnimationFrame(frame);play.textContent='再生';play.setAttribute('aria-pressed','false');};
+    const stop=()=>{playing=false;cancelAnimationFrame(frame);play.textContent='Play';play.setAttribute('aria-pressed','false');};
     const tick=now=>{
       if(!playing)return;
       t=Math.min(finalTime,t+Math.min(.1,(now-previous)/1000)*.032); previous=now; draw();
@@ -60,7 +60,7 @@ export function initBoundStates() {
     play.addEventListener('click',()=>{
       if(playing){stop();return;}
       if(t>=finalTime)t=0;
-      playing=true;play.textContent='一時停止';play.setAttribute('aria-pressed','true');previous=performance.now();frame=requestAnimationFrame(tick);
+      playing=true;play.textContent='Pause';play.setAttribute('aria-pressed','true');previous=performance.now();frame=requestAnimationFrame(tick);
     });
     slider.addEventListener('input',()=>{stop();t=Number(slider.value);draw();});
     reset.addEventListener('click',()=>{stop();t=0;draw();});

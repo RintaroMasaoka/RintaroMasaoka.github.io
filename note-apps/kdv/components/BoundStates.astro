@@ -12,8 +12,8 @@ const curves=[
 ---
 <figure class="bound-states" data-bound-states aria-labelledby="bound-states-caption">
   <div class="bound-controls">
-    <div class="bound-actions"><button type="button" data-bound-play aria-pressed="false">再生</button><button type="button" data-bound-reset>最初に戻す</button><label for="bound-time">時刻 <span set:html={tex('t')} /> <output for="bound-time">0.000</output></label></div>
-    <input id="bound-time" aria-label="ポテンシャルと固有状態の時刻" type="range" min="0" max={finalTime} step=".001" value="0" />
+    <div class="bound-actions"><button type="button" data-bound-play aria-pressed="false">Play</button><button type="button" data-bound-reset>Reset</button><label for="bound-time">Time <span set:html={tex('t')} /> <output for="bound-time">0.000</output></label></div>
+    <input id="bound-time" aria-label="Potential and eigenstate time" type="range" min="0" max={finalTime} step=".001" value="0" />
   </div>
   <div class="bound-legend">
     {curves.map((curve,i)=><span style={`--curve:${curve.color}`}><svg viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5 H28" fill="none" stroke="var(--curve)" stroke-width="2" stroke-dasharray={i?'5 3':undefined} /></svg><span set:html={tex(curve.label)} /></span>)}

@@ -9,37 +9,37 @@ export function initKdvSimulations() {
       if(frames)curve.setAttribute('d',Array.from(frames[index],(v,j)=>`${j?'L':'M'}${(62+j*500/512).toFixed(2)},${(245-v*52).toFixed(2)}`).join(' '));
       figure.dataset.simFrame=String(index);
     };
-    const pause=()=>{running=false;cancelAnimationFrame(raf);last=0;play.textContent='再生';play.setAttribute('aria-pressed','false');};
+    const pause=()=>{running=false;cancelAnimationFrame(raf);last=0;play.textContent='Play';play.setAttribute('aria-pressed','false');};
     const tick=now=>{
       if(!running)return;
       if(last)position+=Math.min(now-last,100)/1000*20*Number(speed.value);
       last=now;draw();
-      if(position>=160){pause();status.textContent='計算した時刻の最後です。再生で最初から、スライダーで途中から観察できます。';return;}
+      if(position>=160){pause();status.textContent='End of playback. Press Play to restart or use the time slider.';return;}
       raf=requestAnimationFrame(tick);
     };
-    const start=()=>{if(position>=160)position=0;running=true;last=0;play.textContent='一時停止';play.setAttribute('aria-pressed','true');status.textContent='計算済みの数値解を再生中。時刻スライダーでも波形を選べます。';raf=requestAnimationFrame(tick);};
+    const start=()=>{if(position>=160)position=0;running=true;last=0;play.textContent='Pause';play.setAttribute('aria-pressed','true');status.textContent='Playing. Use the time slider to select a frame.';raf=requestAnimationFrame(tick);};
     play.addEventListener('click',()=>{
-      if(frames){if(running){pause();status.textContent='一時停止中。時刻スライダーで波形を選べます。';}else start();return;}
-      play.disabled=true;play.textContent='計算中…';status.textContent='初期波形から数値計算しています…';
+      if(frames){if(running){pause();status.textContent='Paused. Use the time slider to select a frame.';}else start();return;}
+      play.disabled=true;play.textContent='Computing…';status.textContent='Computing from the initial profile…';
       try {
         worker=new Worker(new URL('./kdv-worker.js',import.meta.url),{type:'module'});
-        const fail=()=>{worker?.terminate();worker=null;play.disabled=false;play.textContent='再計算';status.textContent='計算を完了できませんでした。再計算を押してください。';};
+        const fail=()=>{worker?.terminate();worker=null;play.disabled=false;play.textContent='Retry';status.textContent='Computation failed. Press Retry.';};
         worker.onerror=fail;
         worker.onmessage=({data})=>{
-          if(data.type==='progress'){status.textContent=`初期波形から数値計算しています… ${Math.round(data.value*100)}%`;return;}
+          if(data.type==='progress'){status.textContent=`Computing from the initial profile… ${Math.round(data.value*100)}%`;return;}
           if(data.type!=='ready'){fail();return;}
           frames=data.frames;worker.terminate();worker=null;play.disabled=false;reset.disabled=false;seek.disabled=false;speed.disabled=false;
           figure.querySelector('[data-sim-diagnostics]').textContent=`計算区間全体での最大相対変化：∫η dx は ${data.maxMassDrift.toExponential(1)}、∫η² dx は ${data.maxSquareDrift.toExponential(1)}。これらは保存量の変化であり、解そのものの誤差ではない。`;
           figure.dataset.simComputed='true';draw();start();
         };
         worker.postMessage({mode:figure.dataset.kdvNumerical});
-      }catch{play.disabled=false;play.textContent='再計算';status.textContent='この環境では計算を開始できませんでした。';}
+      }catch{play.disabled=false;play.textContent='Retry';status.textContent='Unable to start computation in this browser.';}
     });
-    reset.addEventListener('click',()=>{pause();position=0;draw();status.textContent='初期波形に戻りました。';});
-    seek.addEventListener('input',()=>{pause();position=Number(seek.value);draw();status.textContent='選択した時刻の数値解を表示中。';});
-    document.addEventListener('visibilitychange',()=>{if(document.hidden&&running){pause();status.textContent='一時停止中。';}});
+    reset.addEventListener('click',()=>{pause();position=0;draw();status.textContent='Reset to the initial profile.';});
+    seek.addEventListener('input',()=>{pause();position=Number(seek.value);draw();status.textContent='Showing the selected time.';});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden&&running){pause();status.textContent='Paused.';}});
     // Stop off-screen playback so reading elsewhere does not leave motion running.
-    new IntersectionObserver(entries=>{if(!entries[0].isIntersecting&&running){pause();status.textContent='一時停止中。';}}).observe(figure);
+    new IntersectionObserver(entries=>{if(!entries[0].isIntersecting&&running){pause();status.textContent='Paused.';}}).observe(figure);
     draw();
   });
 }

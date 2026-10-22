@@ -1,0 +1,70 @@
+---
+import ReaderIcon from '../components/reader/ReaderIcon.astro';
+import { numberEquations } from '../utils/note-equations.mjs';
+import type { StudyNote, StudyNoteHeading, PreviewIndex } from '../utils/study-note/types';
+import '../styles/study-note.css';
+interface Props {
+  note: StudyNote; activeChapterId?: string; headings?: StudyNoteHeading[];
+  html?: string; numbering?: 'site' | 'legacy'; previews?: PreviewIndex;
+  referenceIndex?: PreviewIndex; equationIndex?: PreviewIndex;
+}
+const { note, activeChapterId, html, numbering = 'site', previews = {}, referenceIndex = {}, equationIndex = {} } = Astro.props;
+const lang = note.language || 'ja';
+const ja = lang.startsWith('ja');
+const rawBody = html ?? await Astro.slots.render('default');
+const body = numbering === 'site' ? numberEquations(rawBody) : rawBody;
+const hasBodyTitle = /<h1\b/i.test(body);
+const hasDisclosures = /<details\b/i.test(body);
+const headings = Astro.props.headings ?? Array.from(body.matchAll(/<h([23])\b[^>]*\bid="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g), m => ({id:m[2], depth:Number(m[1]), labelHtml:m[3]}));
+const chapters = note.chapters || [];
+const mode = note.reader?.mode || 'continuous';
+const base = note.reader?.basePath || Astro.url.pathname;
+const chapterHref = (chapter: typeof chapters[number]) => chapter.href || (mode === 'routed' ? `${base.replace(/\/$/,'')}/${chapter.id}/` : `#${chapter.id}`);
+const activeIndex = Math.max(0, chapters.findIndex(c => c.id === activeChapterId));
+const active = chapters[activeIndex];
+const notesHref = note.reader?.notesHref || (ja ? '/ja/notes/' : '/notes/');
+const payload = JSON.stringify({previews, referenceIndex, equationIndex}).replace(/</g,'\\u003c');
+---
+<!doctype html>
+<html lang={lang} data-study-note-reader="1.0.1" data-note-id={note.id} data-note-mode={mode}>
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={activeChapterId ? active?.plainDescription || note.description : note.description} />
+  <title>{activeChapterId ? `${active?.plainTitle || active?.title} · ${note.title}` : note.title}</title>
+  <link rel="stylesheet" href="/notes/reader/katex/katex.min.css" />
+  <link rel="stylesheet" href="/notes/reader/fonts.css" />
+  <script is:inline define:vars={{ noteId: note.id, oldKeys: note.reader?.themeKeys || [] }}>
+    try { const value = localStorage.getItem(noteId + '.theme') || oldKeys.map(key => localStorage.getItem(key)).find(Boolean); const dark = value ? value === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; document.documentElement.dataset.theme = dark ? 'dark' : 'light'; document.documentElement.classList.toggle('dark', dark); } catch {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">{'Skip to content'}</a>
+  <div id="reading-progress" class="progress-line" aria-hidden="true"></div>
+  <header class="reader-header" data-reader-header>
+    <a class="header-icon note-back" href={notesHref} aria-label={'Back to notes'}><ReaderIcon name="arrow-left" size={22} /></a>
+    <button class="header-icon" id="reader-menu" type="button" aria-controls="chapter-index" aria-expanded="true" aria-label={'Toggle contents'}><ReaderIcon name="panel-left" size={22} /></button>
+    <a class="reader-title" href={mode === 'routed' ? base : '#top'}>{note.title}</a>
+    <div class="header-actions">
+      {(note.source || note.resources?.length) && <details class="source-menu"><summary>{'Sources'}</summary><div class="source-panel">{note.source && <><cite>{note.source.title}</cite>{note.source.authors?.length && <p>{note.source.authors.join(', ')}</p>}<p>{note.source.locator}</p></>}{note.resources?.map(resource => <p><a href={resource.href}>{resource.label}</a></p>)}</div></details>}
+      <button class="theme-toggle" id="theme-button" type="button" aria-label={'Toggle color theme'}><ReaderIcon name="moon" /></button>
+    </div>
+  </header>
+  <div class="reader-shell" data-reader-shell>
+    <aside id="chapter-index" class="chapter-index" aria-label={'Chapters and sections'}>
+      <div class="panel-mobile-head"><span>{'Contents'}</span><button type="button" data-menu-close aria-label={'Close contents'}>×</button></div>
+      <nav class="chapter-list">{chapters.map((chapter, index) => <div class="chapter-group"><a class:list={['chapter-link', {'is-active': index === activeIndex}]} href={chapterHref(chapter)} aria-current={mode === 'routed' && index === activeIndex ? 'page' : undefined}><span class="chapter-label">{chapters.length > 1 && chapter.section && <b>{chapter.section}</b>}<strong set:html={chapter.titleHtml || chapter.title} /></span></a>{(mode === 'continuous' || index === activeIndex) && <ol class="subsection-list">{headings.filter(h => !h.chapterId || h.chapterId === chapter.id).map(h => <li class={`depth-${h.depth}`}><a href={h.href || `#${h.id}`} set:html={h.labelHtml || h.label || h.text || h.id} /></li>)}</ol>}</div>)}</nav>
+    </aside>
+    <main class="article-column" id="main" tabindex="-1"><div class="article-inner" id="top"><span id="article-top" aria-hidden="true"></span>
+      {!hasBodyTitle && <h1 class="note-page-title">{activeChapterId ? active?.title : note.title}</h1>}
+      {hasDisclosures && <div class="reading-actions"><button type="button" data-details-open>{'Expand supplements'}</button><button type="button" data-details-close>{'Collapse supplements'}</button></div>}
+      <article class="note-content prose-note" id="manuscript" set:html={body} />
+      {mode === 'routed' && chapters.length > 1 && <footer class="chapter-pager">{activeIndex > 0 ? <a class="previous-chapter" href={chapterHref(chapters[activeIndex-1])}><span>← {'Previous chapter'}</span><strong>{chapters[activeIndex-1].title}</strong></a> : <span />}{activeIndex < chapters.length-1 && <a class="next-chapter" href={chapterHref(chapters[activeIndex+1])}><span>{'Next chapter'} →</span><strong>{chapters[activeIndex+1].title}</strong></a>}</footer>}
+    </div></main>
+  </div>
+  <button class="screen-backdrop" data-menu-close aria-label={'Close contents'} hidden></button>
+  <section id="reader-preview" class="reading-reference" role="dialog" aria-label={'Reference preview'} hidden><header class="reading-reference-header"><span data-preview-title></span><button type="button" data-preview-close aria-label={'Close preview'}>×</button></header><div class="reading-reference-body note-content" data-preview-body></div><a class="note-source-link" data-preview-origin hidden>{'Go to source passage'} →</a></section>
+  <script type="application/json" id="reader-preview-data" set:html={payload} />
+  <slot name="widgets" />
+  <script>import '../scripts/study-note-reader';</script>
+</body>
+</html>
