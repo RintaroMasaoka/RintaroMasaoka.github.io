@@ -1,0 +1,104 @@
+---
+import { createRequire } from 'node:module';
+const require = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
+interface Props { mode: 'data' | 'jost' }
+const { mode } = Astro.props;
+const id = `scattering-intro-${mode}`;
+const tabs = mode === 'data'
+  ? [{ value: 'scattering', label: 'Scattering state' }, { value: 'bound', label: 'Bound state' }]
+  : [{ value: 'minus', label: 'Left Jost solution' }, { value: 'plus', label: 'Right Jost solution' }];
+---
+
+<figure id={id} class="scattering-intro" data-scattering-intro={mode} aria-labelledby={`${id}-caption`}>
+  <div class="scattering-tabs" role="group" aria-label={mode === 'data' ? 'Choose a state' : 'Choose a Jost solution'}>
+    {tabs.map((tab, i) => <button type="button" data-scattering-tab={tab.value} aria-pressed={i === 0 ? 'true' : 'false'}>{tab.label}</button>)}
+  </div>
+
+  {mode === 'data' && <svg width="100%" height="126" class="channel-scene" data-open-channels role="img" aria-label="Incident and reflected waves on the left; transmitted wave on the right">
+    <defs><marker id={`${id}-arrow`} markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="var(--accent)" /></marker></defs>
+    {['incident','reflected','transmitted'].map(kind=><>
+      <path data-channel-arrow={kind} stroke="var(--accent)" stroke-width="2" marker-end={`url(#${id}-arrow)`} />
+      <foreignObject data-channel-label={kind} width="140" height="24"><div class="scattering-tick" set:html={tex(kind==='incident'?'e^{ikx}':kind==='reflected'?'b(k)e^{-ikx}':'a(k)e^{ikx}')} /></foreignObject>
+    </>)}
+    <foreignObject data-channel-origin width="50" height="24" y="96"><div class="scattering-tick" set:html={tex('x=0')} /></foreignObject>
+  </svg>}
+
+  <div class="scattering-slider" data-scattering-k-control>
+    <label for={`${id}-k`}><span set:html={tex('k')} /><span>Wave number</span><output data-scattering-k-value for={`${id}-k`}>0.65</output></label>
+    <input id={`${id}-k`} data-scattering-k type="range" min="0.35" max="2.5" step="0.01" value="0.65" aria-label="Wave number k" />
+  </div>
+
+  <div class="scattering-legend" data-scattering-legend>
+    {mode === 'data' ? <>
+      <span data-scattering-label="scattering"><i class="curve-key" aria-hidden="true"></i><span set:html={tex('\\operatorname{Re}\\,\\psi(x)')} /></span>
+      <span data-scattering-label="bound" hidden><i class="curve-key" aria-hidden="true"></i><span set:html={tex('\\psi_1(x)')} /></span>
+      <span data-scattering-label="bound-asymptote" hidden><i class="asymptote-key" aria-hidden="true"></i><span set:html={tex('c_1e^{\\kappa_1x}')} /></span>
+      <span data-scattering-label="incident"><i class="asymptote-key" aria-hidden="true"></i><span set:html={tex('\\text{Far-field form}')} /></span>
+    </> : <>
+      <span data-scattering-label="minus"><i class="curve-key" aria-hidden="true"></i><span set:html={tex('\\operatorname{Re} f_-(x,k)')} /></span>
+      <span data-scattering-label="plus" hidden><i class="curve-key" aria-hidden="true"></i><span set:html={tex('\\operatorname{Re} f_+(x,k)')} /></span>
+      <span><i class="asymptote-key" aria-hidden="true"></i><span set:html={tex('\\cos(kx)')} /></span>
+    </>}
+  </div>
+
+  <svg class="scattering-wave" data-scattering-wave width="100%" height="224" role="img" aria-label={mode === 'data' ? 'Scattering wave near a smooth potential well' : 'Jost solution compared with its free-wave boundary normalization'}>
+    <defs><clipPath id={`${id}-wave-clip`}><rect data-wave-clip x="48" y="12" width="360" height="166" /></clipPath></defs>
+    <path data-wave-axes fill="none" stroke="var(--muted)" stroke-width="1.2" />
+    <path data-wave-zero fill="none" stroke="var(--line)" stroke-dasharray="3 4" />
+    <g clip-path={`url(#${id}-wave-clip)`}>
+      <rect data-wave-endpoint x="48" y="12" width="120" height="166" fill="var(--accent)" opacity=".07" hidden />
+      <path data-wave-curve fill="none" stroke="var(--accent)" stroke-width="2.6" />
+      <path data-wave-reference fill="none" stroke="var(--reference)" stroke-width="2.6" stroke-dasharray="6 4" />
+    </g>
+    {[-8, 0, 8].map(x => <foreignObject data-wave-x={x} width="36" height="23" y="187"><div class="scattering-tick" set:html={tex(String(x))} /></foreignObject>)}
+    {[-4, -3, -2, -1, '-.5', 0, '.5', 1, 2, 3, 4].map(y => <foreignObject data-wave-y={y} width="38" height="22" x="0"><div class="scattering-tick" set:html={tex(String(y))} /></foreignObject>)}
+    <foreignObject data-wave-axis width="26" height="24" y="151"><div class="scattering-tick" set:html={tex('x')} /></foreignObject>
+  </svg>
+
+  {<svg class="scattering-potential" data-scattering-potential width="100%" height="96" role="img" aria-label="Potential u of x equals minus hyperbolic secant squared x">
+    <path data-potential-axes fill="none" stroke="var(--muted)" stroke-width="1" />
+    <path data-potential-energy fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4" />
+    <path data-potential-curve fill="none" stroke="var(--ink)" stroke-width="2" />
+    <foreignObject x="0" y="1" width="40" height="24"><div class="scattering-tick" set:html={tex('u(x)')} /></foreignObject>
+    <foreignObject x="0" y="63" width="40" height="24"><div class="scattering-tick" set:html={tex('-1')} /></foreignObject>
+    <foreignObject x="0" y="15" width="40" height="24"><div class="scattering-tick" set:html={tex('0')} /></foreignObject>
+  </svg>}
+
+  <div class="scattering-readout" data-scattering-open hidden={mode === 'jost'}>
+    <span class="readout-heading">Scattering amplitudes</span>
+    <span><span set:html={tex('a(k)=')} /><output data-coefficient-a>—</output></span>
+    <span><span set:html={tex('b(k)=')} /><output data-coefficient-b>—</output></span>
+  </div>
+  <div class="scattering-readout bound-readout" data-scattering-bound hidden>
+    <span class="readout-heading">Bound-state data</span>
+    <span><i class="energy-key" aria-hidden="true"></i><span set:html={tex('-\\kappa_1^2=')} /><output data-bound-energy>—</output></span>
+    <span><span set:html={tex('\\kappa_1=')} /><output data-bound-kappa>—</output></span>
+    <span><span set:html={tex('c_1=')} /><output data-bound-tail>—</output></span>
+  </div>
+  {mode === 'jost' && <p class="scattering-status" data-scattering-status role="status" aria-live="polite">Left Jost solution: matches the free wave at the left endpoint.</p>}
+  <figcaption id={`${id}-caption`}>
+    {mode === 'data' ? <><span data-state-caption="scattering">上段は散乱波の実部で、破線は左右それぞれの遠方での形を表す。下段はポテンシャルである。</span><span data-state-caption="bound" hidden>上段は規格化された束縛状態と左端の漸近形。下段の曲線はポテンシャル、水平破線は固有値である。</span></> : <>同じポテンシャルに対する解の実部を比較している。左・右 Jost 解は、陰影で示した端の無限遠で自由波 <span set:html={tex('e^{ikx}')} /> に一致する。陰影は規格化する端、破線は自由波の実部 <span set:html={tex('\\cos(kx)')} /> を表す。</>}
+  </figcaption>
+</figure>
+
+<script>
+  import initScatteringIntro from '../visuals/scattering-intro.js';
+  initScatteringIntro();
+</script>
+
+<style>
+.scattering-intro{--reference:#a6531c;scroll-margin-top:76px;box-sizing:border-box;width:100%;max-width:520px;margin:1.5rem auto;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.scattering-tabs{display:flex;gap:8px;margin-bottom:8px}
+.scattering-tabs button{flex:1;min-width:0;min-height:44px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
+.scattering-tabs button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);font-weight:600}
+.scattering-tabs button:focus-visible,.scattering-slider input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.scattering-slider{margin:5px 2px 6px}.scattering-slider[hidden],[hidden]{display:none!important}.scattering-slider label{display:flex;align-items:baseline;gap:7px;font-size:14px}.scattering-slider output{margin-left:auto;font-variant-numeric:tabular-nums;min-width:3.5em;text-align:right}.scattering-slider input{display:block;width:100%;min-width:0;min-height:44px;margin:0;accent-color:var(--accent)}
+.scattering-legend{display:flex;flex-wrap:wrap;align-items:center;gap:3px 12px;font-size:14px;line-height:1.4}.scattering-legend>span{display:inline-flex;align-items:center;gap:5px;min-height:23px}.curve-key,.asymptote-key{display:inline-block;flex:none;width:22px;border-top:3px solid var(--accent)}.asymptote-key{border-top:2px dashed var(--reference)}.energy-key{display:inline-block;width:22px;border-top:2px dashed var(--muted)}
+:global(.dark) .scattering-intro{--reference:#efb37f}
+.scattering-wave,.scattering-potential,.channel-scene{display:block;width:100%;overflow:hidden}.scattering-wave{height:224px}.scattering-potential{height:96px}.scattering-wave{margin-top:1px}.scattering-potential{margin-top:-5px}
+.scattering-tick{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:14px;line-height:1;color:var(--ink);white-space:nowrap}.scattering-readout{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:6px 0 1px;font-size:14px;font-variant-numeric:tabular-nums}.scattering-readout>span:not(.readout-heading){display:inline-flex;align-items:baseline;gap:3px}.readout-heading{width:100%;color:var(--muted);font-size:12px}.scattering-readout output{min-width:4em;text-align:left}.scattering-status{min-height:1.5em;margin:3px 0;color:var(--muted);font-size:13px;line-height:1.4}
+.scattering-intro figcaption{margin-top:5px;color:var(--muted);font-size:.88rem;line-height:1.65}.scattering-intro figcaption :global(.katex){color:var(--ink)}
+@media(max-width:420px){.scattering-intro{padding:9px 7px}.scattering-legend{column-gap:8px}.scattering-legend>span{font-size:14px}}
+</style>

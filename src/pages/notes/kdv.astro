@@ -7,6 +7,7 @@ import { Content, getHeadings } from '../../../note-apps/kdv/content/full.md';
 import KdvBody from '../../../note-apps/kdv/components/KdvBody.astro';
 import config from '../../../note-apps/kdv/note.config.json';
 import DysonDomain from '../../../note-apps/kdv/components/DysonDomain.astro';
+import ScatteringIntro from '../../../note-apps/kdv/components/ScatteringIntro.astro';
 import PointSpectrum from '../../../note-apps/kdv/components/PointSpectrum.astro';
 import MatchingFigure from '../../../note-apps/kdv/components/MatchingFigure.astro';
 import ContourFigure from '../../../note-apps/kdv/components/ContourFigure.astro';
@@ -20,7 +21,7 @@ const sourceHeadings = getHeadings().filter(h => h.depth === 2 || h.depth === 3)
 const headings = sourceHeadings.map(h => ({id: h.slug, depth: h.depth, labelHtml: h.text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;'), href: `#${h.slug}`}));
 ---
 <StudyNoteLayout note={config} headings={headings} numbering="site">
-  <KdvBody><Content /><BoundStates slot="bound-states" /><Determinant slot="determinant" /><GlmContent slot="glm" /><MatchingFigure slot="matching" /><PointSpectrum slot="joined-wave" mode="wave" /><PointSpectrum slot="point-spectrum" /><ContourFigure slot="contour" /><DysonDomain slot="dyson-domain" /><ReconstructionFigure slot="reconstruction" /><TravelingSoliton slot="traveling" /><KdvSimulation slot="collision" mode="collision" /><KdvSimulation slot="breakup" mode="breakup" /></KdvBody>
+  <KdvBody><Content /><BoundStates slot="bound-states" /><ScatteringIntro mode="data" slot="scattering-intro" /><ScatteringIntro mode="jost" slot="jost-intro" /><Determinant slot="determinant" /><GlmContent slot="glm" /><MatchingFigure slot="matching" /><PointSpectrum slot="joined-wave" mode="wave" /><PointSpectrum slot="point-spectrum" /><ContourFigure slot="contour" /><DysonDomain slot="dyson-domain" /><ReconstructionFigure slot="reconstruction" /><TravelingSoliton slot="traveling" /><KdvSimulation slot="collision" mode="collision" /><KdvSimulation slot="breakup" mode="breakup" /></KdvBody>
   <dialog slot="widgets" id="legacy-image-dialog" aria-label="Original figure">
         <div class="image-viewer-toolbar"><button type="button" id="image-zoom-out" aria-label="Zoom out">−</button><output id="image-zoom-value" aria-live="polite">100%</output><button type="button" id="image-zoom-in" aria-label="Zoom in">＋</button><button type="button" id="image-viewer-close">Close</button></div>
         <div id="legacy-image-scroll"><img id="legacy-image-expanded" alt="" /></div>
