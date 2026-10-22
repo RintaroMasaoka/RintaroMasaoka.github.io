@@ -1,3 +1,4 @@
+import {matchingRange,placeVerticalTicks} from './plot-range.js';
 import {response} from './green-response.js';
 
 export function initMatchingFigure(){
@@ -16,7 +17,8 @@ export function initMatchingFigure(){
         :'Same value, different slopes: the two solutions are distinct.';
       for(const svg of root.querySelectorAll('[data-matching-panel]')){
         const full=svg.dataset.matchingPanel==='full',range=full?3:.1;
-        const ymin=full?-8:.8,ymax=full?16:1.2;
+        const [ymin,ymax]=matchingRange(energy,range,response);
+        svg.dataset.ymin=String(ymin);svg.dataset.ymax=String(ymax);
         const left=44,right=svg.getBoundingClientRect().width-28,top=10,bottom=180;
         const X=x=>left+(x+range)*(right-left)/(2*range);
         const Y=y=>bottom-(y-ymin)*(bottom-top)/(ymax-ymin);
@@ -31,7 +33,7 @@ export function initMatchingFigure(){
           svg.querySelector(`[data-matching-${side}]`).setAttribute('d',d);
         }
         for(const el of svg.querySelectorAll('[data-matching-x]'))el.setAttribute('x',X(Number(el.dataset.matchingX))-21);
-        for(const el of svg.querySelectorAll('[data-matching-y]'))el.setAttribute('y',Y(Number(el.dataset.matchingY))-12.5);
+        placeVerticalTicks(svg,'[data-plot-tick]',Y,ymin,ymax,full?[0,1]:[1]);
         svg.querySelector('[data-matching-axis]').setAttribute('x',right+2);
         svg.querySelector('[data-matching-point]').setAttribute('cx',X(0));
         svg.querySelector('[data-matching-point]').setAttribute('cy',Y(1));
