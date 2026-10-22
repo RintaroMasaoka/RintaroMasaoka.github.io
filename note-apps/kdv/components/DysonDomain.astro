@@ -10,7 +10,7 @@ const labels = [{x:207,y:72,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:251,w:
   <label class="domain-control" for="dyson-gap">Distance from diagonal <span set:html={tex('x-y')} /><output data-dyson-gap-output>1.00</output>
     <input id="dyson-gap" data-dyson-gap type="range" min="0" max="2" step="0.02" value="1" />
   </label>
-  <FigureViewport width={240}>
+  <FigureViewport width={360}>
   <svg width="240" height="286" viewBox="0 0 240 286" role="img" aria-labelledby="dyson-domain-title dyson-domain-desc">
     <title id="dyson-domain-title">Integration domain in the x-prime–y-prime plane</title>
     <desc id="dyson-domain-desc">The shaded region satisfies y-prime less than or equal to x-prime, x-prime less than or equal to x, and absolute y minus y-prime less than or equal to x minus x-prime. It extends toward minus infinity. As y approaches x, it collapses to the diagonal y-prime equals x-prime.</desc>
@@ -41,9 +41,9 @@ const labels = [{x:207,y:72,w:32,t:"x'"},{x:110,y:0,w:32,t:"y'"},{x:156,y:251,w:
 .domain-control{display:grid;grid-template-columns:1fr auto auto;gap:.5rem;align-items:center;font-size:.88rem;padding:0 .3rem;max-width:420px;margin:0 auto}
 .domain-control input{grid-column:1/-1;width:100%;min-height:36px;accent-color:var(--accent)}
 .domain-control output{font-variant-numeric:tabular-nums;color:var(--ink)}
-.kdv-dyson-domain > svg{display:block;width:240px!important;max-width:none!important;height:286px;margin:.7rem auto}
-.domain-tex{font-size:16px;line-height:1.5;text-align:center;color:var(--ink);white-space:nowrap}
-.domain-legend{list-style:none!important;padding:0!important;margin:.5rem auto!important;max-width:260px;font-size:15px}
+.kdv-dyson-domain > svg{display:block;width:100%;height:auto;margin:.7rem auto}
+.domain-tex{font-size:11px;line-height:1.5;text-align:center;color:var(--ink);white-space:nowrap}
+.domain-legend{list-style:none!important;padding:0!important;margin:.5rem auto!important;max-width:260px;font-size:16px}
 .domain-legend li{display:flex;align-items:center;gap:12px;margin:.4rem 0!important;white-space:nowrap}
 .sample{display:inline-block;width:26px;flex:0 0 26px;border-top:2px solid var(--ink)}
 .sample.lower{border-color:var(--blue);border-top-style:dashed}.sample.upper{border-color:var(--accent);border-top-style:dotted}

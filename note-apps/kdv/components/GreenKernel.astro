@@ -15,7 +15,7 @@ const path=(factor:number)=>Array.from({length:161},(_,i)=>{const x=-4+i/20;retu
     <input id="green-source-position" data-source-position-slider type="range" min="-3" max="3" step=".1" value={start} />
     <button type="button" data-center-source><span set:html={tex("\\text{Place source at }x'=0")} /></button>
   </div>
-  <FigureViewport width={448}>
+  <FigureViewport width={480}>
   <div class="kernel-panel-title" set:html={tex('\\psi_1(x)=1/(\\sqrt2\\cosh x)')} />
   <svg data-kernel-plot="input" width="100%" height="174" role="img" aria-labelledby="kernel-input-title kernel-input-desc">
     <title id="kernel-input-title">Evaluate the bound state at the source position</title>

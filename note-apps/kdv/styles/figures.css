@@ -13,9 +13,10 @@
 #manuscript .kdv-figure-canvas>svg{display:block;width:100%;max-width:none;height:auto}
 #manuscript .kdv-figure-canvas .kdv-plot-grid{width:100%;max-width:none}
 #manuscript .kdv-figure-canvas .kdv-plot-grid>svg{width:100%;max-width:none;height:auto}
-#manuscript :is(.kdv-traveling-soliton) .kdv-tex{font-size:22px}
-#manuscript .simulation-tex{font-size:22px}
-#manuscript :is(.kdv-contour,.kdv-reconstruction) .tex-label{font-size:18px}
+#manuscript :is(.kdv-traveling-soliton) .kdv-tex{font-size:16px}
+#manuscript .simulation-tex{font-size:16px}
+#manuscript .kdv-contour .tex-label{font-size:12px}
+#manuscript .kdv-reconstruction .tex-label{font-size:14px}
 #manuscript .kdv-soliton-formula{font-size:18px;white-space:nowrap}
 #manuscript .kdv-soliton-formula .katex{white-space:nowrap}
 #manuscript .simulation-heading{display:block}

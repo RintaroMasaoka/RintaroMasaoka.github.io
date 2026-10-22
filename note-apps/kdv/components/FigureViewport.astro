@@ -8,7 +8,7 @@ const {width=480}=Astro.props;
  document.querySelectorAll<HTMLElement>('[data-figure-scale]').forEach(frame=>{
   if(frame.dataset.ready)return;frame.dataset.ready='true';
   const canvas=frame.firstElementChild as HTMLElement;
-  const draw=()=>{const scale=frame.clientWidth/canvas.offsetWidth;canvas.style.transform=`scale(${scale})`;frame.style.height=`${canvas.offsetHeight*scale}px`;};
+  const draw=()=>{const scale=Math.min(1,frame.clientWidth/canvas.offsetWidth);canvas.style.transform=`scale(${scale})`;canvas.style.left=`${(frame.clientWidth-canvas.offsetWidth*scale)/2}px`;frame.style.height=`${canvas.offsetHeight*scale}px`;};
   const observer=new ResizeObserver(draw);observer.observe(frame);observer.observe(canvas);draw();
  });
 </script>

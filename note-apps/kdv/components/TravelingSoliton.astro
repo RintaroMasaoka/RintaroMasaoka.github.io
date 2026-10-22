@@ -26,7 +26,7 @@ const caption = `解析式を直接プロットした。${tex('v')} を変える
     <label for="kdv-soliton-t"><span class="kdv-control-name">Time <span set:html={tex('t')} /></span><output data-soliton-t-output for="kdv-soliton-t">0.00</output><input id="kdv-soliton-t" data-soliton-t type="range" min="-2" max="2" step="0.01" value="0" /></label>
     <button type="button" data-soliton-reset>Reset</button>
   </div>
-  <FigureViewport label="ソリトンの図を左右にスクロール"><div class="kdv-soliton-formula" set:html={formula} />
+  <FigureViewport width={640} label="ソリトンの図を左右にスクロール"><div class="kdv-soliton-formula" set:html={formula} />
   <svg viewBox="0 0 600 320" role="img" aria-labelledby="kdv-soliton-title kdv-soliton-desc">
     <title id="kdv-soliton-title">Analytic one-soliton profile and its translation</title>
     <desc id="kdv-soliton-desc">The surface displacement eta is shown at the selected speed and time.</desc>
@@ -56,7 +56,7 @@ const caption = `解析式を直接プロットした。${tex('v')} を変える
 .kdv-traveling-soliton > svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
 .kdv-soliton-formula{color:var(--ink);font-size:clamp(14px,4vw,18px);line-height:1.5;text-align:center;margin:.3rem auto .1rem;max-width:100%;overflow-wrap:anywhere}
 .kdv-soliton-formula :global(.katex){white-space:normal}
-.kdv-tex{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink);font-size:22px;line-height:1;text-align:center;white-space:nowrap}
+.kdv-tex{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink);font-size:16px;line-height:1;text-align:center;white-space:nowrap}
 .kdv-traveling-soliton figcaption{color:var(--muted);font-size:.88rem;line-height:1.8;margin:.5rem .25rem 0}.kdv-traveling-soliton figcaption :global(.katex){color:var(--ink)}
-@media(max-width:480px){.kdv-traveling-soliton{padding:.7rem .15rem}.kdv-soliton-controls{margin:0 .5rem .35rem;gap:.4rem .8rem}.kdv-tex{font-size:32px}}
+@media(max-width:480px){.kdv-traveling-soliton{padding:.7rem .15rem}.kdv-soliton-controls{margin:0 .5rem .35rem;gap:.4rem .8rem}}
 </style>

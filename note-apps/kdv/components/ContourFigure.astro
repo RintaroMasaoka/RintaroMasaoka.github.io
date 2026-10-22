@@ -12,12 +12,12 @@ const labels = [
 ];
 ---
 <figure id="kdv-transmission-contour" class="kdv-contour" aria-labelledby="kdv-contour-caption">
-  <FigureViewport width={320}><svg viewBox="0 0 320 229" role="img" aria-labelledby="kdv-contour-title kdv-contour-desc">
+  <FigureViewport width={480}><svg viewBox="0 0 320 229" role="img" aria-labelledby="kdv-contour-title kdv-contour-desc">
     <title id="kdv-contour-title">Upper half-plane contour</title>
     <desc id="kdv-contour-desc">The real segment runs from minus R to R; the upper arc returns from R to minus R counterclockwise. A small clockwise upper semicircle avoids the origin. The contour does not specify pole locations. The exponential decays above the real line when y is less than x.</desc>
-    <defs><marker id="kdv-contour-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--accent)" /></marker><marker id="kdv-axis-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--muted)" /></marker></defs>
+    <defs><marker id="kdv-contour-arrow" markerUnits="userSpaceOnUse" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--accent)" /></marker><marker id="kdv-axis-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--muted)" /></marker></defs>
     <path d="M50 184 H146 A10 10 0 0 1 166 184 H262 A106 106 0 0 0 50 184 Z" fill="var(--accent)" opacity=".055" />
-    {['M15 184 H306','M156 204 V32'].map(d=><path d={d} fill="none" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#kdv-axis-arrow)" />)}
+    {['M15 184 H306','M156 184 V32'].map(d=><path d={d} fill="none" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#kdv-axis-arrow)" />)}
     <path d="M50 184 H146 A10 10 0 0 1 166 184 H262 A106 106 0 0 0 50 184" fill="none" stroke="var(--accent)" stroke-width="3" />
     {['M85 184 H115','M225 184 H245','M226 105 A106 106 0 0 0 190 83','M70 122 A106 106 0 0 0 56 149'].map(d=><path d={d} fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#kdv-contour-arrow)" />)}
     {labels.map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="31"><div class="tex-label" set:html={katex.renderToString(l.t,{throwOnError:true})}/></foreignObject>)}

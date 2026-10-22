@@ -40,7 +40,7 @@ export default function initScatteringIntro(){
    svg.querySelector('[data-wave-reference]').setAttribute('d',path(reference,x=>mode==='jost'||(isBound?x<=-2:Math.abs(x)>=5)));
    svg.querySelector('[data-wave-axes]').setAttribute('d',`M${left} ${top} V${bottom} H${right}`);
    svg.querySelector('[data-wave-zero]').setAttribute('d',`M${left} ${Y(0)} H${right}`);
-   for(const tick of svg.querySelectorAll('[data-wave-x]'))tick.setAttribute('x',X(Number(tick.dataset.waveX))-18);
+   for(const tick of svg.querySelectorAll('[data-wave-x]'))tick.setAttribute('x',X(Number(tick.dataset.waveX))-Number(tick.getAttribute('width'))/2);
    let previous=-Infinity;
    for(const tick of svg.querySelectorAll('[data-wave-y]')){
     const v=Number(tick.dataset.waveY),y=Y(v);const show=v>=min&&v<=max&&Math.abs(y-previous)>=25;

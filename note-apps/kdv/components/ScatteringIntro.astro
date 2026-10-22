@@ -17,7 +17,7 @@ const tabs = mode === 'data'
     {tabs.map((tab, i) => <button type="button" data-scattering-tab={tab.value} aria-pressed={i === 0 ? 'true' : 'false'}>{tab.label}</button>)}
   </div>
 
-  <FigureViewport width={448}>
+  <FigureViewport width={640}>
   {mode === 'data' && <svg width="100%" height="126" class="channel-scene" data-open-channels role="img" aria-label="Incident and reflected waves on the left; transmitted wave on the right">
     <defs><marker id={`${id}-arrow`} markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="var(--accent)" /></marker></defs>
     {['incident','reflected','transmitted'].map(kind=><>
@@ -33,7 +33,7 @@ const tabs = mode === 'data'
     <input id={`${id}-k`} data-scattering-k type="range" min="0.35" max={mode === 'jost' ? '1' : '2.5'} step="0.01" value="0.65" aria-label="Wave number k" />
   </div>
 
-  <FigureViewport width={448}>
+  <FigureViewport width={640}>
   <div class="scattering-legend" data-scattering-legend>
     {mode === 'data' ? <>
       <span data-scattering-label="scattering"><i class="curve-key" aria-hidden="true"></i><span set:html={tex('\\operatorname{Re}\\,\\psi(x)')} /></span>
@@ -56,7 +56,7 @@ const tabs = mode === 'data'
       <path data-wave-curve fill="none" stroke="var(--accent)" stroke-width="2.6" />
       <path data-wave-reference fill="none" stroke="var(--reference)" stroke-width="2.6" stroke-dasharray="6 4" />
     </g>
-    {(mode === 'jost' ? [-20, 0, 20] : [-8, 0, 8]).map(x => <foreignObject data-wave-x={x} width="36" height="23" y="187"><div class="scattering-tick" set:html={tex(String(x))} /></foreignObject>)}
+    {(mode === 'jost' ? [-20, 0, 20] : [-8, 0, 8]).map(x => <foreignObject data-wave-x={x} width="48" height="23" y="187"><div class="scattering-tick" set:html={tex(String(x))} /></foreignObject>)}
     {[-4, -3, -2, -1, '-.5', 0, '.5', 1, 2, 3, 4].map(y => <foreignObject data-wave-y={y} width="38" height="22" x="0"><div class="scattering-tick" set:html={tex(String(y))} /></foreignObject>)}
     <foreignObject data-wave-axis width="26" height="24" y="151"><div class="scattering-tick" set:html={tex('x')} /></foreignObject>
   </svg>
@@ -65,7 +65,7 @@ const tabs = mode === 'data'
     <path data-potential-axes fill="none" stroke="var(--muted)" stroke-width="1" />
     <path data-potential-energy fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4" />
     <path data-potential-curve fill="none" stroke="var(--ink)" stroke-width="2" />
-    <foreignObject x="0" y="1" width="40" height="24"><div class="scattering-tick" set:html={tex('u(x)')} /></foreignObject>
+    <foreignObject x="48" y="0" width="56" height="24"><div class="scattering-tick" set:html={tex('u(x)')} /></foreignObject>
     <foreignObject x="0" y="63" width="40" height="24"><div class="scattering-tick" set:html={tex('-1')} /></foreignObject>
     <foreignObject x="0" y="15" width="40" height="24"><div class="scattering-tick" set:html={tex('0')} /></foreignObject>
   </svg>}
@@ -96,14 +96,15 @@ const tabs = mode === 'data'
 <style>
 .scattering-intro{--reference:#a6531c;scroll-margin-top:76px;box-sizing:border-box;width:100%;margin:1.5rem auto;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
 .scattering-tabs{display:flex;gap:8px;margin-bottom:8px}
-.scattering-tabs button{flex:1;min-width:0;min-height:44px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
+.scattering-tabs button{flex:1;min-width:0;min-height:44px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:16px;cursor:pointer}
 .scattering-tabs button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);font-weight:600}
 .scattering-tabs button:focus-visible,.scattering-slider input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.scattering-slider{margin:5px 2px 6px}.scattering-slider[hidden],[hidden]{display:none!important}.scattering-slider label{display:flex;align-items:baseline;gap:7px;font-size:14px}.scattering-slider output{margin-left:auto;font-variant-numeric:tabular-nums;min-width:3.5em;text-align:right}.scattering-slider input{display:block;width:100%;min-width:0;min-height:44px;margin:0;accent-color:var(--accent)}
-.scattering-legend{display:flex;flex-wrap:wrap;align-items:center;gap:3px 12px;font-size:14px;line-height:1.4}.scattering-legend>span{display:inline-flex;align-items:center;gap:5px;min-height:23px}.curve-key,.asymptote-key{display:inline-block;flex:none;width:22px;border-top:3px solid var(--accent)}.asymptote-key{border-top:2px dashed var(--reference)}.energy-key{display:inline-block;width:22px;border-top:2px dashed var(--muted)}
+.scattering-slider{margin:5px 2px 6px}.scattering-slider[hidden],[hidden]{display:none!important}.scattering-slider label{display:flex;align-items:baseline;gap:7px;font-size:16px}.scattering-slider output{margin-left:auto;font-variant-numeric:tabular-nums;min-width:3.5em;text-align:right}.scattering-slider input{display:block;width:100%;min-width:0;min-height:44px;margin:0;accent-color:var(--accent)}
+.scattering-legend{display:flex;flex-wrap:wrap;align-items:center;gap:3px 12px;font-size:16px;line-height:1.4}.scattering-legend>span{display:inline-flex;align-items:center;gap:5px;min-height:23px}.curve-key,.asymptote-key{display:inline-block;flex:none;width:22px;border-top:3px solid var(--accent)}.asymptote-key{border-top:2px dashed var(--reference)}.energy-key{display:inline-block;width:22px;border-top:2px dashed var(--muted)}
 :global(.dark) .scattering-intro{--reference:#efb37f}
 .scattering-wave,.scattering-potential,.channel-scene{display:block;width:100%;overflow:hidden}.scattering-wave{height:224px}.scattering-potential{height:96px}.scattering-wave{margin-top:1px}.scattering-potential{margin-top:-5px}
-.scattering-tick{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:14px;line-height:1;color:var(--ink);white-space:nowrap}.scattering-readout{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:6px 0 1px;font-size:14px;font-variant-numeric:tabular-nums}.scattering-readout>span:not(.readout-heading){display:inline-flex;align-items:baseline;gap:3px}.readout-heading{width:100%;color:var(--muted);font-size:12px}.scattering-readout output{min-width:4em;text-align:left}.scattering-status{min-height:1.5em;margin:3px 0;color:var(--muted);font-size:13px;line-height:1.4}
+.scattering-tick{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:16px;line-height:1;color:var(--ink);white-space:nowrap}.scattering-readout{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:6px 0 1px;font-size:16px;font-variant-numeric:tabular-nums}.scattering-readout>span:not(.readout-heading){display:inline-flex;align-items:baseline;gap:3px}.readout-heading{width:100%;color:var(--muted);font-size:12px}.scattering-readout output{min-width:4em;text-align:left}.scattering-status{min-height:1.5em;margin:3px 0;color:var(--muted);font-size:13px;line-height:1.4}
 .scattering-intro figcaption{margin-top:5px;color:var(--muted);font-size:.88rem;line-height:1.65}.scattering-intro figcaption :global(.katex){color:var(--ink)}
-@media(max-width:420px){.scattering-intro{padding:9px 7px}.scattering-legend{column-gap:8px}.scattering-legend>span{font-size:14px}}
+@media(max-width:420px){.scattering-intro{padding:9px 7px}.scattering-legend{column-gap:8px}.scattering-legend>span{font-size:16px}}
+.scattering-tabs button,.scattering-slider label{font-size:14px}
 </style>
