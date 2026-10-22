@@ -1,4 +1,5 @@
 ---
+import BoundStateControls from './BoundStateControls.astro';
 import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
@@ -6,12 +7,14 @@ const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const {mode='energy'}=Astro.props;
 const wave=mode==='wave';
 const figureId=wave?'joined-f-caption':'point-spectrum-caption';
-const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[0,.5,1,1.5,2],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'\\Delta'}].filter(panel=>panel.id===(wave?'wave':'energy'));
+const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1,2,5,10],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'\\Delta'}].filter(panel=>panel.id===(wave?'wave':'energy'));
 ---
 <figure class="point-spectrum" data-point-spectrum data-point-mode={mode} aria-labelledby={figureId}>
-  <label for={`point-${mode}-energy`}><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
-  <input id={`point-${mode}-energy`} type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Spectral energy" />
-  <button type="button" set:html={tex(wave?'E=-1':'\\text{Original state: }\\Delta=0')} />
+  {wave?<BoundStateControls id="point-wave-energy" />:<Fragment>
+  <label for="point-energy-energy"><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
+  <input id="point-energy-energy" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Spectral energy" />
+  <button type="button" set:html={tex('\\text{Original state: }\\Delta=0')} />
+  </Fragment>}
   {!wave&&<div class="point-readout"><span set:html={tex('\\Delta=' )} /><output data-point-coupling></output></div>}
   {panels.map(panel=><section>
     <div class="point-heading" set:html={tex(wave?'f(x;E)':`\\text{${panel.title}}`)} />
@@ -34,14 +37,14 @@ const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[0,.5,1,1.5,2],axis:
     </svg>
   </section>)}
   <p data-point-status role="status" aria-live="polite"></p>
-  <figcaption id={figureId}>{wave?<Fragment>実線は左端で減衰する解の <span set:html={tex('x<0')} /> の部分、破線は右端で減衰する解の <span set:html={tex('x>0')} /> の部分である。原点では両者の値を1にそろえた。エネルギーを変えると原点での傾きが変わり、<span set:html={tex('E=-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
+  <figcaption id={figureId}>{wave?<Fragment>実線は左端で減衰する解の <span set:html={tex('x<0')} /> の部分、破線は右端で減衰する解の <span set:html={tex('x>0')} /> の部分である。原点では両者の値を1にそろえた。エネルギーを変えると原点での傾きが変わり、<span set:html={tex('E=-4,-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
 </figure>
 <script>
 import { initPointSpectrum } from '../visuals/point-spectrum.js';
 initPointSpectrum();
 </script>
 <style>
-.point-spectrum{box-sizing:border-box;width:100%;max-width:480px;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.point-spectrum{box-sizing:border-box;min-inline-size:0;width:100%;max-width:480px;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
 .point-spectrum label{display:flex;justify-content:space-between;align-items:baseline}
 .point-spectrum input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
 .point-spectrum button{min-height:44px;max-width:100%;padding:.4rem .7rem;margin:.2rem 0 .7rem;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
@@ -49,7 +52,7 @@ initPointSpectrum();
 .point-readout{display:flex;gap:.5rem;align-items:baseline}
 .point-heading{text-align:center;font-size:15px;margin:1rem 0 .3rem}
 .point-key{text-align:center;font-size:14px}
-.point-spectrum svg{display:block;overflow:hidden}
+.point-spectrum svg{display:block;inline-size:100%;max-inline-size:100%;overflow:hidden}
 .point-tex{display:flex;align-items:center;justify-content:center;height:100%;font-size:14px;white-space:nowrap;color:var(--ink)}
 .point-spectrum [data-point-status]{font-size:14px;min-height:2.8em;margin:.5rem 0}
 .point-spectrum figcaption{font-size:.9rem;line-height:1.7}

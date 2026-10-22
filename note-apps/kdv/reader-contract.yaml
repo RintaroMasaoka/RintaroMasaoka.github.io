@@ -186,5 +186,9 @@
         "Define C_SS and explain column multilinearity and identity-column cofactor expansion in the principal-minor disclosure."
       ]
     }
+  },
+  "visualExamples": {
+    "matchingAndJoinedWave": "u(x)=-6 sech²(x-1); E=-4,-1; matching point x=0; original Jost W versus point-normalized displayed profiles. Shared local energy windows [-4.4,-3.8],[-1.75,-.25], selected explicitly. Same energy and solid-left/dashed-right encoding in both figures.",
+    "energyResponse": "Separate example u(x)=-2 sech²x with E1=-1; no synchronization with the two-state figures."
   }
 }

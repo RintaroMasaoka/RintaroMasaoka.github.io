@@ -1,0 +1,27 @@
+---
+import { createRequire } from 'node:module';
+const require=createRequire(new URL('../../../package.json',import.meta.url));
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
+const {id}=Astro.props;
+---
+<div class="bound-controls">
+  <div class="bound-choices">
+    <button type="button" data-bound-state="ground" aria-pressed="false" set:html={tex('\\text{Ground state: } E=-4')} />
+    <button type="button" data-bound-state="excited" aria-pressed="true" set:html={tex('\\text{Excited state: } E=-1')} />
+  </div>
+  <label for={id}><span set:html={tex('E=k^2')} /><output data-two-energy-output>−1.000</output></label>
+  <input id={id} data-two-energy type="range" min="-1.75" max="-.25" step=".001" value="-1" aria-label="Energy near the selected bound state" />
+  <div class="bound-window" data-bound-window="ground" hidden set:html={tex('-4.4\\le E\\le -3.8')} />
+  <div class="bound-window" data-bound-window="excited" set:html={tex('-1.75\\le E\\le -0.25')} />
+</div>
+<style>
+.bound-controls{inline-size:100%;min-inline-size:0;max-inline-size:100%}
+.bound-choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:.4rem;margin-bottom:.5rem}
+.bound-choices button{min-inline-size:0;max-inline-size:100%;min-height:44px;padding:.4rem .65rem;border:1px solid var(--line);border-radius:6px;color:var(--ink);background:var(--paper);cursor:pointer;font-size:14px}
+.bound-choices button[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.bound-controls label{display:flex;justify-content:space-between;align-items:baseline}
+.bound-controls input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
+.bound-window{text-align:center;font-size:13px;color:var(--muted)}
+.bound-controls output{font-variant-numeric:tabular-nums}
+</style>

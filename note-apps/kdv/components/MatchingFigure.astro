@@ -1,14 +1,13 @@
 ---
+import BoundStateControls from './BoundStateControls.astro';
 import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
-const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5,1,2,5,10,20]}];
+const panels=[{id:'full',title:'Full profiles',range:4,ys:[-20,-10,-5,-2,-1,0,.5,1,2,5,10,20]}];
 ---
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
-  <label for="matching-wave-number"><span set:html={tex('k^2')} /><output data-matching-energy>−1.250</output></label>
-  <input id="matching-wave-number" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Squared wave number" />
-  <button type="button" data-matching-bound set:html={tex('\\text{Bound state: }k^2=-1')} />
+  <BoundStateControls id="matching-wave-number" />
   <div class="endpoint-w"><span set:html={tex('W(k)=' )} /><output data-matching-w></output></div>
   <div class="endpoint-legend"><span class="endpoint-solid" aria-hidden="true"></span><span set:html={tex('f_-(x,-k)/f_-(0,-k)')} /></div>
   <div class="endpoint-legend"><span class="endpoint-dashed" aria-hidden="true"></span><span set:html={tex('f_+(x,k)/f_+(0,k)')} /></div>
@@ -30,14 +29,14 @@ const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5
   </section>)}
   <div class="endpoint-slopes"><span set:html={tex('\\text{Slope at }x=0')} /><div><span class="endpoint-solid" aria-hidden="true"></span><output data-matching-left-slope></output><span class="endpoint-dashed" aria-hidden="true"></span><output data-matching-right-slope></output></div></div>
   <p data-matching-status role="status" aria-live="polite"></p>
-  <figcaption id="green-matching-caption">実線は左端で、破線は右端で減衰する解。原点での値をそれぞれ1にそろえた。<span set:html={tex('k^2=-1')} /> では傾きも一致し、二本の曲線は全区間で重なる。このとき <span set:html={tex('W=0')} /> となり、両端で減衰する束縛状態が得られる。</figcaption>
+  <figcaption id="green-matching-caption">実線は左端で、破線は右端で減衰する解。原点での値をそれぞれ1にそろえた。<span set:html={tex('E=-4,-1')} /> では傾きも一致し、二本の曲線は全区間で重なる。二つの束縛状態では、それぞれ節の数が0と1になる。このとき <span set:html={tex('W=0')} /> となり、両端で減衰する束縛状態が得られる。</figcaption>
 </figure>
 <script>
   import { initMatchingFigure } from '../visuals/matching.js';
   initMatchingFigure();
 </script>
 <style>
-.endpoint-matching{box-sizing:border-box;width:100%;max-width:480px;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.endpoint-matching{box-sizing:border-box;min-inline-size:0;width:100%;max-width:480px;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
 .endpoint-matching label{display:flex;justify-content:space-between;align-items:baseline}
 .endpoint-matching input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
 .endpoint-matching button{min-height:44px;max-width:100%;padding:.4rem .7rem;margin:.2rem 0 .7rem;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
@@ -46,7 +45,7 @@ const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5
 .endpoint-solid,.endpoint-dashed{display:inline-block;width:26px;flex:none;border-top:4px solid var(--accent)}
 .endpoint-dashed{border-top:2px dashed var(--ink)}
 .endpoint-heading{text-align:center;font-size:15px;margin:.8rem 0 .2rem}
-.endpoint-panel svg{display:block;overflow:hidden}
+.endpoint-panel svg{display:block;inline-size:100%;max-inline-size:100%;overflow:hidden}
 .endpoint-tex{display:flex;align-items:center;justify-content:center;height:100%;font-size:14px;white-space:nowrap;color:var(--ink)}
 .endpoint-slopes{font-size:14px;display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;justify-content:space-between}
 .endpoint-slopes>div{display:flex;gap:.5rem;align-items:center}

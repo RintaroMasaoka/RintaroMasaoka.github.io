@@ -1,5 +1,5 @@
 import {matchingRange,placeVerticalTicks} from './plot-range.js';
-import {response} from './green-response.js';
+import {twoBoundResponse as response,bindBoundControls} from './two-bound-state.js';
 
 export function initMatchingFigure(){
   document.querySelectorAll('[data-endpoint-matching]').forEach(root=>{
@@ -8,15 +8,15 @@ export function initMatchingFigure(){
     const slider=root.querySelector('input');
     const draw=()=>{
       const energy=Number(slider.value),atZero=response(energy,0);
-      root.querySelector('[data-matching-energy]').textContent=energy.toFixed(3);
+      root.querySelector('[data-two-energy-output]').textContent=energy.toFixed(3);
       root.querySelector('[data-matching-w]').textContent=atZero.W.toFixed(4);
-      root.querySelector('[data-matching-left-slope]').textContent=atZero.slope.toFixed(3);
-      root.querySelector('[data-matching-right-slope]').textContent=(-atZero.slope).toFixed(3);
-      root.querySelector('[data-matching-status]').textContent=Math.abs(energy+1)<1e-9
+      root.querySelector('[data-matching-left-slope]').textContent=atZero.leftSlope.toFixed(3);
+      root.querySelector('[data-matching-right-slope]').textContent=atZero.rightSlope.toFixed(3);
+      root.querySelector('[data-matching-status]').textContent=Math.abs(atZero.W)<1e-9
         ?'Same value and slope: the two solutions coincide.'
         :'Same value, different slopes: the two solutions are distinct.';
       for(const svg of root.querySelectorAll('[data-matching-panel]')){
-        const range=3;
+        const range=4;
         const [ymin,ymax]=matchingRange(energy,range,response);
         svg.dataset.ymin=String(ymin);svg.dataset.ymax=String(ymax);
         const left=44,right=svg.getBoundingClientRect().width-28,top=10,bottom=180;
@@ -39,10 +39,7 @@ export function initMatchingFigure(){
         svg.querySelector('[data-matching-point]').setAttribute('cy',Y(1));
       }
     };
-    const publish=()=>{draw();document.dispatchEvent(new CustomEvent('kdv:matching-energy',{detail:Number(slider.value)}));};
-    slider.addEventListener('input',publish);
-    document.addEventListener('kdv:matching-energy',event=>{slider.value=String(event.detail);draw()});
-    root.querySelector('[data-matching-bound]').addEventListener('click',()=>{slider.value='-1';publish()});
+    bindBoundControls(root,draw);
     new ResizeObserver(draw).observe(root);
     draw();
   });

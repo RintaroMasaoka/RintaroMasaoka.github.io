@@ -26,3 +26,7 @@ Run `node scripts/check-note-equations.mjs` to verify insertion/reordering, refe
 ## Shared reading controls
 
 Reader buttons use borderless Lucide icons with hover and keyboard-focus feedback. The color control shows the action available next: moon for dark mode, sun for light mode, with a matching accessible name. The contents pane owns its close control at every viewport size; the header offers an opener only while the pane is closed. Desktop section navigation keeps the pane open, while mobile section navigation closes the overlay and restores reading access. Optional source citations and resource links belong after the manuscript rather than in a generic header menu. Ordered lists, including footnotes, retain visible decimal markers.
+
+## Responsive figure layout
+
+Responsive layout is an implementation invariant, not a manual phone-preview acceptance step. Use container-bounded widths, intrinsic wrapping/reflow, and container-derived plot coordinates; guard these constraints automatically. Do not rely on viewport-specific patches, shrinking scientific lettering, or horizontal figure panning to make a layout fit.
