@@ -70,6 +70,6 @@ const matchSource=await readFile(new URL('../components/MatchingFigure.astro',im
 const joinSource=await readFile(new URL('../components/PointSpectrum.astro',import.meta.url),'utf8');
 assert.ok(matchSource.includes('data-w-spectrum')&&matchSource.includes('data-w-root'),'the full energy comparison must exist');
 assert.ok(!matchSource.includes('data-matching-left-slope')&&!matchSource.includes('f_-(0,-k)'),'Wronskian plot must not normalize at a matching point');
-assert.ok(joinSource.includes('data-point-position')&&joinSource.includes('f(x;E,x_*)'),'joined wave must expose its independent matching point');
+assert.ok(!joinSource.includes('data-point-position')&&joinSource.includes('f(x;E)'),'joined wave must keep its origin fixed');
 
 assert.ok(!matchSource.includes('\\\\log'),'Jost figure must use signed linear profiles');

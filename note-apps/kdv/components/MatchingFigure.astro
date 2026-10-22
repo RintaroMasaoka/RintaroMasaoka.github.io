@@ -1,5 +1,4 @@
 ---
-import FigureViewport from './FigureViewport.astro';
 import BoundStateControls from './BoundStateControls.astro';
 import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
@@ -10,12 +9,11 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
   <BoundStateControls id="matching-wave-number" />
   <div class="endpoint-w"><span set:html={tex('W(k)=' )} /><output data-matching-w></output></div>
-  <FigureViewport width={900}>
   <svg width="100%" height="184" data-w-spectrum role="img" aria-label="Wronskian versus energy with one excited-state zero">
     <path data-w-axes fill="none" stroke="var(--muted)" />
     <path data-w-zero fill="none" stroke="var(--line)" stroke-dasharray="3 4" />
     <path data-w-curve fill="none" stroke="var(--accent)" stroke-width="2.5" />
-    {[-1].map(e=><circle data-w-root={e} r="5" fill="var(--paper)" stroke="var(--ink)" stroke-width="2" />)}
+    {[-1].map(e=><circle data-w-root={e} r="3.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="2" />)}
     <circle data-w-selected r="4" fill="var(--accent)" />
     {[-1].map(e=><foreignObject data-w-energy={e} width="50" height="25" y="148"><div class="endpoint-tex" set:html={tex(String(e))} /></foreignObject>)}
     {[-.1,0,.05].map(y=><foreignObject data-w-tick={y} data-plot-tick={y} width="44" height="25" x="0"><div class="endpoint-tex" set:html={tex(String(y))} /></foreignObject>)}
@@ -30,7 +28,7 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
       <path data-matching-axes fill="none" stroke="var(--muted)" />
       <path data-matching-guides fill="none" stroke="var(--line)" stroke-dasharray="3 4" />
       <g clip-path={`url(#matching-${panel.id}-clip)`}>
-        <path data-matching-left fill="none" stroke="var(--accent)" stroke-width="4" />
+        <path data-matching-left fill="none" stroke="var(--accent)" stroke-width="2" />
         <path data-matching-right fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="6 4" />
       </g>
       {[-panel.range,0,panel.range].map(x=><foreignObject data-matching-x={x} width="42" height="25" y="195"><div class="endpoint-tex" set:html={tex(String(x))} /></foreignObject>)}
@@ -38,7 +36,6 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
       <foreignObject data-matching-axis width="24" height="25" y="157"><div class="endpoint-tex" set:html={tex('x')} /></foreignObject>
     </svg>
   </section>)}
-  </FigureViewport>
   <p data-matching-status role="status" aria-live="polite"></p>
   <figcaption id="green-matching-caption">上段は <span set:html={tex('W(k)')} /> のエネルギー依存性、丸印は励起状態 <span set:html={tex('E=-1')} /> を示す。下段は左右の Jost 解を符号を保って描いたもので、それぞれ表示区間での最大絶対値が1になるよう正の定数倍をしている。<span set:html={tex('E=-1')} /> では二つの解は逆符号で比例し、原点に節を一つ持つ。</figcaption>
 </figure>
@@ -47,13 +44,13 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
   initMatchingFigure();
 </script>
 <style>
-.endpoint-matching{box-sizing:border-box;min-inline-size:0;width:100%;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.endpoint-matching{box-sizing:border-box;min-inline-size:0;width:100%;margin:2rem auto;padding:0;color:var(--ink)}
 .endpoint-matching label{display:flex;justify-content:space-between;align-items:baseline}
 .endpoint-matching input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
 .endpoint-matching button{min-height:44px;max-width:100%;padding:.4rem .7rem;margin:.2rem 0 .7rem;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
 .endpoint-matching output{font-variant-numeric:tabular-nums}
 .endpoint-legend{display:flex;align-items:center;gap:.6rem;min-height:32px;font-size:14px}
-.endpoint-solid,.endpoint-dashed{display:inline-block;width:26px;flex:none;border-top:4px solid var(--accent)}
+.endpoint-solid,.endpoint-dashed{display:inline-block;width:26px;flex:none;border-top:2px solid var(--accent)}
 .endpoint-dashed{border-top:2px dashed var(--ink)}
 .endpoint-heading{text-align:center;font-size:15px;margin:.8rem 0 .2rem}
 .endpoint-matching svg{display:block;inline-size:100%;max-inline-size:100%;overflow:hidden}
@@ -61,7 +58,10 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
 .endpoint-slopes{font-size:14px;display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;justify-content:space-between}
 .endpoint-slopes>div{display:flex;gap:.5rem;align-items:center}
 .endpoint-slopes output{min-width:3.5em;text-align:right}
-.endpoint-w{display:flex;gap:.4rem;align-items:baseline;margin:.5rem 0;font-size:1rem;color:var(--ink);font-weight:normal}.endpoint-w output{font:inherit;font-variant-numeric:tabular-nums}
+.endpoint-w{display:flex;justify-content:flex-end;gap:.4rem;align-items:baseline;margin:.3rem 0;color:var(--ink);font-size:15px;font-weight:400}.endpoint-w output{min-width:5.5ch;text-align:right}
+.endpoint-matching :global(.bound-choices button){border:0;border-radius:0;background:transparent;box-shadow:none;border-bottom:1px solid transparent}
+.endpoint-matching :global(.bound-choices button[aria-pressed="true"]){border-color:var(--ink);box-shadow:none}
+
 .endpoint-matching [data-matching-status]{font-size:14px;min-height:2.8em;margin:.5rem 0}
 .endpoint-matching figcaption{font-size:.9rem;line-height:1.7}
 </style>

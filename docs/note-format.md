@@ -29,13 +29,13 @@ Reader buttons use borderless Lucide icons with hover and keyboard-focus feedbac
 
 ## Responsive figure layout
 
-Responsive layout is an implementation invariant. Reading controls wrap within the container; scientific canvases use the uniform fitting contract below. Guard those constraints automatically, then inspect the embedded result. Do not introduce viewport-specific changes to internal figure proportions or horizontal figure panning.
+Responsive layout is an implementation invariant. Reading controls wrap within the container; scientific figures use the fitting choices below. Guard those constraints automatically, then inspect the embedded result. Do not introduce viewport-specific changes to internal figure proportions or horizontal figure panning.
 
 
 ## Uniform figure fitting
 
-Scientific figures use the available article width. Fit a complete authored canvas with one scalar scale factor: geometry, text, strokes, markers, internal spacing, legends and mathematical labels all receive exactly the same transformation. Preserve its internal aspect ratio. Do not stretch axes independently or resize/reposition its individual elements in response to screen width. Reader controls and manuscript captions remain outside that scientific canvas.
+Scientific figures use the available article width. For a fixed-composition diagram, fit the complete authored canvas with one scalar scale factor: geometry, text, strokes, markers, internal spacing, legends and mathematical labels all receive exactly the same transformation. Preserve its internal aspect ratio. Do not stretch axes independently or resize/reposition its individual elements in response to screen width. Reader controls and manuscript captions remain outside that scientific canvas.
 
-KdV uses `FigureViewport.astro`: a design-width canvas, a top-left `scale(s)` with `s = availableWidth / designWidth`, and an outer height equal to the design height times that same factor. There is no horizontal panning and no phone-sized maximum on the outer figure. Measure the untransformed canvas when updating interactive content (`clientWidth`), and observe content-height changes as well as available width. Axis domains and parameter ranges are scientific decisions independent of this fitting operation.
+KdV matching and joined-wave plots use native responsive coordinates: the plot area follows the container while labels, markers and strokes retain fixed CSS sizes. They do not use a transform-scaled canvas. Other fixed-composition KdV figures use `FigureViewport.astro`: a design-width canvas, a top-left `scale(s)` with `s = availableWidth / designWidth`, and an outer height equal to the design height times that same factor. There is no horizontal panning and no phone-sized maximum on the outer figure. Measure the untransformed canvas when updating interactive content (`clientWidth`), and observe content-height changes as well as available width. Axis domains and parameter ranges are scientific decisions independent of this fitting operation.
 
 Verify the actual embedded narrow and wide views, both themes and affected input states. Check that horizontal and vertical scale factors are equal and that the complete canvas—including its lettering—retains its proportions; then inspect for baseline overlaps or clipping. Uniform fitting does not excuse a defect in the authored canvas.

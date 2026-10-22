@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 25,
+    "version": 26,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -99,7 +99,7 @@
       "bold f=(f,f_x); D_0=[[0,1],[-k^2,0]] represents x differentiation on free solutions; free propagation is exp(d D_0); V is potential action; I subscript denotes interaction picture on state and action. Keep P-ordered interaction evolution visible and derive the sine integral by restoring free propagation; U(t) remains Lax-time evolution",
       "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction",
       "Bound-state tails: c_n(t) is the normalized left-tail coefficient, tilde c_n(t) the right-tail coefficient; psi_n~c_n(t) exp(kappa_n x) at minus infinity and ~tilde c_n(t) exp(-kappa_n x) at plus infinity. Left coefficient evolves by exp(-4 kappa_n^3 t), right by exp(+4 kappa_n^3 t).",
-      "Residues: after defining the slope jump divided by matching value, Δ(E;x_*), factor W=f_-(x_*) f_+(x_*) Δ(E;x_*) and write a f_+ directly with denominator Δ. Interpret the same Δ as point-potential strength. First-order energy response gives E−E_n=Δ(E;x_*)|ψ_n(x_*)|²+O(Δ²); substitute this into the quotient, using proportionality to normalized ψ_n, to obtain the energy-pole coefficient c_nψ_n. E=k² then gives the residue i c_n²f_-. Do not turn ∂kW or a mixed-norm identity into an intermediate task. Supply c_n normalization at use. Complete the residue proof before the exact-example figure. No duplicate coupling or inverse-function alias."
+      "Residues: normalize both endpoint Jost solutions to value one at the origin, and join their left/right halves as f(x;E). Define Delta(E) as the actual right-minus-left derivative jump and show its two derivative ratios explicitly. Identify the already-defined W as the numerator of this difference without teaching Wronskian again. Delta is the identical point-potential strength. Derive E−E_n=Delta(E)|psi_n(0)|²+O(Delta²) and substitute visibly into the transmitted quotient. Keep Wronskian computation in section6, the c_n normalization at use, and final residue i c_n² f_-. The earlier finite-start x_* is not reused as a matching coordinate."
     ],
     "new_or_unconfirmed": [
       "Jost解の規格化・Volterra核表示・逆散乱法で使う解析性、束縛状態と散乱係数の極・留数の関係を既知とは置かない。既知のSchrödinger方程式の概念と、このノート固有の未導入な対象・規約を区別する。",
@@ -188,9 +188,9 @@
     }
   },
   "visualExamples": {
-    "wronskian": "Centered u=-6 sech²x; focus E=-1 in [-1.5,-.5]. Signed linear Jost profiles, each positively rescaled to unit maximum absolute value on [-4,4]. Physical W with ordinary readout; one selectable excited state.",
-    "joinedWave": "Same centered potential and shared local energy interval. Product construction f(x;E,x_*), independently movable x_* in [-2,2]. Continuous value, derivative jump W; whole waveform displayed with positive unit-maximum rescaling. A bound-state node produces the zero construction, explicitly reported.",
-    "energyResponse": "Separate u=-2 sech²x example, point x_*=0; E1=-1. Not synchronized with the two-state figures.",
-    "notation": "x_* is the matching coordinate, distinct from any potential/soliton center. Delta(E;x_*) is the slope jump divided by the matching value and equals point-potential strength; W itself is the unnormalized product-construction jump. Final residue independent of x_*."
+    "wronskian": "Centered u=-6 sech²x; focus E=-1 in [-1.5,-.5]. Signed linear Jost profiles, each positively rescaled to unit maximum absolute value on [-4,4]. Physical W with ordinary readout; one selectable excited state. Native responsive coordinates retain 14px labels without transform scaling, with simplified decoration.",
+    "joinedWave": "Independent u=-2 sech²x example. Normalized joined wave f(x;E), f(0;E)=1. Origin fixed, E in [-1.75,-.25], one E=-1 reset button. Show left/right halves with solid/dashed curves and no position slider. No maximum-value rescaling.",
+    "energyResponse": "u=-2 sech²x, origin fixed; E1=-1. Exact energy response and first-order tangent.",
+    "notation": "The section7 matching point is the origin, with psi_n(0) nonzero. f(x;E) has matching value one, Delta(E) is its derivative jump and point-potential strength. Earlier x_* remains the finite starting point for the interaction-picture derivation."
   }
 }

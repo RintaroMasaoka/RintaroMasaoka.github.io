@@ -1,6 +1,4 @@
 ---
-import FigureViewport from './FigureViewport.astro';
-import BoundStateControls from './BoundStateControls.astro';
 import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
@@ -11,20 +9,14 @@ const figureId=wave?'joined-f-caption':'point-spectrum-caption';
 const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1,2,5,10],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'\\Delta'}].filter(panel=>panel.id===(wave?'wave':'energy'));
 ---
 <figure class="point-spectrum" data-point-spectrum data-point-mode={mode} aria-labelledby={figureId}>
-  {wave?<Fragment><BoundStateControls id="point-wave-energy" />
-    <label for="point-position"><span set:html={tex('x_*')} /><output data-point-position-output>1.00</output></label>
-    <input id="point-position" data-point-position type="range" min="-2" max="2" step=".01" value="1" aria-label="Matching point" />
-  </Fragment>:<Fragment>
-  <label for="point-energy-energy"><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
-  <input id="point-energy-energy" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Spectral energy" />
-  <button type="button" set:html={tex('\\text{Original state: }\\Delta=0')} />
-  </Fragment>}
+  <label for={`point-${mode}-energy`}><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
+  <input id={`point-${mode}-energy`} type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Spectral energy" />
+  <button type="button" set:html={tex(wave?'E=-1':'\\text{Original state: }\\Delta=0')} />
   {!wave&&<div class="point-readout"><span set:html={tex('\\Delta=' )} /><output data-point-coupling></output></div>}
-  <FigureViewport width={448}>
   {panels.map(panel=><section>
-    <div class="point-heading" set:html={tex(wave?'f(x;E,x_*)':`\\text{${panel.title}}`)} />
+    <div class="point-heading" set:html={tex(wave?'f(x;E)':`\\text{${panel.title}}`)} />
     {!wave&&<div class="point-key" set:html={tex('\\psi_1(x)=\\operatorname{sech}x/\\sqrt2,\\quad |\\psi_1(0)|^2=1/2')} />}
-    <div class="point-key" set:html={tex(panel.id==='wave'?'\\text{Scaled to unit maximum magnitude}':'\\text{Tangent at }\\Delta=0:\\quad E=-1+\\Delta/2')} />
+    <div class="point-key" set:html={tex(panel.id==='wave'?'f(0;E)=1':'\\text{Tangent at }\\Delta=0:\\quad E=-1+\\Delta/2')} />
     <svg width="100%" height="224" data-point-panel={panel.id} role="img" aria-label={panel.title}>
       <defs><clipPath id={`point-${panel.id}-clip`}><rect x="46" y="12" width="240" height="170" /></clipPath></defs>
       <path data-point-axes fill="none" stroke="var(--muted)" />
@@ -41,9 +33,8 @@ const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1
       <foreignObject data-point-axis width="24" height="25" y="157"><div class="point-tex" set:html={tex(panel.axis)} /></foreignObject>
     </svg>
   </section>)}
-  </FigureViewport>
   <p data-point-status role="status" aria-live="polite"></p>
-  <figcaption id={figureId}>{wave?<Fragment>前の図と同じポテンシャルに対し、接続点 <span set:html={tex('x_*')} /> を変えられる。実線は接続点より左、破線は右の部分を示し、縦の点線が接続点である。波形全体は表示区間内の最大絶対値が1になるよう正の定数倍をしている。束縛状態のエネルギーでは、接続点を動かしても全体は同じ固有関数に比例する。ただし、接続点をその固有関数の節に置くと、式の二項がともに0になり、この構成は零関数になる。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
+  <figcaption id={figureId}>{wave?<Fragment>実線は原点より左、破線は原点より右の波形。原点での値はともに1であり、<span set:html={tex('E=-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
 </figure>
 <script>
 import { initPointSpectrum } from '../visuals/point-spectrum.js';
