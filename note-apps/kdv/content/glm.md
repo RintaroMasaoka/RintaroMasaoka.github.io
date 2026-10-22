@@ -473,28 +473,6 @@ $$
 \tag{transmission-residue}
 $$
 
-この一次摂動関係は、$u(x)=-2\operatorname{sech}^2x$ の、束縛状態を一つ持つ例でも確かめられる。この場合 $E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、接続点を $x_0=0$ に取ると $E=-1+\Delta/2+O(\Delta^2)$ となる。下図は厳密な関係と一次摂動を比較する。
-
-<div data-visual-slot="point-spectrum"></div>
-
-<details>
-<summary>図に使った厳密解</summary>
-
-$E=-\kappa^2$（$\kappa>0$）とすると、この例で $x_0=0$ とした接続波形は
-$$
-f(x;E)=e^{-\kappa|x|}\frac{\kappa+\tanh|x|}{\kappa}.
-$$
-この図では $x_0=0$ であり、$f(x_0;E)=1$ となる。左右の傾きの差から
-$$
-\begin{gathered}
-\Delta(E)=2(\kappa^{-1}-\kappa),\\
-E=-\left(\frac{\sqrt{\Delta^2+16}-\Delta}{4}\right)^2
-\end{gathered}
-$$
-を得る。図の実線にはこの厳密な関係を使っている。
-
-</details>
-
 式 (@transmission-residue-sum) で、各極 $k=i\kappa_n$ における留数は、式 (@transmission-residue) に $e^{\kappa_n y}$ を掛けたものである。従って、
 $$
 \lim_{R\to\infty}\frac1{2\pi}\int_{-R}^R[a(k)f_+(x,k)-e^{ikx}]e^{-iky}\,dk
