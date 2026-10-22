@@ -394,9 +394,14 @@ $$
 =\frac{W(k)}{f_-(x_*,-k)f_+(x_*,k)},\qquad E=k^2
 \tag{matching-slope-difference}
 $$
-と書ける。よって
+と書ける。Wronskian の二項を明示すると、
 $$
-W(k)=f_-(x_*,-k)f_+(x_*,k)\Delta(E;x_*)
+\begin{aligned}
+W(k)
+&=f_-(x_*,-k)\partial_xf_+(x_*,k)
+-\partial_xf_-(x_*,-k)f_+(x_*,k)\\
+&=f_-(x_*,-k)f_+(x_*,k)\Delta(E;x_*).
+\end{aligned}
 \tag{matching-wronskian-factorization}
 $$
 であり、$a=2ik/W$ を使うと
