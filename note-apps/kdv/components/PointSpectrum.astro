@@ -1,0 +1,51 @@
+---
+import { createRequire } from 'node:module';
+const require=createRequire(new URL('../../../package.json',import.meta.url));
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
+const panels=[{id:'wave',title:'Joined bound state',xs:[-4,0,4],ys:[0,1],axis:'x'},{id:'energy',title:'Energy response',xs:[-.9,0,1.5],ys:[-1.6,-1,-.4],axis:'g'}];
+---
+<figure class="point-spectrum" data-point-spectrum aria-labelledby="point-spectrum-caption">
+  <label for="point-spectrum-energy"><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
+  <input id="point-spectrum-energy" type="range" min="-1.5" max="-.5" step=".001" value="-1.25" aria-label="Bound-state energy" />
+  <button type="button" set:html={tex('\\text{Original state: }g=0')} />
+  <div class="point-readout"><span set:html={tex('g=\\Delta(E)=' )} /><output data-point-coupling></output></div>
+  {panels.map(panel=><section>
+    <div class="point-heading" set:html={tex(`\\text{${panel.title}}`)} />
+    <div class="point-key" set:html={tex(panel.id==='wave'?'f(0;E)=1':'\\text{Tangent at }g=0:\\quad E=-1+g/2')} />
+    <svg width="100%" height="224" data-point-panel={panel.id} role="img" aria-label={panel.title}>
+      <defs><clipPath id={`point-${panel.id}-clip`}><rect x="46" y="12" width="240" height="170" /></clipPath></defs>
+      <path data-point-axes fill="none" stroke="var(--muted)" />
+      <path data-point-guides fill="none" stroke="var(--line)" stroke-dasharray="3 4" />
+      <g clip-path={`url(#point-${panel.id}-clip)`}>
+        <path data-point-curve fill="none" stroke="var(--accent)" stroke-width="3" />
+        {panel.id==='energy'&&<path data-point-tangent fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="6 4" />}
+      </g>
+      {panel.id==='energy'&&<circle data-point-anchor r="6" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)" />}
+      <circle data-point-marker r="3.5" fill="var(--accent)" />
+      {panel.xs.map(x=><foreignObject data-point-x={x} width="42" height="25" y="195"><div class="point-tex" set:html={tex(String(x))} /></foreignObject>)}
+      {panel.ys.map(y=><foreignObject data-point-y={y} width="40" height="25" x="0"><div class="point-tex" set:html={tex(String(y))} /></foreignObject>)}
+      <foreignObject data-point-axis width="24" height="25" y="157"><div class="point-tex" set:html={tex(panel.axis)} /></foreignObject>
+    </svg>
+  </section>)}
+  <p data-point-status role="status" aria-live="polite"></p>
+  <figcaption id="point-spectrum-caption">上段は <span set:html={tex('L+g\\delta(x)')} /> の束縛状態を原点で値1にそろえた波形。下段の実線は固有エネルギー、破線は点ポテンシャルがない状態（白丸）での接線である。接線の傾き <span set:html={tex('\\left.\\partial_gE\\right|_{g=0}=1/2')} /> は、規格化された束縛状態の原点での確率密度に等しい。塗りつぶした点が選択中の状態を示す。両図の軸の尺度は固定している。</figcaption>
+</figure>
+<script>
+import { initPointSpectrum } from '../visuals/point-spectrum.js';
+initPointSpectrum();
+</script>
+<style>
+.point-spectrum{box-sizing:border-box;width:100%;max-width:480px;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.point-spectrum label{display:flex;justify-content:space-between;align-items:baseline}
+.point-spectrum input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
+.point-spectrum button{min-height:44px;max-width:100%;padding:.4rem .7rem;margin:.2rem 0 .7rem;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
+.point-spectrum output{font-variant-numeric:tabular-nums}
+.point-readout{display:flex;gap:.5rem;align-items:baseline}
+.point-heading{text-align:center;font-size:15px;margin:1rem 0 .3rem}
+.point-key{text-align:center;font-size:14px}
+.point-spectrum svg{display:block;overflow:hidden}
+.point-tex{display:flex;align-items:center;justify-content:center;height:100%;font-size:14px;white-space:nowrap;color:var(--ink)}
+.point-spectrum [data-point-status]{font-size:14px;min-height:2.8em;margin:.5rem 0}
+.point-spectrum figcaption{font-size:.9rem;line-height:1.7}
+</style>

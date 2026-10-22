@@ -251,7 +251,7 @@ $$
 
 入射振幅 $1/a(k)$ を取り出すには、上の散乱関係から反射成分を消せばよい。反射波と同じ解 $f_-(x,-k)$ を第一列に置き、値と傾きからなる行列式
 $$
-W(k)=\det\begin{pmatrix}
+W(x,k)=\det\begin{pmatrix}
 f_-(x,-k)&f_+(x,k)\\
 \partial_xf_-(x,-k)&\partial_xf_+(x,k)
 \end{pmatrix}
@@ -259,7 +259,7 @@ f_-(x,-k)&f_+(x,k)\\
 $$
 を考える。この行列式は Wronskian である。第二列に散乱関係を代入すると、反射項では二列が比例するため、その行列式は0になる。従って実波数では、入射項だけが残って
 $$
-W(k)=\frac1{a(k)}\det\begin{pmatrix}
+W(x,k)=\frac1{a(k)}\det\begin{pmatrix}
 f_-(x,-k)&f_-(x,k)\\
 \partial_xf_-(x,-k)&\partial_xf_-(x,k)
 \end{pmatrix}.
@@ -271,7 +271,7 @@ $$
 
 行列式の微分は、一行ずつ微分した行列式の和である。式 (@wronskian) で上の行を微分すると下の行と同じになるので、この項は0になる。
 
-一方、両解は $f_{xx}=(u(x)-k^2)f$ を満たすため、下の行を微分すると、上の行の $u(x)-k^2$ 倍になる。この項も二行が比例するので0である。従って $\partial_xW(k)=0$ となる。
+一方、両解は $f_{xx}=(u(x)-k^2)f$ を満たすため、下の行を微分すると、上の行の $u(x)-k^2$ 倍になる。この項も二行が比例するので0である。従って $\partial_xW(x,k)=0$ となる。以後は $x$ を省略して $W(k)$ と書く。
 
 従って、反射項を消した先の表示で左端の極限を取り、Jost 解とその微分を自由波の表示に置き換えれば
 $$
@@ -284,6 +284,10 @@ e^{-ikx}&e^{ikx}\\
 $$
 
 上半平面では $f_-(x,-k)$ と $f_+(x,k)$ は正則であり、それぞれ左端と右端で小さくなる解である。上の商により $a$ を上半平面へ延長すると、原点以外で極が現れるのは $W(k)=0$ のときである。この条件は二つの解の値と傾きが比例することを意味する。同じ微分方程式の解は値と傾きで決まるため、二つの解は全区間で比例し、両端で小さくなる一つの波形につながる。これが、入射振幅が0になる条件と束縛状態との正確な結び付きである。
+
+次の図で、二つの減衰解が比例する条件を見てみよう。ポテンシャルは $u(x)=-2\operatorname{sech}^2x$ とし、二本の曲線の原点での値をそれぞれ1にそろえた。$k^2$ を変えると、一般には原点で傾きが異なるが、$k^2=-1$ では傾きも一致して全区間で重なる。
+
+<div data-visual-slot="matching"></div>
 
 両端で指数関数的に小さくなるこの解は平方可積分である。$L$ の自己共役性により固有値 $k^2$ は実数なので、上半平面の零点は $k=i\kappa_n$（$\kappa_n>0$）に限られ、固有値は $-\kappa_n^2$ となる。Schwartz ポテンシャルでは負の固有値は有限個である。次節では、これらの点での留数を求める。
 
@@ -342,194 +346,107 @@ $$
 
 </details>
 
-<span id="green-matching-caption"></span>
+## 7. 接続に必要な点ポテンシャルから留数を求める
 
-## 7. Green 関数から留数を求める
+前節では、左端と右端で減衰する二つの Jost 解が比例するとき、波数 $k=i\kappa_n$ が束縛状態の極になることを見た。ここでは極の留数を、その束縛状態の規格化から求める。鍵になるのは、二つの減衰解の値を原点で1にそろえたときの傾きの差である。
 
-透過波の留数は、束縛状態の規格化から求まる。固有値 $-\kappa_n^2$ に対し、規格化定数を用いて
+### 傾きの差は接続に必要な強さ
+
+以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、対象とする束縛状態の固有エネルギーの近くを考える。対象とする束縛状態 $\psi_n$ が0でない点を接続点に選び、その点を原点とする。左端で減衰する解を原点まで、右端で減衰する解を原点から使い、両者の値を1にそろえる。
 $$
-\begin{aligned}
-\psi_n(x)&=c_nf_-(x,-i\kappa_n),\\
-c_n^{-2}&=\int_{\mathbb R}f_-(x,-i\kappa_n)^2\,dx.
-\end{aligned}
+f(x;E)=\frac{f_-(x,-k)}{f_-(0,-k)}\Theta(-x)
++\frac{f_+(x,k)}{f_+(0,k)}\Theta(x).
+\tag{matching-def}
+$$
+ここで $\Theta$ は Heaviside 関数である。原点での傾きの差を、右側の傾きから左側の傾きを引いて
+$$
+\Delta(E)=\frac{\partial_xf_+(0,k)}{f_+(0,k)}
+-\frac{\partial_xf_-(0,-k)}{f_-(0,-k)}
+\tag{matching-slope-difference}
+$$
+と定める。$f$ は原点で値1を保つので連続だが、一般には傾きが $\Delta(E)$ だけ跳ぶ。分布微分では、連続な関数の二階微分に現れるデルタ項の係数が傾きの跳びである。値そのものの跳びはないため $\delta'(x)$ の項は生じず、
+$$
+(L-E)f=-\Delta(E)\delta(x),\qquad
+[L+\Delta(E)\delta(x)]f=Ef.
+\tag{matching-point-potential}
+$$
+となる。したがって $\Delta(E)$ は、エネルギー $E$ で左右の減衰解をつないで束縛状態にするために必要な点ポテンシャル $g\delta(x)$ の強さそのものである。$g=0$ なら元の演算子 $L$ の束縛状態であり、そのエネルギーを $E_n=-\kappa_n^2$ と書く。このとき傾きも連続になり、$\Delta(E_n)=0$ である。
+
+この点ポテンシャルによるエネルギー変化を求めれば、$\Delta$ の傾きも分かる。$\psi_n$ は実数値に選び、$\int_{\mathbb R}\psi_n(x)^2dx=1$ と規格化しておく。点ポテンシャルを加えた演算子 $L+g\delta(x)$ の元の束縛状態から連続に変化する固有エネルギーを $E(g)$ とする。$g=0$ で $E(0)=E_n$ である。$\delta\psi$ を、規格化された固有関数 $\psi_n$ の $g$ による一次の変化とする。固有値方程式を一次まで展開すると
+$$
+(L-E_n)\delta\psi+g\delta(x)\psi_n=\delta E\,\psi_n.
+$$
+両辺に $\psi_n$ を掛けて積分する。$L$ の自己共役性と $(L-E_n)\psi_n=0$ により第一項の積分は0となるので、$\delta E=g|\psi_n(0)|^2$ を得る。ゆえに
+$$
+E(g)=E_n+g|\psi_n(0)|^2+O(g^2).
+$$
+一方、固有状態の接続条件は $g=\Delta(E(g))$ である。これを $g=0$ のまわりで展開して係数を比べると
+$$
+\partial_E\Delta(E_n)=\frac{1}{|\psi_n(0)|^2}
+=\int_{\mathbb R}\left(\frac{\psi_n(x)}{\psi_n(0)}\right)^2dx.
+\tag{matching-norm}
+$$
+つまり、接続に必要な強さ $\Delta$ のエネルギーに対する変化率は、接続点で値1にした束縛状態のノルム二乗である。左右の二乗積分がちょうど一つのノルムになるのは偶然ではない。点ポテンシャルによる固有エネルギーの一次変化は、全空間で規格化した一つの固有状態の、接続点での確率密度によって決まる。その関係を逆に読んだのが式 (@matching-norm) である。
+
+固定例 $u(x)=-2\operatorname{sech}^2x$ では、$E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、$E(g)=-1+g/2+O(g^2)$ である。次の図ではエネルギーを動かすと、それを実現する点ポテンシャルの強さ $g=\Delta(E)$ も変わる。上段の曲線は、左右で減衰し、原点で値1を持つ一つの接続波形である。その傾きの跳びが $g$ に等しい。下段の曲線は厳密な固有エネルギー $E(g)$、破線は $g=0$ での接線、塗りつぶした点は選んだ状態を示す。$g=0$ では接続波形の傾きが連続になり、下段の接線の傾きは $|\psi_1(0)|^2=1/2$ となる。
+
+<div data-visual-slot="point-spectrum"></div>
+
+<details>
+<summary>図に使った厳密解</summary>
+
+$E=-\kappa^2$（$\kappa>0$）とすると、原点で値1にした接続波形は
+$$
+f(x;E)=e^{-\kappa|x|}\frac{\kappa+\tanh|x|}{\kappa}.
+$$
+その左右の傾きの差から
+$$
+g=\Delta(E)=2(\kappa^{-1}-\kappa),\qquad
+E(g)=-\left(\frac{\sqrt{g^2+16}-g}{4}\right)^2
+$$
+を得る。図の実線にはこの厳密な $E(g)$ を使っている。
+
+</details>
+
+### 規格化から透過波の留数へ
+
+式 (@matching-norm) を既存の Wronskian $W(k)$ に結び付ける。原点で値を1にそろえた解を使うと、その行列式は二つの値がともに1なので傾きの差そのものになる。したがって
+$$
+W(k)=f_-(0,-k)f_+(0,k)\Delta(E),\qquad E=k^2.
+\tag{matching-wronskian-factorization}
+$$
+$\Delta$ はまず実数 $E<0$ に対して定義したが、Jost 解の正則性と、$k=i\kappa_n\ne0$ の近傍で $E=k^2$ が局所的に可逆であることから、この関係は $E_n$ の複素近傍へ正則に延長できる。したがって留数の計算にも同じ展開を使える。$\Delta(E_n)=0$ と式 (@matching-norm) より
+$$
+\Delta(E)=\frac{E-E_n}{\psi_n(0)^2}+O((E-E_n)^2).
+\tag{point-energy-response}
+$$
+Jost 解の規格化に戻るため、定数 $c_n>0$ を
+$$
+\psi_n(x)=c_nf_-(x,-i\kappa_n),\qquad
+c_n^{-2}=\int_{\mathbb R}f_-(x,-i\kappa_n)^2\,dx
 \tag{bound-normalization}
 $$
-と置く。実ポテンシャルでは $\psi_n$ を実数に選べる。この規格化により $\int_{\mathbb R}\psi_n(x)^2dx=1$ であり、$L\psi_n=-\kappa_n^2\psi_n$ である。
+で定める。すると $\psi_n(0)=c_nf_-(0,-i\kappa_n)$ である。
 
-$E=k^2$ と書き、$\operatorname{Im}k>0$ で $E$ が $L$ の固有値と異なる場合を考える。演算子 $E-L$ は、この固有状態を $E+\kappa_n^2$ 倍する：
-$$
-(E-L)\psi_n=(E+\kappa_n^2)\psi_n.
-$$
-従って逆演算子は、その成分を同じ数で割る：
-$$
-(E-L)^{-1}\psi_n=\frac{\psi_n}{E+\kappa_n^2}.
-$$
-固有エネルギー $E=-\kappa_n^2$ に近づくと、右辺の係数が発散する。この逆数関係が、束縛状態に対応する極の由来である。
-
-この逆演算子の積分核が Green 関数 $G(x,x';k)$ である。$x'$ を入力位置、$x$ を観測位置とすると、位置 $x'$ に集中した入力 $\delta(x-x')$ に対する出力が $G$ となる。従って
-$$
-(E-L)G(x,x';k)=\delta(x-x')
-$$
-を満たす。ここでは両端で減衰する境界条件を課す。右辺を単位点源と呼び、$G$ をその点源に対する応答として読む。
-
-点源 $\delta(x-x')$ の $\psi_n$ 方向への係数は
-$$
-\int_{\mathbb R}\psi_n(x)\delta(x-x')\,dx=\psi_n(x')
-$$
-である。一方、$\int\psi_n(x)G(x,x';k)\,dx$ は応答の $\psi_n$ 成分の係数である。$L$ の自己共役性と固有方程式を使うと、定義式の左辺と $\psi_n$ との内積は
+前節の $a(k)=2ik/W(k)$ と因数分解を使うと、$a(k)f_+(x,k)$ の極近傍で特異な部分は
 $$
 \begin{aligned}
-&\int_{\mathbb R}\psi_n(E-L)G\,dx\\
-&\quad=\int_{\mathbb R}[(E-L)\psi_n]G\,dx\\
-&\quad=(E+\kappa_n^2)\int_{\mathbb R}\psi_nG\,dx.
+a(k)f_+(x,k)
+&=\frac{2ik}{f_-(0,-k)}\,
+  \frac{f_+(x,k)/f_+(0,k)}{\Delta(k^2)}\\
+&=\frac{2ik}{f_-(0,-i\kappa_n)}
+  \frac{\psi_n(x)/\psi_n(0)}{(k^2+\kappa_n^2)/\psi_n(0)^2}
+  +\text{正則項}\\
+&=\frac{2ik\,c_n\psi_n(x)}{k^2+\kappa_n^2}
+  +\text{正則項}.
 \end{aligned}
 $$
-右辺と $\psi_n$ との内積は、既に求めた $\psi_n(x')$ である。従って
+二行目では $f_+(x,i\kappa_n)/f_+(0,i\kappa_n)=\psi_n(x)/\psi_n(0)$ を用いた。三行目では $f_-(0,-i\kappa_n)=\psi_n(0)/c_n$ と $\psi_n(0)^2$ の因子が約分される。したがって極での留数は
 $$
-(E+\kappa_n^2)\int_{\mathbb R}\psi_nG\,dx=\psi_n(x').
-\tag{green-bound-component}
-$$
-左辺は応答の係数を $E+\kappa_n^2$ 倍したもの、右辺は点源の係数である。ゆえに応答の $\psi_n$ 成分は
-$$
-\frac{\psi_n(x')}{E+\kappa_n^2}\,\psi_n(x).
-$$
-この負の固有値は孤立しているため、$\psi_n$ に直交する成分はその近くで正則である。この点は[補足](#residue-proof)で示す。従って $G$ のこの極における特異部分は
-$$
-\begin{aligned}
-G(x,x';k)&=\frac{\psi_n(x)\psi_n(x')}{k^2+\kappa_n^2}\\
-&\quad+\text{この極の近くで正則な部分}.
-\end{aligned}
-\tag{green-projector}
-$$
-ここで分子は、点源の $\psi_n$ 成分の係数 $\psi_n(x')$ と、応答の形 $\psi_n(x)$ の積である。
-
-例えば $u(x)=-2\operatorname{sech}^2x$ では、$L\operatorname{sech}x=-\operatorname{sech}x$ と $\int_{\mathbb R}\operatorname{sech}^2x\,dx=2$ から、正規化固有関数は $\psi_1(x)=\operatorname{sech}x/\sqrt2$ である。この場合、応答の $\psi_1$ 成分は
-$$
-\frac{\psi_1(x')}{E+1}\,\psi_1(x)
-$$
-となる。点源位置 $x'$ に依存するのは係数 $\psi_1(x')$ であり、応答の波形 $\psi_1(x)$ はポテンシャルによって定まっている。従ってこの成分のピークは、点源位置 $x'$ によらず原点にある。
-
-次の図では、この関係を分子 $\psi_1(x')\psi_1(x)$ で確かめる。上段の曲線は $\psi_1(x)$、四角は点源位置 $x'$、丸の高さはその位置での値 $\psi_1(x')$ である。この値を $\psi_1(x)$ に掛けたものが下段の曲線になる。スライダーで点源を動かし、下段の高さが変わる一方で、ピークは原点にとどまることを見てほしい。
-
-<div data-visual-slot="green-kernel"></div>
-
-Green 関数の極の係数が分かった。これを透過波の留数と結び付けるため、同じ $G$ を Jost 解で表そう。$x\ne x'$ では $G$ は斉次 Schrödinger 方程式を満たす。左側の解は左端で減衰する $f_-(x,-k)$、右側の解は右端で減衰する $f_+(x,k)$ である。点源位置では $G$ は連続でなければならない。値に跳びがあると二階微分に $\delta'$ の項が現れ、定義式の右辺 $\delta$ と一致しないからである。
-
-<span id="green-source-normalization"></span>
-
-定義式を、点源を挟む短い区間で積分しよう。$EG$ と $uG$ は点源の近くで有界なので、その積分は区間とともに0になる。二階微分の積分は左右の傾きの差となり、
-$$
-\begin{aligned}
-1&=\lim_{\epsilon\downarrow0}\int_{x'-\epsilon}^{x'+\epsilon}(E-L)G\,dx\\
- &=\partial_xG(x'+0,x';k)-\partial_xG(x'-0,x';k).
-\end{aligned}
-$$
-つまり、連続性とこの単位の傾きの跳びを満たすように、左右の減衰解の係数を決めればよい。
-
-連続条件は、左右の解に相手の点源位置 $x'$ での値を掛けることで満たせる：
-$$
-\begin{cases}
-f_-(x,-k)f_+(x',k),&x<x',\\
-f_-(x',-k)f_+(x,k),&x>x'.
-\end{cases}
-$$
-左右の値は、どちらも $f_-(x',-k)f_+(x',k)$ に一致する。上の積の傾きについても同じ差を取ると、
-$$
-\begin{aligned}
-&f_-(x',-k)\partial_xf_+(x',k)\\
-&\quad-\partial_xf_-(x',-k)f_+(x',k)=W(k).
-\end{aligned}
-$$
-となる。従って積を $W(k)$ で割れば、連続性を保ったまま傾きの跳びが $1$ となり、単位点源への応答を得る：
-$$
-\begin{gathered}
-G(x,x';k)=\\
-\begin{cases}
-\dfrac{f_-(x,-k)f_+(x',k)}{W(k)},&x<x',\\[6pt]
-\dfrac{f_-(x',-k)f_+(x,k)}{W(k)},&x>x'.
-\end{cases}
-\end{gathered}
-\tag{green-boundary}
-$$
-
-$x>x'$ では、前節の $a(k)=2ik/W(k)$ により同じ式は
-$$
-\begin{aligned}
-G(x,x';k)&=f_-(x',-k)\\
-&\quad\times\frac{a(k)f_+(x,k)}{2ik},\\
-&\quad(x>x').
-\end{aligned}
-\tag{green-transmission}
-$$
-となる。ここで観測位置 $x$ に依存する因子は透過波であり、その留数を固有状態表示から得た留数と比べられる。式 (@green-projector) から
-$$
-\operatorname*{Res}_{k=i\kappa_n}G(x,x';k)=\frac{\psi_n(x)\psi_n(x')}{2i\kappa_n}.
-$$
-一方、式 (@green-transmission) で $2ik$ を極で評価すると $-2\kappa_n$ である。二つの表示の留数は同じなので、
-$$
-\begin{aligned}
-&\frac{\psi_n(x)\psi_n(x')}{2i\kappa_n}\\
-&\quad=\frac{f_-(x',-i\kappa_n)}{-2\kappa_n}
-\operatorname*{Res}_{k=i\kappa_n}[a(k)f_+(x,k)].
-\end{aligned}
-$$
-$\psi_n(x')=c_nf_-(x',-i\kappa_n)$ を代入し、$\psi_n(x')\ne0$ となる点源位置で比較すれば、
-$$
-\begin{aligned}
 \operatorname*{Res}_{k=i\kappa_n}[a(k)f_+(x,k)]
-&=i c_n\psi_n(x)\\
-&=i c_n^2f_-(x,-i\kappa_n).
-\end{aligned}
+=i c_n\psi_n(x)=i c_n^2f_-(x,-i\kappa_n).
 \tag{transmission-residue}
 $$
-これで式 (@transmission-residue-sum) に必要な透過波の留数が、束縛状態の規格化から求まった。
-
-<details id="residue-proof">
-<summary>直交補空間の応答が正則である理由</summary>
-
-実減衰ポテンシャルに対する $L$ は自己共役であり、負の固有値は連続スペクトル $[0,\infty)$ から離れた孤立固有値である。また一次元では、両端で減衰する二つの解は Wronskian が $0$ となって比例するため、各固有空間は一次元である。
-
-任意の波源を $\psi_n$ 方向の成分とそれに直交する成分に分ける。自己共役性により、直交補空間は $L$ の作用で保たれる。孤立固有値の十分近くでは、その補空間のスペクトルとの距離は正に保たれるため、補空間上の逆演算子は正則である。従って $G$ の特異部分は式 (@green-projector) の一項に限られる。これは全ての連続固有関数を具体的に構成せずに、極の近くの応答だけを取り出す議論である。
-
-</details>
-
-<details id="green-projection-proof">
-<summary>射影の関係を部分積分で確かめる</summary>
-
-求めたいのは、応答 $G$ に含まれるこの $\psi_n$ の係数である。$x\ne x'$ では $LG=EG$（$E=k^2$）であり、$L\psi_n=-\kappa_n^2\psi_n$ である。両辺に掛ける関数を明示すると
-$$
-\begin{aligned}
-E\,\psi_nG&=\psi_n\,LG,\\
--\kappa_n^2\,\psi_nG&=G\,L\psi_n.
-\end{aligned}
-$$
-二式の差を取り、$L=-\partial_x^2+u$ を代入すると、ポテンシャルの項は相殺される：
-$$
-\begin{aligned}
-(E+\kappa_n^2)\psi_nG
-&=\psi_n LG-G L\psi_n\\
-&=\psi_n''G-\psi_n\partial_x^2G\\
-&=\partial_x\!\left(\psi_n'G-\psi_n\partial_xG\right).
-\end{aligned}
-$$
-この等式を $(-\infty,x')$ と $(x',\infty)$ で別々に積分する。無限遠の境界項は減衰によって0になり、接続点の左右の項だけが残る。$G$ が連続なので $\psi_n'G$ の二項は相殺され、
-$$
-\begin{aligned}
-&\left[\psi_n'G-\psi_n\partial_xG\right]_{x=x'-0}\\
-&\quad-\left[\psi_n'G-\psi_n\partial_xG\right]_{x=x'+0}\\
-&=\psi_n(x')\left[\partial_xG\right]_{x=x'-0}^{x=x'+0}\\
-&=\psi_n(x').
-\end{aligned}
-$$
-最後の等号は、単位点源に対応する傾きの跳びが1であることによる。従って
-$$
-(E+\kappa_n^2)\int_{\mathbb R}\psi_nG\,dx=\psi_n(x').
-
-$$
-
-
-</details>
-
 
 式 (@transmission-residue-sum) で、各極 $k=i\kappa_n$ における留数は、式 (@transmission-residue) に $e^{\kappa_n y}$ を掛けたものである。従って、
 $$

@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 23,
+    "version": 25,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -98,14 +98,14 @@
       "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
       "bold f=(f,f_x); D_0=[[0,1],[-k^2,0]] represents x differentiation on free solutions; free propagation is exp(d D_0); V is potential action; I subscript denotes interaction picture on state and action. Keep P-ordered interaction evolution visible and derive the sine integral by restoring free propagation; U(t) remains Lax-time evolution",
       "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction",
-      "Green G(x,x′;k) is the integral kernel of (E−L)^−1, E=k². Normalize psi_n first; (E−L) scales it by E+kappa_n², so its inverse divides by that energy gap. Explain this before introducing point sources or using a shared Jost dependence as a motive. For delta(x−x′), source coefficient is psi_n(x′); self-adjointness gives the response coefficient through an explicit inner-product identity. Thus local pole numerator is psi_n(x)psi_n(x′), with the regular orthogonal contribution justified in disclosure. Only then compute the same G from endpoint decay, continuity and derivative jump +1. Show continuous left/right Jost product and divide its jump W; a=2ik/W yields the transmission representation, whose residue is compared explicitly. Point-source x′ is distinct from observation x and Fourier/kernel y. Retain stable equation IDs and optional explicit partial-integration proof. Figure retains u=−2sech²x, normalized psi_1, source-position coefficient and numerator plot; prose explains marks BEFORE figure. No horizontal figure scroll or new reader shell.",
-      "Bound-state tails: c_n(t) is the normalized left-tail coefficient, tilde c_n(t) the right-tail coefficient; psi_n~c_n(t) exp(kappa_n x) at minus infinity and ~tilde c_n(t) exp(-kappa_n x) at plus infinity. Left coefficient evolves by exp(-4 kappa_n^3 t), right by exp(+4 kappa_n^3 t)."
+      "Bound-state tails: c_n(t) is the normalized left-tail coefficient, tilde c_n(t) the right-tail coefficient; psi_n~c_n(t) exp(kappa_n x) at minus infinity and ~tilde c_n(t) exp(-kappa_n x) at plus infinity. Left coefficient evolves by exp(-4 kappa_n^3 t), right by exp(+4 kappa_n^3 t).",
+      "Residues: join endpoint-decaying solutions at a nonnodal origin with value 1. Δ(E) is their right-minus-left slope difference and the required point-potential strength g. First-order energy shift δE=g|ψ_n(0)|² gives ∂EΔ=1/|ψ_n(0)|², the full-space norm of the point-normalized state. W=f_-(0,-k)f_+(0,k)Δ(k²) gives Res[a f_+]=i c_n² f_-. Matching and point-potential energy-response figures support this route; no differentiated-Wronskian detour or separate Green supplement."
     ],
     "new_or_unconfirmed": [
       "Jost解の規格化・Volterra核表示・逆散乱法で使う解析性、束縛状態と散乱係数の極・留数の関係を既知とは置かない。既知のSchrödinger方程式の概念と、このノート固有の未導入な対象・規約を区別する。",
       "分布・L1記法はフーリエ変換の基本を知ることだけから全細部を既知としない。使用する恒等式と条件を局所的に回復する。",
       "標準結果の証明の全細部を一律に要求しない。ただし今回の推論で使う内容、適用条件、数学的接続を、名や引用だけで代用しない。",
-      "Green関数は点源応答と(k²−L)の逆演算子の積分核として局所導入する。固有状態への射影の作用を内積と固有関数の積で説明し、固有状態表示と境界条件表示の同じGを比較して透過波の留数を導く。"
+      "点ポテンシャルの傾きの跳びとエネルギー応答は、分布微分と一次の固有値方程式から局所的に導く。左右の積分がノルムになる理由を一つの固有状態の摂動論として説明する。"
     ],
     "probes": [
       {
