@@ -3,12 +3,13 @@ import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
-const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5,1,2,5,10,20]},{id:'zoom',title:'Near the matching point',range:.1,ys:[.7,.8,.9,.95,.98,.99,.994,.996,.998,1,1.002,1.004,1.006,1.01,1.02,1.05,1.1,1.2,1.3]}];
+const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5,1,2,5,10,20]}];
 ---
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
   <label for="matching-wave-number"><span set:html={tex('k^2')} /><output data-matching-energy>−1.250</output></label>
   <input id="matching-wave-number" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Squared wave number" />
   <button type="button" data-matching-bound set:html={tex('\\text{Bound state: }k^2=-1')} />
+  <div class="endpoint-w"><span set:html={tex('W(k)=' )} /><output data-matching-w></output></div>
   <div class="endpoint-legend"><span class="endpoint-solid" aria-hidden="true"></span><span set:html={tex('f_-(x,-k)/f_-(0,-k)')} /></div>
   <div class="endpoint-legend"><span class="endpoint-dashed" aria-hidden="true"></span><span set:html={tex('f_+(x,k)/f_+(0,k)')} /></div>
   {panels.map(panel=><section class="endpoint-panel">
@@ -28,9 +29,8 @@ const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5
     </svg>
   </section>)}
   <div class="endpoint-slopes"><span set:html={tex('\\text{Slope at }x=0')} /><div><span class="endpoint-solid" aria-hidden="true"></span><output data-matching-left-slope></output><span class="endpoint-dashed" aria-hidden="true"></span><output data-matching-right-slope></output></div></div>
-  <div class="endpoint-w"><span set:html={tex('W(k)=' )} /><output data-matching-w></output></div>
   <p data-matching-status role="status" aria-live="polite"></p>
-  <figcaption id="green-matching-caption">実線は左端で、破線は右端で減衰する解。原点での値をそれぞれ1にそろえた。上段は全体、下段は原点付近の拡大図であり、横軸の範囲は固定し、縦軸は二本の曲線全体が収まる範囲へ連続的に調整している。<span set:html={tex('k^2=-1')} /> では傾きも一致し、二本の曲線は全区間で重なる。このとき <span set:html={tex('W=0')} /> となり、両端で減衰する束縛状態が得られる。</figcaption>
+  <figcaption id="green-matching-caption">実線は左端で、破線は右端で減衰する解。原点での値をそれぞれ1にそろえた。横軸の範囲は固定し、縦軸は二本の曲線全体が収まる範囲へ連続的に調整している。<span set:html={tex('k^2=-1')} /> では傾きも一致し、二本の曲線は全区間で重なる。このとき <span set:html={tex('W=0')} /> となり、両端で減衰する束縛状態が得られる。</figcaption>
 </figure>
 <script>
   import { initMatchingFigure } from '../visuals/matching.js';
@@ -51,7 +51,7 @@ const panels=[{id:'full',title:'Full profiles',range:3,ys:[-20,-10,-5,-2,-1,0,.5
 .endpoint-slopes{font-size:14px;display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;justify-content:space-between}
 .endpoint-slopes>div{display:flex;gap:.5rem;align-items:center}
 .endpoint-slopes output{min-width:3.5em;text-align:right}
-.endpoint-w{display:flex;gap:.5rem;align-items:baseline;margin-top:.5rem}
+.endpoint-w{display:flex;justify-content:center;gap:.65rem;align-items:baseline;margin:.5rem 0 1rem;padding:.8rem;border:2px solid var(--accent);border-radius:8px;color:var(--accent);font-size:26px;font-weight:600}.endpoint-w output{min-width:5.5ch;text-align:right}
 .endpoint-matching [data-matching-status]{font-size:14px;min-height:2.8em;margin:.5rem 0}
 .endpoint-matching figcaption{font-size:.9rem;line-height:1.7}
 </style>

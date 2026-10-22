@@ -358,7 +358,11 @@ f(x;E)=\frac{f_-(x,-k)}{f_-(0,-k)}\Theta(-x)
 +\frac{f_+(x,k)}{f_+(0,k)}\Theta(x).
 \tag{matching-def}
 $$
-ここで $\Theta$ は Heaviside 関数である。原点での傾きの差を、右側の傾きから左側の傾きを引いて
+ここで $\Theta$ は Heaviside 関数である。次の図は、この $f(x;E)$ を示す。実線は左の解の $x<0$ の部分、破線は右の解の $x>0$ の部分であり、原点での値はどちらも1である。
+
+<div data-visual-slot="joined-wave"></div>
+
+原点での傾きの差を、右側の傾きから左側の傾きを引いて
 $$
 \Delta(E)=\frac{\partial_xf_+(0,k)}{f_+(0,k)}
 -\frac{\partial_xf_-(0,-k)}{f_-(0,-k)}
@@ -385,7 +389,7 @@ $$
 \partial_E\Delta(E_n)=\frac{1}{|\psi_n(0)|^2}.
 \tag{matching-norm}
 $$
-例えば $u(x)=-2\operatorname{sech}^2x$ では、$E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、$E=-1+\Delta/2+O(\Delta^2)$ である。次の図ではエネルギーを動かすと、それを実現する点ポテンシャルの強さ $\Delta$ も変わる。上段の曲線は、左右で減衰し、原点で値1を持つ一つの接続波形である。その傾きの跳びが $\Delta$ に等しい。下段では、横軸を $\Delta$、縦軸を $E$ として、厳密な固有エネルギーを実線、$\Delta=0$ での接線を破線で示す。塗りつぶした点は選んだ状態である。$\Delta=0$ では接続波形の傾きが連続になり、下段の接線の傾きは $|\psi_1(0)|^2=1/2$ となる。
+例えば $u(x)=-2\operatorname{sech}^2x$ では、$E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、$E=-1+\Delta/2+O(\Delta^2)$ である。次の図は、横軸を $\Delta$、縦軸を $E$ として、厳密な固有エネルギーを実線、$\Delta=0$ での接線を破線で示す。塗りつぶした点は選んだ状態である。スライダーは先ほどの $f$ の図と連動している。接線の傾きは $|\psi_1(0)|^2=1/2$ である。
 
 <div data-visual-slot="point-spectrum"></div>
 

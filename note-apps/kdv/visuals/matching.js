@@ -16,7 +16,7 @@ export function initMatchingFigure(){
         ?'Same value and slope: the two solutions coincide.'
         :'Same value, different slopes: the two solutions are distinct.';
       for(const svg of root.querySelectorAll('[data-matching-panel]')){
-        const full=svg.dataset.matchingPanel==='full',range=full?3:.1;
+        const range=3;
         const [ymin,ymax]=matchingRange(energy,range,response);
         svg.dataset.ymin=String(ymin);svg.dataset.ymax=String(ymax);
         const left=44,right=svg.getBoundingClientRect().width-28,top=10,bottom=180;
@@ -24,7 +24,7 @@ export function initMatchingFigure(){
         const Y=y=>bottom-(y-ymin)*(bottom-top)/(ymax-ymin);
         svg.querySelector('[data-matching-clip]').setAttribute('width',Math.max(0,right-left));
         svg.querySelector('[data-matching-axes]').setAttribute('d',`M${left} ${top} V${bottom} H${right}`);
-        svg.querySelector('[data-matching-guides]').setAttribute('d',`M${X(0)} ${top} V${bottom} M${left} ${Y(full?0:1)} H${right}`);
+        svg.querySelector('[data-matching-guides]').setAttribute('d',`M${X(0)} ${top} V${bottom} M${left} ${Y(0)} H${right}`);
         for(const side of ['left','right']){
           const d=Array.from({length:241},(_,i)=>{
             const x=-range+2*range*i/240;
@@ -33,7 +33,7 @@ export function initMatchingFigure(){
           svg.querySelector(`[data-matching-${side}]`).setAttribute('d',d);
         }
         for(const el of svg.querySelectorAll('[data-matching-x]'))el.setAttribute('x',X(Number(el.dataset.matchingX))-21);
-        placeVerticalTicks(svg,'[data-plot-tick]',Y,ymin,ymax,full?[0,1]:[1]);
+        placeVerticalTicks(svg,'[data-plot-tick]',Y,ymin,ymax,[0,1]);
         svg.querySelector('[data-matching-axis]').setAttribute('x',right+2);
         svg.querySelector('[data-matching-point]').setAttribute('cx',X(0));
         svg.querySelector('[data-matching-point]').setAttribute('cy',Y(1));

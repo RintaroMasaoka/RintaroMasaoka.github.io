@@ -10,7 +10,7 @@ for (const name of ['traveling', 'collision', 'breakup', 'bound-states', 'determ
   if (!pattern.test(html)) throw new Error(`Missing KdV extra visual slot: ${name}`);
   html = html.replace(pattern, () => visual);
 }
-for (const name of ['contour', 'reconstruction', 'dyson-domain', 'matching', 'point-spectrum']) {
+for (const name of ['contour', 'reconstruction', 'dyson-domain', 'matching', 'joined-wave', 'point-spectrum']) {
   const visual = await Astro.slots.render(name);
   const pattern = new RegExp(`<div\\s+data-visual-slot=["']${name}["']\\s*>\\s*</div>`);
   if (!pattern.test(html)) throw new Error(`Missing KdV visual slot: ${name}`);
