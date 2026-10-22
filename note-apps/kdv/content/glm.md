@@ -376,51 +376,51 @@ $$
 
 前節で極の位置が分かったので、次は透過項 $a(k)f_+(x,k)$ の留数を求める。固有エネルギーから少し離れると、左右の減衰解はそのままではつながらない。その不一致を傾きの差として表し、透過項の分母と結び付けよう。
 
-以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、束縛状態のエネルギー $E_n=-\kappa_n^2$ の近傍を考える。接続点を原点に取り、$\psi_n(0)\ne0$ とする。原点で連続につなぐため、左の解には右の解の原点での値を、右の解には左の解の原点での値を掛ける：
+以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、束縛状態のエネルギー $E_n=-\kappa_n^2$ の近傍を考える。左右の解を接続点での値で割り、値を1にそろえたい。そのため、対応する束縛状態 $\psi_n$ が0でない点を接続点 $x_0$ に選ぶ。固有エネルギーでは両 Jost 解が $\psi_n$ に比例するので、$f_-(x_0,-i\kappa_n)$ と $f_+(x_0,i\kappa_n)$ はともに0でない。連続性により、$E_n$ の十分小さい近傍でも両者は0でなく、次の表示を使える。以後 $x_0$ は固定する。
 $$
-f(x;E)=f_-(x,-k)f_+(0,k)\Theta(-x)
-+f_+(x,k)f_-(0,-k)\Theta(x).
+f(x;E)=\frac{f_-(x,-k)}{f_-(x_0,-k)}\Theta(x_0-x)
++\frac{f_+(x,k)}{f_+(x_0,k)}\Theta(x-x_0).
 \tag{matching-def}
 $$
-$\Theta$ は Heaviside 関数であり、$\Theta(0)=1/2$ とする。原点での値は両側とも $f(0;E)=f_-(0,-k)f_+(0,k)$ となるので、この波形は連続である。一般には左右の傾きが異なる。その差を原点での値で割った量を
+$\Theta$ は Heaviside 関数であり、$\Theta(0)=1/2$ とする。この波形は $f(x_0;E)=1$ で連続だが、一般には左右の傾きが異なる。その差を
 $$
 \begin{aligned}
-\Delta(E)&:=\frac{\partial_xf(0^+;E)-\partial_xf(0^-;E)}{f(0;E)}\\
-&=\frac{\partial_xf_+(0,k)}{f_+(0,k)}
--\frac{\partial_xf_-(0,-k)}{f_-(0,-k)}
+\Delta(E)&:=\partial_xf(x_0^+;E)-\partial_xf(x_0^-;E)\\
+&=\frac{\partial_xf_+(x_0,k)}{f_+(x_0,k)}
+-\frac{\partial_xf_-(x_0,-k)}{f_-(x_0,-k)}
 \end{aligned}
 \tag{matching-slope-difference}
 $$
-と定める。例えば $u(x)=-2\operatorname{sech}^2x$ では、$E=-1$ で傾きも一致し、両端で減衰する束縛状態になる。
+と定める。次の図は $u(x)=-2\operatorname{sech}^2x$、$x_0=0$ の例である。$E=-1$ で傾きも一致し、両端で減衰する束縛状態になる。
 
 <div data-visual-slot="joined-wave"></div>
 
 前節の式 (@wronskian) により、
 $$
 \Delta(E)=
-\frac{\overbrace{f_-(0,-k)\partial_xf_+(0,k)-\partial_xf_-(0,-k)f_+(0,k)}^{W(k)}}
-{f_-(0,-k)f_+(0,k)}.
+\frac{\overbrace{f_-(x_0,-k)\partial_xf_+(x_0,k)-\partial_xf_-(x_0,-k)f_+(x_0,k)}^{W(k)}}
+{f_-(x_0,-k)f_+(x_0,k)}.
 \tag{matching-wronskian-factorization}
 $$
 従って $a=2ik/W$ を使うと、
 $$
 a(k)f_+(x,k)=\frac{2ik}{\Delta(E)}\,
-\frac{f_+(x,k)}{f_-(0,-k)f_+(0,k)}.
+\frac{f_+(x,k)}{f_-(x_0,-k)f_+(x_0,k)}.
 \tag{transmission-from-matching}
 $$
 となる。右辺の比は $E_n$ で有限であり、極の係数は $\Delta(E)$ の零点近傍の変化で決まる。
 
 ### 接続に必要な点ポテンシャル
 
-式 (@matching-def) の波形は原点で連続であり、その傾きの跳びは $W(k)=\Delta(E)f(0;E)$ である。二階の分布微分では
+式 (@matching-def) の波形は $x_0$ で連続であり、その傾きの跳びは $\Delta(E)$ である。二階の分布微分では
 $$
-\partial_x^2 f=(u-E)f+W(k)\delta(x)
+\partial_x^2 f=(u-E)f+\Delta(E)\delta(x-x_0)
 $$
-となる。$f(x;E)\delta(x)=f(0;E)\delta(x)$ より、
+となる。$f(x_0;E)=1$ より、
 $$
 \begin{gathered}
-(L-E)f=-W(k)\delta(x),\\
-[L+\Delta(E)\delta(x)]f=Ef.
+(L-E)f=-\Delta(E)\delta(x-x_0),\\
+[L+\Delta(E)\delta(x-x_0)]f=Ef.
 \end{gathered}
 \tag{matching-point-potential}
 $$
@@ -428,13 +428,13 @@ $$
 
 元の束縛状態 $\psi_n$ を実数値に選び、$\int_{\mathbb R}\psi_n(x)^2dx=1$ と規格化する。点ポテンシャルによる固有関数とエネルギーの一次の変化を $\delta\psi$、$\delta E$ とすると、固有値方程式の一次の項は
 $$
-(L-E_n)\delta\psi+\Delta(E)\delta(x)\psi_n
+(L-E_n)\delta\psi+\Delta(E)\delta(x-x_0)\psi_n
 =\delta E\,\psi_n.
 $$
-両辺に $\psi_n$ を掛けて積分する。$L$ の自己共役性と $(L-E_n)\psi_n=0$ により第一項の積分は0になる。デルタ関数の項の積分は $\Delta(E)|\psi_n(0)|^2$ なので、$\delta E=\Delta(E)|\psi_n(0)|^2$ となる。
+両辺に $\psi_n$ を掛けて積分する。$L$ の自己共役性と $(L-E_n)\psi_n=0$ により第一項の積分は0になる。デルタ関数の項の積分は $\Delta(E)|\psi_n(x_0)|^2$ なので、$\delta E=\Delta(E)|\psi_n(x_0)|^2$ となる。
 したがって、
 $$
-E-E_n=\Delta(E)\,|\psi_n(0)|^2+O(\Delta(E)^2).
+E-E_n=\Delta(E)\,|\psi_n(x_0)|^2+O(\Delta(E)^2).
 \tag{matching-norm}
 $$
 が成り立つ。この関係を透過項の極係数に使う。
@@ -449,18 +449,19 @@ c_n^{-2}=\int_{\mathbb R}f_-(z,-i\kappa_n)^2\,dz
 \end{gathered}
 \tag{bound-normalization}
 $$
-とする。$E\to E_n$ で $f_+(x,k)/f_+(0,k)\to\psi_n(x)/\psi_n(0)$ だから、式 (@transmission-from-matching) と (@matching-norm) より
+とする。$E\to E_n$ で $f_+(x,k)/f_+(x_0,k)\to\psi_n(x)/\psi_n(x_0)$ だから、式 (@transmission-from-matching) と (@matching-norm) より
 $$
 \begin{aligned}
 \frac{a(k)f_+(x,k)}{2ik}
-&=\frac{f_+(x,k)}{f_+(0,k)f_-(0,-k)}\,
+&=\frac{f_+(x,k)}{f_+(x_0,k)f_-(x_0,-k)}\,
 \frac{1}{\Delta(E)}\\
-&=\underbrace{\frac{\psi_n(0)}{f_-(0,-i\kappa_n)}}_{c_n}
+&=\underbrace{\frac{\psi_n(x_0)}{f_-(x_0,-i\kappa_n)}}_{c_n}
 \frac{\psi_n(x)}{E-E_n}+O(1)\\
 &=\frac{c_n\psi_n(x)}{E-E_n}+O(1).
 \end{aligned}
 \tag{transmission-energy-pole}
 $$
+極係数 $c_n\psi_n(x)$ は、接続点 $x_0$ の選択に依存しない。
 最後に $E-E_n=(k-i\kappa_n)(k+i\kappa_n)$ なので
 $$
 \frac{2ik}{E-E_n}=\frac{i}{k-i\kappa_n}+O(1).
@@ -472,18 +473,18 @@ $$
 \tag{transmission-residue}
 $$
 
-この一次摂動関係は、$u(x)=-2\operatorname{sech}^2x$ の、束縛状態を一つ持つ例でも確かめられる。この場合 $E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、原点では $E=-1+\Delta/2+O(\Delta^2)$ となる。下図は厳密な関係と一次摂動を比較する。
+この一次摂動関係は、$u(x)=-2\operatorname{sech}^2x$ の、束縛状態を一つ持つ例でも確かめられる。この場合 $E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、接続点を $x_0=0$ に取ると $E=-1+\Delta/2+O(\Delta^2)$ となる。下図は厳密な関係と一次摂動を比較する。
 
 <div data-visual-slot="point-spectrum"></div>
 
 <details>
 <summary>図に使った厳密解</summary>
 
-$E=-\kappa^2$（$\kappa>0$）とすると、この例の接続波形は
+$E=-\kappa^2$（$\kappa>0$）とすると、この例で $x_0=0$ とした接続波形は
 $$
-f(x;E)=e^{-\kappa|x|}\frac{\kappa(\kappa+\tanh|x|)}{(\kappa+1)^2}.
+f(x;E)=e^{-\kappa|x|}\frac{\kappa+\tanh|x|}{\kappa}.
 $$
-原点での値は $f(0;E)=\kappa^2/(\kappa+1)^2$ である。左右の傾きの差をこの値で割ると
+この図では $x_0=0$ であり、$f(x_0;E)=1$ となる。左右の傾きの差から
 $$
 \begin{gathered}
 \Delta(E)=2(\kappa^{-1}-\kappa),\\

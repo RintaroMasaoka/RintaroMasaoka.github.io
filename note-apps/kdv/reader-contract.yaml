@@ -189,8 +189,8 @@
   },
   "visualExamples": {
     "wronskian": "Centered u=-6 sech²x; focus E=-1 in [-1.5,-.5]. Signed linear Jost profiles, each positively rescaled to unit maximum absolute value on [-4,4]. Physical W with ordinary readout; one selectable excited state. Native responsive coordinates retain 14px labels without transform scaling, with simplified decoration.",
-    "joinedWave": "Independent u=-2 sech²x example. Product-weighted joined wave f(x;E), f(0;E)=kappa²/(kappa+1)², with no division by Jost endpoint values. Origin fixed, E in [-1.75,-.25], one E=-1 reset button. Left/right halves have solid/dashed curves. No maximum-value rescaling.",
+    "joinedWave": "Independent u=-2 sech²x illustration with x_0=0 explicitly stated. f(x;E) uses each Jost solution divided by its value at the chosen x_0; f(x_0;E)=1. No position slider or max-value rescaling. The mathematical derivation fixes an arbitrary nonnodal x_0 and works only near the selected bound energy.",
     "energyResponse": "u=-2 sech²x, origin fixed; E1=-1. Exact energy response and first-order tangent.",
-    "notation": "Section7 matching point is the origin, with psi_n(0) nonzero for the point-potential residue argument. Product construction has derivative jump W. Delta(E)=W/f(0;E) is jump per matching value and point-potential strength, not the raw jump. Earlier x_* is only the finite interaction-picture starting point."
+    "notation": "Section7 uses x_0 for a chosen fixed matching point, with psi_n(x_0) nonzero. Continuity ensures Jost denominators stay nonzero near E_n. f(x_0;E)=1; Delta(E) is the raw derivative jump and point-potential strength. x_0 is suppressed as a fixed parameter in f and Delta. Final residue independent of x_0. Earlier x_* remains the interaction-picture starting point. Numerical illustrations explicitly specialize x_0=0."
   }
 }

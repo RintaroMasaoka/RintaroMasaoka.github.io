@@ -1,7 +1,7 @@
 import {fittedRange,placeVerticalTicks} from './plot-range.js';
-export const pointCoupling=energy=>2/Math.sqrt(-energy)-2*Math.sqrt(-energy);
+export const pointCoupling=(energy,x0=0)=>{const q=Math.sqrt(-energy),t=Math.tanh(x0),d=1-t*t;return -2*q+d/(q+t)+d/(q-t);};
 export const pointEnergy=delta=>-(((Math.sqrt(delta*delta+16)-delta)/4)**2);
-export function pointProfile(energy,x){const q=Math.sqrt(-energy),r=Math.abs(x);return Math.exp(-q*r)*q*(q+Math.tanh(r))/(q+1)**2;}
+export function pointProfile(energy,x,x0=0){const q=Math.sqrt(-energy),t=Math.tanh(x0);return x<=x0?Math.exp(q*(x-x0))*(q-Math.tanh(x))/(q-t):Math.exp(-q*(x-x0))*(q+Math.tanh(x))/(q+t);}
 
 export function initPointSpectrum(){
   document.querySelectorAll('[data-point-spectrum]').forEach(root=>{
@@ -12,7 +12,7 @@ export function initPointSpectrum(){
       root.querySelector('[data-point-energy]').textContent=energy.toFixed(3);
       const readout=root.querySelector('[data-point-coupling]');if(readout)readout.textContent=delta.toFixed(3);
       root.querySelector('[data-point-status]').textContent=root.dataset.pointMode==='wave'
-        ?(Math.abs(delta)<1e-9?'Continuous value and slope at the origin.':'Continuous value, different slopes at the origin.')
+        ?(Math.abs(delta)<1e-9?'Continuous value and slope at the matching point.':'Continuous value, different slopes at the matching point.')
         :Math.abs(delta)<1e-9?'No point potential: the slope is continuous.':delta>0?'Positive point potential: the slope jumps upward.':'Negative point potential: the slope jumps downward.';
       for(const svg of root.querySelectorAll('svg[data-point-panel]')){
         const wave=svg.dataset.pointPanel==='wave';

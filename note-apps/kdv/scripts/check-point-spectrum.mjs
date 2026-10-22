@@ -26,9 +26,15 @@ for(let j=0;j<=1500;j++){
  assert.ok(delta>=-1.25&&delta<=3.25,'energy-response marker fits horizontal axis');
 }
 
-// Product construction remains finite and tends to zero as E approaches threshold.
-for(const q of [1e-2,1e-4,1e-8,0]){
- const E=-q*q;for(const x of [-4,0,4])assert.ok(Number.isFinite(pointProfile(E,x)));
- assert.ok(Math.abs(pointProfile(E,0)-q*q/(q+1)**2)<1e-14);
+// Nonnodal matching points: normalized values, slope jumps and local energy response.
+for(const x0 of [-1.2,-.4,.7,1.3]){
+ for(const E of [-1.0001,-1,-.9999]){
+  assert.ok(Math.abs(pointProfile(E,x0,x0)-1)<1e-12);
+  const h=1e-5,f=x=>pointProfile(E,x,x0);
+  const right=(-3*f(x0)+4*f(x0+h)-f(x0+2*h))/(2*h);
+  const left=(3*f(x0)-4*f(x0-h)+f(x0-2*h))/(2*h);
+  assert.ok(Math.abs(right-left-pointCoupling(E,x0))<1e-7);
+ }
+ const de=1e-6,derivative=(pointCoupling(-1+de,x0)-pointCoupling(-1-de,x0))/(2*de);
+ assert.ok(Math.abs(derivative/(2*Math.cosh(x0)**2)-1)<1e-7,'local point density gives inverse energy response');
 }
-assert.ok(Math.abs(pointProfile(-1,0)-.25)<1e-14);
