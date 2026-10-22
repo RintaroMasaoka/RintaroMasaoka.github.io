@@ -1,6 +1,6 @@
 {
   "reader_contract": {
-    "version": 26,
+    "version": 27,
     "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
@@ -185,6 +185,21 @@
         "Show the one-soliton potential as -8 kappa_1^2 C11/(1+C11)^2 before using C11=1 as center.",
         "Define C_SS and explain column multilinearity and identity-column cofactor expansion in the principal-minor disclosure."
       ]
+    },
+    "hierarchy_dressing_route": {
+      "scope": "§4: KからS、微分P、高次KdV階層へ進む。",
+      "entry": "左核のJost表示とu=2 dK(x,x)/dxは前段で成立。擬微分作用素・その形式逆は既知として扱わない。",
+      "order": [
+        "Kによる積分変換をSと定義する",
+        "左反微分、非可換積、形式級数を導入する",
+        "Sの大波数展開を述べる",
+        "同じJost解の固有値関係からLS=S(-∂x²)を得る",
+        "形式逆S⁻¹を導入しP=S∂xS⁻¹、P²=-Lを導く",
+        "高次KdV流と保存量へ進む"
+      ],
+      "conventions": "L=-∂x²+u、P²=-L、B_n=(P^n)_≥0、t1=x、t3=-4t。前段の物理時間tを保持。",
+      "formal_scope": "Kからの表示は大波数展開。一般の負冪級数は形式積で扱い、収束を前提にしない。",
+      "spec": "reviews/kdv-sato-voa/hierarchy.spec.md"
     }
   },
   "visualExamples": {

@@ -4,7 +4,7 @@ const chapter = (await Astro.slots.render('glm')).replace(/<h2(\s[^>]*)?>\d+\.\s
 const chapterPattern = /<div\s+data-chapter-slot=["']glm["']\s*>\s*<\/div>/;
 if (!chapterPattern.test(html)) throw new Error('Missing KdV GLM chapter slot');
 html = html.replace(chapterPattern, () => chapter);
-for (const name of ['traveling', 'collision', 'breakup', 'bound-states', 'determinant', 'scattering-intro', 'bound-tail-intro']) {
+for (const name of ['traveling', 'collision', 'breakup', 'bound-states', 'determinant', 'scattering-intro', 'bound-tail-intro', 'dressing']) {
   const visual = await Astro.slots.render(name);
   const pattern = new RegExp(`<div\\s+data-extra-visual=["']${name}["']\\s*>\\s*</div>`);
   if (!pattern.test(html)) throw new Error(`Missing KdV extra visual slot: ${name}`);

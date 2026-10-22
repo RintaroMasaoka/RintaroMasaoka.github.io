@@ -10,3 +10,6 @@ console.log('KdV scattering source and assembled reading path agree.');
 const reflectionless=readFileSync(resolve('note-apps/kdv/content/sections/reflectionless.md'),'utf8').trim();
 assert.equal(full.slice(full.indexOf('### 3.4.'),full.indexOf('## 4.')).trim(),reflectionless,'§§3.4–3.5 assembled content differs from canonical reflectionless.md; update both before publication.');
 console.log('KdV reflectionless source and assembled reading path agree.');
+const hierarchy=readFileSync(resolve('note-apps/kdv/content/sections/hierarchy.md'),'utf8').trim();
+assert.equal(full.slice(full.indexOf('## 4.'),full.indexOf('## 参考文献')).trim(),hierarchy,'§4 assembled content differs from canonical hierarchy.md; update both before publication.');
+console.log('KdV hierarchy source and assembled reading path agree.');

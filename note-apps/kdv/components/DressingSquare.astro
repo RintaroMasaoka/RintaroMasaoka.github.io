@@ -1,0 +1,41 @@
+---
+import { createRequire } from 'node:module';
+const require = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
+---
+<figure id="dressing-square" class="dressing-square" aria-labelledby="dressing-caption">
+  <div class="square" role="img" aria-label="自由な関数gを先に微分してSを作用させても、先にSを作用させてPを作用させても、S(∂x g)になる。横矢印はS、左の下向き矢印は∂x、右はP。">
+    <div class="column-name" set:html={tex('\\text{Free}')} />
+    <div></div>
+    <div class="column-name" set:html={tex('\\text{Potential}')} />
+    <div class="node" set:html={tex('g')} />
+    <div class="horizontal" aria-hidden="true"><span set:html={tex('S')} /><i></i></div>
+    <div class="node" set:html={tex('Sg')} />
+    <div class="vertical" aria-hidden="true"><i></i><span set:html={tex('\\partial_x')} /></div>
+    <div></div>
+    <div class="vertical" aria-hidden="true"><i></i><span set:html={tex('P')} /></div>
+    <div class="node" set:html={tex('\\partial_x g')} />
+    <div class="horizontal" aria-hidden="true"><span set:html={tex('S')} /><i></i></div>
+    <div class="node" set:html={tex('S(\\partial_xg)')} />
+  </div>
+  <figcaption id="dressing-caption">左列で微分してから <span set:html={tex('S')} /> を作用させる経路と、先に <span set:html={tex('S')} /> を作用させて右列で <span set:html={tex('P')} /> を作用させる経路は、同じ関数 <span set:html={tex('S(\\partial_xg)')} /> に至る。</figcaption>
+</figure>
+<style>
+  .dressing-square { margin: 1.6rem 0; color: var(--ink); width: 100%; }
+  .square { display: grid; grid-template-columns: minmax(0,1fr) 64px minmax(0,1fr); grid-template-rows: 30px 52px 82px 52px; max-width: 420px; margin: 0 auto; align-items: center; }
+  .node, .column-name { text-align: center; min-width: 0; }
+  .node { font-size: 21px; }
+  .column-name { font-size: 16px; color: var(--muted); }
+  .horizontal { position: relative; align-self: stretch; display: flex; justify-content: center; font-size: 19px; color: var(--accent); }
+  .horizontal span { position: absolute; top: -2px; }
+  .horizontal i { position: absolute; height: 1.5px; background: currentColor; left: 2px; right: 2px; top: 30px; }
+  .horizontal i::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1.5px solid; border-right: 1.5px solid; transform: rotate(45deg); }
+  .vertical { position: relative; height: 100%; color: var(--accent); font-size: 19px; }
+  .vertical i { position: absolute; width: 1.5px; background: currentColor; top: 6px; bottom: 6px; left: 50%; }
+  .vertical i::after { content: ''; position: absolute; bottom: 0; left: -3px; width: 7px; height: 7px; border-bottom: 1.5px solid; border-right: 1.5px solid; transform: rotate(45deg); }
+  .vertical span { position: absolute; left: calc(50% + 12px); top: 26px; }
+  .dressing-square :global(.katex) { color: inherit; }
+  .dressing-square figcaption { margin-top: 16px; color: var(--muted); font-size: .88rem; line-height: 1.75; }
+  @media (max-width: 400px) { .square { grid-template-columns: minmax(0,1fr) 44px minmax(0,1fr); } .node { font-size: 18px; } }
+</style>
