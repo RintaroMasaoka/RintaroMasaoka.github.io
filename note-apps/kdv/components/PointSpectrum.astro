@@ -10,16 +10,19 @@ const figureId=wave?'joined-f-caption':'point-spectrum-caption';
 const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1,2,5,10],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'\\Delta'}].filter(panel=>panel.id===(wave?'wave':'energy'));
 ---
 <figure class="point-spectrum" data-point-spectrum data-point-mode={mode} aria-labelledby={figureId}>
-  {wave?<BoundStateControls id="point-wave-energy" />:<Fragment>
+  {wave?<Fragment><BoundStateControls id="point-wave-energy" />
+    <label for="point-position"><span set:html={tex('x_*')} /><output data-point-position-output>1.00</output></label>
+    <input id="point-position" data-point-position type="range" min="-2" max="2" step=".01" value="1" aria-label="Matching point" />
+  </Fragment>:<Fragment>
   <label for="point-energy-energy"><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
   <input id="point-energy-energy" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Spectral energy" />
   <button type="button" set:html={tex('\\text{Original state: }\\Delta=0')} />
   </Fragment>}
   {!wave&&<div class="point-readout"><span set:html={tex('\\Delta=' )} /><output data-point-coupling></output></div>}
   {panels.map(panel=><section>
-    <div class="point-heading" set:html={tex(wave?'f(x;E)':`\\text{${panel.title}}`)} />
+    <div class="point-heading" set:html={tex(wave?'f(x;E,x_*)':`\\text{${panel.title}}`)} />
     {!wave&&<div class="point-key" set:html={tex('\\psi_1(x)=\\operatorname{sech}x/\\sqrt2,\\quad |\\psi_1(0)|^2=1/2')} />}
-    <div class="point-key" set:html={tex(panel.id==='wave'?'f(0;E)=1':'\\text{Tangent at }\\Delta=0:\\quad E=-1+\\Delta/2')} />
+    <div class="point-key" set:html={tex(panel.id==='wave'?'\\text{Scaled to unit maximum magnitude}':'\\text{Tangent at }\\Delta=0:\\quad E=-1+\\Delta/2')} />
     <svg width="100%" height="224" data-point-panel={panel.id} role="img" aria-label={panel.title}>
       <defs><clipPath id={`point-${panel.id}-clip`}><rect x="46" y="12" width="240" height="170" /></clipPath></defs>
       <path data-point-axes fill="none" stroke="var(--muted)" />
@@ -37,14 +40,14 @@ const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1
     </svg>
   </section>)}
   <p data-point-status role="status" aria-live="polite"></p>
-  <figcaption id={figureId}>{wave?<Fragment>実線は左端で減衰する解の <span set:html={tex('x<0')} /> の部分、破線は右端で減衰する解の <span set:html={tex('x>0')} /> の部分である。原点では両者の値を1にそろえた。エネルギーを変えると原点での傾きが変わり、<span set:html={tex('E=-4,-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
+  <figcaption id={figureId}>{wave?<Fragment>前の図と同じポテンシャルに対し、接続点 <span set:html={tex('x_*')} /> を変えられる。実線は接続点より左、破線は右の部分を示し、縦の点線が接続点である。波形全体は表示区間内の最大絶対値が1になるよう正の定数倍をしている。束縛状態のエネルギーでは、接続点を動かしても全体は同じ固有関数に比例する。ただし、接続点をその固有関数の節に置くと、式の二項がともに0になり、この構成は零関数になる。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
 </figure>
 <script>
 import { initPointSpectrum } from '../visuals/point-spectrum.js';
 initPointSpectrum();
 </script>
 <style>
-.point-spectrum{box-sizing:border-box;min-inline-size:0;width:100%;max-width:480px;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.point-spectrum{box-sizing:border-box;min-inline-size:0;width:100%;margin:2rem auto;padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
 .point-spectrum label{display:flex;justify-content:space-between;align-items:baseline}
 .point-spectrum input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
 .point-spectrum button{min-height:44px;max-width:100%;padding:.4rem .7rem;margin:.2rem 0 .7rem;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}

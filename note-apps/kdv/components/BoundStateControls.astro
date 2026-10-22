@@ -1,4 +1,5 @@
 ---
+import {boundEnergies,energyRange} from '../visuals/two-bound-state.js';
 import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
@@ -7,13 +8,12 @@ const {id}=Astro.props;
 ---
 <div class="bound-controls">
   <div class="bound-choices">
-    <button type="button" data-bound-state="ground" aria-pressed="false" set:html={tex('\\text{Ground state: } E=-4')} />
-    <button type="button" data-bound-state="excited" aria-pressed="true" set:html={tex('\\text{Excited state: } E=-1')} />
+    <button type="button" data-bound-state="ground" data-bound-energy={boundEnergies.ground} aria-pressed="false" set:html={tex(`\\text{Ground state: } E=${boundEnergies.ground}`)} />
+    <button type="button" data-bound-state="excited" data-bound-energy={boundEnergies.excited} aria-pressed="true" set:html={tex(`\\text{Excited state: } E=${boundEnergies.excited}`)} />
   </div>
-  <label for={id}><span set:html={tex('E=k^2')} /><output data-two-energy-output>−1.000</output></label>
-  <input id={id} data-two-energy type="range" min="-1.75" max="-.25" step=".001" value="-1" aria-label="Energy near the selected bound state" />
-  <div class="bound-window" data-bound-window="ground" hidden set:html={tex('-4.4\\le E\\le -3.8')} />
-  <div class="bound-window" data-bound-window="excited" set:html={tex('-1.75\\le E\\le -0.25')} />
+  <label for={id}><span set:html={tex('E=k^2')} /><output data-two-energy-output>−0.810</output></label>
+  <input id={id} data-two-energy type="range" min={energyRange[0]} max={energyRange[1]} step=".001" value={boundEnergies.excited} aria-label="Spectral energy" />
+  <div class="bound-window" set:html={tex(`${energyRange[0]}\\le E\\le ${energyRange[1]}`)} />
 </div>
 <style>
 .bound-controls{inline-size:100%;min-inline-size:0;max-inline-size:100%}

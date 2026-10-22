@@ -1,32 +1,46 @@
-// Exact Jost solutions for u(x)=-6 sech²(x-1), k=i sqrt(-E).
-// Their free-wave amplitudes at their respective infinities are one.
+// Symmetric reflectionless potential u=-2 d²/dx² log[cosh(2x)+10 cosh(x/5)].
+// Two Darboux seeds: cosh(.9x), sinh(1.1x); Jost amplitudes at infinity are one.
+const lower=.9,upper=1.1;
+export const boundEnergies={ground:-1.21,excited:-.81};
+const gap=boundEnergies.excited-boundEnergies.ground;
+// Equal half-gap context outside the two eigenvalues, rather than an inherited viewport.
+export const energyRange=[Number((boundEnergies.ground-gap/2).toFixed(2)),Number((boundEnergies.excited+gap/2).toFixed(2))];
 export function twoBoundResponse(energy,x){
-  const q=Math.sqrt(-energy),t=Math.tanh(x-1),t0=Math.tanh(-1),d=(q+1)*(q+2);
-  const p=t=>q*q-1+3*q*t+3*t*t;
-  const l0=p(-t0)/d,r0=p(t0)/d;
-  const left=Math.exp(q*x)*p(-t)/d/l0,right=Math.exp(-q*x)*p(t)/d/r0;
-  const leftSlope=(q*p(-t0)-(3*q-6*t0)*(1-t0*t0))/d/l0;
-  const rightSlope=(-q*p(t0)+(3*q+6*t0)*(1-t0*t0))/d/r0;
-  const W=(q===1||q===2)?0:-2*q*(q-1)*(q-2)/d;
-  return {left,right,leftSlope,rightSlope,W,leftAtZero:l0,rightAtZero:r0};
+  const q=Math.sqrt(-energy),a=lower,b=upper;
+  const c1=Math.cosh(a*x),s1=Math.sinh(a*x),c2=Math.cosh(b*x),s2=Math.sinh(b*x);
+  const seed=b*c1*c2-a*s1*s2,diff=b*b-a*a;
+  const w=diff*c1*s2/seed;
+  const wx=diff*(a*s1*s2+b*c1*c2)/seed-w*w;
+  const Q=a*b*(b*s1*s2-a*c1*c2)/seed;
+  const Qx=a*b*diff*s1*c2/seed-Q*w,d=(q+a)*(q+b);
+  const left=Math.exp(q*x)*(q*q-q*w+Q)/d,right=Math.exp(-q*x)*(q*q+q*w+Q)/d;
+  const leftDx=Math.exp(q*x)*(q*(q*q-q*w+Q)-q*wx+Qx)/d;
+  const rightDx=Math.exp(-q*x)*(-q*(q*q+q*w+Q)+q*wx+Qx)/d;
+  const W=(Math.abs(energy-boundEnergies.ground)<1e-13||Math.abs(energy-boundEnergies.excited)<1e-13)?0:-2*q*(q-a)*(q-b)/d;
+  return {left,right,leftDx,rightDx,W,potential:-2*wx};
 }
-export const joinedProfile=(energy,x)=>twoBoundResponse(energy,x)[x<=0?'left':'right'];
-export const boundWindows={ground:[-4.4,-3.8,-4],excited:[-1.75,-.25,-1]};
+export function joinedProfile(energy,x,point=1){
+  const at=twoBoundResponse(energy,point),r=twoBoundResponse(energy,x);
+  return x<=point?r.left*at.right:r.right*at.left;
+}
+export function matchingData(energy,point){
+  const r=twoBoundResponse(energy,point),value=r.left*r.right;
+  return {value,jump:r.W,delta:Math.abs(value)<1e-14?null:r.W/value};
+}
+export function profileScales(energy){
+  const samples=Array.from({length:401},(_,i)=>twoBoundResponse(energy,-4+8*i/400));
+  return {left:Math.max(...samples.map(r=>Math.abs(r.left))),right:Math.max(...samples.map(r=>Math.abs(r.right)))};
+}
 export function bindBoundControls(root,draw){
   const slider=root.querySelector('[data-two-energy]');
-  let state='excited';
-  const apply=(next,energy)=>{
-    state=next;const [min,max]=boundWindows[state];slider.min=String(min);slider.max=String(max);slider.value=String(energy);
-    root.querySelectorAll('[data-bound-window]').forEach(el=>{el.hidden=el.dataset.boundWindow!==state;});
-    root.querySelectorAll('[data-bound-state]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.boundState===state)));
+  const update=energy=>{
+    slider.value=String(energy);
+    root.querySelectorAll('[data-bound-state]').forEach(el=>el.setAttribute('aria-pressed',String(Math.abs(energy-Number(el.dataset.boundEnergy))<1e-9)));
     draw();
   };
-  const publish=()=>document.dispatchEvent(new CustomEvent('kdv:bound-energy',{detail:{state,energy:Number(slider.value)}}));
-  slider.addEventListener('input',()=>{draw();publish()});
-  root.querySelectorAll('[data-bound-state]').forEach(button=>button.addEventListener('click',()=>{
-    apply(button.dataset.boundState,boundWindows[button.dataset.boundState][2]);publish();
-  }));
-  document.addEventListener('kdv:bound-energy',event=>apply(event.detail.state,event.detail.energy));
-  apply(state,-1);
-  return slider;
+  const publish=()=>document.dispatchEvent(new CustomEvent('kdv:bound-energy',{detail:Number(slider.value)}));
+  slider.addEventListener('input',()=>{update(Number(slider.value));publish()});
+  root.querySelectorAll('[data-bound-state]').forEach(button=>button.addEventListener('click',()=>{update(Number(button.dataset.boundEnergy));publish()}));
+  document.addEventListener('kdv:bound-energy',event=>update(event.detail));
+  update(boundEnergies.excited);
 }
