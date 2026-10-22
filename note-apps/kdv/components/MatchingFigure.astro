@@ -8,17 +8,6 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
 ---
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
   <BoundStateControls id="matching-wave-number" />
-  <div class="endpoint-w"><span set:html={tex('W(k)=' )} /><output data-matching-w></output></div>
-  <svg width="100%" height="184" data-w-spectrum role="img" aria-label="Wronskian versus energy with one excited-state zero">
-    <path data-w-axes fill="none" stroke="var(--muted)" />
-    <path data-w-zero fill="none" stroke="var(--line)" stroke-dasharray="3 4" />
-    <path data-w-curve fill="none" stroke="var(--accent)" stroke-width="2.5" />
-    {[-1].map(e=><circle data-w-root={e} r="3.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="2" />)}
-    <circle data-w-selected r="4" fill="var(--accent)" />
-    {[-1].map(e=><foreignObject data-w-energy={e} width="50" height="25" y="148"><div class="endpoint-tex" set:html={tex(String(e))} /></foreignObject>)}
-    {[-.1,0,.05].map(y=><foreignObject data-w-tick={y} data-plot-tick={y} width="44" height="25" x="0"><div class="endpoint-tex" set:html={tex(String(y))} /></foreignObject>)}
-    <foreignObject data-w-energy-axis width="24" height="25" y="125"><div class="endpoint-tex" set:html={tex('E')} /></foreignObject>
-  </svg>
   <div class="endpoint-legend"><span class="endpoint-solid" aria-hidden="true"></span><span set:html={tex('f_-(x,-k)')} /></div>
   <div class="endpoint-legend"><span class="endpoint-dashed" aria-hidden="true"></span><span set:html={tex('f_+(x,k)')} /></div>
   {panels.map(panel=><section class="endpoint-panel">
@@ -37,7 +26,7 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
     </svg>
   </section>)}
   <p data-matching-status role="status" aria-live="polite"></p>
-  <figcaption id="green-matching-caption">上段は <span set:html={tex('W(k)')} /> のエネルギー依存性、丸印は励起状態 <span set:html={tex('E=-1')} /> を示す。下段は左右の Jost 解を符号を保って描いたもので、それぞれ表示区間での最大絶対値が1になるよう正の定数倍をしている。<span set:html={tex('E=-1')} /> では二つの解は逆符号で比例し、原点に節を一つ持つ。</figcaption>
+  <figcaption id="green-matching-caption">左右の Jost 解を符号を保って描いている。それぞれ表示区間での最大絶対値が1になるよう正の定数倍をしている。<span set:html={tex('E=-1')} /> では二つの解は逆符号で比例し、原点に節を一つ持つ。</figcaption>
 </figure>
 <script>
   import { initMatchingFigure } from '../visuals/matching.js';
@@ -58,7 +47,6 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
 .endpoint-slopes{font-size:14px;display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;justify-content:space-between}
 .endpoint-slopes>div{display:flex;gap:.5rem;align-items:center}
 .endpoint-slopes output{min-width:3.5em;text-align:right}
-.endpoint-w{display:flex;justify-content:flex-end;gap:.4rem;align-items:baseline;margin:.3rem 0;color:var(--ink);font-size:15px;font-weight:400}.endpoint-w output{min-width:5.5ch;text-align:right}
 .endpoint-matching :global(.bound-choices button){border:0;border-radius:0;background:transparent;box-shadow:none;border-bottom:1px solid transparent}
 .endpoint-matching :global(.bound-choices button[aria-pressed="true"]){border-color:var(--ink);box-shadow:none}
 

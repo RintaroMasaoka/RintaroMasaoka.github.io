@@ -52,7 +52,7 @@ The kernel K collects the plane-wave weights of all ordered potential correction
 
 ## Wronskian matching and bound-state residues
 
-The bound-state pole discussion (§3.2.3) uses `MatchingFigure.astro` / `visuals/matching.js` for centered u=-6 sech²x, focusing on the excited state E=-1 over [-1.5,-.5]. Signed Jost profiles use linear axes; each is multiplied by a positive constant to have unit maximum absolute value on [-4,4]. W remains the physical endpoint-normalized Wronskian, with ordinary typography. The next figure uses a separate one-state example and a fixed origin.
+The bound-state pole discussion (§3.2.3) uses `MatchingFigure.astro` / `visuals/matching.js` for centered u=-6 sech²x, focusing on the excited state E=-1 over [-1.5,-.5]. Signed Jost profiles use linear axes; each is multiplied by a positive constant to have unit maximum absolute value on [-4,4]. The figure displays the signed Jost profiles only; W=0 remains in the mathematical discussion and proportionality status. The next figure uses a separate one-state example and a fixed origin.
 
 The matching/residue argument (§3.2.4–3.2.6) fixes a nonnodal matching point x_0 and normalizes each Jost solution by its value there. The common value is f(x_0;E)=1 and the derivative jump is Delta(E)=W/[f_-(x_0,-k)f_+(x_0,k)], also the point-potential strength. The text justifies nonvanishing denominators locally near E_n before defining f. The joined-wave figure uses centered u=-2 sech²x and explicitly specializes x_0=0. The joined waveform has unit matching value, no position slider and no max normalization. Generic norm response and residue cancellation retain x_0; final residue independent of it. Native responsive coordinates preserve label sizes.
 
