@@ -9,6 +9,8 @@ $$
 $$
 この左端振幅 $c_n(t)$ が、束縛状態の規格化定数である。
 
+<div data-extra-visual="bound-tail-intro"></div>
+
 散乱状態では $\lambda=k^2$ とし、左から入射する解を選ぶ。その遠方での形を
 $$
 \psi(x,t)\sim
