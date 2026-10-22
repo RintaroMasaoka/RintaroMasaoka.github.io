@@ -3,16 +3,16 @@ import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
-const panels=[{id:'wave',title:'Joined bound state',xs:[-4,0,4],ys:[0,.5,1,1.5,2],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'g'}];
+const panels=[{id:'wave',title:'Joined bound state',xs:[-4,0,4],ys:[0,.5,1,1.5,2],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'\\Delta'}];
 ---
 <figure class="point-spectrum" data-point-spectrum aria-labelledby="point-spectrum-caption">
   <label for="point-spectrum-energy"><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
   <input id="point-spectrum-energy" type="range" min="-1.75" max="-.25" step=".001" value="-1.25" aria-label="Bound-state energy" />
-  <button type="button" set:html={tex('\\text{Original state: }g=0')} />
-  <div class="point-readout"><span set:html={tex('g=\\Delta(E)=' )} /><output data-point-coupling></output></div>
+  <button type="button" set:html={tex('\\text{Original state: }\\Delta=0')} />
+  <div class="point-readout"><span set:html={tex('\\Delta=' )} /><output data-point-coupling></output></div>
   {panels.map(panel=><section>
     <div class="point-heading" set:html={tex(`\\text{${panel.title}}`)} />
-    <div class="point-key" set:html={tex(panel.id==='wave'?'f(0;E)=1':'\\text{Tangent at }g=0:\\quad E=-1+g/2')} />
+    <div class="point-key" set:html={tex(panel.id==='wave'?'f(0;E)=1':'\\text{Tangent at }\\Delta=0:\\quad E=-1+\\Delta/2')} />
     <svg width="100%" height="224" data-point-panel={panel.id} role="img" aria-label={panel.title}>
       <defs><clipPath id={`point-${panel.id}-clip`}><rect x="46" y="12" width="240" height="170" /></clipPath></defs>
       <path data-point-axes fill="none" stroke="var(--muted)" />
@@ -29,7 +29,7 @@ const panels=[{id:'wave',title:'Joined bound state',xs:[-4,0,4],ys:[0,.5,1,1.5,2
     </svg>
   </section>)}
   <p data-point-status role="status" aria-live="polite"></p>
-  <figcaption id="point-spectrum-caption">上段は <span set:html={tex('L+g\\delta(x)')} /> の束縛状態を原点で値1にそろえた波形。下段の実線は固有エネルギー、破線は点ポテンシャルがない状態（白丸）での接線である。接線の傾き <span set:html={tex('\\left.\\partial_gE\\right|_{g=0}=1/2')} /> は、規格化された束縛状態の原点での確率密度に等しい。塗りつぶした点が選択中の状態を示す。横軸の範囲は固定し、縦軸は表示する曲線全体に合わせている。上段では、波形の変化に応じて縦軸も連続的に変わる。</figcaption>
+  <figcaption id="point-spectrum-caption">上段は <span set:html={tex('L+\\Delta\\delta(x)')} /> の束縛状態を原点で値1にそろえた波形。下段の実線は固有エネルギー、破線は点ポテンシャルがない状態（白丸）での接線である。接線の傾き <span set:html={tex('\\left.\\partial_{\\Delta}E\\right|_{\\Delta=0}=1/2')} /> は、規格化された束縛状態の原点での確率密度に等しい。塗りつぶした点が選択中の状態を示す。横軸の範囲は固定し、縦軸は表示する曲線全体に合わせている。上段では、波形の変化に応じて縦軸も連続的に変わる。</figcaption>
 </figure>
 <script>
 import { initPointSpectrum } from '../visuals/point-spectrum.js';

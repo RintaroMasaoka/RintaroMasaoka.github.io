@@ -1,6 +1,6 @@
 import {fittedRange,placeVerticalTicks} from './plot-range.js';
 export const pointCoupling=energy=>2/Math.sqrt(-energy)-2*Math.sqrt(-energy);
-export const pointEnergy=g=>-(((Math.sqrt(g*g+16)-g)/4)**2);
+export const pointEnergy=delta=>-(((Math.sqrt(delta*delta+16)-delta)/4)**2);
 export function pointProfile(energy,x){const q=Math.sqrt(-energy),r=Math.abs(x);return Math.exp(-q*r)*(q+Math.tanh(r))/q;}
 
 export function initPointSpectrum(){
@@ -8,10 +8,10 @@ export function initPointSpectrum(){
     if(root.dataset.initialized)return;root.dataset.initialized='true';
     const slider=root.querySelector('input');
     const draw=()=>{
-      const energy=Number(slider.value),g=pointCoupling(energy);
+      const energy=Number(slider.value),delta=pointCoupling(energy);
       root.querySelector('[data-point-energy]').textContent=energy.toFixed(3);
-      root.querySelector('[data-point-coupling]').textContent=g.toFixed(3);
-      root.querySelector('[data-point-status]').textContent=Math.abs(g)<1e-9?'No point potential: the slope is continuous.':g>0?'Positive point potential: the slope jumps upward.':'Negative point potential: the slope jumps downward.';
+      root.querySelector('[data-point-coupling]').textContent=delta.toFixed(3);
+      root.querySelector('[data-point-status]').textContent=Math.abs(delta)<1e-9?'No point potential: the slope is continuous.':delta>0?'Positive point potential: the slope jumps upward.':'Negative point potential: the slope jumps downward.';
       for(const svg of root.querySelectorAll('svg[data-point-panel]')){
         const wave=svg.dataset.pointPanel==='wave';
         const xmin=wave?-4:-1.25,xmax=wave?4:3.25;
@@ -31,7 +31,7 @@ export function initPointSpectrum(){
         for(const el of svg.querySelectorAll('[data-point-x]'))el.setAttribute('x',X(Number(el.dataset.pointX))-21);
         placeVerticalTicks(svg,'[data-plot-tick]',Y,ymin,ymax,wave?[0,1]:[-1,0]);
         svg.querySelector('[data-point-axis]').setAttribute('x',right+2);
-        const marker=svg.querySelector('[data-point-marker]');marker.setAttribute('cx',X(wave?0:g));marker.setAttribute('cy',Y(wave?1:energy));
+        const marker=svg.querySelector('[data-point-marker]');marker.setAttribute('cx',X(wave?0:delta));marker.setAttribute('cy',Y(wave?1:energy));
         const anchor=svg.querySelector('[data-point-anchor]');if(anchor){anchor.setAttribute('cx',X(0));anchor.setAttribute('cy',Y(-1));}
       }
     };
