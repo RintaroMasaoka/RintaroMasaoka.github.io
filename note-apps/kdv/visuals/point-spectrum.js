@@ -1,7 +1,7 @@
 import {fittedRange,placeVerticalTicks} from './plot-range.js';
 export const pointCoupling=energy=>2/Math.sqrt(-energy)-2*Math.sqrt(-energy);
 export const pointEnergy=delta=>-(((Math.sqrt(delta*delta+16)-delta)/4)**2);
-export function pointProfile(energy,x){const q=Math.sqrt(-energy),r=Math.abs(x);return Math.exp(-q*r)*(q+Math.tanh(r))/q;}
+export function pointProfile(energy,x){const q=Math.sqrt(-energy),r=Math.abs(x);return Math.exp(-q*r)*q*(q+Math.tanh(r))/(q+1)**2;}
 
 export function initPointSpectrum(){
   document.querySelectorAll('[data-point-spectrum]').forEach(root=>{

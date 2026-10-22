@@ -6,7 +6,7 @@ const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const {mode='energy'}=Astro.props;
 const wave=mode==='wave';
 const figureId=wave?'joined-f-caption':'point-spectrum-caption';
-const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1,2,5,10],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'\\Delta'}].filter(panel=>panel.id===(wave?'wave':'energy'));
+const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[0,.05,.1,.15,.2,.25,.3,.35,.4,.5],axis:'x'},{id:'energy',title:'Energy response',xs:[-1.25,0,3.25],ys:[-2,-1.5,-1,-.5,0,.5,1],axis:'\\Delta'}].filter(panel=>panel.id===(wave?'wave':'energy'));
 ---
 <figure class="point-spectrum" data-point-spectrum data-point-mode={mode} aria-labelledby={figureId}>
   <label for={`point-${mode}-energy`}><span set:html={tex('E=k^2')} /><output data-point-energy>−1.250</output></label>
@@ -16,7 +16,7 @@ const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1
   {panels.map(panel=><section>
     <div class="point-heading" set:html={tex(wave?'f(x;E)':`\\text{${panel.title}}`)} />
     {!wave&&<div class="point-key" set:html={tex('\\psi_1(x)=\\operatorname{sech}x/\\sqrt2,\\quad |\\psi_1(0)|^2=1/2')} />}
-    <div class="point-key" set:html={tex(panel.id==='wave'?'f(0;E)=1':'\\text{Tangent at }\\Delta=0:\\quad E=-1+\\Delta/2')} />
+    <div class="point-key" set:html={tex(panel.id==='wave'?'u(x)=-2\\operatorname{sech}^2x':'\\text{Tangent at }\\Delta=0:\\quad E=-1+\\Delta/2')} />
     <svg width="100%" height="224" data-point-panel={panel.id} role="img" aria-label={panel.title}>
       <defs><clipPath id={`point-${panel.id}-clip`}><rect x="46" y="12" width="240" height="170" /></clipPath></defs>
       <path data-point-axes fill="none" stroke="var(--muted)" />
@@ -34,7 +34,7 @@ const panels=[{id:'wave',title:'Joined wave',xs:[-4,0,4],ys:[-10,-5,-2,-1,0,.5,1
     </svg>
   </section>)}
   <p data-point-status role="status" aria-live="polite"></p>
-  <figcaption id={figureId}>{wave?<Fragment>実線は原点より左、破線は原点より右の波形。原点での値はともに1であり、<span set:html={tex('E=-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
+  <figcaption id={figureId}>{wave?<Fragment>実線は原点より左、破線は原点より右の波形。左右の原点での値は等しく、<span set:html={tex('E=-1')} /> では左右の傾きも一致する。</Fragment>:<Fragment><span set:html={tex('u(x)=-2\\operatorname{sech}^2x')} /> に点ポテンシャルを加えた例。破線はノルム1の束縛状態を使った一次摂動であり、原点での確率密度 <span set:html={tex('|\\psi_1(0)|^2=1/2')} /> が <span set:html={tex('\\Delta')} /> の係数となる。実線は厳密な固有エネルギー、白丸は点ポテンシャルがない状態、塗りつぶした点は選択中の状態である。</Fragment>}</figcaption>
 </figure>
 <script>
 import { initPointSpectrum } from '../visuals/point-spectrum.js';

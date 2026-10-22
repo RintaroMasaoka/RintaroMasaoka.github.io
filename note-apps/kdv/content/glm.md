@@ -378,16 +378,16 @@ $$
 
 前節で極の位置が分かったので、次は透過項 $a(k)f_+(x,k)$ の留数を求める。固有エネルギーから少し離れると、左右の減衰解はそのままではつながらない。その不一致を傾きの差として表し、透過項の分母と結び付けよう。
 
-以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、束縛状態のエネルギー $E_n=-\kappa_n^2$ の近傍を考える。接続点を原点に取り、$\psi_n(0)\ne0$ とする。左右の解を原点で値1にそろえ、左半直線と右半直線でそれぞれ使う：
+以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、束縛状態のエネルギー $E_n=-\kappa_n^2$ の近傍を考える。接続点を原点に取り、$\psi_n(0)\ne0$ とする。原点で連続につなぐため、左の解には右の解の原点での値を、右の解には左の解の原点での値を掛ける：
 $$
-f(x;E)=\frac{f_-(x,-k)}{f_-(0,-k)}\Theta(-x)
-+\frac{f_+(x,k)}{f_+(0,k)}\Theta(x).
+f(x;E)=f_-(x,-k)f_+(0,k)\Theta(-x)
++f_+(x,k)f_-(0,-k)\Theta(x).
 \tag{matching-def}
 $$
-$\Theta$ は Heaviside 関数であり、$\Theta(0)=1/2$ とする。この波形は $f(0;E)=1$ で連続だが、一般には左右の傾きが異なる。その差を
+$\Theta$ は Heaviside 関数であり、$\Theta(0)=1/2$ とする。原点での値は両側とも $f(0;E)=f_-(0,-k)f_+(0,k)$ となるので、この波形は連続である。一般には左右の傾きが異なる。その差を原点での値で割った量を
 $$
 \begin{aligned}
-\Delta(E)&:=\partial_xf(0^+;E)-\partial_xf(0^-;E)\\
+\Delta(E)&:=\frac{\partial_xf(0^+;E)-\partial_xf(0^-;E)}{f(0;E)}\\
 &=\frac{\partial_xf_+(0,k)}{f_+(0,k)}
 -\frac{\partial_xf_-(0,-k)}{f_-(0,-k)}
 \end{aligned}
@@ -414,14 +414,14 @@ $$
 
 ### 接続に必要な点ポテンシャル
 
-式 (@matching-def) の波形は原点で連続であり、その傾きの跳びが $\Delta(E)$ である。二階の分布微分では
+式 (@matching-def) の波形は原点で連続であり、その傾きの跳びは $W(k)=\Delta(E)f(0;E)$ である。二階の分布微分では
 $$
-\partial_x^2 f=(u-E)f+\Delta(E)\delta(x)
+\partial_x^2 f=(u-E)f+W(k)\delta(x)
 $$
-となるので、
+となる。$f(x;E)\delta(x)=f(0;E)\delta(x)$ より、
 $$
 \begin{gathered}
-(L-E)f=-\Delta(E)\delta(x),\\
+(L-E)f=-W(k)\delta(x),\\
 [L+\Delta(E)\delta(x)]f=Ef.
 \end{gathered}
 \tag{matching-point-potential}
@@ -430,7 +430,7 @@ $$
 
 元の束縛状態 $\psi_n$ を実数値に選び、$\int_{\mathbb R}\psi_n(x)^2dx=1$ と規格化する。点ポテンシャルによる固有関数とエネルギーの一次の変化を $\delta\psi$、$\delta E$ とすると、固有値方程式の一次の項は
 $$
-(L-E_n)\delta\psi+\Delta(E)\delta(x-0)\psi_n
+(L-E_n)\delta\psi+\Delta(E)\delta(x)\psi_n
 =\delta E\,\psi_n.
 $$
 両辺に $\psi_n$ を掛けて積分する。$L$ の自己共役性と $(L-E_n)\psi_n=0$ により第一項の積分は0になる。デルタ関数の項の積分は $\Delta(E)|\psi_n(0)|^2$ なので、$\delta E=\Delta(E)|\psi_n(0)|^2$ となる。
@@ -483,9 +483,9 @@ $$
 
 $E=-\kappa^2$（$\kappa>0$）とすると、この例の接続波形は
 $$
-f(x;E)=e^{-\kappa|x|}\frac{\kappa+\tanh|x|}{\kappa}.
+f(x;E)=e^{-\kappa|x|}\frac{\kappa(\kappa+\tanh|x|)}{(\kappa+1)^2}.
 $$
-その左右の傾きの差から
+原点での値は $f(0;E)=\kappa^2/(\kappa+1)^2$ である。左右の傾きの差をこの値で割ると
 $$
 \begin{gathered}
 \Delta(E)=2(\kappa^{-1}-\kappa),\\

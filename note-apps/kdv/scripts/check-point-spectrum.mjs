@@ -9,13 +9,13 @@ for(const E of [-1.75,-1.5,-1.25,-1,-.75,-.5,-.25]){
   assert.ok(Math.abs(-fxx-2/Math.cosh(x)**2*f(x)-E*f(x))<2e-7,'Schrodinger equation');
  }
  const right=(-3*f(0)+4*f(h)-f(2*h))/(2*h),left=(3*f(0)-4*f(-h)+f(-2*h))/(2*h);
- assert.ok(Math.abs(right-left-delta)<1e-7,'derivative jump sign');
+ assert.ok(Math.abs(right-left-delta*f(0))<1e-7,'derivative jump sign');
  const R=30/Math.sqrt(-E),steps=40000,dx=R/steps;
  let integral=0;
  for(let i=0;i<=steps;i++){const y=f(i*dx);integral+=(i===0||i===steps?1:i%2?4:2)*y*y;}
  integral*=2*dx/3;
  const derivative=(pointEnergy(delta+1e-5)-pointEnergy(delta-1e-5))/2e-5;
- assert.ok(Math.abs(derivative-1/integral)<2e-8,'energy response equals inverse full norm');
+ assert.ok(Math.abs(derivative-f(0)**2/integral)<2e-8,'energy response equals point density divided by full norm');
 }
 assert.ok(Math.abs((pointEnergy(1e-5)-pointEnergy(-1e-5))/2e-5-.5)<1e-10);
 console.log('Point potential: ODE, derivative jump, energy inversion, and norm response verified at seven energies.');
@@ -25,3 +25,10 @@ for(let j=0;j<=1500;j++){
  const delta=pointCoupling(-1.75+j*.001);
  assert.ok(delta>=-1.25&&delta<=3.25,'energy-response marker fits horizontal axis');
 }
+
+// Product construction remains finite and tends to zero as E approaches threshold.
+for(const q of [1e-2,1e-4,1e-8,0]){
+ const E=-q*q;for(const x of [-4,0,4])assert.ok(Number.isFinite(pointProfile(E,x)));
+ assert.ok(Math.abs(pointProfile(E,0)-q*q/(q+1)**2)<1e-14);
+}
+assert.ok(Math.abs(pointProfile(-1,0)-.25)<1e-14);
