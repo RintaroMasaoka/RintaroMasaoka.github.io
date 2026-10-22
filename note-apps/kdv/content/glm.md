@@ -382,12 +382,9 @@ E-E_n=\Delta\,|\psi_n(0)|^2+O(\Delta^2).
 $$
 である。$\Delta(E_n)=0$ なので、$E=E_n$ における $\Delta$ の傾きは、この一次関係の傾きの逆数となる：
 $$
-\partial_E\Delta(E_n)=\frac{1}{|\psi_n(0)|^2}
-=\int_{\mathbb R}\left(\frac{\psi_n(x)}{\psi_n(0)}\right)^2dx.
+\partial_E\Delta(E_n)=\frac{1}{|\psi_n(0)|^2}.
 \tag{matching-norm}
 $$
-束縛状態では $f(x;E_n)=\psi_n(x)/\psi_n(0)$ なので、右辺は原点で値1にそろえた波形のノルム二乗である。このノルム二乗が、接続に必要な点ポテンシャルの強さ $\Delta(E)$ のエネルギーに対する変化率を与える。
-
 例えば $u(x)=-2\operatorname{sech}^2x$ では、$E_1=-1$、$\psi_1(x)=\operatorname{sech}x/\sqrt2$ なので、$E=-1+\Delta/2+O(\Delta^2)$ である。次の図ではエネルギーを動かすと、それを実現する点ポテンシャルの強さ $\Delta$ も変わる。上段の曲線は、左右で減衰し、原点で値1を持つ一つの接続波形である。その傾きの跳びが $\Delta$ に等しい。下段では、横軸を $\Delta$、縦軸を $E$ として、厳密な固有エネルギーを実線、$\Delta=0$ での接線を破線で示す。塗りつぶした点は選んだ状態である。$\Delta=0$ では接続波形の傾きが連続になり、下段の接線の傾きは $|\psi_1(0)|^2=1/2$ となる。
 
 <div data-visual-slot="point-spectrum"></div>
