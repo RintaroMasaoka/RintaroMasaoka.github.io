@@ -27,7 +27,7 @@ const tabs = mode === 'data'
 
   <div class="scattering-slider" data-scattering-k-control>
     <label for={`${id}-k`}><span set:html={tex('k')} /><span>Wave number</span><output data-scattering-k-value for={`${id}-k`}>0.65</output></label>
-    <input id={`${id}-k`} data-scattering-k type="range" min="0.35" max="2.5" step="0.01" value="0.65" aria-label="Wave number k" />
+    <input id={`${id}-k`} data-scattering-k type="range" min="0.35" max={mode === 'jost' ? '1' : '2.5'} step="0.01" value="0.65" aria-label="Wave number k" />
   </div>
 
   <div class="scattering-legend" data-scattering-legend>
@@ -52,7 +52,7 @@ const tabs = mode === 'data'
       <path data-wave-curve fill="none" stroke="var(--accent)" stroke-width="2.6" />
       <path data-wave-reference fill="none" stroke="var(--reference)" stroke-width="2.6" stroke-dasharray="6 4" />
     </g>
-    {[-8, 0, 8].map(x => <foreignObject data-wave-x={x} width="36" height="23" y="187"><div class="scattering-tick" set:html={tex(String(x))} /></foreignObject>)}
+    {(mode === 'jost' ? [-20, 0, 20] : [-8, 0, 8]).map(x => <foreignObject data-wave-x={x} width="36" height="23" y="187"><div class="scattering-tick" set:html={tex(String(x))} /></foreignObject>)}
     {[-4, -3, -2, -1, '-.5', 0, '.5', 1, 2, 3, 4].map(y => <foreignObject data-wave-y={y} width="38" height="22" x="0"><div class="scattering-tick" set:html={tex(String(y))} /></foreignObject>)}
     <foreignObject data-wave-axis width="26" height="24" y="151"><div class="scattering-tick" set:html={tex('x')} /></foreignObject>
   </svg>
@@ -89,7 +89,7 @@ const tabs = mode === 'data'
 </script>
 
 <style>
-.scattering-intro{--reference:#a6531c;scroll-margin-top:76px;box-sizing:border-box;width:100%;max-width:520px;margin:1.5rem auto;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.scattering-intro{--reference:#a6531c;scroll-margin-top:76px;box-sizing:border-box;width:100%;margin:1.5rem auto;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
 .scattering-tabs{display:flex;gap:8px;margin-bottom:8px}
 .scattering-tabs button{flex:1;min-width:0;min-height:44px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
 .scattering-tabs button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);font-weight:600}

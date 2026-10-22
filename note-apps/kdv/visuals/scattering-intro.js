@@ -8,7 +8,7 @@ export default function initScatteringIntro(){
   const bound=boundState();
   const draw=()=>{
    const k=Number(slider.value),isBound=kind==='bound';
-   if(!isBound&&lastK!==k){state=scatteringState(k);lastK=k;}
+   if(!isBound&&lastK!==k){state=scatteringState(k,{extent:mode==='jost'?24:12});lastK=k;}
    root.querySelector('[data-scattering-k-value]').textContent=k.toFixed(2);
    root.querySelector('[data-scattering-k-control]').hidden=isBound;
    for(const caption of root.querySelectorAll('[data-state-caption]'))caption.hidden=caption.dataset.stateCaption!==kind;
@@ -25,8 +25,9 @@ export default function initScatteringIntro(){
    root.querySelector('[data-bound-energy]').textContent=bound.energy.toFixed(4);
    const status=root.querySelector('[data-scattering-status]');if(status)status.textContent=kind==='minus'?'Left normalization: the solid and dashed curves agree at the left.':'Right normalization: the solid and dashed curves agree at the right.';
    const svg=root.querySelector('[data-scattering-wave]'),width=svg.getBoundingClientRect().width;
-   const left=46,right=width-28,top=12,bottom=182,X=x=>left+(x+8)*(right-left)/16;
-   const samples=Array.from({length:641},(_,j)=>-8+j/40);
+   const extent=mode==='jost'?20:8;
+   const left=46,right=width-28,top=12,bottom=182,X=x=>left+(x+extent)*(right-left)/(2*extent);
+   const samples=Array.from({length:1601},(_,j)=>-extent+2*extent*j/1600);
    const value=x=>isBound?bound.at(x):state.at(x,kind)[0];
    const reference=x=>isBound?bound.asymptote(x):mode==='jost'?Math.cos(k*x):state.farField(x)[0];
    const values=samples.flatMap(x=>[value(x),...(isBound?(x<=-2?[reference(x)]:[]):[reference(x)])]);
@@ -47,7 +48,7 @@ export default function initScatteringIntro(){
    }
    svg.querySelector('foreignObject[data-wave-axis]').setAttribute('x',right+2);
    const endpoint=svg.querySelector('[data-wave-endpoint]');endpoint.hidden=mode!=='jost';endpoint.style.display=mode==='jost'?'':'none';
-   endpoint.setAttribute('x',X(kind==='minus'?-8:5));endpoint.setAttribute('width',X(-5)-X(-8));
+   endpoint.setAttribute('x',X(kind==='minus'?-extent:5));endpoint.setAttribute('width',X(-5)-X(-extent));
    endpoint.setAttribute('y',top);endpoint.setAttribute('height',bottom-top);
    const potential=root.querySelector('[data-scattering-potential]');
    const U=y=>25-y*48;
