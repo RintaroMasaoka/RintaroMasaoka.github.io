@@ -18,7 +18,7 @@ const labels = [
   { x: x0(-12) - 37.5, y: 271, w: 75, t: '-12' }, { x: x0(0) - 28, y: 271, w: 56, t: '0' }, { x: x0(12) - 28, y: 271, w: 56, t: '12' },
 ];
 const formula = tex('\\eta(x,t)=\\dfrac{v}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{v}}{2}(x-vt)\\right)');
-const caption = `解析式を直接プロットした。縦軸は水面の変位 ${tex('\\eta')}。${tex('v')} を変えると速度・高さ・幅が連動して変わり、${tex('t')} は形を保ったまま平行移動させる。破線は ${tex('t=0')} の基準。`;
+const caption = `解析式を直接プロットした。${tex('v')} を変えると速度・高さ・幅が連動して変わり、${tex('t')} は形を保ったまま平行移動させる。破線は ${tex('t=0')} の基準。`;
 ---
 <figure class="kdv-traveling-soliton" data-kdv-soliton aria-labelledby="kdv-soliton-caption">
   <div class="kdv-soliton-controls">

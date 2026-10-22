@@ -39,7 +39,7 @@ const initial=collision?'\\eta(x,0)=2\\,\\operatorname{sech}^2(x+20)+\\tfrac12\\
   </svg></FigureViewport>
   <div class="simulation-legend"><span><i class="current"></i><span set:html={tex('\\text{numerical solution}')} /></span><span><i class="initial"></i><span set:html={tex('\\text{initial profile}')} /></span></div>
   <p data-sim-status class="simulation-status" role="status">Press Play to compute the evolution in your browser.</p>
-  <figcaption id={`${id}-caption`}>{collision?'高い波が低い波に追いつく。衝突中の形と、離れた後の2つの波を、再生または時刻スライダーで比べてみよう。':'初めはなだらかな1つの波でも、時間を進めると高さと速さの異なる波に分かれていく。後方に残る小さな振動にも注目してみよう。'} 破線は初期波形。縦軸は <span set:html={tex('\\eta')} />。</figcaption>
+  <figcaption id={`${id}-caption`}>{collision?'高い波が低い波に追いつく。衝突中の形と、離れた後の2つの波を、再生または時刻スライダーで比べてみよう。':'初めはなだらかな1つの波でも、時間を進めると高さと速さの異なる波に分かれていく。'} 破線は初期波形。</figcaption>
   <details class="simulation-method"><summary>初期条件・計算方法</summary>
     <p>本文のKdV方程式 <span set:html={tex('\\eta_t+6\\eta\\eta_x+\\eta_{xxx}=0')} /> を数値積分し、グラフには <span set:html={tex('\\eta')} /> を表示する。</p>
     <div class="simulation-initial-formula" set:html={tex(initial)} />
