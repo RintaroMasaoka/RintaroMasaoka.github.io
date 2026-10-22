@@ -76,14 +76,14 @@ $$
 <div data-extra-visual="traveling"></div>
 
 
-二つのソリトンが衝突する解も書ける。速度 $v_1>v_2>0$ と位置を指定する実定数 $x_1,x_2$ を用い、$\theta_j=\sqrt{v_j}(x-v_jt-x_j)$（$j=1,2$）と置くと、
+二つのソリトンが衝突する解も書ける。速度 $v_1>v_2>0$ と位置を指定する実定数 $x_1,x_2$ を用い、$\theta_j=\frac{\sqrt{v_j}}{2}(x-v_jt-x_j)$（$j=1,2$）と置くと、
 $$
-\eta(x,t)=2\partial_x^2\log\Biggl[
 \begin{gathered}
-1+e^{\theta_1}+e^{\theta_2}\\
-+\left(\frac{\sqrt{v_1}-\sqrt{v_2}}{\sqrt{v_1}+\sqrt{v_2}}\right)^2e^{\theta_1+\theta_2}
+\eta(x,t)=2\partial_x^2\log\Bigl[\\
+1+e^{2\theta_1}+e^{2\theta_2}\\
++\left(\frac{\sqrt{v_1}-\sqrt{v_2}}{\sqrt{v_1}+\sqrt{v_2}}\right)^2e^{2(\theta_1+\theta_2)}
+\Bigr].
 \end{gathered}
-\Biggr].
 \tag{equation-5083fcf451}
 $$
 
@@ -343,12 +343,12 @@ $N$-ソリトン解は、反射係数が $b(k,t)=0$ となる無反射ポテン�
 
 ### 3.4. 無反射の場合のGLM方程式の行列表示
 
-一つの束縛状態からソリトンを復元できた。同じ構成を $N$ 個の束縛状態へ広げよう。反射がないとき、散乱データに残るのは固有値 $-\kappa_n^2$ と左端の規格化定数 $c_n$ である。まず時刻を固定し、それぞれの束縛状態の左端での形を
+一つの束縛状態からソリトンを復元できた。同じ構成を $N$ 個の束縛状態へ広げよう。反射がないとき、散乱データに残るのは固有値 $-\kappa_n^2$ と左端の規格化定数 $c_n$ である。各束縛状態の符号を左端の係数 $c_n>0$ となるように選ぶ。まず時刻を固定し、指数関数の中身を
 $$
-e_n(x)=c_ne^{\kappa_nx},\qquad n=1,\ldots,N
+\theta_n(x)=\kappa_nx+\log c_n,\qquad n=1,\ldots,N
 \tag{equation-4657c45747}
 $$
-と書く。
+と書く。従って、左端での形は $e^{\theta_n(x)}=c_ne^{\kappa_nx}$ である。
 
 束縛状態の波形も、この指数関数と核 $K$ で表せる。Jost 解の核表示は
 $$
@@ -356,16 +356,16 @@ f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,z)e^{ikz}\,dz
 $$
 である。$k=-i\kappa_n$ を代入して $c_n$ を掛けると、規格化された束縛状態 $\psi_n=c_nf_-(x,-i\kappa_n)$ は
 $$
-\psi_n(x)=e_n(x)+\int_{-\infty}^xK(x,z)e_n(z)\,dz.
+\psi_n(x)=e^{\theta_n(x)}+\int_{-\infty}^xK(x,z)e^{\theta_n(z)}\,dz.
 \tag{equation-b57207a680}
 $$
-$e_n$ は左端の形を全空間へ延ばした指数関数であり、$\psi_n$ はポテンシャルに対応する束縛状態の波形である。
+$e^{\theta_n}$ は左端の形を全空間へ延ばした指数関数であり、$\psi_n$ はポテンシャルに対応する束縛状態の波形である。
 
 核を求める GLM 方程式の既知関数 $F$ は、無反射の場合には束縛状態の散乱データだけで決まり、
 $$
 \begin{aligned}
 F(s)&=\sum_{n=1}^N c_n^2e^{\kappa_ns},\\
-F(x+y)&=\sum_{n=1}^N e_n(x)e_n(y)
+F(x+y)&=\sum_{n=1}^N e^{\theta_n(x)}e^{\theta_n(y)}
 \end{aligned}
 $$
 となる。この $F$ から未知の $K$ を求める GLM 方程式は
@@ -376,41 +376,48 @@ K(x,y)+F(x+y)\\
 \end{gathered}
 $$
 
-ここに上の指数関数の和を代入し、$e_n(y)$ ごとにまとめると、
+ここに上の指数関数の和を代入し、$e^{\theta_n(y)}$ ごとにまとめると、
 $$
 \begin{aligned}
-K(x,y)&+\sum_{n=1}^N e_n(y)\Bigl[e_n(x)\\
-&\quad+\int_{-\infty}^xK(x,z)e_n(z)\,dz\Bigr]=0.
+K(x,y)&+\sum_{n=1}^N e^{\theta_n(y)}\Bigl[e^{\theta_n(x)}\\
+&\quad+\int_{-\infty}^xK(x,z)e^{\theta_n(z)}\,dz\Bigr]=0.
 \end{aligned}
 \tag{equation-6ab543eb8f}
 $$
 角括弧は式 (@equation-b57207a680) の $\psi_n(x)$ なので、
 $$
-\boxed{K(x,y)=-\sum_{n=1}^N\psi_n(x)e_n(y).}
+\boxed{K(x,y)=-\sum_{n=1}^N\psi_n(x)e^{\theta_n(y)}.}
 \tag{equation-6b629c0eb4}
 $$
 指数関数を束縛状態へ変える核が、その束縛状態自身で書けた。固定した $x$ では、核の $y$ 依存性は既知の $N$ 個の指数関数で決まり、未知なのは $N$ 個の値 $\psi_n(x)$ だけである。
 
 この核を $\psi_m$ の積分表示 (@equation-b57207a680) に戻すと、束縛状態を決める方程式が閉じる。
 $$
-\psi_m(x)+\sum_{n=1}^N
-\left[\int_{-\infty}^x e_m(z)e_n(z)\,dz\right]\psi_n(x)=e_m(x).
+\begin{aligned}
+\psi_m(x)&+\sum_{n=1}^N
+\left[\int_{-\infty}^x e^{\theta_m(z)+\theta_n(z)}\,dz\right]\psi_n(x)\\
+&=e^{\theta_m(x)}.
+\end{aligned}
 \tag{equation-4d1eb682c3}
 $$
 角括弧は、二つの指数関数の積を左端から $x$ まで積分した既知の量である。これを行列の成分
 $$
-C_{mn}(x)=\int_{-\infty}^x e_m(z)e_n(z)\,dz
-=\frac{e_m(x)e_n(x)}{\kappa_m+\kappa_n}
+\begin{aligned}
+C_{mn}(x)&=\int_{-\infty}^x e^{\theta_m(z)+\theta_n(z)}\,dz\\
+&=\frac{e^{\theta_m(x)+\theta_n(x)}}{\kappa_m+\kappa_n}
+\end{aligned}
 \tag{equation-3809f1c8d2}
 $$
-と書けば、式 (@equation-4d1eb682c3) は
+ここで $\boldsymbol\theta=(\theta_1,\ldots,\theta_N)^{\mathsf T}$ とし、$e^{\boldsymbol\theta}$ は成分ごとの指数関数を並べた列ベクトルとする。式 (@equation-4d1eb682c3) は
 $$
-(I+C)\boldsymbol\psi=\boldsymbol e,\qquad
-\boldsymbol\psi=(\psi_1,\ldots,\psi_N)^{\mathsf T},\quad
-\boldsymbol e=(e_1,\ldots,e_N)^{\mathsf T}
+\begin{gathered}
+(I+C)\boldsymbol\psi=e^{\boldsymbol\theta},\\
+\boldsymbol\psi=(\psi_1,\ldots,\psi_N)^{\mathsf T},\\
+e^{\boldsymbol\theta}=(e^{\theta_1},\ldots,e^{\theta_N})^{\mathsf T}.
+\end{gathered}
 \tag{equation-434990ec06}
 $$
-となる。$I$ は $N$ 次の単位行列である。$C$ は、区間 $(-\infty,x]$ 上の指数関数 $e_1,\ldots,e_N$ のグラム行列であり、各成分は上の積分で定まる内積である。従って $C$ の固有値は非負で、$I+C$ の固有値は全て $1$ 以上となり、$I+C$ は可逆である。各 $x$ で連立方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ と核 (@equation-6b629c0eb4) が得られる。
+となる。$I$ は $N$ 次の単位行列である。$C$ は、区間 $(-\infty,x]$ 上の指数関数 $e^{\theta_1},\ldots,e^{\theta_N}$ のグラム行列であり、各成分は上の積分で定まる内積である。従って $C$ の固有値は非負で、$I+C$ の固有値は全て $1$ 以上となり、$I+C$ は可逆である。各 $x$ で連立方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}e^{\boldsymbol\theta}$ と核 (@equation-6b629c0eb4) が得られる。
 
 非対角成分 $C_{mn}$ があるため、第 $m$ の方程式にも他の $\psi_n$ が現れる。束縛状態はそれぞれを独立に求めるのではなく、この一つの連立方程式から求める。
 
@@ -419,8 +426,10 @@ $$
 
 実列ベクトル $\boldsymbol\alpha=(\alpha_1,\ldots,\alpha_N)^{\mathsf T}\ne0$ に対し、$C$ の積分表示から
 $$
-\boldsymbol\alpha^{\mathsf T}C\boldsymbol\alpha
-=\int_{-\infty}^x\left(\sum_n\alpha_ne_n(z)\right)^2dz>0.
+\begin{gathered}
+\boldsymbol\alpha^{\mathsf T}C\boldsymbol\alpha\\
+=\int_{-\infty}^x\left(\sum_n\alpha_ne^{\theta_n(z)}\right)^2dz>0.
+\end{gathered}
 $$
 固有値に対応する $\kappa_n$ は互いに異なり、指数関数 $e^{\kappa_nz}$ は線形独立なので、不等号は厳密である。従って $C$ と $I+C$ は正定値であり、逆行列をもつ。
 
@@ -430,9 +439,11 @@ $$
 
 ポテンシャルの復元に必要なのは核の対角値である。式 (@equation-6b629c0eb4) で $y=x$ とすれば
 $$
-K(x,x)=-\boldsymbol e^{\mathsf T}\boldsymbol\psi,
-\qquad
-u(x)=-2\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi).
+\begin{gathered}
+K(x,x)=-\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi,
+\\
+u(x)=-2\frac{d}{dx}(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi).
+\end{gathered}
 \tag{equation-c09e1229fc}
 $$
 ここまでは連立方程式で $\boldsymbol\psi$ を求めてからポテンシャルを計算する形だった。ポテンシャルだけなら、既知の行列 $C$ を使って直接
@@ -442,13 +453,15 @@ $$
 $$
 と表せる。これなら各束縛状態の波形 $\psi_n$ を求めずに、散乱データからポテンシャルを得られる。
 
-この式を確かめるには、対角値に現れた $\boldsymbol e^{\mathsf T}\boldsymbol\psi$ が $\log\det(I+C)$ の微分に等しいことを示せばよい。$C$ の積分表示から $\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ なので、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}\boldsymbol e$ により
+この式を確かめるには、対角値に現れた $\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi$ が $\log\det(I+C)$ の微分に等しいことを示せばよい。$C$ の積分表示から $\frac{dC}{dx}=e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}$ なので、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}e^{\boldsymbol\theta}$ により
 $$
 \begin{aligned}
-\frac{d}{dx}\log\det(I+C)
-&=\operatorname{tr}\!\left((I+C)^{-1}\frac{dC}{dx}\right)\\
-&=\boldsymbol e^{\mathsf T}(I+C)^{-1}\boldsymbol e
-=\boldsymbol e^{\mathsf T}\boldsymbol\psi.
+&\frac{d}{dx}\log\det(I+C)
+&=\operatorname{tr}\!\left((I+C)^{-1}\partial_x C\right)\\
+&=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}\\
+&\qquad\times e^{\boldsymbol\theta}
+\\
+&=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi.
 \end{aligned}
 \tag{equation-ec581bb65a}
 $$
@@ -456,8 +469,10 @@ $$
 
 時間発展を戻すには、第2節で求めた $c_n(t)=c_n(0)e^{-4\kappa_n^3t}$ を使えばよい。すなわち
 $$
-e_n(x,t)=c_n(0)e^{\kappa_nx-4\kappa_n^3t},\qquad
-C_{mn}(x,t)=\frac{e_m(x,t)e_n(x,t)}{\kappa_m+\kappa_n}
+\begin{gathered}
+\theta_n(x,t)=\kappa_nx-4\kappa_n^3t+\log c_n(0),\\
+C_{mn}(x,t)=\frac{e^{\theta_m(x,t)+\theta_n(x,t)}}{\kappa_m+\kappa_n}
+\end{gathered}
 \tag{equation-485df2d91c}
 $$
 を式 (@equation-1f3f118d6b) に入れると、$N$ ソリトン解が得られる。散乱データの指数関数的な時間発展が、同じ行列の成分を通じて波形の時間発展に変わる。$N=1$ では $\det(I+C)=1+c(t)^2e^{2\kappa x}/(2\kappa)$ となり、先ほどの一ソリトン解を再現する。
@@ -518,10 +533,13 @@ $$
 \det(I+C)=\sum_{S\subseteq\{1,\ldots,N\}}\det C_{S,S}
 \tag{principal-minor-expansion}
 $$
-である。各行と各列から $e_i$ をくくり出すと、
+である。各行と各列から $e^{\theta_i}$ をくくり出すと、
 $$
-\det C_{S,S}=\left(\prod_{i\in S}e_i^2\right)
-\det\left[\frac{1}{\kappa_i+\kappa_j}\right]_{i,j\in S}.
+\begin{gathered}
+\det C_{S,S}\\
+=\left(\prod_{i\in S}e^{2\theta_i}\right)\\
+{}\times\det\left[\frac{1}{\kappa_i+\kappa_j}\right]_{i,j\in S}.
+\end{gathered}
 $$
 残った行列式は Cauchy の行列式であり、
 $$
@@ -576,11 +594,14 @@ $$
 $$
 L\psi_n=-\kappa_n^2\psi_n.
 $$
-規格化は連立方程式からも確かめられる。$\frac{dC}{dx}=\boldsymbol e\boldsymbol e^{\mathsf T}$ と逆行列の微分公式から
+規格化は連立方程式からも確かめられる。$\frac{dC}{dx}=e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}$ と逆行列の微分公式から
 $$
-\frac{d}{dx}(I+C)^{-1}
-=-(I+C)^{-1}\boldsymbol e\boldsymbol e^{\mathsf T}(I+C)^{-1}
-=-\boldsymbol\psi\boldsymbol\psi^{\mathsf T}.
+\begin{aligned}
+&\frac{d}{dx}(I+C)^{-1}\\
+&=-(I+C)^{-1}e^{\boldsymbol\theta}\\
+&\qquad\times\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}\\
+&=-\boldsymbol\psi\boldsymbol\psi^{\mathsf T}.
+\end{aligned}
 \tag{equation-eeebde7889}
 $$
 $x\to-\infty$ では $C\to0$ なので $(I+C)^{-1}\to I$。他方、$C_{mn}(x)=e^{\kappa_mx}C_{mn}(0)e^{\kappa_nx}$ より
@@ -600,22 +621,23 @@ $$
 <details id="reflectionless-density">
 <summary>束縛状態の二乗和によるポテンシャルの表示</summary>
 
-$e_n=\psi_n+\sum_mC_{nm}\psi_m$、$C_{mn}=C_{nm}$ および $(\kappa_m+\kappa_n)C_{mn}=e_me_n$ より
+$e^{\theta_n}=\psi_n+\sum_mC_{nm}\psi_m$、$C_{mn}=C_{nm}$ および $(\kappa_m+\kappa_n)C_{mn}=e^{\theta_m+\theta_n}$ より
 $$
 \begin{aligned}
-2\sum_n\kappa_ne_n\psi_n
-&=2\sum_n\kappa_n\psi_n^2
- +\sum_{m,n}(\kappa_m+\kappa_n)C_{mn}\psi_m\psi_n\\
-&=2\sum_n\kappa_n\psi_n^2
- +(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2.
+&2\sum_n\kappa_ne^{\theta_n}\psi_n
+&=2\sum_n\kappa_n\psi_n^2\\
+&\quad+\sum_{m,n}e^{\theta_m+\theta_n}\psi_m\psi_n\\
+&=2\sum_n\kappa_n\psi_n^2\\
+&\quad+(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)^2.
 \end{aligned}
 \tag{equation-9de2c9f65e}
 $$
-一方、$\boldsymbol e^{\mathsf T}\boldsymbol\psi=\boldsymbol e^{\mathsf T}(I+C)^{-1}\boldsymbol e$ を微分する。左右の $e_n'=\kappa_ne_n$ の寄与を足し、逆行列の微分 (@equation-eeebde7889) を使うと
+一方、$\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}e^{\boldsymbol\theta}$ を微分する。$\partial_x\theta_n=\kappa_n$ なので、左右の指数関数を微分した寄与を足し、逆行列の微分 (@equation-eeebde7889) を使うと
 $$
 \begin{aligned}
-\frac{d}{dx}(\boldsymbol e^{\mathsf T}\boldsymbol\psi)
-&=2\sum_n\kappa_ne_n\psi_n-(\boldsymbol e^{\mathsf T}\boldsymbol\psi)^2\\
+&\frac{d}{dx}(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)
+&=2\sum_n\kappa_ne^{\theta_n}\psi_n\\
+&\quad-\left[\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi\right]^2\\
 &=2\sum_n\kappa_n\psi_n^2.
 \end{aligned}
 \tag{equation-95a2bc6b3b}
