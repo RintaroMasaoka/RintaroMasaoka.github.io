@@ -391,10 +391,10 @@ $$
 $$
 \Delta(E;x_*)=\frac{\partial_xf_+(x_*,k)}{f_+(x_*,k)}
 -\frac{\partial_xf_-(x_*,-k)}{f_-(x_*,-k)}
-=\frac{W(k)}{f_-(x_*,-k)f_+(x_*,k)},\qquad E=k^2
+,\qquad E=k^2
 \tag{matching-slope-difference}
 $$
-と書ける。Wronskian の二項を明示すると、
+と定める。Wronskian の定義から、
 $$
 \begin{aligned}
 W(k)
