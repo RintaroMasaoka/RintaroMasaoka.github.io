@@ -4,10 +4,11 @@ import { createRequire } from 'node:module';
 const require=createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
-const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
+const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-16,-8,-4,-2,-1,-.5,-.25,0,.25,.5,1,2,4,8,16]}];
 ---
 <figure class="endpoint-matching" data-endpoint-matching aria-labelledby="green-matching-caption">
   <BoundStateControls id="matching-wave-number" />
+  <div class="endpoint-w"><span set:html={tex('W(k)=')} /><output data-matching-w>0</output></div>
   <div class="endpoint-legend"><span class="endpoint-solid" aria-hidden="true"></span><span set:html={tex('f_-(x,-k)')} /></div>
   <div class="endpoint-legend"><span class="endpoint-dashed" aria-hidden="true"></span><span set:html={tex('f_+(x,k)')} /></div>
   {panels.map(panel=><section class="endpoint-panel">
@@ -17,8 +18,8 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
       <path data-matching-axes fill="none" stroke="var(--muted)" />
       <path data-matching-guides fill="none" stroke="var(--line)" stroke-dasharray="3 4" />
       <g clip-path={`url(#matching-${panel.id}-clip)`}>
-        <path data-matching-left fill="none" stroke="var(--accent)" stroke-width="2" />
-        <path data-matching-right fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="6 4" />
+        <path data-matching-left fill="none" stroke="var(--accent)" stroke-width="3" />
+        <path data-matching-right fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-dasharray="6 4" />
       </g>
       {[-panel.range,0,panel.range].map(x=><foreignObject data-matching-x={x} width="42" height="25" y="195"><div class="endpoint-tex" set:html={tex(String(x))} /></foreignObject>)}
       {panel.ys.map(y=><foreignObject data-plot-tick={y} width="38" height="25" x="0"><div class="endpoint-tex" set:html={tex(String(y))} /></foreignObject>)}
@@ -26,7 +27,7 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
     </svg>
   </section>)}
   <p data-matching-status role="status" aria-live="polite"></p>
-  <figcaption id="green-matching-caption">左右の Jost 解を符号を保って描いている。それぞれ表示区間での最大絶対値が1になるよう正の定数倍をしている。<span set:html={tex('E=-1')} /> では二つの解は逆符号で比例し、原点に節を一つ持つ。</figcaption>
+  <figcaption id="green-matching-caption">実線は <span set:html={tex('f_-(x,-k)')} />、破線は <span set:html={tex('f_+(x,k)')} />。両者を、それぞれの端での Jost 規格化のまま描いている。<span set:html={tex('E=-1')} /> では全区間で一致する。縦軸の範囲は波形に合わせて調整する。</figcaption>
 </figure>
 <script>
   import { initMatchingFigure } from '../visuals/matching.js';
@@ -38,6 +39,8 @@ const panels=[{id:'full',title:'Jost profiles',range:4,ys:[-1,0,1]}];
 .endpoint-matching input{display:block;width:100%;min-width:0;min-height:44px;accent-color:var(--accent)}
 .endpoint-matching button{min-height:44px;max-width:100%;padding:.4rem .7rem;margin:.2rem 0 .7rem;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
 .endpoint-matching output{font-variant-numeric:tabular-nums}
+.endpoint-w{display:flex;justify-content:flex-end;gap:.4rem;align-items:baseline;margin:.3rem 0;font-size:15px}
+.endpoint-w output{min-width:7ch;text-align:right}
 .endpoint-legend{display:flex;align-items:center;gap:.6rem;min-height:32px;font-size:14px}
 .endpoint-solid,.endpoint-dashed{display:inline-block;width:26px;flex:none;border-top:2px solid var(--accent)}
 .endpoint-dashed{border-top:2px dashed var(--ink)}

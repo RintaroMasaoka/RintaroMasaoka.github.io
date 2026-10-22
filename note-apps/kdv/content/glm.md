@@ -291,9 +291,7 @@ $$
 
 上半平面では $f_-(x,-k)$ と $f_+(x,k)$ は正則であり、それぞれ左端と右端で小さくなる解である。上の商により $a$ を上半平面へ延長すると、原点以外で極が現れるのは $W(k)=0$ のときである。この条件は二つの解の値と傾きが比例することを意味する。同じ微分方程式の解は値と傾きで決まるため、二つの解は全区間で比例し、両端で小さくなる一つの波形につながる。これが、入射振幅が0になる条件と束縛状態との正確な結び付きである。
 
-例として、$u(x)=-6\operatorname{sech}^2x$ の励起状態 $E=-1$ の近くを調べる。次の図は、左右の Jost 解を示す。波形を比較しやすいよう、二つの解はそれぞれ表示区間での最大絶対値が1になるよう正の定数倍をしている。
-
-$W=0$ となる $E=-1$ では、二つの解は逆符号で比例し、両端で小さくなる一つの波形を表す。エネルギーをこの値から動かすと、比例関係が失われる様子を確かめられる。
+例として、$u(x)=-2\operatorname{sech}^2x$ を考える。この場合、$E=-1$ で左右の Jost 解はともに $\tfrac12\operatorname{sech}x$ となる。次の図でエネルギーを動かすと、この値で二つの波形が全区間で一致し、$W=0$ になる様子を確かめられる。
 
 <div data-visual-slot="matching"></div>
 
@@ -302,20 +300,22 @@ $W=0$ となる $E=-1$ では、二つの解は逆符号で比例し、両端で
 
 $k=i\kappa$（$\kappa>0$）に対して
 $$
-f_+(x,i\kappa)=e^{-\kappa x}
-\frac{\kappa^2-1+3\kappa\tanh x+3\tanh^2x}{(\kappa+1)(\kappa+2)},
-\qquad f_-(x,-i\kappa)=f_+(-x,i\kappa).
+f_+(x,i\kappa)=e^{-\kappa x}\frac{\kappa+\tanh x}{\kappa+1},
+\qquad
+f_-(x,-i\kappa)=e^{\kappa x}\frac{\kappa-\tanh x}{\kappa+1}.
 $$
-このとき
+これらは $L=-\partial_x^2-2\operatorname{sech}^2x$ の固有値方程式を満たし、それぞれの端で所定の自由波に漸近する。$x=0$ で値と微分を評価すると、
 $$
-W(i\kappa)=-2\kappa\frac{(\kappa-1)(\kappa-2)}{(\kappa+1)(\kappa+2)}.
+W(i\kappa)
+=\frac{\kappa}{\kappa+1}(1-\kappa)
+-(\kappa-1)\frac{\kappa}{\kappa+1}
+=-2\kappa\frac{\kappa-1}{\kappa+1}.
 $$
-図は励起状態 $E=-1$ の近くに絞っている。この状態では
+従って $\kappa=1$、すなわち $E=-1$ で $W=0$ となり、
 $$
-f_+(x,i)=\tfrac12\operatorname{sech}x\tanh x,
-\qquad f_-(x,-i)=-f_+(x,i).
+f_-(x,-i)=f_+(x,i)=\tfrac12\operatorname{sech}x.
 $$
-従って原点に節が一つあり、両端で指数関数的に小さくなる。もう一つの束縛状態は $E=-4$ である。
+二つの Jost 解が同じ、両端で減衰する波形を表している。
 
 </details>
 

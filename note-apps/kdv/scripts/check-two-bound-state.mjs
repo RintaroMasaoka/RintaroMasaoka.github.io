@@ -68,7 +68,7 @@ console.log('Container-sized plots and intrinsic control reflow: structural layo
 
 const matchSource=await readFile(new URL('../components/MatchingFigure.astro',import.meta.url),'utf8');
 const joinSource=await readFile(new URL('../components/PointSpectrum.astro',import.meta.url),'utf8');
-assert.ok(!matchSource.includes('data-w-spectrum')&&!matchSource.includes('data-matching-w'),'Jost comparison must omit the removed W plot and readout');
+assert.ok(!matchSource.includes('data-w-spectrum')&&matchSource.includes('data-matching-w'),'Jost comparison must omit the W graph and preserve its numeric readout');
 assert.ok(!matchSource.includes('data-matching-left-slope')&&!matchSource.includes('f_-(0,-k)'),'Jost profiles must not normalize at a matching point');
 assert.ok(!joinSource.includes('data-point-position')&&joinSource.includes('f(x;E)'),'joined wave must keep its origin fixed');
 
