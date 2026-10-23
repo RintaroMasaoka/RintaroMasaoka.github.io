@@ -83,7 +83,7 @@ $$
     \sigma^- = \frac{\sigma^x - i\sigma^y}{2}.
 \end{align*}
 $$
-Pauli 行列が出てきたことから分かるように、$𝐿$ は2つのスピンの直積
+Pauli 行列が出てきたことから分かるように、$𝐿$ は2つのスピンのテンソル積
 $$
 \begin{align*}
 | {\uparrow} \rangle_\alpha \otimes | {\uparrow} \rangle_n,\quad
