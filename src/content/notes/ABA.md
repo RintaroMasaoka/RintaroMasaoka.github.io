@@ -532,97 +532,9 @@ $$
 $$
 によって構成されます。
 
-# 組み紐群の表現
-ちょっと話題を変えて、Yang-Baxter 方程式と組み紐群との関係について見てみます。ここでは組み紐群の定義については省略します。
-Yang-Baxter 方程式を変形して
-
-<figure class="aba-figure" id="aba-figure-14"><img class="aba-light" src="/notes/aba/figures/figure-14.svg" alt="Yang–Baxter 方程式の組み紐状の配置" width="379" height="238" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-14-dark.svg" alt="Yang–Baxter 方程式の組み紐状の配置" width="379" height="238" loading="lazy" /></figure>
-
-と書くと、組み紐関係式に見えてきます。組み紐関係式とは、以下の等式を指します。
-
-<figure class="aba-figure" id="aba-figure-15"><img class="aba-light" src="/notes/aba/figures/figure-15.svg" alt="3本の組み紐の組み紐関係式" width="340" height="306" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-15-dark.svg" alt="3本の組み紐の組み紐関係式" width="340" height="306" loading="lazy" /></figure>
-
-違いとしては、Yang-Baxter 方程式では頂点が連続的なパラメーターによって特徴づけられていますが、組み紐関係式ではそのようなパラメーターはありません。
-しかし、パラメーターについて適切に極限をとることで、Yang-Baxter 方程式から組み紐群の表現を得ることができます。
-
-例えば、以下のR行列を考えてみます。これが Yang-Baxter 方程式を満たすことの証明は読者への演習問題とします。
-$$
-\begin{align*}
-    R(\lambda)
-    = \begin{pmatrix}
-        \sinh(\lambda+2\eta) & 0                & 0            & 0 \\
-        0           &  e^{-\lambda}\sinh(2\eta) & \sinh \lambda      & 0 \\
-        0           & \sinh \lambda          & e^\lambda\sinh(2\eta) & 0 \\
-        0           & 0                & 0            & \sinh(\lambda+2\eta)
-    \end{pmatrix}
-\end{align*}
-$$
-以下のようにパラメーターの極限をとります。
-$$
-\begin{align*}
-    R \coloneqq \lim_{\lambda\to\infty} 2e^{-\lambda-\eta}R(\lambda)
-    = \begin{pmatrix}
-        e^\eta & 0      & 0             & 0 \\
-        0   & 0      & e^{-\eta}        & 0 \\
-        0   & e^{-\eta} & e^{\eta}-e^{-3\eta} & 0 \\
-        0   & 0      & 0             & e^\eta
-    \end{pmatrix}
-\end{align*}
-$$
-Yang-Baxter 方程式から、この行列は組み紐群の表現になっています。
-ここから、
-
-<figure class="aba-figure" id="aba-figure-16"><img class="aba-light" src="/notes/aba/figures/figure-16.svg" alt="交差と R 行列の成分表示" width="400" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-16-dark.svg" alt="交差と R 行列の成分表示" width="400" height="161" loading="lazy" /></figure>
-
-と書くことにします。ただし、列の添字は上の2つの端点の添字 $(++, +-, -+, --)$ を表しており、行の添字は下の2つの端点の添字 $(++, +-, -+, --)$ を表しています。また $A = e^\eta$とおきました。反対向きの交差は逆行列をとって、
-
-<figure class="aba-figure" id="aba-figure-17"><img class="aba-light" src="/notes/aba/figures/figure-17.svg" alt="逆向きの交差と逆行列" width="433" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-17-dark.svg" alt="逆向きの交差と逆行列" width="433" height="161" loading="lazy" /></figure>
-
-となります。さらに、次の関係式 (カウフマンブラケットの性質)
-
-<figure class="aba-figure" id="aba-figure-18"><img class="aba-light" src="/notes/aba/figures/figure-18.svg" alt="カウフマンブラケットの交差の分解" width="357" height="105" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-18-dark.svg" alt="カウフマンブラケットの交差の分解" width="357" height="105" loading="lazy" /></figure>
-
-を課します。右辺は、交差を解いて端点をつなぐ2通りの図の和です。第1項は単位行列の $A$ 倍なので、第2項の弧の図に対応する行列は、交差の行列 $R$ から $A$ 倍の単位行列を引き、全体を $A$ 倍すると求まります。したがって、
-
-<figure class="aba-figure" id="aba-figure-19"><img class="aba-light" src="/notes/aba/figures/figure-19.svg" alt="平滑化の行列表示" width="621" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-19-dark.svg" alt="平滑化の行列表示" width="621" height="161" loading="lazy" /></figure>
-
-が分かります。トレースを取ると、
-
-<figure class="aba-figure" id="aba-figure-20"><img class="aba-light" src="/notes/aba/figures/figure-20.svg" alt="閉じたループの値" width="259" height="82" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-20-dark.svg" alt="閉じたループの値" width="259" height="82" loading="lazy" /></figure>
-
-となります。(この時点で組み紐だけでなく絡み目も考えていることになります。)
-同じ交差の分解則を使って、小さなひねりの値も求められます。ひねりに含まれる交差を分解すると、一方は「円と直線」、もう一方は「直線」になります。
-
-<figure class="aba-figure" id="aba-figure-24"><img class="aba-light" src="/notes/aba/figures/figure-24.svg" alt="ひねりの交差を分解すると、係数Aの円と直線の項と、係数Aの逆数の直線の項になる。" width="393" height="123" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-24-dark.svg" alt="ひねりの交差を分解すると、係数Aの円と直線の項と、係数Aの逆数の直線の項になる。" width="393" height="123" loading="lazy" /></figure>
-
-円1つの値は $-A^2-A^{-2}$ なので、直線に掛かる係数は
-$$
-A(-A^2-A^{-2})+A^{-1}=-A^3
-$$
-です。つまり、ひねりを付ける前の直線に対して、次の倍率が現れます。
-
-<figure class="aba-figure" id="aba-figure-21"><img class="aba-light" src="/notes/aba/figures/figure-21.svg" alt="ひねりの係数と単位行列" width="282" height="123" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-21-dark.svg" alt="ひねりの係数と単位行列" width="282" height="123" loading="lazy" /></figure>
-
-逆向きのひねりでは、分解の係数 $A$ と $A^{-1}$ が入れ替わり、倍率は $-A^{-3}$ になります。したがって、このままではひねりを付けたり取り除いたりすると値が変わります。この倍率を補正して、紐の変形で変わらない量を作ります。
-
-閉じた紐の配置を絡み目と呼び、その図を $D$ とします。交差を分解して円の値を代入した結果を、カウフマンブラケット $\langle D\rangle$ と書きます。それぞれの閉じた紐に向きを付け、交差に次の符号を割り当てます。片方の紐の向きを逆にすると、交差の符号も反転します。図全体で交差の符号を足したものを $w(D)$ とします。
-
-<figure class="aba-figure" id="aba-figure-25"><img class="aba-light" src="/notes/aba/figures/figure-25.svg" alt="向き付き交差の符号。両方の紐を下向きに見たとき、右上から左下へ通る紐が上なら正、その鏡像なら負。" width="205" height="156" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-25-dark.svg" alt="向き付き交差の符号。両方の紐を下向きに見たとき、右上から左下へ通る紐が上なら正、その鏡像なら負。" width="205" height="156" loading="lazy" /></figure>
-
-上のひねりを付けると、$\langle D\rangle$ は $-A^3$ 倍になり、$w(D)$ は1増えます。そこで $(-A^3)^{-w(D)}$ を掛ければ、両者の変化が打ち消し合います。逆向きのひねりでも同じように打ち消されます。交差の組み替えに対する関係式と合わせると、ひねりを含む紐の変形に対して値が変わらなくなります。
-
-さらに、円1つの値が1になるように $-A^2-A^{-2}$ で割り、変数を $t=A^{-4}$ と書き換えたものが Jones 多項式です。$D$ が表す絡み目を $L$ とすると、
-$$
-V_L(t)=\left.
-(-A^3)^{-w(D)}\frac{\langle D\rangle}{-A^2-A^{-2}}
-\right|_{t=A^{-4}}.
-\tag{braid-jones-normalization}
-$$
-交差を行列で表すところから始めて、図の交差を分解し、ひねりの倍率を補正することで、同じ絡み目を表す図に共通の多項式が得られました。
-
 # XXZ模型との対応
 
-6頂点模型の転送行列には、1次元量子スピン系のハミルトニアンも含まれています。組み紐の節で用いた双曲線関数の行列から、先に導入した三角関数の重率 $a(\lambda)=\sin(\lambda+2\eta)$、$b(\lambda)=\sin\lambda$、$c=\sin(2\eta)$ に戻り、この対応を調べます。以下では実数 $\eta$ を固定し、$\sin(2\eta)\ne0$ とします。
+前節で求めた転送行列の固有値から、1次元量子スピン系のエネルギーも求められます。先に導入した三角関数の重率 $a(\lambda)=\sin(\lambda+2\eta)$、$b(\lambda)=\sin\lambda$、$c=\sin(2\eta)$ を用いて、この対応を調べます。以下では実数 $\eta$ を固定し、$\sin(2\eta)\ne0$ とします。
 
 各格子点にスピン $1/2$ を置き、両端をつないだ $N\ge2$ サイトの鎖を考えます。隣り合うスピンが $x,y,z$ 方向に相互作用し、$z$ 方向の結合の強さが $\Delta=\cos(2\eta)$ 倍である模型がXXZ模型です。各方向の相互作用を鎖全体で足し合わせ、ハミルトニアンを
 $$
@@ -721,6 +633,94 @@ E=\frac{\sin(2\eta)}2\frac{\Lambda'(0)}{\Lambda(0)}-\frac{N\Delta}{4}
 \tag{xxz-energy-from-transfer}
 $$
 です。したがって、代数的Bethe仮設で転送行列の固有状態と固有値が得られれば、量子スピン鎖のエネルギーも求まります。
+
+# 組み紐群の表現
+ちょっと話題を変えて、Yang-Baxter 方程式と組み紐群との関係について見てみます。ここでは組み紐群の定義については省略します。
+Yang-Baxter 方程式を変形して
+
+<figure class="aba-figure" id="aba-figure-14"><img class="aba-light" src="/notes/aba/figures/figure-14.svg" alt="Yang–Baxter 方程式の組み紐状の配置" width="379" height="238" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-14-dark.svg" alt="Yang–Baxter 方程式の組み紐状の配置" width="379" height="238" loading="lazy" /></figure>
+
+と書くと、組み紐関係式に見えてきます。組み紐関係式とは、以下の等式を指します。
+
+<figure class="aba-figure" id="aba-figure-15"><img class="aba-light" src="/notes/aba/figures/figure-15.svg" alt="3本の組み紐の組み紐関係式" width="340" height="306" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-15-dark.svg" alt="3本の組み紐の組み紐関係式" width="340" height="306" loading="lazy" /></figure>
+
+違いとしては、Yang-Baxter 方程式では頂点が連続的なパラメーターによって特徴づけられていますが、組み紐関係式ではそのようなパラメーターはありません。
+しかし、パラメーターについて適切に極限をとることで、Yang-Baxter 方程式から組み紐群の表現を得ることができます。
+
+例えば、以下のR行列を考えてみます。これが Yang-Baxter 方程式を満たすことの証明は読者への演習問題とします。
+$$
+\begin{align*}
+    R(\lambda)
+    = \begin{pmatrix}
+        \sinh(\lambda+2\eta) & 0                & 0            & 0 \\
+        0           &  e^{-\lambda}\sinh(2\eta) & \sinh \lambda      & 0 \\
+        0           & \sinh \lambda          & e^\lambda\sinh(2\eta) & 0 \\
+        0           & 0                & 0            & \sinh(\lambda+2\eta)
+    \end{pmatrix}
+\end{align*}
+$$
+以下のようにパラメーターの極限をとります。
+$$
+\begin{align*}
+    R \coloneqq \lim_{\lambda\to\infty} 2e^{-\lambda-\eta}R(\lambda)
+    = \begin{pmatrix}
+        e^\eta & 0      & 0             & 0 \\
+        0   & 0      & e^{-\eta}        & 0 \\
+        0   & e^{-\eta} & e^{\eta}-e^{-3\eta} & 0 \\
+        0   & 0      & 0             & e^\eta
+    \end{pmatrix}
+\end{align*}
+$$
+Yang-Baxter 方程式から、この行列は組み紐群の表現になっています。
+ここから、
+
+<figure class="aba-figure" id="aba-figure-16"><img class="aba-light" src="/notes/aba/figures/figure-16.svg" alt="交差と R 行列の成分表示" width="400" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-16-dark.svg" alt="交差と R 行列の成分表示" width="400" height="161" loading="lazy" /></figure>
+
+と書くことにします。ただし、列の添字は上の2つの端点の添字 $(++, +-, -+, --)$ を表しており、行の添字は下の2つの端点の添字 $(++, +-, -+, --)$ を表しています。また $A = e^\eta$とおきました。反対向きの交差は逆行列をとって、
+
+<figure class="aba-figure" id="aba-figure-17"><img class="aba-light" src="/notes/aba/figures/figure-17.svg" alt="逆向きの交差と逆行列" width="433" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-17-dark.svg" alt="逆向きの交差と逆行列" width="433" height="161" loading="lazy" /></figure>
+
+となります。さらに、次の関係式 (カウフマンブラケットの性質)
+
+<figure class="aba-figure" id="aba-figure-18"><img class="aba-light" src="/notes/aba/figures/figure-18.svg" alt="カウフマンブラケットの交差の分解" width="357" height="105" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-18-dark.svg" alt="カウフマンブラケットの交差の分解" width="357" height="105" loading="lazy" /></figure>
+
+を課します。右辺は、交差を解いて端点をつなぐ2通りの図の和です。第1項は単位行列の $A$ 倍なので、第2項の弧の図に対応する行列は、交差の行列 $R$ から $A$ 倍の単位行列を引き、全体を $A$ 倍すると求まります。したがって、
+
+<figure class="aba-figure" id="aba-figure-19"><img class="aba-light" src="/notes/aba/figures/figure-19.svg" alt="平滑化の行列表示" width="621" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-19-dark.svg" alt="平滑化の行列表示" width="621" height="161" loading="lazy" /></figure>
+
+が分かります。トレースを取ると、
+
+<figure class="aba-figure" id="aba-figure-20"><img class="aba-light" src="/notes/aba/figures/figure-20.svg" alt="閉じたループの値" width="259" height="82" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-20-dark.svg" alt="閉じたループの値" width="259" height="82" loading="lazy" /></figure>
+
+となります。(この時点で組み紐だけでなく絡み目も考えていることになります。)
+同じ交差の分解則を使って、小さなひねりの値も求められます。ひねりに含まれる交差を分解すると、一方は「円と直線」、もう一方は「直線」になります。
+
+<figure class="aba-figure" id="aba-figure-24"><img class="aba-light" src="/notes/aba/figures/figure-24.svg" alt="ひねりの交差を分解すると、係数Aの円と直線の項と、係数Aの逆数の直線の項になる。" width="393" height="123" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-24-dark.svg" alt="ひねりの交差を分解すると、係数Aの円と直線の項と、係数Aの逆数の直線の項になる。" width="393" height="123" loading="lazy" /></figure>
+
+円1つの値は $-A^2-A^{-2}$ なので、直線に掛かる係数は
+$$
+A(-A^2-A^{-2})+A^{-1}=-A^3
+$$
+です。つまり、ひねりを付ける前の直線に対して、次の倍率が現れます。
+
+<figure class="aba-figure" id="aba-figure-21"><img class="aba-light" src="/notes/aba/figures/figure-21.svg" alt="ひねりの係数と単位行列" width="282" height="123" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-21-dark.svg" alt="ひねりの係数と単位行列" width="282" height="123" loading="lazy" /></figure>
+
+逆向きのひねりでは、分解の係数 $A$ と $A^{-1}$ が入れ替わり、倍率は $-A^{-3}$ になります。したがって、このままではひねりを付けたり取り除いたりすると値が変わります。この倍率を補正して、紐の変形で変わらない量を作ります。
+
+閉じた紐の配置を絡み目と呼び、その図を $D$ とします。交差を分解して円の値を代入した結果を、カウフマンブラケット $\langle D\rangle$ と書きます。それぞれの閉じた紐に向きを付け、交差に次の符号を割り当てます。片方の紐の向きを逆にすると、交差の符号も反転します。図全体で交差の符号を足したものを $w(D)$ とします。
+
+<figure class="aba-figure" id="aba-figure-25"><img class="aba-light" src="/notes/aba/figures/figure-25.svg" alt="向き付き交差の符号。両方の紐を下向きに見たとき、右上から左下へ通る紐が上なら正、その鏡像なら負。" width="205" height="156" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-25-dark.svg" alt="向き付き交差の符号。両方の紐を下向きに見たとき、右上から左下へ通る紐が上なら正、その鏡像なら負。" width="205" height="156" loading="lazy" /></figure>
+
+上のひねりを付けると、$\langle D\rangle$ は $-A^3$ 倍になり、$w(D)$ は1増えます。そこで $(-A^3)^{-w(D)}$ を掛ければ、両者の変化が打ち消し合います。逆向きのひねりでも同じように打ち消されます。交差の組み替えに対する関係式と合わせると、ひねりを含む紐の変形に対して値が変わらなくなります。
+
+さらに、円1つの値が1になるように $-A^2-A^{-2}$ で割り、変数を $t=A^{-4}$ と書き換えたものが Jones 多項式です。$D$ が表す絡み目を $L$ とすると、
+$$
+V_L(t)=\left.
+(-A^3)^{-w(D)}\frac{\langle D\rangle}{-A^2-A^{-2}}
+\right|_{t=A^{-4}}.
+\tag{braid-jones-normalization}
+$$
+交差を行列で表すところから始めて、図の交差を分解し、ひねりの倍率を補正することで、同じ絡み目を表す図に共通の多項式が得られました。
 
 # 参考文献
 >[出口 哲生. (2000). 1次元量子系の厳密解とベーテ仮説の数理物理. 物性研究, 74(3), 255-319](https://core.ac.uk/download/39228381.pdf)
