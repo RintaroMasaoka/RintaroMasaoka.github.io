@@ -542,11 +542,9 @@ $$
 入射項と反射項の変換の和から透過項の変換を引くと0になる。式 (@reflected-transform)、(@transmitted-transform)、(@bound-transform) を代入すると、透過項を引く負号と式 (@transmitted-transform) の負号により、束縛状態項は正となる：
 $$
 \begin{aligned}
-0={}&K(x,y)\\
-&+\underbrace{\frac{\widehat b(x+y)}{2\pi}
+0={}&K(x,y)+\underbrace{\frac{\widehat b(x+y)}{2\pi}
 +\sum_{n=1}^Nc_n^2e^{\kappa_n(x+y)}}_{F(x+y)}\\
-&+\int_{-\infty}^xK(x,z)\,\Bigl[\\
-&\quad\underbrace{\frac{\widehat b(z+y)}{2\pi}
+&+\int_{-\infty}^xK(x,z)\,\Bigl[\underbrace{\frac{\widehat b(z+y)}{2\pi}
 +\sum_{n=1}^Nc_n^2e^{\kappa_n(z+y)}}_{F(z+y)}\Bigr]\,dz.
 \end{aligned}
 \tag{glm-data-assembly}
