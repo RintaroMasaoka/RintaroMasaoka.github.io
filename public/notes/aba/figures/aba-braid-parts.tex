@@ -1,0 +1,36 @@
+% Shared editable braid and Kauffman bracket geometry.
+% Every primitive accepts optional scale followed by x,y.
+\newcommand{\positivecross}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
+\draw (-.42,-.62) .. controls (-.38,-.32) and (.38,.32) .. (.42,.62);
+\draw (-.42,.62) .. controls (-.40,.34) and (-.22,.19) .. (-.12,.12);
+\draw (.12,-.12) .. controls (.22,-.19) and (.40,-.34) .. (.42,-.62);
+\end{scope}}
+\newcommand{\negativecross}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
+\draw (-.42,.62) .. controls (-.38,.32) and (.38,-.32) .. (.42,-.62);
+\draw (-.42,-.62) .. controls (-.40,-.34) and (-.22,-.19) .. (-.12,-.12);
+\draw (.12,.12) .. controls (.22,.19) and (.40,.34) .. (.42,.62);
+\end{scope}}
+\newcommand{\identitydiagram}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
+\draw (-.42,.62) .. controls (-.10,0) and (-.10,0) .. (-.42,-.62);
+\draw (.42,.62) .. controls (.10,0) and (.10,0) .. (.42,-.62);
+\end{scope}}
+\newcommand{\cupcap}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
+\draw (-.42,.62) .. controls (-.42,.08) and (.42,.08) .. (.42,.62);
+\draw (-.42,-.62) .. controls (-.42,-.08) and (.42,-.08) .. (.42,-.62);
+\end{scope}}
+\newcommand{\braidcross}[4][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
+\draw (0,.8) .. controls (0,.35) and (.8,-.35) .. (.8,-.8);
+\draw (.8,.8) .. controls (.8,.48) and (.56,.25) .. (.49,.17);
+\draw (.31,-.17) .. controls (.24,-.25) and (0,-.48) .. (0,-.8);
+\draw (#4,.8) -- (#4,-.8);
+\end{scope}}
+\newcommand{\loopdiagram}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
+\draw (0,0) circle (.42);
+\end{scope}}
+\newcommand{\curldiagram}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
+% The rising branch passes over the falling branch.
+\draw (.35,.78) .. controls (.35,.36) and (-.18,-.35) .. (-.42,-.16)
+ .. controls (-.65,.00) and (-.5,.54) .. (-.28,.32)
+ .. controls (-.20,.26) and (-.17,.20) .. (-.12,.15);
+\draw (.02,-.02) .. controls (.24,-.25) and (.35,-.48) .. (.35,-.78);
+\end{scope}}

@@ -1,0 +1,28 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+\begin{scope}
+\draw[->] (0,0) -- (0,.55) .. controls (0,1.02) and (1.15,1.48) .. (1.62,1.82) .. controls (1.9,2.02) and (1.9,2.2) .. (1.9,2.5) -- (1.9,3.6);
+\draw[->] (1.9,0) -- (1.9,.65) .. controls (1.9,1.2) and (1.9,1.6) .. (1.62,1.82) .. controls (1.4,1.98) and (1,2.14) .. (.7,2.29) .. controls (.3,2.49) and (0,2.62) .. (0,2.95) -- (0,3.6);
+\draw[->] (.7,0) -- (.7,3.6);
+\fill (1.62,1.82) circle (3pt);
+\draw[fill=white] (.7,2.29) circle (3pt);
+\end{scope}
+\node at (3,1.8) {$=$};
+\begin{scope}[shift={(4.1,0)}]
+\draw[->] (0,0) -- (0,.65) .. controls (0,1.2) and (0,1.6) .. (.28,1.82) .. controls (.5,1.98) and (1.9,2.5) .. (1.9,2.95) -- (1.9,3.6);
+\draw[->] (1.9,0) -- (1.9,.55) .. controls (1.9,.94) and (1.5,1.14) .. (1.2,1.31) .. controls (.9,1.48) and (.5,1.66) .. (.28,1.82) .. controls (0,2.02) and (0,2.2) .. (0,2.5) -- (0,3.6);
+\draw[->] (1.2,0) -- (1.2,3.6);
+\fill (.28,1.82) circle (3pt);
+\draw[fill=white] (1.2,1.31) circle (3pt);
+\end{scope}
+\end{tikzpicture}
+\end{document}

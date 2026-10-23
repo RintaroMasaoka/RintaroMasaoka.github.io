@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import NoteLayout from '../../layouts/NoteLayout.astro';
+import StudyNoteLayout from '../../layouts/StudyNoteLayout.astro';
 
 export async function getStaticPaths() {
   const notes = await getCollection('notes');
@@ -14,12 +15,18 @@ const { note } = Astro.props;
 const { Content } = await note.render();
 
 const lang = note.data.lang || 'ja';
+const usesSharedReader = note.slug === 'aba';
+const readerNote = {
+  id: note.slug, title: note.data.title, description: note.data.description,
+  language: lang, chapters: [{ id: note.slug, title: note.data.title, href: Astro.url.pathname }],
+  reader: { mode: 'continuous' as const, basePath: Astro.url.pathname, notesHref: lang === 'ja' ? '/ja/notes/' : '/notes/' },
+};
 ---
 
-<NoteLayout 
-  title={note.data.title} 
+<>{usesSharedReader ? <StudyNoteLayout note={readerNote}><Content /></StudyNoteLayout> : <NoteLayout
+  title={note.data.title}
   description={note.data.description}
   lang={lang}
 >
   <Content />
-</NoteLayout>
+</NoteLayout>}</>

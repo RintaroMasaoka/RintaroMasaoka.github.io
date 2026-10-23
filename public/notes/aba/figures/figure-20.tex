@@ -1,0 +1,15 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+\loopdiagram{0}{0}
+\node[anchor=west] at (.85,0) {$\displaystyle =-A^2-A^{-2}$};
+\end{tikzpicture}
+\end{document}

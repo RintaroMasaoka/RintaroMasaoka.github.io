@@ -1,0 +1,18 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{positive}{HTML}{C66A20}
+\definecolor{negative}{HTML}{2773B4}
+\input{aba-tensor-parts.tex}
+\begin{document}
+\begin{tikzpicture}[line width=.9pt,>=Stealth,font=\large]
+\node at (-2.1,0) {$T_{kl}$};\node at (-1.15,0) {$=$};
+\abaTensorRow{.1,1.1,2.1}{0}{-.5}{2.6}{.85}{none}
+\abaTensorRow{4.7,5.7,6.7}{0}{4.2}{7.3}{.85}{none}
+\node[left] at (-.5,0) {$k$};\node[right] at (7.3,0) {$l$};
+\node at (3.4,0) {$\cdots$};
+\end{tikzpicture}
+\end{document}

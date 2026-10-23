@@ -1,0 +1,29 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{positive}{HTML}{C66A20}
+\definecolor{negative}{HTML}{2773B4}
+\input{aba-tensor-parts.tex}
+\begin{document}
+\begin{tikzpicture}[line width=.9pt,>=Stealth,font=\large]
+\begin{scope}[shift={(0,0)}]
+\draw (-.5,0)--(3.5,0);
+\abaCross{.5}{0}{0}{1}\abaCross{2.5}{0}{0}{1}
+\node[above] at (.5,1) {$i$};\node[above] at (2.5,1) {$i'$};
+\node[below] at (.5,-1) {$l$};\node[below] at (2.5,-1) {$l'$};
+\node[left] at (-.5,0) {$k$};\node[right] at (3.5,0) {$j'$};
+\end{scope}
+\begin{scope}[shift={(7,0)}]
+\draw (-.5,0)--(3.5,0);
+\abaCross{.5}{0}{0}{1}\abaCross{2.5}{0}{0}{1}
+\node[above] at (.5,1) {$i$};\node[above] at (2.5,1) {$i'$};
+\node[below] at (.5,-1) {$l$};\node[below] at (2.5,-1) {$l'$};
+\node[left] at (-.5,0) {$k$};\node[right] at (3.5,0) {$j'$};
+\node[above] at (1.5,.1) {$j$};
+\end{scope}
+\node at (4.4,0) {$=$};\node at (5.6,0) {$\displaystyle\sum_j$};
+\end{tikzpicture}
+\end{document}

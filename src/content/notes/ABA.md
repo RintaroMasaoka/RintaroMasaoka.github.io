@@ -1,7 +1,7 @@
 ---
 title: "6頂点模型とYang-Baxter方程式"
 lang: ja
-description: "6頂点模型、Yang-Baxter方程式、代数的Bethe仮設に関するノート"
+description: "6頂点模型、Yang-Baxter方程式、代数的Bethe仮設、XXZ模型に関するノート"
 ---
 
 # 導入
@@ -10,12 +10,12 @@ description: "6頂点模型、Yang-Baxter方程式、代数的Bethe仮設に関�
 
 左の図では2次元の氷を図示していて、正方格子の各辺で水素原子の配置に2通りの自由度が存在します。この自由度を頂点を結ぶ矢印として書いたのが右の図です。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/1ca32303-1e03-18cc-efda-746900e64434.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-01"><img class="aba-light" src="/notes/aba/figures/figure-01.svg" alt="正方格子上の氷の配置と、対応する矢印配位" width="594" height="245" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-01-dark.svg" alt="正方格子上の氷の配置と、対応する矢印配位" width="594" height="245" loading="lazy" /></figure>
 
 各頂点が電気的に中性である (= 酸素原子に結合している水素原子は2個) という条件を課すと、各頂点で流入する矢印と流出する矢印の数は等しくなります。この条件を Ice rule といいます。
 Ice rule を考慮すると、あり得る頂点は6通り存在します。ここからこの模型を6頂点模型と呼びます。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/290e3dd0-0205-5ba5-6fea-2219df586957.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-02"><img class="aba-light" src="/notes/aba/figures/figure-02.svg" alt="Ice rule を満たす六つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-02-dark.svg" alt="Ice rule を満たす六つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /></figure>
 
 矢印の反転に対する対称性を仮定すると、 Boltzmann 重率 $a, b, c$ によって模型は決定されます。[^1]
 [^1]: ここで定義した Boltzmann 重率は普通 $\exp(-\beta\varepsilon)$ のように書かれますが、まとめて $a, b, c$ という一文字でおいています。
@@ -29,19 +29,19 @@ Ice rule を考慮すると、あり得る頂点は6通り存在します。こ�
 
 6頂点模型における頂点は、上下左右の矢印の符号に対して、 $0, a, b, c$ のいずれかを返すようなテンソルだとみなせます。これを以下のグラフで表します。また、テンソルの縮約を以下のように表します。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/cc2500fd-3902-f5e7-3c81-d8cf5571ddbb.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-03"><img class="aba-light" src="/notes/aba/figures/figure-03.svg" alt="テンソルの脚と添字の縮約" width="682" height="177" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-03-dark.svg" alt="テンソルの脚と添字の縮約" width="682" height="177" loading="lazy" /></figure>
 
 以上の記法はテンソルネットワークと呼ばれます。テンソルネットワークによる図示は厳密なものであり、常に数式に直すことができます。しかし数式による表現はどうしても1次元的になってしまうので、2次元的に縮約されたテンソルを表す場合、数式よりもテンソルネットワークを使って表現したほうが便利です。
-例えば10\times10格子の分配関数をテンソルネットワークで表すと、以下のようになります。
-ただし、点線は周期的境界条件を表しています。
+例えば $10\times10$ 格子の分配関数をテンソルネットワークで表すと、以下のようになります。
+点線は周期境界を表し、同じ鏃を付けた向かい合う辺どうしを、向きを合わせて貼り合わせます。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/a32565a1-3c2e-b38f-3125-d3f8ac1c1c9a.png" style="width: 50%;" />
+<figure class="aba-figure" id="aba-figure-04"><img class="aba-light" src="/notes/aba/figures/figure-04.svg" alt="10×10 格子の分配関数。左右辺の一つの鏃どうし、上下辺の二つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-04-dark.svg" alt="10×10 格子の分配関数。左右辺の一つの鏃どうし、上下辺の二つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /></figure>
 
 # モノドロミー行列と転送行列
 
 さて、6頂点模型の頂点を表すテンソルを、具体的に成分表示しましょう。
 頂点に対し、右と上の添字のあり得る組み合わせは $++, +-, -+, --$ の4つですが、これらを列の添字とみなします。同様に、左と下の添字も $++, +-, -+, --$ の4つがあり得ますが、これらを行の添字とみなします。
-すると、$\alpha$行目、$𝑛$列目の頂点は、以下の4\times4行列で表示できます。
+すると、$\alpha$行目、$𝑛$列目の頂点は、以下の $4\times4$ 行列で表示できます。
 例えば2行目3列目は、左が$+$、下が$-$、 右が$-$、 上が$+$のときの Boltzmann 重率を表しています。
 $$
 \begin{align*}
@@ -108,8 +108,8 @@ $$
 と定義します。ただし、 $𝑁$ は系のサイズを表します。以降は添字の $\alpha$ は省略します。
 この定義をテンソルネットワークで書くと、
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/0239e2b8-5f55-4784-6de7-9684091bbdcf.png" style="width: 40%;" />
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/2f493c21-0e80-a088-931a-03adcd281ff0.png" style="width: 40%;" />
+<figure class="aba-figure" id="aba-figure-05"><img class="aba-light" src="/notes/aba/figures/figure-05.svg" alt="モノドロミー行列 T のテンソルネットワーク" width="576" height="99" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-05-dark.svg" alt="モノドロミー行列 T のテンソルネットワーク" width="576" height="99" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-06"><img class="aba-light" src="/notes/aba/figures/figure-06.svg" alt="補助空間のトレースによる転送行列 τ" width="494" height="99" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-06-dark.svg" alt="補助空間のトレースによる転送行列 τ" width="494" height="99" loading="lazy" /></figure>
 
 となります。上下に伸びる添字は省略していますが、きちんと書くと、
 $$
@@ -130,7 +130,7 @@ $$
 # Yang-Baxter 方程式
 次に、Yang-Baxter 方程式を導入します。具体的には以下の図で表されます。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/91cd1870-c347-d406-175a-fc2bfc7e97c8.png" style="width: 40%;" />
+<figure class="aba-figure" id="aba-figure-07"><img class="aba-light" src="/notes/aba/figures/figure-07.svg" alt="Yang–Baxter 方程式の三つの頂点の接続" width="388" height="155" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-07-dark.svg" alt="Yang–Baxter 方程式の三つの頂点の接続" width="388" height="155" loading="lazy" /></figure>
 
 3つの頂点は別々の Boltzmann 重率をもつ6頂点模型の頂点です。
 矢印は符号の基準を与えるものです。矢印と同じ向きを正符号とします。
@@ -143,7 +143,7 @@ $$
 となります。ただし、$𝑅$ はR行列と呼び、成分は $𝐿$ と同じものです。繋がり方が異なっているので別の記号で区別しています。
 まずこの方程式が成り立つと何が嬉しいのかを説明します。モノドロミー行列の積に、左からR行列を掛けてみます。すると、Yang-Baxter 方程式を繰り返し使うことができます。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/2a270c1c-0500-f4ad-21ca-03d228dd2a98.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-08"><img class="aba-light" src="/notes/aba/figures/figure-08.svg" alt="R 行列をモノドロミー行列の積に通す変形" width="830" height="413" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-08-dark.svg" alt="R 行列をモノドロミー行列の積に通す変形" width="830" height="413" loading="lazy" /></figure>
 
 左に掛けたR行列は右にすり抜けて、同時にモノドロミー行列の積の順序が入れ替わります。
 これを式で書くと、
@@ -166,29 +166,29 @@ $$
 
 # Yang-Baxter 方程式を書き下す
 Yang-Baxter 方程式を以下のように変形しておきます。
-右辺を回転し、全ての矢印の向きを反転しています。
-矢印の向きの反転は全て同時に行う限りはBoltzmann重率を変えません。
+右辺の図だけを180度回転し、その図の全ての矢印の向きを反転します。
+先に仮定した矢印反転の対称性により、この同時反転で各頂点のBoltzmann重率は変わりません。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/8ab91d97-a408-7829-84de-87b6cd264b0c.png" style="width: 40%;" />
+<figure class="aba-figure" id="aba-figure-09"><img class="aba-light" src="/notes/aba/figures/figure-09.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-09-dark.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /></figure>
 
-さらに矢印の向きを1つ反転して、
+次に、三つの頂点を結ぶ図形を回転対称な形に整え、添字を巡回させて成分方程式を書き下しやすくします。そのために、斜め右上へ向かう線の矢印を反転して、
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/bbfa0038-0bf0-5ca3-45ab-91b33fdddec9.png" style="width: 40%;" />
+<figure class="aba-figure" id="aba-figure-10"><img class="aba-light" src="/notes/aba/figures/figure-10.svg" alt="一つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-10-dark.svg" alt="一つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /></figure>
 
-と書きます。この変形は2つの頂点 (無印と白丸) で $a \leftrightarrow b$ という変換をしたことを意味しています。後で $a \leftrightarrow b$ という変換をもう一度行って、元に戻せば大丈夫です。
+と書きます。この矢印の反転は、2つの頂点 (無印と白丸) で重率を $a \leftrightarrow b$ と読み替えることに対応します。以下ではこの読み替えた重率で成分方程式を求め、解を求める際にもう一度 $a \leftrightarrow b$ として元の重率に戻します。
 
 Yang-Baxter 方程式は 6つの添字をもつので、 $2^6 = 64$ 個の方程式の集まりですが、実質的な方程式の数は3つだけです。
 - Ice ruleのために、6つの添字の中で流入する矢印の数と流出する矢印の数は等しくなるはずです。したがって、両辺がゼロでないのは ${}_6C_3 = 20$ 通りだけです。
 - さらに矢印の反転に関する対称性から、 10通りだけ考えれば良いです。
 - 10通りのうちの4通りでは、Yang-Baxter 方程式の左辺と右辺が同じものになり、恒等式を与えます。これは、以下の場合です。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/ba377c70-1ddd-f3d4-7e0e-cd5e41886096.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-11"><img class="aba-light" src="/notes/aba/figures/figure-11.svg" alt="恒等式を与える四つの外部矢印配位" width="579" height="165" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-11-dark.svg" alt="恒等式を与える四つの外部矢印配位" width="579" height="165" loading="lazy" /></figure>
 
 - 残りの6通りから、6個の方程式が得られます。しかし、左辺と右辺を入れ替えた方程式がペアになって出てくるので、実質的な方程式の数は3個となります。
 
 3個の方程式のうちの1つは、以下のように表されます。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/df9d6137-53cd-d04b-90b0-4f34e1194f85.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-12"><img class="aba-light" src="/notes/aba/figures/figure-12.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-12-dark.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /></figure>
 
 これを式で書くと、
 $$
@@ -224,7 +224,7 @@ $$
 が成り立っていなければなりません。ここから、
 $$
 \begin{align*}
-\frac{a_\circ^2+b_\circ^2-c_\circ^2}{2a_\circ b_\circ} - \frac{a_\bullet^2+b_\bullet^2-c_\bullet^2}{2a_\bullet b_\bullet} \eqcolon \Delta_\circ - \Delta_\bullet = 0.
+\frac{a_\circ^2+b_\circ^2-c_\circ^2}{2a_\circ b_\circ} - \frac{a_\bullet^2+b_\bullet^2-c_\bullet^2}{2a_\bullet b_\bullet} \eqqcolon \Delta_\circ - \Delta_\bullet = 0.
 \end{align*}
 $$
 が分かり、同様の議論を繰り返すと、
@@ -262,7 +262,7 @@ $$
 この式は $a, b, c$ を三角形の3辺だと思って正弦定理および余弦定理を使えばわかります。 
 
 # Yang-Baxter 方程式の解
-無印と白丸の頂点で $a \leftrightarrow b$ としなければならないことに注意し、また c が各頂点で共通することに注意すると、Yang-Baxter 方程式から以下の式が成り立ちます。
+無印と白丸の頂点で $a \leftrightarrow b$ としなければならないことに注意し、また $c$ が各頂点で共通することに注意すると、Yang-Baxter 方程式から以下の式が成り立ちます。
 $$
 \begin{align*}
 a_\circ b_\bullet - b_\circ a_\bullet = ca
@@ -295,7 +295,7 @@ $$
 $$
 が分かります。したがって、Yang-Baxter 方程式を以下のように書き直しておきます。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/71da6f02-a7d7-6885-c2d8-546ec63283d7.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-13"><img class="aba-light" src="/notes/aba/figures/figure-13.svg" alt="スペクトルパラメーター λ、μ、λ−μ を付けた方程式" width="429" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-13-dark.svg" alt="スペクトルパラメーター λ、μ、λ−μ を付けた方程式" width="429" height="161" loading="lazy" /></figure>
 
 
 # 代数的 Bethe 仮設
@@ -522,71 +522,156 @@ $$
 によって構成されます。
 
 # 組み紐群の表現
-ちょっと話題を変えて、Yang-Baxter 方程式と組み紐群との関係について見てみます。ここでは組み紐群の定義については省略します。
-Yang-Baxter 方程式を変形して
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/71196d8f-6a54-0454-3373-6560113ade89.png" style="width: 30%;" />
+Yang–Baxter 方程式は、三つの交差の順序を変えても結果が変わらない、という組み紐の関係式として読めます。二本の交換を含む $R$ 行列がこの関係式を満たせば、交差を行列として計算できます。以下では、$A\ne0$ をパラメーターとして次の $R$ 行列を使います。
 
-と書くと、組み紐関係式に見えてきます。組み紐関係式とは、以下の等式を指します。
+<figure class="aba-figure" id="aba-figure-15"><img class="aba-light" src="/notes/aba/figures/figure-15.svg" alt="三本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-15-dark.svg" alt="三本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /></figure>
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/9a1443c0-dcac-e522-ffba-1573493425fe.png" style="width: 30%;" />
+<figure class="aba-figure" id="aba-figure-16"><img class="aba-light" src="/notes/aba/figures/figure-16.svg" alt="交差と R 行列の成分表示" width="368" height="129" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-16-dark.svg" alt="交差と R 行列の成分表示" width="368" height="129" loading="lazy" /></figure>
 
-違いとしては、Yang-Baxter 方程式では頂点が連続的なパラメーターによって特徴づけられていますが、組み紐関係式ではそのようなパラメーターはありません。
-しかし、パラメーターについて適切に極限をとることで、Yang-Baxter 方程式から組み紐群の表現を得ることができます。
+この交差は、係数 $A$ と $A^{-1}$ を付けた二通りの「交差のないつなぎ方」に分解できます。二本をそのまま通す図を $I$、上下の端点をそれぞれ弧でつなぐ図を $E$ と書けば、$R=AI+A^{-1}E$ です。
 
-例えば、以下のR行列を考えてみます。これが Yang-Baxter 方程式を満たすことの証明は読者への演習問題とします。
+<figure class="aba-figure" id="aba-figure-18"><img class="aba-light" src="/notes/aba/figures/figure-18.svg" alt="カウフマンブラケットの交差の分解" width="325" height="73" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-18-dark.svg" alt="カウフマンブラケットの交差の分解" width="325" height="73" loading="lazy" /></figure>
+
+$E$ を上下に二つ重ねると、円が一つでき、残りは元の $E$ の図になります。行列から $E^2=(-A^2-A^{-2})E$ が得られるので、円一つには $d\coloneqq-A^2-A^{-2}$ を対応させます。紐を閉じた図 $D$ の交差をすべて分解し、各項の係数に円の数だけ $d$ を掛けて足したものが、カウフマンブラケット $\langle D\rangle$ です。
+
+<figure class="aba-figure" id="aba-figure-20"><img class="aba-light" src="/notes/aba/figures/figure-20.svg" alt="平滑化の合成から定まる閉じたループの値" width="227" height="50" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-20-dark.svg" alt="平滑化の合成から定まる閉じたループの値" width="227" height="50" loading="lazy" /></figure>
+
+ただし、小さなひねりを付けると値は変わります。次のひねりを分解すると、一方は「円と直線」、他方は「直線」になるので、直線に対する倍率は
 $$
-\begin{align*}
-    R(\lambda)
-    = \begin{pmatrix}
-        \sinh(\lambda+2\eta) & 0                & 0            & 0 \\
-        0           &  e^{-\lambda}\sinh(2\eta) & \sinh \lambda      & 0 \\
-        0           & \sinh \lambda          & e^\lambda\sinh(2\eta) & 0 \\
-        0           & 0                & 0            & \sinh(\lambda+2\eta)
-    \end{pmatrix}
-\end{align*}
+Ad+A^{-1}=A(-A^2-A^{-2})+A^{-1}=-A^3
 $$
-以下のようにパラメーターの極限をとります。
+です。逆向きのひねりなら倍率は $-A^{-3}$ です。
+
+<figure class="aba-figure" id="aba-figure-21"><img class="aba-light" src="/notes/aba/figures/figure-21.svg" alt="カールの係数と単位行列" width="246" height="91" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-21-dark.svg" alt="カールの係数と単位行列" width="246" height="91" loading="lazy" /></figure>
+
+このひねりの影響を取り除いたものが Jones 多項式です。図に向きを付け、交差の符号の和を $w(D)$ とします（上のひねりを正とする規約）。ひねりが一つ増えるたびに現れる $-A^3$ を打ち消し、さらに円一つの値を $1$ にそろえると、
 $$
-\begin{align*}
-    R \coloneqq \lim_{\lambda\to\infty} 2e^{-\lambda-\eta}R(\lambda)
-    = \begin{pmatrix}
-        e^\eta & 0      & 0             & 0 \\
-        0   & 0      & e^{-\eta}        & 0 \\
-        0   & e^{-\eta} & e^{\eta}-e^{-3\eta} & 0 \\
-        0   & 0      & 0             & e^\eta
-    \end{pmatrix}
-\end{align*}
+V_L(t)=\left.(-A^3)^{-w(D)}\frac{\langle D\rangle}{d}\right|_{t=A^{-4}}
+\tag{braid-jones-normalization}
 $$
-Yang-Baxter 方程式から、この行列は組み紐群の表現になっています。
-ここから、
+となります。**Yang–Baxter 方程式が交差の組み替えを保証し、交差の分解とひねりの補正から、紐の変形で変わらない多項式が得られる**、というのがこのつながりです。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/72c78b03-4fda-f5b7-0fea-bcda0bb9ed4b.png" style="width: 70%;" />
+# XXZ模型との対応
 
-と書くことにします。ただし、列の添字は上の2つの端点の添字 $(++, +-, -+, --)$ を表しており、行の添字は下の2つの端点の添字 $(++, +-, -+, --)$ を表しています。また $A = e^\eta$とおきました。反対向きの交差は逆行列をとって、
+6頂点模型の転送行列には、1次元量子スピン系のハミルトニアンも含まれています。組み紐の節で用いた双曲線関数の行列から、先に導入した三角関数の重率 $a(\lambda)=\sin(\lambda+2\eta)$、$b(\lambda)=\sin\lambda$、$c=\sin(2\eta)$ に戻り、この対応を調べます。以下では実数 $\eta$ を固定し、$\sin(2\eta)\ne0$ とします。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/0fd5fc7c-ef56-285d-cf57-6d3484133894.png" style="width: 70%;" />
+各格子点にスピン $1/2$ を置き、両端をつないだ $N\ge2$ サイトの鎖を考えます。隣り合うスピンが $x,y,z$ 方向に相互作用し、$z$ 方向の結合の強さが $\Delta=\cos(2\eta)$ 倍である模型がXXZ模型です。各方向の相互作用を鎖全体で足し合わせ、ハミルトニアンを
+$$
+\frac14\sum_{n=1}^{N}
+\left(\sigma_n^x\sigma_{n+1}^x+\sigma_n^y\sigma_{n+1}^y
++\Delta\sigma_n^z\sigma_{n+1}^z\right)
+\eqqcolon H_{\mathrm{XXZ}},\qquad
+\sigma_{N+1}^{\nu}=\sigma_1^{\nu}\quad(\nu=x,y,z)
+\tag{xxz-hamiltonian}
+$$
+と定義します。これまでの $L$ 行列と転送行列 $\tau(\lambda)=\operatorname{tr}_{\alpha}[L_{\alpha,1}(\lambda)\cdots L_{\alpha,N}(\lambda)]$ を使うと、次の関係が成り立ちます。
+$$
+H_{\mathrm{XXZ}}
+=\frac{\sin(2\eta)}2\tau(0)^{-1}\tau'(0)
+-\frac{N\Delta}{4}\,I.
+\tag{xxz-transfer-hamiltonian}
+$$
+ここでプライムは $\lambda$ による微分、$I$ は鎖全体の単位演算子です。転送行列を微分し、$\lambda=0$ での転送行列の作用を取り除くと、隣接スピンの相互作用が現れます。その仕組みを見てみましょう。
 
-となります。さらに、次の関係式 (カウフマンブラケットの性質)
+まず $\lambda=0$ では $a=c$、$b=0$ なので、$L$ 行列は二つのスピンを交換する演算子になります。交換演算子を $P_{\alpha,n}|s\rangle_{\alpha}|t\rangle_n=|t\rangle_{\alpha}|s\rangle_n$ と書くと、
+$$
+L_{\alpha,n}(0)
+=c\begin{pmatrix}
+1&0&0&0\\
+0&0&1&0\\
+0&1&0&0\\
+0&0&0&1
+\end{pmatrix}
+=cP_{\alpha,n}.
+\tag{xxz-regular-point}
+$$
+補助スピンと各サイトのスピンを順に交換して補助空間のトレースを取ると、鎖のスピン配置が1サイト左に移ります。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/33d95339-86f4-64d0-5627-c80470895571.png" style="width: 70%;" />
+<figure class="aba-figure" id="aba-figure-22"><img class="aba-light" src="/notes/aba/figures/figure-22.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="358" height="311" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-22-dark.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="358" height="311" loading="lazy" /></figure>
 
-を課します。第1項は単位行列 $(\times A)$ です。すると、
+$$
+\tau(0)|s_1,s_2,\ldots,s_N\rangle
+=c^N|s_2,s_3,\ldots,s_N,s_1\rangle.
+\tag{xxz-transfer-shift}
+$$
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/9b4f9408-acac-1efb-7b1f-919a3e86dd7c.png" style="width: 70%;" />
+この一様な移動を除いて、$\lambda$ を変えたときの作用を取り出します。積の微分則により、$\tau'(0)$ は、一つの $L$ だけを $L'(0)$ に置き換えた項の和です。
+$$
+\tau'(0)=\sum_{n=1}^{N}\operatorname{tr}_{\alpha}
+\left[
+(cP_{\alpha,1})\cdots(cP_{\alpha,n-1})
+L'_{\alpha,n}(0)
+(cP_{\alpha,n+1})\cdots(cP_{\alpha,N})
+\right].
+\tag{xxz-differentiated-row}
+$$
+<figure class="aba-figure" id="aba-figure-23"><img class="aba-light" src="/notes/aba/figures/figure-23.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="506" height="580" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-23-dark.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="506" height="580" loading="lazy" /></figure>
 
-が分かります。トレースを取ると、
+各項に左から $\tau(0)^{-1}$ を作用させると、交換だけで生じる移動が打ち消されます。微分した頂点につながる二本の線は隣接するサイト $n,n+1$ に残り、それ以外のサイトには単位演算子が作用します。
+$$
+\tau(0)^{-1}\tau'(0)
+=\frac1c\sum_{n=1}^{N}P_{n,n+1}L'_{n,n+1}(0).
+\tag{xxz-local-derivative}
+$$
+右辺の $L'_{n,n+1}(0)$ は、同じ $4\times4$ 行列を二つの量子スピンに作用させたものです。$n=N$ の項は周期境界をまたぐサイト $N,1$ の相互作用になります。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/0825477d-7e0d-63c2-c982-e67f625b6747.png" style="width: 70%;" />
+残った二サイトの行列を計算します。重率の微分は $a'(0)=\Delta$、$b'(0)=1$、$c'=0$ なので、
+$$
+P L'(0)
+=\begin{pmatrix}
+\Delta&0&0&0\\
+0&0&1&0\\
+0&1&0&0\\
+0&0&0&\Delta
+\end{pmatrix}
+=\frac12\left[
+\sigma^x\otimes\sigma^x+\sigma^y\otimes\sigma^y
++\Delta(\sigma^z\otimes\sigma^z+I_2\otimes I_2)
+\right].
+\tag{xxz-local-matrix}
+$$
+ここで $I_2$ は一つのスピンに対する単位行列です。平行なスピンには対角成分 $\Delta$ が、反平行なスピンには互いを交換する成分が作用することが読み取れます。
 
-となります。(この時点で組み紐だけでなく絡み目も考えていることになります。)
-さらにカウフマンブラケットの性質から、以下の式も示せます。
+式 (@xxz-local-matrix) を式 (@xxz-local-derivative) に代入すると、
+$$
+\tau(0)^{-1}\tau'(0)
+=\frac{1}{2\sin(2\eta)}\sum_{n=1}^{N}
+\left[
+\sigma_n^x\sigma_{n+1}^x+\sigma_n^y\sigma_{n+1}^y
++\Delta(\sigma_n^z\sigma_{n+1}^z+I)
+\right]
+=\frac{2}{\sin(2\eta)}H_{\mathrm{XXZ}}
++\frac{N\Delta}{2\sin(2\eta)}I.
+\tag{xxz-derivative-sum}
+$$
+これで式 (@xxz-transfer-hamiltonian) が得られました。6頂点模型の重率を特徴づけていた $\Delta$ が、XXZ模型では $z$ 方向と $x,y$ 方向の相互作用の比として現れています。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2655346/7221bb0e-0d42-7ccb-20f6-dbb75ca96f2f.png" style="width: 70%;" />
-
-以上で導入した組み紐・絡み目の表現は、Jones 多項式と呼ばれるものです。
+最後に、この関係を固有値に適用します。$\lambda$ に依存しない状態 $|\Psi\rangle$ が、$0$ の近くで $\tau(\lambda)|\Psi\rangle=\Lambda(\lambda)|\Psi\rangle$ を満たせば、式 (@xxz-transfer-hamiltonian) より同じ状態がXXZ模型の固有状態になり、そのエネルギーは
+$$
+E=\frac{\sin(2\eta)}2\frac{\Lambda'(0)}{\Lambda(0)}-\frac{N\Delta}{4}
+\tag{xxz-energy-from-transfer}
+$$
+です。したがって、代数的Bethe仮設で転送行列の固有状態と固有値が得られれば、量子スピン鎖のエネルギーも求まります。
 
 # 参考文献
 >[出口 哲生. (2000). 1次元量子系の厳密解とベーテ仮説の数理物理. 物性研究, 74(3), 255-319](https://core.ac.uk/download/39228381.pdf)
 
 >[Franchini, F. (2017). An Introduction to Integrable Techniques for One-Dimensional Quantum Systems.](https://link.springer.com/book/10.1007/978-3-319-48487-7)
+
+<style>
+.aba-figure { margin: 1.8rem 0; text-align: center; }
+.aba-figure img { max-width: 100%; height: auto; margin-inline: auto; vertical-align: middle; }
+.aba-figure .aba-light { display: inline-block; }
+.aba-figure .aba-dark { display: none; }
+:root[data-theme="dark"] .aba-figure .aba-light { display: none; }
+:root[data-theme="dark"] .aba-figure .aba-dark { display: inline-block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .aba-figure .aba-light { display: none; }
+  :root:not([data-theme="light"]) .aba-figure .aba-dark { display: inline-block; }
+}
+@media print {
+  .aba-figure .aba-light { display: inline-block !important; }
+  .aba-figure .aba-dark { display: none !important; }
+}
+</style>

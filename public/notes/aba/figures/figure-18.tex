@@ -1,0 +1,20 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+\positivecross{0}{0}
+\node at (.9,0) {$=$};
+\node at (1.6,0) {$A$};
+\identitydiagram{2.35}{0}
+\node at (3.2,0) {$+$};
+\node at (4,0) {$A^{-1}$};
+\cupcap{4.85}{0}
+\end{tikzpicture}
+\end{document}

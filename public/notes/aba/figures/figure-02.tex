@@ -1,0 +1,61 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{positive}{HTML}{C66A20}
+\definecolor{negative}{HTML}{2773B4}
+\input{aba-tensor-parts.tex}
+\begin{document}
+\begin{tikzpicture}[line width=.9pt,>=Stealth,font=\large]
+\begin{scope}[shift={(0,2.8)}]
+\abaCross{0}{0}{.85}{.85}
+\node at (-.2,.23) {$ a $};
+\node at (-1.08,0) {$ + $};\abaSignArrow{-0.464}{0.0}{h}{1}
+\node at (1.08,0) {$ + $};\abaSignArrow{0.464}{0.0}{h}{1}
+\node at (0,-1.08) {$ + $};\abaSignArrow{0.0}{-0.464}{v}{1}
+\node at (0,1.08) {$ + $};\abaSignArrow{0.0}{0.464}{v}{1}
+\end{scope}
+\begin{scope}[shift={(3,2.8)}]
+\abaCross{0}{0}{.85}{.85}
+\node at (-.2,.23) {$ b $};
+\node at (-1.08,0) {$ + $};\abaSignArrow{-0.464}{0.0}{h}{1}
+\node at (1.08,0) {$ + $};\abaSignArrow{0.464}{0.0}{h}{1}
+\node at (0,-1.08) {$ - $};\abaSignArrow{0.0}{-0.464}{v}{-1}
+\node at (0,1.08) {$ - $};\abaSignArrow{0.0}{0.464}{v}{-1}
+\end{scope}
+\begin{scope}[shift={(6,2.8)}]
+\abaCross{0}{0}{.85}{.85}
+\node at (-.2,.23) {$ c $};
+\node at (-1.08,0) {$ - $};\abaSignArrow{-0.464}{0.0}{h}{-1}
+\node at (1.08,0) {$ + $};\abaSignArrow{0.464}{0.0}{h}{1}
+\node at (0,-1.08) {$ + $};\abaSignArrow{0.0}{-0.464}{v}{1}
+\node at (0,1.08) {$ - $};\abaSignArrow{0.0}{0.464}{v}{-1}
+\end{scope}
+\begin{scope}[shift={(0,0)}]
+\abaCross{0}{0}{.85}{.85}
+\node at (-.2,.23) {$ a $};
+\node at (-1.08,0) {$ - $};\abaSignArrow{-0.464}{0.0}{h}{-1}
+\node at (1.08,0) {$ - $};\abaSignArrow{0.464}{0.0}{h}{-1}
+\node at (0,-1.08) {$ - $};\abaSignArrow{0.0}{-0.464}{v}{-1}
+\node at (0,1.08) {$ - $};\abaSignArrow{0.0}{0.464}{v}{-1}
+\end{scope}
+\begin{scope}[shift={(3,0)}]
+\abaCross{0}{0}{.85}{.85}
+\node at (-.2,.23) {$ b $};
+\node at (-1.08,0) {$ - $};\abaSignArrow{-0.464}{0.0}{h}{-1}
+\node at (1.08,0) {$ - $};\abaSignArrow{0.464}{0.0}{h}{-1}
+\node at (0,-1.08) {$ + $};\abaSignArrow{0.0}{-0.464}{v}{1}
+\node at (0,1.08) {$ + $};\abaSignArrow{0.0}{0.464}{v}{1}
+\end{scope}
+\begin{scope}[shift={(6,0)}]
+\abaCross{0}{0}{.85}{.85}
+\node at (-.2,.23) {$ c $};
+\node at (-1.08,0) {$ + $};\abaSignArrow{-0.464}{0.0}{h}{1}
+\node at (1.08,0) {$ - $};\abaSignArrow{0.464}{0.0}{h}{-1}
+\node at (0,-1.08) {$ - $};\abaSignArrow{0.0}{-0.464}{v}{-1}
+\node at (0,1.08) {$ + $};\abaSignArrow{0.0}{0.464}{v}{1}
+\end{scope}
+\end{tikzpicture}
+\end{document}

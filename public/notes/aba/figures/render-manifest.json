@@ -1,0 +1,140 @@
+[
+  {
+    "source": "figure-01.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 87
+  },
+  {
+    "source": "figure-02.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 65
+  },
+  {
+    "source": "figure-03.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 18
+  },
+  {
+    "source": "figure-04.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 29
+  },
+  {
+    "source": "figure-05.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 15
+  },
+  {
+    "source": "figure-06.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 15
+  },
+  {
+    "source": "figure-07.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 19
+  },
+  {
+    "source": "figure-08.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 43
+  },
+  {
+    "source": "figure-09.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 55
+  },
+  {
+    "source": "figure-10.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 22
+  },
+  {
+    "source": "figure-11.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 14
+  },
+  {
+    "source": "figure-12.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 80
+  },
+  {
+    "source": "figure-13.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 16
+  },
+  {
+    "source": "figure-14.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 17
+  },
+  {
+    "source": "figure-15.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 25
+  },
+  {
+    "source": "figure-16.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 16
+  },
+  {
+    "source": "figure-17.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 16
+  },
+  {
+    "source": "figure-18.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 12
+  },
+  {
+    "source": "figure-19.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 20
+  },
+  {
+    "source": "figure-20.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 6
+  },
+  {
+    "source": "figure-21.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 10
+  },
+  {
+    "source": "figure-22.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 47
+  },
+  {
+    "source": "figure-23.tex",
+    "renderer": "latex + dvisvgm --no-fonts --exact",
+    "labels": "TeX glyph outlines; no external fonts",
+    "paths": 85
+  }
+]

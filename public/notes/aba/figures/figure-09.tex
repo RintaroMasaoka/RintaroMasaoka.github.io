@@ -1,0 +1,45 @@
+% Native dvisvgm paths for latex; preserve the PDF driver for pdflatex.
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\definecolor{positive}{HTML}{C66A20}
+\definecolor{negative}{HTML}{2773B4}
+\input{aba-ybe-parts.tex}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,>={Stealth[length=5pt,width=5pt]},line cap=round,line join=round]
+% The upper equation is the earlier YBE, now with boundary indices.
+\abaYBETriple{1}{->}{->}{1}{0}
+\abaYBEBoundaryLabels{j_1}{i_1}{j_2}{i_2}{j_3}{i_3}
+\node at (2.45,0) {$=$};
+\begin{scope}[xshift=4.9cm]
+  % The two RHS layouts track vertex identities and boundary indices
+  % through the half-turn. Arrowheads denote the diagram reference directions.
+  \begin{scope}[rotate=180]
+    \renewcommand{\abaYBEVerticalArrow}{<-}
+    \abaYBETriple{1}{<-}{<-}{1}{0}
+  \end{scope}
+  \node[anchor=east] at (-1.19,.98) {$j_1$};
+  \node[anchor=east] at (-1.19,-.98) {$i_1$};
+  \node[anchor=south] at (-.65,1.48) {$j_2$};
+  \node[anchor=north] at (-.65,-1.48) {$i_2$};
+  \node[anchor=west] at (1.28,.73) {$j_3$};
+  \node[anchor=west] at (1.28,-.73) {$i_3$};
+\end{scope}
+% Only the right-hand diagram is transformed; the left stays fixed.
+\draw[->] (4.9,-2.05)--(4.9,-3.55);
+\node[anchor=west,align=left,font=\normalsize] at (5.12,-2.8)
+  {$180^\circ$ rotation\\reverse all arrows};
+\begin{scope}[yshift=-5.6cm]
+  \abaYBETriple{1}{->}{->}{1}{0}
+  \abaYBEBoundaryLabels{j_1}{i_1}{j_2}{i_2}{j_3}{i_3}
+  \node at (2.45,0) {$=$};
+  \begin{scope}[xshift=4.9cm]
+    \abaYBETriple{1}{->}{->}{1}{0}
+    \abaYBEBoundaryLabels{i_3}{j_3}{i_2}{j_2}{i_1}{j_1}
+  \end{scope}
+\end{scope}
+\end{tikzpicture}
+\end{document}

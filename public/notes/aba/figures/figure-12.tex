@@ -1,0 +1,52 @@
+% Native dvisvgm paths for latex; preserve the PDF driver for pdflatex.
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\definecolor{positive}{HTML}{C66A20}
+\definecolor{negative}{HTML}{2773B4}
+\input{aba-ybe-parts.tex}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,>={Stealth[length=5pt,width=5pt]},line cap=round,line join=round]
+\begin{scope}[xshift=0.0cm]
+\abaYBETriple{1}{->}{<-}{1}{.25}
+\abaStateArrow{-0.87000}{0.43875}{-0.14832}{0.10198}{negative}
+\abaStateArrow{0.15000}{-0.26250}{0.14832}{-0.10198}{positive}
+\abaStateArrow{1.02000}{-0.86062}{0.14832}{-0.10198}{positive}
+\abaStateArrow{-0.87000}{-0.43875}{0.14832}{0.10198}{negative}
+\abaStateArrow{0.15000}{0.26250}{-0.14832}{-0.10198}{positive}
+\abaStateArrow{1.02000}{0.86062}{-0.14832}{-0.10198}{positive}
+\abaStateArrow{0.65000}{1.02000}{0.00000}{-0.18000}{negative}
+\abaStateArrow{0.65000}{0.00000}{0.00000}{-0.18000}{negative}
+\abaStateArrow{0.65000}{-1.04000}{0.00000}{-0.18000}{negative}
+\end{scope}
+\node at (1.8,0) {$=$};
+\begin{scope}[xshift=3.6cm]
+\abaYBETriple{1}{->}{<-}{1}{.25}
+\abaStateArrow{-0.87000}{0.43875}{0.14832}{-0.10198}{positive}
+\abaStateArrow{0.15000}{-0.26250}{-0.14832}{0.10198}{negative}
+\abaStateArrow{1.02000}{-0.86062}{-0.14832}{0.10198}{negative}
+\abaStateArrow{-0.87000}{-0.43875}{-0.14832}{-0.10198}{positive}
+\abaStateArrow{0.15000}{0.26250}{0.14832}{0.10198}{negative}
+\abaStateArrow{1.02000}{0.86062}{0.14832}{0.10198}{negative}
+\abaStateArrow{0.65000}{1.02000}{0.00000}{-0.18000}{negative}
+\abaStateArrow{0.65000}{0.00000}{0.00000}{-0.18000}{negative}
+\abaStateArrow{0.65000}{-1.04000}{0.00000}{-0.18000}{negative}
+\end{scope}
+\node at (5.4,0) {$+$};
+\begin{scope}[xshift=7.2cm]
+\abaYBETriple{1}{->}{<-}{1}{.25}
+\abaStateArrow{-0.87000}{0.43875}{0.14832}{-0.10198}{positive}
+\abaStateArrow{0.15000}{-0.26250}{0.14832}{-0.10198}{positive}
+\abaStateArrow{1.02000}{-0.86062}{-0.14832}{0.10198}{negative}
+\abaStateArrow{-0.87000}{-0.43875}{-0.14832}{-0.10198}{positive}
+\abaStateArrow{0.15000}{0.26250}{-0.14832}{-0.10198}{positive}
+\abaStateArrow{1.02000}{0.86062}{0.14832}{0.10198}{negative}
+\abaStateArrow{0.65000}{1.02000}{0.00000}{-0.18000}{negative}
+\abaStateArrow{0.65000}{0.00000}{0.00000}{0.18000}{positive}
+\abaStateArrow{0.65000}{-1.04000}{0.00000}{-0.18000}{negative}
+\end{scope}
+\end{tikzpicture}
+\end{document}

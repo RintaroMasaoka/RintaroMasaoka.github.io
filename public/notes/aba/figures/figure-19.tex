@@ -1,0 +1,24 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+\cupcap{0}{0}
+\node at (.85,0) {$=$};
+\node at (1.5,0) {$A$};
+\positivecross{2.2}{0}
+\node at (3.05,0) {$-$};
+\node at (3.75,0) {$A^2$};
+\identitydiagram{4.5}{0}
+\node at (5.35,0) {$=$};
+\node[anchor=west] at (5.65,0) {$\displaystyle\begin{pmatrix}
+0&0&0&0\\0&-A^2&1&0\\0&1&-A^{-2}&0\\0&0&0&0
+\end{pmatrix}$};
+\end{tikzpicture}
+\end{document}

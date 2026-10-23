@@ -1,0 +1,67 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{positive}{HTML}{C66A20}
+\definecolor{negative}{HTML}{2773B4}
+\input{aba-tensor-parts.tex}
+\begin{document}
+\begin{tikzpicture}[line width=.9pt,>=Stealth,font=\large]
+% Oxygen sites and one hydrogen per lattice edge; geometry follows the source.
+\definecolor{oxygen}{HTML}{F48D94}
+\definecolor{hydrogen}{HTML}{8BD8EC}
+\begin{scope}[scale=.95]
+\foreach \x in {0,1.5,3} {\draw[gray!55] (\x,-.7)--(\x,3.7);}
+\foreach \y in {0,1.5,3} {\draw[gray!55] (-.7,\y)--(3.7,\y);}
+\foreach \x in {0,1.5,3} {\foreach \y in {0,1.5,3} {\abaAtom{oxygen}{\x}{\y}}}
+\abaAtom{hydrogen}{0}{-0.57}
+\abaAtom{hydrogen}{0}{0.57}
+\abaAtom{hydrogen}{0}{2.07}
+\abaAtom{hydrogen}{0}{3.57}
+\abaAtom{hydrogen}{1.5}{0.87}
+\abaAtom{hydrogen}{1.5}{2.43}
+\abaAtom{hydrogen}{3}{0.57}
+\abaAtom{hydrogen}{3}{2.07}
+\abaAtom{hydrogen}{-0.57}{3}
+\abaAtom{hydrogen}{0.93}{3}
+\abaAtom{hydrogen}{2.43}{3}
+\abaAtom{hydrogen}{3.57}{3}
+\abaAtom{hydrogen}{0.57}{1.5}
+\abaAtom{hydrogen}{2.07}{1.5}
+\abaAtom{hydrogen}{3.57}{1.5}
+\abaAtom{hydrogen}{0.93}{0}
+\abaAtom{hydrogen}{2.07}{0}
+\abaAtom{hydrogen}{3.57}{0}
+\end{scope}
+\begin{scope}[shift={(5.5,0)},scale=.95]
+\foreach \x in {0,1.5,3} {\draw (\x,-.75)--(\x,3.75);}
+\foreach \y in {0,1.5,3} {\draw (-1.5,\y)--(4.5,\y);}
+\abaSignArrow{-0.75}{0.0}{h}{-1}
+\abaSignArrow{0.75}{0.0}{h}{1}
+\abaSignArrow{2.25}{0.0}{h}{-1}
+\abaSignArrow{3.75}{0.0}{h}{-1}
+\abaSignArrow{-0.75}{1.5}{h}{-1}
+\abaSignArrow{0.75}{1.5}{h}{-1}
+\abaSignArrow{2.25}{1.5}{h}{-1}
+\abaSignArrow{3.75}{1.5}{h}{-1}
+\abaSignArrow{-0.75}{3.0}{h}{1}
+\abaSignArrow{0.75}{3.0}{h}{1}
+\abaSignArrow{2.25}{3.0}{h}{1}
+\abaSignArrow{3.75}{3.0}{h}{-1}
+\abaSignArrow{0.0}{-0.375}{v}{1}
+\abaSignArrow{0.0}{0.75}{v}{-1}
+\abaSignArrow{0.0}{2.25}{v}{-1}
+\abaSignArrow{0.0}{3.375}{v}{-1}
+\abaSignArrow{1.5}{-0.375}{v}{-1}
+\abaSignArrow{1.5}{0.75}{v}{1}
+\abaSignArrow{1.5}{2.25}{v}{1}
+\abaSignArrow{1.5}{3.375}{v}{1}
+\abaSignArrow{3.0}{-0.375}{v}{-1}
+\abaSignArrow{3.0}{0.75}{v}{-1}
+\abaSignArrow{3.0}{2.25}{v}{-1}
+\abaSignArrow{3.0}{3.375}{v}{1}
+\end{scope}
+\end{tikzpicture}
+\end{document}

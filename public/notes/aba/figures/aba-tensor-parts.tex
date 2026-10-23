@@ -1,0 +1,70 @@
+% Reusable tensor-network and braid primitives. Load inside or before tikzpicture.
+% Coordinates are TikZ coordinate expressions; lists are comma-separated numbers.
+\providecommand{\abaLeg}[2]{\draw #1--#2;}
+\providecommand{\abaCross}[4]{%
+  \draw (#1-#3,#2)--(#1+#3,#2);
+  \draw (#1,#2-#4)--(#1,#2+#4);}
+% Marker state: open, filled, or none. Color denotes identity through filling.
+\tikzset{aba marker/open/.style={fill=white},aba marker/filled/.style={fill=black}}
+\providecommand{\abaMark}[3]{%
+  \ifnum\pdfstrcmp{#3}{none}=0\relax\else
+    \filldraw[aba marker/#3] (#1,#2) circle (.105);
+  \fi}
+% A row of local tensors with vertical physical legs and an auxiliary horizontal leg.
+\providecommand{\abaTensorRow}[6]{%
+  \draw (#3,#2)--(#4,#2);
+  \foreach \abax in {#1} {\draw (\abax,#2-#5)--(\abax,#2+#5);\abaMark{\abax}{#2}{#6}}
+}
+% Periodic boundary identifications: arrowheads only, placed on the guide.
+\tikzset{aba periodic boundary/.style={line width=.45pt,dash pattern=on 1pt off 2.2pt,draw opacity=.38}}
+% Position, direction angle, multiplicity. No shaft or transverse bar is drawn.
+\providecommand{\abaGluingTips}[3]{%
+  \begin{scope}[shift={#1},rotate=#2,line width=.7pt,line cap=round,line join=round]
+    \ifnum#3=2
+      \draw (-.17,-.075)--(-.075,0)--(-.17,.075);
+      \draw (.025,-.075)--(.12,0)--(.025,.075);
+    \else
+      \draw (-.07,-.075)--(.025,0)--(-.07,.075);
+    \fi
+  \end{scope}}
+\providecommand{\abaPeriodicClosure}[3]{%
+  \draw[aba periodic boundary] (#1,#2)--(#1,#3);
+  \abaGluingTips{(#1,{.5*(#2+#3)+.42})}{90}{1}}
+% One physical sign arrow, centered at x,y, along h or v, sign +1 or -1.
+\providecommand{\abaSignArrow}[4]{%
+  \ifnum#4>0\def\abacolor{positive}\else\def\abacolor{negative}\fi
+  \ifnum\pdfstrcmp{#3}{h}=0
+    \draw[->,\abacolor] (#1-.16*#4,#2)--(#1+.16*#4,#2);
+  \else
+    \draw[->,\abacolor] (#1,#2-.16*#4)--(#1,#2+.16*#4);
+  \fi}
+% A vertical physical strand with the lower and upper local L identities.
+% x, lower-y, upper-y, lower-end-y, upper-end-y, lower-state, upper-state.
+\providecommand{\abaMarkedStrand}[7]{%
+  \draw (#1,#4)--(#1,#5);
+  \abaMark{#1}{#2}{#6}\abaMark{#1}{#3}{#7}}
+% An R crossing inserted in two auxiliary strands. Endpoints and bends retain order.
+% left-x, first-bend-x, second-bend-x, right-x, lower-y, upper-y.
+\providecommand{\abaBraid}[6]{%
+  \draw (#1,#6)--(#2,#6)--(#3,#5)--(#4,#5);
+  \draw (#1,#5)--(#2,#5)--(#3,#6)--(#4,#6);}
+
+% Atomic species are distinct from arrow signs. The caller defines species colors.
+\providecommand{\abaAtom}[3]{%
+  \ifnum\pdfstrcmp{#1}{oxygen}=0
+    \fill[oxygen] (#2,#3) circle (.29);
+  \else
+    \fill[hydrogen] (#2,#3) circle (.145);
+  \fi}
+% n by n lattice with dotted periodic boundary guides.
+\providecommand{\abaPeriodicGrid}[2]{%
+  \pgfmathsetmacro{\abalength}{#1*#2}
+  \foreach \abak in {1,...,#1} {
+    \pgfmathsetmacro{\abapos}{(\abak-.5)*#2}
+    \draw (\abapos,0)--(\abapos,\abalength);
+    \draw (0,\abapos)--(\abalength,\abapos);}
+  \draw[aba periodic boundary] (0,0) rectangle (\abalength,\abalength);
+  \abaGluingTips{(0,{.5*\abalength})}{90}{1}
+  \abaGluingTips{(\abalength,{.5*\abalength})}{90}{1}
+  \abaGluingTips{({.5*\abalength},0)}{0}{2}
+  \abaGluingTips{({.5*\abalength},\abalength)}{0}{2}}

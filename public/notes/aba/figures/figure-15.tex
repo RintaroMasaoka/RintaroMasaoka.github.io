@@ -1,0 +1,22 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+\braidcross{0}{4}{1.6}
+\braidcross{.8}{2.4}{-.8}
+\braidcross{0}{.8}{1.6}
+\node at (2.7,2.4) {$=$};
+\begin{scope}[shift={(3.8,0)}]
+\braidcross{.8}{4}{-.8}
+\braidcross{0}{2.4}{1.6}
+\braidcross{.8}{.8}{-.8}
+\end{scope}
+\end{tikzpicture}
+\end{document}

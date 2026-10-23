@@ -1,0 +1,16 @@
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+\curldiagram{0}{0}
+\node at (.85,0) {$=$};
+\node[anchor=west] at (1.15,0) {$\displaystyle -A^3\begin{pmatrix}1&0\\0&1\end{pmatrix}$};
+\end{tikzpicture}
+\end{document}
