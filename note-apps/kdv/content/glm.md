@@ -480,16 +480,36 @@ c_n^{-2}=\int_{\mathbb R}f_-(z,-i\kappa_n)^2\,dz
 \end{gathered}
 \tag{bound-normalization}
 $$
-とする。$E\to E_n$ で $f_+(x,k)/f_+(x_0,k)\to\psi_n(x)/\psi_n(x_0)$ だから、式 (@transmission-from-matching) と (@matching-norm) より
+とする。求めたいのは $1/(E-E_n)$ の係数である。透過項を
+$$
+\frac{a(k)f_+(x,k)}{2ik}
+=\frac{f_+(x,k)}{f_+(x_0,k)}\,
+\frac1{f_-(x_0,-k)}\,
+\frac1{\Delta(E)}
+$$
+と分けると、極をもつのは最後の $1/\Delta(E)$ だけで、その係数は $\psi_n(x_0)^2$ であった。残る二つの因子をそれぞれ $k=i\kappa_n$ で評価し、$\psi_n(x_0)^2$ と掛け合わせる。
+
+右Jost解は、束縛状態では $\psi_n$ に比例する。分子と分母に同じ比例係数が付くので、
+$$
+\frac{f_+(x,k)}{f_+(x_0,k)}
+\longrightarrow\frac{\psi_n(x)}{\psi_n(x_0)}
+\qquad(k\to i\kappa_n).
+$$
+従って、$1/(E-E_n)$ の係数は
 $$
 \begin{aligned}
-\frac{a(k)f_+(x,k)}{2ik}
-&=\frac{f_+(x,k)}{f_+(x_0,k)f_-(x_0,-k)}\,
-\frac{1}{\Delta(E)}\\
-&=\underbrace{\frac{\psi_n(x_0)}{f_-(x_0,-i\kappa_n)}}_{c_n}
-\frac{\psi_n(x)}{E-E_n}+O(1)\\
-&=\frac{c_n\psi_n(x)}{E-E_n}+O(1).
+&\frac{\psi_n(x)}{\psi_n(x_0)}\,
+\frac1{f_-(x_0,-i\kappa_n)}\,
+\psi_n(x_0)^2\\
+&\qquad=\psi_n(x)\,
+\frac{\psi_n(x_0)}{f_-(x_0,-i\kappa_n)}\\
+&\qquad=c_n\psi_n(x).
 \end{aligned}
+$$
+最後の等号では、規格化の関係 $\psi_n(x_0)=c_nf_-(x_0,-i\kappa_n)$ を使った。これで透過項は
+$$
+\frac{a(k)f_+(x,k)}{2ik}
+=\frac{c_n\psi_n(x)}{E-E_n}+O(1).
 \tag{transmission-energy-pole}
 $$
 極係数 $c_n\psi_n(x)$ は、接続点 $x_0$ の選択に依存しない。
