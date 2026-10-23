@@ -2,8 +2,9 @@
 % An ordinary swap is TWO separate elbows, never a four-way junction.
 % Circular boundaries denote local L(0) tensors, including their scalar.
 % A superscript inverse on the boundary denotes the inverse local tensor.
+\newcommand{\xxzTensorBoundary}[2]{\draw (#1,#2) circle (.31);}
 \newcommand{\xxzSwap}[3]{%
- \draw (#1,#2) circle (.31);
+ \xxzTensorBoundary{#1}{#2}
  \ifnum#3=0 \node[font=\Large,anchor=south west,inner sep=0pt] at (#1+.21,#2+.23) {$-1$};\fi
  \ifnum#3=1
   \draw (#1,#2-.43)--(#1,#2-.12)--(#1-.12,#2)--(#1-.43,#2);

@@ -135,7 +135,7 @@
     "source": "figure-23.tex",
     "renderer": "latex + dvisvgm --no-fonts --exact",
     "labels": "TeX glyph outlines; no external fonts",
-    "paths": 72
+    "paths": 74
   },
   {
     "source": "figure-24.tex",
