@@ -1,23 +1,29 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import { noteMathOptions } from '../src/utils/note-math.mjs';
+import { noteMathOptions, noteMathColors } from '../src/utils/note-math.mjs';
 import { numberEquations } from '../src/utils/note-equations.mjs';
 const require = createRequire(import.meta.url);
 const katex = createRequire(require.resolve('rehype-katex'))('katex');
-const tex = String.raw`\wa_\circ^2+\wb_\bullet+\wc+\opA(\lambda)\opB(\mu)+\opC+\opD+\vacAlpha+\vacDelta`;
 const render = source => katex.renderToString(source, { ...noteMathOptions, displayMode: true, throwOnError: true });
+const tex = String.raw`a_\circ^2+b_\bullet+c+\opA(\lambda)\opB(\mu)+\opC+\opD+\vacAlpha+\vacDelta`;
 const html = render(tex);
-for (const name of ['weight-a','weight-b','weight-c','op-a','op-b','op-c','op-d','vac-alpha','vac-delta']) {
-  assert.match(html, new RegExp(`class="[^"]*math-${name}`));
-}
+for (const color of Object.values(noteMathColors)) assert.ok(html.includes(`color:${color}`), color);
+const coloredSpans = source => [...source.matchAll(/<span\b[^>]*\bstyle="[^"]*color:[^"]*"[^>]*>([\s\S]*?)<\/span>/g)];
+for (const match of coloredSpans(html)) assert.match(match[1], /^[ABCDαδ]$/, 'Color escaped its one-glyph command');
+assert.equal(coloredSpans(html).length, 6);
+// Fractions, neighboring scalar weights, arguments, primes and scripts stay uncolored.
+const nested = render(String.raw`\frac{a\opA_1'(\lambda)+x}{b\opB(\mu)-y}+c\opC^2+\vacDelta_0`);
+assert.equal(coloredSpans(nested).length, 4);
+for (const match of coloredSpans(nested)) assert.match(match[1], /^[ABCDαδ]$/);
 const numbered = numberEquations(render(tex + String.raw`\tag{motif-regression}`) + '<p>(@motif-regression)</p>');
-assert.match(numbered, /math-op-b/);
-assert.match(numbered, /math-weight-a/);
+assert.ok(numbered.includes(`color:${noteMathColors.operatorB}`));
 assert.match(numbered, /data-equation-number="1"/);
 assert.match(numbered, /<p>\(1\)<\/p>/);
-assert.equal(noteMathOptions.trust({ command: '\\htmlClass', class: 'math-weight-a arbitrary' }), false);
-assert.equal(noteMathOptions.trust({ command: '\\htmlStyle', style: 'color:red' }), false);
-assert.equal(noteMathOptions.trust({ command: '\\href', url: 'https://example.com' }), false);
-const rejected = render(String.raw`\htmlClass{arbitrary}{a}`);
-assert.doesNotMatch(rejected, /class="[^"]*arbitrary/);
-console.log('PASS: shared motif commands, numbered rerendering, references, and restricted HTML trust.');
+for (const match of coloredSpans(numbered)) assert.match(match[1], /^[ABCDαδ]$/);
+assert.equal(new Set(Object.values(noteMathColors)).size, 4);
+assert.equal(noteMathOptions.trust, undefined, 'Native textcolor must not need trusted HTML');
+assert.doesNotMatch(render(String.raw`\htmlClass{arbitrary}{a}`), /class="[^"]*arbitrary/);
+const manuscript = readFileSync(new URL('../src/content/notes/ABA.md', import.meta.url), 'utf8');
+for (const formula of manuscript.matchAll(/(?<delimiter>\$\$|\$)(?<tex>.*?)(?:\k<delimiter>)/gs)) render(formula.groups.tex);
+console.log('PASS: six native one-glyph commands, uncolored scalar weights, nested scope, numbered rerendering and default HTML trust.');

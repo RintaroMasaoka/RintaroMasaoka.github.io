@@ -17,8 +17,8 @@ Ice rule を考慮すると、あり得る頂点は6通り存在します。こ�
 
 <figure class="aba-figure" id="aba-figure-02"><img class="aba-light" src="/notes/aba/figures/figure-02.svg" alt="Ice rule を満たす6つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-02-dark.svg" alt="Ice rule を満たす6つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /></figure>
 
-矢印の反転に対する対称性を仮定すると、 Boltzmann 重率 $\wa, \wb, \wc$ によって模型は決定されます。[^1]
-[^1]: ここで定義した Boltzmann 重率は普通 $\exp(-\beta\varepsilon)$ のように書かれますが、まとめて $\wa, \wb, \wc$ という一文字でおいています。
+矢印の反転に対する対称性を仮定すると、 Boltzmann 重率 $a, b, c$ によって模型は決定されます。[^1]
+[^1]: ここで定義した Boltzmann 重率は普通 $\exp(-\beta\varepsilon)$ のように書かれますが、まとめて $a, b, c$ という一文字でおいています。
 
 ただし、右・上向きの矢印に正符号 (オレンジ色)をつけ、左・下向きの矢印に負符号 (青色) をつけています。 
 
@@ -27,7 +27,7 @@ Ice rule を考慮すると、あり得る頂点は6通り存在します。こ�
 
 # テンソルネットワークの記法
 
-6頂点模型における頂点は、上下左右の矢印の符号に対して、 $0, \wa, \wb, \wc$ のいずれかを返すようなテンソルだとみなせます。これを以下のグラフで表します。また、テンソルの縮約を以下のように表します。
+6頂点模型における頂点は、上下左右の矢印の符号に対して、 $0, a, b, c$ のいずれかを返すようなテンソルだとみなせます。これを以下のグラフで表します。また、テンソルの縮約を以下のように表します。
 
 <figure class="aba-figure" id="aba-figure-03"><img class="aba-light" src="/notes/aba/figures/figure-03.svg" alt="テンソルの脚と添字の縮約" width="682" height="177" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-03-dark.svg" alt="テンソルの脚と添字の縮約" width="682" height="177" loading="lazy" /></figure>
 
@@ -48,17 +48,17 @@ $$
     L_{n,\alpha}
     &
     = \begin{pmatrix}
-        \wa&0&0&0\\
-        0&\wb&\wc&0\\
-        0&\wc&\wb&0\\
-        0&0&0&\wa
+        a&0&0&0\\
+        0&b&c&0\\
+        0&c&b&0\\
+        0&0&0&a
     \end{pmatrix}
     = \begin{pmatrix}
-        \wa\pi_n^+ + \wb\pi_n^- & \wc\sigma_n^- \\
-        \wc\sigma_n^+ & \wb\pi_n^+ + \wa\pi_n^-
+        a\pi_n^+ + b\pi_n^- & c\sigma_n^- \\
+        c\sigma_n^+ & b\pi_n^+ + a\pi_n^-
     \end{pmatrix}
     \\ &
-    = \frac{\wa+\wb}{2}1_\alpha1_n+\frac{\wa-\wb}{2}\sigma_\alpha^z\sigma_n^z+\frac{\wc}{2}(\sigma_\alpha^x\sigma_n^x+\sigma_\alpha^y\sigma_n^y)
+    = \frac{a+b}{2}1_\alpha1_n+\frac{a-b}{2}\sigma_\alpha^z\sigma_n^z+\frac{c}{2}(\sigma_\alpha^x\sigma_n^x+\sigma_\alpha^y\sigma_n^y)
 \end{align*}
 $$
 これをL行列といいます。なお、記号の定義は以下のとおりです。
@@ -175,7 +175,7 @@ Yang-Baxter 方程式を以下のように変形しておきます。
 
 <figure class="aba-figure" id="aba-figure-10"><img class="aba-light" src="/notes/aba/figures/figure-10.svg" alt="1つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-10-dark.svg" alt="1つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /></figure>
 
-と書きます。この矢印の反転は、2つの頂点 (無印と○) で重率を $\wa \leftrightarrow \wb$ と読み替えることに対応します。以下ではこの読み替えた重率で成分方程式を求め、解を求める際にもう一度 $\wa \leftrightarrow \wb$ として元の重率に戻します。
+と書きます。この矢印の反転は、2つの頂点 (無印と○) で重率を $a \leftrightarrow b$ と読み替えることに対応します。以下ではこの読み替えた重率で成分方程式を求め、解を求める際にもう一度 $a \leftrightarrow b$ として元の重率に戻します。
 
 Yang-Baxter 方程式は 6つの添字をもつので、 $2^6 = 64$ 個の方程式の集まりですが、実質的な方程式の数は3つだけです。
 - Ice ruleのために、6つの添字の中で流入する矢印の数と流出する矢印の数は等しくなるはずです。したがって、両辺がゼロでないのは ${}_6C_3 = 20$ 通りだけです。
@@ -195,38 +195,38 @@ Yang-Baxter 方程式は 6つの添字をもつので、 $2^6 = 64$ 個の方程
 これを式で書くと、
 $$
 \begin{align*}
-\wc\wb_\circ \wb_\bullet = \wc\wa_\circ \wa_\bullet + \wa\wc_\circ \wc_\bullet
+cb_\circ b_\bullet = ca_\circ a_\bullet + ac_\circ c_\bullet
 \end{align*}
 $$
 となります。残りの2つの式は添字を巡回させたものであり、
 $$
 \begin{align*}
-    \wb\wc_\circ \wb_\bullet = \wa\wc_\circ \wa_\bullet + \wc\wa_\circ \wc_\bullet\\
-    \wb\wb_\circ \wc_\bullet = \wa\wa_\circ \wc_\bullet + \wc\wc_\circ \wa_\bullet
+    bc_\circ b_\bullet = ac_\circ a_\bullet + ca_\circ c_\bullet\\
+    bb_\circ c_\bullet = aa_\circ c_\bullet + cc_\circ a_\bullet
 \end{align*}
 $$
-となります。○と●の頂点の重率を固定すると、以上の3つの式は、無印の頂点の重率 $\wa,\wb,\wc$ を未知数とする斉次線形方程式です。非自明な解をもつためには、係数行列の行列式がゼロである必要があるので、
+となります。○と●の頂点の重率を固定すると、以上の3つの式は、無印の頂点の重率 $a,b,c$ を未知数とする斉次線形方程式です。非自明な解をもつためには、係数行列の行列式がゼロである必要があるので、
 $$
 \begin{align*}
 &
 \det \begin{pmatrix}
-\wc_\circ \wc_\bullet & 0 & \wa_\circ \wa_\bullet - \wb_\circ \wb_\bullet \\
-\wc_\circ \wa_\bullet & -\wc_\circ \wb_\bullet & \wa_\circ \wc_\bullet \\
-\wa_\circ \wc_\bullet & -\wb_\circ \wc_\bullet & \wc_\circ \wa_\bullet \\
+c_\circ c_\bullet & 0 & a_\circ a_\bullet - b_\circ b_\bullet \\
+c_\circ a_\bullet & -c_\circ b_\bullet & a_\circ c_\bullet \\
+a_\circ c_\bullet & -b_\circ c_\bullet & c_\circ a_\bullet \\
 \end{pmatrix}  \\
 &
-= \wc_\circ \wc_\bullet(-\wa_\bullet \wb_\bullet \wc_\circ^2+\wa_\circ \wb_\circ \wc_\bullet^2)+(\wa_\circ \wa_\bullet-\wb_\circ \wb_\bullet)(-\wc_\circ \wc_\bullet \wa_\bullet \wb_\circ+\wc_\circ \wc_\bullet \wa_\circ \wb_\bullet)  \\
+= c_\circ c_\bullet(-a_\bullet b_\bullet c_\circ^2+a_\circ b_\circ c_\bullet^2)+(a_\circ a_\bullet-b_\circ b_\bullet)(-c_\circ c_\bullet a_\bullet b_\circ+c_\circ c_\bullet a_\circ b_\bullet)  \\
 &
-= \wc_\circ \wc_\bullet(-\wa_\bullet \wb_\bullet \wc_\circ^2+\wa_\circ \wb_\circ \wc_\bullet^2+(\wa_\circ \wa_\bullet-\wb_\circ \wb_\bullet)(-\wa_\bullet \wb_\circ+\wa_\circ \wb_\bullet))  \\
+= c_\circ c_\bullet(-a_\bullet b_\bullet c_\circ^2+a_\circ b_\circ c_\bullet^2+(a_\circ a_\bullet-b_\circ b_\bullet)(-a_\bullet b_\circ+a_\circ b_\bullet))  \\
 &
-= \wc_\circ \wc_\bullet(\wa_\bullet \wb_\bullet(\wa_\circ^2+\wb_\circ^2-\wc_\circ^2)-\wa_\circ \wb_\circ(\wa_\bullet^2+\wb_\bullet^2-\wc_\bullet^2)) = 0
+= c_\circ c_\bullet(a_\bullet b_\bullet(a_\circ^2+b_\circ^2-c_\circ^2)-a_\circ b_\circ(a_\bullet^2+b_\bullet^2-c_\bullet^2)) = 0
 \end{align*}
 $$
 
 が成り立っていなければなりません。ここから、
 $$
 \begin{align*}
-\frac{\wa_\circ^2+\wb_\circ^2-\wc_\circ^2}{2\wa_\circ \wb_\circ} - \frac{\wa_\bullet^2+\wb_\bullet^2-\wc_\bullet^2}{2\wa_\bullet \wb_\bullet} \eqqcolon \Delta_\circ - \Delta_\bullet = 0.
+\frac{a_\circ^2+b_\circ^2-c_\circ^2}{2a_\circ b_\circ} - \frac{a_\bullet^2+b_\bullet^2-c_\bullet^2}{2a_\bullet b_\bullet} \eqqcolon \Delta_\circ - \Delta_\bullet = 0.
 \end{align*}
 $$
 が分かり、同様の議論を繰り返すと、
@@ -238,55 +238,55 @@ $$
 となります。したがって、 $\Delta$ が共通であることが Yang-Baxter 方程式を満たすための必要条件となります。
 
 # スペクトルパラメーター
-Boltzmann 重率 $\wa, \wb, \wc$ の自由度について改めて考えます。まず、 $\wa, \wb, \wc$ を一様に定数倍しても、分配関数が定数倍されるだけなので、物理的には同じ模型が得られます。したがって、自由度は1減ります。
-さらに、これまでの議論から $\Delta$ を固定すると、 $\wa, \wb, \wc$ に残された自由度は1つだけです。
-したがって、 $\wa, \wb, \wc$ を $\lambda$ によって以下のようにパラメーター表示することします (これは非常に上手いパラメーター表示であることが後で分かります)。
+Boltzmann 重率 $a, b, c$ の自由度について改めて考えます。まず、 $a, b, c$ を一様に定数倍しても、分配関数が定数倍されるだけなので、物理的には同じ模型が得られます。したがって、自由度は1減ります。
+さらに、これまでの議論から $\Delta$ を固定すると、 $a, b, c$ に残された自由度は1つだけです。
+したがって、 $a, b, c$ を $\lambda$ によって以下のようにパラメーター表示することします (これは非常に上手いパラメーター表示であることが後で分かります)。
 $$
 \begin{align*}
     \begin{cases}
-        \wa = \sin(\lambda+2\eta)
+        a = \sin(\lambda+2\eta)
         \\
-        \wb = \sin \lambda
+        b = \sin \lambda
         \\
-        \wc = \sin(2\eta)
+        c = \sin(2\eta)
     \end{cases}
 \end{align*}
 $$
 ただし、 $\eta$ は固定されているものとします。なぜならば、
 $$
 \begin{align*}
- \Delta = \frac{\wa^2+\wb^2-\wc^2}{2\wa\wb} = \cos(2\eta)
+ \Delta = \frac{a^2+b^2-c^2}{2ab} = \cos(2\eta)
 \end{align*}
 $$
 が成り立つからです。[^2]
 [^2]: $|\Delta| > 1$ の場合はここで導入したパラメーターは使えませんが、その場合別のパラメーター表示を用います (ここでは紹介を省きます) 。
 
-この式は $\wa, \wb, \wc$ を三角形の3辺だと思って正弦定理および余弦定理を使えばわかります。
+この式は $a, b, c$ を三角形の3辺だと思って正弦定理および余弦定理を使えばわかります。
 
 # Yang-Baxter 方程式の解
-無印と○の頂点で $\wa \leftrightarrow \wb$ としなければならないことに注意し、また $\wc$ が各頂点で共通することに注意すると、Yang-Baxter 方程式から以下の式が成り立ちます。
+無印と○の頂点で $a \leftrightarrow b$ としなければならないことに注意し、また $c$ が各頂点で共通することに注意すると、Yang-Baxter 方程式から以下の式が成り立ちます。
 $$
 \begin{align*}
-\wa_\circ \wb_\bullet - \wb_\circ \wa_\bullet = \wc\wa
+a_\circ b_\bullet - b_\circ a_\bullet = ca
 \end{align*}
 $$
 パラメーター表示を代入すると、
 $$
 \begin{align*}
 \sin(\lambda_\circ+2\eta)\sin(\lambda_\bullet) - \sin(\lambda_\circ)\sin(\lambda_\bullet+2\eta)
-        = \wc\sin \lambda
+        = c\sin \lambda
 \end{align*}
 $$
-となります。左辺は $\Delta = \cos(2\eta), \wc = \sin(2\eta)$ から、
+となります。左辺は $\Delta = \cos(2\eta), c = \sin(2\eta)$ から、
 $$
 \begin{align*}
         &
-        (\Delta\sin \lambda_\circ+\wc\cos \lambda_\circ)\sin \lambda_\bullet
-        - (\Delta\sin \lambda_\bullet+\wc\cos \lambda_\bullet)\sin \lambda_\circ
+        (\Delta\sin \lambda_\circ+c\cos \lambda_\circ)\sin \lambda_\bullet
+        - (\Delta\sin \lambda_\bullet+c\cos \lambda_\bullet)\sin \lambda_\circ
         \\ &
-        = \wc \sin \lambda_\bullet\cos \lambda_\circ - \wc \cos \lambda_\bullet \sin \lambda_\circ
+        = c \sin \lambda_\bullet\cos \lambda_\circ - c \cos \lambda_\bullet \sin \lambda_\circ
         \\ &
-        = \wc \sin(\lambda_\bullet - \lambda_\circ)
+        = c \sin(\lambda_\bullet - \lambda_\circ)
 \end{align*}
 $$
 と変形できるので、
@@ -322,10 +322,10 @@ $$
 \begin{align*}
         &
          \begin{pmatrix}
-            \wa&0&0&0\\
-            0&\wb&\wc&0\\
-            0&\wc&\wb&0\\
-            0&0&0&\wa
+            a&0&0&0\\
+            0&b&c&0\\
+            0&c&b&0\\
+            0&0&0&a
         \end{pmatrix} \begin{pmatrix}
             \opA\opA'&\opA\opB'&\opB\opA'&\opB\opB'\\
             \opA\opC'&\opA\opD'&\opB\opC'&\opB\opD'\\
@@ -339,14 +339,14 @@ $$
             \opC'\opA&\opC'\opB&\opD'\opA&\opD'\opB\\
             \opC'\opC&\opC'\opD&\opD'\opC&\opD'\opD
         \end{pmatrix} \begin{pmatrix}
-            \wa&0&0&0\\
-            0&\wb&\wc&0\\
-            0&\wc&\wb&0\\
-            0&0&0&\wa
+            a&0&0&0\\
+            0&b&c&0\\
+            0&c&b&0\\
+            0&0&0&a
         \end{pmatrix}
 \end{align*}
 $$
-ただし、引数を省略して $\wa = \wa(\lambda-\mu), \opA = \opA(\lambda), \opA' = \opA(\mu)$ などと表しています。
+ただし、引数を省略して $a = a(\lambda-\mu), \opA = \opA(\lambda), \opA' = \opA(\mu)$ などと表しています。
 実は、この交換関係から $\opB(\lambda)$ が生成演算子のような働きをもつことが示せます。
 状態 $|𝑀\rangle$ を真空状態 $|0\rangle \coloneqq |{\uparrow}\rangle\otimes|{\uparrow}\rangle\otimes \cdots \otimes|{\uparrow}\rangle$ から以下のように構成します。
 $$
@@ -362,7 +362,7 @@ $$
 $$
 \begin{align*}
 L_n(\lambda)| {\uparrow} \rangle_n = \begin{pmatrix}
-\wa(\lambda)| {\uparrow} \rangle_n & \wc(\lambda)| {\downarrow} \rangle_n \\ 0 & \wb(\lambda)| {\uparrow} \rangle_n
+a(\lambda)| {\uparrow} \rangle_n & c(\lambda)| {\downarrow} \rangle_n \\ 0 & b(\lambda)| {\uparrow} \rangle_n
 \end{pmatrix}
 \end{align*}
 $$
@@ -370,14 +370,14 @@ $$
 $$
 \begin{align*}
     T(\lambda)|0\rangle = L_1(\lambda)\cdots L_N(\lambda)|0\rangle = \begin{pmatrix}
-    \wa(\lambda)^N|0\rangle & * \\ 0 & \wb(\lambda)^N|0\rangle
+    a(\lambda)^N|0\rangle & * \\ 0 & b(\lambda)^N|0\rangle
     \end{pmatrix}
 \end{align*}
 $$
 となります。したがって
 $$
 \begin{align*}
-\vacAlpha(\lambda) \coloneqq \wa(\lambda)^N, \quad   \vacDelta(\lambda) \coloneqq \wb(\lambda)^N
+\vacAlpha(\lambda) \coloneqq a(\lambda)^N, \quad   \vacDelta(\lambda) \coloneqq b(\lambda)^N
 \end{align*}
 $$
 とおくと、
@@ -401,9 +401,9 @@ $$
 \begin{gather*}
     \opB\opB' = \opB'\opB
     \\
-    \wa\opB\opA' = \wc\opA'\opB + \wb\opB'\opA
+    a\opB\opA' = c\opA'\opB + b\opB'\opA
     \\
-    \wb\opB\opD' + \wc\opD\opB' = \wa\opB'\opD
+    b\opB\opD' + c\opD\opB' = a\opB'\opD
 \end{gather*}
 $$
 が成り立ちます。整理すると、
@@ -412,35 +412,35 @@ $$
     [\opB(\lambda),\opB(\mu)] &= 0
     \\[.8em]
     \opA(\lambda)\opB(\mu)
-    &= \frac{\wa(\mu-\lambda)}{\wc(\mu-\lambda)}\opB(\mu)\opA(\lambda)
-    \\ &\quad - \frac{\wb(\mu-\lambda)}{\wc(\mu-\lambda)}\opB(\lambda)\opA(\mu)
+    &= \frac{a(\mu-\lambda)}{c(\mu-\lambda)}\opB(\mu)\opA(\lambda)
+    \\ &\quad - \frac{b(\mu-\lambda)}{c(\mu-\lambda)}\opB(\lambda)\opA(\mu)
     \\[.8em]
     \opD(\lambda)\opB(\mu)
-    &= \frac{\wa(\lambda-\mu)}{\wc(\lambda-\mu)}\opB(\mu)\opD(\lambda)
-    \\ &\quad - \frac{\wb(\lambda-\mu)}{\wc(\lambda-\mu)}\opB(\lambda)\opD(\mu)
+    &= \frac{a(\lambda-\mu)}{c(\lambda-\mu)}\opB(\mu)\opD(\lambda)
+    \\ &\quad - \frac{b(\lambda-\mu)}{c(\lambda-\mu)}\opB(\lambda)\opD(\mu)
 \end{align*}
 $$
 です。ここから、
 $$
 \begin{align*}
     \opA(\lambda)\opB(\lambda_1)| 0 \rangle
-    &= \frac{\wa(\lambda_1-\lambda)}{\wc(\lambda_1-\lambda)}\opB(\lambda_1)\vacAlpha(\lambda)| 0 \rangle
-    \\ &\quad - \frac{\wb(\lambda_1-\lambda)}{\wc(\lambda_1-\lambda)}\opB(\lambda_1)\vacAlpha(\lambda)| 0 \rangle
+    &= \frac{a(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda_1)\vacAlpha(\lambda)| 0 \rangle
+    \\ &\quad - \frac{b(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda_1)\vacAlpha(\lambda)| 0 \rangle
     \\[.8em]
     \opD(\lambda)\opB(\lambda_1)| 0 \rangle
-    &= \frac{\wa(\lambda-\lambda_1)}{\wc(\lambda-\lambda_1)}\opB(\lambda_1)\vacDelta(\lambda)| 0 \rangle
-    \\ &\quad - \frac{\wb(\lambda-\lambda_1)}{\wc(\lambda-\lambda_1)}\opB(\lambda)\vacDelta(\lambda_1)| 0 \rangle
+    &= \frac{a(\lambda-\lambda_1)}{c(\lambda-\lambda_1)}\opB(\lambda_1)\vacDelta(\lambda)| 0 \rangle
+    \\ &\quad - \frac{b(\lambda-\lambda_1)}{c(\lambda-\lambda_1)}\opB(\lambda)\vacDelta(\lambda_1)| 0 \rangle
 \end{align*}
 $$
 
 が分かります。これら2つの式において、第2項がもとの状態に比例しない邪魔な項なので、第2項同士が相殺することを課します。すなわち、
 $$
 \begin{align*}
-\frac{\wb(\lambda_1-\lambda)}{\wc(\lambda_1-\lambda)}\vacAlpha(\lambda_1)
-+\frac{\wb(\lambda-\lambda_1)}{\wc(\lambda-\lambda_1)}\vacDelta(\lambda_1) = 0
+\frac{b(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\vacAlpha(\lambda_1)
++\frac{b(\lambda-\lambda_1)}{c(\lambda-\lambda_1)}\vacDelta(\lambda_1) = 0
 \end{align*}
 $$
-とします。私達が使っていたパラメーター表示では $\wb$ が奇関数であり、 $\wc$ が定数だったことを思い出すと、
+とします。私達が使っていたパラメーター表示では $b$ が奇関数であり、 $c$ が定数だったことを思い出すと、
 $$
 \begin{align*}
 \vacAlpha(\lambda_1) = \vacDelta(\lambda_1)
@@ -469,8 +469,8 @@ $$
 $\opA(\lambda)|𝑀\rangle$ に交換関係を1回使うと、
 $$
 \begin{align*}
-    \left[\frac{\wa(\lambda_1-\lambda)}{\wc(\lambda_1-\lambda)}\opB(\lambda_1)\opA(\lambda)
-    - \frac{\wb(\lambda_1-\lambda)}{\wc(\lambda_1-\lambda)}\opB(\lambda)\opA(\lambda_1)\right]\opB(\lambda_2)\cdots \opB(\lambda_M)|0\rangle
+    \left[\frac{a(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda_1)\opA(\lambda)
+    - \frac{b(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda)\opA(\lambda_1)\right]\opB(\lambda_2)\cdots \opB(\lambda_M)|0\rangle
 \end{align*}
 $$
 となります。これを繰り返すと $\opA(\lambda)$ が段々と右へ移動していき、最終的に $|0\rangle$ に作用して $\vacAlpha$が出てきます。
@@ -479,48 +479,48 @@ $$
 したがって、第1項を無視し、もう一度交換関係を使うと、
 $$
 \begin{align*}
-    -\frac{\wb(\lambda_1-\lambda)}{\wc(\lambda_1-\lambda)}\opB(\lambda)\left[\frac{\wa(\lambda_2-\lambda_1)}{\wc(\lambda_2-\lambda_1)}\opB(\lambda_2)\opA(\lambda_1)
-    - \frac{\wb(\lambda_2-\lambda_1)}{\wc(\lambda_2-\lambda_1)}\opB(\lambda_1)\opA(\lambda_2)\right]\opB(\lambda_3)\cdots \opB(\lambda_M)|0\rangle
+    -\frac{b(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda)\left[\frac{a(\lambda_2-\lambda_1)}{c(\lambda_2-\lambda_1)}\opB(\lambda_2)\opA(\lambda_1)
+    - \frac{b(\lambda_2-\lambda_1)}{c(\lambda_2-\lambda_1)}\opB(\lambda_1)\opA(\lambda_2)\right]\opB(\lambda_3)\cdots \opB(\lambda_M)|0\rangle
 \end{align*}
 $$
 となります。今度は第2項で $\opA$ の左に $\opB(\lambda_1)$ があるので第2項は無視できます。同様の議論を繰り返すと、 $\vacAlpha(\lambda_1)$ が出てくる項が
 $$
 \begin{align*}
-    - \frac{\wb(\lambda_1-\lambda)}{\wc(\lambda_1-\lambda)} \left\{\prod_{i\ne1}\frac{\wa(\lambdaᵢ-\lambda_1)}{\wc(\lambdaᵢ-\lambda_1)}\right\} \vacAlpha(\lambda_1)\opB(\lambda)\opB(\lambda_2)\cdots \opB(\lambda_M)|0\rangle
+    - \frac{b(\lambda_1-\lambda)}{c(\lambda_1-\lambda)} \left\{\prod_{i\ne1}\frac{a(\lambdaᵢ-\lambda_1)}{c(\lambdaᵢ-\lambda_1)}\right\} \vacAlpha(\lambda_1)\opB(\lambda)\opB(\lambda_2)\cdots \opB(\lambda_M)|0\rangle
 \end{align*}
 $$
 のみだと分かります。
 さらに、$\opB$ どうしの積が可換であることから、 $\opB(\lambdaⱼ)$ を先頭にもってくることで、同様の議論が可能です。すなわち $\vacAlpha(\lambdaⱼ)$ が出てくる項が、
 $$
 \begin{align*}
-    - \frac{\wb(\lambdaⱼ-\lambda)}{\wc(\lambdaⱼ-\lambda)} \left\{\prod_{i\ne j}\frac{\wa(\lambdaᵢ-\lambdaⱼ)}{\wc(\lambdaᵢ-\lambdaⱼ)}\right\} \vacAlpha(\lambdaⱼ)\opB(\lambda_1)\cdots\overbrace{\opB(\lambda)}^j\cdots \opB(\lambda_M)|0\rangle
+    - \frac{b(\lambdaⱼ-\lambda)}{c(\lambdaⱼ-\lambda)} \left\{\prod_{i\ne j}\frac{a(\lambdaᵢ-\lambdaⱼ)}{c(\lambdaᵢ-\lambdaⱼ)}\right\} \vacAlpha(\lambdaⱼ)\opB(\lambda_1)\cdots\overbrace{\opB(\lambda)}^j\cdots \opB(\lambda_M)|0\rangle
 \end{align*}
 $$
 のみだと分かります。 $\opD(\lambda)|𝑀\rangle$ についても同様に
 $$
 \begin{align*}
-    - \frac{\wb(\lambda-\lambdaⱼ)}{\wc(\lambda-\lambdaⱼ)}\left\{\prod_{i\ne j}\frac{\wa(\lambdaⱼ-\lambdaᵢ)}{\wc(\lambdaⱼ-\lambdaᵢ)}\right\} \vacDelta(\lambdaⱼ)\opB(\lambda_1)\cdots\overbrace{\opB(\lambda)}^j\cdots \opB(\lambda_M)|0\rangle
+    - \frac{b(\lambda-\lambdaⱼ)}{c(\lambda-\lambdaⱼ)}\left\{\prod_{i\ne j}\frac{a(\lambdaⱼ-\lambdaᵢ)}{c(\lambdaⱼ-\lambdaᵢ)}\right\} \vacDelta(\lambdaⱼ)\opB(\lambda_1)\cdots\overbrace{\opB(\lambda)}^j\cdots \opB(\lambda_M)|0\rangle
 \end{align*}
 $$
 という項が出てくることが分かるので、これらが相殺することを課し、Bethe 仮設方程式
 $$
 \begin{align*}
-    &\vacAlpha(\lambdaⱼ)\frac{\wb(\lambdaⱼ-\lambda)}{\wc(\lambdaⱼ-\lambda)} \prod_{i\ne j}\frac{\wa(\lambdaᵢ-\lambdaⱼ)}{\wc(\lambdaᵢ-\lambdaⱼ)}
-    \\ &\quad + \vacDelta(\lambdaⱼ)\frac{\wb(\lambda-\lambdaⱼ)}{\wc(\lambda-\lambdaⱼ)} \prod_{i\ne j}\frac{\wa(\lambdaⱼ-\lambdaᵢ)}{\wc(\lambdaⱼ-\lambdaᵢ)} = 0
+    &\vacAlpha(\lambdaⱼ)\frac{b(\lambdaⱼ-\lambda)}{c(\lambdaⱼ-\lambda)} \prod_{i\ne j}\frac{a(\lambdaᵢ-\lambdaⱼ)}{c(\lambdaᵢ-\lambdaⱼ)}
+    \\ &\quad + \vacDelta(\lambdaⱼ)\frac{b(\lambda-\lambdaⱼ)}{c(\lambda-\lambdaⱼ)} \prod_{i\ne j}\frac{a(\lambdaⱼ-\lambdaᵢ)}{c(\lambdaⱼ-\lambdaᵢ)} = 0
 \end{align*}
 $$
-を得ます。 $\wb$ が奇関数であり、 $\wc$ が定数であることを使って整理すると、
+を得ます。 $b$ が奇関数であり、 $c$ が定数であることを使って整理すると、
 $$
 \begin{align*}
-\frac{\vacAlpha(\lambdaⱼ)}{\vacDelta(\lambdaⱼ)} = \prod_{i\ne j}\frac{\wa(\lambdaⱼ-\lambdaᵢ)}{\wa(\lambdaᵢ-\lambdaⱼ)}
+\frac{\vacAlpha(\lambdaⱼ)}{\vacDelta(\lambdaⱼ)} = \prod_{i\ne j}\frac{a(\lambdaⱼ-\lambdaᵢ)}{a(\lambdaᵢ-\lambdaⱼ)}
 \end{align*}
 $$
 となります。Bethe 仮設方程式の解が得られれば、転送行列の固有値は
 $$
 \begin{align*}
     \Lambda(\lambda;\lambda_1,\ldots,\lambda_M)
-    &= \vacAlpha(\lambda) \prod_{i=1}^M \frac{\wa(\lambdaᵢ-\lambda)}{\wc(\lambdaᵢ-\lambda)}
-    \\ &\quad + \vacDelta(\lambda) \prod_{i=1}^M \frac{\wa(\lambda-\lambdaᵢ)}{\wc(\lambda-\lambdaᵢ)}
+    &= \vacAlpha(\lambda) \prod_{i=1}^M \frac{a(\lambdaᵢ-\lambda)}{c(\lambdaᵢ-\lambda)}
+    \\ &\quad + \vacDelta(\lambda) \prod_{i=1}^M \frac{a(\lambda-\lambdaᵢ)}{c(\lambda-\lambdaᵢ)}
 \end{align*}
 $$
 によって構成されます。
@@ -615,7 +615,7 @@ $$
 
 # XXZ模型との対応
 
-6頂点模型の転送行列には、1次元量子スピン系のハミルトニアンも含まれています。組み紐の節で用いた双曲線関数の行列から、先に導入した三角関数の重率 $\wa(\lambda)=\sin(\lambda+2\eta)$、$\wb(\lambda)=\sin\lambda$、$\wc=\sin(2\eta)$ に戻り、この対応を調べます。以下では実数 $\eta$ を固定し、$\sin(2\eta)\ne0$ とします。
+6頂点模型の転送行列には、1次元量子スピン系のハミルトニアンも含まれています。組み紐の節で用いた双曲線関数の行列から、先に導入した三角関数の重率 $a(\lambda)=\sin(\lambda+2\eta)$、$b(\lambda)=\sin\lambda$、$c=\sin(2\eta)$ に戻り、この対応を調べます。以下では実数 $\eta$ を固定し、$\sin(2\eta)\ne0$ とします。
 
 各格子点にスピン $1/2$ を置き、両端をつないだ $N\ge2$ サイトの鎖を考えます。隣り合うスピンが $x,y,z$ 方向に相互作用し、$z$ 方向の結合の強さが $\Delta=\cos(2\eta)$ 倍である模型がXXZ模型です。各方向の相互作用を鎖全体で足し合わせ、ハミルトニアンを
 $$
@@ -635,16 +635,16 @@ H_{\mathrm{XXZ}}
 $$
 ここでプライムは $\lambda$ による微分、$I$ は鎖全体の単位演算子です。転送行列を微分し、$\lambda=0$ での転送行列の作用を取り除くと、隣接スピンの相互作用が現れます。その仕組みを見てみましょう。
 
-まず $\lambda=0$ では $\wa=\wc$、$\wb=0$ なので、$L$ 行列は2つのスピンを交換する演算子になります。交換演算子を $P_{\alpha,n}|s\rangle_{\alpha}|t\rangle_n=|t\rangle_{\alpha}|s\rangle_n$ と書くと、
+まず $\lambda=0$ では $a=c$、$b=0$ なので、$L$ 行列は2つのスピンを交換する演算子になります。交換演算子を $P_{\alpha,n}|s\rangle_{\alpha}|t\rangle_n=|t\rangle_{\alpha}|s\rangle_n$ と書くと、
 $$
 L_{\alpha,n}(0)
-=\wc\begin{pmatrix}
+=c\begin{pmatrix}
 1&0&0&0\\
 0&0&1&0\\
 0&1&0&0\\
 0&0&0&1
 \end{pmatrix}
-=\wc P_{\alpha,n}.
+=c P_{\alpha,n}.
 \tag{xxz-regular-point}
 $$
 補助スピンと各サイトのスピンを順に交換して補助空間のトレースを取ると、鎖のスピン配置が1サイト左に移ります。
@@ -653,7 +653,7 @@ $$
 
 $$
 \tau(0)|s_1,s_2,\ldots,s_N\rangle
-=\wc^N|s_2,s_3,\ldots,s_N,s_1\rangle.
+=c^N|s_2,s_3,\ldots,s_N,s_1\rangle.
 \tag{xxz-transfer-shift}
 $$
 
@@ -661,9 +661,9 @@ $$
 $$
 \tau'(0)=\sum_{n=1}^{N}\operatorname{tr}_{\alpha}
 \left[
-(\wc P_{\alpha,1})\cdots(\wc P_{\alpha,n-1})
+(c P_{\alpha,1})\cdots(c P_{\alpha,n-1})
 L'_{\alpha,n}(0)
-(\wc P_{\alpha,n+1})\cdots(\wc P_{\alpha,N})
+(c P_{\alpha,n+1})\cdots(c P_{\alpha,N})
 \right].
 \tag{xxz-differentiated-row}
 $$
@@ -672,12 +672,12 @@ $$
 各項に左から $\tau(0)^{-1}$ を作用させると、交換だけで生じる移動が打ち消されます。微分した頂点につながる2本の線は隣接するサイト $n,n+1$ に残り、それ以外のサイトには単位演算子が作用します。
 $$
 \tau(0)^{-1}\tau'(0)
-=\frac1\wc\sum_{n=1}^{N}P_{n,n+1}L'_{n,n+1}(0).
+=\frac1c\sum_{n=1}^{N}P_{n,n+1}L'_{n,n+1}(0).
 \tag{xxz-local-derivative}
 $$
 右辺の $L'_{n,n+1}(0)$ は、同じ $4\times4$ 行列を2つの量子スピンに作用させたものです。$n=N$ の項は周期境界をまたぐサイト $N,1$ の相互作用になります。
 
-残った二サイトの行列を計算します。重率の微分は $\wa'(0)=\Delta$、$\wb'(0)=1$、$\wc'=0$ なので、
+残った二サイトの行列を計算します。重率の微分は $a'(0)=\Delta$、$b'(0)=1$、$c'=0$ なので、
 $$
 P L'(0)
 =\begin{pmatrix}

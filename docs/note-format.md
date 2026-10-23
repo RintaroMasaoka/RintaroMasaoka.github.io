@@ -44,23 +44,23 @@ Other fixed-composition KdV figures use `FigureViewport.astro` with scale=min(1,
 
 ## Semantic math color commands
 
-`src/utils/note-math.mjs` supplies shared KaTeX commands to collection Markdown,
-chapter rendering and final equation numbering. Use semantic commands in the
-manuscript instead of literal color values:
+`src/utils/note-math.mjs` owns the palette and shared KaTeX command definitions.
+Each command expands to a grouped `\textcolor{color}{glyph}`. Only its letter is
+colored; scripts, primes, arguments and surrounding operators retain normal ink.
+There are no CSS color selectors or HTML-trust extensions.
 
 | Commands | Meaning |
 | --- | --- |
-| `\wa`, `\wb`, `\wc` | Boltzmann weights a, b, c |
 | `\opA`, `\opB`, `\opC`, `\opD` | Monodromy matrix components |
 | `\vacAlpha`, `\vacDelta` | Vacuum eigenvalues |
 
-For example, `$\opA(\lambda)\opB(\mu)$` colors the operator letters while retaining
-ordinary argument ink. `$\wa_\circ^2$` colors the weight and its scripts together.
+For example, `$\opA_1'(\lambda)\opB(\mu)$` colors only A and B.
+The scalar weights `a,b,c` use ordinary TeX and are uncolored.
 Do not replace an unrelated spin index `\alpha` with `\vacAlpha`.
+Vacuum eigenvalues share their corresponding A/D operator colors. Change
+`noteMathColors` once to update every use. Both reader themes use these colors.
 
-Change the four palette variables in `src/styles/note-math.css` to adjust the
-entire note, including light, dark and print rendering. Manuscripts contain no
-hex colors. New semantic commands belong in the central command registry;
-arbitrary HTML classes, inline styles and links remain untrusted by KaTeX.
-Run `node scripts/check-note-math.mjs` and `node scripts/check-note-equations.mjs`
-after changing the renderer or macro definitions, then inspect a fresh build.
+The collection renderer, chapter renderer and final equation-numbering pass
+use the same macro definitions. Run `node scripts/check-note-math.mjs` and
+`node scripts/check-note-equations.mjs` after changing them, then inspect a fresh
+build in both themes.
