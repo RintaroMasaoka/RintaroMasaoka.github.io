@@ -21,7 +21,7 @@
     "source": "figure-04.tex",
     "renderer": "latex + dvisvgm --no-fonts --exact",
     "labels": "TeX glyph outlines; no external fonts",
-    "paths": 29
+    "paths": 23
   },
   {
     "source": "figure-05.tex",
@@ -33,7 +33,7 @@
     "source": "figure-06.tex",
     "renderer": "latex + dvisvgm --no-fonts --exact",
     "labels": "TeX glyph outlines; no external fonts",
-    "paths": 15
+    "paths": 13
   },
   {
     "source": "figure-07.tex",
@@ -129,12 +129,12 @@
     "source": "figure-22.tex",
     "renderer": "latex + dvisvgm --no-fonts --exact",
     "labels": "TeX glyph outlines; no external fonts",
-    "paths": 47
+    "paths": 36
   },
   {
     "source": "figure-23.tex",
     "renderer": "latex + dvisvgm --no-fonts --exact",
     "labels": "TeX glyph outlines; no external fonts",
-    "paths": 85
+    "paths": 72
   }
 ]

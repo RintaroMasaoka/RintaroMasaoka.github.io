@@ -18,7 +18,12 @@ for (const file of files) {
       const p = spawnSync(cmd, args, { cwd: work, encoding: 'utf8' });
       if (p.status !== 0) throw new Error(`${file}: ${cmd}\n${p.stdout}\n${p.stderr}`);
     }
-    const svg = readFileSync(join(work, 'figure.svg'), 'utf8');
+    let svg = readFileSync(join(work, 'figure.svg'), 'utf8');
+    const padding = Number(readFileSync(join(dir, file), 'utf8').match(/% svg-padding: ([\d.]+)pt/)?.[1] || 0);
+    if (padding) svg = svg.replace(/width='([\d.]+)pt' height='([\d.]+)pt' viewBox='([^']+)'/, (_, w, h, box) => {
+      const [x, y, width, height] = box.split(' ').map(Number);
+      return `width='${Number(w)+2*padding}pt' height='${Number(h)+2*padding}pt' viewBox='${x-padding} ${y-padding} ${width+2*padding} ${height+2*padding}'`;
+    });
     for (const dark of [false, true]) {
       const ink = dark ? '#e2e7e1' : '#202321';
       const surface = dark ? '#1d2320' : '#fbfaf7';

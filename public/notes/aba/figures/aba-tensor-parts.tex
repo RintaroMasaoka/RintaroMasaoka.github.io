@@ -28,8 +28,7 @@
     \fi
   \end{scope}}
 \providecommand{\abaPeriodicClosure}[3]{%
-  \draw[aba periodic boundary] (#1,#2)--(#1,#3);
-  \abaGluingTips{(#1,{.5*(#2+#3)+.42})}{90}{1}}
+  \draw[aba periodic boundary] (#1,#2)--(#1,#3);}
 % One physical sign arrow, centered at x,y, along h or v, sign +1 or -1.
 \providecommand{\abaSignArrow}[4]{%
   \ifnum#4>0\def\abacolor{positive}\else\def\abacolor{negative}\fi
@@ -64,7 +63,4 @@
     \draw (\abapos,0)--(\abapos,\abalength);
     \draw (0,\abapos)--(\abalength,\abapos);}
   \draw[aba periodic boundary] (0,0) rectangle (\abalength,\abalength);
-  \abaGluingTips{(0,{.5*\abalength})}{90}{1}
-  \abaGluingTips{(\abalength,{.5*\abalength})}{90}{1}
-  \abaGluingTips{({.5*\abalength},0)}{0}{2}
-  \abaGluingTips{({.5*\abalength},\abalength)}{0}{2}}
+}

@@ -1,7 +1,10 @@
 % Four physical strands. Read operators from bottom (input) to top (output).
 % An ordinary swap is TWO separate elbows, never a four-way junction.
-% The auxiliary trace is the long exterior route; no extra physical site.
+% Circular boundaries denote local L(0) tensors, including their scalar.
+% A superscript inverse on the boundary denotes the inverse local tensor.
 \newcommand{\xxzSwap}[3]{%
+ \draw (#1,#2) circle (.31);
+ \ifnum#3=0 \node[font=\Large,anchor=south west,inner sep=0pt] at (#1+.21,#2+.23) {$-1$};\fi
  \ifnum#3=1
   \draw (#1,#2-.43)--(#1,#2-.12)--(#1-.12,#2)--(#1-.43,#2);
   \draw (#1+.43,#2)--(#1+.12,#2)--(#1,#2+.12)--(#1,#2+.43);
@@ -20,8 +23,11 @@
   \pgfmathsetmacro{\xx}{1.25*(\j-1)}
   \ifnum\j=#3 \xxzDerivative{\xx}{#1}\else\xxzSwap{\xx}{#1}{#2}\fi}
  \foreach \j in {0,...,2}{\draw (1.25*\j+.43,#1)--(1.25*\j+.82,#1);}}
-\newcommand{\xxzBottomTrace}[2]{%
- \draw (-.43,#1)--(-.72,#1)--(-.72,#2)--(4.47,#2)--(4.47,#1)--(4.18,#1);}
-\newcommand{\xxzTopTrace}[2]{\xxzBottomTrace{#1}{#2}}
+% Matching dashed cuts indicate the same periodic auxiliary space.
+\newcommand{\xxzPeriodicEnds}[1]{%
+ \draw (-.43,#1)--(-.72,#1);
+ \draw (4.18,#1)--(4.47,#1);
+ \draw[densely dashed,line width=.6pt] (-.72,#1-.62)--(-.72,#1+.62);
+ \draw[densely dashed,line width=.6pt] (4.47,#1-.62)--(4.47,#1+.62);}
 \newcommand{\xxzSiteLabels}[1]{%
  \foreach \j in {1,...,4}{\node at ({1.25*(\j-1)},#1) {$\j$};}}

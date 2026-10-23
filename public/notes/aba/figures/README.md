@@ -43,6 +43,7 @@ The drawings were reconstructed from the article's original image references.
 Source-reference and verification records are under `reviews/aba-figures/`.
 
 The periodic grid and transfer row use dotted periodic boundary guides.
-`\abaGluingTips{(x,y)}{angle}{count}` places one or two open arrowheads
-on a guide to identify opposite boundaries with matching orientation. It draws
-only the arrowheads, without an extra shaft or bar.
+XXZ diagrams use circular local tensors containing the exchange connections.
+Their scalar normalization belongs to the tensor; inverse tensors carry a
+superscript inverse. Figure 23 compares the contraction and its two-site result
+side by side.

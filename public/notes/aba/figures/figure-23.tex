@@ -1,3 +1,4 @@
+% svg-padding: 4pt
 \ifdefined\pdfoutput
   \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
 \fi
@@ -7,38 +8,29 @@
 \begin{document}
 \begin{tikzpicture}[font=\Large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
 \input{aba-xxz-parts.tex}
-\node at (1.875,3.7) {$N=4,\quad\text{derivative at site }2$};
 \xxzRow{0}{1}{2}
 \xxzRow{1.5}{0}{0}
 \foreach \j in {0,...,3}{
  \draw (1.25*\j,.43)--(1.25*\j,1.07);
  \draw (1.25*\j,-.43)--(1.25*\j,-.8);
  \draw[->] (1.25*\j,1.93)--(1.25*\j,2.3);}
-\xxzBottomTrace{0}{-1.65}
-\xxzTopTrace{1.5}{3.1}
-\xxzSiteLabels{2.6}
-\xxzSiteLabels{-1.1}
-\node[anchor=east] at (-.88,1.5) {$c^{-4}$};
-\node[anchor=east] at (-.88,0) {$c^3$};
-\node[anchor=west] at (4.65,1.5) {$\tau(0)^{-1}$};
-\node[anchor=west] at (4.65,0) {$L'=L'(0)$};
+\xxzPeriodicEnds{0}
+\xxzPeriodicEnds{1.5}
 % Straightening the regular strands leaves P L' on inputs 2 and 3.
-\node at (1.875,-2.3) {$=$};
-\begin{scope}[yshift=-4.8cm]
+\node at (5.0,.72) {$=$};
+\begin{scope}[xshift=5.7cm,yshift=.35cm]
  \foreach \j in {0,3}{\draw[->] (1.25*\j,-.8)--(1.25*\j,1.35);}
  % The lower tensor is L' on the two adjacent physical spaces.
  \draw (1.25,-.8)--(1.25,-.5);
  \draw (2.5,-.8)--(2.5,-.5);
  \draw[fill=white] (.98,-.5) rectangle (2.77,.38);
- \node at (1.875,-.06) {$L'_{2,3}(0)$};
- % P above L': two crossed wires, with a visible gap at their crossing.
+ \node at (1.875,-.06) {$L'$};
+ % Inverse regular tensor above L': same four legs, with inverse weight.
+ \draw (1.875,.815) ellipse (.72 and .36);
+ \node[font=\Large,anchor=south west,inner sep=0pt] at (2.5,1.06) {$-1$};
  \draw[->] (1.25,.38)--(1.25,.52)--(2.5,1.11)--(2.5,1.35);
  \draw (2.5,.38)--(2.5,.52)--(2.03,.742);
  \draw[->] (1.72,.888)--(1.25,1.11)--(1.25,1.35);
- \node[font=\large,anchor=west] at (2.88,.85) {$P_{2,3}$};
- \xxzSiteLabels{1.65}
- \xxzSiteLabels{-1.1}
- \node[anchor=east] at (-.88,.25) {$\dfrac1c$};
 \end{scope}
 \end{tikzpicture}
 \end{document}

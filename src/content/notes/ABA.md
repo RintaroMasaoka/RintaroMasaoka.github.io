@@ -35,7 +35,7 @@ Ice rule を考慮すると、あり得る頂点は6通り存在します。こ�
 例えば $10\times10$ 格子の分配関数をテンソルネットワークで表すと、以下のようになります。
 点線は周期境界を表します。
 
-<figure class="aba-figure" id="aba-figure-04"><img class="aba-light" src="/notes/aba/figures/figure-04.svg" alt="10×10 格子の分配関数。点線は周期境界を表す。" width="402" height="286" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-04-dark.svg" alt="10×10 格子の分配関数。点線は周期境界を表す。" width="402" height="286" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-04"><img class="aba-light" src="/notes/aba/figures/figure-04.svg" alt="10×10 格子の分配関数。点線は周期境界を表す。" width="418" height="302" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-04-dark.svg" alt="10×10 格子の分配関数。点線は周期境界を表す。" width="418" height="302" loading="lazy" /></figure>
 
 # モノドロミー行列と転送行列
 
@@ -109,7 +109,7 @@ $$
 この定義をテンソルネットワークで書くと、
 
 <figure class="aba-figure" id="aba-figure-05"><img class="aba-light" src="/notes/aba/figures/figure-05.svg" alt="モノドロミー行列 T のテンソルネットワーク" width="576" height="99" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-05-dark.svg" alt="モノドロミー行列 T のテンソルネットワーク" width="576" height="99" loading="lazy" /></figure>
-<figure class="aba-figure" id="aba-figure-06"><img class="aba-light" src="/notes/aba/figures/figure-06.svg" alt="補助空間のトレースによる転送行列 τ" width="494" height="99" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-06-dark.svg" alt="補助空間のトレースによる転送行列 τ" width="494" height="99" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-06"><img class="aba-light" src="/notes/aba/figures/figure-06.svg" alt="補助空間のトレースによる転送行列 τ" width="510" height="115" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-06-dark.svg" alt="補助空間のトレースによる転送行列 τ" width="510" height="115" loading="lazy" /></figure>
 
 となります。上下に伸びる添字は省略していますが、きちんと書くと、
 $$
@@ -624,7 +624,7 @@ L_{\alpha,n}(0)
 $$
 補助スピンと各サイトのスピンを順に交換して補助空間のトレースを取ると、鎖のスピン配置が1サイト左に移ります。
 
-<figure class="aba-figure" id="aba-figure-22"><img class="aba-light" src="/notes/aba/figures/figure-22.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="297" height="189" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-22-dark.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="297" height="189" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-22"><img class="aba-light" src="/notes/aba/figures/figure-22.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="313" height="205" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-22-dark.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="313" height="205" loading="lazy" /></figure>
 
 $$
 \tau(0)|s_1,s_2,\ldots,s_N\rangle
@@ -642,7 +642,7 @@ L'_{\alpha,n}(0)
 \right].
 \tag{xxz-differentiated-row}
 $$
-<figure class="aba-figure" id="aba-figure-23"><img class="aba-light" src="/notes/aba/figures/figure-23.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="581" height="178" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-23-dark.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="581" height="178" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-23"><img class="aba-light" src="/notes/aba/figures/figure-23.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="597" height="194" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-23-dark.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="597" height="194" loading="lazy" /></figure>
 
 各項に左から $\tau(0)^{-1}$ を作用させると、交換だけで生じる移動が打ち消されます。微分した頂点につながる2本の線は隣接するサイト $n,n+1$ に残り、それ以外のサイトには単位演算子が作用します。
 $$
