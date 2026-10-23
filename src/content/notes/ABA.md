@@ -171,7 +171,7 @@ Yang-Baxter 方程式を以下のように変形しておきます。
 
 <figure class="aba-figure" id="aba-figure-09"><img class="aba-light" src="/notes/aba/figures/figure-09.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-09-dark.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /></figure>
 
-次に、三つの頂点を結ぶ図形を回転対称な形に整え、添字を巡回させて成分方程式を書き下しやすくします。そのために、斜め右上へ向かう線の矢印を反転して、
+次に、成分方程式の計算を簡単にするため、方程式の図を回転対称な形に整えます。この形にしておくと、一つの成分方程式から添字を巡回させるだけで残りの式も得られます。そこで、斜め右上へ向かう線の矢印を反転して、
 
 <figure class="aba-figure" id="aba-figure-10"><img class="aba-light" src="/notes/aba/figures/figure-10.svg" alt="一つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-10-dark.svg" alt="一つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /></figure>
 
@@ -186,7 +186,7 @@ Yang-Baxter 方程式は 6つの添字をもつので、 $2^6 = 64$ 個の方程
 
 - 残りの6通りから、6個の方程式が得られます。しかし、左辺と右辺を入れ替えた方程式がペアになって出てくるので、実質的な方程式の数は3個となります。
 
-3個の方程式のうちの1つは、以下のように表されます。
+さらに、この3つの方程式は図の回転によって互いに移り合うので、一つを求めれば、残りの二つは添字を巡回させて得られます。まず、次の配位について成分方程式を書き下します。
 
 <figure class="aba-figure" id="aba-figure-12"><img class="aba-light" src="/notes/aba/figures/figure-12.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-12-dark.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /></figure>
 
