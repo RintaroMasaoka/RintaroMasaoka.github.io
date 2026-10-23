@@ -10,7 +10,7 @@ export function initMatchingFigure(){
       const [ymin,ymax]=fittedRange(samples.flatMap(r=>[r.left,r.right]),{includeZero:true,floorSpan:.1});
       root.querySelector('[data-matching-w]').textContent=W===0?'0':W.toPrecision(4);
       root.querySelector('[data-two-energy-output]').textContent=energy.toFixed(3);
-      root.querySelector('[data-matching-status]').textContent=Math.abs(W)<1e-9?'Bound state: coincident profiles.':'Independent solutions.';
+      root.querySelector('[data-matching-status]').textContent=Math.abs(W)<1e-9?'Bound state: the two solutions coincide.':'Independent solutions.';
       const style=getComputedStyle(root);
       const insetLeft=parseFloat(style.getPropertyValue('--plot-left'))||44;
       const insetRight=parseFloat(style.getPropertyValue('--plot-right'))||28;
