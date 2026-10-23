@@ -2,10 +2,16 @@
 % An ordinary swap is TWO separate elbows, never a four-way junction.
 % Circular boundaries denote local L(0) tensors, including their scalar.
 % A superscript inverse on the boundary denotes the inverse local tensor.
-\newcommand{\xxzTensorBoundary}[2]{\draw (#1,#2) circle (.31);}
-\newcommand{\xxzSwap}[3]{%
+\newcommand{\xxzTensorRadius}{.25}
+\newcommand{\xxzTensorBoundary}[3][]{\draw[#1] (#2,#3) circle (\xxzTensorRadius);}
+\newcommand{\xxzInverseTensorBoundary}[2]{%
  \xxzTensorBoundary{#1}{#2}
- \ifnum#3=0 \node[font=\Large,anchor=south west,inner sep=0pt] at (#1+.21,#2+.23) {$-1$};\fi
+ \node[font=\scriptsize,anchor=south west,inner sep=0pt] at (#1+.18,#2+.30) {$-1$};}
+\newcommand{\xxzDerivativeBody}[2]{%
+ \xxzTensorBoundary[fill=white]{#1}{#2}
+ \node[font=\small] at (#1,#2) {$L'$};}
+\newcommand{\xxzSwap}[3]{%
+ \ifnum#3=0 \xxzInverseTensorBoundary{#1}{#2}\else\xxzTensorBoundary{#1}{#2}\fi
  \ifnum#3=1
   \draw (#1,#2-.43)--(#1,#2-.12)--(#1-.12,#2)--(#1-.43,#2);
   \draw (#1+.43,#2)--(#1+.12,#2)--(#1,#2+.12)--(#1,#2+.43);
@@ -16,8 +22,7 @@
 \newcommand{\xxzDerivative}[2]{%
  \draw (#1,#2-.43)--(#1,#2+.43);
  \draw (#1-.43,#2)--(#1+.43,#2);
- \draw[fill=white] (#1,#2) circle (.34);
- \node at (#1,#2) {$L'$};}
+ \xxzDerivativeBody{#1}{#2}}
 \newcommand{\xxzRow}[3]{%
  % row y, orientation, derivative site (0 means no insertion)
  \foreach \j in {1,...,4}{%

@@ -21,13 +21,14 @@
 \begin{scope}[xshift=5.7cm,yshift=.35cm]
  \foreach \j in {0,3}{\draw[->] (1.25*\j,-.8)--(1.25*\j,1.35);}
  % The lower tensor is L' on the two adjacent physical spaces.
- \draw (1.25,-.8)--(1.25,-.5);
- \draw (2.5,-.8)--(2.5,-.5);
- \draw[fill=white] (.98,-.5) rectangle (2.77,.38);
- \node at (1.875,-.06) {$L'$};
+ \pgfmathsetmacro{\xxzPort}{\xxzTensorRadius/sqrt(2)}
+ \draw (1.25,-.8)--(1.25,-.5)--({1.875-\xxzPort},{-.06-\xxzPort});
+ \draw (2.5,-.8)--(2.5,-.5)--({1.875+\xxzPort},{-.06-\xxzPort});
+ \draw ({1.875-\xxzPort},{-.06+\xxzPort})--(1.25,.38);
+ \draw ({1.875+\xxzPort},{-.06+\xxzPort})--(2.5,.38);
+ \xxzDerivativeBody{1.875}{-.06}
  % Inverse regular tensor above L': same four legs, with inverse weight.
- \xxzTensorBoundary{1.875}{.815}
- \node[font=\scriptsize,anchor=south west,inner sep=0pt] at (2.08,1.11) {$-1$};
+ \xxzInverseTensorBoundary{1.875}{.815}
  \draw[->] (1.25,.38)--(1.25,.52)--(2.5,1.11)--(2.5,1.35);
  \draw (2.5,.38)--(2.5,.52)--(2.03,.742);
  \draw[->] (1.72,.888)--(1.25,1.11)--(1.25,1.35);

@@ -47,3 +47,9 @@ XXZ diagrams use circular local tensors containing the exchange connections.
 Their scalar normalization belongs to the tensor; inverse tensors carry a
 superscript inverse. Figure 23 compares the contraction and its two-site result
 side by side.
+
+XXZ tensor bodies share `\xxzTensorRadius`, `\xxzTensorBoundary`,
+`\xxzInverseTensorBoundary` and `\xxzDerivativeBody`. The common radius is .25cm;
+inverse marks use scriptsize and L-prime labels use small. Figure 23's two-site
+insertion uses the same circular L-prime body as the derivative row. Its diagonal
+ports are calculated from the shared radius, rather than separate body sizes.
