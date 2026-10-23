@@ -425,7 +425,7 @@ $$
 \begin{align*}
     \opA(\lambda)\opB(\lambda_1)| 0 \rangle
     &= \frac{a(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda_1)\vacAlpha(\lambda)| 0 \rangle
-    \\ &\quad - \frac{b(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda_1)\vacAlpha(\lambda)| 0 \rangle
+    \\ &\quad - \frac{b(\lambda_1-\lambda)}{c(\lambda_1-\lambda)}\opB(\lambda)\vacAlpha(\lambda_1)| 0 \rangle
     \\[.8em]
     \opD(\lambda)\opB(\lambda_1)| 0 \rangle
     &= \frac{a(\lambda-\lambda_1)}{c(\lambda-\lambda_1)}\opB(\lambda_1)\vacDelta(\lambda)| 0 \rangle
