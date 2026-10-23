@@ -6,7 +6,7 @@ description: "6頂点模型、Yang-Baxter方程式、代数的Bethe仮設、XXZ�
 
 # 導入
 このノートでは主に6頂点模型について話します。これは2次元の氷をモデル化したものだと考えるとわかりやすいですが、実際の氷の性質を反映しているかは知りません。
-しかし、可解格子模型の一つであり、数理的に非常に面白い性質を持っていることが知られています。
+しかし、可解格子模型の1つであり、数理的に非常に面白い性質を持っていることが知られています。
 
 左の図では2次元の氷を図示していて、正方格子の各辺で水素原子の配置に2通りの自由度が存在します。この自由度を頂点を結ぶ矢印として書いたのが右の図です。
 
@@ -15,7 +15,7 @@ description: "6頂点模型、Yang-Baxter方程式、代数的Bethe仮設、XXZ�
 各頂点が電気的に中性である (= 酸素原子に結合している水素原子は2個) という条件を課すと、各頂点で流入する矢印と流出する矢印の数は等しくなります。この条件を Ice rule といいます。
 Ice rule を考慮すると、あり得る頂点は6通り存在します。ここからこの模型を6頂点模型と呼びます。
 
-<figure class="aba-figure" id="aba-figure-02"><img class="aba-light" src="/notes/aba/figures/figure-02.svg" alt="Ice rule を満たす六つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-02-dark.svg" alt="Ice rule を満たす六つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-02"><img class="aba-light" src="/notes/aba/figures/figure-02.svg" alt="Ice rule を満たす6つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-02-dark.svg" alt="Ice rule を満たす6つの頂点と重率 a、b、c" width="495" height="311" loading="lazy" /></figure>
 
 矢印の反転に対する対称性を仮定すると、 Boltzmann 重率 $a, b, c$ によって模型は決定されます。[^1]
 [^1]: ここで定義した Boltzmann 重率は普通 $\exp(-\beta\varepsilon)$ のように書かれますが、まとめて $a, b, c$ という一文字でおいています。
@@ -35,7 +35,7 @@ Ice rule を考慮すると、あり得る頂点は6通り存在します。こ�
 例えば $10\times10$ 格子の分配関数をテンソルネットワークで表すと、以下のようになります。
 点線は周期境界を表し、同じ鏃を付けた向かい合う辺どうしを、向きを合わせて貼り合わせます。
 
-<figure class="aba-figure" id="aba-figure-04"><img class="aba-light" src="/notes/aba/figures/figure-04.svg" alt="10×10 格子の分配関数。左右辺の一つの鏃どうし、上下辺の二つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-04-dark.svg" alt="10×10 格子の分配関数。左右辺の一つの鏃どうし、上下辺の二つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-04"><img class="aba-light" src="/notes/aba/figures/figure-04.svg" alt="10×10 格子の分配関数。左右辺の1つの鏃どうし、上下辺の2つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-04-dark.svg" alt="10×10 格子の分配関数。左右辺の1つの鏃どうし、上下辺の2つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /></figure>
 
 # モノドロミー行列と転送行列
 
@@ -130,7 +130,7 @@ $$
 # Yang-Baxter 方程式
 次に、Yang-Baxter 方程式を導入します。具体的には以下の図で表されます。
 
-<figure class="aba-figure" id="aba-figure-07"><img class="aba-light" src="/notes/aba/figures/figure-07.svg" alt="Yang–Baxter 方程式の三つの頂点の接続" width="388" height="155" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-07-dark.svg" alt="Yang–Baxter 方程式の三つの頂点の接続" width="388" height="155" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-07"><img class="aba-light" src="/notes/aba/figures/figure-07.svg" alt="Yang–Baxter 方程式の3つの頂点の接続" width="388" height="155" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-07-dark.svg" alt="Yang–Baxter 方程式の3つの頂点の接続" width="388" height="155" loading="lazy" /></figure>
 
 3つの頂点は別々の Boltzmann 重率をもつ6頂点模型の頂点です。
 矢印は符号の基準を与えるものです。矢印と同じ向きを正符号とします。
@@ -171,9 +171,9 @@ Yang-Baxter 方程式を以下のように変形しておきます。
 
 <figure class="aba-figure" id="aba-figure-09"><img class="aba-light" src="/notes/aba/figures/figure-09.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-09-dark.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /></figure>
 
-次に、成分方程式の計算を簡単にするため、方程式の図を回転対称な形に整えます。この形にしておくと、一つの成分方程式から添字を巡回させるだけで残りの式も得られます。そこで、斜め右上へ向かう線の矢印を反転して、
+次に、成分方程式の計算を簡単にするため、方程式の図を回転対称な形に整えます。この形にしておくと、1つの成分方程式から添字を巡回させるだけで残りの式も得られます。そこで、斜め右上へ向かう線の矢印を反転して、
 
-<figure class="aba-figure" id="aba-figure-10"><img class="aba-light" src="/notes/aba/figures/figure-10.svg" alt="一つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-10-dark.svg" alt="一つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-10"><img class="aba-light" src="/notes/aba/figures/figure-10.svg" alt="1つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-10-dark.svg" alt="1つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /></figure>
 
 と書きます。この矢印の反転は、2つの頂点 (無印と白丸) で重率を $a \leftrightarrow b$ と読み替えることに対応します。以下ではこの読み替えた重率で成分方程式を求め、解を求める際にもう一度 $a \leftrightarrow b$ として元の重率に戻します。
 
@@ -182,15 +182,15 @@ Yang-Baxter 方程式は 6つの添字をもつので、 $2^6 = 64$ 個の方程
 - さらに矢印の反転に関する対称性から、 10通りだけ考えれば良いです。
 - 10通りのうちの4通りでは、Yang-Baxter 方程式の左辺と右辺が同じものになり、恒等式を与えます。これは、以下の場合です。
 
-<figure class="aba-figure" id="aba-figure-11"><img class="aba-light" src="/notes/aba/figures/figure-11.svg" alt="恒等式を与える四つの外部矢印配位" width="579" height="165" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-11-dark.svg" alt="恒等式を与える四つの外部矢印配位" width="579" height="165" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-11"><img class="aba-light" src="/notes/aba/figures/figure-11.svg" alt="恒等式を与える4つの外部矢印配位" width="579" height="165" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-11-dark.svg" alt="恒等式を与える4つの外部矢印配位" width="579" height="165" loading="lazy" /></figure>
 
 - 残りの6通りから、6個の方程式が得られます。しかし、左辺と右辺を入れ替えた方程式がペアになって出てくるので、実質的な方程式の数は3個となります。
 
-- さらに、この3つの方程式は図の回転によって互いに移り合うので、一つを求めれば、残りの二つは添字を巡回させて得られます。
+- さらに、この3つの方程式は図の回転によって互いに移り合うので、1つを求めれば、残りの2つは添字を巡回させて得られます。
 
 3個の方程式のうちの1つは、以下のように表されます。
 
-<figure class="aba-figure" id="aba-figure-12"><img class="aba-light" src="/notes/aba/figures/figure-12.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-12-dark.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-12"><img class="aba-light" src="/notes/aba/figures/figure-12.svg" alt="非自明な成分方程式に寄与する3つの配位" width="561" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-12-dark.svg" alt="非自明な成分方程式に寄与する3つの配位" width="561" height="161" loading="lazy" /></figure>
 
 これを式で書くと、
 $$
@@ -525,17 +525,17 @@ $$
 
 # 組み紐群の表現
 
-Yang–Baxter 方程式は、三つの交差の順序を変えても結果が変わらない、という組み紐の関係式として読めます。二本の交換を含む $R$ 行列がこの関係式を満たせば、交差を行列として計算できます。以下では、$A\ne0$ をパラメーターとして次の $R$ 行列を使います。
+Yang–Baxter 方程式は、3つの交差の順序を変えても結果が変わらない、という組み紐の関係式として読めます。2本の交換を含む $R$ 行列がこの関係式を満たせば、交差を行列として計算できます。以下では、$A\ne0$ をパラメーターとして次の $R$ 行列を使います。
 
-<figure class="aba-figure" id="aba-figure-15"><img class="aba-light" src="/notes/aba/figures/figure-15.svg" alt="三本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-15-dark.svg" alt="三本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-15"><img class="aba-light" src="/notes/aba/figures/figure-15.svg" alt="3本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-15-dark.svg" alt="3本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /></figure>
 
 <figure class="aba-figure" id="aba-figure-16"><img class="aba-light" src="/notes/aba/figures/figure-16.svg" alt="交差と R 行列の成分表示" width="368" height="129" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-16-dark.svg" alt="交差と R 行列の成分表示" width="368" height="129" loading="lazy" /></figure>
 
-この交差は、係数 $A$ と $A^{-1}$ を付けた二通りの「交差のないつなぎ方」に分解できます。二本をそのまま通す図を $I$、上下の端点をそれぞれ弧でつなぐ図を $E$ と書けば、$R=AI+A^{-1}E$ です。
+この交差は、係数 $A$ と $A^{-1}$ を付けた2通りの「交差のないつなぎ方」に分解できます。2本をそのまま通す図を $I$、上下の端点をそれぞれ弧でつなぐ図を $E$ と書けば、$R=AI+A^{-1}E$ です。
 
 <figure class="aba-figure" id="aba-figure-18"><img class="aba-light" src="/notes/aba/figures/figure-18.svg" alt="カウフマンブラケットの交差の分解" width="325" height="73" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-18-dark.svg" alt="カウフマンブラケットの交差の分解" width="325" height="73" loading="lazy" /></figure>
 
-$E$ を上下に二つ重ねると、円が一つでき、残りは元の $E$ の図になります。行列から $E^2=(-A^2-A^{-2})E$ が得られるので、円一つには $d\coloneqq-A^2-A^{-2}$ を対応させます。紐を閉じた図 $D$ の交差をすべて分解し、各項の係数に円の数だけ $d$ を掛けて足したものが、カウフマンブラケット $\langle D\rangle$ です。
+$E$ を上下に2つ重ねると、円が1つでき、残りは元の $E$ の図になります。行列から $E^2=(-A^2-A^{-2})E$ が得られるので、円1つには $d\coloneqq-A^2-A^{-2}$ を対応させます。紐を閉じた図 $D$ の交差をすべて分解し、各項の係数に円の数だけ $d$ を掛けて足したものが、カウフマンブラケット $\langle D\rangle$ です。
 
 <figure class="aba-figure" id="aba-figure-20"><img class="aba-light" src="/notes/aba/figures/figure-20.svg" alt="平滑化の合成から定まる閉じたループの値" width="227" height="50" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-20-dark.svg" alt="平滑化の合成から定まる閉じたループの値" width="227" height="50" loading="lazy" /></figure>
 
@@ -547,7 +547,7 @@ $$
 
 <figure class="aba-figure" id="aba-figure-21"><img class="aba-light" src="/notes/aba/figures/figure-21.svg" alt="カールの係数と単位行列" width="246" height="91" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-21-dark.svg" alt="カールの係数と単位行列" width="246" height="91" loading="lazy" /></figure>
 
-このひねりの影響を取り除いたものが Jones 多項式です。図に向きを付け、交差の符号の和を $w(D)$ とします（上のひねりを正とする規約）。ひねりが一つ増えるたびに現れる $-A^3$ を打ち消し、さらに円一つの値を $1$ にそろえると、
+このひねりの影響を取り除いたものが Jones 多項式です。図に向きを付け、交差の符号の和を $w(D)$ とします（上のひねりを正とする規約）。ひねりが1つ増えるたびに現れる $-A^3$ を打ち消し、さらに円1つの値を $1$ にそろえると、
 $$
 V_L(t)=\left.(-A^3)^{-w(D)}\frac{\langle D\rangle}{d}\right|_{t=A^{-4}}
 \tag{braid-jones-normalization}
@@ -576,7 +576,7 @@ H_{\mathrm{XXZ}}
 $$
 ここでプライムは $\lambda$ による微分、$I$ は鎖全体の単位演算子です。転送行列を微分し、$\lambda=0$ での転送行列の作用を取り除くと、隣接スピンの相互作用が現れます。その仕組みを見てみましょう。
 
-まず $\lambda=0$ では $a=c$、$b=0$ なので、$L$ 行列は二つのスピンを交換する演算子になります。交換演算子を $P_{\alpha,n}|s\rangle_{\alpha}|t\rangle_n=|t\rangle_{\alpha}|s\rangle_n$ と書くと、
+まず $\lambda=0$ では $a=c$、$b=0$ なので、$L$ 行列は2つのスピンを交換する演算子になります。交換演算子を $P_{\alpha,n}|s\rangle_{\alpha}|t\rangle_n=|t\rangle_{\alpha}|s\rangle_n$ と書くと、
 $$
 L_{\alpha,n}(0)
 =c\begin{pmatrix}
@@ -598,7 +598,7 @@ $$
 \tag{xxz-transfer-shift}
 $$
 
-この一様な移動を除いて、$\lambda$ を変えたときの作用を取り出します。積の微分則により、$\tau'(0)$ は、一つの $L$ だけを $L'(0)$ に置き換えた項の和です。
+この一様な移動を除いて、$\lambda$ を変えたときの作用を取り出します。積の微分則により、$\tau'(0)$ は、1つの $L$ だけを $L'(0)$ に置き換えた項の和です。
 $$
 \tau'(0)=\sum_{n=1}^{N}\operatorname{tr}_{\alpha}
 \left[
@@ -610,13 +610,13 @@ L'_{\alpha,n}(0)
 $$
 <figure class="aba-figure" id="aba-figure-23"><img class="aba-light" src="/notes/aba/figures/figure-23.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="506" height="580" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-23-dark.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="506" height="580" loading="lazy" /></figure>
 
-各項に左から $\tau(0)^{-1}$ を作用させると、交換だけで生じる移動が打ち消されます。微分した頂点につながる二本の線は隣接するサイト $n,n+1$ に残り、それ以外のサイトには単位演算子が作用します。
+各項に左から $\tau(0)^{-1}$ を作用させると、交換だけで生じる移動が打ち消されます。微分した頂点につながる2本の線は隣接するサイト $n,n+1$ に残り、それ以外のサイトには単位演算子が作用します。
 $$
 \tau(0)^{-1}\tau'(0)
 =\frac1c\sum_{n=1}^{N}P_{n,n+1}L'_{n,n+1}(0).
 \tag{xxz-local-derivative}
 $$
-右辺の $L'_{n,n+1}(0)$ は、同じ $4\times4$ 行列を二つの量子スピンに作用させたものです。$n=N$ の項は周期境界をまたぐサイト $N,1$ の相互作用になります。
+右辺の $L'_{n,n+1}(0)$ は、同じ $4\times4$ 行列を2つの量子スピンに作用させたものです。$n=N$ の項は周期境界をまたぐサイト $N,1$ の相互作用になります。
 
 残った二サイトの行列を計算します。重率の微分は $a'(0)=\Delta$、$b'(0)=1$、$c'=0$ なので、
 $$
@@ -633,7 +633,7 @@ P L'(0)
 \right].
 \tag{xxz-local-matrix}
 $$
-ここで $I_2$ は一つのスピンに対する単位行列です。平行なスピンには対角成分 $\Delta$ が、反平行なスピンには互いを交換する成分が作用することが読み取れます。
+ここで $I_2$ は1つのスピンに対する単位行列です。平行なスピンには対角成分 $\Delta$ が、反平行なスピンには互いを交換する成分が作用することが読み取れます。
 
 式 (@xxz-local-matrix) を式 (@xxz-local-derivative) に代入すると、
 $$
