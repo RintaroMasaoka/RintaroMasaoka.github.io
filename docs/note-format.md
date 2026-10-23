@@ -41,3 +41,26 @@ Once that authored design is settled, adapt a fixed-composition canvas to a narr
 KdV matching and joined-wave plots use native responsive coordinates: the plot area follows the container while labels, markers and strokes retain fixed CSS sizes. They do not use a transform-scaled canvas.
 
 Other fixed-composition KdV figures use `FigureViewport.astro` with scale=min(1,availableWidth/designWidth), centered at its normal size when space permits. Height uses that same scale. Interactive drawing uses untransformed clientWidth, and content height is observed. Scientific axis domains remain independent of layout. Check the normal design visually as well as the narrow fallback; a correct scale transform alone does not certify good figure design.
+
+## Semantic math color commands
+
+`src/utils/note-math.mjs` supplies shared KaTeX commands to collection Markdown,
+chapter rendering and final equation numbering. Use semantic commands in the
+manuscript instead of literal color values:
+
+| Commands | Meaning |
+| --- | --- |
+| `\wa`, `\wb`, `\wc` | Boltzmann weights a, b, c |
+| `\opA`, `\opB`, `\opC`, `\opD` | Monodromy matrix components |
+| `\vacAlpha`, `\vacDelta` | Vacuum eigenvalues |
+
+For example, `$\opA(\lambda)\opB(\mu)$` colors the operator letters while retaining
+ordinary argument ink. `$\wa_\circ^2$` colors the weight and its scripts together.
+Do not replace an unrelated spin index `\alpha` with `\vacAlpha`.
+
+Change the four palette variables in `src/styles/note-math.css` to adjust the
+entire note, including light, dark and print rendering. Manuscripts contain no
+hex colors. New semantic commands belong in the central command registry;
+arbitrary HTML classes, inline styles and links remain untrusted by KaTeX.
+Run `node scripts/check-note-math.mjs` and `node scripts/check-note-equations.mjs`
+after changing the renderer or macro definitions, then inspect a fresh build.

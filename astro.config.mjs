@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import { noteMathOptions } from './src/utils/note-math.mjs';
 
 export default defineConfig({
   site: 'https://rintaromasaoka.github.io',
@@ -16,6 +17,6 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [[rehypeKatex, noteMathOptions]],
   },
 });

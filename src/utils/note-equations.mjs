@@ -1,3 +1,4 @@
+import { noteMathOptions } from './note-math.mjs';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const mathRequire = createRequire(require.resolve('rehype-katex'));
@@ -29,7 +30,7 @@ export function numberEquations(html) {
   }
   collect(tree);
   for (const { node, tex, key, number } of equations) {
-    const replacement = parseFragment(katex.renderToString(tex.replace(/\\tag\{([^}]+)\}/, `\\tag{${number}}`), { displayMode: true, throwOnError: true })).childNodes[0];
+    const replacement = parseFragment(katex.renderToString(tex.replace(/\\tag\{([^}]+)\}/, `\\tag{${number}}`), { ...noteMathOptions, displayMode: true, throwOnError: true })).childNodes[0];
     replacement.attrs.push({ name: 'id', value: `eq-${key}` }, { name: 'data-equation-key', value: key }, { name: 'data-equation-number', value: number });
     const parent = node.parentNode;
     parent.childNodes[parent.childNodes.indexOf(node)] = replacement;

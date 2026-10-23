@@ -1,0 +1,22 @@
+/* Change the palette here; manuscript commands carry roles, never color values. */
+:root {
+  --math-warm: #b84329;
+  --math-blue: #2367ad;
+  --math-green: #167453;
+  --math-purple: #8554a5;
+}
+@media screen {
+:root[data-theme="dark"] {
+  --math-warm: #f39a80;
+  --math-blue: #86b9f0;
+  --math-green: #73cda8;
+  --math-purple: #c8a2e5;
+}
+}
+.katex :is(.math-weight-a, .math-op-a, .math-vac-alpha),
+.katex .mord:has(> .math-weight-a) { color: var(--math-warm); }
+.katex :is(.math-weight-b, .math-op-d, .math-vac-delta),
+.katex .mord:has(> .math-weight-b) { color: var(--math-blue); }
+.katex :is(.math-weight-c, .math-op-b),
+.katex .mord:has(> .math-weight-c) { color: var(--math-green); }
+.katex .math-op-c { color: var(--math-purple); }
