@@ -1,6 +1,6 @@
 /** Each command colors exactly one operator/eigenvalue glyph. */
 export const noteMathColors = {
-  operatorA: '#a27b28', operatorB: '#258f9f', operatorC: '#b2639c', operatorD: '#9072bf',
+  operatorA: '#c0634b', operatorB: '#398c65', operatorC: '#9072bf', operatorD: '#4f82bc',
 };
 const symbols = {
   opA: ['operatorA', 'A'], opB: ['operatorB', 'B'], opC: ['operatorC', 'C'], opD: ['operatorD', 'D'],
