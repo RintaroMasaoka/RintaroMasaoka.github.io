@@ -1,0 +1,23 @@
+% svg-padding: 8pt
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+
+\curldiagram{0}{0}
+\node at (1.1,0) {$=$};
+\node at (1.8,0) {$A$};
+\loopdiagram[.7]{2.5}{0}
+\draw (3.2,-.78)--(3.2,.78);
+\node at (4,0) {$+$};
+\node at (4.8,0) {$A^{-1}$};
+\draw (5.6,-.78)--(5.6,.78);
+\end{tikzpicture}
+\end{document}

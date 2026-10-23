@@ -1,36 +1,51 @@
 % Shared editable braid and Kauffman bracket geometry.
 % Every primitive accepts optional scale followed by x,y.
+% One cubic per full strand: x(t)=a+(b-a)(3t^2-2t^3),
+% y(t)=h(1-2t). Endpoint tangents are vertical; reflection swaps strands.
+% The white underpass clearance is clipped to the central crossing, so that
+% it cannot erase a connection at an endpoint. Width = four structural strokes.
+\newcommand{\abaCrossingPaths}[3]{%
+  \draw (#2,#3) .. controls (#2,{#3/3}) and (#1,{-#3/3}) .. (#1,{-#3});
+  \begin{scope}
+    \pgfmathsetmacro{\abacrossradius}{min(abs(#2-#1)/3,#3/2)}
+    \clip ({(#1+#2)/2},0) circle (\abacrossradius);
+    \draw[white,line width=3.6pt] (#1,#3) .. controls (#1,{#3/3}) and (#2,{-#3/3}) .. (#2,{-#3});
+  \end{scope}
+  \draw (#1,#3) .. controls (#1,{#3/3}) and (#2,{-#3/3}) .. (#2,{-#3});}
 \newcommand{\positivecross}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
-\draw (-.42,-.62) .. controls (-.38,-.32) and (.38,.32) .. (.42,.62);
-\draw (-.42,.62) .. controls (-.40,.34) and (-.22,.19) .. (-.12,.12);
-\draw (.12,-.12) .. controls (.22,-.19) and (.40,-.34) .. (.42,-.62);
+\abaCrossingPaths{.42}{-.42}{.62}
 \end{scope}}
-\newcommand{\negativecross}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
-\draw (-.42,.62) .. controls (-.38,.32) and (.38,-.32) .. (.42,-.62);
-\draw (-.42,-.62) .. controls (-.40,-.34) and (-.22,-.19) .. (-.12,-.12);
-\draw (.12,.12) .. controls (.22,.19) and (.40,.34) .. (.42,.62);
+\newcommand{\negativecross}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1,xscale=-1]
+\abaCrossingPaths{.42}{-.42}{.62}
 \end{scope}}
 \newcommand{\identitydiagram}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
-\draw (-.42,.62) .. controls (-.10,0) and (-.10,0) .. (-.42,-.62);
-\draw (.42,.62) .. controls (.10,0) and (.10,0) .. (.42,-.62);
+\draw (-.42,.62)--(-.42,-.62);
+\draw (.42,.62)--(.42,-.62);
 \end{scope}}
 \newcommand{\cupcap}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
-\draw (-.42,.62) .. controls (-.42,.08) and (.42,.08) .. (.42,.62);
-\draw (-.42,-.62) .. controls (-.42,-.08) and (.42,-.08) .. (.42,-.62);
+\draw (-.42,.62) arc[start angle=180,end angle=360,radius=.42];
+\draw (-.42,-.62) arc[start angle=180,end angle=0,radius=.42];
 \end{scope}}
 \newcommand{\braidcross}[4][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
-\draw (0,.8) .. controls (0,.35) and (.8,-.35) .. (.8,-.8);
-\draw (.8,.8) .. controls (.8,.48) and (.56,.25) .. (.49,.17);
-\draw (.31,-.17) .. controls (.24,-.25) and (0,-.48) .. (0,-.8);
-\draw (#4,.8) -- (#4,-.8);
+\abaCrossingPaths{0}{.8}{.8}
+\draw (#4,.8)--(#4,-.8);
 \end{scope}}
 \newcommand{\loopdiagram}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
 \draw (0,0) circle (.42);
 \end{scope}}
 \newcommand{\curldiagram}[3][1]{\begin{scope}[shift={(#2,#3)},scale=#1]
-% The rising branch passes over the falling branch.
-\draw (.35,.78) .. controls (.35,.36) and (-.18,-.35) .. (-.42,-.16)
- .. controls (-.65,.00) and (-.5,.54) .. (-.28,.32)
- .. controls (-.20,.26) and (-.17,.20) .. (-.12,.15);
-\draw (.02,-.02) .. controls (.24,-.25) and (.35,-.48) .. (.35,-.78);
+% A circular loop joined to its two exact tangents at angles +/-30 degrees.
+% Its tangent intersection is (r(sec30-1),0); external endpoints share x.
+\pgfmathsetmacro{\abacurlr}{.34}
+\pgfmathsetmacro{\abacurlcx}{\abacurlr*(1/cos(30)-1)}
+\pgfmathsetmacro{\abacurlpx}{\abacurlr*(cos(30)-1)}
+\pgfmathsetmacro{\abacurlpy}{\abacurlr*sin(30)}
+\pgfmathsetmacro{\abacurlend}{\abacurlcx+.78*tan(30)}
+\draw (\abacurlpx,-\abacurlpy) arc[start angle=330,end angle=30,radius=\abacurlr];
+\draw (\abacurlpx,\abacurlpy)--(\abacurlend,-.78);
+\begin{scope}
+ \clip (\abacurlcx,0) circle (.12);
+ \draw[white,line width=3.6pt] (\abacurlend,.78)--(\abacurlpx,-\abacurlpy);
+\end{scope}
+\draw (\abacurlend,.78)--(\abacurlpx,-\abacurlpy);
 \end{scope}}

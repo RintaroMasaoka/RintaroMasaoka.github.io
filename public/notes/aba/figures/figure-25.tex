@@ -1,0 +1,23 @@
+% svg-padding: 8pt
+\ifdefined\pdfoutput
+  \ifnum\pdfoutput=0 \def\pgfsysdriver{pgfsys-dvisvgm.def}\fi
+\fi
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[font=\large,line width=.9pt,line cap=round,line join=round,>={Stealth[length=4pt]}]
+
+\input{aba-braid-parts.tex}
+
+
+\positivecross{0}{0}
+\draw[->] (-.42,.9)--(-.42,.62);
+\draw[->] (.42,.9)--(.42,.62);
+\node at (0,-1) {$+1$};
+\negativecross{2.1}{0}
+\draw[->] (1.68,.9)--(1.68,.62);
+\draw[->] (2.52,.9)--(2.52,.62);
+\node at (2.1,-1) {$-1$};
+\end{tikzpicture}
+\end{document}
