@@ -310,7 +310,11 @@ T(\lambda) = L_1(\lambda)\cdots L_N(\lambda) = \begin{pmatrix}
 \end{pmatrix}
 \end{align*}
 $$
-成分と言いつつ、 $\opA, \opB, \opC, \opD$ は $2ᴺ\times2ᴺ$ 行列であることに注意してください。
+この $2\times2$ 行列は補助スピンの空間での表示で、各成分 $\opA,\opB,\opC,\opD$ は量子スピン鎖に作用する $2^N\times2^N$ 行列です。転送行列は、この補助空間についてモノドロミー行列のトレースを取ったものなので、対角成分を足して、
+$$
+\tau(\lambda)=\operatorname{tr}T(\lambda)=\opA(\lambda)+\opD(\lambda)
+$$
+となります。
 Yang-Baxter 方程式から、モノドロミー行列について、
 $$
 \begin{align*}
