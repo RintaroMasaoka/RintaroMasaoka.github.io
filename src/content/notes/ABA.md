@@ -33,9 +33,9 @@ Ice rule を考慮すると、あり得る頂点は6通り存在します。こ�
 
 以上の記法はテンソルネットワークと呼ばれます。テンソルネットワークによる図示は厳密なものであり、常に数式に直すことができます。しかし数式による表現はどうしても1次元的になってしまうので、2次元的に縮約されたテンソルを表す場合、数式よりもテンソルネットワークを使って表現したほうが便利です。
 例えば $10\times10$ 格子の分配関数をテンソルネットワークで表すと、以下のようになります。
-点線は周期境界を表し、同じ鏃を付けた向かい合う辺どうしを、向きを合わせて貼り合わせます。
+点線は周期境界を表します。
 
-<figure class="aba-figure" id="aba-figure-04"><img class="aba-light" src="/notes/aba/figures/figure-04.svg" alt="10×10 格子の分配関数。左右辺の1つの鏃どうし、上下辺の2つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-04-dark.svg" alt="10×10 格子の分配関数。左右辺の1つの鏃どうし、上下辺の2つの鏃どうしを同じ向きで貼り合わせる" width="402" height="286" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-04"><img class="aba-light" src="/notes/aba/figures/figure-04.svg" alt="10×10 格子の分配関数。点線は周期境界を表す。" width="402" height="286" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-04-dark.svg" alt="10×10 格子の分配関数。点線は周期境界を表す。" width="402" height="286" loading="lazy" /></figure>
 
 # モノドロミー行列と転送行列
 
@@ -524,35 +524,69 @@ $$
 によって構成されます。
 
 # 組み紐群の表現
+ちょっと話題を変えて、Yang-Baxter 方程式と組み紐群との関係について見てみます。ここでは組み紐群の定義については省略します。
+Yang-Baxter 方程式を変形して
 
-Yang–Baxter 方程式は、3つの交差の順序を変えても結果が変わらない、という組み紐の関係式として読めます。2本の交換を含む $R$ 行列がこの関係式を満たせば、交差を行列として計算できます。以下では、$A\ne0$ をパラメーターとして次の $R$ 行列を使います。
+<figure class="aba-figure" id="aba-figure-14"><img class="aba-light" src="/notes/aba/figures/figure-14.svg" alt="Yang–Baxter 方程式の組み紐状の配置" width="347" height="206" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-14-dark.svg" alt="Yang–Baxter 方程式の組み紐状の配置" width="347" height="206" loading="lazy" /></figure>
+
+と書くと、組み紐関係式に見えてきます。組み紐関係式とは、以下の等式を指します。
 
 <figure class="aba-figure" id="aba-figure-15"><img class="aba-light" src="/notes/aba/figures/figure-15.svg" alt="3本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-15-dark.svg" alt="3本の組み紐の組み紐関係式" width="308" height="274" loading="lazy" /></figure>
 
+違いとしては、Yang-Baxter 方程式では頂点が連続的なパラメーターによって特徴づけられていますが、組み紐関係式ではそのようなパラメーターはありません。
+しかし、パラメーターについて適切に極限をとることで、Yang-Baxter 方程式から組み紐群の表現を得ることができます。
+
+例えば、以下のR行列を考えてみます。これが Yang-Baxter 方程式を満たすことの証明は読者への演習問題とします。
+$$
+\begin{align*}
+    R(\lambda)
+    = \begin{pmatrix}
+        \sinh(\lambda+2\eta) & 0                & 0            & 0 \\
+        0           &  e^{-\lambda}\sinh(2\eta) & \sinh \lambda      & 0 \\
+        0           & \sinh \lambda          & e^\lambda\sinh(2\eta) & 0 \\
+        0           & 0                & 0            & \sinh(\lambda+2\eta)
+    \end{pmatrix}
+\end{align*}
+$$
+以下のようにパラメーターの極限をとります。
+$$
+\begin{align*}
+    R \coloneqq \lim_{\lambda\to\infty} 2e^{-\lambda-\eta}R(\lambda)
+    = \begin{pmatrix}
+        e^\eta & 0      & 0             & 0 \\
+        0   & 0      & e^{-\eta}        & 0 \\
+        0   & e^{-\eta} & e^{\eta}-e^{-3\eta} & 0 \\
+        0   & 0      & 0             & e^\eta
+    \end{pmatrix}
+\end{align*}
+$$
+Yang-Baxter 方程式から、この行列は組み紐群の表現になっています。
+ここから、
+
 <figure class="aba-figure" id="aba-figure-16"><img class="aba-light" src="/notes/aba/figures/figure-16.svg" alt="交差と R 行列の成分表示" width="368" height="129" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-16-dark.svg" alt="交差と R 行列の成分表示" width="368" height="129" loading="lazy" /></figure>
 
-この交差は、係数 $A$ と $A^{-1}$ を付けた2通りの「交差のないつなぎ方」に分解できます。2本をそのまま通す図を $I$、上下の端点をそれぞれ弧でつなぐ図を $E$ と書けば、$R=AI+A^{-1}E$ です。
+と書くことにします。ただし、列の添字は上の2つの端点の添字 $(++, +-, -+, --)$ を表しており、行の添字は下の2つの端点の添字 $(++, +-, -+, --)$ を表しています。また $A = e^\eta$とおきました。反対向きの交差は逆行列をとって、
+
+<figure class="aba-figure" id="aba-figure-17"><img class="aba-light" src="/notes/aba/figures/figure-17.svg" alt="逆向きの交差と逆行列" width="401" height="129" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-17-dark.svg" alt="逆向きの交差と逆行列" width="401" height="129" loading="lazy" /></figure>
+
+となります。さらに、次の関係式 (カウフマンブラケットの性質)
 
 <figure class="aba-figure" id="aba-figure-18"><img class="aba-light" src="/notes/aba/figures/figure-18.svg" alt="カウフマンブラケットの交差の分解" width="325" height="73" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-18-dark.svg" alt="カウフマンブラケットの交差の分解" width="325" height="73" loading="lazy" /></figure>
 
-$E$ を上下に2つ重ねると、円が1つでき、残りは元の $E$ の図になります。行列から $E^2=(-A^2-A^{-2})E$ が得られるので、円1つには $d\coloneqq-A^2-A^{-2}$ を対応させます。紐を閉じた図 $D$ の交差をすべて分解し、各項の係数に円の数だけ $d$ を掛けて足したものが、カウフマンブラケット $\langle D\rangle$ です。
+を課します。第1項は単位行列 $(\times A)$ です。すると、
 
-<figure class="aba-figure" id="aba-figure-20"><img class="aba-light" src="/notes/aba/figures/figure-20.svg" alt="平滑化の合成から定まる閉じたループの値" width="227" height="50" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-20-dark.svg" alt="平滑化の合成から定まる閉じたループの値" width="227" height="50" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-19"><img class="aba-light" src="/notes/aba/figures/figure-19.svg" alt="平滑化の行列表示" width="589" height="129" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-19-dark.svg" alt="平滑化の行列表示" width="589" height="129" loading="lazy" /></figure>
 
-ただし、小さなひねりを付けると値は変わります。次のひねりを分解すると、一方は「円と直線」、他方は「直線」になるので、直線に対する倍率は
-$$
-Ad+A^{-1}=A(-A^2-A^{-2})+A^{-1}=-A^3
-$$
-です。逆向きのひねりなら倍率は $-A^{-3}$ です。
+が分かります。トレースを取ると、
+
+<figure class="aba-figure" id="aba-figure-20"><img class="aba-light" src="/notes/aba/figures/figure-20.svg" alt="閉じたループの値" width="227" height="50" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-20-dark.svg" alt="閉じたループの値" width="227" height="50" loading="lazy" /></figure>
+
+となります。(この時点で組み紐だけでなく絡み目も考えていることになります。)
+さらにカウフマンブラケットの性質から、以下の式も示せます。
 
 <figure class="aba-figure" id="aba-figure-21"><img class="aba-light" src="/notes/aba/figures/figure-21.svg" alt="カールの係数と単位行列" width="246" height="91" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-21-dark.svg" alt="カールの係数と単位行列" width="246" height="91" loading="lazy" /></figure>
 
-このひねりの影響を取り除いたものが Jones 多項式です。図に向きを付け、交差の符号の和を $w(D)$ とします（上のひねりを正とする規約）。ひねりが1つ増えるたびに現れる $-A^3$ を打ち消し、さらに円1つの値を $1$ にそろえると、
-$$
-V_L(t)=\left.(-A^3)^{-w(D)}\frac{\langle D\rangle}{d}\right|_{t=A^{-4}}
-\tag{braid-jones-normalization}
-$$
-となります。**Yang–Baxter 方程式が交差の組み替えを保証し、交差の分解とひねりの補正から、紐の変形で変わらない多項式が得られる**、というのがこのつながりです。
+以上で導入した組み紐・絡み目の表現は、Jones 多項式と呼ばれるものです。
 
 # XXZ模型との対応
 
@@ -590,7 +624,7 @@ L_{\alpha,n}(0)
 $$
 補助スピンと各サイトのスピンを順に交換して補助空間のトレースを取ると、鎖のスピン配置が1サイト左に移ります。
 
-<figure class="aba-figure" id="aba-figure-22"><img class="aba-light" src="/notes/aba/figures/figure-22.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="358" height="311" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-22-dark.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="358" height="311" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-22"><img class="aba-light" src="/notes/aba/figures/figure-22.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="297" height="189" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-22-dark.svg" alt="周期的な4サイトの入力s1,s2,s3,s4が、補助空間を閉じた交換の列を通ってs2,s3,s4,s1へ移る。各頂点の係数cの積はcの4乗。" width="297" height="189" loading="lazy" /></figure>
 
 $$
 \tau(0)|s_1,s_2,\ldots,s_N\rangle
@@ -608,7 +642,7 @@ L'_{\alpha,n}(0)
 \right].
 \tag{xxz-differentiated-row}
 $$
-<figure class="aba-figure" id="aba-figure-23"><img class="aba-light" src="/notes/aba/figures/figure-23.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="506" height="580" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-23-dark.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="506" height="580" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-23"><img class="aba-light" src="/notes/aba/figures/figure-23.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="581" height="178" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-23-dark.svg" alt="サイト2だけを微分した転送行列の一項に、上から逆向きの移動を重ねる。線をほどくとサイト1,4は単位作用になり、サイト2,3にPとLプライムの積が係数1/cで残る。" width="581" height="178" loading="lazy" /></figure>
 
 各項に左から $\tau(0)^{-1}$ を作用させると、交換だけで生じる移動が打ち消されます。微分した頂点につながる2本の線は隣接するサイト $n,n+1$ に残り、それ以外のサイトには単位演算子が作用します。
 $$
