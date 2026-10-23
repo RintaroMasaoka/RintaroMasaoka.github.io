@@ -27,18 +27,12 @@ F(x+y)&=\sum_{n=1}^N e^{\theta_n(x)}e^{\theta_n(y)}
 $$
 となる。この $F$ から未知の $K$ を求める GLM 方程式は
 $$
-\begin{gathered}
-K(x,y)+F(x+y)\\
-+\int_{-\infty}^xK(x,z)F(z+y)\,dz=0,\qquad y<x.
-\end{gathered}
+K(x,y)+F(x+y)+\int_{-\infty}^xK(x,z)F(z+y)\,dz=0,\qquad y<x.
 $$
 
 ここに上の指数関数の和を代入し、$e^{\theta_n(y)}$ ごとにまとめると、
 $$
-\begin{aligned}
-K(x,y)&+\sum_{n=1}^N e^{\theta_n(y)}\Bigl[e^{\theta_n(x)}\\
-&\quad+\int_{-\infty}^xK(x,z)e^{\theta_n(z)}\,dz\Bigr]=0.
-\end{aligned}
+K(x,y)+\sum_{n=1}^N e^{\theta_n(y)}\Bigl[e^{\theta_n(x)}+\int_{-\infty}^xK(x,z)e^{\theta_n(z)}\,dz\Bigr]=0.
 \tag{equation-6ab543eb8f}
 $$
 角括弧は式 (@equation-b57207a680) の $\psi_n(x)$ なので、
@@ -50,11 +44,8 @@ $$
 
 この核を $\psi_m$ の積分表示 (@equation-b57207a680) に戻すと、束縛状態を決める方程式が閉じる。
 $$
-\begin{aligned}
-\psi_m(x)&+\sum_{n=1}^N
-\left[\int_{-\infty}^x e^{\theta_m(z)+\theta_n(z)}\,dz\right]\psi_n(x)\\
-&=e^{\theta_m(x)}.
-\end{aligned}
+\psi_m(x)+\sum_{n=1}^N
+\left[\int_{-\infty}^x e^{\theta_m(z)+\theta_n(z)}\,dz\right]\psi_n(x)=e^{\theta_m(x)}.
 \tag{equation-4d1eb682c3}
 $$
 角括弧は、二つの指数関数の積を左端から $x$ まで積分した既知の量である。これを行列の成分
@@ -83,10 +74,7 @@ $$
 
 実列ベクトル $\boldsymbol\alpha=(\alpha_1,\ldots,\alpha_N)^{\mathsf T}\ne0$ に対し、$C$ の積分表示から
 $$
-\begin{gathered}
-\boldsymbol\alpha^{\mathsf T}C\boldsymbol\alpha\\
-=\int_{-\infty}^x\left(\sum_n\alpha_ne^{\theta_n(z)}\right)^2dz>0.
-\end{gathered}
+\boldsymbol\alpha^{\mathsf T}C\boldsymbol\alpha=\int_{-\infty}^x\left(\sum_n\alpha_ne^{\theta_n(z)}\right)^2dz>0.
 $$
 固有値に対応する $\kappa_n$ は互いに異なり、指数関数 $e^{\kappa_nz}$ は線形独立なので、不等号は厳密である。従って $C$ と $I+C$ は正定値であり、逆行列をもつ。
 
@@ -113,11 +101,9 @@ $$
 この式を確かめるには、対角値に現れた $\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi$ が $\log\det(I+C)$ の微分に等しいことを示せばよい。$C$ の積分表示から $\frac{dC}{dx}=e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}$ なので、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}e^{\boldsymbol\theta}$ により
 $$
 \begin{aligned}
-&\frac{d}{dx}\log\det(I+C)
+\frac{d}{dx}\log\det(I+C)
 &=\operatorname{tr}\!\left((I+C)^{-1}\partial_x C\right)\\
-&=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}\\
-&\qquad\times e^{\boldsymbol\theta}
-\\
+&=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1} e^{\boldsymbol\theta}\\
 &=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi.
 \end{aligned}
 \tag{equation-ec581bb65a}
@@ -194,11 +180,7 @@ $$
 $$
 である。各行と各列から $e^{\theta_i}$ をくくり出すと、
 $$
-\begin{gathered}
-\det C_{S,S}\\
-=\left(\prod_{i\in S}e^{2\theta_i}\right)\\
-{}\times\det\left[\frac{1}{\kappa_i+\kappa_j}\right]_{i,j\in S}.
-\end{gathered}
+\det C_{S,S}=\left(\prod_{i\in S}e^{2\theta_i}\right)\det\left[\frac{1}{\kappa_i+\kappa_j}\right]_{i,j\in S}.
 $$
 残った行列式は Cauchy の行列式であり、
 $$
@@ -256,9 +238,8 @@ $$
 規格化は連立方程式からも確かめられる。$\frac{dC}{dx}=e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}$ と逆行列の微分公式から
 $$
 \begin{aligned}
-&\frac{d}{dx}(I+C)^{-1}\\
-&=-(I+C)^{-1}e^{\boldsymbol\theta}\\
-&\qquad\times\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}\\
+\frac{d}{dx}(I+C)^{-1}
+&=-(I+C)^{-1}e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}\\
 &=-\boldsymbol\psi\boldsymbol\psi^{\mathsf T}.
 \end{aligned}
 \tag{equation-eeebde7889}
@@ -283,20 +264,17 @@ $$
 $e^{\theta_n}=\psi_n+\sum_mC_{nm}\psi_m$、$C_{mn}=C_{nm}$ および $(\kappa_m+\kappa_n)C_{mn}=e^{\theta_m+\theta_n}$ より
 $$
 \begin{aligned}
-&2\sum_n\kappa_ne^{\theta_n}\psi_n
-&=2\sum_n\kappa_n\psi_n^2\\
-&\quad+\sum_{m,n}e^{\theta_m+\theta_n}\psi_m\psi_n\\
-&=2\sum_n\kappa_n\psi_n^2\\
-&\quad+(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)^2.
+2\sum_n\kappa_ne^{\theta_n}\psi_n
+&=2\sum_n\kappa_n\psi_n^2+\sum_{m,n}e^{\theta_m+\theta_n}\psi_m\psi_n\\
+&=2\sum_n\kappa_n\psi_n^2+(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)^2.
 \end{aligned}
 \tag{equation-9de2c9f65e}
 $$
 一方、$\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}e^{\boldsymbol\theta}$ を微分する。$\partial_x\theta_n=\kappa_n$ なので、左右の指数関数を微分した寄与を足し、逆行列の微分 (@equation-eeebde7889) を使うと
 $$
 \begin{aligned}
-&\frac{d}{dx}(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)
-&=2\sum_n\kappa_ne^{\theta_n}\psi_n\\
-&\quad-\left[\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi\right]^2\\
+\frac{d}{dx}(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)
+&=2\sum_n\kappa_ne^{\theta_n}\psi_n-\left[\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi\right]^2\\
 &=2\sum_n\kappa_n\psi_n^2.
 \end{aligned}
 \tag{equation-95a2bc6b3b}

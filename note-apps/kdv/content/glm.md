@@ -54,12 +54,10 @@ $$
 $$
 これは量子力学の Dyson 展開と同じ順序付きの積分であり、最初の三項は
 $$
-\begin{aligned}
 \boldsymbol f_I(x)=\Bigg[I
-&+\int_{x_*}^x V_I(x')\,dx'\\
-&+\int_{x_*}^x\!dx'\int_{x_*}^{x'}\!dx''\,
++\int_{x_*}^x V_I(x')\,dx'
++\int_{x_*}^x\!dx'\int_{x_*}^{x'}\!dx''\,
 V_I(x')V_I(x'')+\cdots\Bigg]\boldsymbol f(x_*).
-\end{aligned}
 $$
 二次の項では $x''\le x'$ で、先に通る位置 $x''$ の行列が右に来る。高次でも、左から右へ進む間に出会うポテンシャルの作用を、その順序のまま重ねている。
 
@@ -67,11 +65,7 @@ $$
 
 この順序付き発展を、積分核を取り出せる形に直そう。まず相互作用描像の微分方程式を一度積分し、左から $e^{(x-x_*)D_0}$ を掛けて元の状態へ戻すと
 $$
-\begin{aligned}
-\boldsymbol f(x)
-&=e^{(x-x_*)D_0}\boldsymbol f(x_*)\\
-&\quad+\int_{x_*}^x e^{(x-x')D_0}V(x')\boldsymbol f(x')\,dx'.
-\end{aligned}
+\boldsymbol f(x)=e^{(x-x_*)D_0}\boldsymbol f(x_*)+\int_{x_*}^x e^{(x-x')D_0}V(x')\boldsymbol f(x')\,dx'.
 $$
 この積分項は、位置順序付き展開でポテンシャルが一回以上作用する各項を、最後の作用位置 $x'$ ごとにまとめたものである。その位置に至るまでの作用を足し合わせた状態が $\boldsymbol f(x')$ であり、$V(x')$ が最後の一回の作用を表す。その後は自由伝播だけなので、位置 $x$ へ運ぶ因子が $e^{(x-x')D_0}$ となる。
 
@@ -82,19 +76,15 @@ V(x')\boldsymbol f(x')=
 $$
 第二成分に現れた寄与を自由伝播させると、式 (@free-propagation) から
 $$
-\begin{aligned}
-&e^{(x-x')D_0}V(x')\boldsymbol f(x')\\
-&\qquad=u(x')f(x')
+e^{(x-x')D_0}V(x')\boldsymbol f(x')=u(x')f(x')
 \begin{pmatrix}\sin k(x-x')/k\\\cos k(x-x')\end{pmatrix}.
-\end{aligned}
 $$
 位置 $x'$ の微小区間が与える補正は、このベクトルに $dx'$ を掛けたものである。求めたい波の値 $f(x)$ は状態 $\boldsymbol f(x)$ の第一成分なので、この積全体の第一成分を積分すればよい。初期状態からの自由伝播の項と合わせると
 $$
-\begin{aligned}
-f(x)={}&f(x_*)\cos k(x-x_*)
-+f_x(x_*)\frac{\sin k(x-x_*)}{k}\\
-&+\int_{x_*}^x\frac{\sin k(x-x')}{k}u(x')f(x')\,dx'.
-\end{aligned}
+f(x)={}f(x_*)\cos k(x-x_*)
++f_x(x_*)\frac{\sin k(x-x_*)}{k}
++\int_{x_*}^x\frac{\sin k(x-x')}{k}u(x')f(x')\,dx'.
+
 \tag{finite-source-integral}
 $$
 正弦因子は、各位置でのポテンシャルの作用を、波の値の補正へ変える係数として現れる。
@@ -498,12 +488,11 @@ $$
 従って、$1/(E-E_n)$ の係数は
 $$
 \begin{aligned}
-&\frac{\psi_n(x)}{\psi_n(x_0)}\,
+\frac{\psi_n(x)}{\psi_n(x_0)}\,
 \frac1{f_-(x_0,-i\kappa_n)}\,
-\psi_n(x_0)^2\\
-&\qquad=\psi_n(x)\,
-\frac{\psi_n(x_0)}{f_-(x_0,-i\kappa_n)}\\
-&\qquad=c_n\psi_n(x).
+\psi_n(x_0)^2
+&=\psi_n(x)\,\frac{\psi_n(x_0)}{f_-(x_0,-i\kappa_n)}\\
+&=c_n\psi_n(x).
 \end{aligned}
 $$
 最後の等号では、規格化の関係 $\psi_n(x_0)=c_nf_-(x_0,-i\kappa_n)$ を使った。これで透過項は
@@ -571,13 +560,7 @@ $$
 $$
 となる。積分の外の二項は $F(x+y)$、積分内の二項は $F(z+y)$ そのものである。従って、
 $$
-\begin{gathered}
-\boxed{\begin{aligned}
-0={}&K(x,y)+F(x+y)\\
-&+\int_{-\infty}^xK(x,z)F(z+y)\,dz.
-\end{aligned}}\\
-y<x.
-\end{gathered}
+\boxed{0=K(x,y)+F(x+y)+\int_{-\infty}^xK(x,z)F(z+y)\,dz.}\qquad y<x.
 \tag{glm}
 $$
 となる。これが左 GLM 方程式である。既知の $F$ に対して、これは $K(x,\cdot)$ の線形積分方程式である。実際のポテンシャルから得た散乱データには、ここまで構成した核が解として存在する。補足で示す一意性により、その核を散乱データから決められる。解を対角へ連続に延長し、式 (@potential-from-diagonal) の対角微分を取れば $u$ が復元される。

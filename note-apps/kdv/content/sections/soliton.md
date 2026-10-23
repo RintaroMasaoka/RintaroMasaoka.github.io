@@ -46,12 +46,8 @@ $$
 
 二つのソリトンが衝突する解も書ける。速度 $v_1>v_2>0$ と位置を指定する実定数 $x_1,x_2$ を用い、$\theta_j=\frac{\sqrt{v_j}}{2}(x-v_jt-x_j)$（$j=1,2$）と置くと、
 $$
-\begin{gathered}
-\eta(x,t)=2\partial_x^2\log\Bigl[\\
-1+e^{2\theta_1}+e^{2\theta_2}\\
-+\left(\frac{\sqrt{v_1}-\sqrt{v_2}}{\sqrt{v_1}+\sqrt{v_2}}\right)^2e^{2(\theta_1+\theta_2)}
-\Bigr].
-\end{gathered}
+\eta(x,t)=2\partial_x^2\log\Bigl[1+e^{2\theta_1}+e^{2\theta_2}
++\left(\frac{\sqrt{v_1}-\sqrt{v_2}}{\sqrt{v_1}+\sqrt{v_2}}\right)^2e^{2(\theta_1+\theta_2)}\Bigr].
 \tag{equation-5083fcf451}
 $$
 
