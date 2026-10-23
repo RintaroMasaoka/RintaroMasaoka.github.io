@@ -169,13 +169,13 @@ Yang-Baxter 方程式を以下のように変形しておきます。
 右辺の図だけを180度回転し、その図の全ての矢印の向きを反転します。
 先に仮定した矢印反転の対称性により、この同時反転で各頂点のBoltzmann重率は変わりません。
 
-<figure class="aba-figure" id="aba-figure-09"><img class="aba-light" src="/notes/aba/figures/figure-09.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-09-dark.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の白丸・黒丸と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /></figure>
+<figure class="aba-figure" id="aba-figure-09"><img class="aba-light" src="/notes/aba/figures/figure-09.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の○・●と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-09-dark.svg" alt="上段が変形前、下段が変形後。左辺はそのままに、右辺の図を180度回転し、その図の全ての矢印を反転する。頂点の○・●と境界の添字を対応させて比較できる" width="644" height="555" loading="lazy" /></figure>
 
 次に、成分方程式の計算を簡単にするため、方程式の図を回転対称な形に整えます。この形にしておくと、1つの成分方程式から添字を巡回させるだけで残りの式も得られます。そこで、斜め右上へ向かう線の矢印を反転して、
 
 <figure class="aba-figure" id="aba-figure-10"><img class="aba-light" src="/notes/aba/figures/figure-10.svg" alt="1つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-10-dark.svg" alt="1つの矢印の基準方向を反転した方程式" width="485" height="237" loading="lazy" /></figure>
 
-と書きます。この矢印の反転は、2つの頂点 (無印と白丸) で重率を $a \leftrightarrow b$ と読み替えることに対応します。以下ではこの読み替えた重率で成分方程式を求め、解を求める際にもう一度 $a \leftrightarrow b$ として元の重率に戻します。
+と書きます。この矢印の反転は、2つの頂点 (無印と○) で重率を $a \leftrightarrow b$ と読み替えることに対応します。以下ではこの読み替えた重率で成分方程式を求め、解を求める際にもう一度 $a \leftrightarrow b$ として元の重率に戻します。
 
 Yang-Baxter 方程式は 6つの添字をもつので、 $2^6 = 64$ 個の方程式の集まりですが、実質的な方程式の数は3つだけです。
 - Ice ruleのために、6つの添字の中で流入する矢印の数と流出する矢印の数は等しくなるはずです。したがって、両辺がゼロでないのは ${}_6C_3 = 20$ 通りだけです。
@@ -264,7 +264,7 @@ $$
 この式は $a, b, c$ を三角形の3辺だと思って正弦定理および余弦定理を使えばわかります。 
 
 # Yang-Baxter 方程式の解
-無印と白丸の頂点で $a \leftrightarrow b$ としなければならないことに注意し、また $c$ が各頂点で共通することに注意すると、Yang-Baxter 方程式から以下の式が成り立ちます。
+無印と○の頂点で $a \leftrightarrow b$ としなければならないことに注意し、また $c$ が各頂点で共通することに注意すると、Yang-Baxter 方程式から以下の式が成り立ちます。
 $$
 \begin{align*}
 a_\circ b_\bullet - b_\circ a_\bullet = ca
