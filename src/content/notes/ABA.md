@@ -186,7 +186,9 @@ Yang-Baxter 方程式は 6つの添字をもつので、 $2^6 = 64$ 個の方程
 
 - 残りの6通りから、6個の方程式が得られます。しかし、左辺と右辺を入れ替えた方程式がペアになって出てくるので、実質的な方程式の数は3個となります。
 
-さらに、この3つの方程式は図の回転によって互いに移り合うので、一つを求めれば、残りの二つは添字を巡回させて得られます。まず、次の配位について成分方程式を書き下します。
+- さらに、この3つの方程式は図の回転によって互いに移り合うので、一つを求めれば、残りの二つは添字を巡回させて得られます。
+
+3個の方程式のうちの1つは、以下のように表されます。
 
 <figure class="aba-figure" id="aba-figure-12"><img class="aba-light" src="/notes/aba/figures/figure-12.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /><img class="aba-dark" src="/notes/aba/figures/figure-12-dark.svg" alt="非自明な成分方程式に寄与する三つの配位" width="561" height="161" loading="lazy" /></figure>
 
