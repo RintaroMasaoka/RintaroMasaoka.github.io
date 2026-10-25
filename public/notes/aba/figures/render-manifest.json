@@ -129,13 +129,13 @@
     "source": "figure-22.tex",
     "renderer": "latex + dvisvgm --no-fonts --exact",
     "labels": "TeX glyph outlines; no external fonts",
-    "paths": 36
+    "paths": 33
   },
   {
     "source": "figure-23.tex",
     "renderer": "latex + dvisvgm --no-fonts --exact",
     "labels": "TeX glyph outlines; no external fonts",
-    "paths": 74
+    "paths": 67
   },
   {
     "source": "figure-24.tex",

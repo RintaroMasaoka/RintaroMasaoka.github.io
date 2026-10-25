@@ -43,13 +43,11 @@ The drawings were reconstructed from the article's original image references.
 Source-reference and verification records are under `reviews/aba-figures/`.
 
 The periodic grid and transfer row use dotted periodic boundary guides.
-XXZ diagrams use circular local tensors containing the exchange connections.
-Their scalar normalization belongs to the tensor; inverse tensors carry a
-superscript inverse. Figure 23 compares the contraction and its two-site result
-side by side.
+XXZ exchange vertices carry small TeX scalar labels `c` and `c^{-1}` for
+regular and inverse tensors. The exchange strands remain separate elbows.
+Figure 23 compares the contraction and its two-site result side by side.
 
-XXZ tensor bodies share `\xxzTensorRadius`, `\xxzTensorBoundary`,
-`\xxzInverseTensorBoundary` and `\xxzDerivativeBody`. The common radius is .25cm;
-inverse marks use scriptsize and L-prime labels use small. Figure 23's two-site
-insertion uses the same circular L-prime body as the derivative row. Its diagonal
-ports are calculated from the shared radius, rather than separate body sizes.
+XXZ scalar labels share `\xxzScalar` and `\xxzInverseScalar`, both scriptsize.
+Differentiated tensors share `\xxzTensorRadius`, `\xxzTensorBoundary` and
+`\xxzDerivativeBody`, with a .25cm radius and a small L-prime label.
+Figure 23's diagonal derivative ports are calculated from this shared radius.
