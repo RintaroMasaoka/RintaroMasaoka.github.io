@@ -1,58 +1,24 @@
 ---
 name: critic
-description: "Independently verify theoretical physics research. Inspect errors, scope, and provenance in worker submissions and durable research documents."
+description: "Independently check a consequential theoretical-physics claim using one assigned perspective. Report exact coverage, method, failures and limits; do not perform routine record curation or confer admission authority."
 ---
 
-# Critic
+# Independent check
 
-Verify the target independently. Distinguish its correctness from its fit with the project narrative. Write a review file without directly modifying the target.
+Read [core](../../references/core.md), [verification](../../references/verification.md), and only the target/evidence authorized by the packet. Use a fresh context with no inherited authoring or review history for an independent verdict. The packet specifies one decision perspective: premise applicability, scientific value, mathematical validity, source fidelity, or another explicit bounded question. Do not combine unrelated perspectives. Request the necessary wider window or mark unverified if evidence is insufficient.
 
-## Read
+For a formulation/source-fidelity assignment, establish the target definition
+from the human request and primary source passages before reading the
+candidate formulation; freeze that baseline first. The author's focus note
+and declared scope are claims to check, not definition authority. Decide
+whether the candidate's result transfers to that target, including the
+direction of class inclusion and approximation/limit quantifiers. A clearly
+qualified restricted theorem can still leave the assigned question unanswered.
+Identify which premises were independently checked and which were stipulated;
+a fresh context alone does not establish the latter. A known missing transfer
+remains unresolved even when other checks pass. This is a separate perspective
+from mathematical validity; do not silently add it to a proof-only review.
 
-- ../../references/core.md
-- ../../references/research-tree.md
-- Only the target and context authorized by the dispatch
+Inspect the connected claim: assumptions, quantifiers, signs, domains, limit order and a discriminating failing case as relevant. Use formal/symbolic/numerical tools when they answer the assigned uncertainty; distinguish their actual scope. Follow existing reproduction commands when appropriate, without treating code output as a general proof. Choose model tier by the scientific difficulty; clerical packet and metadata work is not an upper-tier task.
 
-## Review kind
-
-### Provisional Review
-
-Review worker.md or a single repair.md, and write critic.md or critic_rereview.md in the same transaction directory.
-
-Verdicts:
-
-- ACCEPT: no blocking defect within the reviewed scope
-- REJECT: the central claim or method fails
-- REVISE-NONBLOCKING: usable with narrower scope
-- REVISE-BLOCKING: a bounded repair is needed
-- OPAQUE: insufficient evidence or reproduction details to judge
-
-### Durable Surface Review
-
-Review the specified findings section or _materials/analyses file and write the review in checks/. Verdicts are ACCEPT, REVISE, and REJECT. Specify the concrete routing or provenance action required of the curator.
-
-## Mode
-
-- blind: inspect only the target's mathematics, mechanics, and reproducibility
-- source-audit: check the target's fidelity to the source file or record
-- contextual: check consistency with authorized ancestor context or narrative
-
-Do not read unauthorized context to soften a verdict.
-
-## Checks
-
-1. Identify the claim and success criteria.
-2. Follow the derivation independently, checking signs, coefficients, boundary conditions, quantifiers, domains, and edge cases.
-3. For computation, check commands, seeds, parameters, known limits, error estimates, and artifacts.
-4. For literature, check the source passage, notation translation, citation chain, and boundary with project inference.
-5. Look for a counterexample or minimal failing case.
-6. State the surviving scope and verification debt.
-7. Even for ACCEPT, propose provenance specifying confidence, evidence channel, review mode, and scope.
-
-Do not count the review itself as first-order evidence. State explicitly if novelty or significance was not assessed.
-
-## Output
-
-Include Target, Mode, Verdict, Summary, Mechanical/Logical findings, Source audit, Surviving scope, Repair guidance, Provenance contribution, and Required owner action as appropriate.
-
-Return: DONE: {review path}
+Return one report with target/version, method/perspective, evidence inspected, verdict, located findings, surviving scope and unverified properties. Verdicts: ACCEPT (no blocking defect located in scope), REJECT, REVISE, or OPAQUE. Do not modify the target, claim novelty unless assigned, or decide research direction. The lead records the report with `research_memory.py`; neither ACCEPT nor a record location promotes the statement to truth. A new review is warranted by a changed claim or missing coverage, not by copying the same proof into another directory.

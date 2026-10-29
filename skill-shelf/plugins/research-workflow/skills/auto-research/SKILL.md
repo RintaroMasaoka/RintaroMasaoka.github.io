@@ -1,66 +1,65 @@
 ---
 name: auto-research
-description: "Advance theoretical physics research autonomously as an adaptive research lead. The main agent owns direction, ordinary work, and integration, using subagents only for specialization, effective parallelism, independent verification, or semantic changes to the research tree. The argument is the cycle limit, default 5."
+description: "Autonomously coordinate theoretical-physics research: select worthwhile bounded questions, interpret results against the user's goal, and continue, redirect or stop. Load research, review, bookkeeping and writing procedures only when their task is selected. Not a mandatory multi-agent pipeline."
 ---
 
-# /auto-research
+# Autonomous research orchestration
 
-The main agent acts as research lead, owning scientific direction, ordinary research and reasoning, provisional integration, and session handoff. Use subagents for bounded tasks with clear added value, rather than as mandatory stages.
+Own the user's question, research direction and interpretation of evidence.
+Keep the working formulation distinct from the conditions for answering that
+question. A correct partial result remains partial until its connection to the
+requested conclusion is supported. Prioritize premise applicability and scientific
+contribution; check consequential new mathematical reasoning when it matters.
 
-Always dispatch roles in this package using `research-workflow:<skill-name>`. Use the same qualified identity in the Agent field of `research/focus.md`. Do not ask users to copy templates or perform setup before first use. In a writable research folder, use the package's `../../scripts/session.py` to initialize only missing research records. Do not overwrite existing files. If no suitable folder exists, work in the conversation and report that no durable record is being kept.
+## Autonomous loop
 
-If durable records cannot be stored, do not dispatch supporting roles that write to the project tree. Limit execution to direct work by the main agent and explicit reporting of unverified matters.
+1. Recover the goal and current obstacle from the human instructions and existing
+   research memory (`research/question.md` if present, then `research/focus.md`).
+   Reuse established evidence; reopen only decisions affected by new facts or a
+   changed formulation. Recover source definitions when their authority or the
+   transfer to the question is uncertain, not from the current proof's convenience.
+2. Choose one worthwhile next question, a method, the evidence it could produce,
+   and a resource/reconsideration bound. A useful exploratory question need not
+   guarantee success. Execute directly when appropriate; select a worker only
+   for useful specialization, independence or parallel work allowed by the host.
+3. Interpret the result: what changed, do the premises apply, does it advance the
+   actual question, and which consequential uncertainty remains? Select only
+   the verification needed for that uncertainty. Do not repeat an unchanged check
+   or equate reviewer agreement with coverage of an untested premise.
+4. Continue with the next bounded question when justified. Reconsider direction
+   when the route stalls, its premises fail, or another route offers more insight.
+   Preserve partial results. Finish when the requested answer is supported or no
+   worthwhile next action can be grounded within the authorized resources; explain
+   unresolved conditions. Report meaningful changes without waiting for a reply
+   unless a necessary input, permission or explicit stop prevents further work.
 
-## Read
+## Task boundary and on-demand procedures
 
-At startup, read:
+The lead selects tasks and integrates their results. A research worker receives
+one question, its relation to the goal, exact assumptions, evidence pointers,
+allowed edits and a stop/resource bound; it returns findings and limits rather
+than running this orchestration loop. A skill invocation does not require another
+agent. Workers load their own selected procedures; the lead need not preload them.
 
-- ../../references/core.md
-- references/workflow.md
-- references/schemas.md
+Read [operating details](references/workflow.md) only when selecting a role,
+recording evidence, or resolving an execution detail. It is a lookup reference,
+not another sequence to perform each cycle. Read the verification procedure only
+for an actual consequential claim or formulation check. Writing is a separate,
+explicitly requested task, not a stage of ordinary research or chat reporting.
 
-Dispatched roles read their own skill instructions. The main agent reads only nodes needed for the current decision, rather than scanning the entire tree or raw logs for procedural reassurance.
+Honor the user's budget. Otherwise allow at most five substantive attempts per
+bounded session, including reviews/retries; this is a ceiling, not a target.
+Before costly work, identify the uncertainty and useful stopping point. Use
+scripts for deterministic work and select model effort for the actual task.
 
-## Objective
+## Persistence and human communication
 
-Within the specified cycle budget, choose the highest-information question from the current research board and advance it primarily through the main agent's own work. Honestly record partial results, negative evidence, and verification debt in memory. Do not turn an independent review's ACCEPT into final truth or proof of novelty.
-
-## Arguments
-
-Use a positive integer as MAX_CYCLES. Default to 5 when omitted or invalid. When resuming an interrupted session, reconstruct remaining work from the current focus and latest session log.
-
-## Adaptive loop
-
-1. Session Start. Inspect the question and existing research records; automatically initialize missing records in a writable research folder.
-2. Read the current focus and necessary node context. The main agent selects a live question and a method that distinguishes the alternatives.
-3. Use `research-workflow:direction-challenger` only for stagnation, contradiction, major closure, or pivot risk.
-4. The main agent directly performs ordinary searches, reading, derivations, local calculations, and draft synthesis.
-5. Delegate only bounded tasks that pass the Delegation Gate. Parallelize multiple dispatches only when they are independent and every output is necessary.
-6. Send only consequential claims on which the Research Draft or durable memory depends to `research-workflow:critic`. Allow at most one cheap mechanical repair.
-7. Use `research-workflow:curator` only for semantic changes to the tree, lifecycle changes, retraction, durable promotion, or complex provenance closure.
-8. Use `research-workflow:guide-writer` only when a human reading route to changed evidence is missing.
-9. The main agent integrates evidence, scope, verification debt, and the next question, updating focus and session handoff.
-10. Repeat until MAX_CYCLES, a user stop, or an unrecoverable failure; then perform the Session End transaction and give a concise final report.
-
-The focus field `session_complete` records research state. It is not a reason to mechanically spend remaining cycles on subagent calls. If no further work has information value, the main agent records that judgment and proceeds to Session End.
-
-## Delegation Gate
-
-Before dispatch, identify in one sentence each: the agent's output, the downstream decision it can change, and why the main agent cannot obtain the same result through direct work with comparable confidence or cost. Dispatch only if at least one condition holds:
-
-- A role-specific source audit, simulation, implementation, or explicit inspection contract is needed.
-- Two or more bounded tasks are independent, and parallel execution actually reduces session latency.
-- A claim has high consequences and needs independent verification with context separated from the main agent.
-- A semantic transaction across nodes or an operation on durable authority is needed.
-
-Directly perform context gathering, simple searches, small derivations, local edits, summaries, and formatting that the main agent can complete with the same tools and context. Do not call another role to fill a slot in a workflow. Keep batches minimal; default to one bounded dispatch. The main agent retains direction and adoption decisions after receiving agent results.
-
-## Execution discipline
-
-- Do not request user input during an active session.
-- Do not end a turn with a progress message between cycles. Proceed to the next dispatch.
-- By default, send only one user-facing message: the final Session End report.
-- Use the runtime's agent wait mechanism, not sleep or filesystem polling, to wait for agents.
-- Do not count subagent calls or role coverage as progress. Avoid calls that cannot change a research decision.
-- This skill does not automatically commit or push. Preserve existing user edits separately and save only the research session records.
-- Track sources when using literature content. Paper writing is outside this package's responsibility.
+Keep current goal, live obstacle and next action in existing focus memory;
+keep derivations/evidence once at their owning paths. Update changed information
+without a parallel reporting bureaucracy. Documents may preserve calculations,
+reviews and handoffs for later agents. Communicate everything needed for the
+human's understanding and decisions in chat: result, reasoning, evidence scope,
+material assumptions/concerns and their consequences, unresolved issues and next
+steps. Surface conclusion-changing concerns when known. Links supplement that
+account; they never carry missing explanations. Separate user-facing documents
+require explicit request. No automatic publication, commit or global installation.

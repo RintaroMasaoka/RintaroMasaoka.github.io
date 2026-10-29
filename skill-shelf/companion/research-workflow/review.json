@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "package": "research-workflow",
+  "version": "0.2.0",
+  "source_sha256": "e955e7420763e097547084d57455c87db92d2c5be0e67b4ed8f43938815e6505",
+  "summary_sha256": "247f2c965fd1dbf315c7e05dc27a296a26d3263b7b897cc3c32ca734dd3a8c73",
+  "reviewed_on": "2026-10-29",
+  "checks": {
+    "summary_fidelity": true,
+    "roles_and_handoffs": true,
+    "mermaid_rendered": true
+  }
+}

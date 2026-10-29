@@ -12,10 +12,9 @@ guide.md is an entry point for human oversight, not an authority for claims. Sum
 - ../../references/core.md
 - ../../references/research-tree.md
 - ../../references/notes-syntax.md
-- The specified node's state, findings, map, plan, checks, clean analyses, and source links
-- Necessary ancestor context
+- Current focus and only the supplied result, check and source notes needed for this reading route
 
-Do not use _reviews or .logs as evidence. Identify conflicts as conflicts between durable research documents.
+Use the owning result notes and exact verification reports regardless of directory. Explain conflicting evidence without resolving scientific claims by record status.
 
 ## guide.md
 

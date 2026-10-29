@@ -1,102 +1,33 @@
-# /auto-research Schemas
+# Minimal records
 
-## focus.md
+`research/focus.md` is human-readable current memory, not a growing session log:
 
-    # Focus
-    cursor: research/{path}/
-    status: active | session_complete | blocked
+    # Current research
+    Goal: ...
+    Assumptions and scope: ...
+    Current conclusion / live gap: ...
+    Next check and distinguishing outcomes: ...
+    Resource or stopping condition: ...
+    Evidence: links to the owning notes/checks
 
-    ## Context
-    {current scientific board}
+`research_memory.py record --input JSON` accepts a check packet (paths are project-relative):
 
-    ## Direction Challenge Response
-    {accepted, rejected, or held challenge}
+    {"claim_id":"c1", "target":"research/result.md",
+     "method":"numerical", "scope":"sizes 4, 6, 8; beta=1",
+     "outcome":"pass", "evidence":["research/data/run.json"],
+     "command":"python3 research/code/check.py", "tool_version":"Python 3.x",
+     "limitations":"Finite sizes only; no thermodynamic proof."}
 
-    ## Next Session
-    ### Lead Work
-    - Question: {this cycle's highest-information question}
-      Method: {direct reading, derivation, computation, synthesis}
-      Success criteria: {observable decision change}
+Methods: analytic, ai_check, formal, symbolic, numerical, source, mechanical. For AI checks the script requires actual model and independence; for formal/symbolic/numerical checks it requires command/tool details and assumptions/limitations appropriate to the method. The script validates structural data and creates identity/timestamp/hash fields. The lead evaluates scientific sufficiency; no PASS implies universal correctness.
 
-    ### Pre-Worker Tree Directives
-    - {optional routing transaction}
+`attempt --input JSON` records a short evidence comparison, not a novelty score:
 
-    ### Worker Dispatches
-    - Agent: {role}
-      Task: {bounded task}
-      Target: {existing node or literature scope}
-      Inputs: {paths}
-      Deliverable: {worker transaction or artifact}
-      Success criteria: {observable checks}
-      Run number / slug: {when required}
-      Delegation reason: {specialization | effective parallelism | independent verification | semantic transaction}
-      Downstream decision: {what this result can change}
-      Direct-work insufficiency: {why the lead cannot obtain this with comparable confidence or cost}
-      Claim consequence: exploratory | check | durable
+    {"question_id":"q1", "method":"finite-size experiment",
+     "baseline":"The conjectured sign was unchecked at size 4",
+     "result":"The tested instance has a negative sign",
+     "assessment":"Excludes the conjecture for this instance if the numerical check is confirmed; no conclusion about the thermodynamic limit.",
+     "witness":"research/data/run.json; precision and assumptions in research/result.md"}
 
-    ### Tree Directives
-    - {curator transaction}
+`baseline` and `assessment` are nonempty text. An assessment may explicitly leave significance undecided. The witness supplies the evidence and its location; text validation cannot establish its sufficiency. Keep detailed reasoning in the owning note. Legacy `information_gain` booleans and `next_change` fields remain readable and append-compatible, but carry no automated decision authority; new records use the comparison above. `status` reports stale evidence and per-question counts/latest records for navigation only. It does not infer reassessment, scientific progress or a continuation decision from these records.
 
-    ### Naming Decisions
-    - {name contract entry}
-
-    ## Blockers
-    - {owner and missing condition}
-
-The cursor moves at most one edge per cycle. Lead Work is required. Worker Dispatches may be empty when no task passes the Delegation Gate. Specify the worker target, deliverable, success criteria, delegation reason, downstream decision, and direct-work insufficiency precisely enough that the agent need not guess. Claim consequence does not trigger review dispatch automatically; the lead judges the information value of independent review.
-
-## Curator dispatch
-
-    ## Task
-    {ordinary absorption | pre-worker readiness | presentation | session-end}
-
-    ## Tree Directives
-    {focus entries}
-
-    ## Naming Decisions
-    {focus/worker entries}
-
-    ## New Evidence This Cycle
-    {worker.md, critic.md, final verdict}
-
-    ## Durable Surface Reviews
-    {returned review paths or none}
-
-    ## Context
-    Cursor: {path}
-    Cycle: {n}
-    Pre-worker readiness: true|false
-    Presentation boundary: true|false
-    Session-end sweep: true|false
-
-## Session packet
-
-    ## Focus
-    {next focus.md body}
-
-    ## Last Session
-    {handoff}
-
-    ## Research Draft
-    {this session's integrated result, evidence scope, negative evidence, and verification debt}
-
-    ## Session Log
-    ### Accomplished
-    ### Node Changes
-    ### Deliverables
-
-    ## Backlog
-    ### research/{node}/backlog.md
-    - {item}
-
-    ## Agenda
-    - {meeting item}
-
-
-## Return tokens
-
-- agent success: DONE: {path or concise summary}
-- agent failure: FAILED: {reason}
-- curator readiness: Dispatch readiness: valid | invalidated
-- critic provisional: ACCEPT | REJECT | REVISE-NONBLOCKING | REVISE-BLOCKING | OPAQUE
-- critic durable: ACCEPT | REVISE | REJECT
+Optional `research/workflow.json` binds model tiers to locally available IDs and explicit resource limits. Keep names in that project configuration, not in reusable role definitions. Missing configuration is not a setup blocker; use available models under the core contract and report unselectable tiers honestly.

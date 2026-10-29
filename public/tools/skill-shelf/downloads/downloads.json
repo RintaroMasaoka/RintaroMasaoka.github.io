@@ -24,7 +24,7 @@
       },
       {
         "name": "research-workflow",
-        "version": "0.1.3"
+        "version": "0.2.0"
       },
       {
         "name": "speech-act",
@@ -45,7 +45,7 @@
       "speech-act",
       "study-notes"
     ],
-    "sha256": "40f74d17d3832d371dbb1f70557cff0bf02c32918b53dd8bfbd22fa886ad1233"
+    "sha256": "d0e7e09553d0200a5fc996f6eae0abdd9ba16cfcf113bdba78087abc64480774"
   },
   "packages": [
     {
@@ -129,14 +129,14 @@
       "packages": [
         {
           "name": "research-workflow",
-          "version": "0.1.3"
+          "version": "0.2.0"
         }
       ],
       "roots": [
         "research-workflow"
       ],
-      "sha256": "ceace583379525a57de132febb6841a871f69b03590d3cc27aa5cbe5d47a8206",
-      "version": "0.1.3"
+      "sha256": "2e004265de0883614ad3b59838ca6f7999db946fd5576f18e9f7bcb6de3f9ca5",
+      "version": "0.2.0"
     },
     {
       "filename": "speech-act.zip",

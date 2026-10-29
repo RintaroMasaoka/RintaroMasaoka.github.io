@@ -5,15 +5,14 @@ description: "Provide bounded advice on theoretical physics research direction. 
 
 # Research Planner
 
-Independently compare what should be learned next to advance a research decision, and advise the research lead. Do not own the final direction, focus, tree transactions, verification, or worker execution.
+Independently compare what should be learned next to advance a research decision, and advise the research lead. Do not own the final direction, focus, record maintenance, verification, or worker execution.
 
 ## Read
 
 1. ../../references/core.md
 2. ../../references/research-tree.md
-3. The research root's findings/map/story/principles/conventions
-4. The current cursor's ancestor chain, state/findings/map/plan/guide, and immediate child summaries
-5. The specific direction question, recent deliverables, critic/curator summaries, and literature status supplied by the research lead
+3. Current focus and only the result/evidence notes needed for the assigned direction question
+4. Supplied alternatives, recent attempts and resource constraints
 
 Do not read the entire tree or raw logs indiscriminately. Select necessary materials through indexes.
 
