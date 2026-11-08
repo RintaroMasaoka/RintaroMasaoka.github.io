@@ -114,13 +114,13 @@ items:
       ja: 6頂点模型とYang-Baxter方程式に関するノート
 
   - title:
-      en: Supersymmetric Quantum Mechanics
-      ja: 超対称量子力学
+      en: Supersymmetric Quantum Mechanics and Index Theorems
+      ja: 超対称量子力学と指数定理
     category: mathematical-physics
-    filename: SUSYQM/SUSY_index.pdf
+    url: /notes/susy-qm/
     description:
-      en: An introductory note on supersymmetric quantum mechanics
-      ja: 超対称量子力学の入門ノート
+      en: From angular defects to the Witten index, Morse theory, and the Chern–Gauss–Bonnet theorem.
+      ja: 不足角からWitten指数、Morse理論、Chern–Gauss–Bonnetの定理へ進む学習ノート。
 
   - title:
       en: XY Model and Renormalization Group
@@ -132,13 +132,13 @@ items:
       ja: XY模型とくりこみ群に関するノート
 
   - title:
-      en: KdV Equation
-      ja: KdV方程式
+      en: Integrable Systems through KdV
+      ja: KdVから学ぶ可積分系
     category: mathematical-physics
     url: /notes/kdv/
     description:
-      en: From solitons and Lax pairs to inverse reconstruction, the transformation kernel, the KdV hierarchy, and conservation laws.
-      ja: ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。
+      en: Study notes on integrable structures and related theories through concrete calculations with KdV.
+      ja: KdVを具体例として、計算を通じて可積分系の構造と関連する理論を学ぶノート。
 
   - title:
       en: "Introduction to Fuzzy Sphere Regularization"

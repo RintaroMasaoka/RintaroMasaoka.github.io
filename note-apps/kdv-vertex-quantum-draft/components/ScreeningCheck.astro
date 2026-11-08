@@ -1,0 +1,21 @@
+---
+import source from '../../../public/notes/kdv-vertex-quantum-draft/screening-check.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<section id="screening-check" data-screening-check aria-label="Exact screening correction">
+  <p>The variables <var>x</var><sub>n</sub> represent local Heisenberg state–field variables of weight <var>n</var>. Cubic normal products are right nested.</p>
+  <form class="screening-controls">
+    <label>Charge parameter b <select name="charge" aria-label="Charge parameter b"><option value="symbolic" selected>Symbolic</option><option value="3/2">3/2</option><option value="5/3">5/3</option></select></label>
+    <button type="submit">Run</button><button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p role="status" aria-live="polite">Solve the screening condition for the weight-six correction. Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <details><summary>Source code (Python)</summary><CodeBlock language="python"><code data-source>{source}</code></CodeBlock><a href="/notes/kdv-vertex-quantum-draft/screening-check.py" download data-download>Download source</a></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+</section>
+<style>
+.screening-controls{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .35rem}.screening-controls label{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+.screening-controls button,.screening-controls select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .6rem;min-height:44px}.screening-controls button{cursor:pointer}.screening-controls button:disabled{opacity:.6;cursor:wait}[role="status"]{font-size:.85em;color:var(--muted)}[hidden]{display:none}
+</style>
+<script>import {initScreeningCheck} from '../scripts/screening-check';initScreeningCheck();</script>

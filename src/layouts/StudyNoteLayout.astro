@@ -1,6 +1,7 @@
 ---
 import ReaderIcon from '../components/reader/ReaderIcon.astro';
 import { numberEquations } from '../utils/note-equations.mjs';
+import { decorateCodeBlocks } from '../utils/study-note/code-blocks.mjs';
 import type { StudyNote, StudyNoteHeading, PreviewIndex } from '../utils/study-note/types';
 import '../styles/study-note.css';
 interface Props {
@@ -12,7 +13,7 @@ const { note, activeChapterId, html, numbering = 'site', previews = {}, referenc
 const lang = note.language || 'ja';
 const ja = lang.startsWith('ja');
 const rawBody = html ?? await Astro.slots.render('default');
-const body = numbering === 'site' ? numberEquations(rawBody) : rawBody;
+const body = decorateCodeBlocks(numbering === 'site' ? numberEquations(rawBody) : rawBody);
 const hasBodyTitle = /<h1\b/i.test(body);
 const hasDisclosures = /<details\b/i.test(body);
 const headings = Astro.props.headings ?? Array.from(body.matchAll(/<h([23])\b[^>]*\bid="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g), m => ({id:m[2], depth:Number(m[1]), labelHtml:m[3]}));
@@ -23,7 +24,10 @@ const chapterHref = (chapter: typeof chapters[number]) => chapter.href || (mode 
 const activeIndex = Math.max(0, chapters.findIndex(c => c.id === activeChapterId));
 const active = chapters[activeIndex];
 const notesHref = note.reader?.notesHref || (ja ? '/ja/notes/' : '/notes/');
-const payload = JSON.stringify({previews, referenceIndex, equationIndex}).replace(/</g,'\\u003c');
+const decorateIndex = (index: PreviewIndex) => Object.fromEntries(Object.entries(index).map(([key, entry]) => [key,
+  typeof entry === 'string' ? decorateCodeBlocks(entry) : {...entry, html:decorateCodeBlocks(entry.html)},
+]));
+const payload = JSON.stringify({previews:decorateIndex(previews), referenceIndex:decorateIndex(referenceIndex), equationIndex:decorateIndex(equationIndex)}).replace(/</g,'\\u003c');
 ---
 <!doctype html>
 <html lang={lang} data-study-note-reader="1.0.1" data-note-id={note.id} data-note-mode={mode}>

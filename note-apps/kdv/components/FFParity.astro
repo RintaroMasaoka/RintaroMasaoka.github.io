@@ -1,0 +1,28 @@
+---
+import { createRequire } from 'node:module';
+import FigureViewport from './FigureViewport.astro';
+const require = createRequire(`${process.cwd()}/package.json`);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
+const columns = ['k=0','k=1','k=2','k=3','\\cdots'];
+const rows = [
+  { label: '\\text{even }m', cells: ['H^0_m','0','H^2_m','0','\\cdots'], active: [true,false,true,false,true], sign: '+1' },
+  { label: '\\text{odd }m', cells: ['0','H^1_m','0','H^3_m','\\cdots'], active: [false,true,false,true,true], sign: '-1' },
+];
+---
+<figure id="ff-parity" class="ff-parity">
+  <FigureViewport width={560}>
+    <div class="parity-canvas" role="img" aria-label="At fixed internal weight m, cohomology is zero unless its complex stage k has the same parity as m. Every allowed group has Euler sign plus one for even m and minus one for odd m. The cells denote possible groups, not their dimensions. Only H to the first has dimension one in each positive odd weight and zero in positive even weights.">
+      <div class="parity-grid">
+        <span></span>{columns.map(label=><span class="heading" set:html={tex(label)} />)}<span class="heading" set:html={tex('\\text{Euler sign}')} />
+        {rows.map(row=><><span class="row-label" set:html={tex(row.label)} />{row.cells.map((cell,i)=><span class:list={['cell',{allowed:row.active[i]}]} set:html={tex(cell)} />)}<span class="sign" set:html={tex(row.sign)} /></>)}
+      </div>
+      <div class="legend" set:html={tex('\\text{Shaded cells: possible groups, not dimensions}')} />
+      <div class="euler" set:html={tex('\\chi_m=\\sum_k(-1)^k\\dim H^k_m=(-1)^m\\sum_{k\\equiv m\\ (2)}\\dim H^k_m')} />
+      <div class="conclusion" set:html={tex('\\dim H^1_m=\\begin{cases}1,&m=1,3,5,\\ldots,\\\\0,&m>0\\ \\text{even}.\\end{cases}')} />
+    </div>
+  </FigureViewport>
+</figure>
+<style>
+.ff-parity{margin:1.7rem 0;color:var(--ink)}.parity-canvas{box-sizing:border-box;padding:12px 5px 18px}.parity-grid{display:grid;grid-template-columns:90px repeat(4,64px) 40px 164px;gap:0;align-items:center;text-align:center}.heading{font-size:17px;min-height:36px;display:grid;place-items:center;color:var(--muted)}.row-label{font-size:18px}.cell{font-size:22px;padding:12px 0;margin:4px 2px;border:1px solid transparent;border-radius:4px;color:var(--muted)}.cell.allowed{color:var(--ink);border-color:var(--line);background:color-mix(in srgb,var(--accent) 10%,transparent)}.sign{font-size:23px;color:var(--accent)}.legend{text-align:center;margin-top:14px;font-size:17px;color:var(--muted)}.euler{text-align:center;margin-top:20px;font-size:18px}.conclusion{text-align:center;margin-top:20px;font-size:20px}.ff-parity :global(.katex){color:inherit}
+</style>

@@ -1,0 +1,20 @@
+---
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true,output:'html'});
+---
+<figure id="common-current" class="current-figure" aria-label="Two constructions using the same Heisenberg algebra">
+  <div class="current-branches">
+    <svg viewBox="0 0 600 270" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="current-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" /></marker></defs>{['M290 48Q290 82 150 112','M310 48Q310 82 450 112','M150 158V224','M450 158V224'].map(d=><path class="branch" d={d} />)}</svg>
+    <div class="algebra" set:html={tex(String.raw`[a_m,a_n]=m\delta_{m+n,0}`)} />
+    <div class="left construction"><span set:html={tex(String.raw`X_{\kappa}`)} /><small set:html={tex(String.raw`\text{exponentials}`)} /></div>
+    <div class="right construction"><span set:html={tex(String.raw`T_Q`)} /><small set:html={tex(String.raw`\text{quadratic field}`)} /></div>
+    <div class="left result"><span set:html={tex(String.raw`\tau_N`)} /><small set:html={tex(String.raw`\text{soliton addition}`)} /></div>
+    <div class="right result"><span set:html={tex(String.raw`\widehat I_3,\ \widehat I_5,\ldots`)} /><small set:html={tex(String.raw`\text{commuting operators}`)} /></div>
+  </div>
+  <figcaption>同じ Heisenberg 代数から作る二つの構成。左では <span set:html={tex(String.raw`1+AX_\kappa`)} /> を用いて τ 関数にソリトンを加え、右では二次の場から可換な量子作用素を作る。矢印は各構成で対象を作る手順を表す。</figcaption>
+</figure>
+<style>
+.current-figure{margin:1.7rem 0}.current-branches{position:relative;height:310px;max-width:660px;margin:auto}.current-branches svg{position:absolute;inset:0;width:100%;height:270px;color:var(--muted)}.branch{stroke:currentColor;stroke-width:1.4;fill:none;marker-end:url(#current-arrow)}marker path{fill:currentColor}.algebra,.construction,.result{position:absolute;text-align:center;color:var(--ink)}.algebra{top:0;left:0;width:100%;font-size:1.05rem}.left{left:2%;width:46%}.right{right:2%;width:46%}.construction{top:115px}.result{top:233px}.construction small,.result small{display:block;margin-top:.25rem;font-size:.78rem}.current-figure figcaption{font-size:.86rem;line-height:1.8;color:var(--muted)}@media(max-width:420px){.construction small,.result small{font-size:.67rem}.current-branches{height:305px}}
+</style>

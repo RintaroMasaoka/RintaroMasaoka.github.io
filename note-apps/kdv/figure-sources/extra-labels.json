@@ -10,7 +10,7 @@
         {
           "meaning": "analytic positive one-soliton profile",
           "role": "equation",
-          "tex": "-u(x,t)=\\dfrac{v}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{v}}{2}(x-vt)\\right)"
+          "tex": "\\eta(x,t)=-2v\\,\\operatorname{sech}^{2}\\!\\left(\\sqrt{-v}(x-vt)\\right)"
         },
         {
           "meaning": "horizontal position",
@@ -20,7 +20,7 @@
         {
           "meaning": "positive plotted field",
           "role": "vertical axis",
-          "tex": "-u"
+          "tex": "\\eta"
         },
         {
           "meaning": "vertical profile values",

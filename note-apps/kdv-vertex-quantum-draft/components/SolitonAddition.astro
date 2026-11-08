@@ -1,0 +1,39 @@
+---
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true,output:'html'});
+// Exact finite-soliton tau functions at t=0, sampled solely to draw the curves.
+// eta1^0=-2.6, eta2^0=6, k1=.65<k2=1. u=-2 (log tau)xx.
+const k1=.65,k2=1,A=((k1-k2)/(k1+k2))**2;
+function potential(x:number,two:boolean){
+  const terms=two?[[0,0],[-2.6+2*k1*x,2*k1],[6+2*k2*x,2*k2],[Math.log(A)+3.4+2*(k1+k2)*x,2*(k1+k2)]]:[[0,0],[-2.6+2*k1*x,2*k1]];
+  const scale=Math.max(...terms.map(t=>t[0]));
+  const weights=terms.map(t=>Math.exp(t[0]-scale));const z=weights.reduce((s,w)=>s+w,0);
+  const mean=terms.reduce((s,t,i)=>s+weights[i]*t[1],0)/z;
+  const variance=terms.reduce((s,t,i)=>s+weights[i]*(t[1]-mean)**2,0)/z;
+  return -2*variance;
+}
+const point=(x:number,y:number)=>[28+(x+9)/19*320,42-y*68];
+function curve(two:boolean){return Array.from({length:481},(_,i)=>{const x=-9+19*i/480;const p=point(x,potential(x,two));return `${i?'L':'M'}${p[0].toFixed(3)},${p[1].toFixed(3)}`;}).join(' ');}
+---
+<figure id="soliton-addition" class="addition-figure" aria-label="Adding a soliton changes the exact wave profile">
+  <div class="addition-map" set:html={tex(String.raw`\tau_1\;\xrightarrow{\;1+X_2\;}\;\tau_{2}`)} />
+  <div class="addition-panels">
+    {[false,true].map(two=><div class="addition-panel">
+      <div class="addition-label" set:html={tex(two?String.raw`\text{Two solitons}`:String.raw`\text{One soliton}`)} />
+      <svg viewBox="0 0 380 218" role="img" aria-label={two?'Exact two-soliton profile with the initial profile dashed':'Initial one-soliton profile'}>
+        <path d="M28 42H350M28 30V199" class="plot-axis" />
+        {two&&<path d={curve(false)} class="initial ghost" />}
+        <path d={curve(two)} class:list={['profile',two?'added':'initial']} />
+        <foreignObject x="350" y="33" width="30" height="28"><div set:html={tex('x')} /></foreignObject>
+        <foreignObject x="3" y="5" width="30" height="28"><div set:html={tex('u')} /></foreignObject>
+        <foreignObject x="8" y="38" width="20" height="28"><div set:html={tex('0')} /></foreignObject>
+      </svg>
+    </div>)}
+  </div>
+  <figcaption>頂点作用素を τ 関数に作用させ、そこから波形を復元した例。二ソリトンの図に重ねた破線は追加前の波形である。同じ空間座標で比べると、二つ目の波を加えた後には、もとの波の位置も変わっている。</figcaption>
+</figure>
+<style>
+.addition-figure{margin:1.5rem 0}.addition-map{text-align:center;margin-bottom:1rem}.addition-panels{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}.addition-panel{min-width:0}.addition-label{text-align:center;font-size:.95rem}.addition-panel svg{display:block;width:100%;height:auto;overflow:visible;color:var(--ink)}.addition-panel foreignObject{overflow:visible;font-size:16px}.plot-axis{stroke:var(--muted);stroke-width:1;fill:none}.profile,.ghost{stroke-width:2.8;fill:none;stroke-linejoin:round}.initial{stroke:#276a9e}.added{stroke:#b65016}.ghost{stroke-dasharray:5 5;opacity:.65;stroke-width:1.8}:global([data-theme="dark"]) .initial{stroke:#79b9eb}:global([data-theme="dark"]) .added{stroke:#ffaf79}.addition-figure figcaption{font-size:.86rem;color:var(--muted);margin-top:.7rem;line-height:1.8}@media(max-width:600px){.addition-panels{grid-template-columns:1fr;gap:1.1rem}.addition-panel svg{max-width:380px;margin:auto}.addition-map{font-size:.9rem}}
+</style>

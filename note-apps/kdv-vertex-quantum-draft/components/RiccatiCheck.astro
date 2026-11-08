@@ -1,0 +1,20 @@
+---
+import source from '../../../public/notes/kdv-vertex-quantum-draft/riccati-check.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<section id="riccati-check" data-riccati-check aria-label="Formal Riccati coefficient expansion">
+  <form class="riccati-controls">
+    <label>Highest odd order <select name="order" aria-label="Highest odd order"><option value="3">3</option><option value="5" selected>5</option><option value="7">7</option></select></label>
+    <button type="submit">Run</button><button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p role="status" aria-live="polite">Compute exact local densities and verified total derivatives. Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <details><summary>Source code (Python)</summary><CodeBlock language="python"><code data-source>{source}</code></CodeBlock><a href="/notes/kdv-vertex-quantum-draft/riccati-check.py" download data-download>Download source</a></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+</section>
+<style>
+.riccati-controls{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .35rem}.riccati-controls label{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+.riccati-controls button,.riccati-controls select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .6rem;min-height:44px}.riccati-controls button{cursor:pointer}.riccati-controls button:disabled{opacity:.6;cursor:wait}[role="status"]{font-size:.85em;color:var(--muted)}[hidden]{display:none}
+</style>
+<script>import {initRiccatiCheck} from '../scripts/riccati-check';initRiccatiCheck();</script>

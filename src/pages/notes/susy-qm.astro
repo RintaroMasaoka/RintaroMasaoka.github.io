@@ -1,0 +1,25 @@
+---
+import StudyNoteLayout from '../../layouts/StudyNoteLayout.astro';
+import config from '../../../note-apps/susy-qm/note.config.json';
+import SusyBody from '../../../note-apps/susy-qm/components/SusyBody.astro';
+import WeylCalculation from '../../../note-apps/susy-qm/components/WeylCalculation.astro';
+import PfaffianCalculation from '../../../note-apps/susy-qm/components/PfaffianCalculation.astro';
+import '../../../note-apps/susy-qm/styles/figures.css';
+// Existing site-local KaTeX distribution is shared with the KdV reader.
+const manuscripts = import.meta.glob('../../../note-apps/susy-qm/content/*.md', { eager: true });
+const chapters = config.chapters.map(chapter => {
+  const module = manuscripts[`../../../note-apps/susy-qm/content/${chapter.file}`] as {
+    Content: any; getHeadings: () => {depth: number; slug: string; text: string}[];
+  } | undefined;
+  if (!module) throw new Error(`Missing SUSY manuscript: ${chapter.file}`);
+  return {...chapter, Content: module.Content, headings: module.getHeadings()};
+});
+const sourceHeadings = chapters.flatMap(chapter => chapter.headings.filter(h => h.depth === 2 || h.depth === 3).map(h => ({...h, chapterId: chapter.id})));
+const ids = sourceHeadings.map(h => h.slug);
+if (new Set(ids).size !== ids.length) throw new Error('Duplicate SUSY heading anchors across chapters');
+
+const headings = sourceHeadings.map(h => ({id: h.slug, chapterId: h.chapterId, depth: h.depth, labelHtml: h.text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;'), href: `#${h.slug}`}));
+---
+<StudyNoteLayout note={config} headings={headings} numbering="site">
+  <SusyBody><WeylCalculation slot="weyl" /><PfaffianCalculation slot="pfaffian" />{chapters.map(chapter => <section id={chapter.id}>{chapter.id === 'fokker-planck' && <span id="fokker-planck-derivation" aria-hidden="true"></span>}<chapter.Content /></section>)}</SusyBody>
+</StudyNoteLayout>

@@ -1,7 +1,7 @@
 ---
 import BoundStateControls from './BoundStateControls.astro';
 import { createRequire } from 'node:module';
-const require=createRequire(new URL('../../../package.json',import.meta.url));
+const require=createRequire(`${process.cwd()}/package.json`);
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const panels=[{id:'full',title:'Left and right solutions',range:4,ys:[-16,-8,-4,-2,-1,-.5,-.25,0,.25,.5,1,2,4,8,16]}];

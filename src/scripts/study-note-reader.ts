@@ -1,9 +1,12 @@
+import {preparePreviewMarkup} from './study-note-preview-markup.mjs';
 import type { PreviewEntry, PreviewIndex } from '../utils/study-note/types';
+import {initNoteCodeBlocks} from './study-note-code';
 
 /** All reader controls live here. Note-local scripts may initialize figures only. */
 const root = document.documentElement;
 const manuscript = document.getElementById('manuscript');
 if (root.hasAttribute('data-study-note-reader') && manuscript) {
+  initNoteCodeBlocks();
   const noteId = root.dataset.noteId!;
   const shell = document.querySelector<HTMLElement>('[data-reader-shell]')!;
   const nav = document.getElementById('chapter-index')!;
@@ -59,7 +62,7 @@ if (root.hasAttribute('data-study-note-reader') && manuscript) {
   let anchor: HTMLElement | null = null;
   let closeTimer: ReturnType<typeof setTimeout>;
   const closePreview = (restore = false) => { clearTimeout(closeTimer); preview.hidden = true; pinned = false; anchor?.setAttribute('aria-expanded','false'); if (restore) anchor?.focus(); };
-  const cleanClone = (element: Element) => { const clone = element.cloneNode(true) as HTMLElement; clone.removeAttribute('id'); clone.querySelectorAll('[id]').forEach(node => node.removeAttribute('id')); clone.querySelectorAll('button[data-note-preview],button.equation-reference').forEach(node => node.replaceWith(document.createTextNode(node.textContent || ''))); return clone.innerHTML; };
+  const cleanClone = (element: Element) => { const clone = element.cloneNode(true) as HTMLElement; clone.querySelectorAll('button[data-note-preview],button.equation-reference').forEach(node => node.replaceWith(document.createTextNode(node.textContent || ''))); return clone.innerHTML; };
   const resolve = (button: HTMLElement): PreviewEntry | undefined => {
     const key = button.dataset.notePreview || button.dataset.referenceKey;
     if (key && indexes[key]) return typeof indexes[key] === 'string' ? {html: indexes[key] as string} : indexes[key] as PreviewEntry;
@@ -73,8 +76,7 @@ if (root.hasAttribute('data-study-note-reader') && manuscript) {
     if (pinned && anchor === button && pin) { closePreview(); return; }
     const entry = resolve(button); if (!entry) return;
     anchor?.setAttribute('aria-expanded', 'false'); anchor = button; pinned = pin;
-    previewBody.innerHTML = entry.html;
-    previewBody.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'));
+    previewBody.innerHTML = preparePreviewMarkup(entry.html);
     previewTitle.textContent = entry.title || ('Supplement');
     origin.hidden = !entry.href; if (entry.href) origin.href = entry.href;
     preview.hidden = false; preview.classList.toggle('is-supplement', button.classList.contains('math-supplement-trigger'));

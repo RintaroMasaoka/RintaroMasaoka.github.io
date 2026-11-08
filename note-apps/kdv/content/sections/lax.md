@@ -1,157 +1,94 @@
 ### 2.2. Lax表示
 
-Lax 表示では、KdV 方程式を Schrödinger 演算子を含む二つの微分演算子の関係として表す。以下ではその具体形を与え、KdV 方程式との同値性と、時間発展で固有値が保たれることを確かめる。
+ここで、一つの大きな発想の転換を導入する。KdV 方程式の未知関数を、Schrödinger 方程式のポテンシャルとして読み直してみよう。
 
-量子力学では、周囲より低いポテンシャルが粒子の閉じ込めを生む。山状の波 $\eta>0$ をその低いポテンシャルに対応させるため、ここで変数を
+まず $u=-\eta$ と置くと、KdV 方程式 (@equation-4fefabb2db) は
 $$
-u(x,t)=-\eta(x,t)
-$$
-に切り替え、以後はポテンシャル $u$ を使う。式 (@equation-4fefabb2db) に代入すると、その時間発展は
-$$
-u_t=6uu_x-u_{xxx}
+u_t=\frac{u_{xxx}-6uu_x}{4}
 \tag{equation-0e5e42e46f}
 $$
-となる。この $u$ を用いて、次の二つの演算子を定める。
+となる。この $u(x,t)$ をポテンシャルとする Schrödinger 演算子
+$$
+L(t)=-\partial_x^2+u(x,t)
+$$
+を考える。
 
+$u(x,t)$ が時間とともに変われば、それに応じて演算子 $L(t)$ も変わる。そこで、KdV 方程式を、この演算子の時間発展を表す方程式として書き直してみよう。
+
+そのために、$L$ と組にする演算子 $B$ を次の形で与える。ここで $\partial$ は $x$ 微分、$u$ と $u_x$ はそれぞれの関数を掛ける演算子である。
+$$
+B(t)=\partial^3-\frac32u\partial-\frac34u_x.
+\tag{equation-bec8ddf787}
+$$
+この組を Lax 対、$L$ を Lax 演算子と呼ぶ。この $B$ を使うと、KdV 方程式 (@equation-0e5e42e46f) は
+$$
+\frac{\mathrm{d}L}{\mathrm{d}t}=[B(t),L(t)]
+\tag{equation-b75f31fbba}
+$$
+と書ける。これが Lax 方程式であり、$[B,L]=BL-LB$ は交換子である。実際、左辺は $u_t$、右辺は $(u_{xxx}-6uu_x)/4$ を掛ける演算子になるので、両者の等式が KdV 方程式そのものになる。
+
+<div data-extra-visual="formal-commutator"></div>
+
+次に、$L(t)$ の固有値問題
+$$
+L(t)\psi(x,t)=\lambda\psi(x,t)
+\tag{lax-schrodinger-problem}
+$$
+を考える。この $B$ は、固有関数のユニタリな時間発展の生成子にもなる。そのために必要な反エルミート性を確かめよう。ここでは $u$ は実数値で滑らかとし、部分積分する関数と必要な導関数は無限遠で急減衰するとする。境界項が消えるので $\partial^\dagger=-\partial$ であり、$u$ による掛け算は自己随伴である。積の微分則 $\partial u=u\partial+u_x$ を使うと、
 $$
 \begin{aligned}
-L(t) = -\partial^2 + u,\quad
-    B(t) = -4\partial^3 + 6u\partial + 3u_x
-\end{aligned}\tag{equation-bec8ddf787}
-$$
-
- 表記について注意をすると、$\partial$は$x$に関する偏微分を表す演算子とする。 また$u$と書いた場合、$u(x,t)$を左から掛ける演算子を表すことにする。$u_x$などに関しても同様である。
-
-$L(t),B(t)$をLax対と呼ぶ。 また$L(t)$はLax演算子と呼ばれ、今の場合1次元の量子力学のHamiltonianと同じ形をしている。 $L(t), B(t)$によって、KdV方程式(@equation-0e5e42e46f)は
-
-$$
-\begin{aligned}
-\frac{\mathrm{d} L}{\mathrm{d} t} = [B(t), L(t)]
-\end{aligned}\tag{equation-b75f31fbba}
-$$
-
- と書き換えられる。これをLax方程式と呼ぶ。また与えられた方程式を(@equation-b75f31fbba)のように表すことをLax表示という。 Lax表示はKdV方程式に特有のものではなく、多くの可積分系に対するLax表示が知られている。
-
-KdV方程式とLax方程式(@equation-b75f31fbba)が同値であることを証明しよう。 (@equation-b75f31fbba)の左辺は
-
-$$
-\begin{aligned}
-\frac{\mathrm{d} L}{\mathrm{d} t} = u_t
+B&=\partial^3-\frac34(u\partial+\partial u),\\
+B^\dagger&=-\partial^3+\frac34(\partial u+u\partial)=-B.
 \end{aligned}
 $$
+積の随伴では順序が逆になるため、$u\partial$ と $\partial u$ を対にした形から反エルミート性がわかる。
 
- となる。つぎに右辺を計算すると、
-
+初期時刻の固有関数を
 $$
-\begin{aligned}
-[B(t), L(t)]
-    &
-    = [-4\partial^3 + 6u\partial + 3u_x, -\partial^2 + u]
-\end{aligned}
+L(0)\psi(x,0)=\lambda\psi(x,0)
+\tag{equation-7de551f92c}
 $$
-
+とし、$B(t)$ によって次のように発展させる。
 $$
-\begin{aligned}
-&
-    = -4(u_{xxx} + \cancel{3u_{xx}\partial} + \bcancel{3u_x\partial^2})+ 6uu_x
-\end{aligned}
+\psi(x,t)=U(t)\psi(x,0),\qquad
+\frac{\mathrm{d}U(t)}{\mathrm{d}t}=B(t)U(t),\qquad U(0)=I.
+\tag{equation-c5292b67c8}
 $$
+$I$ は恒等演算子である。$B^\dagger=-B$ なので $U(t)$ はユニタリであり、$\psi$ のノルムは保たれる。
 
+Lax 方程式が意味するのは、この同じ $U(t)$ によって $L$ も
 $$
-\begin{aligned}
-&\quad
-    + 6(\cancel{u_{xx}\partial} +\bcancel{ 2u_x\partial^2})
-\end{aligned}
+U(t)L(0)U(t)^{-1}=L(t)
+\tag{equation-b2bc328c22}
 $$
+と変化することである。両辺が同じ Lax 方程式と初期条件を満たすことから、この共役変換の式が確かめられる。
 
+<details>
+<summary>Verify the conjugation formula</summary>
+
+$U(t)U(t)^{-1}=I$ を微分し、$U_t=BU$ を代入すると、
 $$
-\begin{aligned}
-&\quad
-    + 3(u_{xxx} + \cancel{2u_{xx}\partial})
-\end{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t}U(t)^{-1}=-U(t)^{-1}B(t).
+\tag{equation-efb1ce1c1d}
 $$
-
+従って、
 $$
-\begin{aligned}
-&
-    = 6uu_x - u_{xxx}
-\end{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t}\left(U(t)L(0)U(t)^{-1}\right)
+=[B(t),U(t)L(0)U(t)^{-1}].
+\tag{equation-ddc22d336a}
 $$
+これは $L(t)$ の満たす Lax 方程式と同じであり、初期値も $U(0)L(0)U(0)^{-1}=L(0)$ と一致するので、式 (@equation-b2bc328c22) を得る。
 
- となる。両辺を等号で結ぶことでKdV方程式を得る。Lax方程式は演算子の等式であったが、両辺が微分演算子$\partial$を含まないために、$u$に対する偏微分方程式とみなせる。
+</details>
 
-Lax方程式(@equation-b75f31fbba)では、$B(t)$は時間発展の生成子となっている。するとLax方程式は Hamiltonian $L(t)$の$B(t)$による時間発展を考えていることになる。 ここで、$L(0)$を対角化して
-
+この共役変換から、固有値保存が直接わかる。初期時刻の固有値方程式 (@equation-7de551f92c) に左から $U(t)$ を掛け、$\psi(x,0)=U(t)^{-1}\psi(x,t)$ を代入すると、
 $$
-\begin{aligned}
-L(0)\psi(x, 0) = \lambda \psi(x, 0)
-\end{aligned}\tag{equation-7de551f92c}
+U(t)L(0)U(t)^{-1}\psi(x,t)=\lambda\psi(x,t).
+\tag{equation-330d5d4785}
 $$
-
- と書く。$\psi(x, 0)$は$L(0)$の固有値$\lambda$の固有関数である。これを時間発展させてみよう。 $\psi(x, t)$の時間発展を記述する方程式として、
-
+共役変換の式 (@equation-b2bc328c22) を使えば、
 $$
-\begin{aligned}
-\psi(x, t) = U(t)\psi(x, 0),\quad
-    \frac{\mathrm{d} U(t)}{\mathrm{d} t} = B(t)U(t),\quad
-    U(0) = I
-\end{aligned}\tag{equation-c5292b67c8}
+L(t)\psi(x,t)=\lambda\psi(x,t).
+\tag{equation-addf34bd26}
 $$
-
- を課す。$I$ は恒等演算子である。Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
-
-(@equation-7de551f92c)の両辺に左から$U(t)$を掛けると、
-
-$$
-\begin{aligned}
-U(t)L(0)U(t)^{-1}\psi(x,t) = \lambda \psi(x,t).
-\end{aligned}\tag{equation-330d5d4785}
-$$
-
- となる。ここで、$U(t)L(0)U(t)^{-1}$を時間微分する。 $U(t)U(t)^{-1} = I$を時間微分すると
-
-$$
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d} t}U(t)^{-1} = - U(t)^{-1}B(t)
-\end{aligned}\tag{equation-efb1ce1c1d}
-$$
-
- が分かるので、
-
-$$
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d} t}\left(U(t)L(0)U(t)^{-1}\right) = [B(t), U(t)L(0)U(t)^{-1}]
-\end{aligned}\tag{equation-ddc22d336a}
-$$
-
- となる。これはLax方程式なので、初期条件$U(0)L(0)U(0)^{-1} = L(0)$から、
-
-$$
-\begin{aligned}
-U(t)L(0)U(t)^{-1} = L(t)
-\end{aligned}\tag{equation-b2bc328c22}
-$$
-
- となる。この両辺を$\psi(x,t)$に作用させて、
-
-$$
-\begin{aligned}
-L(t)\psi(x, t) = \lambda \psi(x, t)
-\end{aligned}\tag{equation-addf34bd26}
-$$
-
- となる。 すなわち、$B(t)$によって時間発展する波動関数$\psi(x, t)$は、任意の時刻で$L(t)$の固有関数である。 さらに、$\psi(x,t)$に対する$L(t)$の固有値は常に$\lambda$で時間に依存しない。 [^src-3-1]
-
-固有値保存に加えて、$U(t)$ はユニタリなので波動関数のノルムも保つ。このユニタリ性は、発展方程式 $\mathrm{d}U/\mathrm{d}t=B(t)U(t)$ の生成子 $B$ が反エルミートであることから従う。以下で $B^\dagger=-B$ を示す。
-
-ここでは実数値の $u$ と、滑らかで無限遠で急減衰する関数を考える。部分積分で境界項が消えるため $\partial^\dagger=-\partial$ であり、$u$ による掛け算は自己随伴である。
-
-反エルミート性は、$u\partial$ と $\partial u$ を対にした形に直すと見える。積の微分則 $\partial u=u\partial+u_x$ で $B$ を書き直し、積の随伴では順序を逆にすると、
-$$
-\begin{aligned}
-B&=-4\partial^3+3(u\partial+\partial u),\\
-B^\dagger&=4\partial^3-3(\partial u+u\partial)=-B.
-\end{aligned}
-$$
-
-[^src-3-1]: 逆に$L(t)$の固有値が時間変化しない条件としてLax方程式を導ける。
+すなわち、$B$ によって発展させた固有関数は、変化したポテンシャルのもとでも、同じ固有値 $\lambda$ をもつ。非線形に変わる波形をこの Schrödinger 問題で捉えると、固有値は固定され、その間の変化は固有関数の発展に現れる。

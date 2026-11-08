@@ -1,9 +1,9 @@
 // Reflectionless left Marchenko data: kappa=(1,2,3), c(0)^2=(12,60,60).
-// r_i=c_i exp(kappa_i x-4 kappa_i^3 t), A_ij=r_i r_j/(kappa_i+kappa_j).
+// r_i=c_i exp(kappa_i x+kappa_i^3 t), A_ij=r_i r_j/(kappa_i+kappa_j).
 // psi=(I+A)^(-1)r. Solve the diagonally rescaled system to avoid large r.
 export const kappas = [1, 2, 3];
-export const finalTime = .45;
-export const spatialDomain = [-6, 20];
+export const finalTime = 1.8;
+export const spatialDomain = [-20, 6];
 function solve(matrix, rhs) {
   const a=matrix.map((row,i)=>[...row,rhs[i]]), n=rhs.length;
   for(let j=0;j<n;j++) {
@@ -21,7 +21,7 @@ function solve(matrix, rhs) {
   return out;
 }
 export function boundStateSample(x,t) {
-  const r=kappas.map((k,i)=>Math.sqrt([12,60,60][i])*Math.exp(k*x-4*k**3*t));
+  const r=kappas.map((k,i)=>Math.sqrt([12,60,60][i])*Math.exp(k*x+k**3*t));
   const matrix=kappas.map((k,i)=>kappas.map((l,j)=>1/(k+l)+(i===j?1/r[i]**2:0)));
   const h=solve(matrix,[1,1,1]);
   const s=h.reduce((a,b)=>a+b,0), weighted=h.reduce((a,b,i)=>a+kappas[i]*b,0);
@@ -54,7 +54,7 @@ export function initBoundStates() {
     const stop=()=>{playing=false;cancelAnimationFrame(frame);play.textContent='Play';play.setAttribute('aria-pressed','false');};
     const tick=now=>{
       if(!playing)return;
-      t=Math.min(finalTime,t+Math.min(.1,(now-previous)/1000)*.032); previous=now; draw();
+      t=Math.min(finalTime,t+Math.min(.1,(now-previous)/1000)*.128); previous=now; draw();
       if(t>=finalTime)stop(); else frame=requestAnimationFrame(tick);
     };
     play.addEventListener('click',()=>{

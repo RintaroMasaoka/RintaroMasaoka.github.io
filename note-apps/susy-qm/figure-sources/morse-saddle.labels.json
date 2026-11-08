@@ -1,0 +1,42 @@
+{
+  "source": "note-apps/susy-qm/figure-sources/morse-saddle.tex",
+  "source_sha256": "3c89500f3b7fd84ef9c5302e1e15184b38312943a74ae95bcdae85ed29518b16",
+  "asset": "public/notes/SUSYQM/diagrams/morse-saddle.svg",
+  "asset_sha256": "3960783a7f0e528853ab12b57530130a7d3a1da0717874e6a3cde2e02962c9c0",
+  "renderer": "LaTeX/TikZ with pgfsys-dvisvgm.def; dvisvgm --no-fonts converts Computer Modern glyphs to self-contained outlines",
+  "labels": [
+    {
+      "tex": "$x$",
+      "language": "mathematics"
+    },
+    {
+      "tex": "$h$",
+      "language": "mathematics"
+    },
+    {
+      "tex": "$y$",
+      "language": "mathematics"
+    },
+    {
+      "tex": "$h$",
+      "language": "mathematics"
+    },
+    {
+      "tex": "$N_x=0$",
+      "language": "mathematics"
+    },
+    {
+      "tex": "$N_y=1$",
+      "language": "mathematics"
+    }
+  ],
+  "regenerate": [
+    "PATH=/Library/TeX/texbin:$PATH sh note-apps/susy-qm/figure-sources/build.sh morse-saddle"
+  ],
+  "relation": "At a 2D saddle, the negative Hessian direction is occupied, so the local state is a one-form dy. Curves are one-dimensional sections h(x,0) and h(0,y), not quantum potentials.",
+  "inspection": {
+    "standalone": "Final light/dark SVGs rasterized at540/320px; labels moved off axes; theme-specific surface and actual outlined TeX inspected.",
+    "independent_visual": "reviews/susy-qm/saddle-simplification-20261107/visual-review.md: PASS for direction and occupancy attachment at both widths.",
+    "final_embedded": "Actual browser layout not newly certified; shared source/build and served-asset checks recorded separately."
+  }
+}

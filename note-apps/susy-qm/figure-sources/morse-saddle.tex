@@ -1,0 +1,28 @@
+\def\pgfsysdriver{pgfsys-dvisvgm.def}
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{amsmath}
+\input{figure-theme.tex}
+\usetikzlibrary{arrows.meta,backgrounds}
+\colorlet{positive}{FigureBlue}
+\colorlet{negative}{FigureRed}
+\begin{document}
+\begin{tikzpicture}[color=FigureForeground,>=Stealth,font=\normalsize,line width=.9pt,background rectangle/.style={fill=FigurePaper},show background rectangle]
+  % Two perpendicular one-dimensional sections of h=(x^2-y^2)/2.
+  \begin{scope}[xshift=0cm]
+    \draw[->,FigureMuted] (-1.7,0)--(1.8,0) node[right,FigureForeground] {$x$};
+    \draw[->,FigureMuted] (0,-1.4)--(0,1.85) node[above,FigureForeground] {$h$};
+    \draw[positive,line width=1.5pt,domain=-1.65:1.65,samples=70]
+      plot (\x,{.52*\x*\x});
+    \fill (0,0) circle (2pt);
+    \node[positive] at (-.85,-.85) {$N_x=0$};
+  \end{scope}
+  \begin{scope}[xshift=5.2cm]
+    \draw[->,FigureMuted] (-1.7,0)--(1.8,0) node[right,FigureForeground] {$y$};
+    \draw[->,FigureMuted] (0,-1.85)--(0,1.35) node[above,FigureForeground] {$h$};
+    \draw[negative,line width=1.5pt,domain=-1.65:1.65,samples=70]
+      plot (\x,{-.52*\x*\x});
+    \fill (0,0) circle (2pt);
+    \node[negative] at (.90,.85) {$N_y=1$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

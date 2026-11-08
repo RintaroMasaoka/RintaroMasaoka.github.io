@@ -1,0 +1,61 @@
+---
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true, output: 'html' });
+const panels = [
+  { closed: false, title: String.raw`\text{Before auxiliary trace}`, space: String.raw`\widehat{\mathcal F}_p` },
+  { closed: true, title: String.raw`\text{After auxiliary trace}`, space: String.raw`\mathcal F_p` },
+];
+---
+<figure id="quantum-transfer-trace" class="transfer-trace-figure" aria-label="Algebraic wiring diagram. Before the auxiliary trace, the twisted monodromy has open auxiliary and CFT input and output lines. After summing the auxiliary diagonal indices, only the auxiliary line closes. The CFT line remains open, giving an operator from the fixed Fock sector to itself.">
+  <div class="trace-panels">
+    {panels.map(({ closed, title, space }) => (
+      <div class="trace-panel">
+        <div class="panel-title" set:html={tex(title)} />
+        <div class="trace-diagram">
+          <svg viewBox="0 0 350 220" aria-hidden="true">
+            <defs><marker id={closed ? 'qtrace-closed-arrow' : 'qtrace-open-arrow'} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" /></marker></defs>
+            {closed ? <path class="auxiliary-wire" d="M245 75H286V35H64V75H105" /> : <>
+              <path class="auxiliary-wire" d="M25 75H105" />
+              <path class="auxiliary-wire" d="M245 75H325" marker-end="url(#qtrace-open-arrow)" />
+            </>}
+            <path class="state-wire" d="M25 155H105" />
+            <path class="state-wire" d="M245 155H325" marker-end={closed ? 'url(#qtrace-closed-arrow)' : 'url(#qtrace-open-arrow)'} />
+            <rect class="operator-box" x="105" y="55" width="140" height="120" rx="5" />
+          </svg>
+          {!closed && <>
+            <div class="label aux-input" set:html={tex(String.raw`\mathbb C^2`)} />
+            <div class="label aux-output" set:html={tex(String.raw`\mathbb C^2`)} />
+          </>}
+          {closed && <div class="label trace-sum" set:html={tex(String.raw`\displaystyle\sum_{r=1}^{2}(\cdots)_{rr}`)} />}
+          <div class="label operator-label" set:html={tex(String.raw`\widehat{\mathcal M}(0)\,\widehat{\mathcal M}(\lambda)`)} />
+          <div class="label state-input" set:html={tex(space)} />
+          <div class="label state-output" set:html={tex(space)} />
+          <div class="label result" set:html={tex(closed ? String.raw`\mathbf T(\lambda):\mathcal F_p\longrightarrow\mathcal F_p` : String.raw`\mathbb C^2\otimes\widehat{\mathcal F}_p\longrightarrow\mathbb C^2\otimes\widehat{\mathcal F}_p`)} />
+        </div>
+      </div>
+    ))}
+  </div>
+  <figcaption>線は演算子の入力と出力を表す模式図である。上の補助空間の添字だけを閉じて和を取り、下のCFT状態への作用は残る。トレース後の演算子は固定した <span set:html={tex(String.raw`\mathcal F_p`)} /> を保つ。</figcaption>
+</figure>
+<style>
+  .transfer-trace-figure{margin:1.7rem 0;color:var(--ink)}
+  .trace-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:740px;margin:auto}
+  .trace-panel{min-width:0}
+  .panel-title{text-align:center;font-size:.94rem;line-height:1.6}
+  .trace-diagram{position:relative;width:100%;aspect-ratio:350/220}
+  svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .auxiliary-wire,.state-wire{stroke:currentColor;fill:none;stroke-width:1.7;vector-effect:non-scaling-stroke}
+  .auxiliary-wire{stroke-dasharray:5 3}
+  .operator-box{stroke:currentColor;stroke-width:1.3;fill:var(--surface);vector-effect:non-scaling-stroke}
+  marker path{fill:currentColor}
+  .label{position:absolute;transform:translate(-50%,-50%);text-align:center;line-height:1.2;white-space:nowrap;font-size:.91rem}
+  .aux-input{left:15%;top:22%}.aux-output{left:85%;top:22%}
+  .trace-sum{left:50%;top:5%;font-size:.83rem}
+  .operator-label{left:50%;top:52%;font-size:.85rem}
+  .state-input{left:16%;top:83%}.state-output{left:84%;top:83%}
+  .result{left:50%;top:98%;font-size:.82rem}
+  figcaption{font-size:.86rem;line-height:1.8;color:var(--muted);margin-top:.8rem}
+  @media(max-width:600px){.trace-panels{grid-template-columns:1fr;max-width:350px;gap:1.2rem}}
+</style>

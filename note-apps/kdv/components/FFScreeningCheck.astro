@@ -1,0 +1,23 @@
+---
+import source from '../../../public/notes/KdV/ff-screening-check.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<section id="ff-screening-check" data-ff-screening-check aria-label="Exact finite screening calculation">
+  <p>Choose a density weight and solve its unknown coefficient by comparing the residue with a charged total derivative. Weight four uses the neutral-on-vertex residue; weight six uses the screening acting on a local state. Both tests impose vanishing modulo a derivative.</p>
+  <p>In weight six, x<sub>n</sub> denotes the local state–field variable ∂<sub>w</sub><sup>n−1</sup>j/(n−1)!, not a Fourier mode. Cubic Virasoro normal products are right nested. The conversion to the project field uses w = ix and requires c ≠ 0. These finite checks do not establish the infinite family.</p>
+  <form class="screening-controls">
+    <label>Density weight <select name="weight" aria-label="Density weight"><option value="4">4 (I3)</option><option value="6" selected>6 (I5)</option></select></label>
+    <label>Charge parameter b <select name="charge" aria-label="Charge parameter b"><option value="symbolic" selected>Symbolic</option><option value="3/2">3/2</option><option value="5/3">5/3</option></select></label>
+    <button type="submit">Run</button><button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p role="status" aria-live="polite">Solve the screening condition for the selected density. Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <details><summary>Source code (Python)</summary><CodeBlock language="python"><code data-source>{source}</code></CodeBlock><a href="/notes/KdV/ff-screening-check.py" download data-download>Download source</a></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+</section>
+<style>
+.screening-controls{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .35rem}.screening-controls label{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+.screening-controls button,.screening-controls select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .6rem;min-height:44px}.screening-controls button{cursor:pointer}.screening-controls button:disabled{opacity:.6;cursor:wait}[role="status"]{font-size:.85em;color:var(--muted)}[hidden]{display:none}
+</style>
+<script>import {initFFScreeningCheck} from '../scripts/ff-screening-check';initFFScreeningCheck();</script>

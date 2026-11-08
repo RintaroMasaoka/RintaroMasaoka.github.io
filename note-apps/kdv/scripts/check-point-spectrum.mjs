@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {pointCoupling,pointEnergy,pointProfile} from '../visuals/point-spectrum.js';
+import {pointCoupling,pointEnergy,pointProfile,joinedWaveRange} from '../visuals/point-spectrum.js';
 for(const E of [-1.75,-1.5,-1.25,-1,-.75,-.5,-.25]){
  const delta=pointCoupling(E),f=x=>pointProfile(E,x);
  assert.ok(Math.abs(pointEnergy(delta)-E)<1e-12,'inverse energy/coupling');
@@ -20,7 +20,16 @@ for(const E of [-1.75,-1.5,-1.25,-1,-.75,-.5,-.25]){
 assert.ok(Math.abs((pointEnergy(1e-5)-pointEnergy(-1e-5))/2e-5-.5)<1e-10);
 console.log('Point potential: ODE, derivative jump, energy inversion, and norm response verified at seven energies.');
 
-// Horizontal energy-response domain is fixed; vertical fitting has its own check.
+// The joined-wave scale covers every slider state without moving the value 1.
+for(let j=0;j<=1500;j++){
+ const energy=-1.75+j*.001;
+ for(let i=0;i<=400;i++){
+  const value=pointProfile(energy,4*i/400);
+  assert.ok(value>=joinedWaveRange[0]&&value<=joinedWaveRange[1],'joined wave fits fixed vertical range');
+ }
+}
+
+// Horizontal energy-response domain is fixed.
 for(let j=0;j<=1500;j++){
  const delta=pointCoupling(-1.75+j*.001);
  assert.ok(delta>=-1.25&&delta<=3.25,'energy-response marker fits horizontal axis');

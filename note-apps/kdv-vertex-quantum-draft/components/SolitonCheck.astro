@@ -1,0 +1,21 @@
+---
+import source from '../../../public/notes/kdv-vertex-quantum-draft/soliton-check.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<section id="soliton-check" data-soliton-check aria-label="Exact finite soliton calculation">
+  <form class="soliton-controls">
+    <label>Kappa values <input name="kappa" aria-label="Increasing positive kappa values" value="1,2" required /></label>
+    <label>A values <input name="amplitudes" aria-label="Positive A values" value="1,1" required /></label>
+    <button type="submit">Run</button><button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p role="status" aria-live="polite">One to four comma-separated positive integers or fractions. Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <details><summary>Source code (Python)</summary><CodeBlock language="python"><code data-source>{source}</code></CodeBlock><a href="/notes/kdv-vertex-quantum-draft/soliton-check.py" download>Download source</a></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+</section>
+<style>
+.soliton-controls{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .35rem}.soliton-controls label{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+.soliton-controls button,.soliton-controls input{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .6rem;min-height:44px}.soliton-controls input{width:9rem;max-width:100%}.soliton-controls button{cursor:pointer}.soliton-controls button:disabled{opacity:.6;cursor:wait}[role="status"]{font-size:.85em;color:var(--muted)}[hidden]{display:none}
+</style>
+<script>import {initSolitonCheck} from '../scripts/soliton-check';initSolitonCheck();</script>

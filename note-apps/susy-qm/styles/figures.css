@@ -1,0 +1,26 @@
+/* SUSY source-figure variants; reader chrome belongs to StudyNoteLayout. */
+#manuscript section,#fokker-planck-derivation{scroll-margin-top:85px}
+/* Preserve the small diagrams' label size instead of their TeX page dimensions. */
+#manuscript img[data-figure="angular-defect"]{width:760px;max-width:100%;height:auto}
+#manuscript img[data-figure="holonomy"],#manuscript img[data-figure="holonomy-mesh"],#manuscript img[data-figure="paired-spectrum"]{width:520px}
+#manuscript img[data-figure="morse-saddle"]{width:540px}
+
+/* Follow the explicit reader theme, including when it differs from the OS preference. */
+#manuscript .figure-dark{display:none}
+:root.dark #manuscript .figure-light{display:none}
+:root.dark #manuscript .figure-dark{display:block}
+@media print{#manuscript .figure-light,:root.dark #manuscript .figure-light{display:block}#manuscript .figure-dark,:root.dark #manuscript .figure-dark{display:none}}
+
+#manuscript .figure-mobile,:root.dark #manuscript .figure-mobile{display:none}
+@media(max-width:600px){
+  #manuscript .figure-desktop,:root.dark #manuscript .figure-desktop{display:none}
+  #manuscript .figure-mobile.figure-light{display:block}
+  :root.dark #manuscript .figure-mobile.figure-light{display:none}
+  :root.dark #manuscript .figure-mobile.figure-dark{display:block}
+}
+@media print{#manuscript .figure-mobile,:root.dark #manuscript .figure-mobile{display:none}#manuscript .figure-desktop.figure-light,:root.dark #manuscript .figure-desktop.figure-light{display:block}}
+
+#manuscript img[data-figure="holonomy-cuts"]{width:760px;max-width:100%;height:auto}
+@media(max-width:600px){#manuscript img[data-figure="angular-defect"]{width:480px}#manuscript img[data-figure="holonomy-cuts"]{width:520px}}
+
+#manuscript img[data-figure="small-loop"]{width:620px;max-width:100%;height:auto}

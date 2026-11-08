@@ -1,22 +1,53 @@
 ---
+import FieldTheoryBody from '../../kdv-vertex-quantum-draft/components/DraftBody.astro';
+import { prepareFieldTheoryChapter, insertFieldTheoryBeforeReferences } from '../scripts/field-theory.mjs';
+import StudyNoteLayout from '../../../src/layouts/StudyNoteLayout.astro';
+import { chapterPage } from '../scripts/chapter-pages.mjs';
 import { addHeadingAliases } from '../scripts/headings.mjs';
+const { note, chapterId, headings, landing } = Astro.props;
 let html = await Astro.slots.render('default');
 const chapter = await Astro.slots.render('glm');
 const chapterPattern = /<div\s+data-chapter-slot=["']glm["']\s*>\s*<\/div>/;
 if (!chapterPattern.test(html)) throw new Error('Missing KdV GLM chapter slot');
 html = html.replace(chapterPattern, () => chapter);
-for (const name of ['traveling', 'collision', 'breakup', 'bound-states', 'determinant', 'scattering-intro', 'bound-tail-intro', 'dressing']) {
+for (const name of ['traveling', 'collision', 'breakup', 'bound-states', 'determinant', 'scattering-intro', 'bound-tail-intro', 'dressing', 'formal-square-root', 'formal-commutator']) {
   const visual = await Astro.slots.render(name);
   const pattern = new RegExp(`<div\\s+data-extra-visual=["']${name}["']\\s*>\\s*</div>`);
   if (!pattern.test(html)) throw new Error(`Missing KdV extra visual slot: ${name}`);
   html = html.replace(pattern, () => visual);
 }
-for (const name of ['contour', 'reconstruction', 'dyson-domain', 'matching', 'joined-wave', 'jost-intro']) {
+for (const name of ['contour', 'reconstruction', 'matching', 'joined-wave', 'jost-intro', 'imaginary-jost']) {
   const visual = await Astro.slots.render(name);
   const pattern = new RegExp(`<div\\s+data-visual-slot=["']${name}["']\\s*>\\s*</div>`);
   if (!pattern.test(html)) throw new Error(`Missing KdV visual slot: ${name}`);
   html = html.replace(pattern, () => visual);
 }
+const adoptedHeadings = [];
+let fieldTheoryHtml = '';
+for (const id of ['quantization', 'w3']) {
+  const chapter = note.chapters.find(chapter => chapter.id === id);
+  const prepared = prepareFieldTheoryChapter(await Astro.slots.render(id), chapter);
+  fieldTheoryHtml += prepared.html;
+  adoptedHeadings.push(...prepared.headings);
+}
+html = insertFieldTheoryBeforeReferences(html, fieldTheoryHtml);
 html = addHeadingAliases(html);
+const page = chapterPage(html, note, chapterId, [...headings, ...adoptedHeadings]);
 ---
-<Fragment set:html={html} />
+<StudyNoteLayout note={note} activeChapterId={chapterId} headings={page.headings} html={undefined} numbering="legacy" equationIndex={page.equationIndex}>
+  <FieldTheoryBody html={page.html} />
+  <Fragment slot="widgets">
+    <slot name="widgets" />
+    {landing && <>
+      <script type="application/json" id="kdv-anchor-routes" set:html={JSON.stringify(page.anchorRoutes).replace(/</g, '\\u003c')} />
+      <script is:inline>
+        // Resolve links shared when all chapters lived at this URL.
+        if (location.hash) {
+          let id; try { id = decodeURIComponent(location.hash.slice(1)); } catch {}
+          const routes = JSON.parse(document.getElementById('kdv-anchor-routes').textContent);
+          if (id && !document.getElementById(id) && routes[id]) location.replace(routes[id] + location.hash);
+        }
+      </script>
+    </>}
+  </Fragment>
+</StudyNoteLayout>

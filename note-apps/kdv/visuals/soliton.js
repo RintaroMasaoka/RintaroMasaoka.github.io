@@ -1,8 +1,14 @@
-const profile = (x, c, t) => c / (2 * Math.cosh(Math.sqrt(c) * (x - c * t) / 2) ** 2);
+export const solitonConfig = Object.freeze({
+  velocityMin: -1, velocityMax: -.25, velocityStep: .01, velocityDefault: -.5,
+  timeMin: -8, timeMax: 8, timeStep: .01, timeDefault: 0,
+  xMin: -12, xMax: 12,
+});
+export const solitonProfile = (x, c, t) => -2 * c / Math.cosh(Math.sqrt(-c) * (x - c * t)) ** 2;
 const curvePath = (c, t) => Array.from({ length: 401 }, (_, i) => {
-  const x = -12 + i * 24 / 400;
-  const px = 62 + (x + 12) * 500 / 24;
-  const py = 266 - profile(x, c, t) * (210 / 2.2);
+  const {xMin,xMax}=solitonConfig;
+  const x = xMin + i * (xMax-xMin) / 400;
+  const px = 62 + (x-xMin) * 500 / (xMax-xMin);
+  const py = 266 - solitonProfile(x, c, t) * (210 / 2.2);
   return `${i ? 'L' : 'M'}${px.toFixed(2)},${py.toFixed(2)}`;
 }).join(' ');
 
@@ -26,8 +32,8 @@ export function initTravelingSoliton() {
     cInput.addEventListener('input', update);
     tInput.addEventListener('input', update);
     figure.querySelector('[data-soliton-reset]').addEventListener('click', () => {
-      cInput.value = '2';
-      tInput.value = '0';
+      cInput.value = String(solitonConfig.velocityDefault);
+      tInput.value = String(solitonConfig.timeDefault);
       update();
       cInput.focus();
     });

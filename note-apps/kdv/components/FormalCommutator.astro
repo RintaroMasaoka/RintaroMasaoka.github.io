@@ -1,0 +1,42 @@
+---
+import source from '../../../public/notes/KdV/formal-commutator.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+import { createRequire } from 'node:module';
+const require = createRequire(`${process.cwd()}/package.json`);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (s: string) => katex.renderToString(s, {throwOnError: true});
+---
+<details id="formal-commutator-program" data-formal-commutator>
+  <summary>Check the commutator</summary>
+  <p>積の微分則で作用素の積を展開し、右側に作用する微分の次数ごとに係数をまとめる。Run を押すと、各次数の係数と交換子が得られる。標準の係数では微分項が消え、関数による掛け算だけが残る。係数を変えて、その打ち消し合いを比較できる。</p>
+  <form class="commutator-controls">
+    <label>Coefficient of <span set:html={tex('u\\partial')} />
+      <select name="a" aria-label="Coefficient of u partial">
+        <option value="-3/2" selected>−3/2 (KdV)</option><option value="-1">−1</option><option value="0">0</option>
+      </select>
+    </label>
+    <label>Coefficient of <span set:html={tex('u_x')} />
+      <select name="b" aria-label="Coefficient of u x">
+        <option value="-3/4" selected>−3/4 (KdV)</option><option value="-1/2">−1/2</option><option value="0">0</option>
+      </select>
+    </label>
+    <button type="submit">Run</button>
+    <button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p class="commutator-status" role="status" aria-live="polite">Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Commutator calculation output" hidden></div>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+  <details><summary>Source code (Python)</summary><CodeBlock language="python"><code data-source>{source}</code></CodeBlock>
+    <a href="/notes/KdV/formal-commutator.py" download>Download source</a>
+  </details>
+</details>
+<style>
+.commutator-controls{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin:1rem 0 .35rem}
+.commutator-controls label{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.commutator-controls button,.commutator-controls select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .75rem;min-height:44px}
+.commutator-controls button{cursor:pointer}.commutator-controls button:disabled{opacity:.6;cursor:wait}
+.commutator-status{font-size:.85em;color:var(--muted);margin:.25rem 0 .75rem!important}
+[hidden]{display:none}
+</style>
+<script>import {initFormalCommutator} from '../scripts/formal-commutator';initFormalCommutator();</script>

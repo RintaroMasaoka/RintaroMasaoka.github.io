@@ -1,0 +1,67 @@
+---
+import source from '../../../public/notes/susy-qm/pfaffian-calculation.mjs?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<details id="pfaffian-calculation" data-pfaffian-calculation>
+  <summary>Grassmann / Pfaffian calculation</summary>
+  <form class="pfaffian-controls">
+    <label>Dimension <select name="dimension">{[2,4,6].map(d => <option value={d}>{d}</option>)}</select></label>
+    <label>Curvature scale <select name="curvature">{[1,0,-1].map(k => <option value={k}>{k}</option>)}</select></label>
+    <label>Pattern <select name="pattern"><option value="constant">Constant curvature</option><option value="diagonal">Diagonal curvature</option><option value="blocks">Separate planes</option></select></label>
+    <button type="submit">Run</button>
+  </form>
+  <p data-status role="status" aria-live="polite">Choose a dimension and curvature, then run the exact calculation.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <details><summary>Source code (JavaScript)</summary><CodeBlock language="javascript"><code data-source>{source + "\n\ncalculate(2, 'constant', 1);\n"}</code></CodeBlock></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+</details>
+<style>
+  .pfaffian-controls{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;margin:1rem 0}
+  .pfaffian-controls label{display:flex;gap:.5rem;align-items:center}
+  .pfaffian-controls select,.pfaffian-controls button{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;min-height:44px;padding:.4rem .65rem}
+  .pfaffian-controls button{cursor:pointer}
+  [data-status]{font-size:.85em;color:var(--muted)}
+</style>
+<script>
+  import source from '../../../public/notes/susy-qm/pfaffian-calculation.mjs?raw';
+  import {renderMathOutput, setCodeBlockSource} from '../../../src/scripts/study-note-code';
+  for (const root of document.querySelectorAll<HTMLElement>('[data-pfaffian-calculation]')) {
+    const form = root.querySelector<HTMLFormElement>('form')!;
+    let generation = 0;
+    form.addEventListener('change', () => {
+      generation++;
+      root.querySelector<HTMLElement>('[data-output]')!.hidden = true;
+      root.querySelector<HTMLDetailsElement>('[data-raw-output]')!.hidden = true;
+      const d = Number((form.elements.namedItem('dimension') as HTMLSelectElement).value);
+      const k = Number((form.elements.namedItem('curvature') as HTMLSelectElement).value);
+      setCodeBlockSource(root.querySelector('[data-source]')!, source + `\n\ncalculate(${d}, '${(form.elements.namedItem("pattern") as HTMLSelectElement).value}', ${k});\n`);
+      root.querySelector<HTMLElement>('[data-status]')!.textContent = 'Inputs changed. Run to calculate the new result.';
+    });
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const current = ++generation;
+      const status = root.querySelector<HTMLElement>('[data-status]')!;
+      const output = root.querySelector<HTMLElement>('[data-output]')!;
+      const button = form.querySelector<HTMLButtonElement>('button')!;
+      button.disabled = true; status.textContent = 'Computing…';
+      try {
+        const d = Number((form.elements.namedItem('dimension') as HTMLSelectElement).value);
+        const k = Number((form.elements.namedItem('curvature') as HTMLSelectElement).value);
+        const pattern = (form.elements.namedItem('pattern') as HTMLSelectElement).value;
+        const moduleUrl = '/notes/susy-qm/pfaffian-calculation.mjs';
+        const {calculate} = await import(/* @vite-ignore */ moduleUrl);
+        const result = calculate(d, pattern, k);
+        if (current !== generation) return;
+        setCodeBlockSource(root.querySelector('[data-source]')!, source + `\n\ncalculate(${d}, '${(form.elements.namedItem("pattern") as HTMLSelectElement).value}', ${k});\n`);
+        await renderMathOutput(output, result.latex);
+        if (current !== generation) return;
+        setCodeBlockSource(root.querySelector('[data-output-source]')!, result.latex);
+        output.hidden = false; root.querySelector<HTMLDetailsElement>('[data-raw-output]')!.hidden = false;
+        status.textContent = result.difference === 0 ? 'Complete. The exact Grassmann integral and Pfaffian agree.' : 'Complete. A coefficient difference was found.';
+      } catch (error) {
+        if (current === generation) { output.hidden = true; status.textContent = `Calculation failed: ${error instanceof Error ? error.message : String(error)}. Run to retry.`; }
+      } finally { button.disabled = false; }
+    });
+  }
+</script>

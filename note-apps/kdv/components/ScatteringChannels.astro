@@ -1,7 +1,7 @@
 ---
 import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
-const require = createRequire(new URL('../../../package.json', import.meta.url));
+const require = createRequire(`${process.cwd()}/package.json`);
 const katex = createRequire(require.resolve('rehype-katex'))('katex');
 const tex = (s: string) => katex.renderToString(s, { throwOnError: true });
 const channels = [
@@ -45,8 +45,8 @@ const channels = [
         term.setAttribute('x',String(mid-80));
         const y=row*112+80;
         const path=Array.from({length:161},(_,i)=>{
-          const s=i/160, envelope=Math.sin(Math.PI*s)**2;
-          return `${i?'L':'M'}${(from+(to-from)*s).toFixed(2)},${(y-10*envelope*Math.sin(6*Math.PI*s)).toFixed(2)}`;
+          const s=i/160;
+          return `${i?'L':'M'}${(from+(to-from)*s).toFixed(2)},${(y-10*Math.sin(6*Math.PI*s)).toFixed(2)}`;
         }).join(' ');
         svg.querySelector(`[data-channel-wave="${name}"]`)!.setAttribute('d',path);
         const backward=name==='reflected';

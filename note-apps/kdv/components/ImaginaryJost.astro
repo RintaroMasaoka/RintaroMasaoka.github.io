@@ -1,0 +1,69 @@
+---
+import FigureViewport from './FigureViewport.astro';
+import { createRequire } from 'node:module';
+const require = createRequire(`${process.cwd()}/package.json`);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
+
+// Qualitative sketches, not solutions for a particular potential. The identical
+// right segment records the common right normalization; only the left behavior
+// differs. Coordinates carry no calibrated scale.
+const cases = [
+  {
+    id: 'generic',
+    condition: '\\frac{1}{a(i\\kappa)}\\ne0',
+    left: '\\sim\\left|\\frac{1}{a(i\\kappa)}\\right|e^{-\\kappa x}',
+    curve: 'M24 76 C33 108 46 133 67 152 C91 174 117 151 143 143 C171 134 191 165 210 180',
+    leftLabelX: 56,
+    leftLabelY: 92,
+    leftLabelWidth: 180,
+    description: 'The magnitude of the right Jost solution grows toward minus infinity when the growing coefficient 1/a(i kappa) is nonzero. It decays as exp(-kappa x) at plus infinity.',
+  },
+  {
+    id: 'bound',
+    condition: '\\frac{1}{a(i\\kappa)}=0\\quad\\text{Bound state}',
+    left: '\\propto e^{\\kappa x}',
+    curve: 'M24 207 C48 206 71 201 91 186 C113 169 128 121 153 115 C176 109 191 161 210 180',
+    leftLabelX: 18,
+    leftLabelY: 145,
+    leftLabelWidth: 114,
+    description: 'When the growing coefficient 1/a(i kappa) vanishes, the same right-normalized Jost solution also decays at minus infinity, proportionally to exp(kappa x). It is a bound state.',
+  },
+];
+const rightTail = ' C231 194 261 204 306 207';
+---
+<figure id="kdv-imaginary-jost" class="imaginary-jost" aria-labelledby="kdv-imaginary-jost-caption">
+  <div class="imaginary-jost-panels">
+    {cases.map(panel => <div class="imaginary-jost-panel">
+      <FigureViewport width={330}>
+        <svg width="330" height="248" role="img" aria-labelledby={`kdv-imaginary-jost-${panel.id}-title kdv-imaginary-jost-${panel.id}-desc`}>
+          <title id={`kdv-imaginary-jost-${panel.id}-title`}>{panel.id === 'bound' ? 'Vanishing growing coefficient: bound state' : 'Nonzero growing coefficient'}</title>
+          <desc id={`kdv-imaginary-jost-${panel.id}-desc`}>{panel.description} This is a schematic magnitude sketch, with no quantitative scale.</desc>
+          <foreignObject x="0" y="0" width="330" height="40"><div class="condition" set:html={tex(panel.condition)} /></foreignObject>
+          <foreignObject x="74" y="43" width="190" height="30"><div class="field" set:html={tex('|f_+(x,i\\kappa)|')} /></foreignObject>
+          <path class="axis" d="M16 211 H317 M312 207 L317 211 L312 215" />
+          <path class="wave" d={panel.curve + rightTail} />
+          <foreignObject x={panel.leftLabelX} y={panel.leftLabelY} width={panel.leftLabelWidth} height="43"><div class="tail left-tail" set:html={tex(panel.left)} /></foreignObject>
+          <foreignObject x="220" y="164" width="106" height="34"><div class="tail" set:html={tex('\\sim e^{-\\kappa x}')} /></foreignObject>
+          <foreignObject x="0" y="216" width="131" height="29"><div class="end" set:html={tex('x\\to-\\infty')} /></foreignObject>
+          <foreignObject x="198" y="216" width="131" height="29"><div class="end" set:html={tex('x\\to+\\infty')} /></foreignObject>
+        </svg>
+      </FigureViewport>
+    </div>)}
+  </div>
+  <figcaption id="kdv-imaginary-jost-caption">右 Jost 解 <span set:html={tex('f_+(x,i\\kappa)')} /> の模式図。縦方向は解の絶対値を表す。</figcaption>
+</figure>
+<style>
+  .imaginary-jost{width:100%;margin:1.5rem auto;color:var(--ink);scroll-margin-top:78px}
+  .imaginary-jost-panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px}
+  .imaginary-jost-panel{min-width:0}
+  .imaginary-jost svg{display:block;overflow:visible}
+  .condition,.field,.tail,.end{display:flex;align-items:center;justify-content:center;width:100%;height:100%;white-space:nowrap;line-height:1}
+  .condition{font-size:17px}.field{font-size:19px}.tail{font-size:17px;color:var(--accent)}.end{font-size:16px;color:var(--muted)}
+  .left-tail{justify-content:flex-start}
+  .axis{fill:none;stroke:var(--muted);stroke-width:1;opacity:.65}
+  .wave{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .imaginary-jost :global(.katex){color:inherit}
+  .imaginary-jost figcaption{margin-top:10px;color:var(--muted);font-size:.88rem;line-height:1.65}
+  @media(max-width:720px){.imaginary-jost-panels{grid-template-columns:minmax(0,1fr);gap:12px}}
+</style>

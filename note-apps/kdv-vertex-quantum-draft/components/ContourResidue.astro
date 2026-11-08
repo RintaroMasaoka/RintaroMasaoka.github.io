@@ -1,0 +1,52 @@
+---
+import {createRequire} from 'node:module';
+const require = createRequire(import.meta.url);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, {throwOnError: true, output: 'html'});
+---
+<figure class="contour-figure">
+  <div class="contour-diagram" role="img" aria-label="Schematic contour deformation. A counterclockwise outer contour minus a counterclockwise inner contour encloses the insertion B between them. Reversing the inner contour gives the difference, which deforms to a small counterclockwise contour around B. There are no other insertions between the contours.">
+    <div class="contour-panel" aria-hidden="true">
+      <div class="panel-name" set:html={tex(String.raw`\text{Two contour orders}`)} />
+      <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="contour-difference-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="currentColor" /></marker></defs>
+        <circle cx="95" cy="110" r="84" class="contour" />
+        <circle cx="95" cy="110" r="36" class="contour negative" />
+        <path d="M 177.7 124.6 A 84 84 0 0 0 173.9 81.3" class="contour" marker-end="url(#contour-difference-arrow)" />
+        <path d="M 61.2 122.3 A 36 36 0 0 1 61.2 97.7" class="contour negative" marker-end="url(#contour-difference-arrow)" />
+        <circle cx="153" cy="110" r="4" fill="currentColor" />
+        <foreignObject x="74" y="3" width="80" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="math-label" set:html={tex('AB')} /></foreignObject>
+        <foreignObject x="64" y="98" width="62" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="math-label" set:html={tex('-BA')} /></foreignObject>
+        <foreignObject x="171" y="51" width="76" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="math-label" set:html={tex('A(y)')} /></foreignObject>
+        <foreignObject x="112" y="116" width="78" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="math-label" set:html={tex('B(x)')} /></foreignObject>
+      </svg>
+    </div>
+    <div class="contour-map" aria-hidden="true">
+      <span set:html={tex(String.raw`\text{deform}`)} />
+      <span class="map-arrow" set:html={tex(String.raw`\longrightarrow`)} />
+    </div>
+    <div class="contour-panel" aria-hidden="true">
+      <div class="panel-name" set:html={tex(String.raw`\text{Small contour}`)} />
+      <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="contour-local-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="currentColor" /></marker></defs>
+        <circle cx="153" cy="110" r="26" class="contour" />
+        <path d="M 178.6 114.5 A 26 26 0 0 0 177.4 101.1" class="contour" marker-end="url(#contour-local-arrow)" />
+        <circle cx="153" cy="110" r="4" fill="currentColor" />
+        <foreignObject x="183" y="69" width="76" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="math-label" set:html={tex('A(y)')} /></foreignObject>
+        <foreignObject x="125" y="144" width="78" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="math-label" set:html={tex('B(x)')} /></foreignObject>
+        <foreignObject x="10" y="185" width="240" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="math-label" set:html={tex(String.raw`\text{Simple-pole coefficient}`)} /></foreignObject>
+      </svg>
+    </div>
+  </div>
+  <figcaption>Schematic contour deformation. The inner contour is reversed in the difference; with no other insertion between the contours, only a small contour around <span set:html={tex('B(x)')} /> remains.</figcaption>
+</figure>
+<style>
+  .contour-figure{margin:1.5rem 0;color:var(--ink)}
+  .contour-diagram{display:grid;grid-template-columns:minmax(0,1fr) 62px minmax(0,1fr);align-items:center;max-width:650px;margin:auto}
+  .contour-panel{min-width:0}.panel-name{text-align:center;font-size:.9rem;line-height:1.5}
+  svg{display:block;width:100%;height:auto;overflow:visible}.contour{fill:none;stroke:currentColor;stroke-width:1.8}.negative{stroke-dasharray:5 4}
+  .math-label{display:flex;align-items:center;justify-content:center;height:28px;font-size:16px;color:inherit}
+  .contour-map{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.8rem}.map-arrow{font-size:1.25rem}
+  figcaption{font-size:.82rem;line-height:1.6;color:var(--muted);max-width:650px;margin:.5rem auto 0}
+  @media(max-width:560px){.contour-diagram{grid-template-columns:1fr;max-width:280px}.contour-map{height:80px;gap:8px;padding-top:4px;box-sizing:border-box}.map-arrow{transform:rotate(90deg)}.panel-name{font-size:.9rem}figcaption{max-width:330px}}
+</style>

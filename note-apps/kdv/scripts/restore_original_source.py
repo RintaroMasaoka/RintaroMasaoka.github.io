@@ -399,14 +399,16 @@ def convert_fragment(tex: str, labels: dict[str, str], figure_map: dict[str, str
 
 def use_equation_keys(text: str) -> str:
     """Translate archive equation identities; display numbers belong to the renderer."""
+    # Parenthesized journal issue numbers in the bibliography are not equations.
+    body, separator, bibliography = text.partition("## 参考文献")
     keys = json.loads(Path(__file__).with_name("legacy-equation-keys.json").read_text())
     protected = re.compile(r"(\$\$.*?\$\$|\$[^$\n]*\$|```.*?```|`[^`]*`|\[[^\]\n]*\]\([^\n]*?\))", re.S)
-    parts = protected.split(text)
+    parts = protected.split(body)
     for i, part in enumerate(parts):
         if i % 2 == 0:
             part = re.sub(r"\((\d+(?:\.\d+)?[a-z]?)\)", lambda m: "(@" + keys[m[1]] + ")" if m[1] in keys else m[0], part)
         parts[i] = re.sub(r"\\tag\{([^}]+)\}", lambda m: r"\tag{" + keys.get(m[1], m[1]) + "}", part)
-    return "".join(parts)
+    return "".join(parts) + separator + bibliography
 
 
 def revised_sections(text: str) -> str:
@@ -417,6 +419,9 @@ def revised_sections(text: str) -> str:
         if name == "reflectionless":
             section = "<!-- kdv-reflectionless:start -->\n" + section.rstrip() + "\n<!-- kdv-reflectionless:end -->"
         text = text[:a] + section.rstrip() + "\n\n" + text[b:]
+    references = OUTPUT.parent / "sections" / "references.md"
+    if references.exists():
+        text = text[:text.index("## 参考文献")] + references.read_text(encoding="utf-8")
     return text
 
 

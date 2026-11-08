@@ -1,0 +1,9 @@
+---
+import KdvPage from '../../../../note-apps/kdv/components/KdvPage.astro';
+import config from '../../../../note-apps/kdv/note.config.json';
+export function getStaticPaths() {
+  return config.chapters.map(chapter => ({ params: { chapter: chapter.id }, props: { chapterId: chapter.id } }));
+}
+const { chapterId } = Astro.props;
+---
+<KdvPage chapterId={chapterId} />

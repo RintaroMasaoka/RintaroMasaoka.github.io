@@ -1,0 +1,53 @@
+---
+import { createRequire } from 'node:module';
+import { SX, SY, SDY } from '../visuals/green-response.js';
+const require=createRequire(new URL('../../../package.json',import.meta.url));
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
+const {initial}=Astro.props;
+const labels=[
+ {x:45,y:0,w:260,t:'\\text{Joined profile: value }1\\text{ at }0'},
+ {x:0,y:32,w:70,t:'\\text{value}'},
+ ...[0,1].map(v=>({x:0,y:SY(v)-14,w:42,t:String(v)})),
+ ...[-1,0,1].map(x=>({x:SX(x)-21,y:185,w:42,t:String(x)})),
+ {x:299,y:165,w:21,t:'x'},
+ {x:70,y:222,w:220,t:'\\text{Slope on each side}'},
+ ...[-1,0,1].map(v=>({x:0,y:SDY(v)-14,w:42,t:String(v)})),
+ ...[-1,0,1].map(x=>({x:SX(x)-21,y:389,w:42,t:String(x)})),
+ {x:299,y:369,w:21,t:'x'},
+];
+---
+<svg class="source-plot" viewBox="0 0 320 421" role="img" aria-labelledby="green-source-title green-source-desc">
+  <title id="green-source-title">A derivative jump supplies the point source</title>
+  <desc id="green-source-desc">The upper graph joins the left-decaying solid profile to the right-decaying dashed profile at value one. Below, their derivatives have separate one-sided limits at zero: a circle for the left and a square for the right. The dotted vertical segment measures right slope minus left slope, the point-source strength. At energy minus one the limits coincide and the segment vanishes.</desc>
+  <defs><clipPath id="green-source-value-clip"><rect x="52" y="51" width="248" height="131" /></clipPath><clipPath id="green-source-slope-clip"><rect x="52" y="258" width="248" height="130" /></clipPath></defs>
+  <path d="M52 51 V182 H300 M52 258 V388 H300" fill="none" stroke="var(--muted)" />
+  <path d={`M${SX(0)} 51 V182 M52 ${SY(1)} H300 M${SX(0)} 258 V388 M52 ${SDY(0)} H300`} fill="none" stroke="var(--line)" stroke-dasharray="3 5" />
+  <g clip-path="url(#green-source-value-clip)">
+    <path class="source-left" data-green-path="sourceLeft" d={initial.sourceLeft} />
+    <path class="source-right" data-green-path="sourceRight" d={initial.sourceRight} />
+  </g>
+  <circle cx={SX(0)} cy={SY(1)} r="3" fill="var(--ink)" />
+  <g clip-path="url(#green-source-slope-clip)">
+    <path class="source-left" data-green-path="derivativeLeft" d={initial.derivativeLeft} />
+    <path class="source-right" data-green-path="derivativeRight" d={initial.derivativeRight} />
+    <path data-green-jump-path d={initial.jumpPath} fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" />
+  </g>
+  <circle data-green-source-left cx={SX(0)} cy={initial.leftY} r="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.5" />
+  <rect data-green-source-right x={SX(0)-4} y={initial.rightY-4} width="8" height="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="2" />
+  {labels.map(l=><foreignObject x={l.x} y={l.y} width={l.w} height="28"><div class="source-tex" set:html={tex(l.t)} /></foreignObject>)}
+</svg>
+<div class="source-legend">
+  <span><i class="source-key-left" aria-hidden="true"></i><span set:html={tex('x<0:\\ f_-(x,-k)/f_-(0,-k)')} /></span>
+  <span><i class="source-key-right" aria-hidden="true"></i><span set:html={tex('x>0:\\ f_+(x,k)/f_+(0,k)')} /></span>
+</div>
+<style>
+.source-plot{display:block;width:320px;height:auto}
+.source-tex{display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:15px;line-height:1;height:100%;white-space:nowrap}
+.source-left{fill:none;stroke:var(--accent);stroke-width:3}
+.source-right{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-dasharray:6 4}
+.source-legend{display:grid;gap:.4rem;width:320px;font-size:13px;color:var(--ink);margin:.2rem 0 .6rem}
+.source-legend>span{display:flex;align-items:center;gap:.4rem}
+.source-key-left,.source-key-right{width:20px;flex:none;border-top:3px solid var(--accent)}
+.source-key-right{border-top:2px dashed var(--ink)}
+</style>

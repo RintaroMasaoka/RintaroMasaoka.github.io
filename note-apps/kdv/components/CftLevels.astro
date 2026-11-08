@@ -1,0 +1,70 @@
+---
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true, output: 'html' });
+const labels = {
+  energy: String.raw`\text{Cylinder energy: }\quad\Delta+N-\frac{c}{24}`,
+  level2: String.raw`N=2`,
+  level1: String.raw`N=1`,
+  level0: String.raw`N=0`,
+  state2a: String.raw`L_{-2}\lvert\Delta\rangle`,
+  state2b: String.raw`L_{-1}^{2}\lvert\Delta\rangle`,
+  state1: String.raw`L_{-1}\lvert\Delta\rangle`,
+  state0: String.raw`\lvert\Delta\rangle`,
+  mode2: String.raw`L_{-2}`,
+  mode1: String.raw`L_{-1}`,
+};
+---
+<figure id="cft-levels" class="cft-levels-figure" aria-label="The first three levels of a generic Virasoro highest-weight module. Acting with L minus one twice gives the right-hand level-two descendant; acting with L minus two once gives the left-hand descendant. Both level-two states have cylinder energy Delta plus two minus c over twenty-four.">
+  <div class="energy-label" set:html={tex(labels.energy)} />
+  <div class="level-diagram">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <marker id="cft-levels-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M0 0L10 5L0 10Z" />
+        </marker>
+      </defs>
+      <path class="level-guide" d="M20 19H94M20 53H94M20 87H94" />
+      <path class="mode-arrow" d="M76 86V55" marker-end="url(#cft-levels-arrow)" />
+      <path class="mode-arrow" d="M76 52V21" marker-end="url(#cft-levels-arrow)" />
+      <path class="mode-arrow" d="M75 87C32 87 32 60 32 21" marker-end="url(#cft-levels-arrow)" />
+    </svg>
+    <span class="label level level-2" set:html={tex(labels.level2)} />
+    <span class="label level level-1" set:html={tex(labels.level1)} />
+    <span class="label level level-0" set:html={tex(labels.level0)} />
+    <span class="label state state-2a" set:html={tex(labels.state2a)} />
+    <span class="label state state-2b" set:html={tex(labels.state2b)} />
+    <span class="label state state-1" set:html={tex(labels.state1)} />
+    <span class="label state state-0" set:html={tex(labels.state0)} />
+    <span class="state-point point-2a" aria-hidden="true" />
+    <span class="state-point point-2b" aria-hidden="true" />
+    <span class="state-point point-1" aria-hidden="true" />
+    <span class="state-point point-0" aria-hidden="true" />
+    <span class="label mode mode-2" set:html={tex(labels.mode2)} />
+    <span class="label mode mode-1-upper" set:html={tex(labels.mode1)} />
+    <span class="label mode mode-1-lower" set:html={tex(labels.mode1)} />
+  </div>
+  <figcaption>一般のVirasoro最高ウェイト表現の最初の3レベル。矢印は負のモードの作用を表す。レベル2の二つの状態は線形独立で、円筒上のエネルギーは等しい。ここで示すエネルギーは一つのカイラル成分に対応する。</figcaption>
+</figure>
+<style>
+  .cft-levels-figure{margin:1.7rem 0;color:var(--ink)}
+  .energy-label{font-size:.94rem;text-align:center;line-height:1.6}
+  .level-diagram{position:relative;max-width:540px;height:340px;margin:.4rem auto 0}
+  svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .level-guide{fill:none;stroke:var(--strong-line);stroke-width:1;stroke-dasharray:3 4;vector-effect:non-scaling-stroke}
+  .mode-arrow{fill:none;stroke:currentColor;stroke-width:1.6;vector-effect:non-scaling-stroke}
+  marker path{fill:currentColor}
+  .label{position:absolute;transform:translate(-50%,-50%);line-height:1.2;white-space:nowrap;font-size:.95rem}
+  .level{left:8%;color:var(--muted);font-size:.87rem}
+  .level-2{top:19%}.level-1{top:53%}.level-0{top:87%}
+  .state-2a{left:32%;top:11%}.state-2b{left:76%;top:11%}
+  .state-1{left:76%;top:45%}.state-0{left:76%;top:79%}
+  .state-point{position:absolute;width:6px;height:6px;border-radius:50%;background:currentColor;transform:translate(-50%,-50%)}
+  .point-2a{left:32%;top:19%}.point-2b{left:76%;top:19%}
+  .point-1{left:76%;top:53%}.point-0{left:76%;top:87%}
+  .mode-2{left:22%;top:58%}
+  .mode-1-upper{left:88%;top:36%}.mode-1-lower{left:88%;top:70%}
+  figcaption{font-size:.86rem;line-height:1.8;color:var(--muted);margin-top:.2rem}
+  @media(max-width:420px){.label{font-size:.9rem}.level{font-size:.8rem}.energy-label{font-size:.85rem}}
+</style>

@@ -1,0 +1,47 @@
+---
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true, output: 'html' });
+
+// One exact free real solution: u = 0, f(x) = exp(a*x), k = -i*a,
+// a = log(2)/(2*pi). The projection identifies only the spatial endpoints.
+const turn = 2 * Math.PI;
+const wave = Array.from({ length: 241 }, (_, index) => {
+  const x = turn * index / 240;
+  const horizontal = 180 + 115 * Math.sin(x);
+  const vertical = 155 + 55 * Math.cos(x) - 35 * Math.exp(Math.log(2) * x / turn);
+  return `${index ? 'L' : 'M'}${horizontal.toFixed(3)} ${vertical.toFixed(3)}`;
+}).join(' ');
+---
+<figure id="monodromy-transport" class="monodromy-figure" aria-label="A real solution is drawn as height over a circle. Its values at zero and two pi lie at different heights above the same spatial basepoint.">
+  <div class="monodromy-diagram">
+    <svg viewBox="0 0 400 250" aria-hidden="true">
+      <ellipse class="domain" cx="180" cy="155" rx="115" ry="55" />
+      <path class="height-guide" d="M180 210V175" />
+      <path class="wave" d={wave} />
+      <circle class="basepoint" cx="180" cy="210" r="3" />
+      <circle class="endpoint" cx="180" cy="175" r="3" />
+      <circle class="endpoint" cx="180" cy="140" r="3" />
+    </svg>
+    <div class="label initial-label" set:html={tex(String.raw`f(0)`)} />
+    <div class="label final-label" set:html={tex(String.raw`f(2\pi)`)} />
+    <div class="label basepoint-label" set:html={tex(String.raw`x=0`)} />
+  </div>
+  <figcaption>実数値の解の一例。円周からの高さが解の値を表す。</figcaption>
+</figure>
+<style>
+  .monodromy-figure{margin:1.3rem 0;color:var(--ink)}
+  .monodromy-diagram{position:relative;width:100%;max-width:400px;aspect-ratio:400/250;margin:auto}
+  svg{position:absolute;inset:0;width:100%;height:100%;color:var(--ink);overflow:visible}
+  .domain,.height-guide,.wave{stroke:currentColor;fill:none;vector-effect:non-scaling-stroke}
+  .domain{stroke-width:1.2;opacity:.55}
+  .height-guide{stroke-width:1;stroke-dasharray:2 4;opacity:.45}
+  .wave{stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .basepoint,.endpoint{fill:currentColor}
+  .label{position:absolute;transform:translateX(-50%);font-size:.95rem;line-height:1.3;white-space:nowrap}
+  .initial-label{left:37%;top:65.5%}
+  .final-label{left:57%;top:51.5%}
+  .basepoint-label{left:45%;top:89%}
+  figcaption{text-align:center;font-size:.85rem;line-height:1.7;color:var(--muted,var(--ink))}
+</style>

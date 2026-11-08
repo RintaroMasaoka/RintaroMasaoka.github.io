@@ -1,6 +1,6 @@
 ---
 import { createRequire } from 'node:module';
-const require=createRequire(new URL('../../../package.json',import.meta.url));
+const require=createRequire(`${process.cwd()}/package.json`);
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const {mode='energy'}=Astro.props;

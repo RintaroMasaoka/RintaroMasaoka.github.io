@@ -1,0 +1,20 @@
+---
+import source from '../../../public/notes/kdv-vertex-quantum-draft/miura-check.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<section id="miura-check" data-miura-check aria-label="Ordered classical Miura expansion">
+  <form class="miura-controls">
+    <label>Number of factors <select name="order" aria-label="Number of Miura factors"><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option></select></label>
+    <button type="submit">Run</button><button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p role="status" aria-live="polite">The currents sum to zero. Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <details><summary>Source code (Python)</summary><CodeBlock language="python"><code data-source>{source}</code></CodeBlock><a href="/notes/kdv-vertex-quantum-draft/miura-check.py" download data-download>Download source</a></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+</section>
+<style>
+.miura-controls{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .35rem}.miura-controls label{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+.miura-controls button,.miura-controls select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .6rem;min-height:44px}.miura-controls button{cursor:pointer}.miura-controls button:disabled{opacity:.6;cursor:wait}[role="status"]{font-size:.85em;color:var(--muted)}[hidden]{display:none}
+</style>
+<script>import {initMiuraCheck} from '../scripts/miura-check';initMiuraCheck();</script>

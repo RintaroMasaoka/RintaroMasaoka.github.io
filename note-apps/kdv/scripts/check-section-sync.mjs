@@ -3,6 +3,9 @@ import assert from 'node:assert/strict';
 import {resolve} from 'node:path';
 // Both the site build and this CLI are run from the site root.
 const full=readFileSync(resolve('note-apps/kdv/content/full.md'),'utf8');
+const introduction=readFileSync(resolve('note-apps/kdv/content/sections/introduction.md'),'utf8').trim();
+assert.equal(full.slice(0,full.indexOf('## 2.')).trim(),introduction,'Introduction differs from canonical introduction.md; update both before publication.');
+console.log('KdV introduction source and assembled reading path agree.');
 const source=readFileSync(resolve('note-apps/kdv/content/sections/scattering.md'),'utf8').trim();
 const section=full.slice(full.indexOf('### 2.4.'),full.indexOf('## 3.')).trim();
 assert.equal(section,source,'§§2.4–2.5 assembled content differs from canonical scattering.md; update both before publication.');
@@ -13,9 +16,13 @@ assert.ok(reflectionlessMatch,'Missing reflectionless composition markers.');
 assert.equal(reflectionlessMatch[1].trim(),reflectionless,'Reflectionless assembled content differs from its canonical section source.');
 console.log('KdV reflectionless source and assembled reading path agree.');
 const hierarchy=readFileSync(resolve('note-apps/kdv/content/sections/hierarchy.md'),'utf8').trim();
-assert.equal(full.slice(full.indexOf('## 4.'),full.indexOf('## 参考文献')).trim(),hierarchy,'§4 assembled content differs from canonical hierarchy.md; update both before publication.');
+assert.equal(full.slice(full.indexOf('## 4.'),full.indexOf('## 参考文献')).trim(),hierarchy,'Chapters4–5 assembled content differs from canonical hierarchy.md; update both before publication.');
 console.log('KdV hierarchy source and assembled reading path agree.');
 
 const overview=readFileSync(resolve('note-apps/kdv/content/sections/overview.md'),'utf8').trim();
 assert.equal(full.slice(full.indexOf('### 2.3.'),full.indexOf('### 2.4.')).trim(),overview,'Inverse-scattering overview differs from its canonical section source.');
 console.log('KdV inverse-scattering overview and assembled reading path agree.');
+
+const references=readFileSync(resolve('note-apps/kdv/content/sections/references.md'),'utf8').trim();
+assert.equal(full.slice(full.indexOf('## 参考文献')).trim(),references,'Bibliography or citation anchors differ from canonical references.md.');
+console.log('KdV bibliography source and assembled reading path agree.');

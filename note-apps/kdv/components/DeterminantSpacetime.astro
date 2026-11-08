@@ -1,0 +1,49 @@
+---
+import FigureViewport from './FigureViewport.astro';
+import {createRequire} from 'node:module';
+import {twoSolitonExample} from '../visuals/determinant.js';
+import {determinantHeatmap} from '../visuals/determinant-heatmap.mjs';
+const require=createRequire(`${process.cwd()}/package.json`);
+const katex=createRequire(require.resolve('rehype-katex'))('katex');
+const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
+const light=await determinantHeatmap([20,123,148]);
+const dark=await determinantHeatmap([114,212,231]);
+const {mapXLimit,mapTimeLimit,k1,k2,diagonalFactor}=twoSolitonExample;
+const X=(x:number)=>40+(x+mapXLimit)*400/(2*mapXLimit);
+const Y=(t:number)=>16+(mapTimeLimit-t)*280/(2*mapTimeLimit);
+const boundary=(t:number)=>-k2*k2*t-Math.log(diagonalFactor)/(2*k2);
+const incoming=(t:number)=>-k1*k1*t-Math.log(diagonalFactor)/(2*k1);
+const outgoing=(t:number)=>-k1*k1*t+Math.log(diagonalFactor)/(2*k1);
+const comparisonTime=6;
+const beforeX=X(incoming(comparisonTime));
+const afterX=X(outgoing(comparisonTime));
+const comparisonY=Y(comparisonTime);
+---
+<figure class="det-map" data-determinant-map aria-labelledby="det-map-caption">
+ <FigureViewport width={480}>
+  <svg viewBox="0 0 480 330" role="img" aria-label="Qualitative space-time view of two soliton valleys. Time increases upward. A gray dotted line extends the slower soliton's incoming trajectory. A horizontal arrow points right from that extension to its outgoing valley at the same time, showing the position shift. The ochre dashed line separates C22 less than one from greater than one.">
+   <defs><clipPath id="det-map-clip"><rect x="40" y="16" width="400" height="280"/></clipPath></defs>
+   <image class="map-light" href={light} x="40" y="16" width="400" height="280" preserveAspectRatio="none"/>
+   <image class="map-dark" href={dark} x="40" y="16" width="400" height="280" preserveAspectRatio="none"/>
+   <path d="M40 16V296H440" class="map-axis"/>
+   <path d={`M${X(boundary(-mapTimeLimit))} ${Y(-mapTimeLimit)}L${X(boundary(mapTimeLimit))} ${Y(mapTimeLimit)}`} class="map-boundary" clip-path="url(#det-map-clip)"/>
+   <path d={`M${X(incoming(-2.8))} ${Y(-2.8)}L${X(incoming(7.6))} ${Y(7.6)}`} class="map-reference"/>
+   <path d={`M${beforeX} ${comparisonY-5}V${comparisonY+5}M${beforeX} ${comparisonY}H${afterX}l-6 -3M${afterX} ${comparisonY}l-6 3`} class="map-shift"/>
+   <foreignObject x={(beforeX+afterX)/2-35} y={comparisonY-31} width="70" height="25"><div class="map-label" set:html={tex('\\text{shift}')}/></foreignObject>
+   <foreignObject x="64" y="240" width="118" height="28"><div class="map-label" set:html={tex('C_{22}<1')}/></foreignObject>
+   <foreignObject x="300" y="57" width="118" height="28"><div class="map-label" set:html={tex('C_{22}>1')}/></foreignObject>
+   <foreignObject x="64" y="83" width="125" height="28"><div class="map-label map-boundary-label" set:html={tex('C_{22}=1')}/></foreignObject>
+   <foreignObject x="6" y="0" width="24" height="28"><div class="map-label" set:html={tex('t')}/></foreignObject>
+   <foreignObject x="448" y="285" width="26" height="28"><div class="map-label" set:html={tex('x')}/></foreignObject>
+  </svg>
+ </FigureViewport>
+ <figcaption id="det-map-caption">二つのソリトン（<span set:html={tex('\\kappa_1<\\kappa_2')} />）の谷の軌跡。灰色の点線は遅いソリトンの衝突前の軌道の延長。水平の矢印は、同じ時刻で比べた衝突後の谷の位置のずれを示す。時間は上向きで、色の濃さは谷の深さを定性的に表す。</figcaption>
+</figure>
+<style>
+.det-map{--boundary:#a65d10;color:var(--ink);margin:1.5rem auto}
+:global(.dark) .det-map,:global([data-theme="dark"]) .det-map{--boundary:#f0b75d}
+.det-map svg{display:block;width:100%;height:auto;overflow:visible}.map-dark{display:none}:global(.dark) .map-light,:global([data-theme="dark"]) .map-light{display:none}:global(.dark) .map-dark,:global([data-theme="dark"]) .map-dark{display:block}
+.det-map path{fill:none}.map-axis{stroke:var(--ink);stroke-width:1}.map-boundary{stroke:var(--boundary);stroke-width:1.7;stroke-dasharray:7 5}.map-label{text-align:center;font-size:16px;color:var(--ink)}.map-boundary-label{color:var(--boundary)}
+.map-reference{stroke:var(--ink);opacity:.55;stroke-width:1.5;stroke-dasharray:1 5;stroke-linecap:round}.map-shift{stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.det-map figcaption{font-size:.86rem;line-height:1.8;margin-top:.2rem}
+</style>

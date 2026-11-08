@@ -1,8 +1,8 @@
 {
-  "specVersion": "1.0.1",
+  "specVersion": "1.1.0",
   "id": "kdv",
-  "title": "KdV方程式と逆散乱法",
-  "description": "ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。",
+  "title": "KdVから学ぶ可積分系",
+  "description": "KdVを具体例として、計算を通じて可積分系の構造と関連する理論を学ぶノート。",
   "language": "ja",
   "source": {
     "title": "Korteweg–de Vries方程式と逆散乱法",
@@ -12,24 +12,94 @@
   },
   "chapters": [
     {
-      "id": "full",
-      "section": "1–4",
-      "title": "KdV方程式と逆散乱法",
-      "description": "ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。",
-      "plainTitle": "KdV方程式と逆散乱法",
-      "plainDescription": "ソリトンとLax表示、散乱データからのポテンシャル復元、変換核からのKdV階層と保存量の構成。",
+      "id": "introduction",
+      "section": "1",
+      "title": "導入",
+      "plainTitle": "導入",
+      "description": "導入",
+      "plainDescription": "導入",
       "file": "full.md",
-      "href": "#top"
+      "href": "/notes/kdv/introduction/"
+    },
+    {
+      "id": "solitons",
+      "section": "2",
+      "title": "ソリトンと等スペクトル変形",
+      "plainTitle": "ソリトンと等スペクトル変形",
+      "description": "ソリトンと等スペクトル変形",
+      "plainDescription": "ソリトンと等スペクトル変形",
+      "file": "full.md",
+      "href": "/notes/kdv/solitons/"
+    },
+    {
+      "id": "inverse-scattering",
+      "section": "3",
+      "title": "散乱の逆問題",
+      "plainTitle": "散乱の逆問題",
+      "description": "散乱の逆問題",
+      "plainDescription": "散乱の逆問題",
+      "file": "full.md",
+      "href": "/notes/kdv/inverse-scattering/"
+    },
+    {
+      "id": "hierarchy",
+      "section": "4",
+      "title": "KdV階層と保存量",
+      "plainTitle": "KdV階層と保存量",
+      "description": "KdV階層と保存量",
+      "plainDescription": "KdV階層と保存量",
+      "file": "full.md",
+      "href": "/notes/kdv/hierarchy/"
+    },
+    {
+      "id": "sato-kp",
+      "section": "5",
+      "title": "佐藤方程式とKP階層",
+      "plainTitle": "佐藤方程式とKP階層",
+      "description": "佐藤方程式とKP階層",
+      "plainDescription": "佐藤方程式とKP階層",
+      "file": "full.md",
+      "href": "/notes/kdv/sato-kp/"
+    },
+    {
+      "id": "quantization",
+      "section": "6",
+      "title": "KdVの量子化と保存量の構成",
+      "description": "スクリーニングによる具体的な計算から、Feigin–Frenkelの構成、無限個の保存量と相互可換性へ",
+      "file": "content/sections/quantization.md",
+      "href": "/notes/kdv/quantization/",
+      "plainTitle": "KdVの量子化と保存量の構成",
+      "plainDescription": "スクリーニングによる具体的な計算から、Feigin–Frenkelの構成、無限個の保存量と相互可換性へ"
+    },
+    {
+      "id": "w3",
+      "section": "7",
+      "title": "Boussinesq方程式からW₃代数へ",
+      "description": "二つの場のHamiltonian構造から量子可換積分とMiura表示へ",
+      "file": "content/sections/w3.md",
+      "href": "/notes/kdv/w3/",
+      "plainTitle": "Boussinesq方程式からW₃代数へ",
+      "plainDescription": "二つの場のHamiltonian構造から量子可換積分とMiura表示へ"
+    },
+    {
+      "id": "references",
+      "section": "",
+      "title": "参考文献",
+      "plainTitle": "参考文献",
+      "description": "参考文献",
+      "plainDescription": "参考文献",
+      "file": "full.md",
+      "href": "/notes/kdv/references/"
     }
   ],
   "publication": {
     "provider": "github-pages",
     "projectId": null,
-    "url": null,
+    "url": "https://rintaromasaoka.github.io/notes/kdv/",
     "visibility": "public"
   },
   "reader": {
-    "mode": "continuous",
+    "mode": "routed",
     "basePath": "/notes/kdv/",
     "notesHref": "/ja/notes/",
     "equationScope": "note",

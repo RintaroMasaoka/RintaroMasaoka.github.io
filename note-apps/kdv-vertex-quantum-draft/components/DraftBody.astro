@@ -1,0 +1,20 @@
+---
+import QuantumCheck from './QuantumCheck.astro';
+import SolitonCheck from './SolitonCheck.astro';
+import MiuraCheck from './MiuraCheck.astro';
+import SolitonAddition from './SolitonAddition.astro';
+import CommonCurrent from './CommonCurrent.astro';
+import ContourResidue from './ContourResidue.astro';
+import MonodromyFigure from './MonodromyFigure.astro';
+import MonodromyConjugacy from './MonodromyConjugacy.astro';
+import QuantumTransferTrace from '../../kdv/components/QuantumTransferTrace.astro';
+import CftLevels from '../../kdv/components/CftLevels.astro';
+import RiccatiCheck from './RiccatiCheck.astro';
+import ScreeningCheck from './ScreeningCheck.astro';
+import FFScreeningCheck from '../../kdv/components/FFScreeningCheck.astro';
+import FFDescent from '../../kdv/components/FFDescent.astro';
+import FFParity from '../../kdv/components/FFParity.astro';
+const {html} = Astro.props;
+const parts = html.split(/<div\s+data-draft-(?:figure|program)="(soliton-addition|common-current|quantum-check|soliton-check|miura-check|contour-residue|monodromy|monodromy-conjugacy|quantum-transfer-trace|cft-levels|riccati-check|screening-check|ff-screening-check|ff-descent|ff-parity)"\s*>\s*<\/div>/g);
+---
+{parts.map((part, i) => i % 2 === 0 ? <Fragment set:html={part} /> : part === 'ff-screening-check' ? <FFScreeningCheck /> : part === 'ff-descent' ? <FFDescent /> : part === 'ff-parity' ? <FFParity /> : part === 'cft-levels' ? <CftLevels /> : part === 'quantum-transfer-trace' ? <QuantumTransferTrace /> : part === 'monodromy-conjugacy' ? <MonodromyConjugacy /> : part === 'screening-check' ? <ScreeningCheck /> : part === 'monodromy' ? <MonodromyFigure /> : part === 'riccati-check' ? <RiccatiCheck /> : part === 'contour-residue' ? <ContourResidue /> : part === 'miura-check' ? <MiuraCheck /> : part === 'quantum-check' ? <QuantumCheck /> : part === 'soliton-check' ? <SolitonCheck /> : part === 'soliton-addition' ? <SolitonAddition /> : <CommonCurrent />)}

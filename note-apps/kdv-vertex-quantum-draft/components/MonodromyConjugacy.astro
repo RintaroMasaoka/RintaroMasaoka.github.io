@@ -1,0 +1,33 @@
+---
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const katex = createRequire(require.resolve('rehype-katex'))('katex');
+const tex = (source: string) => katex.renderToString(source, { throwOnError: true, output: 'html' });
+---
+<figure id="monodromy-conjugacy" class="conjugacy-figure" aria-label="One circle with two marked starting points, 0 and x. A short oriented arc on the circle leads from 0 to x.">
+  <div class="conjugacy-diagram">
+    <svg viewBox="0 0 400 200" aria-hidden="true">
+      <defs><marker id="conjugacy-arrow" viewBox="0 0 10 10" refX="14" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" /></marker></defs>
+      <ellipse class="domain" cx="180" cy="100" rx="115" ry="55" />
+      <path class="transport" d="M180 155A115 55 0 0 0 279.593 127.5" />
+      <circle class="basepoint" cx="180" cy="155" r="3.5" />
+      <circle class="basepoint" cx="279.593" cy="127.5" r="3.5" />
+    </svg>
+    <div class="label zero-label" set:html={tex(String.raw`0`)} />
+    <div class="label shifted-label" set:html={tex(String.raw`x`)} />
+  </div>
+  <figcaption>同じ円周上で、一周の始点を <span set:html={tex(String.raw`0`)} /> から <span set:html={tex(String.raw`x`)} /> へ移す。</figcaption>
+</figure>
+<style>
+  .conjugacy-figure{margin:1.7rem 0;color:var(--ink)}
+  .conjugacy-diagram{position:relative;width:100%;max-width:400px;aspect-ratio:400/200;margin:auto}
+  svg{position:absolute;inset:0;width:100%;height:100%;color:var(--ink);overflow:visible}
+  .domain,.transport{stroke:currentColor;fill:none;vector-effect:non-scaling-stroke}
+  .domain{stroke-width:1.4;color:var(--muted,var(--ink))}
+  .transport{stroke-width:2;marker-end:url(#conjugacy-arrow)}
+  marker path,.basepoint{fill:currentColor}
+  .label{position:absolute;transform:translate(-50%,-50%);text-align:center;font-size:1rem;line-height:1.3;white-space:nowrap}
+  .zero-label{left:45%;top:89%}
+  .shifted-label{left:75%;top:64%}
+  figcaption{font-size:.86rem;line-height:1.8;color:var(--muted)}
+</style>

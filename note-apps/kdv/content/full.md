@@ -1,15 +1,15 @@
 ## 1. 導入
 
-KdV 方程式は、浅い水域を進む長い水面波のモデルとして現れる。静止時の水面からの変位を上向き正に測り、無次元化したものを $\eta(x,t)$ と書く。空間と時間も無次元化すると、方程式は
+KdV 方程式は、浅い水域を進む長い水面波のモデルとして現れる。静止時の水面からの変位を上向き正に測り、無次元化したものを $\eta(x,t)$ と書く。空間軸の向きと時間の尺度を選ぶと、方程式は
 $$
-\eta_t+6\eta\eta_x+\eta_{xxx}=0
+\eta_t=\frac{\eta_{xxx}+6\eta\eta_x}{4}
 \tag{equation-4fefabb2db}
 $$
-と書ける。$\eta=0$ は基準の水面の高さ、$\eta>0$ は水面の盛り上がりを表す。[^wave-scaling] 本ノートでは流体力学から方程式を導くことには立ち入らず、その解の形と運動を調べる。
+と書ける。$\eta=0$ は基準の水面の高さ、$\eta>0$ は水面の盛り上がりを表す。[^wave-scaling]
 
-[^wave-scaling]: 浅水波の方程式からこの形にする際は、線形波の速さで動く座標を使う。以下の速度は、この座標で測った速度である。
+[^wave-scaling]: 浅水波の方程式からこの形にする際は、線形波の速さで動く座標を使い、その進行方向と逆向きを $x$ の正方向に取る。以下の速度は、この座標で測った速度である。
 
-KdV方程式はソリトンという興味深い解をもつことが知られている。 この解は孤立した波束であり、形が崩れることなく一定の速度で運動するようなものである。 さらに、速度の異なるソリトンを重ね合わせた [^src-1-1] 初期条件を考えることで、ソリトンを衝突させることができる。 不思議なことに、ソリトンは相互作用をした後でも形を崩さず個性を保つ。 線形な方程式で2つの波がすり抜けるというのならわかるが、KdV方程式は非線形なのだから、ソリトンがぶつかるときの様子は単純な重ね合わせではない。しかし、少し時間を進めてやれば波はもとの綺麗なソリトンの集まりに戻っていく。
+この方程式には、形を保ったまま一定の速度で進む、局在した波の解がある。このような波をソリトンと呼ぶ。速さの異なる二つのソリトンを衝突させると、重なっている間には波形が大きく変わる。それでも、十分に離れた後には、それぞれが衝突前と同じ形と速さで進んでいく。位置にはずれが残るものの、二つの波は再び見分けられるようになる。
 
 <div data-extra-visual="collision"></div>
 
@@ -19,66 +19,62 @@ KdV方程式はソリトンという興味深い解をもつことが知られ�
 
 またKdV方程式は他の多くの非線形偏微分方程式と違って、初期値問題を厳密に解く方法が存在するという著しい特徴をもっている。 この解法は逆散乱法と呼ばれていて、その鍵は非線形な方程式の裏に隠れた線形な問題を見抜くことにある。 KdV方程式の場合、裏に隠れているのは量子力学でもお馴染みのSchrödinger方程式である。 水面波の問題を考えていたのに量子力学が現れてくる、というのはなんだか素敵ではないだろうか。
 
-この記事の目標の1つ目は、KdV方程式が好き勝手に非線形項を加えた汚い方程式ではなく、隠れた構造を備えた方程式であると説明することである。 もっともこの記事で扱う内容は表層であり、より深い数理については[1]など専門的な文献を参照してほしい。
+本ノートの目的は、KdV という具体例を通して、可積分系に共通する構造を理解することである。KdV 方程式のソリトンや厳密な解法が、どのような構造に支えられているのかを、具体的な計算をしながら学んでいく。
 
-2つ目の目標は、逆散乱法を用いてKdV方程式のソリトン解を具体的に求めることである。
-
-さらに、逆散乱法で得た変換核を擬微分作用素で表し、自由波の微分との関係から KdV 階層の発展則と無限個の保存量を導く。散乱の逆問題を解くための変換が、時間発展を構成する仕組みにもなることを見る。
-
-[^src-1-1]: 厳密なソリトン解を構成するためには、もちろん線形な重ね合わせではいけない。
+ソリトン解を求めるところから、KdV 階層や KP 階層、さらに量子 KdV や共形場理論（CFT）へと、KdV からつながる話題をたどる。その過程で必要になる考え方や道具も、そのつど取り上げる。
 
 ## 2. ソリトンと等スペクトル変形
 
 ### 2.1. 1ソリトン解と2ソリトン解
 
-一つの波が形を保って進むとき、その波形はどのように決まるのだろうか。まず、形を保って速度 $v>0$ で移動する進行波 $\eta(x,t)=\eta(x-vt,0)$ を求めよう。この小節のプライムは、時刻0の波形 $\eta(x,0)$ の $x$ 微分を表す。KdV 方程式に代入すると
+一つの波が形を保って進むとき、その波形はどのように決まるのだろうか。まず、形を保って速度 $v<0$ で移動する進行波 $\eta(x,t)=\eta(x-vt,0)$ を求めよう。この小節のプライムは、時刻0の波形 $\eta(x,0)$ の $x$ 微分を表す。KdV 方程式に代入すると
 $$
-\eta'''=v\eta'-6\eta\eta'.
+\eta'''=-4v\eta'-6\eta\eta'.
 \tag{equation-c1de586e9e}
 $$
 $\eta,\eta',\eta''$ が両端で0に減衰すると仮定し、無限遠での値を使って積分すると
 $$
-\eta''=v\eta-3\eta^2.
+\eta''=-4v\eta-3\eta^2.
 \tag{equation-f9f013bed9}
 $$
 さらに $2\eta'$ を掛けると、両辺が全微分になる。
 $$
-\frac{d}{dx}(\eta')^2=\frac{d}{dx}(v\eta^2-2\eta^3).
+\frac{d}{dx}(\eta')^2=\frac{d}{dx}(-4v\eta^2-2\eta^3).
 \tag{equation-cfca48d936}
 $$
 もう一度無限遠の境界条件を使って積分すれば
 $$
-(\eta')^2=v\eta^2-2\eta^3.
+(\eta')^2=-4v\eta^2-2\eta^3.
 \tag{equation-b9960a89fd}
 $$
 この方程式には次の局在した波形がある。
 $$
-\eta(x,0)=\frac v2\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right).
+\eta(x,0)=-2v\operatorname{sech}^2\!\left(\sqrt{-v}\,x\right).
 \tag{equation-cd51ce0162}
 $$
-ここで $\operatorname{sech}x=1/\cosh x$ である。[^soliton-check] 時刻 $t$ では $x$ を $x-vt$ に置き換える。振幅は $v/2$、幅の尺度は $2/\sqrt v$ なので、高い波ほど速く、幅は狭くなる。
+ここで $\operatorname{sech}x=1/\cosh x$ である。[^soliton-check] 中心の初期位置を $x_0$ とすると、時刻 $t$ の波形は $x$ を $x-vt-x_0$ に置き換えて得られる。振幅は $-2v$、幅の尺度は $1/\sqrt{-v}$ なので、高い波ほど負の $x$ 方向へ速く進み、幅は狭くなる。
 
 [^soliton-check]: 式 (@equation-cd51ce0162) を微分すると
 
     $$
-    \eta'(x,0)=-\frac{v^{3/2}}{2}\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right)\tanh\!\left(\frac{\sqrt v}{2}x\right).
+    \eta'(x,0)=4v\sqrt{-v}\operatorname{sech}^2\!\left(\sqrt{-v}\,x\right)\tanh\!\left(\sqrt{-v}\,x\right).
     \tag{equation-7747abb85e}
     $$
 
     従って $\tanh^2=1-\operatorname{sech}^2$ より
 
     $$
-    (\eta')^2=\frac{v^3}{4}\operatorname{sech}^4\!\left(\frac{\sqrt v}{2}x\right)\left[1-\operatorname{sech}^2\!\left(\frac{\sqrt v}{2}x\right)\right]=v\eta^2-2\eta^3.
+    (\eta')^2=-16v^3\operatorname{sech}^4\!\left(\sqrt{-v}\,x\right)\left[1-\operatorname{sech}^2\!\left(\sqrt{-v}\,x\right)\right]=-4v\eta^2-2\eta^3.
     \tag{equation-d0224c59e1}
     $$
 
 <div data-extra-visual="traveling"></div>
 
 
-二つのソリトンが衝突する解も書ける。速度 $v_1>v_2>0$ と位置を指定する実定数 $x_1,x_2$ を用い、$\theta_j=\frac{\sqrt{v_j}}{2}(x-v_jt-x_j)$（$j=1,2$）と置くと、
+二つのソリトンが衝突する解も書ける。速度 $v_1<v_2<0$（$|v_1|>|v_2|$）と位置を指定する実定数 $x_1,x_2$ を用い、移動座標 $\xi_j=\sqrt{-v_j}(x-v_jt-x_j)$（$j=1,2$）と置くと、
 $$
-\eta(x,t)=2\partial_x^2\log\Bigl[1+e^{2\theta_1}+e^{2\theta_2}
-+\left(\frac{\sqrt{v_1}-\sqrt{v_2}}{\sqrt{v_1}+\sqrt{v_2}}\right)^2e^{2(\theta_1+\theta_2)}\Bigr].
+\eta(x,t)=2\partial_x^2\log\Bigl[1+e^{2\xi_1}+e^{2\xi_2}
++\left(\frac{\sqrt{-v_1}-\sqrt{-v_2}}{\sqrt{-v_1}+\sqrt{-v_2}}\right)^2e^{2(\xi_1+\xi_2)}\Bigr].
 \tag{equation-5083fcf451}
 $$
 
@@ -86,184 +82,121 @@ $$
 
 ### 2.2. Lax表示
 
-Lax 表示では、KdV 方程式を Schrödinger 演算子を含む二つの微分演算子の関係として表す。以下ではその具体形を与え、KdV 方程式との同値性と、時間発展で固有値が保たれることを確かめる。
+ここで、一つの大きな発想の転換を導入する。KdV 方程式の未知関数を、Schrödinger 方程式のポテンシャルとして読み直してみよう。
 
-量子力学では、周囲より低いポテンシャルが粒子の閉じ込めを生む。山状の波 $\eta>0$ をその低いポテンシャルに対応させるため、ここで変数を
+まず $u=-\eta$ と置くと、KdV 方程式 (@equation-4fefabb2db) は
 $$
-u(x,t)=-\eta(x,t)
-$$
-に切り替え、以後はポテンシャル $u$ を使う。式 (@equation-4fefabb2db) に代入すると、その時間発展は
-$$
-u_t=6uu_x-u_{xxx}
+u_t=\frac{u_{xxx}-6uu_x}{4}
 \tag{equation-0e5e42e46f}
 $$
-となる。この $u$ を用いて、次の二つの演算子を定める。
+となる。この $u(x,t)$ をポテンシャルとする Schrödinger 演算子
+$$
+L(t)=-\partial_x^2+u(x,t)
+$$
+を考える。
 
+$u(x,t)$ が時間とともに変われば、それに応じて演算子 $L(t)$ も変わる。そこで、KdV 方程式を、この演算子の時間発展を表す方程式として書き直してみよう。
+
+そのために、$L$ と組にする演算子 $B$ を次の形で与える。ここで $\partial$ は $x$ 微分、$u$ と $u_x$ はそれぞれの関数を掛ける演算子である。
+$$
+B(t)=\partial^3-\frac32u\partial-\frac34u_x.
+\tag{equation-bec8ddf787}
+$$
+この組を Lax 対、$L$ を Lax 演算子と呼ぶ。この $B$ を使うと、KdV 方程式 (@equation-0e5e42e46f) は
+$$
+\frac{\mathrm{d}L}{\mathrm{d}t}=[B(t),L(t)]
+\tag{equation-b75f31fbba}
+$$
+と書ける。これが Lax 方程式であり、$[B,L]=BL-LB$ は交換子である。実際、左辺は $u_t$、右辺は $(u_{xxx}-6uu_x)/4$ を掛ける演算子になるので、両者の等式が KdV 方程式そのものになる。
+
+<div data-extra-visual="formal-commutator"></div>
+
+次に、$L(t)$ の固有値問題
+$$
+L(t)\psi(x,t)=E\psi(x,t)
+\tag{lax-schrodinger-problem}
+$$
+を考える。この $B$ は、固有関数のユニタリな時間発展の生成子にもなる。そのために必要な反エルミート性を確かめよう。ここでは $u$ は実数値で滑らかとし、部分積分する関数と必要な導関数は無限遠で急減衰するとする。境界項が消えるので $\partial^\dagger=-\partial$ であり、$u$ による掛け算は自己随伴である。積の微分則 $\partial u=u\partial+u_x$ を使うと、
 $$
 \begin{aligned}
-L(t) = -\partial^2 + u,\quad
-    B(t) = -4\partial^3 + 6u\partial + 3u_x
-\end{aligned}\tag{equation-bec8ddf787}
-$$
-
- 表記について注意をすると、$\partial$は$x$に関する偏微分を表す演算子とする。 また$u$と書いた場合、$u(x,t)$を左から掛ける演算子を表すことにする。$u_x$などに関しても同様である。
-
-$L(t),B(t)$をLax対と呼ぶ。 また$L(t)$はLax演算子と呼ばれ、今の場合1次元の量子力学のHamiltonianと同じ形をしている。 $L(t), B(t)$によって、KdV方程式(@equation-0e5e42e46f)は
-
-$$
-\begin{aligned}
-\frac{\mathrm{d} L}{\mathrm{d} t} = [B(t), L(t)]
-\end{aligned}\tag{equation-b75f31fbba}
-$$
-
- と書き換えられる。これをLax方程式と呼ぶ。また与えられた方程式を(@equation-b75f31fbba)のように表すことをLax表示という。 Lax表示はKdV方程式に特有のものではなく、多くの可積分系に対するLax表示が知られている。
-
-KdV方程式とLax方程式(@equation-b75f31fbba)が同値であることを証明しよう。 (@equation-b75f31fbba)の左辺は
-
-$$
-\begin{aligned}
-\frac{\mathrm{d} L}{\mathrm{d} t} = u_t
+B&=\partial^3-\frac34(u\partial+\partial u),\\
+B^\dagger&=-\partial^3+\frac34(\partial u+u\partial)=-B.
 \end{aligned}
 $$
+積の随伴では順序が逆になるため、$u\partial$ と $\partial u$ を対にした形から反エルミート性がわかる。
 
- となる。つぎに右辺を計算すると、
-
+初期時刻の固有関数を
 $$
-\begin{aligned}
-[B(t), L(t)]
-    &
-    = [-4\partial^3 + 6u\partial + 3u_x, -\partial^2 + u]
-\end{aligned}
+L(0)\psi(x,0)=E\psi(x,0)
+\tag{equation-7de551f92c}
 $$
-
+とし、$B(t)$ によって次のように発展させる。
 $$
-\begin{aligned}
-&
-    = -4(u_{xxx} + \cancel{3u_{xx}\partial} + \bcancel{3u_x\partial^2})+ 6uu_x
-\end{aligned}
+\psi(x,t)=U(t)\psi(x,0),\qquad
+\frac{\mathrm{d}U(t)}{\mathrm{d}t}=B(t)U(t),\qquad U(0)=I.
+\tag{equation-c5292b67c8}
 $$
+$I$ は恒等演算子である。$B^\dagger=-B$ なので $U(t)$ はユニタリであり、$\psi$ のノルムは保たれる。
 
+Lax 方程式が意味するのは、この同じ $U(t)$ によって $L$ も
 $$
-\begin{aligned}
-&\quad
-    + 6(\cancel{u_{xx}\partial} +\bcancel{ 2u_x\partial^2})
-\end{aligned}
+U(t)L(0)U(t)^{-1}=L(t)
+\tag{equation-b2bc328c22}
 $$
+と変化することである。両辺が同じ Lax 方程式と初期条件を満たすことから、この共役変換の式が確かめられる。
 
+<details>
+<summary>Verify the conjugation formula</summary>
+
+$U(t)U(t)^{-1}=I$ を微分し、$U_t=BU$ を代入すると、
 $$
-\begin{aligned}
-&\quad
-    + 3(u_{xxx} + \cancel{2u_{xx}\partial})
-\end{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t}U(t)^{-1}=-U(t)^{-1}B(t).
+\tag{equation-efb1ce1c1d}
 $$
-
+従って、
 $$
-\begin{aligned}
-&
-    = 6uu_x - u_{xxx}
-\end{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t}\left(U(t)L(0)U(t)^{-1}\right)
+=[B(t),U(t)L(0)U(t)^{-1}].
+\tag{equation-ddc22d336a}
 $$
+これは $L(t)$ の満たす Lax 方程式と同じであり、初期値も $U(0)L(0)U(0)^{-1}=L(0)$ と一致するので、式 (@equation-b2bc328c22) を得る。
 
- となる。両辺を等号で結ぶことでKdV方程式を得る。Lax方程式は演算子の等式であったが、両辺が微分演算子$\partial$を含まないために、$u$に対する偏微分方程式とみなせる。
+</details>
 
-Lax方程式(@equation-b75f31fbba)では、$B(t)$は時間発展の生成子となっている。するとLax方程式は Hamiltonian $L(t)$の$B(t)$による時間発展を考えていることになる。 ここで、$L(0)$を対角化して
-
+この共役変換から、固有値保存が直接わかる。初期時刻の固有値方程式 (@equation-7de551f92c) に左から $U(t)$ を掛け、$\psi(x,0)=U(t)^{-1}\psi(x,t)$ を代入すると、
 $$
-\begin{aligned}
-L(0)\psi(x, 0) = \lambda \psi(x, 0)
-\end{aligned}\tag{equation-7de551f92c}
+U(t)L(0)U(t)^{-1}\psi(x,t)=E\psi(x,t).
+\tag{equation-330d5d4785}
 $$
-
- と書く。$\psi(x, 0)$は$L(0)$の固有値$\lambda$の固有関数である。これを時間発展させてみよう。 $\psi(x, t)$の時間発展を記述する方程式として、
-
+共役変換の式 (@equation-b2bc328c22) を使えば、
 $$
-\begin{aligned}
-\psi(x, t) = U(t)\psi(x, 0),\quad
-    \frac{\mathrm{d} U(t)}{\mathrm{d} t} = B(t)U(t),\quad
-    U(0) = I
-\end{aligned}\tag{equation-c5292b67c8}
+L(t)\psi(x,t)=E\psi(x,t).
+\tag{equation-addf34bd26}
 $$
-
- を課す。$I$ は恒等演算子である。Lax 方程式を使い、$\psi(x,t)$ が $L(t)$ の固有関数でもあることを示そう。
-
-(@equation-7de551f92c)の両辺に左から$U(t)$を掛けると、
-
-$$
-\begin{aligned}
-U(t)L(0)U(t)^{-1}\psi(x,t) = \lambda \psi(x,t).
-\end{aligned}\tag{equation-330d5d4785}
-$$
-
- となる。ここで、$U(t)L(0)U(t)^{-1}$を時間微分する。 $U(t)U(t)^{-1} = I$を時間微分すると
-
-$$
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d} t}U(t)^{-1} = - U(t)^{-1}B(t)
-\end{aligned}\tag{equation-efb1ce1c1d}
-$$
-
- が分かるので、
-
-$$
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d} t}\left(U(t)L(0)U(t)^{-1}\right) = [B(t), U(t)L(0)U(t)^{-1}]
-\end{aligned}\tag{equation-ddc22d336a}
-$$
-
- となる。これはLax方程式なので、初期条件$U(0)L(0)U(0)^{-1} = L(0)$から、
-
-$$
-\begin{aligned}
-U(t)L(0)U(t)^{-1} = L(t)
-\end{aligned}\tag{equation-b2bc328c22}
-$$
-
- となる。この両辺を$\psi(x,t)$に作用させて、
-
-$$
-\begin{aligned}
-L(t)\psi(x, t) = \lambda \psi(x, t)
-\end{aligned}\tag{equation-addf34bd26}
-$$
-
- となる。 すなわち、$B(t)$によって時間発展する波動関数$\psi(x, t)$は、任意の時刻で$L(t)$の固有関数である。 さらに、$\psi(x,t)$に対する$L(t)$の固有値は常に$\lambda$で時間に依存しない。 [^src-3-1]
-
-固有値保存に加えて、$U(t)$ はユニタリなので波動関数のノルムも保つ。このユニタリ性は、発展方程式 $\mathrm{d}U/\mathrm{d}t=B(t)U(t)$ の生成子 $B$ が反エルミートであることから従う。以下で $B^\dagger=-B$ を示す。
-
-ここでは実数値の $u$ と、滑らかで無限遠で急減衰する関数を考える。部分積分で境界項が消えるため $\partial^\dagger=-\partial$ であり、$u$ による掛け算は自己随伴である。
-
-反エルミート性は、$u\partial$ と $\partial u$ を対にした形に直すと見える。積の微分則 $\partial u=u\partial+u_x$ で $B$ を書き直し、積の随伴では順序を逆にすると、
-$$
-\begin{aligned}
-B&=-4\partial^3+3(u\partial+\partial u),\\
-B^\dagger&=4\partial^3-3(\partial u+u\partial)=-B.
-\end{aligned}
-$$
-
-[^src-3-1]: 逆に$L(t)$の固有値が時間変化しない条件としてLax方程式を導ける。
+すなわち、$B$ によって発展させた固有関数は、変化したポテンシャルのもとでも、同じ固有値 $E$ をもつ。非線形に変わる波形をこの Schrödinger 問題で捉えると、固有値は固定され、その間の変化は固有関数の発展に現れる。
 
 ### 2.3. 逆散乱法の概観
 
 Lax方程式が$L(t) = -\partial^2 + u$の等スペクトル条件を意味することを見た。これを利用して、KdV方程式を量子力学における散乱の逆問題に置き換えることができる。この解法を逆散乱法と呼ぶ。
 
-逆散乱法では、まず散乱データと呼ばれる量を求める。これはポテンシャル$u(x, t)$に対するスペクトルと、束縛解・散乱解の遠方での漸近的な振る舞いをまとめたものである。 実は$t = 0$での散乱データが分かれば、任意の$t$での散乱データは簡単に分かってしまう。スペクトルに関しては、これが時間変化しないことから明らかだろう。
+逆散乱法では、まず散乱データと呼ばれる量を求める。これはポテンシャル$u(x, t)$に対するスペクトルと、束縛解・散乱解の遠方での漸近的な振る舞いをまとめたものである。 スペクトルが時間変化しないことは前節で示した。残りの散乱データの時間変化は、次節で Lax 対の演算子 $B$ を使って求める。その結果、初期時刻の散乱データから各時刻の散乱データを計算できる。
 
 散乱データからポテンシャル$u(x, t)$を復元するのは散乱の逆問題と呼ばれ、Gel'fand-Levitan-Marchenko方程式という積分方程式によって解かれる。求まった$u(x, t)$がKdV方程式の解となる。
 
 ### 2.4. 散乱データとその時間発展
 
-以下では $u$ は実数値で滑らかとし、すべての導関数が両端で任意のべきより速く減衰すると仮定する。遠方では Schrödinger 方程式は自由方程式に近づく。負の固有値 $-\kappa_n^2$ に対する自由解は $e^{\pm\kappa_nx}$ であり、左端で減衰するのは $e^{\kappa_nx}$ である。
+以下では $u$ は実数値で滑らかとし、すべての導関数が両端で任意のべきより速く減衰すると仮定する。Schrödinger 方程式 $(-\partial_x^2+u(x,t))\psi(x,t)=E\psi(x,t)$ の束縛状態の互いに異なる固有値を $E_n=-\kappa_n^2$（$\kappa_n>0$、$n=1,\ldots,N$）とする。遠方では Schrödinger 方程式は自由方程式に近づく。この固有値に対する自由解は $e^{\pm\kappa_nx}$ であり、左端で減衰するのは $e^{\kappa_nx}$ である。
 
-Schrödinger 方程式 $(-\partial_x^2+u(x,t))\psi(x,t)=\lambda\psi(x,t)$ の束縛状態の互いに異なる固有値を $\lambda=-\kappa_n^2$（$n=1,\ldots,N$）とする。束縛状態を $L^2(\mathbb R)$ で規格化し、左端の漸近形が正の係数をもつよう位相を選ぶと
+束縛状態を $L^2(\mathbb R)$ で規格化し、左端の漸近形が正の係数をもつよう位相を選ぶと
 $$
 \psi_n(x,t)\sim c_n(t)e^{\kappa_nx}\quad(x\to-\infty),\qquad c_n(t)>0.
 \tag{equation-cdc8dfdf01}
 $$
-この左端振幅 $c_n(t)$ が、束縛状態の規格化定数である。
+この係数 $c_n(t)$ を、束縛状態の規格化定数と呼ぶ。
 
 <div data-extra-visual="bound-tail-intro"></div>
 
-散乱状態では $\lambda=k^2$ とし、左から入射する解を選ぶ。その遠方での形を
+散乱状態では実数の波数 $k>0$ を用いて $E=k^2$ とし、左から入射する解を選ぶ。その遠方での形を
 $$
 \psi(x,t)\sim
 \begin{cases}
@@ -276,21 +209,27 @@ $$
 
 <div data-extra-visual="scattering-intro"></div>
 
-遠方では $B(t)=-4\partial_x^3+6u\partial_x+3u_x$ の自由部分 $-4\partial_x^3$ が波の時間位相を決める。左端の束縛状態の尾 $e^{\kappa_nx}$ には $-4\kappa_n^3$ が掛かるので
+遠方では $B(t)=\partial_x^3-\frac32u\partial_x-\frac34u_x$ の自由部分 $\partial_x^3$ が波の時間位相を決める。左端の束縛状態の尾 $e^{\kappa_nx}$ には $\kappa_n^3$ が掛かるので
 $$
-c_n(t)=e^{-4\kappa_n^3t}c_n(0).
+c_n(t)=e^{\kappa_n^3t}c_n(0).
 \tag{equation-1f090a0648}
 $$
-散乱波では $e^{ikx}$ の時間因子が $e^{4ik^3t}$、$e^{-ikx}$ の時間因子が $e^{-4ik^3t}$ である。入射振幅をまだ1に戻していない時間発展解は左端で
+散乱波 $e^{ikx}$、$e^{-ikx}$ の時間因子は、それぞれ $e^{-ik^3t}$、$e^{ik^3t}$ である。時刻0で入射係数を1とした解を $B$ によって時間発展させると、左端では
 $$
-e^{4ik^3t}e^{ikx}+b(k,0)e^{-4ik^3t}e^{-ikx},
+e^{-ik^3t}e^{ikx}+b(k,0)e^{ik^3t}e^{-ikx},
 $$
-右端で $a(k,0)e^{4ik^3t}e^{ikx}$ となる。入射係数を1に戻すため全体を $e^{4ik^3t}$ で割ると
+右端では
 $$
-a(k,t)=a(k,0),\qquad b(k,t)=e^{-8ik^3t}b(k,0).
+a(k,0)e^{-ik^3t}e^{ikx}
+$$
+となる。入射係数を1に規格化すると、
+$$
+a(k,t)=a(k,0),\qquad b(k,t)=e^{2ik^3t}b(k,0).
 \tag{equation-65c23b8d77}
 $$
-よって固有値と透過係数は一定であり、左端振幅と左反射係数は (@equation-1f090a0648)、(@equation-65c23b8d77) に従って変化する。
+透過係数は一定であり、反射係数には時間に比例する位相が付く。
+
+よって固有値と透過係数は一定であり、規格化定数 $c_n(t)$ と左反射係数は (@equation-1f090a0648)、(@equation-65c23b8d77) に従って変化する。
 
 
 ### 2.5. 束縛状態とソリトンの運動
@@ -301,22 +240,21 @@ $$
 $$
 \psi_n(x,t)\sim
 \begin{cases}
-c_n(0)e^{\kappa_n(x-4\kappa_n^2t)},&x\to-\infty,\\[2pt]
-\tilde c_n(0)e^{-\kappa_n(x-4\kappa_n^2t)},&x\to+\infty
+c_n(0)e^{\kappa_n(x+\kappa_n^2t)},&x\to-\infty,\\[2pt]
+\tilde c_n(0)e^{-\kappa_n(x+\kappa_n^2t)},&x\to+\infty
 \end{cases}
 \tag{equation-168dfc401b}
 $$
-となる。左右の尾は、どちらも速度 $4\kappa_n^2$ で右へ移動する。十分に遠方の尾が担うノルムは小さく、ほぼ全てのノルムはその間の主要部分にある。ノルムを $1$ に保つには、この主要部分も両側の尾とともに移動しなければならない。
+となる。左右の尾は、どちらも速度 $-\kappa_n^2$ で左へ移動する。十分に遠方の尾が担うノルムは小さく、ほぼ全てのノルムはその間の主要部分にある。ノルムを $1$ に保つには、この主要部分も両側の尾とともに移動しなければならない。
 
-複数の束縛状態がある場合、それぞれの速度 $4\kappa_n^2$ は異なる。それでも、別々の速度で移動する $\psi_n(x,t)$ は、どの時刻でも全て同じポテンシャル $u(x,t)$ の固有状態でなければならない。一つの $u(x,t)$ が、異なる場所へ離れていく束縛状態を、それぞれの場所で局在させなければならないのである。このため、ポテンシャルも各束縛状態の移動に伴って複数の谷へ分裂していく。この移動する谷が、$u$ で表したソリトンである。
+複数の束縛状態がある場合、それぞれの速度 $-\kappa_n^2$ は異なる。それでも、別々の速度で移動する $\psi_n(x,t)$ は、どの時刻でも全て同じポテンシャル $u(x,t)$ の固有状態でなければならない。一つの $u(x,t)$ が、異なる場所へ離れていく束縛状態を、それぞれの場所で局在させなければならないのである。このため、ポテンシャルも各束縛状態の移動に伴って複数の谷へ分裂していく。この移動する谷が、$u$ で表したソリトンである。
 
 下図では、初めに中心をそろえた三つの束縛状態と、それらに共通するポテンシャルの時間発展を計算した。再生すると、束縛状態が異なる場所へ移動し、それに伴ってポテンシャルが三つの谷に分かれていく様子を確かめられる。
 
 <div data-extra-visual="bound-states"></div>
 
 
-$N$-ソリトン解は、反射係数が $b(k,t)=0$ となる無反射ポテンシャルから得られる。以下ではまず一般の散乱データから復元方程式を導き、その後で無反射の場合を具体的に解く。
-
+ここまでは束縛状態の動きからソリトンの分裂を説明してきたが、散乱データには反射係数 $b(k,t)$ もあった。反射係数の影響は、束縛状態を持たないポテンシャルのさざなみとして表れる。ソリトンだけからなる $N$-ソリトン解は、$b(k,t)=0$ となる無反射ポテンシャルに対して得られる。以下ではまず一般の散乱データから復元方程式を導き、その後で無反射の場合を具体的に解く。
 
 ## 3. 散乱の逆問題
 
@@ -381,16 +319,12 @@ C_{mn}(x)&=\int_{-\infty}^x e^{\theta_m(z)+\theta_n(z)}\,dz\\
 \end{aligned}
 \tag{equation-3809f1c8d2}
 $$
-ここで $\boldsymbol\theta=(\theta_1,\ldots,\theta_N)^{\mathsf T}$ とし、$e^{\boldsymbol\theta}$ は成分ごとの指数関数を並べた列ベクトルとする。式 (@equation-4d1eb682c3) は
+とする。ここで $\boldsymbol\theta=(\theta_1,\ldots,\theta_N)^{\mathsf T}$ とし、$e^{\boldsymbol\theta}$ は成分ごとの指数関数を並べた列ベクトルとする。また、$\boldsymbol\psi=(\psi_1,\ldots,\psi_N)^{\mathsf T}$ とし、$I$ を $N$ 次の単位行列とする。式 (@equation-4d1eb682c3) は
 $$
-\begin{gathered}
-(I+C)\boldsymbol\psi=e^{\boldsymbol\theta},\\
-\boldsymbol\psi=(\psi_1,\ldots,\psi_N)^{\mathsf T},\\
-e^{\boldsymbol\theta}=(e^{\theta_1},\ldots,e^{\theta_N})^{\mathsf T}.
-\end{gathered}
+(I+C)\boldsymbol\psi=e^{\boldsymbol\theta}.
 \tag{equation-434990ec06}
 $$
-となる。$I$ は $N$ 次の単位行列である。$C$ は、区間 $(-\infty,x]$ 上の指数関数 $e^{\theta_1},\ldots,e^{\theta_N}$ のグラム行列であり、各成分は上の積分で定まる内積である。従って $C$ の固有値は非負で、$I+C$ の固有値は全て $1$ 以上となり、$I+C$ は可逆である。各 $x$ で連立方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}e^{\boldsymbol\theta}$ と核 (@equation-6b629c0eb4) が得られる。
+となる。$C$ は、区間 $(-\infty,x]$ 上の指数関数 $e^{\theta_1},\ldots,e^{\theta_N}$ のグラム行列であり、各成分は上の積分で定まる内積である。従って $C$ の固有値は非負で、$I+C$ の固有値は全て $1$ 以上となり、$I+C$ は可逆である。各 $x$ で連立方程式を解けば、束縛状態 $\boldsymbol\psi=(I+C)^{-1}e^{\boldsymbol\theta}$ と核 (@equation-6b629c0eb4) が得られる。
 
 非対角成分 $C_{mn}$ があるため、第 $m$ の方程式にも他の $\psi_n$ が現れる。束縛状態はそれぞれを独立に求めるのではなく、この一つの連立方程式から求める。
 
@@ -423,7 +357,7 @@ $$
 $$
 と表せる。これなら各束縛状態の波形 $\psi_n$ を求めずに、散乱データからポテンシャルを得られる。
 
-この式を確かめるには、対角値に現れた $\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi$ が $\log\det(I+C)$ の微分に等しいことを示せばよい。$C$ の積分表示から $\frac{dC}{dx}=e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}$ なので、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}e^{\boldsymbol\theta}$ により
+行列の対角成分の和を $\operatorname{tr}$ と書く。この式を確かめるには、対角値に現れた $\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi$ が $\log\det(I+C)$ の微分に等しいことを示せばよい。$C$ の積分表示から $\frac{dC}{dx}=e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}$ なので、行列式の微分公式と $\boldsymbol\psi=(I+C)^{-1}e^{\boldsymbol\theta}$ により
 $$
 \begin{aligned}
 \frac{d}{dx}\log\det(I+C)
@@ -433,17 +367,19 @@ $$
 \end{aligned}
 \tag{equation-ec581bb65a}
 $$
-これを対角復元式 (@equation-c09e1229fc) に代入すれば、上のポテンシャルの表示が得られる。
+これを式 (@equation-c09e1229fc) の $u$ の表示に代入すれば、上のポテンシャルの表示が得られる。
 
-時間発展を戻すには、第2節で求めた $c_n(t)=c_n(0)e^{-4\kappa_n^3t}$ を使えばよい。すなわち
+時間発展を戻すには、第2節で求めた $c_n(t)=c_n(0)e^{\kappa_n^3t}$ を使えばよい。すなわち
 $$
 \begin{gathered}
-\theta_n(x,t)=\kappa_nx-4\kappa_n^3t+\log c_n(0),\\
+\theta_n(x,t)=\kappa_nx+\kappa_n^3t+\log c_n(0),\\
 C_{mn}(x,t)=\frac{e^{\theta_m(x,t)+\theta_n(x,t)}}{\kappa_m+\kappa_n}
 \end{gathered}
 \tag{equation-485df2d91c}
 $$
-を式 (@equation-1f3f118d6b) に入れると、$N$ ソリトン解が得られる。散乱データの指数関数的な時間発展が、同じ行列の成分を通じて波形の時間発展に変わる。$N=1$ では $\det(I+C)=1+c(t)^2e^{2\kappa x}/(2\kappa)$ となり、先ほどの一ソリトン解を再現する。
+を式 (@equation-1f3f118d6b) に入れると、$N$ ソリトン解が得られる。散乱データの指数関数的な時間発展が、同じ行列の成分を通じて波形の時間発展に変わる。$N=1$ では $\det(I+C)=1+\frac{c_1(t)^2e^{2\kappa_1 x}}{2\kappa_1}$ となり、先ほどの一ソリトン解を再現する。
+
+先に波の速さと位置で書いた解との対応は、$v_j=-\kappa_j^2$、$c_j(0)=\sqrt{2\kappa_j}e^{-\kappa_jx_j}$ で与えられる。このとき $C_{jj}=e^{2\xi_j}=e^{2\theta_j}/(2\kappa_j)$ なので、行列式の各項は §2.1 の二ソリトン解の項に一致する。二つの添字の順序は入れ替えても行列式を変えない。
 
 #### 3.3.4. ソリトンの衝突と位置のずれ
 
@@ -457,46 +393,67 @@ $$
 \end{aligned}
 \tag{two-soliton-determinant}
 $$
-となる。二行目では $C_{12}^2/(C_{11}C_{22})=4\kappa_1\kappa_2/(\kappa_1+\kappa_2)^2$ を使った。
+となる。二行目では $\frac{C_{12}^2}{C_{11}C_{22}}=\frac{4\kappa_1\kappa_2}{(\kappa_1+\kappa_2)^2}$ を使った。
 
 これを $(1+C_{11})(1+C_{22})$ と比較しよう。もしこの積なら、
 $$
 -2\partial_x^2\log[(1+C_{11})(1+C_{22})]
 =-2\partial_x^2\log(1+C_{11})-2\partial_x^2\log(1+C_{22}),
 $$
-となり、ポテンシャルは二つの一ソリトンの単純な和になる。実際の行列式では、$C_{11}C_{22}$ の係数が $1$ から $((\kappa_1-\kappa_2)/(\kappa_1+\kappa_2))^2$ に変わる。この係数が、二ソリトン解を単純な和と異なる波形にする。
+となり、ポテンシャルは二つの一ソリトンの単純な和になる。実際の行列式では、$C_{11}C_{22}$ の係数が $1$ から $\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2$ に変わる。この係数が、二ソリトン解を単純な和と異なる波形にする。
 
-その違いを、衝突前後の位置のずれとして読んでみよう。二つのソリトンが十分離れたとき、第1のソリトンの中心付近で $C_{22}$ が十分小さければ、行列式は $1+C_{11}$ に近い。一方、$C_{22}$ が十分大きければ、
+<div data-extra-visual="determinant"></div>
+
+以下では $\kappa_1<\kappa_2$ とし、$\kappa_1$ に対応する遅いソリトンの谷を追う。二つの谷は負の $x$ 方向へ進み、速いソリトンが後ろから追い越す。遅い谷の速度は $-\kappa_1^2$ なので、衝突より十分前と十分後には $x\simeq-\kappa_1^2t+\text{定数}$ にある。これを $C_{22}\propto\exp[2\kappa_2(x+\kappa_2^2t)]$ に代入すると、
+$$
+C_{22}\propto\exp\!\left[2\kappa_2(\kappa_2^2-\kappa_1^2)t\right].
+$$
+指数の $t$ の係数は正である。従って、遅いソリトンの谷の近くでは、衝突より十分前（$t\to-\infty$）には $C_{22}$ が小さくなり、衝突より十分後（$t\to+\infty$）には大きくなる。
+
+衝突前に二つの谷が十分離れていると、遅いソリトンの谷の近くでは $C_{22}$ を含む二項が小さくなるので、
+$$
+\det(I+C)\simeq1+C_{11}
+$$
+となる。
+
+衝突後の行列式を $C_{22}$ で割ると $(1+C_{11})/C_{22}$ が小さくなるので、
 $$
 \det(I+C)\simeq C_{22}\left[1+
 \left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2 C_{11}\right].
 $$
-$\log C_{22}$ は $x$ の一次式なので、その二階微分は $0$ である。従って、第1のソリトンの近くの波形は、どちらの場合も $-2\partial_x^2\log(1+\text{定数}\times C_{11})$ という一ソリトンの形になる。
+$\log C_{22}$ は $x$ の一次式であり、$\partial_x^2\log C_{22}=0$ である。従って、ポテンシャルを求める二階微分には、角括弧の中だけが寄与する。遅いソリトンの衝突前後の波形は、どちらも $-2\partial_x^2\log(1+\text{定数}\times C_{11})$ という一ソリトンの形で、指数因子に掛かる係数だけが異なる。
 
-まず、一ソリトンの谷の中心を式で確かめよう。$C_{11}$ の $x$ 依存性は $e^{2\kappa_1x}$ に比例するので、
+この係数が谷の位置を変える。一ソリトンでは
 $$
 -2\partial_x^2\log(1+C_{11})
-=-8\kappa_1^2\frac{C_{11}}{(1+C_{11})^2}.
+=-8\kappa_1^2\frac{C_{11}}{(1+C_{11})^2}
 $$
-$C_{11}>0$ では $C_{11}/(1+C_{11})^2$ が最大になるのは $C_{11}=1$ のときであり、そこがポテンシャルの最小点、すなわち谷の中心となる。
+なので、谷の中心は $C_{11}=1$ にある。定数倍した指数因子でも、それが $1$ となる位置が中心である。従って、前後の中心条件は
+$$
+\begin{aligned}
+\text{衝突前：}&\quad C_{11}=1,\\
+\text{衝突後：}&\quad
+\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2 C_{11}=1.
+\end{aligned}
+$$
+$C_{11}\propto e^{2\kappa_1x+2\kappa_1^3t}$ より、衝突後の中心は、衝突前の中心を同じ速度で進めた位置から
+$$
+-\frac{1}{2\kappa_1}\log\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2>0
+$$
+だけ右にずれる。
 
-$C_{11}\propto e^{2\kappa_1x-8\kappa_1^3t}$ なので、この定数倍は形や速度を変えず、中心の位置を変える。二つの領域での中心条件はそれぞれ
+速いソリトンの中心 $x\simeq-\kappa_2^2t+\text{定数}$ では、$C_{11}\propto\exp[-2\kappa_1(\kappa_2^2-\kappa_1^2)t]$ が衝突前に大きく、衝突後に小さくなる。同じ計算で、中心条件は衝突前の $\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2C_{22}=1$ から、衝突後の $C_{22}=1$ へ移る。従って速いソリトンの位置のずれは
 $$
-C_{11}=1,\qquad
-\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2 C_{11}=1
+\frac{1}{2\kappa_2}\log\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2<0
 $$
-であり、後者の中心は前者より
-$$
--\frac{1}{2\kappa_1}\log\left(\frac{\kappa_1-\kappa_2}{\kappa_1+\kappa_2}\right)^2
-$$
-だけ右にある。ここでは二つの領域の位置を比較した。時間の順序も、$x\simeq4\kappa_1^2t+\text{定数}$ に沿って $C_{22}\propto\exp[8\kappa_2(\kappa_1^2-\kappa_2^2)t]$ と書けばわかる。$\kappa_1>\kappa_2$ なら第1のソリトンは衝突後にこの距離だけ前進し、$\kappa_1<\kappa_2$ なら逆の順序をたどって後退する。衝突後に形と速度が保たれることも、中心の位置がずれることも、行列式のこの係数からわかる。
+であり、左へずれる。どちらも指数の $x,t$ の係数は変わらないため、谷の深さ・幅と速度は保たれる。
 
-<div data-extra-visual="determinant"></div>
+行列式の混合項の係数が、形と速度を保ったまま中心位置をずらすのである。
 
-一般の $N$ では、行列式の各項は部分集合 $S\subseteq\{1,\ldots,N\}$ に対応する主小行列式の和になる。それぞれの係数は、二ソリトンで現れた $((\kappa_i-\kappa_j)/(\kappa_i+\kappa_j))^2$ を、その集合に含まれる全ての組について掛けたものである。一般式と計算を次の補足に示す。
+一般の $N$ では、行列式の各項は部分集合 $S\subseteq\{1,\ldots,N\}$ に対応する主小行列式の和になる。それぞれの係数は、二ソリトンで現れた $\left(\frac{\kappa_i-\kappa_j}{\kappa_i+\kappa_j}\right)^2$ を、その集合に含まれる全ての組について掛けたものである。一般式と計算を次の補足に示す。
 
 <details id="reflectionless-principal-minors">
-<summary>主小行列式と相互作用因子</summary>
+<summary>主小行列式の計算</summary>
 
 $C_{S,S}$ を、$S$ に属する行と列だけを残した行列とする。$I+C$ の行列式を各列についての多重線形性で展開すると、各列で $I$ の列か $C$ の列を選ぶことになる。$C$ の列を選んだ添字の集合を $S$ とすれば、残りの単位行列の列に沿う余因子展開により、その項は $\det C_{S,S}$ になる。空集合の主小行列式を $1$ と約束すると、
 $$
@@ -524,15 +481,13 @@ $$
 $$
 各部分集合の項には、その中の全ての組の係数が一つずつ現れる。
 
-Cauchy の行列式の公式も、行の基本変形で確認できる。まず添字全体 $1,\ldots,N$ で計算しよう。第 $m$ 行（$m\ge2$）から、第1行の $2\kappa_1/(\kappa_m+\kappa_1)$ 倍を引くと、第一列の第2行以降は $0$ になる。残る $m,n\ge2$ の成分は
+Cauchy の行列式の公式も、行の基本変形で確認できる。まず添字全体 $1,\ldots,N$ で計算しよう。第 $m$ 行（$m\ge2$）から、第1行の $\frac{2\kappa_1}{\kappa_m+\kappa_1}$ 倍を引くと、第一列の第2行以降は $0$ になる。残る $m,n\ge2$ の成分は
 $$
-\begin{aligned}
 \frac{1}{\kappa_m+\kappa_n}
 -\frac{2\kappa_1}{(\kappa_m+\kappa_1)(\kappa_1+\kappa_n)}
-&=\frac{\kappa_m-\kappa_1}{\kappa_m+\kappa_1}
+=\frac{\kappa_m-\kappa_1}{\kappa_m+\kappa_1}
 \frac{1}{\kappa_m+\kappa_n}
 \frac{\kappa_n-\kappa_1}{\kappa_n+\kappa_1}.
-\end{aligned}
 $$
 
 第一列で余因子展開し、残る行と列から左右の因子をそれぞれくくり出すと、
@@ -545,323 +500,739 @@ $$
 同じ操作を繰り返すと、各添字から $1/(2\kappa_i)$ が一つ、各組から差と和の比の二乗が一つずつ現れる。任意の部分集合 $S$ にも同じ計算が適用でき、上の公式を得る。
 
 </details>
-
-復元したポテンシャルは、束縛状態の波形を使って
-$$
-u(x,t)=-4\sum_{n=1}^N\kappa_n\psi_n(x,t)^2
-\tag{equation-1888e2449c}
-$$
-とも表せる。左端の指数関数から連立方程式で求めた $\psi_n$ は、規格化された束縛状態であり、その二乗の重み付き和がポテンシャルを与える。この表示の導出と規格化の確認を以下の補足に示す。
-
-<details id="reflectionless-normalization">
-<summary>束縛状態の固有方程式と規格化</summary>
-
-式 (@equation-b57207a680) は $\psi_n=c_nf_-(x,-i\kappa_n)$ の核表示である。この複素波数では指数関数が左端で減衰し、左積分は収束する。$Lf_-(x,k)=k^2f_-(x,k)$ より
-$$
-L\psi_n=-\kappa_n^2\psi_n.
-$$
-規格化は連立方程式からも確かめられる。$\frac{dC}{dx}=e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}$ と逆行列の微分公式から
-$$
-\begin{aligned}
-\frac{d}{dx}(I+C)^{-1}
-&=-(I+C)^{-1}e^{\boldsymbol\theta}\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}\\
-&=-\boldsymbol\psi\boldsymbol\psi^{\mathsf T}.
-\end{aligned}
-\tag{equation-eeebde7889}
-$$
-$x\to-\infty$ では $C\to0$ なので $(I+C)^{-1}\to I$。他方、$C_{mn}(x)=e^{\kappa_mx}C_{mn}(0)e^{\kappa_nx}$ より
-$$
-[C(x)^{-1}]_{mn}=e^{-\kappa_mx}[C(0)^{-1}]_{mn}e^{-\kappa_nx}\longrightarrow0
-\qquad(x\to+\infty).
-$$
-従って $(I+C)^{-1}=C^{-1}(I+C^{-1})^{-1}\to0$ である。式 (@equation-eeebde7889) を両端の間で積分すると
-$$
-\int_{\mathbb R}\psi_m(x)\psi_n(x)\,dx=\delta_{mn}
-\tag{equation-962ded102a}
-$$
-を得る。ここで $\delta_{mn}$ は $m=n$ のとき1、それ以外で0である。
-
-</details>
-
-<details id="reflectionless-density">
-<summary>束縛状態の二乗和によるポテンシャルの表示</summary>
-
-$e^{\theta_n}=\psi_n+\sum_mC_{nm}\psi_m$、$C_{mn}=C_{nm}$ および $(\kappa_m+\kappa_n)C_{mn}=e^{\theta_m+\theta_n}$ より
-$$
-\begin{aligned}
-2\sum_n\kappa_ne^{\theta_n}\psi_n
-&=2\sum_n\kappa_n\psi_n^2+\sum_{m,n}e^{\theta_m+\theta_n}\psi_m\psi_n\\
-&=2\sum_n\kappa_n\psi_n^2+(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)^2.
-\end{aligned}
-\tag{equation-9de2c9f65e}
-$$
-一方、$\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi=\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}(I+C)^{-1}e^{\boldsymbol\theta}$ を微分する。$\partial_x\theta_n=\kappa_n$ なので、左右の指数関数を微分した寄与を足し、逆行列の微分 (@equation-eeebde7889) を使うと
-$$
-\begin{aligned}
-\frac{d}{dx}(\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi)
-&=2\sum_n\kappa_ne^{\theta_n}\psi_n-\left[\bigl(e^{\boldsymbol\theta}\bigr)^{\mathsf T}\boldsymbol\psi\right]^2\\
-&=2\sum_n\kappa_n\psi_n^2.
-\end{aligned}
-\tag{equation-95a2bc6b3b}
-$$
-これを対角復元式 (@equation-c09e1229fc) に代入すれば $u=-4\sum_n\kappa_n\psi_n^2$ が従う。
-
-</details>
 <!-- kdv-reflectionless:end -->
 
 ## 4. KdV階層と保存量
 
 ### 4.1. 積分変換と擬微分作用素
 
-KdV の Lax 方程式に現れた $B=-4\partial_x^3+6u\partial_x+3u_x$ には、$u$ とその微分が特定の係数で現れた。これらの係数を一つの構造から決め、同じ仕組みでより高い微分を含む発展則も作れるだろうか。手掛かりは、前章で使った、自由波を Jost 解へ変える核 $K$ にある。
+§2.2 では、$B=\partial_x^3-\frac32u\partial_x-\frac34u_x$ を与え、その交換子が KdV 方程式を再現することを確かめた。しかし、なぜ $1,-3/2,-3/4$ という係数の組合せでうまくいくのだろうか。この章では、この組合せを前章の変換核 $K$ から導く。同じ構成を続けると、高階の発展則と無限個の保存量も得られ、KdV 方程式の背後に共通する構造が見えてくる。
 
-前節までに、固定したポテンシャル $u(x,t)$ に対する左 Jost 解は
+前章で導入した作用素 $S$ は、自由波を左 Jost 解へ移す：
 $$
-f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,y)e^{iky}\,dy
+f_-(x,k)=S e^{ikx}.
 \tag{dressing-jost-recall}
 $$
-と表され、その同じ核の対角値から $u=2\,dK(x,x)/dx$ が復元されることを見た。時刻 $t$ を固定し、自由波だけでなく積分が収束する十分滑らかな入力 $g$ にも同じ積分変換を作用させて
-$$
-(Sg)(x):=g(x)+\int_{-\infty}^xK(x,y)g(y)\,dy
-\tag{dressing-transform}
-$$
-と書く。したがって $S e^{ikx}=f_-(x,k)$ である。$S$ は既習の核 $K$ が定める、自由波からポテンシャル付きの波への変換を表す。
+核の対角値から $u=2\frac{dK(x,x)}{dx}$ が復元され、$S$ と $L$ は式 (@dressing-intertwining) の $LS=S(-\partial_x^2)$ で結び付いている。
 
-この変換で微分はどう表されるだろうか。自由波を微分してから $S$ を作用させる操作を、変換後の波に作用する演算子 $P$ で表せれば、
+この関係を使った演算子の計算では、$S$ の積分部分も微分と共通の記法で表すと扱いやすい。$\partial=\partial_x$ と略記し、左端で十分速く消える関数 $g$ に対して
 $$
-P(Sg)=S(\partial_x g)
+(\partial^{-1}g)(x):=\int_{-\infty}^xg(y)\,dy
 $$
-となる。以下ではこの関係を擬微分作用素で具体化し、$P$ の二乗が既知の Schrödinger 演算子 $-L$ になることを示す。
+と定める。$\partial^{-r}$ は、この積分を $r$ 回繰り返す作用である。
 
-まず負の微分冪を使う意味を、積分変換と結び付けておく。左端で十分速く消える関数 $g$ には
-$$
-(\partial_x^{-1}g)(x):=\int_{-\infty}^xg(s)\,ds
-$$
-と置ける。このとき左端の境界項は消え、$\partial_x\partial_x^{-1}g=g$ である。以後、擬微分作用素の負冪は形式級数として扱い、積則と係数比較で定める。
+入力関数 $g$ に $\alpha$ を掛けてから積分すると、積分内では各点の値 $\alpha(y)$ が掛かる。一方、$g$ を積分してから $\alpha$ を掛けると、積分全体に上端の値 $\alpha(x)$ が掛かる。係数が位置によって変わると、この二つの操作は一致しない。
 
-係数関数と微分の積は可換ではない。たとえば、任意の滑らかな $g$ に対して
+微分と積分を合わせた展開
 $$
-\partial_x(\alpha g)=\alpha\partial_xg+\alpha_xg
+A=\sum_{j=-\infty}^{m}a_j(x)\partial^j
 $$
-なので、演算子の積では $\partial_x\alpha=\alpha\partial_x+\alpha_x$ と扱う。$\partial=\partial_x$ と略記し、負冪を含む擬微分作用素を
+を擬微分作用素と呼ぶ。各項 $a_j(x)\partial^j$ は、入力関数に $\partial^j$ を作用させてから、係数 $a_j(x)$ を掛ける演算子である。次数 $j$ には上限 $m$ を設ける。以下では、これらの展開を形式級数として係数ごとに計算する。
+
+$S$ の積分表示を部分積分すると、左端の境界項が消える条件の下で
 $$
-A=\sum_{j=-\infty}^{m}\alpha_j(x)\partial^j
+(Sg)(x)=g(x)+K(x,x)(\partial^{-1}g)(x)
+-\int_{-\infty}^xK_y(x,y)(\partial^{-1}g)(y)\,dy.
 $$
-という、次数に上限をもつ形式級数として導入する。その積は一般化 Leibniz 則
+これを繰り返して、$S$ の展開
+$$
+S=1+K(x,x)\partial^{-1}-(\partial_yK)(x,x)\partial^{-2}+\cdots
+\tag{dressing-pdo}
+$$
+を得る。
+
+積は、係数関数を左にそろえて計算する。たとえば、$\alpha g$ の積分を部分積分すると、
+$$
+\partial^{-1}(\alpha g)
+=\alpha\,\partial^{-1}g
+-\partial^{-1}(\alpha_x\,\partial^{-1}g).
+$$
+右辺の第二項が、積分区間内での係数の変化を補う。$\alpha$ が一定なら、この項は消える。同じ部分積分を繰り返すと、
+$$
+\partial^{-1}\alpha
+=\alpha\partial^{-1}-\alpha_x\partial^{-2}
++\alpha_{xx}\partial^{-3}-\cdots.
+$$
+この式の両辺に左から $\partial^{-1}$ を作用させると、右辺の最初の三項からそれぞれ
+$$
+\begin{aligned}
+\partial^{-1}(\alpha\partial^{-1})
+&=\alpha\partial^{-2}-\alpha_x\partial^{-3}
++\alpha_{xx}\partial^{-4}-\cdots,\\
+-\partial^{-1}(\alpha_x\partial^{-2})
+&=-\alpha_x\partial^{-3}+\alpha_{xx}\partial^{-4}-\cdots,\\
+\partial^{-1}(\alpha_{xx}\partial^{-3})
+&=\alpha_{xx}\partial^{-4}-\cdots
+\end{aligned}
+$$
+が生じる。同じ冪の項を足し合わせて、
+$$
+\partial^{-2}\alpha
+=\alpha\partial^{-2}-2\alpha_x\partial^{-3}
++3\alpha_{xx}\partial^{-4}-\cdots.
+$$
+積分を重ねると、係数の変化による補正も重なっていく。一般の整数冪の積は、一般化 Leibniz 則
 $$
 \partial^m\alpha=\sum_{j\ge0}\binom{m}{j}(\partial_x^j\alpha)\partial^{m-j},\qquad
 \binom{m}{j}=\frac{m(m-1)\cdots(m-j+1)}{j!},\quad \binom m0=1
 $$
-で定める。たとえば $\partial^{-1}\alpha=\alpha\partial^{-1}-\alpha_x\partial^{-2}+\alpha_{xx}\partial^{-3}-\cdots$ となる。定積分として定めた $\partial_x^{-1}$ は、境界条件を満たす関数への具体的な積分作用である。擬微分作用素の平面波上の $(ik)^{-r}$ は、その形式級数を大波数で比較する記号として用いる。
+にまとめられる。
 
-核 $K$ と必要な導関数が左端で十分速く減衰するとき、変換 $S$ の積分核表示を平面波に作用させ、$y$ について部分積分を繰り返すと、左端の境界項が消え、上端 $y=x$ の値と導関数が順に現れる。従って $S$ の形式擬微分表示は
-$$
-S=1+K(x,x)\partial^{-1}-(\partial_yK)(x,x)\partial^{-2}+\cdots.
-\tag{dressing-pdo}
-$$
-この等式は、散乱問題で $K$ が定める積分変換の大波数展開を形式級数で表す。対角値が先頭の負冪係数となる点は、既に得た $u=2\,dK(x,x)/dx$ との接点でもある。部分積分の各段の境界条件と係数確認は補足に示す。
+<details id="pdo-leibniz-derivation">
+<summary>負の整数冪についての帰納法</summary>
 
-この演算子を使う理由は、$L$ と自由微分の作用を、同じ変換後の波で直接比べられることにある。Jost 解の定義から、任意の実波数 $k$ について
+$r\ge1$ に対して
 $$
-L(S e^{ikx})=k^2S e^{ikx}=S(-\partial^2 e^{ikx}).
+\partial^{-r}\alpha
+=\sum_{j\ge0}(-1)^j\binom{r+j-1}{j}
+\alpha^{(j)}\partial^{-(r+j)},\qquad
+\alpha^{(j)}=\partial_x^j\alpha
 $$
-つまり両辺は全ての実波数 $k$ で、同じ変換後の固有関数に同じ固有値 $k^2$ で作用する。この全波数の関係を大波数で展開して形式級数の各係数を比べると、形式擬微分作用素として
-$$
-LS=S(-\partial^2)
-\tag{dressing-intertwining}
-$$
-を得る。
+を示す。$r=1$ は本文で求めた式である。
 
-形式表示の $S$ は $1$ と負冪部分の和なので、形式積の中で逆をもつ。実際、$Q:=S-1$ の次数は $-1$ 以下なので、逆級数は
+$r$ 回の式の各項をもう一度積分する。$\alpha^{(n)}\partial^{-(r+n+1)}$ には、$j=0,\ldots,n$ の項からそれぞれ $n-j$ 回の微分が加わって寄与する。その係数を足すと、
 $$
-S^{-1}=1-Q+Q^2-Q^3+\cdots
+\begin{aligned}
+\sum_{j=0}^n
+(-1)^j\binom{r+j-1}{j}(-1)^{n-j}
+&=(-1)^n\sum_{j=0}^n\binom{r+j-1}{j}\\
+&=(-1)^n\binom{r+n}{n}.
+\end{aligned}
 $$
-となる。$Q$ の次数が負なので、各固定次数の係数には有限個の項だけが寄与する。従ってこれは収束を要しない形式逆である。ここで
+最後の等号には Pascal の関係を用いた。これは $r$ を $r+1$ に置き換えた係数なので、すべての $r\ge1$ で式が成り立つ。
+
+二項係数の定義から $\binom{-r}{j}=(-1)^j\binom{r+j-1}{j}$ であり、$m=-r$ と書けば本文の一般化 Leibniz 則を得る。
+
+</details>
+
+式 (@dressing-intertwining) から $L$ を取り出すために、$S$ の逆を求める。
+$$
+S^{-1}=1-(S-1)+(S-1)^2-(S-1)^3+\cdots
+$$
+である。実際、右から $S=1+(S-1)$ を掛ければ隣り合う冪の項が打ち消し合い、$1$ が残る。$S-1$ の最高次数は $-1$ なので、$(S-1)^r$ の最高次数は $-r$ 以下であり、各固定次数の係数には有限個の項だけが寄与する。従って、これは係数ごとに計算できる形式級数の逆である。式 (@dressing-intertwining) の右からこの $S^{-1}$ を掛け、符号を反転すると
+$$
+-L=S\partial^2S^{-1}.
+$$
+ここで、後に $B$ を構成するため、$-L$ を一つの演算子の二乗として表す方法を導入する。
+
+この右辺は、隣り合う $S^{-1}S$ が $1$ になることを使って
+$$
+S\partial^2S^{-1}=(S\partial S^{-1})(S\partial S^{-1})
+$$
+と二つの同じ因子に分けられる。この因子に $P$ と名前を付ける。
 $$
 P:=S\partial S^{-1}
 \tag{dressed-derivative}
 $$
-と定めれば、$PS=S\partial$、さらに (@dressing-intertwining) より
+すると
 $$
-P^2=S\partial^2S^{-1}=-L.
+P^2=-L
 $$
-したがって $P$ は、自由波の微分を変換後の波に移す、最高次項が $\partial$ である $-L$ の形式平方根である。
+であり、$P$ は $-L$ の形式平方根である。$S=1+$ 負冪部分なので、$P$ の最高次項は $\partial$ となる。
+
+また、定義の右から $S$ を掛ければ、形式級数の積として
+$$
+PS=S\partial
+$$
+となる。図は、この積の関係を表している。
 
 <div data-extra-visual="dressing"></div>
 
-核の展開 (@dressing-pdo) と $P^2=-L$ の係数を比較すると
+$P^2=-L=\partial^2-u$ の係数を比較すると
 $$
 P=(-L)^{1/2}=\partial-\frac{u}{2}\partial^{-1}+\frac{u_x}{4}\partial^{-2}+\cdots.
 \tag{equation-0c81f024ea}
 $$
-となり、最初の負冪係数にも対角復元式と同じポテンシャルが現れる。係数を順に定める計算は補足に置く。
+となる。
 
-<details id="dressing-expansion-check">
-<summary>変換核の展開と形式平方根の係数</summary>
-
-平面波 $g(y)=e^{iky}$ に積分変換の補正を作用させる。$K$ と必要な導関数が左端で十分速く消えるとき、部分積分を行うごとに左端の境界項は消え、上端から
-$$
-\int_{-\infty}^x K(x,y)e^{iky}\,dy
-\sim e^{ikx}\left[\frac{K(x,x)}{ik}-\frac{K_y(x,x)}{(ik)^2}+\cdots\right]
-$$
-を得る。平面波上では $\partial^{-r}$ が $(ik)^{-r}$ として作用するので、これが (@dressing-pdo) の係数を与える。これはこの積分変換の大波数漸近展開である。
-
-次に $P=\partial+a_1\partial^{-1}+a_2\partial^{-2}+\cdots$ と置く。非可換積の規則 $\partial a=a\partial+a_x$ を用いると、$P^2$ の $\partial^0$ 係数は $2a_1$、$\partial^{-1}$ 係数は $2a_2+(a_1)_x$ である。これらを $P^2=\partial^2-u$ と比較して
-$$
-a_1=-\frac{u}{2},\qquad a_2=\frac{u_x}{4}
-$$
-となる。以後も同じ係数比較で一つずつ決まる。
-
-</details>
+<div data-extra-visual="formal-square-root"></div>
 
 
 ### 4.2. KdV階層
 
-前節までの KdV 方程式では物理時間 $t$ を使い、
+§2.2 で用いた演算子
 $$
-L=-\partial_x^2+u(x,t),\qquad
-L_t=[-4\partial_x^3+6u\partial_x+3u_x,L]
+B=\partial^3-\frac32u\partial-\frac34u_x
 $$
-という Lax 方程式で表された。ここで交換子は $[A,C]=AC-CA$ である。以後、この節では階層時間 $t_n$ を使い、$t_3=-4t$ とする。したがって $\partial_{t_3}=-(1/4)\partial_t$ であり、同じ物理的な KdV 発展は
+について、なぜこの係数の組合せで KdV 方程式を表せるのか、という問いに戻ろう。
+
+Lax 方程式 $L_t=[B,L]$ の左辺は、$L=-\partial^2+u$ より $u_t$ を掛ける演算子である。一方、$B$ と $L$ はどちらも微分演算子だが、その交換子では微分項がすべて相殺し、
 $$
+[B,L]=\frac{u_{xxx}-6uu_x}{4}
+$$
+という掛け算演算子になる。そのため、演算子の等式 $L_t=[B,L]$ が、関数 $u$ についての KdV 方程式になる。
+
+この相殺を生む係数は、実は前節の $P$ から組み立てられる。$B$ は三階の微分演算子であり、$P$ の先頭の項は一階微分 $\partial$ である。三階の項から比較するため、$P^3$ を展開する。
+
+前節の $P=\partial-(u/2)\partial^{-1}+(u_x/4)\partial^{-2}+\cdots$ を用いると、
+$$
+P^3=\partial^3-\frac32u\partial-\frac34u_x+\text{（負冪の項）}.
+$$
+右辺の最初の三項は、上の $B$ に一致する。つまり、$P^3$ のうち $\partial^3,\partial^1,\partial^0$ の項を残すと、既知の KdV の演算子が得られる。
+
+この部分を取り出す記法として、$A_{\ge0}$ を $A$ の非負の冪 $\partial^j$（$j\ge0$）からなる部分、$A_{<0}$ を残りの負冪部分と書く。すると、今の関係は
+$$
+B_3:=(P^3)_{\ge0}=\partial^3-\frac32u\partial-\frac34u_x=B
+\tag{equation-bc6b0d053d}
+$$
+となる。$B_3$ は、既知の $B$ そのものである。
+
+この三乗に対応する時間を $t_3$ と書けば、初めから用いてきた時間は $t=t_3$ である。既知の KdV 方程式は
+$$
+\frac{\partial L}{\partial t_3}=[B_3,L],\qquad
 \frac{\partial u}{\partial t_3}=\frac{u_{xxx}-6uu_x}{4}
 $$
-と書ける。この節では、得られた一つの演算子 $P$ から無限個の時間発展を作り、それぞれに保存量があることを示す。
+となる。ここで $L=-\partial^2+u$である。
 
-$L=-\partial^2+u$ の各階層時間に沿う変化は、掛け算演算子 $u_{t_n}$ である。したがって、Lax 方程式で発展を作るには、交換子 $[B,L]$ に微分演算子が残らないような $B$ が必要になる。
+次に、$P^3$ を正負の冪に分けて、微分項が相殺する仕組みを確かめる。
 
-$P^n$ は $L=-P^2$ と可換なので、そのまま $B$ にしても自明な流れしか生じない。ところが、$P^n$ の非負冪だけを残すと、その部分と $L$ の交換子は掛け算演算子になる。この性質を使って時間発展を作る。
+$L=-P^2$ なので、$P^3$ 全体は $L$ と可換である。$P^3=B_3+(P^3)_{<0}$ と分けると、
+$$
+[L,B_3]=-[L,(P^3)_{<0}].
+$$
+左辺は微分演算子どうしの交換子なので、負の冪を含まない。一方、右辺は負冪部分との交換子である。たとえば、$L$ の二階微分と先頭の負冪項の交換子は
+$$
+[-\partial^2,\alpha\partial^{-1}]
+=-2\alpha_x-\alpha_{xx}\partial^{-1}.
+$$
+両方の積に現れる $-\alpha\partial$ が相殺し、正の冪は残らない。より低い負冪との交換子の次数はさらに低く、$u$ との交換子にも正の冪は現れない。したがって右辺の次数は $0$ 以下である。
 
-$A_{\ge0}$ を $A$ の非負の冪 $\partial^j$（$j\ge0$）からなる部分、$A_{<0}$ を残りの負冪部分と書き、
+左辺には負の冪がなく、右辺には正の冪がない。両辺が等しいので、残るのは $\partial^0$、すなわち関数を掛ける項だけである。これが、$B_3$ と $L$ の交換子で微分項がすべて消える理由である。
+
+この議論は三乗に限らない。どの $P^n$ も $L=-P^2$ と可換なので、正整数 $n$ に対して
 $$
 B_n=\bigl(P^n\bigr)_{\ge0},\qquad n=1,2,\ldots
 \tag{equation-d0499023f2}
 $$
-と定める。$P^2=-L$ なので偶数乗 $P^{2m}=(-L)^m$ は $L$ と可換し、対応する流れは自明である。$n=1$ では $B_1=\partial$ となり、$t_1=x$ と同一視される。この流れは $x$ 方向の平行移動を表し、独立の時間変数を加えない。KdV の非自明な流れは奇数 $n\ge3$ に現れる。まず $n=3$ で、この正規化の $B_3$ を求めよう。展開で $P^3$ の非負冪を集めると
+と置けば、
 $$
-B_3=(P^3)_{\ge0}=\partial^3-\frac32u\partial-\frac34u_x,
-\tag{equation-bc6b0d053d}
-$$
-となる。これは物理時間 $t$ の発展を定める $B$ の $-1/4$ 倍である。
-
-$P^n$ 全体は $L$ と可換なので、$B_n$ と $L$ の交換子は負冪部分 $\bigl(P^n\bigr)_{<0}$ との交換子だけで決まる。
-$$
-[L,B_n]=-[L,\bigl(P^n\bigr)_{<0}].
+[L,B_n]=-[L,\bigl(P^n\bigr)_{<0}]
 \tag{equation-79158a38b3}
 $$
-負冪部分の最高次数は $\partial^{-1}$ である。$L=-\partial^2+u$ と負冪項の交換子では、たとえば $[-\partial^2,\alpha\partial^{-1}]=-2\alpha_x-\alpha_{xx}\partial^{-1}$ のように最高次項が相殺し、次数は $0$ 以下となる。一方、左辺は微分作用素なので負の冪を含まない。両辺が一致するには次数 $0$ の項だけが残るため、交換子は掛け算演算子となる。したがって各 $B_n$ は $L$ との Lax 方程式
+の両辺も、同じ理由で掛け算の項だけになる。各発展に割り当てる時間変数を $t_n$ と書けば、各 $B_n$ から
 $$
 \frac{\partial L}{\partial t_n}=[B_n,L]
 \tag{equation-aaef1d653d}
 $$
-を与える。偶数 $n$ は自明な流れであり、奇数 $n\ge3$ が KdV 階層の非自明な発展を与える。$t_n$ は各発展に割り当てた階層時間である。
+によって $u$ の発展方程式を定められる。左辺は $u_{t_n}$ を掛ける演算子である。
+
+偶数 $n=2m$ では $P^{2m}=(-L)^m$ は負冪を含まないので、$B_{2m}=(-L)^m$ であり、$[B_{2m},L]=0$ となる。$n=1$ では $B_1=\partial$、$[\partial,L]=u_x$ なので、$u_{t_1}=u_x$ は空間の平行移動を表す。この流れの変数は $t_1=x$ と同一視する。奇数 $n\ge3$ が KdV 階層の非自明な発展を与え、$n=3$ が上で確かめた KdV 方程式である。
+
+高次の KdV 方程式も、第2–3節と同じ逆散乱法で解ける。どの流れでも空間の散乱問題は $L=-\partial^2+u$ のままであり、散乱データから $u$ を復元する GLM 方程式は変わらない。変わるのは、散乱データの時間発展だけである。
+
+奇数 $n\ge3$ の流れでは、無限遠で $B_n\to\partial^n$ となる。§2.4 と同じく、波の線形発展 $\partial_{t_n}\psi=B_n\psi$ を左右の平面波および束縛状態の $x\to-\infty$ での形 $\psi_j\sim c_j e^{\kappa_jx}$ と比較すれば、固有値と透過係数 $a$ は一定で、
+$$
+\begin{aligned}
+b(k,t_n)&=b(k,0)e^{-2(ik)^n t_n},\\
+c_j(t_n)&=c_j(0)e^{\kappa_j^n t_n}
+\end{aligned}
+\tag{hierarchy-scattering-evolution}
+$$
+を得る。特に、初めに反射がなければ、どの流れでも反射は生じない。
+
+したがって、無反射の場合には §3.3 の指数関数を
+$$
+\theta_j(x,t_n)=\kappa_jx+\kappa_j^n t_n+\log c_j(0)
+\tag{hierarchy-soliton-phase}
+$$
+に替え、同じ $C_{ij}=e^{\theta_i+\theta_j}/(\kappa_i+\kappa_j)$ と $u=-2\partial_x^2\log\det(I+C)$ を使えば、高次 KdV の $N$ ソリトン解が得られる。一ソリトンの $\operatorname{sech}^2$ 型の波形・振幅・幅は共通で、$t_n$ に対する速度は $-\kappa_1^{n-1}$ となる。
 
 ### 4.3. 無限個の保存量
 
-#### 4.3.1. 演算子の冪のLax方程式
+#### 4.3.1. 共役変換とトレース
 
-ここでは $t_3$ に沿う発展を考える。変換核から得た $P$ を使って保存量を求めるため、まず $P$ とその冪の時間変化を求めよう。一つの発展則でこれらを追えれば、個々の式を展開せずに、無限個の量をまとめて調べられる。
+§2.2 では、Lax 方程式による時間発展が
+$$
+L(t)=U(t)L(0)U(t)^{-1}
+$$
+という共役変換であり、固有値を保つことを見た。有限行列では、こうして保たれる固有値から、その和や二乗和などの保存量を作れる。これらの和を、固有値を一つずつ求めずに計算する方法がトレースである。
 
-$P^2=-L$ を時間微分すると
+有限行列 $M$ のトレースは、対角成分の和
 $$
-P_{t_3}P+PP_{t_3}=-L_{t_3}
+\operatorname{tr}M=\sum_i M_{ii}
 $$
-である。一方、Lax 方程式 $L_{t_3}=[B_3,L]$ と $P^2=-L$ から
+である。二つの行列 $M,N$ について
 $$
-[B_3,P]P+P[B_3,P]=[B_3,P^2]=-L_{t_3}
+\operatorname{tr}(MN)=\sum_{i,j}M_{ij}N_{ji}
+=\sum_{i,j}N_{ji}M_{ij}=\operatorname{tr}(NM)
 $$
-となる。両式の差を取れば
+となり、積の順序を巡回的に入れ替えられる。この性質を使えば、可逆行列 $U$ による共役変換に対して
 $$
-\bigl(P_{t_3}-[B_3,P]\bigr)P+P\bigl(P_{t_3}-[B_3,P]\bigr)=0.
+\operatorname{tr}(UM^rU^{-1})=\operatorname{tr}(M^r),\qquad r=1,2,\ldots
 $$
-$P$ の最高次項は $\partial$ なので、差 $P_{t_3}-[B_3,P]$ が非零なら、左辺の最高次項はその係数の2倍となり、消えない。したがって
+である。$M$ を対角化でき、その固有値を $\lambda_j$ とすれば、
 $$
-P_{t_3}=[B_3,P].
-\tag{equation-ad35198100}
+\operatorname{tr}(M^r)=\sum_j\lambda_j^r.
 $$
-積の微分則を使うと、各正整数 $n$ の奇数冪についても
-$$
-\frac{\partial}{\partial t_3}P^{2n-1}=[B_3,P^{2n-1}]
-\tag{odd-power-evolution}
-$$
-が得られる。
+したがって、冪のトレースは、同じ共役変換が保つ固有値のさまざまな和を表している。
 
-#### 4.3.2. 擬微分作用素の留数と保存則
-
-これで、各奇数冪の $t_3$ 発展は交換子として書けた。保存量を得るには、ここから時間微分が $x$ の全微分になる量を取り出せばよい。空間積分すると、境界項だけが残るからである。
-
-ここで役立つのが、擬微分演算子の交換子では、$\partial^{-1}$ の係数が $x$ の全微分になるという性質である。この係数を取り出す操作を
+この仕組みのうち、Lax 方程式から保存量を導くために必要なのは、交換子のトレースが $0$ になることである。実際、行列の発展が $M_t=[B,M]$ ならば $(M^r)_t=[B,M^r]$ なので、
 $$
-A=\sum_j\alpha_j\partial^j,\qquad
-\operatorname{res}_{\partial}A=\alpha_{-1}
+\frac{d}{dt}\operatorname{tr}(M^r)
+=\operatorname{tr}[B,M^r]=0
+$$
+となる。前節で得た $P$ と $B_n$ にも、この仕組みを使う。ただし、微分と積分を含む形式的な演算子に対しては、それに適したトレースを導入する必要がある。
+
+#### 4.3.2. Adler–Maninトレース
+
+ここで新しく導入するのが、擬微分作用素の $\partial^{-1}$ の係数を空間積分する **Adler–Manin トレース**である。[^adler-manin-trace] まず、この係数を取り出す操作を
+$$
+A=\sum_ja_j(x)\partial^j,\qquad
+\operatorname{res}_{\partial}A=a_{-1}(x)
 \tag{equation-e996f45051}
 $$
-と書き、$A$ の留数と呼ぶ。すると、既に求めた発展則 (@odd-power-evolution) から
+と書き、擬微分作用素の留数と呼ぶ。その積分によって
 $$
-\frac{\partial}{\partial t_3}\operatorname{res}_{\partial}P^{2n-1}
-=\operatorname{res}_{\partial}[B_3,P^{2n-1}].
-\tag{equation-43b9d72cd5}
+\operatorname{Tr}_{\mathrm{AM}}A
+:=\int_{-\infty}^{\infty}\operatorname{res}_{\partial}A\,dx
 $$
-右辺が全微分になることを、以下で確かめよう。
+を定める。以下では $u$ と必要な空間導関数が無限遠で急減衰し、用いる留数の積分が収束して時間微分と空間積分を交換できるとする。
 
-この確認では演算子全体を展開する必要はない。二つの単項式 $\alpha\partial^m$ と $\beta\partial^n$ を取り、積の中から留数に寄与する項だけを拾う。一般化 Leibniz 則で $\partial^m\beta$ を展開すると、$\partial^{m+n-r}$ の項が現れる。これが $\partial^{-1}$ になるには $r=m+n+1$ でなければならない。$r<0$ なら微分回数が負となるので寄与はなく、$r=0$ なら係数は $\alpha\beta-\beta\alpha=0$ で相殺する。したがって $r\ge1$ の場合だけを調べればよい。
+このトレースも、境界項が消える範囲で
+$$
+\begin{aligned}
+\operatorname{Tr}_{\mathrm{AM}}(BA)&=\operatorname{Tr}_{\mathrm{AM}}(AB),\\
+\operatorname{Tr}_{\mathrm{AM}}[B,A]&=0
+\end{aligned}
+$$
+を満たす。これが保存量を作る性質である。その理由を、§4.1 の積分核と平面波を使って確かめよう。
 
-留数に寄与する項は有限個なので、$B_3$ と $P^{2n-1}$ の級数にも項ごとに適用でき、留数全体も全微分となる。
+各項 $a_j(x)\partial^j$ では、$\partial^j$ が平面波に $(ik)^j$ を掛け、その後に係数 $a_j(x)$ が掛かる。したがって、$A$ の平面波への作用は
+$$
+e^{-ikx}Ae^{ikx}=\sum_ja_j(x)(ik)^j
+$$
+となる。留数 $\operatorname{res}_{\partial}A$ は、この展開の $(ik)^{-1}$ の係数でもある。複素 $k$ の留数で係数を取り出せば、
+$$
+\operatorname{res}_{\partial}A
+=\frac{1}{2\pi}\oint e^{-ikx}Ae^{ikx}\,dk
+\tag{residue-plane-wave}
+$$
+と書ける。ここでの周回積分は、この形式的なローラン展開に対する留数積分を表す。
 
-そこで、この留数を
+次に、$A$ の負冪部分 $A_{<0}$ が、滑らかな核を持つ左積分演算子
 $$
-R_n(x,t_3)=\operatorname{res}_{\partial}P^{2n-1},\qquad n=1,2,\ldots
-\tag{equation-5cadc6fb79}
+(A_{<0}g)(x)=\int_{-\infty}^{x}K_A(x,y)g(y)\,dy
 $$
-と書く。たとえば $P$ の $\partial^{-1}$ 係数から $R_1=-u/2$ を得る。各 $R_n$ は $u$ とその空間微分だけで書ける。式 (@equation-43b9d72cd5) の右辺が全微分になることから、ある局所関数 $J_n(x,t_3)$ が存在して
+で表される場合を考える。左端の境界項が消える条件で平面波を入れて部分積分すると、
 $$
-\frac{\partial R_n}{\partial t_3}=\frac{\partial J_n}{\partial x}.
-\tag{equation-fd877994c9}
+e^{-ikx}A_{<0}e^{ikx}
+\sim\frac{K_A(x,x)}{ik}
+-\frac{(\partial_yK_A)(x,x)}{(ik)^2}+\cdots.
 $$
-$u$ とその導関数が $x\to\pm\infty$ で十分速く減衰すれば $J_n$ の境界値の差は消える。したがって
+したがって、Adler–Manin トレースは核の対角値の積分として
 $$
-I_n(t_3)=\int_{-\infty}^{\infty}R_n(x,t_3)\,dx
-\tag{equation-863a6af854}
+\operatorname{Tr}_{\mathrm{AM}}A
+=\int_{-\infty}^{\infty}K_A(x,x)\,dx
+\tag{residue-kernel-diagonal}
 $$
-は $t_3$ に依存しない。すべての $n\ge1$ でこの議論が成り立つため、KdV 方程式には無限個の保存量がある。
+と表される。
 
-<details id="residue-commutator">
-<summary>交換子の留数と全微分</summary>
+微分演算子 $B$ は、関数を掛ける操作と、一回の微分 $\partial$ との積と和で作られる。この二つの操作をトレースの中で巡回的に動かせれば、$B$ 全体についても巡回性が従う。
 
-一般化二項係数を $\binom{q}{r}=q(q-1)\cdots(q-r+1)/r!$（$r\ge1$）、$\binom{q}{0}=1$ と定める。整数 $q$ に対し負の $q$ でもこの定義を使うと
+まず、関数 $b$ を掛ける操作を考える。$bA_{<0}g$ では積分後の出力に $b(x)$ が掛かり、$A_{<0}(bg)$ では積分内の入力に $b(y)$ が掛かる。二つの積分核はそれぞれ $b(x)K_A(x,y)$ と $K_A(x,y)b(y)$ であり、対角 $y=x$ 上では等しい。従って、
 $$
-\partial^q\beta=\sum_{r\ge0}\binom{q}{r}\beta^{(r)}\partial^{q-r}
+\operatorname{Tr}_{\mathrm{AM}}(bA_{<0})
+=\operatorname{Tr}_{\mathrm{AM}}(A_{<0}b).
 $$
-は擬微分演算子の形式積の Leibniz 則である。ここで $\beta^{(r)}=\partial_x^r\beta$ とし、和は形式級数として扱う。
 
-単項式 $\alpha\partial^m$ と $\beta\partial^n$ の交換子の留数を計算する。$r=m+n+1$ とおく。$r<0$ では $\partial^{-1}$ を作る項がなく、$r=0$ では交換子の係数は $\alpha\beta-\beta\alpha=0$ である。$r\ge1$ なら
+次に、$\partial(A_{<0}g)$ と $A_{<0}(\partial g)$ を比べる。前者は積分後の出力を $x$ で微分する。後者は入力 $g$ を微分してから積分するので、左端の境界項が消える条件で部分積分し、 $g$ の微分を核へ移せる。二つの積分部分の核は、それぞれ
 $$
-\operatorname{res}_{\partial}[\alpha\partial^m,\beta\partial^n]
-=\binom{m}{r}\alpha\beta^{(r)}-\binom{n}{r}\beta\alpha^{(r)}.
-\tag{equation-650e054d38}
+\begin{aligned}
+\partial A_{<0}&:\quad\partial_xK_A(x,y),\\
+A_{<0}\partial&:\quad-\partial_yK_A(x,y)
+\end{aligned}
 $$
-このとき $n=r-m-1$ なので、積の定義から $\binom{n}{r}=(-1)^r\binom{m}{r}$ となる。実際、$n(n-1)\cdots(n-r+1)$ の因子は $r-m-1,r-m-2,\ldots,-m$ で、これは $(-1)^r m(m-1)\cdots(m-r+1)$ と同じ積である。したがって
-$$
-\operatorname{res}_{\partial}[\alpha\partial^m,\beta\partial^n]
-=\binom{m}{r}\left(\alpha\beta^{(r)}-(-1)^r\alpha^{(r)}\beta\right).
-\tag{equation-c63ea5600f}
-$$
-一方、積の微分を展開すると中間項が隣り合って相殺し、
-$$
-\frac{\partial}{\partial x}\left(\sum_{j=0}^{r-1}(-1)^j\alpha^{(j)}\beta^{(r-1-j)}\right)
-=\alpha\beta^{(r)}-(-1)^r\alpha^{(r)}\beta.
-\tag{equation-31ec2c9789}
-$$
-したがって (@equation-c63ea5600f) は全微分である。$r=0$ の場合は対応する和を空和と見れば微分は $0$ となり、先の直接計算と一致する。$r<0$ では寄与も和もない。
+となる。どちらにも上端 $y=x$ から同じ項 $K_A(x,x)g(x)$ が生じるので、差 $[\partial,A_{<0}]g$ では相殺される。
 
-一般の擬微分演算子は単項式の和である。各固定された次数で留数に寄与する単項式の組は有限個なので、この結果を項ごとに足せる。これを (@equation-43b9d72cd5) に適用すれば (@equation-fd877994c9) が従う。この形式計算については [Batlle, §2.1 の命題2.6・2.8および §2.2](https://web.mat.upc.edu/carles.batlle/fitxers/kdv.pdf) も参照できる。
+この二つの核の差 $\partial_xK_A+\partial_yK_A$ は、対角上では $K_A(x,x)$ の微分である。対角値が両端で消えるなら、
+$$
+\begin{aligned}
+&\operatorname{Tr}_{\mathrm{AM}}[\partial,A_{<0}]\\
+&\quad=\int_{-\infty}^{\infty}\frac{d}{dx}K_A(x,x)\,dx\\
+&\quad=\bigl[K_A(x,x)\bigr]_{-\infty}^{\infty}=0.
+\end{aligned}
+\tag{residue-kernel-tangent}
+$$
+従って、$\partial$ もトレースの中で巡回的に動かせる。$B$ を構成する乗算と微分を一つずつ動かせば、
+$$
+\begin{aligned}
+\operatorname{Tr}_{\mathrm{AM}}(BA)&=\operatorname{Tr}_{\mathrm{AM}}(AB),\\
+\operatorname{Tr}_{\mathrm{AM}}[B,A]&=0
+\end{aligned}
+$$
+を得る。以下では、この操作で現れる核と必要な導関数の対角値が、いずれも両端で消える場合を扱う。
+
+<details id="formal-residue-kernel-jet">
+<summary>形式級数に対する核の計算</summary>
+
+$B=\sum_{m=0}^{M}b_m(x)\partial^m$ を $M$ 階の微分演算子とする。留数が取り出すのは $\partial^{-1}$ の係数である。$A$ の $\partial^{-(M+2)}$ 以下の項は、$B$ を左右どちらから掛けても次数が $-2$ 以下にとどまり、この係数に影響しない。また、$A$ の微分部分と $B$ の積にも負冪は現れない。従って、$BA,AB$ の留数を求めるには、$A$ を有限和
+$$
+\sum_{r=1}^{M+1}a_{-r}(x)\partial^{-r}
+$$
+に置き換えてよい。$\partial^{-r}$ は左積分の $r$ 回の繰り返しなので、この有限和の核は
+$$
+K_A(x,y)=\sum_{r=1}^{M+1}
+a_{-r}(x)\frac{(x-y)^{r-1}}{(r-1)!}
+$$
+である。$y=x$ で $y$ 微分を取れば、$a_{-r}(x)=(-1)^{r-1}(\partial_y^{r-1}K_A)(x,x)$ が得られ、§4.1 の部分積分による展開と一致する。
+
+この有限和は $BA,AB$ の留数を変えないので、その核で得たトレースの等式は、元の形式級数についても成り立つ。
 
 </details>
 
+以下で用いる $A=P^{2n-1}$ の負冪の係数は、$u$ とその導関数で作られ、$u=0$ なら消える。$B_m$ の係数は定数項を除いて同様である。そのため、$u$ の急減衰によって上の偏導関数の対角値も両端で消え、
+$$
+\operatorname{Tr}_{\mathrm{AM}}[B_m,P^{2n-1}]=0
+$$
+が使える。[^residue-general]
+
+#### 4.3.3. トレースから保存量へ
+
+まず、$P$ の冪も同じ Lax 方程式に従うことを確かめる。$P^2=-L$ と $L_{t_3}=[B_3,L]$ から $(P^2)_{t_3}=[B_3,P^2]$ であり、その形式平方根 $P$ 自身についても
+$$
+P_{t_3}=[B_3,P]
+\tag{equation-ad35198100}
+$$
+となる。これは、$P$ の先頭の項を $\partial$ と指定した形式平方根の一意性から従う。
+
+<details id="root-lax-evolution">
+<summary>形式平方根のLax方程式の導出</summary>
+
+$P^2=-L$ を時間微分すると
+$$
+P_{t_3}P+PP_{t_3}=-L_{t_3}.
+$$
+一方、
+$$
+[B_3,P]P+P[B_3,P]=[B_3,P^2]=-L_{t_3}
+$$
+である。二つの式の差を取り、$D=P_{t_3}-[B_3,P]$ と置くと
+$$
+DP+PD=0.
+$$
+$D$ が非零で、最高次項が $\alpha\partial^q$ だとする。$P$ の最高次項は $\partial$ なので、$DP+PD$ の最高次項は $2\alpha\partial^{q+1}$ となり、$0$ にはならない。従って $D=0$ である。$B_3,t_3$ を $B_m,t_m$ に替えても、同じ議論が成り立つ。
+
+</details>
+
+交換子を取る操作も積に対する微分と同じ法則を満たすので、各冪について
+$$
+\begin{aligned}
+\frac{\partial}{\partial t_3}P^{2n-1}&=[B_3,P^{2n-1}],\\
+n&=1,2,\ldots
+\end{aligned}
+\tag{odd-power-evolution}
+$$
+である。前節のどの発展 $t_m$ に対しても、同様に
+$$
+P_{t_m}=[B_m,P],\qquad
+\frac{\partial P^{2n-1}}{\partial t_m}=[B_m,P^{2n-1}]
+$$
+となる。すべての冪が、同じ生成子 $B_m$ によって発展している。この交換子による発展は、§2.2 で見た共役変換の時間微分の形である。
+
+そこで、奇数冪の留数を積分した量に、$-1/(2n-1)$ という係数を付けて
+$$
+\begin{aligned}
+I_{2n-1}&:=-\frac1{2n-1}\operatorname{Tr}_{\mathrm{AM}}P^{2n-1}\\
+&=-\frac1{2n-1}\int_{-\infty}^{\infty}\operatorname{res}_{\partial}P^{2n-1}\,dx,
+\qquad n=1,2,\ldots
+\end{aligned}
+\tag{equation-863a6af854}
+$$
+と定める。添字は使った $P$ の冪を表し、前の係数はここで採用する規格化である。偶数冪 $P^{2n}=(-L)^n$ は微分演算子で留数が $0$ なので、奇数冪を使っている。
+
+冪の Lax 方程式にトレースを取れば、任意の $m,n\ge1$ に対して
+$$
+\frac{\partial}{\partial t_m}\operatorname{Tr}_{\mathrm{AM}}P^{2n-1}
+=\operatorname{Tr}_{\mathrm{AM}}[B_m,P^{2n-1}]=0.
+$$
+前の係数は時間によらないので、各 $I_{2n-1}$ も KdV 階層のどの発展に対しても保存される。有限行列の冪のトレースと同じく、共通する交換子による発展と巡回性が、これらの保存量を一度に与えている。
+
+> **Remark.** $P=S\partial S^{-1}$ は形式級数としての共役関係であり、$P$ と自由作用素 $\partial$ が同じスペクトルを持つことまでは保証しない。形式逆 $S^{-1}$ の存在だけでは、$S$ が関数の二乗可積分性や作用素の定義域を保つ可逆変換になるとは限らない。
+
+最初の保存量を具体的に見よう。既に求めた $P$ の展開から
+$$
+\operatorname{res}_{\partial}P=-\frac u2,\qquad
+I_1=\frac12\int_{-\infty}^{\infty}u\,dx
+$$
+である。次の奇数冪 $P^3$ からは
+$$
+\operatorname{res}_{\partial}P^3
+=\frac38u^2-\frac18u_{xx}
+$$
+を得る。$u_{xx}$ の積分は境界項になって消えるので、
+$$
+I_3=-\frac18\int_{-\infty}^{\infty}u^2\,dx.
+$$
+$\int u\,dx$ では波形の正負の部分が相殺しうるが、$\int u^2\,dx$ は各点の振幅の二乗を足し合わせる。KdV の波形は、こうした異なる制約を同時に満たしながら変化する。
+
+さらに $P^5$ からは、三乗の密度と波形の空間変化を組み合わせた
+$$
+I_5=\frac1{16}\int_{-\infty}^{\infty}\left(u^3+\frac12u_x^2\right)\,dx
+\tag{classical-fifth-integral}
+$$
+が得られる。
+
+<details id="second-density-check">
+<summary>Check the second and third conserved densities</summary>
+
+$P=\partial+p_1\partial^{-1}+p_2\partial^{-2}+p_3\partial^{-3}+\cdots$ と書く。式 (@equation-0c81f024ea) の係数から $p_1=-u/2$、$p_2=u_x/4$ である。さらに、$P^2=\partial^2-u$ の $\partial^{-2}$ の係数から
+$$
+2p_3+p_{2,x}+p_1^2=0,\qquad
+ p_3=-\frac{u_{xx}+u^2}{8}
+$$
+を得る。$P^3=(\partial^2-u)P$ の $\partial^{-1}$ の係数を集めると
+$$
+\operatorname{res}_{\partial}P^3
+=p_{1,xx}+2p_{2,x}+p_3-up_1
+=\frac38u^2-\frac18u_{xx}.
+$$
+同じ平方根の係数比較を二段進めると
+$$
+p_4=\frac38uu_x+\frac1{16}u_{xxx},\qquad
+p_5=-\frac1{16}u^3-\frac7{16}uu_{xx}
+-\frac{11}{32}u_x^2-\frac1{32}u_{xxxx}
+$$
+となる。$P^5=(\partial^2-u)^2P$ の留数を取れば
+$$
+\operatorname{res}_{\partial}P^5
+=-\frac5{16}u^3+\frac5{16}uu_{xx}
++\frac5{32}u_x^2-\frac1{32}u_{xxxx}.
+$$
+$\int uu_{xx}\,dx=-\int u_x^2\,dx$ と $\int u_{xxxx}\,dx=0$ を使うと
+$$
+\operatorname{Tr}_{\mathrm{AM}}P^5
+=-\frac5{16}\int_{-\infty}^{\infty}
+\left(u^3+\frac12u_x^2\right)\,dx.
+$$
+定義に従って $-1/5$ 倍すると、式 (@classical-fifth-integral) を得る。
+
+</details>
+
+<details id="first-conserved-integrals-check">
+<summary>KdV 方程式から最初の二つの保存量を確かめる</summary>
+
+既知の KdV 方程式は
+$$
+\frac{\partial u}{\partial t_3}
+=\partial_x\left(\frac{u_{xx}-3u^2}{4}\right)
+$$
+と書ける。両端での減衰によって
+$$
+\frac{d}{dt_3}\int_{-\infty}^{\infty}u\,dx
+=\left[\frac{u_{xx}-3u^2}{4}\right]_{-\infty}^{\infty}=0.
+$$
+同じ方程式に $2u$ を掛けると
+$$
+\frac{\partial u^2}{\partial t_3}
+=\frac12u u_{xxx}-3u^2u_x
+=\partial_x\left(\frac12u u_{xx}-\frac14u_x^2-u^3\right)
+$$
+となるので、
+$$
+\frac{d}{dt_3}\int_{-\infty}^{\infty}u^2\,dx=0
+$$
+も従う。
+
+</details>
+
+[^adler-manin-trace]: 文献 [[5]](#ref-fathizadeh), §2, pp. 3–4。§2 で形式的な擬微分作用素の留数と Adler–Manin トレース、その巡回性を扱っている。
+
+[^residue-general]: 一般の擬微分作用素どうしでも、それぞれを微分部分と負冪部分に分ければ、交換子のトレースが $0$ になることが分かる。微分部分どうしの積には留数がなく、負冪部分どうしの積は次数が $-2$ 以下なので留数がない。残る混合項には本文の議論を適用できる。積分した巡回性には、同じく境界項が消える条件が必要である。§4.1 の $P=S\partial S^{-1}$ に現れる $S$ の係数は、この減衰条件を満たすとは限らないため、そこから $\operatorname{Tr}_{\mathrm{AM}}P^r=\operatorname{Tr}_{\mathrm{AM}}\partial^r$ とすることはできない。
+
+## 5. 佐藤方程式とKP階層
+
+### 5.1. 変換の時間発展
+
+ある時刻のポテンシャルに対して、$S$ は自由波を Jost 解へ移す。KdV に従ってポテンシャルが変化すれば、この変換も変化する。では、波形 $u$ の時間発展を、変換 $S$ 自体の時間発展として記述できるだろうか。
+
+まず、既知の KdV の時間 $t_3$ を考える。自由側の発展は三階微分で与えられ、
+$$
+\partial_{t_3}e^{ikx+t_3(ik)^3}
+=\partial^3e^{ikx+t_3(ik)^3}
+$$
+となる。この自由波を $S$ で変換した波を
+$$
+\begin{aligned}
+\psi(x,t_3,k)&:=S(t_3)e^{ikx+t_3(ik)^3}\\
+&=e^{t_3(ik)^3}f_-(x,t_3,k)
+\end{aligned}
+\tag{sato-wave}
+$$
+と置く。§2.4 では、自由波の時間因子を含めた波が Lax 表示の線形発展に従うことを使った。ここでの時間因子は $e^{t_3(ik)^3}$ なので、この $\psi$ も
+$$
+\partial_{t_3}\psi=B_3\psi
+$$
+に従う。
+
+$\psi$ の時間変化には、$S$ の変化と自由波の変化の二つがある：
+$$
+\begin{aligned}
+\partial_{t_3}\psi
+&=(\partial_{t_3}S)e^{ikx+t_3(ik)^3}
++S\partial^3e^{ikx+t_3(ik)^3}\\
+&=\bigl[(\partial_{t_3}S)S^{-1}+P^3\bigr]\psi.
+\end{aligned}
+$$
+これが全波数について $B_3\psi$ に等しいので、
+$$
+(\partial_{t_3}S)S^{-1}=B_3-P^3.
+$$
+既に $B_3=(P^3)_{\ge0}$ と分かっているから、
+$$
+\partial_{t_3}S=-(P^3)_{<0}S.
+\tag{sato-kdv-flow}
+$$
+
+自由波の発展を $S$ で移すと $P^3$ が現れる。そのうち負冪部分は $S$ 自身の変化によって打ち消され、波の発展には微分作用素 $B_3$ が残る。
+
+### 5.2. 佐藤方程式
+
+同じ構成を、自由側の発展 $\partial_{t_n}g=\partial^n g$ に広げよう。変換後の波 $Sg$ の発展を微分作用素 $B_n$ で表すなら、先ほどと同じ積の微分から
+$$
+(\partial_{t_n}S)S^{-1}+P^n=B_n
+$$
+が必要になる。
+
+$S=1+\text{負冪部分}$ という形を保つとき、$(\partial_{t_n}S)S^{-1}$ は負冪だけを持つ。一方、$B_n$ は非負冪だけを持つ。したがって、正負の部分を比べれば
+$$
+B_n=(P^n)_{\ge0},\qquad
+\partial_{t_n}S=-(P^n)_{<0}S
+\tag{sato-equation}
+$$
+と決まる。後者を佐藤方程式と呼ぶ。
+
+この方程式から $P=S\partial S^{-1}$ の変化を求めると、
+$$
+\begin{aligned}
+\partial_{t_n}P
+&=[(\partial_{t_n}S)S^{-1},P]\\
+&=[-(P^n)_{<0},P]\\
+&=[B_n,P].
+\end{aligned}
+\tag{sato-lax-flow}
+$$
+最後の等号では、$P^n$ 全体が $P$ と可換であることを使った。先に導入した $P$ の Lax 発展は、同じ変換 $S$ の時間発展から得られる。
+
+### 5.3. 流れの両立性
+
+各発展則を作れたとしても、それらを異なる順序で進めた結果が一致するとは限らない。例えば、$t_3$ を進めてから $t_5$ を進めた場合と、その逆では、同じ変換 $S$ に到達するだろうか。
+
+ここで働くのも正負分解である。同じ作用素 $P$ の冪は
+$$
+[P^m,P^n]=0
+$$
+を満たし、非負冪同士の交換子は非負冪だけ、負冪同士の交換子は負冪だけからなる。この構造から
+$$
+\partial_{t_m}B_n-\partial_{t_n}B_m-[B_m,B_n]
+=-\bigl([(P^m)_{<0},(P^n)_{<0}]\bigr)_{\ge0}=0
+\tag{zakharov-shabat}
+$$
+を得る。負冪部分同士の交換子には、非負冪部分がないためである。
+
+したがって、
+$$
+[\partial_{t_m}-B_m,\ \partial_{t_n}-B_n]=0.
+\tag{zero-curvature}
+$$
+これは、波の二つの線形発展が両立することを表す Zakharov–Shabat 方程式（零曲率条件）である。変換 $S$ の発展も両立し、どちらの順序で進めても同じ結果になる。
+
+<details id="sato-flow-compatibility">
+<summary>Compatibility of the flows</summary>
+
+$\partial_{t_m}P=[B_m,P]$ より、
+$$
+\partial_{t_m}P^n=[B_m,P^n].
+$$
+非負冪部分を取り、二つの時間を入れ替えた式との差を求めると、
+$$
+\begin{aligned}
+\partial_{t_m}B_n-\partial_{t_n}B_m-[B_m,B_n]
+&=[B_m,B_n]
++\bigl([B_m,(P^n)_{<0}]+[(P^m)_{<0},B_n]\bigr)_{\ge0}\\
+&=-[(P^m)_{<0},(P^n)_{<0}]_{\ge0}=0.
+\end{aligned}
+$$
+二つ目の等号には、$[P^m,P^n]=0$ の非負冪部分を使った。
+
+Lax 方程式の負冪部分を取り、$[P^m,P^n]=0$ を用いると、
+$$
+\partial_{t_m}(P^n)_{<0}-\partial_{t_n}(P^m)_{<0}
+=-[(P^m)_{<0},(P^n)_{<0}]
+$$
+を得る。したがって佐藤方程式についても、
+$$
+(\partial_{t_m}\partial_{t_n}-\partial_{t_n}\partial_{t_m})S
+=-\Bigl(\partial_{t_m}(P^n)_{<0}-\partial_{t_n}(P^m)_{<0}
++[(P^m)_{<0},(P^n)_{<0}]\Bigr)S
+=0.
+$$
+各発展則が定める変化は、互いに可換である。
+
+</details>
+
+### 5.4. KP階層とreduction
+
+これまで $P$ は $P^2=-L$ を満たしていた。しかし、佐藤方程式を構成し、流れの両立性を示す議論では、$P^2$ が微分作用素であることを使っていない。
+
+そこで、この制約を外し、
+$$
+P=\partial+p_1\partial^{-1}+p_2\partial^{-2}+\cdots
+$$
+という一般の形式的な擬微分作用素を、同じ発展則
+$$
+\partial_{t_n}P=[(P^n)_{\ge0},P]
+\tag{kp-hierarchy}
+$$
+で動かす。これが KP 階層である。対応する $S$ の発展は、同じ佐藤方程式で与えられる。佐藤方程式と KP 階層、流れの両立性については 文献 [[6]](#ref-mulase) の §4 を参照。
+
+KdV を指定していた条件は、正負分解の言葉では
+$$
+(P^2)_{<0}=0
+\tag{kdv-two-reduction}
+$$
+と書ける。この条件は KP の発展によって保たれる。実際、
+$$
+\partial_{t_n}(P^2)=[B_n,P^2]
+$$
+であり、$P^2$ が微分作用素なら、右辺も微分作用素なので負冪は生じない。この制約を課した KP 階層を 2-reduction と呼ぶ。
+
+このとき偶数冪 $P^{2m}$ は微分作用素になるため、
+$$
+\partial_{t_{2m}}S=-(P^{2m})_{<0}S=0.
+$$
+KdV 階層に奇数の非自明な流れだけが残ったのは、このためである。一般の KP 階層では、偶数時間にも非自明な発展が現れる。
+
+### 5.5. Boussinesq階層
+
+二乗の代わりに、三乗が微分作用素になる条件
+$$
+(P^3)_{<0}=0
+$$
+を課すと、Boussinesq 階層が得られる。これを KP 階層の 3-reduction と呼ぶ。同じ理由でこの制約は発展によって保たれ、3 の倍数の流れは $\partial_{t_{3m}}S=0$ となる。
+
+最初の非自明な発展は $t_2$ によるものである。三階の微分作用素の係数を
+$$
+P^3=\partial^3+\alpha\partial+\beta
+$$
+と書くと、$\partial_{t_2}(P^3)=[(P^2)_{\ge0},P^3]$ から、$\alpha$ は
+$$
+3\alpha_{t_2t_2}+\alpha_{xxxx}+2(\alpha^2)_{xx}=0
+\tag{boussinesq-equation}
+$$
+を満たす。これが、この規約での Boussinesq 方程式である。空間変数は $x=t_1$、時間変数は $t_2$ となる。
+
+一般に、$(P^r)_{<0}=0$ を課すと、同じ構成で $r$-reduction が得られる。この階層を Gelfand–Dickey 階層と呼ぶ。KdV と Boussinesq は、共通の KP 階層に対して、どの冪を微分作用素に保つかを選んだものである。
+
 ## 参考文献
 
-[1] 中村佳正, 高崎金久, & 辻本諭. (2018). 可積分系の数理 (解析学百科 2). 朝倉書店.
+<span id="ref-nakamura">[1]</span> 中村佳正・高崎金久・辻本諭 (2018). 『可積分系の数理』解析学百科 2. 朝倉書店.
 
-[2] 及川正行. (2013). 第 5 章 逆散乱法. ながれ: 日本流体力学会誌, 32(@schrodinger), 39-53.
+<span id="ref-oikawa">[2]</span> 及川正行 (2013). 「第5章 逆散乱法」. 『ながれ』, **32**(1), 39–53.
 
-[3] Miura, R. M., Gardner, C. S., & Kruskal, M. D. (1968). Korteweg-de vries equation and generalizations. II. Existence of conservation laws and constants of motion. Journal of Mathematical physics, 9(@kernel-feedback), 1204-1209.
+<span id="ref-miura">[3]</span> Miura, R. M., Gardner, C. S., & Kruskal, M. D. (1968). “Korteweg–de Vries equation and generalizations. II. Existence of conservation laws and constants of motion.” *Journal of Mathematical Physics*, **9**(8), 1204–1209.
+
+<span id="ref-egorova">[4]</span> Egorova, I., Kopylova, E., Marchenko, V., & Teschl, G. (2016). “[Dispersion estimates for one-dimensional Schrödinger and Klein–Gordon equations revisited](https://arxiv.org/abs/1411.0021).” *Russian Mathematical Surveys*, **71**, 3–26.
+
+<span id="ref-fathizadeh">[5]</span> Fathizadeh, F., & Khalkhali, M. (2010). “[The algebra of formal twisted pseudodifferential symbols and a noncommutative residue](https://arxiv.org/abs/0810.0484).” *Letters in Mathematical Physics*, **94**(1), 41–61.
+
+<span id="ref-mulase">[6]</span> Mulase, M. (1994). “[Algebraic theory of the KP equations](https://www.math.ucdavis.edu/~mulase/texfiles/algebraictheo.pdf).” In R. Penner & S. T. Yau (Eds.), *Perspectives in Mathematical Physics*, 151–218.

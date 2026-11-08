@@ -1,0 +1,37 @@
+---
+import FigureViewport from './FigureViewport.astro';
+import { createRequire } from 'node:module';
+const req = createRequire(new URL('../../../package.json', import.meta.url));
+const katex = createRequire(req.resolve('rehype-katex'))('katex');
+const tex = (s: string) => katex.renderToString(s, { throwOnError: true });
+const labels = [
+  {x: 0, y: 4, w: 280, t: 'd=x-x\' >0'},
+  {x: 0, y: 42, w: 280, t: '\\text{Free input: }y\'=x\''},
+  {x: 26, y: 104, w: 80, t: 'x\'-d'},
+  {x: 138, y: 104, w: 48, t: 'x\''},
+  {x: 243, y: 104, w: 30, t: 'x'},
+  {x: 0, y: 154, w: 280, t: '\\text{Earlier correction: }y\'<x\''},
+  {x: 0, y: 218, w: 60, t: 'y\'-d'},
+  {x: 102, y: 218, w: 48, t: 'y\''},
+  {x: 187, y: 218, w: 70, t: 'y\'+d'},
+];
+---
+<figure class="kdv-dyson-interval" aria-labelledby="dyson-interval-caption">
+  <FigureViewport width={280}>
+    <svg width="280" height="258" viewBox="0 0 280 258" role="img" aria-labelledby="dyson-interval-title dyson-interval-desc">
+      <title id="dyson-interval-title">Intervals produced by the last potential insertion</title>
+      <desc id="dyson-interval-desc">At fixed x and x-prime, both intervals have half-width d equals x minus x-prime. The free-input interval is centered at x-prime and ends at x. An earlier-correction component centered at y-prime less than x-prime has the same width but ends strictly before x. Horizontal bars show interval support, not potential amplitude.</desc>
+      <path d="M258 73 V215" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 4" />
+      <path d="M10 92 H272 M10 204 H272" stroke="var(--muted)" stroke-width="1" />
+      <path d="M66 92 H258 M30 204 H222" stroke="var(--accent)" stroke-width="10" opacity=".4" />
+      <path d="M66 85 V99 M162 85 V99 M258 85 V99 M30 197 V211 M126 197 V211 M222 197 V211" stroke="var(--ink)" stroke-width="1.4" />
+      {labels.map(l => <foreignObject x={l.x} y={l.y} width={l.w} height="28"><div class="interval-tex" set:html={tex(l.t)} /></foreignObject>)}
+    </svg>
+  </FigureViewport>
+  <figcaption id="dyson-interval-caption">同じ作用位置で生じる区間を比べる。自由波の成分では右端が <span set:html={tex('x')} /> に届く。それ以前の補正の成分では、中心が左へずれた分だけ右端も左へずれる。棒は区間の範囲を表し、ポテンシャルの大きさや符号は表していない。</figcaption>
+</figure>
+<style>
+.kdv-dyson-interval{margin:1.4rem 0}
+.interval-tex{font-size:15px;line-height:1.7;text-align:center;color:var(--ink);white-space:nowrap}
+.kdv-dyson-interval figcaption{font-size:.88rem;line-height:1.8;color:var(--muted);margin:.6rem 0 0}
+</style>

@@ -1,42 +1,43 @@
 ---
 import FigureViewport from './FigureViewport.astro';
+import { solitonConfig, solitonProfile } from '../visuals/soliton.js';
 import { createRequire } from 'node:module';
-const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
+const rootRequire = createRequire(`${process.cwd()}/package.json`);
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
 const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
-const x0 = (x: number) => 62 + (x + 12) * 500 / 24;
+const { xMin, xMax } = solitonConfig;
+const x0 = (x: number) => 62 + (x-xMin) * 500 / (xMax-xMin);
 const y0 = (y: number) => 266 - y * (210 / 2.2);
 const soliton = (c: number, t: number) => Array.from({ length: 401 }, (_, i) => {
-  const x = -12 + i * 24 / 400;
-  const z = Math.sqrt(c) * (x - c * t) / 2;
-  const value = c / (2 * Math.cosh(z) ** 2);
+  const x = xMin + i * (xMax-xMin) / 400;
+  const value = solitonProfile(x, c, t);
   return `${i ? 'L' : 'M'}${x0(x).toFixed(2)},${y0(value).toFixed(2)}`;
 }).join(' ');
 const labels = [
   { x: 565, y: 220, w: 35, t: 'x' },
   { x: 7, y: y0(2) - 15, w: 45, t: '2' }, { x: 7, y: y0(0) - 15, w: 45, t: '0' },
-  { x: x0(-12) - 37.5, y: 271, w: 75, t: '-12' }, { x: x0(0) - 28, y: 271, w: 56, t: '0' }, { x: x0(12) - 28, y: 271, w: 56, t: '12' },
+  { x: x0(xMin) - 37.5, y: 271, w: 75, t: String(xMin) }, { x: x0(0) - 28, y: 271, w: 56, t: '0' }, { x: x0(xMax) - 28, y: 271, w: 56, t: String(xMax) },
 ];
-const formula = tex('\\eta(x,t)=\\dfrac{v}{2}\\,\\operatorname{sech}^{2}\\!\\left(\\dfrac{\\sqrt{v}}{2}(x-vt)\\right)');
+const formula = tex('\\eta(x,t)=-2v\\,\\operatorname{sech}^{2}\\!\\left(\\sqrt{-v}(x-vt)\\right)');
 const caption = `解析式を直接プロットした。${tex('v')} を変えると速度・高さ・幅が連動して変わり、${tex('t')} は形を保ったまま平行移動させる。`;
 ---
 <figure class="kdv-traveling-soliton" data-kdv-soliton aria-labelledby="kdv-soliton-caption">
   <div class="kdv-soliton-controls">
-    <label for="kdv-soliton-c"><span class="kdv-control-name">Speed <span set:html={tex('v')} /></span><output data-soliton-c-output for="kdv-soliton-c">2.00</output><input id="kdv-soliton-c" data-soliton-c type="range" min="1" max="4" step="0.01" value="2" /></label>
-    <label for="kdv-soliton-t"><span class="kdv-control-name">Time <span set:html={tex('t')} /></span><output data-soliton-t-output for="kdv-soliton-t">0.00</output><input id="kdv-soliton-t" data-soliton-t type="range" min="-2" max="2" step="0.01" value="0" /></label>
+    <label for="kdv-soliton-c"><span class="kdv-control-name">Velocity <span set:html={tex('v')} /></span><output data-soliton-c-output for="kdv-soliton-c">{solitonConfig.velocityDefault.toFixed(2)}</output><input id="kdv-soliton-c" data-soliton-c type="range" min={solitonConfig.velocityMin} max={solitonConfig.velocityMax} step={solitonConfig.velocityStep} value={solitonConfig.velocityDefault} /></label>
+    <label for="kdv-soliton-t"><span class="kdv-control-name">Time <span set:html={tex('t')} /></span><output data-soliton-t-output for="kdv-soliton-t">{solitonConfig.timeDefault.toFixed(2)}</output><input id="kdv-soliton-t" data-soliton-t type="range" min={solitonConfig.timeMin} max={solitonConfig.timeMax} step={solitonConfig.timeStep} value={solitonConfig.timeDefault} /></label>
     <button type="button" data-soliton-reset>Reset</button>
   </div>
-  <FigureViewport width={640} label="ソリトンの図を左右にスクロール"><div class="kdv-soliton-formula" set:html={formula} />
+  <FigureViewport width={640} label="Analytic traveling soliton"><div class="kdv-soliton-formula" set:html={formula} />
   <svg viewBox="0 0 600 320" role="img" aria-labelledby="kdv-soliton-title kdv-soliton-desc">
     <title id="kdv-soliton-title">Analytic one-soliton profile and its translation</title>
-    <desc id="kdv-soliton-desc">The surface displacement eta is shown at the selected speed and time.</desc>
+    <desc id="kdv-soliton-desc">The surface displacement eta is shown at the selected negative velocity and time. Taller profiles travel faster toward negative x.</desc>
     <defs><clipPath id="kdv-soliton-clip"><rect x="62" y="56" width="500" height="210" /></clipPath></defs>
     <path d="M62 56 V266 H562" fill="none" stroke="var(--muted)" stroke-width="1.3" />
     <foreignObject x="-4" y="0" width="70" height="55"><div class="kdv-tex" set:html={tex('\\eta')} /></foreignObject>
     <path d="M62 56 H562" fill="none" stroke="var(--line)" stroke-dasharray="3 5" />
-    {[-12, 0, 12].map(x => <path d={`M${x0(x)} 266 v5`} stroke="var(--muted)" />)}
+    {[xMin, 0, xMax].map(x => <path d={`M${x0(x)} 266 v5`} stroke="var(--muted)" />)}
     {[0, 2].map(y => <path d={`M57 ${y0(y)} h5`} stroke="var(--muted)" />)}
-    <path data-soliton-current d={soliton(2, 0)} fill="none" stroke="var(--accent)" stroke-width="2.7" clip-path="url(#kdv-soliton-clip)" />
+    <path data-soliton-current d={soliton(solitonConfig.velocityDefault, solitonConfig.timeDefault)} fill="none" stroke="var(--accent)" stroke-width="2.7" clip-path="url(#kdv-soliton-clip)" />
     {labels.map(l => <foreignObject x={l.x} y={l.y - 8} width={l.w} height="48"><div class="kdv-tex" set:html={tex(l.t)} /></foreignObject>)}
   </svg></FigureViewport>
   <figcaption id="kdv-soliton-caption" set:html={caption} />

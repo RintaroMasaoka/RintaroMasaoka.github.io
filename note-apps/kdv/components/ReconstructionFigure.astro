@@ -1,7 +1,7 @@
 ---
 import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
-const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
+const rootRequire = createRequire(`${process.cwd()}/package.json`);
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
 const tex = (t: string) => katex.renderToString(t,{throwOnError:true});
 const px = (x:number) => 53+(x+7)*280/14;

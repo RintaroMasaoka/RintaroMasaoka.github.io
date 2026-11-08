@@ -31,6 +31,18 @@ export function numberEquations(html) {
   collect(tree);
   for (const { node, tex, key, number } of equations) {
     const replacement = parseFragment(katex.renderToString(tex.replace(/\\tag\{([^}]+)\}/, `\\tag{${number}}`), { ...noteMathOptions, displayMode: true, throwOnError: true })).childNodes[0];
+    // Re-rendering the number replaces the earlier rehype layout as well.
+    // Keep the formula in its own scrollport and the tag outside that scrollport.
+    const visible = find(replacement, n => hasClass(n, 'katex-html'));
+    const tag = visible?.childNodes.find(n => hasClass(n, 'tag'));
+    if (tag) {
+      visible.attrs.find(a => a.name === 'class').value += ' numbered-equation';
+      const body = parseFragment('<span class="equation-body" tabindex="0"></span>').childNodes[0];
+      body.childNodes = visible.childNodes.filter(n => n !== tag);
+      for (const child of body.childNodes) child.parentNode = body;
+      visible.childNodes = [body, tag];
+      body.parentNode = visible;
+    }
     replacement.attrs.push({ name: 'id', value: `eq-${key}` }, { name: 'data-equation-key', value: key }, { name: 'data-equation-number', value: number });
     const parent = node.parentNode;
     parent.childNodes[parent.childNodes.indexOf(node)] = replacement;

@@ -1,0 +1,16 @@
+---
+import { decorateReferences } from '../scripts/references.mjs';
+// Explicit page-theme variants keep semantic colors and TeX outlines intact.
+const themedFigures = (body: string) => body.replace(
+  /<img\b([^>]*?)src="(\/notes\/SUSYQM\/diagrams\/(angular-defect|holonomy|holonomy-cuts|holonomy-mesh|paired-spectrum|morse-saddle|small-loop)\.svg)"([^>]*?)>/g,
+  (_match, before, src, name, after) => {
+    const image = (path: string, classes: string) => `<img ${before}src="${path}"${after} data-figure="${name}" class="${classes}">`;
+    const desktop = ['holonomy', 'angular-defect', 'holonomy-cuts'].includes(name) ? ' figure-desktop' : '';
+    return `<span class="themed-figure">${image(src, 'figure-light' + desktop)}${image(src.replace('.svg', '-dark.svg'), 'figure-dark' + desktop)}${['holonomy', 'angular-defect', 'holonomy-cuts'].includes(name) ? image(src.replace('.svg', '-mobile.svg'), 'figure-light figure-mobile') + image(src.replace('.svg', '-mobile-dark.svg'), 'figure-dark figure-mobile') : ''}</span>`;
+  },
+);
+const html = decorateReferences(themedFigures(await Astro.slots.render('default')))
+  .replace(/<div data-weyl-calculation-slot(?:="")?><\/div>/, await Astro.slots.render('weyl'))
+  .replace(/<div data-pfaffian-calculation-slot(?:="")?><\/div>/, await Astro.slots.render('pfaffian'));
+---
+<Fragment set:html={html} />

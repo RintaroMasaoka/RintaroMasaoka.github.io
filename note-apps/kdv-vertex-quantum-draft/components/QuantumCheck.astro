@@ -1,0 +1,21 @@
+---
+import source from '../../../public/notes/kdv-vertex-quantum-draft/quantum-check.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<section id="quantum-check" data-quantum-check aria-label="Universal local commutator calculation">
+  <form class="quantum-controls">
+    <label>c <input name="c" aria-label="Central charge" value="c" size="6" inputmode="text" required pattern="c|-?[0-9]+(/[1-9][0-9]*)?" /></label>
+    <button type="submit">Run</button><button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p class="quantum-status" role="status" aria-live="polite">Use c for the universal symbolic calculation, or a nonzero integer/fraction such as -6. Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-reduction hidden><summary>Complete local residue and derivative reduction</summary><div class="note-math-output" data-reduction-output aria-label="Complete local reduction"></div></details>
+  <details data-raw-output hidden><summary>LaTeX output</summary><CodeBlock language="latex"><code data-output-source></code></CodeBlock></details>
+  <details><summary>Source code (Python)</summary><CodeBlock language="python"><code data-source>{source}</code></CodeBlock><a href="/notes/kdv-vertex-quantum-draft/quantum-check.py" download>Download source</a></details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+</section>
+<style>
+.quantum-controls{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .35rem}.quantum-controls label{display:flex;align-items:center;gap:.35rem}
+.quantum-controls button,.quantum-controls input,.quantum-controls select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .6rem;min-height:44px}.quantum-controls input{width:5.2rem;max-width:100%}.quantum-controls button{cursor:pointer}.quantum-controls button:disabled{opacity:.6;cursor:wait}.quantum-status{font-size:.85em;color:var(--muted);margin:.25rem 0 .75rem!important}[hidden]{display:none}
+</style>
+<script>import {initQuantumCheck} from '../scripts/quantum-check';initQuantumCheck();</script>

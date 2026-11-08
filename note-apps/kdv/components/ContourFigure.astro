@@ -1,7 +1,7 @@
 ---
 import FigureViewport from './FigureViewport.astro';
 import { createRequire } from 'node:module';
-const rootRequire = createRequire(new URL('../../../package.json', import.meta.url));
+const rootRequire = createRequire(`${process.cwd()}/package.json`);
 const katex = createRequire(rootRequire.resolve('rehype-katex'))('katex');
 const labels = [
   {x:262,y:155,w:58,t:'\\operatorname{Re}k'},

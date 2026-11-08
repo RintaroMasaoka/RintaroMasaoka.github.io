@@ -1,32 +1,34 @@
 ---
 import FigureViewport from './FigureViewport.astro';
 import MatchingProfiles from './MatchingProfiles.astro';
+import GreenSource from './GreenSource.astro';
 import { createRequire } from 'node:module';
 import { paths, X, energyDomain, initialEnergy } from '../visuals/green-response.js';
 const require = createRequire(new URL('../../../package.json',import.meta.url));
 const katex=createRequire(require.resolve('rehype-katex'))('katex');
 const tex=(s:string)=>katex.renderToString(s,{throwOnError:true});
 const {stage='matching'}=Astro.props;
-const matching=stage==='matching', id=`green-${stage}`, initial=paths(initialEnergy);
+const matching=stage==='matching', source=stage==='source', id=`green-${stage}`;
+const startEnergy=source?-1.8:initialEnergy, domain=source?[-2.25,-.25]:energyDomain, initial=paths(startEnergy);
 const labels=[
- {x:90,y:0,w:310,t:'(E+1)G(x,0;k)'},
- {x:441,y:220,w:30,t:'x'}, {x:12,y:214,w:35,t:'0'}, {x:3,y:109,w:47,t:'0.5'},
- ...[-4,0,4].map(x=>({x:X(x)-25,y:237,w:50,t:String(x)})),
+ {x:50,y:0,w:250,t:'(E+1)G(x,0;k)'},
+ {x:299,y:220,w:21,t:'x'}, {x:5,y:214,w:35,t:'0'}, {x:3,y:109,w:47,t:'0.5'},
+ ...[-4,0,4].map(x=>({x:X(x)-20,y:237,w:40,t:String(x)})),
 ];
 ---
 <figure id={id} class="green-response" data-green-stage={stage} aria-labelledby={`${id}-caption`}>
   <div class="green-controls">
-    <label for={`${id}-energy`}><span>エネルギー <span set:html={tex('E=k^2')} /></span><output data-green-energy-output for={`${id}-energy`}>{initialEnergy.toFixed(3)}</output><input data-green-energy id={`${id}-energy`} type="range" min={energyDomain[0]} max={energyDomain[1]} step=".001" value={initialEnergy} /></label>
-    <div class="green-buttons"><button data-green-pole type="button"><span set:html={tex('E=-1')} /> に合わせる</button><button data-green-reset type="button">初期値に戻す</button></div>
-    <p data-green-status role="status" aria-live="polite">{matching?'x = 0 の値はどちらも1だが、傾きが異なり、二本の解は一致しない。':'エネルギーを E = −1 に近づけると、極の係数の形に近づく。'}</p>
+    <label for={`${id}-energy`}><span>Energy <span set:html={tex('E=k^2')} /></span><output data-green-energy-output for={`${id}-energy`}>{startEnergy.toFixed(3)}</output><input data-green-energy id={`${id}-energy`} type="range" min={domain[0]} max={domain[1]} step=".001" value={startEnergy} /></label>
+    <div class="green-buttons"><button data-green-pole type="button">Set <span set:html={tex('E=-1')} /></button><button data-green-reset type="button">Reset</button></div>
+    <p data-green-status role="status" aria-live="polite">{matching?'x = 0 の値はどちらも1だが、傾きが異なり、二本の解は一致しない。':source?'下図の接続点の破線が傾きの跳び。その値が、上図の曲線に対応する点源の強さである。':'エネルギーを E = −1 に近づけると、極の係数の形に近づく。'}</p>
   </div>
-  <FigureViewport width={matching?320:480} label={matching?'減衰解とWronskianの図を左右にスクロール':'極の係数の図を左右にスクロール'}>
-    {matching ? <MatchingProfiles initial={initial} /> : <>
-    <svg viewBox="0 0 480 280" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
+  <FigureViewport width={320} label={matching?'減衰解とWronskianの図を左右にスクロール':source?'接続曲線と傾きの跳びの図を左右にスクロール':'極の係数の図を左右にスクロール'}>
+    {matching ? <MatchingProfiles initial={initial} /> : source ? <GreenSource initial={initial} /> : <>
+    <svg class="green-projector-plot" viewBox="0 0 320 280" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
       <title id={`${id}-title`}>Normalized bound-state pole coefficient</title>
       <desc id={`${id}-desc`}>The pole-removed response (E plus one) G from a source at zero is compared with the bound-state projector sech x over two. The curves agree as E approaches minus one. At the eigenvalue the continuous limiting response is drawn.</desc>
-      <defs><clipPath id={`${id}-clip`}><rect x="56" y="50" width="384" height="185" /></clipPath></defs>
-      <path d="M56 56 V232 H440" fill="none" stroke="var(--muted)" stroke-width="1.2" />
+      <defs><clipPath id={`${id}-clip`}><rect x="52" y="50" width="248" height="185" /></clipPath></defs>
+      <path d="M52 56 V232 H300" fill="none" stroke="var(--muted)" stroke-width="1.2" />
       {[-4,0,4].map(x=><path d={`M${X(x)} 232 v5`} stroke="var(--muted)" />)}
       <g clip-path={`url(#${id}-clip)`}>
         <path d={initial.projector} fill="none" stroke="var(--muted)" stroke-width="4.5" stroke-dasharray="8 5" />
@@ -42,8 +44,12 @@ const labels=[
     </div>
     </>}
   </FigureViewport>
+  {source && <div class="green-source-values">
+    <div><span set:html={tex("h'(0+)-h'(0-) ")} /><output data-green-jump>{initial.jump.toFixed(3)}</output></div>
+    <div><span set:html={tex('G(0,0;k)')} /><output data-green-amplitude>{initial.sourceAmplitude.toFixed(3)}</output></div>
+  </div>}
   {matching && <div class="green-w-value"><span set:html={tex('W(k)')} /><span> = </span><output data-green-w>{initial.Wvalue.toFixed(3)}</output></div>}
-  <figcaption id={`${id}-caption`}>{matching ? <>上図では二本の解をともに表示区間全体で描いている。淡い帯の区間を下図に拡大した。全体図・拡大図ともに尺度は固定である。接続点で傾きも一致すると、Wronskian は0になり、二本の解は全区間で一致する。</> : <>実線は点源の応答から極の分母を除いた量、破線は規格化された束縛状態への射影の積分核。固有値に近づくと二つの曲線が一致する。図のエネルギーは前の接続図と連動している。</>}</figcaption>
+  <figcaption id={`${id}-caption`}>{matching ? <>上図では二本の解をともに表示区間全体で描いている。淡い帯の区間を下図に拡大した。全体図・拡大図ともに尺度は固定である。接続点で傾きも一致すると、Wronskian は0になり、二本の解は全区間で一致する。</> : source ? <>上段は原点で値1につないだ曲線、下段はその傾き。丸と四角は左右の極限値であり、それらを結ぶ破線が、点源の強さに等しい傾きの跳びを示す。</> : <>実線は <span set:html={tex('(E+1)G(x,0;k)')} />、破線は <span set:html={tex('\\psi_1(x)\\psi_1(0)')} />。固有値に近づくと二つの曲線が一致する。固有値では、応答自体に代わり、この積の連続な極限を示す。</>}</figcaption>
 </figure>
 <script>
   import { initGreenResponse } from '../visuals/green-response.js';
@@ -62,10 +68,13 @@ const labels=[
 .green-controls :is(input,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .green-controls p{margin:.4rem 0 0;min-height:3.4em;color:var(--muted);font-size:.86rem}
 .green-w-value{display:flex;gap:.35rem;align-items:baseline;justify-content:center;color:var(--ink)}
-.green-response svg:not(.matching-plot){display:block;width:480px;height:auto}
+.green-projector-plot{display:block;width:320px;height:auto}
 .green-tex{display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:19px;line-height:1;height:100%;white-space:nowrap}
-.green-legend{display:grid;gap:.45rem;margin:.25rem auto .5rem;width:450px;font-size:18px;color:var(--ink)}
+.green-legend{display:grid;gap:.45rem;margin:.25rem auto .5rem;width:320px;font-size:13px;color:var(--ink)}
 .green-legend>div{display:flex;gap:.6rem;align-items:center;justify-content:center;min-height:30px}
 .green-legend svg{width:35px;height:12px;flex:none}
 .green-response figcaption{font-size:.88rem;color:var(--muted);line-height:1.8;margin:.5rem 0 0}
+.green-source-values{display:grid;gap:.4rem;max-width:320px;margin:.6rem auto;color:var(--ink);font-size:.95rem}
+.green-source-values>div{display:flex;justify-content:space-between;gap:.5rem;align-items:baseline}
+.green-source-values output{font-variant-numeric:tabular-nums;color:var(--accent)}
 </style>

@@ -1,0 +1,36 @@
+---
+import source from '../../../public/notes/KdV/formal-square-root.py?raw';
+import CodeBlock from '../../../src/components/reader/CodeBlock.astro';
+---
+<details id="formal-square-root-program" data-formal-square-root>
+  <summary>Formal square root</summary>
+  <form class="root-controls">
+    <label>Order <select name="order" aria-label="Expansion order">
+      {Array.from({length: 8}, (_, i) => i + 1).map(n => <option value={n} selected={n === 4}>{n}</option>)}
+    </select></label>
+    <button type="submit">Run</button>
+    <button type="button" data-cancel hidden>Cancel</button>
+  </form>
+  <p class="root-status" role="status" aria-live="polite">Python and SymPy load on the first run.</p>
+  <div class="note-math-output" data-output aria-label="Calculation output" hidden></div>
+  <details data-raw-output hidden>
+    <summary>LaTeX output</summary>
+    <CodeBlock language="latex"><code data-output-source></code></CodeBlock>
+  </details>
+  <noscript>Enable JavaScript to run this calculation.</noscript>
+  <details>
+    <summary>Source code (Python)</summary>
+    <CodeBlock language="python"><code data-source>{source}</code></CodeBlock>
+    <a href="/notes/KdV/formal-square-root.py" download>Download source</a>
+  </details>
+</details>
+<style>
+.root-controls{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin:1rem 0 .35rem}
+.root-controls label{display:flex;align-items:center;gap:.5rem}
+.root-controls button,.root-controls select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.4rem .75rem;min-height:44px}
+.root-controls button{cursor:pointer}.root-controls button:disabled{opacity:.6;cursor:wait}
+.root-controls [hidden]{display:none}
+.root-status{font-size:.85em;color:var(--muted);margin:.25rem 0 .75rem!important}
+[hidden]{display:none}
+</style>
+<script>import {initFormalSquareRoot} from '../scripts/formal-square-root';initFormalSquareRoot();</script>

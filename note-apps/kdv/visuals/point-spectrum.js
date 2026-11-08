@@ -1,4 +1,5 @@
 import {fittedRange,placeVerticalTicks} from './plot-range.js';
+export const joinedWaveRange=Object.freeze([0,1.6]);
 export const pointCoupling=(energy,x0=0)=>{const q=Math.sqrt(-energy),t=Math.tanh(x0),d=1-t*t;return -2*q+d/(q+t)+d/(q-t);};
 export const pointEnergy=delta=>-(((Math.sqrt(delta*delta+16)-delta)/4)**2);
 export function pointProfile(energy,x,x0=0){const q=Math.sqrt(-energy),t=Math.tanh(x0);return x<=x0?Math.exp(q*(x-x0))*(q-Math.tanh(x))/(q-t):Math.exp(-q*(x-x0))*(q+Math.tanh(x))/(q+t);}
@@ -20,13 +21,13 @@ export function initPointSpectrum(){
         const samples=Array.from({length:401},(_,i)=>xmin+(xmax-xmin)*i/400);
         const plotted=x=>pointProfile(energy,x);
         const values=wave?samples.map(plotted):samples.flatMap(x=>[pointEnergy(x),-1+x/2]);
-        const [ymin,ymax]=fittedRange(values,{includeZero:wave,floorSpan:.1});
+        const [ymin,ymax]=wave?joinedWaveRange:fittedRange(values,{floorSpan:.1});
         svg.dataset.ymin=String(ymin);svg.dataset.ymax=String(ymax);
         const left=46,right=svg.clientWidth-26,top=12,bottom=182;
         const X=x=>left+(x-xmin)*(right-left)/(xmax-xmin),Y=y=>bottom-(y-ymin)*(bottom-top)/(ymax-ymin);
         svg.querySelector('rect').setAttribute('width',Math.max(0,right-left));
         svg.querySelector('[data-point-axes]').setAttribute('d',`M${left} ${top} V${bottom} H${right}`);
-        svg.querySelector('[data-point-guides]').setAttribute('d',`M${X(0)} ${top} V${bottom} M${left} ${Y(wave?0:-1)} H${right}`);
+        svg.querySelector('[data-point-guides]').setAttribute('d',`M${X(0)} ${top} V${bottom} M${left} ${Y(wave?1:-1)} H${right}`);
         const curve=Array.from({length:401},(_,i)=>{const x=wave?xmin+(0-xmin)*i/400:xmin+(xmax-xmin)*i/400;return `${i?'L':'M'}${X(x).toFixed(2)},${Y(wave?plotted(x):pointEnergy(x)).toFixed(2)}`}).join(' ');
         svg.querySelector('[data-point-curve]').setAttribute('d',curve);
         if(wave){const rightPath=Array.from({length:201},(_,i)=>{const x=xmax*i/200;return `${i?'L':'M'}${X(x).toFixed(2)},${Y(plotted(x)).toFixed(2)}`}).join(' ');svg.querySelector('[data-point-right]').setAttribute('d',rightPath);}

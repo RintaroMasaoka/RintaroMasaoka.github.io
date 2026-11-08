@@ -1,8 +1,6 @@
 // Note-specific scientific widgets; shared reader behavior lives in src/scripts/study-note-reader.ts.
 import { initKdvVisuals } from '../visuals/contours.js';
 initKdvVisuals();
-import { initDysonDomain } from '../visuals/dyson-domain.js';
-initDysonDomain();
 import { initTravelingSoliton } from '../visuals/soliton.js';
 initTravelingSoliton();
 import { initKdvSimulations } from '../visuals/simulation.js';

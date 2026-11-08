@@ -1,0 +1,101 @@
+{
+  "specVersion": "1.0.1",
+  "id": "susy-qm",
+  "title": "超対称量子力学と指数定理",
+  "description": "不足角からWitten指数、Morse理論、Chern–Gauss–Bonnetの定理へ進む学習ノート。",
+  "language": "ja",
+  "source": {
+    "title": "超対称量子力学と指数定理",
+    "authors": [
+      "政岡凜太郎"
+    ],
+    "locator": "SUSY_index.pdf 全体。元の構成を引き継いだウェブ版。"
+  },
+  "chapters": [
+    {
+      "id": "gauss-bonnet",
+      "section": "1",
+      "title": "Gauss–Bonnetの定理",
+      "description": "Gauss–Bonnetの定理",
+      "plainTitle": "Gauss–Bonnetの定理",
+      "plainDescription": "Gauss–Bonnetの定理",
+      "file": "01-gauss-bonnet.md",
+      "href": "#gauss-bonnet"
+    },
+    {
+      "id": "supersymmetric-quantum-mechanics",
+      "section": "2",
+      "title": "超対称量子力学とWitten指数",
+      "description": "超対称量子力学とWitten指数",
+      "plainTitle": "超対称量子力学とWitten指数",
+      "plainDescription": "超対称量子力学とWitten指数",
+      "file": "02-supersymmetric-quantum-mechanics.md",
+      "href": "#supersymmetric-quantum-mechanics"
+    },
+    {
+      "id": "morse-theory",
+      "section": "3",
+      "title": "Morse理論",
+      "description": "Morse理論",
+      "plainTitle": "Morse理論",
+      "plainDescription": "Morse理論",
+      "file": "03-morse-theory.md",
+      "href": "#morse-theory"
+    },
+    {
+      "id": "chern-gauss-bonnet",
+      "section": "4",
+      "title": "Chern–Gauss–Bonnetの定理",
+      "description": "Chern–Gauss–Bonnetの定理",
+      "plainTitle": "Chern–Gauss–Bonnetの定理",
+      "plainDescription": "Chern–Gauss–Bonnetの定理",
+      "file": "04-chern-gauss-bonnet.md",
+      "href": "#chern-gauss-bonnet"
+    },
+    {
+      "id": "continuous-spectrum",
+      "section": "付録A",
+      "title": "連続スペクトルをもつWitten模型",
+      "description": "連続スペクトルをもつWitten模型",
+      "plainTitle": "連続スペクトルをもつWitten模型",
+      "plainDescription": "連続スペクトルをもつWitten模型",
+      "file": "05-continuous-spectrum.md",
+      "href": "#continuous-spectrum"
+    },
+    {
+      "id": "fokker-planck",
+      "section": "付録B",
+      "title": "Fokker–Planck方程式の導出",
+      "description": "Fokker–Planck方程式の導出",
+      "plainTitle": "Fokker–Planck方程式の導出",
+      "plainDescription": "Fokker–Planck方程式の導出",
+      "file": "06-fokker-planck.md",
+      "href": "#fokker-planck"
+    }
+  ],
+  "publication": {
+    "provider": "github-pages",
+    "projectId": null,
+    "url": "https://rintaromasaoka.github.io/notes/susy-qm/",
+    "visibility": "public"
+  },
+  "reader": {
+    "mode": "continuous",
+    "basePath": "/notes/susy-qm/",
+    "notesHref": "/ja/notes/",
+    "equationScope": "note",
+    "themeKeys": [
+      "susy-qm.theme"
+    ]
+  },
+  "resources": [
+    {
+      "label": "Original PDF ↗",
+      "href": "/notes/SUSYQM/SUSY_index.pdf"
+    },
+    {
+      "label": "LaTeX source ↗",
+      "href": "/notes/SUSYQM/SUSY_index.tex"
+    }
+  ]
+}

@@ -1,25 +1,25 @@
 ---
 import { createRequire } from 'node:module';
-const require = createRequire(new URL('../../../package.json', import.meta.url));
+const require = createRequire(`${process.cwd()}/package.json`);
 const katex = createRequire(require.resolve('rehype-katex'))('katex');
 const tex = (source: string) => katex.renderToString(source, { throwOnError: true });
 ---
 <figure id="dressing-square" class="dressing-square" aria-labelledby="dressing-caption">
-  <div class="square" role="img" aria-label="自由な関数gを先に微分してSを作用させても、先にSを作用させてPを作用させても、S(∂x g)になる。横矢印はS、左の下向き矢印は∂x、右はP。">
-    <div class="column-name" set:html={tex('\\text{Free}')} />
+  <div class="square" role="img" aria-label="Formal operator products: starting from identity 1, left multiplication by S then P gives PS, while left multiplication by the derivative then S gives S partial. These products are equal.">
+    <div class="column-name" set:html={tex('\\text{Before }S')} />
     <div></div>
-    <div class="column-name" set:html={tex('\\text{Potential}')} />
-    <div class="node" set:html={tex('g')} />
+    <div class="column-name" set:html={tex('\\text{After }S')} />
+    <div class="node" set:html={tex('1')} />
     <div class="horizontal" aria-hidden="true"><span set:html={tex('S')} /><i></i></div>
-    <div class="node" set:html={tex('Sg')} />
+    <div class="node" set:html={tex('S')} />
     <div class="vertical" aria-hidden="true"><i></i><span set:html={tex('\\partial_x')} /></div>
     <div></div>
     <div class="vertical" aria-hidden="true"><i></i><span set:html={tex('P')} /></div>
-    <div class="node" set:html={tex('\\partial_x g')} />
+    <div class="node" set:html={tex('\\partial_x')} />
     <div class="horizontal" aria-hidden="true"><span set:html={tex('S')} /><i></i></div>
-    <div class="node" set:html={tex('S(\\partial_xg)')} />
+    <div class="node" set:html={tex('S\\partial_x')} />
   </div>
-  <figcaption id="dressing-caption">左列で微分してから <span set:html={tex('S')} /> を作用させる経路と、先に <span set:html={tex('S')} /> を作用させて右列で <span set:html={tex('P')} /> を作用させる経路は、同じ関数 <span set:html={tex('S(\\partial_xg)')} /> に至る。</figcaption>
+  <figcaption id="dressing-caption">形式級数の積 <span set:html={tex('PS=S\\partial_x')} />。左上の <span set:html={tex('1')} /> は恒等演算子を表し、各矢印はラベルの演算子を左から掛ける操作を表す。</figcaption>
 </figure>
 <style>
   .dressing-square { margin: 1.6rem 0; color: var(--ink); width: 100%; }

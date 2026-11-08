@@ -1,177 +1,257 @@
 ### 3.1. Jost解と変換核
 
-時間を固定し、滑らかで、すべての導関数が無限遠で任意のべきより速く減衰する実ポテンシャル $u$（Schwartz ポテンシャル）に対する
+散乱データの時間発展が求まったので、各時刻の波形 $u(x,t)$ を復元する問題に戻ろう。ここで新しい見方として、自由波 $e^{ikx}$ を Jost 解 $f_-(x,k)$ に移す作用素を導入する。この作用素は線形な積分方程式から求められ、ポテンシャルはその作用素から復元できる。
+
+以下では、滑らかで、すべての導関数が無限遠で任意のべきより速く減衰する実ポテンシャル $u$（Schwartz ポテンシャル）に対する
 $$
 Lf=k^2f,\qquad L=-\partial_x^2+u(x)
 \tag{schrodinger}
 $$
-を考える。まず固定した $u$ に対して、左端で自由平面波 $e^{ikx}$ に一致する解 $f_-(x,k)$ を構成する。目標は、この波の変形を全波数に共通する積分核で表し、その核の方程式を散乱データから作って $u$ を戻すことである。それぞれの端で $f_\pm(x,k)\sim e^{ikx}$（$x\to\pm\infty$）と規格化した解を Jost 解と呼ぶ。
+を考える。それぞれの端で $f_\pm(x,k)\sim e^{ikx}$（$x\to\pm\infty$）と規格化した解を Jost 解と呼ぶ。
 
 <div data-visual-slot="jost-intro"></div>
 
-#### 3.1.1. 相互作用描像
+#### 3.1.1. Jost解とDyson展開
 
-Schrödinger 方程式を $f_{xx}+k^2f=uf$ と書く。自由方程式による変化を先に取り除けば、残る変化はポテンシャルの作用だけになる。量子力学の相互作用描像と同じ手順を、時間ではなく位置 $x$ に沿って行おう。
+左 Jost 解は、左端で自由波 $e^{ikx}$ に一致する。ポテンシャルによる作用を、左から通過する順序に重ねることで、この自由波から $f_-(x,k)$ への変化を表そう。
 
-まず値と傾きを並べた状態を $\boldsymbol f=(f,f_x)^{\mathsf T}$ と書く。自由解では $f_{xx}=-k^2f$ なので、$x$ 微分はこの二つの成分を $(f_x,-k^2f)^{\mathsf T}$ に移す。その作用を表す行列を $D_0$ と書く：
+実数 $k\ne0$ を考える。自由波の傾きには、値に比べて $ik$ が一つ余分に付く。そこで、傾きを $ik$ で割って値と同じ尺度にそろえ、
 $$
-D_0=\begin{pmatrix}0&1\\-k^2&0\end{pmatrix},\qquad
-\frac{d\boldsymbol f}{dx}=D_0\boldsymbol f\quad(u=0).
+\boldsymbol{f}=\begin{pmatrix}f\\ f_x/(ik)\end{pmatrix}
 $$
-$D$ は微分を、添字 $0$ は $u=0$ の自由系を表す。ポテンシャルの作用を表す行列 $V(x)$ を加えると、元の方程式は
+を状態とする。自由波の状態は
 $$
-\frac{d\boldsymbol f}{dx}=(D_0+V(x))\boldsymbol f,
-\qquad V(x)=\begin{pmatrix}0&0\\u(x)&0\end{pmatrix}.
+e^{ikx}\begin{pmatrix}1\\1\end{pmatrix}
+$$
+となる。
+
+Schrödinger 方程式 $f_{xx}+k^2f=uf$ は
+$$
+\frac{d\boldsymbol{f}}{dx}=(D_0+V(x))\boldsymbol{f},\qquad
+D_0=ik\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+V(x)=\frac{u(x)}{ik}\begin{pmatrix}0&0\\1&0\end{pmatrix}
 \tag{spatial-state}
 $$
-まず実数 $k\ne0$ を考え、$k=0$ では $\sin(kd)/k$ を極限 $d$ で読む。自由系での有限な位置差 $d$ の伝播は、微分を表す行列の指数関数 $e^{dD_0}$ で与えられる。$I$ を $2\times2$ の単位行列とすると $D_0^2=-k^2I$ なので、指数関数の偶数次と奇数次をまとめると
-$$
-\begin{aligned}
-e^{dD_0}&=\cos(kd)I+\frac{\sin(kd)}{k}D_0\\
-&=\begin{pmatrix}
-\cos(kd)&\sin(kd)/k\\
--k\sin(kd)&\cos(kd)
-\end{pmatrix},
-\end{aligned}
-\tag{free-propagation}
-$$
-となり、$\boldsymbol f(x)=e^{(x-x')D_0}\boldsymbol f(x')$（$u=0$）と伝わる。同じ行列の指数なので $e^{aD_0}e^{bD_0}=e^{(a+b)D_0}$ となり、逆向きの自由伝播は $e^{-dD_0}$ である。
+と書ける。$D_0$ は自由伝播を、$V$ はポテンシャルの作用を表す。
 
-有限な始点 $x_*$ を固定する。位置 $x$ の状態から、始点以来の自由伝播を逆にたどって取り除いたものが、相互作用描像の状態
+自由伝播を取り除く相互作用描像
 $$
-\boldsymbol f_I(x)=e^{-(x-x_*)D_0}\boldsymbol f(x)
+\boldsymbol{f}_{\mathrm I}(x)=e^{-xD_0}\boldsymbol{f}(x),\qquad
+V_{\mathrm I}(x)=e^{-xD_0}V(x)e^{xD_0}
 $$
-である。$u=0$ ならこれは始点の状態のまま変わらない。微分して式 (@spatial-state) を使うと、$e^{-(x-x_*)D_0}$ の微分と自由方程式の項が打ち消し合い、
+では、
 $$
-\frac{d\boldsymbol f_I}{dx}=V_I(x)\boldsymbol f_I(x),\qquad
-V_I(x)=e^{-(x-x_*)D_0}V(x)e^{(x-x_*)D_0}
+\frac{d\boldsymbol{f}_{\mathrm I}}{dx}=V_{\mathrm I}(x)\boldsymbol{f}_{\mathrm I}(x).
 $$
-だけが残る。$V_I$ は、位置 $x$ まで自由伝播し、そこでポテンシャルを作用させ、自由伝播を取り除く操作である。したがって、各位置の作用をこの共通の表示で積み重ねればよい。
+左 Jost 解の境界条件は、この表示では
+$$
+\boldsymbol{f}_{\mathrm I}(x)\longrightarrow\begin{pmatrix}1\\1\end{pmatrix}
+\qquad(x\to-\infty)
+$$
+となる。したがって、各位置の作用を順に重ねた Dyson 展開は
+$$
+\boldsymbol{f}_{\mathrm I}(x)=\Bigg[I
++\int_{-\infty}^{x}V_{\mathrm I}(x_1)\,dx_1
++\int_{-\infty}^{x}dx_1\int_{-\infty}^{x_1}dx_2\,
+V_{\mathrm I}(x_1)V_{\mathrm I}(x_2)+\cdots\Bigg]\begin{pmatrix}1\\1\end{pmatrix}.
+\tag{jost-dyson}
+$$
+先に通る位置の作用が右に置かれる。
 
-$\mathcal P$ を、大きい位置の行列を左に置く位置順序とする。上の方程式を始点から解くと
+零次項は自由波そのものである。それ以外の項には、ポテンシャルの作用が少なくとも一つ含まれる。行列のノルムには、二成分の ユークリッドノルムから定まる作用素ノルムを用いる。実数 $k$ では自由伝播がユニタリなので、
 $$
-\boldsymbol f_I(x)=\mathcal P\exp\!\left[\int_{x_*}^xV_I(x')\,dx'\right]\boldsymbol f(x_*).
+\|V_{\mathrm I}(x)\|=\|V(x)\|=\frac{|u(x)|}{|k|}.
 $$
-これは量子力学の Dyson 展開と同じ順序付きの積分であり、最初の三項は
+各作用が $1/k$ を伴うため、固定した $x$ で $|k|\to\infty$ とすると補正が小さくなり、
 $$
-\boldsymbol f_I(x)=\Bigg[I
-+\int_{x_*}^x V_I(x')\,dx'
-+\int_{x_*}^x\!dx'\int_{x_*}^{x'}\!dx''\,
-V_I(x')V_I(x'')+\cdots\Bigg]\boldsymbol f(x_*).
+f_-(x,k)=e^{ikx}+O(|k|^{-1})
+\tag{jost-high-frequency}
 $$
-二次の項では $x''\le x'$ で、先に通る位置 $x''$ の行列が右に来る。高次でも、左から右へ進む間に出会うポテンシャルの作用を、その順序のまま重ねている。
+となる。
 
-#### 3.1.2. Jost解の変換核表示
+#### 3.1.2. 変換核と作用素
 
-この順序付き発展を、積分核を取り出せる形に直そう。まず相互作用描像の微分方程式を一度積分し、左から $e^{(x-x_*)D_0}$ を掛けて元の状態へ戻すと
+Dyson 展開の補正を位置表示で書いたものを、変換核 $K(x,y)$ と定める：
 $$
-\boldsymbol f(x)=e^{(x-x_*)D_0}\boldsymbol f(x_*)+\int_{x_*}^x e^{(x-x')D_0}V(x')\boldsymbol f(x')\,dx'.
+K(x,y):=\frac1{2\pi}\int_{\mathbb R}\bigl[f_-(x,k)-e^{ikx}\bigr]e^{-iky}\,dk.
+\tag{kernel-fourier}
 $$
-この積分項は、位置順序付き展開でポテンシャルが一回以上作用する各項を、最後の作用位置 $x'$ ごとにまとめたものである。その位置に至るまでの作用を足し合わせた状態が $\boldsymbol f(x')$ であり、$V(x')$ が最後の一回の作用を表す。その後は自由伝播だけなので、位置 $x$ へ運ぶ因子が $e^{(x-x')D_0}$ となる。
+自由波の Fourier 変換はデルタ関数を与える。一方、補正は高周波で小さくなるため、この残りは関数カーネルとして表される。
 
-この一回の作用を行列で計算すると
+核の定義の被積分関数を
 $$
-V(x')\boldsymbol f(x')=
-\begin{pmatrix}0\\u(x')f(x')\end{pmatrix}.
+\bigl[e^{-ikx}f_-(x,k)-1\bigr]e^{ik(x-y)}
 $$
-第二成分に現れた寄与を自由伝播させると、式 (@free-propagation) から
-$$
-e^{(x-x')D_0}V(x')\boldsymbol f(x')=u(x')f(x')
-\begin{pmatrix}\sin k(x-x')/k\\\cos k(x-x')\end{pmatrix}.
-$$
-位置 $x'$ の微小区間が与える補正は、このベクトルに $dx'$ を掛けたものである。求めたい波の値 $f(x)$ は状態 $\boldsymbol f(x)$ の第一成分なので、この積全体の第一成分を積分すればよい。初期状態からの自由伝播の項と合わせると
-$$
-f(x)={}f(x_*)\cos k(x-x_*)
-+f_x(x_*)\frac{\sin k(x-x_*)}{k}
-+\int_{x_*}^x\frac{\sin k(x-x')}{k}u(x')f(x')\,dx'.
+と書く。$y>x$ では、最後の指数因子が下半平面で減衰するので、積分路を下に閉じることを考える。そこで、角括弧内の因子の特異点と、無限遠での振る舞いを確かめる。
 
-\tag{finite-source-integral}
-$$
-正弦因子は、各位置でのポテンシャルの作用を、波の値の補正へ変える係数として現れる。
+自由波の因子を除いた自由伝播は、下半平面で増大しない。自由伝播を各作用の間に戻して評価すると、Dyson 級数は下半平面内でも収束し、各項の正則性が保たれる。従って、固定した $x$ に対する $f_-(x,k)$ は、下半平面の内部に特異点を持たない。同じ評価から、自由波で割った補正 $e^{-ikx}f_-(x,k)-1$ は、閉下半平面で一様に $O(|k|^{-1})$ となる。
 
-左端で自由波に一致する解 $f_-$ を得るには、有限な $x_*$ で始点の状態を $(e^{ikx_*},ik e^{ikx_*})^{\mathsf T}$ としてから $x_*\to-\infty$ とする。式 (@finite-source-integral) の最初の二項は $e^{ikx}$ となり、Schwartz 条件の下で左端までの積分が収束するので
-$$
-f_-(x,k)=e^{ikx}+\int_{-\infty}^x\frac{\sin k(x-x')}{k}u(x')f_-(x',k)\,dx'.
-\tag{left-jost-integral}
-$$
-この積分方程式は、相互作用描像で位置順に積み重ねたすべての作用を含む。$u$ を固定したとき、自由波から対応する解への変換は、入力波に対して線形である。各次数の補正を平面波 $e^{iky}$ の重ね合わせに書き直し、その重みを全次数で足し合わせたものを変換核 $K(x,y)$ と書く。これによって、位置順序付き発展を
-$$
-f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,y)e^{iky}\,dy
-\tag{kernel-ansatz}
-$$
-と表す。先頭の $e^{ikx}$ が自由波であり、積分項がポテンシャルによる全補正を表す。各補正をこの形に直せる仕組みが、正弦因子が平面波を有限区間上の平面波の重ね合わせに変える恒等式
-$$
-\frac{\sin k(x-x')}{k}e^{iky'}=\frac12\int_{y'-(x-x')}^{y'+(x-x')}e^{iky}\,dy
-\tag{plane-wave-identity}
-$$
-である。自由波 $e^{ikx'}$ に式 (@left-jost-integral) の積分作用を一度加えると、恒等式 (@plane-wave-identity) で $y'=x'$ と置いた区間積分になる。固定した $y$ にこの補正が寄与するには $y\le x$ かつ $y\ge 2x'-x$ が必要なので、作用位置は $x'\le(x+y)/2$ に限られる。自由波から生じる重みは、したがって $\frac12\int_{-\infty}^{(x+y)/2}u(x')\,dx'$ である。
+従って、$y>x$ では積分路を下に閉じることができ、Cauchy の積分定理から $K(x,y)=0$ を得る。
 
-また、$y'\le x'$ の成分に式 (@plane-wave-identity) を適用すると、区間の上端は $y'+x-x'\le x$ である。したがって、作用を重ねても $y\le x$ が保たれる。
-
-二回以上の作用を含む寄与は、作用位置 $x'$ での波の全補正に、最後の一回の作用を加えたものとしてまとめられる。式 (@kernel-ansatz) の補正 $\int_{-\infty}^{x'}K(x',y')e^{iky'}dy'$ を式 (@left-jost-integral) に直接代入すると、その寄与は
+Schwartz ポテンシャルでは、$K$ は $y\le x$ の側で対角線まで滑らかである。Fourier 変換を戻すと、
 $$
-\int_{-\infty}^x\!dx'\int_{-\infty}^{x'}\!dy'\,
-u(x')K(x',y')\frac{\sin k(x-x')}{k}e^{iky'}.
-\tag{kernel-feedback}
-$$
-積分変数は $x'\le x$ と $y'\le x'$ を満たし、正弦因子の恒等式から $|y-y'|\le x-x'$ となる。
-
-<div data-visual-slot="dyson-domain"></div>
-
-恒等式で $y$ の区間積分に直し、$y$ を外側の積分変数にすると、固定した $y$ の重みにはこの三つの条件を満たす $x',y'$ だけが寄与する。全補正は、一回だけ作用する寄与と二回以上作用する寄与の和なので、その重み $K$ が満たす積分方程式は
-$$
-K(x,y)=\frac12\int_{-\infty}^{(x+y)/2}u(x')\,dx'
-+\frac12\iint_{\substack{y'\le x'\le x\\|y-y'|\le x-x'}}u(x')K(x',y')\,dy'\,dx',\qquad y\le x.
-\tag{kernel-recursion}
-$$
-第一項はポテンシャルが自由波に作用して生じる重み、第二項はすでに得た補正の重みに次の作用を加えた寄与をすべて足したものである。各作用は式 (@plane-wave-identity) によって波数に依らない重みに移るため、$K$ も波数に依らない。
-
-
-位置順序付き発展に含まれるすべての補正は、この重み $K$ を用いた一つの積分にまとまる：
-$$
-f_-(x,k)=e^{ikx}+\int_{-\infty}^xK(x,y)e^{iky}\,dy
+f_-(x,k)=e^{ikx}+\int_{-\infty}^{x}K(x,y)e^{iky}\,dy.
 \tag{jost-transform}
 $$
-式 (@kernel-recursion) の反復代入は、この全補正の重みを作用回数ごとに計算する操作である。Schwartz 条件の下では、重みの和は対角まで連続な関数となる。和の収束と連続性は補足で確かめる。
 
 <details id="kernel-convergence">
-<summary>変換核の級数表示の収束と連続性</summary>
+<summary>Convergence, support, and regularity</summary>
 
-この補足では、ポテンシャルが $n$ 回作用した寄与の重みを $K_n$ と書く。一回の作用では
+Dyson 展開の $n$ 次項のノルムは
 $$
-K_1(x,y)=\frac12\int_{-\infty}^{(x+y)/2}u(x')\,dx'
+\frac{\sqrt2}{n!}\left(\frac1{|k|}\int_{-\infty}^{x}|u(s)|\,ds\right)^n
 $$
-とし、$n\ge1$ に対して
+以下である。したがって級数は絶対収束し、補正全体は
 $$
-K_{n+1}(x,y)=\frac12\iint_{\substack{y'\le x'\le x\\|y-y'|\le x-x'}}u(x')K_n(x',y')\,dy'\,dx'
+|f_-(x,k)-e^{ikx}|\le\sqrt2\left[
+\exp\left(\frac1{|k|}\int_{-\infty}^{x}|u(s)|\,ds\right)-1\right]
+=O(|k|^{-1})
 $$
-と定める。全補正を足した重みは $K=\sum_{n\ge1}K_n$ である。位置順序と各内側区間の長さ $2(x-x')$ を使うと、帰納的に
-$$
-|K_n(x,y)|\le\frac1{2(n-1)!}
-\left(\int_{-\infty}^x|u(z)|\,dz\right)
-\left(\int_{-\infty}^x(x-z)|u(z)|\,dz\right)^{n-1},\qquad y\le x,
-$$
-と評価できる。固定した $x$ でこの評価は $y\le x$ に一様であり、核級数の局所一様収束を与える。各反復項は連続なので和も対角まで連続である。対角では式 (@kernel-recursion) の二重積分が消えるため、和の対角値は第一項の明示積分に等しい。
+と評価される。
 
-絶対値を取った反復積分にも同じ評価が使える。核の可積分性とフーリエ表示は、Schwartz 条件下の変換作用素の標準結果を用いる。対応する構成は [Egorova ほか、§2](https://arxiv.org/pdf/1411.0021) にある。
+固定した $x$ について、Jost 解は $k=0$ の近くでも連続である。したがって
+$$
+\int_{\mathbb R}|f_-(x,k)-e^{ikx}|^2\,dk<\infty.
+$$
+核の定義で積分範囲を $[-R,R]$ に切ったものを $K_R$ とすると、$T>R$ に対し Plancherel の等式により
+$$
+\int_{\mathbb R}|K_T(x,y)-K_R(x,y)|^2\,dy
+=\frac1{2\pi}\int_{R<|k|\le T}|f_-(x,k)-e^{ikx}|^2\,dk
+\longrightarrow0.
+$$
+このため、$K_R$ は二乗誤差がゼロになる意味で一つの関数 $K$ に収束する。
+
+片側支持を見るには、同じ Dyson 展開を、自由伝播を各作用の間に戻した形で複素波数へ延ばす。自由波の因子を除いた自由伝播は、距離 $d\ge0$ に対して
+$$
+e^{-ikd}e^{dD_0}
+$$
+であり、その固有値は $1$ と $e^{-2ikd}$ である。したがって下半平面では
+$$
+\left\|e^{-ikd}e^{dD_0}\right\|\le1.
+$$
+有限な始点 $x_*$ からの Dyson 展開では、各自由伝播の距離の和は $x-x_*$ である。全体から自由波の因子を除けば、各自由伝播因子にこの評価を適用できる。積分可能な $u$ の左端の尾を落とした誤差はゼロに近づくので、$x_*\to-\infty$ の極限でも同じ評価が保たれる。級数は $k\ne0$ の下半平面の各コンパクト集合で一様収束する。したがって
+$$
+e^{-ikx}f_-(x,k)-1
+$$
+は下半平面で正則であり、閉下半平面で一様に $O(|k|^{-1})$ となる。
+
+核を
+$$
+K(x,y)=\frac1{2\pi}\int_{\mathbb R}
+\bigl[e^{-ikx}f_-(x,k)-1\bigr]e^{ik(x-y)}\,dk
+$$
+と書けば、$y>x$ のとき指数因子は下半平面で減衰する。積分路を下に閉じると内部に特異点はないため、$K(x,y)=0$ を得る。原点近傍の連続性により、原点を避ける小円弧の寄与もゼロになる。
+
+対角線までの滑らかさと、$y\to-\infty$ での減衰については、Schwartz ポテンシャルに対する変換核の標準的な正則性結果を用いる。この滑らかな代表の、$y\le x$ 側からの対角値を $K(x,x)$ とする。零近傍での Jost 解の連続性と変換核の性質については、文献 [[4]](#ref-egorova) の §2 を参照。同論文の左 Jost 解の波数を $-k$ に置き換えると、本節の規約になる。
+
+核表示は下半平面にも延びる。特に $k=-i\kappa$（$\kappa>0$）では、$y\to-\infty$ で $e^{iky}=e^{\kappa y}$ が減衰するため、後で束縛状態にも同じ表示を用いられる。
 
 </details>
 
-#### 3.1.3. 変換核の対角値
-
-式 (@kernel-recursion) で $y=x$ とすると、二重積分の条件は $y'\le x'$ と $|x-y'|\le x-x'$ である。後者の下側から $y'\ge x'$ が従うため $y'=x'$ に限られ、この領域は面積ゼロである。したがって対角では二重積分が消え、自由波からの第一項だけが残る。
+自由波を Jost 解へ置き換える線形作用素 $S$ を、Fourier 係数を保った重ね合わせによって定める：
 $$
-K(x,x)=\frac12\int_{-\infty}^xu(x')\,dx',\qquad
+g(x)=\frac1{2\pi}\int_{\mathbb R}\widehat g(k)e^{ikx}\,dk,\qquad
+(Sg)(x)=\frac1{2\pi}\int_{\mathbb R}\widehat g(k)f_-(x,k)\,dk.
+$$
+まず $g$ は Schwartz 関数とする。核の表示を代入すると、
+$$
+(Sg)(x)=g(x)+\int_{-\infty}^{x}K(x,y)g(y)\,dy.
+\tag{dressing-transform}
+$$
+位置 $x$ での出力は、入力 $g$ の $y\le x$ における値だけで決まる。
+Dyson 展開の零次項が恒等作用素を与え、ポテンシャルによる補正全体が $K$ に収められている。
+
+#### 3.1.3. 変換核からのポテンシャルの復元
+
+この作用素からポテンシャルを取り出そう。自由波と Jost 解は、それぞれ
+$$
+\begin{aligned}
+-\partial_x^2e^{ikx}&=k^2e^{ikx},\\
+(-\partial_x^2+u)f_-(x,k)&=k^2f_-(x,k).
+\end{aligned}
+$$
+を満たす。$S$ は $e^{ikx}$ を $f_-(x,k)$ へ移すので、
+$$
+\begin{aligned}
+L(Se^{ikx})&=k^2f_-(x,k)\\
+&=S(-\partial_x^2e^{ikx}).
+\end{aligned}
+$$
+つまり、$S$ で Jost 解へ移してから $L$ を作用させても、先に自由波へ $-\partial_x^2$ を作用させてから $S$ で移しても、結果は同じである。任意の Schwartz 関数は平面波の Fourier 重ね合わせで表されるので、線形性により、この二つの作用順序はその関数に対しても同じ結果を与える。従って、
+$$
+LS=S(-\partial_x^2),
+\tag{dressing-intertwining}
+$$
+$L=-\partial_x^2+u$ を代入すると、
+$$
+[\partial_x^2,S]=uS.
+$$
+右辺 $uS$ は、入力 $g$ に対して $u(x)g(x)$ と積分項を与える。$u(x)g(x)$ の項は、積分核では $u(x)\delta(x-y)$ になる。したがって、左辺の交換子の核からデルタ関数の係数を取り出せば、$u(x)$ を復元できる。
+
+この係数を調べるために、$S$ を核で表そう。$S$ の核は
+$$
+\delta(x-y)+\Theta(x-y)K(x,y)
+$$
+である。ここで $\Theta$ は Heaviside 関数である。以下では、この核の微分を分布の意味で扱う。
+
+$\partial_x^2S$ では、$S$ の出力を $x$ で微分するので、核の $x$ 微分が現れる。
+$$
+\partial_x^2(Sg)(x)
+=g''(x)+\int_{\mathbb R}\partial_x^2[\Theta(x-y)K(x,y)]g(y)\,dy.
+$$
+一方、$S\partial_x^2$ では、入力を微分してから $S$ を作用させる。積分内では入力の変数は $y$ なので、
+$$
+(S\partial_x^2g)(x)
+=g''(x)+\int_{\mathbb R}\Theta(x-y)K(x,y)g''(y)\,dy.
+$$
+分布の微分の定義に従って2回部分積分すると、入力の微分が核の $y$ 微分に移る。
+$$
+(S\partial_x^2g)(x)
+=g''(x)+\int_{\mathbb R}\partial_y^2[\Theta(x-y)K(x,y)]g(y)\,dy.
+$$
+
+この二つの作用の差を取ると、恒等作用素に由来する $g''(x)$ が消える。従って、交換子 $[\partial_x^2,S]$ の核は
+$$
+(\partial_x^2-\partial_y^2)[\Theta(x-y)K(x,y)]
+$$
+である。右辺 $uS$ の核と等しいことから、
+$$
+(\partial_x^2-\partial_y^2)(\Theta K)
+=u(x)\delta(x-y)+u(x)\Theta K.
+$$
+左辺に含まれるデルタ関数を取り出すため、
+$$
+\partial_x^2-\partial_y^2
+=(\partial_x-\partial_y)(\partial_x+\partial_y)
+$$
+と因数分解する。$\Theta$ は $x-y$ だけの関数だから、
+$$
+(\partial_x+\partial_y)(\Theta K)=\Theta(K_x+K_y),\qquad
+(\partial_x-\partial_y)\Theta(x-y)=2\delta(x-y).
+$$
+したがって、
+$$
+(\partial_x^2-\partial_y^2)(\Theta K)
+=2\delta(x-y)(K_x+K_y)(x,x)+\Theta(K_{xx}-K_{yy}).
+$$
+デルタ関数の係数を比べれば、
+$$
+u(x)=2(K_x+K_y)(x,x).
+$$
+右辺は対角線に沿った微分なので、
+$$
 u(x)=2\frac{d}{dx}K(x,x).
 \tag{potential-from-diagonal}
 $$
-微分は $x$ と二つ目の引数を同時に動かす対角方向の全微分である。Schwartz 条件の下で明示積分を微分すれば、ポテンシャルが直接得られる。後で散乱データから GLM 方程式を解いてこの同じ核 $K$ を得るので、式 (@potential-from-diagonal) によりポテンシャルを復元できる。
+
+積分の境界を微分したときに生じる局所的な作用が、ポテンシャル $u(x)$ に一致する。次に、この $K$ を散乱データから決める線形積分方程式を導く。
+
 
 ### 3.2. GLM方程式
 
 #### 3.2.1. 散乱関係の逆フーリエ変換
 
-ここで散乱データを導入する。$k>0$ の左入射波は左端で入射波 $f_-(x,k)$ と反射波 $b(k)f_-(x,-k)$ の和、右端で透過波 $a(k)f_+(x,k)$ と書ける。$a$ は透過係数、$b$ は左反射係数であり、同じ解の二つの表示から実軸上
+前章で求めた散乱データから、変換核 $K$ を決める方程式を作ろう。$k>0$ の左入射波は左端で入射波 $f_-(x,k)$ と反射波 $b(k)f_-(x,-k)$ の和、右端で透過波 $a(k)f_+(x,k)$ と書ける。$a$ は透過係数、$b$ は左反射係数であり、同じ解の二つの表示から実軸上
 $$
 a(k)f_+(x,k)=f_-(x,k)+b(k)f_-(x,-k).
 \tag{scattering-relation}
@@ -183,7 +263,7 @@ $$
 f_-(x,k)-e^{ikx}=\int_{-\infty}^xK(x,z)e^{ikz}\,dz.
 \tag{incident-correction}
 $$
-逆フーリエ変換で、平面波の重ね合わせの重み $K(x,y)$ を取り出す。$y<x$ では、
+核の定義 (@kernel-fourier) に従って、散乱関係から $K(x,y)$ を取り出す。$y<x$ では、
 $$
 \lim_{R\to\infty}\frac{1}{2\pi}\int_{-R}^R[f_-(x,k)-e^{ikx}]e^{-iky}\,dk=K(x,y).
 $$
@@ -195,7 +275,7 @@ $$
 と置く。ここでは実軸上の反射データ $b(k)$ を用いる。式 (@jost-transform) から反射項の変換は
 $$
 \frac1{2\pi}\int_{\mathbb R}b(k)f_-(x,-k)e^{-iky}\,dk
-=\widehat b(x+y)/(2\pi)+\int_{-\infty}^xK(x,z)\widehat b(z+y)/(2\pi)\,dz.
+=\frac{\widehat b(x+y)}{2\pi}+\int_{-\infty}^xK(x,z)\frac{\widehat b(z+y)}{2\pi}\,dz.
 \tag{reflected-transform}
 $$
 自由波では指数が $e^{-ik(x+y)}$、核の項では $e^{-ik(z+y)}$ となるため、それぞれ $\widehat b$ の引数が $x+y,z+y$ になる。積分交換は $K(x,\cdot)$ の可積分性と反射係数の減衰で許される。
@@ -210,7 +290,7 @@ $$
 =[a(k)f_+(x,k)e^{-ikx}-1]e^{ik(x-y)}.
 $$
 
-波数が大きいと、Schrödinger 方程式 $f_{xx}+(k^2-u(x))f=0$ では $k^2$ に対するポテンシャル $u(x)$ の影響が小さくなり、透過波は自由波に近づく。上の括弧内は、自由波に対する補正を表しており、大きな $|k|$ で小さくなる。
+式 (@jost-high-frequency) の左 Jost 解と同様に、右 Jost 解も高周波で自由波に近づく。透過係数も $a(k)=1+O(|k|^{-1})$ を満たすので、上の括弧内は大きな $|k|$ で $O(|k|^{-1})$ となる。
 
 さらに、$y<x$ では
 $$
@@ -228,10 +308,8 @@ $$
 
 従って、求める積分は上半平面にある極の留数の和になる。
 $$
-\begin{aligned}
-&\lim_{R\to\infty}\frac1{2\pi}\int_{-R}^R[a(k)f_+(x,k)-e^{ikx}]e^{-iky}\,dk\\
-&\qquad=i\sum_{\text{上半平面の各極}}\operatorname*{Res}\!\left[(a(k)f_+(x,k)-e^{ikx})e^{-iky}\right].
-\end{aligned}
+\lim_{R\to\infty}\frac1{2\pi}\int_{-R}^R[a(k)f_+(x,k)-e^{ikx}]e^{-iky}\,dk
+=i\sum_{\text{上半平面の各極}}\operatorname*{Res}\!\left[(a(k)f_+(x,k)-e^{ikx})e^{-iky}\right].
 \tag{transmission-residue-sum}
 $$
 右辺では、各極での被積分関数全体の留数を足している。積分を具体的に求めるために残るのは、極がどこにあり、その留数がいくらかという問題である。
@@ -243,7 +321,11 @@ $$
 f_+(x,k)=\frac1{a(k)}f_-(x,k)+\frac{b(k)}{a(k)}f_-(x,-k).
 $$
 
-この入射振幅の意味から、複素波数での極を考えよう。$k=i\kappa$、$\kappa>0$ では、右端の自由波 $e^{ikx}=e^{-\kappa x}$ は右へ行くほど小さくなる。一方、この自由波は左へ行くほど大きくなる。右端で規格化した $f_+$ が左端でも小さくなるには、左側で大きくなる成分の係数 $1/a(k)$ が0にならなければならない。右端の振幅を1に保ったまま、必要な入射振幅が0になると、$a(k)$ に極が現れる。この両端で小さくなる波形が束縛状態である。以下で、入射振幅を計算してこの関係を確かめる。
+束縛状態の固有値は負の実数 $k^2=-\kappa^2$（$\kappa>0$）なので、上半平面で対応する波数は $k=i\kappa$ である。右 Jost 解 $f_+(x,i\kappa)$ は、右端で $e^{-\kappa x}$ に漸近する。左端の増大成分の係数は $1/a(i\kappa)$ である。
+
+<div data-visual-slot="imaginary-jost"></div>
+
+両端で減衰する束縛状態は、$1/a(i\kappa)=0$、すなわち $k=i\kappa$ における $a(k)$ の極に対応する。
 
 入射振幅 $1/a(k)$ を取り出すには、上の散乱関係から反射成分を消せばよい。反射波と同じ解 $f_-(x,-k)$ を第一列に置き、値と傾きからなる行列式
 $$
@@ -281,7 +363,12 @@ $$
 
 上半平面では $f_-(x,-k)$ と $f_+(x,k)$ は正則であり、それぞれ左端と右端で小さくなる解である。上の商により $a$ を上半平面へ延長すると、原点以外で極が現れるのは $W(k)=0$ のときである。この条件は二つの解の値と傾きが比例することを意味する。同じ微分方程式の解は値と傾きで決まるため、二つの解は全区間で比例し、両端で小さくなる一つの波形につながる。これが、入射振幅が0になる条件と束縛状態との正確な結び付きである。
 
-例として、$u(x)=-2\operatorname{sech}^2x$ を考える。この場合、$E=-1$ で左右の Jost 解はともに $\tfrac12\operatorname{sech}x$ となる。次の図でエネルギーを動かすと、この値で二つの波形が全区間で一致し、$W=0$ になる様子を確かめられる。
+極で得られる解は、両端で指数関数的に減衰するため平方可積分である。実ポテンシャルに対する $L$ は自己共役なので、その固有値 $k^2$ は実数となる。従って、
+$$
+0=\operatorname{Im}(k^2)
+=2\operatorname{Re}k\,\operatorname{Im}k.
+$$
+上半平面では $\operatorname{Im}k>0$ だから、$\operatorname{Re}k=0$ でなければならない。これにより、上半平面にある透過係数の極は正の虚軸上の $k=i\kappa_n$（$\kappa_n>0$）に限られ、固有値は $-\kappa_n^2$ となる。Schwartz ポテンシャルでは負の固有値は有限個である。
 
 <div data-visual-slot="matching"></div>
 
@@ -309,16 +396,15 @@ $$
 
 </details>
 
-両端で指数関数的に小さくなるこの解は平方可積分である。$L$ の自己共役性により固有値 $k^2$ は実数なので、上半平面の零点は $k=i\kappa_n$（$\kappa_n>0$）に限られ、固有値は $-\kappa_n^2$ となる。Schwartz ポテンシャルでは負の固有値は有限個である。次の小節では、これらの点での留数を求める。
-
 <details id="analytic-estimates">
 <summary>透過項の解析性と円弧積分の評価</summary>
 
 先ほどの積分路の議論で用いた三点、すなわち上半平面での有理型性、大半円の寄与が消えること、原点での有界性を確かめる。以下では $x$ と $y<x$ を固定する。
 
-**上半平面での解析性。** 左 Jost 解の積分方程式 (@left-jost-integral) で $k$ を $-k$ に置き換え、自由波 $e^{-ikx}$ で割ると
+**上半平面での解析性。** 零近傍までの性質を確かめるため、Schrödinger 方程式と左端の境界条件を積分した表示を用いる。自由波 $e^{-ikx}$ を除くと、
 $$
 e^{ikx}f_-(x,-k)=1+\int_{-\infty}^x\frac{e^{2ik(x-z)}-1}{2ik}u(z)e^{ikz}f_-(z,-k)\,dz.
+\tag{left-jost-integral}
 $$
 
 この積分核は、$z\le x$ に対して
@@ -362,7 +448,7 @@ $$
 
 従って原点では $a(k)$ も $f_+(x,k)$ も有界である。半径 $\epsilon$ の小半円では被積分関数も有界なので、その積分の絶対値は $O(\epsilon)$ であり、$\epsilon\to0$ でゼロになる。以上で、留数の和以外に円弧からの寄与がないことが確かめられた。
 
-両 Jost 解の積分方程式による構成と評価については、[Egorova ほか、§2 の (2.1)–(2.4)](https://arxiv.org/pdf/1411.0021) も参照。
+両 Jost 解の積分方程式による構成と評価については、文献 [[4]](#ref-egorova) の §2, (2.1)–(2.4) も参照。
 
 </details>
 
@@ -370,10 +456,12 @@ $$
 
 前の小節で極の位置が分かったので、次は透過項 $a(k)f_+(x,k)$ の留数を求める。固有エネルギーから少し離れると、左右の減衰解はそのままではつながらない。その不一致を傾きの差として表し、透過項の分母と結び付けよう。
 
-以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、束縛状態のエネルギー $E_n=-\kappa_n^2$ の近傍を考える。左右の解を接続点での値で割り、値を1にそろえたい。そのため、対応する束縛状態 $\psi_n$ が0でない点を接続点 $x_0$ に選ぶ。固有エネルギーでは両 Jost 解が $\psi_n$ に比例するので、$f_-(x_0,-i\kappa_n)$ と $f_+(x_0,i\kappa_n)$ はともに0でない。連続性により、$E_n$ の十分小さい近傍でも両者は0でなく、次の表示を使える。以後 $x_0$ は固定する。
+以下では $E=k^2<0$、$\operatorname{Im}k>0$ とし、束縛状態のエネルギー $E_n=-\kappa_n^2$ の近傍を考える。固有値 $E_n$ の束縛状態 $\psi_n$ が0でない点を接続点 $x_0$ に選び、以後固定する。固有エネルギーでは両 Jost 解が $\psi_n$ に比例するので、$f_-(x_0,-i\kappa_n)$ と $f_+(x_0,i\kappa_n)$ はともに0でない。連続性により、$E_n$ の十分小さい近傍でも両者は0でない。そこで、$f_-(x,-k)$ と $f_+(x,k)$ をそれぞれ $x_0$ での値で割り、接続点での値を1にそろえて接続する：
 $$
-f(x;E)=\frac{f_-(x,-k)}{f_-(x_0,-k)}\Theta(x_0-x)
-+\frac{f_+(x,k)}{f_+(x_0,k)}\Theta(x-x_0).
+\begin{aligned}
+f(x;E)&=\frac{f_-(x,-k)}{f_-(x_0,-k)}\Theta(x_0-x)\\
+&\quad+\frac{f_+(x,k)}{f_+(x_0,k)}\Theta(x-x_0).
+\end{aligned}
 \tag{matching-def}
 $$
 $\Theta$ は Heaviside 関数であり、$\Theta(0)=1/2$ とする。この波形は $f(x_0;E)=1$ で連続だが、一般には左右の傾きが異なる。その差を
@@ -385,15 +473,18 @@ $$
 \end{aligned}
 \tag{matching-slope-difference}
 $$
-と定める。次の図は $u(x)=-2\operatorname{sech}^2x$、$x_0=0$ の例である。$E=-1$ で傾きも一致し、両端で減衰する束縛状態になる。
+と定める。
 
 <div data-visual-slot="joined-wave"></div>
 
 式 (@wronskian) により、
 $$
-\Delta(E)=
-\frac{\overbrace{f_-(x_0,-k)\partial_xf_+(x_0,k)-\partial_xf_-(x_0,-k)f_+(x_0,k)}^{W(k)}}
-{f_-(x_0,-k)f_+(x_0,k)}.
+\begin{aligned}
+\Delta(E)&=
+\frac{f_-(x_0,-k)\partial_xf_+(x_0,k)-\partial_xf_-(x_0,-k)f_+(x_0,k)}
+{f_-(x_0,-k)f_+(x_0,k)}\\
+&=\frac{W(k)}{f_-(x_0,-k)f_+(x_0,k)}.
+\end{aligned}
 \tag{matching-wronskian-factorization}
 $$
 従って $a=2ik/W$ を使うと、
@@ -406,7 +497,7 @@ $$
 
 #### 3.2.5. 傾きの跳びと点ポテンシャル
 
-透過項の留数を決めるには、$\Delta(E)$ が固有エネルギー $E_n$ の近くでどう変化するかを知ればよい。この変化は、点ポテンシャルに対する束縛状態のエネルギー応答から求められる。式 (@matching-def) の接続波形は連続で、傾きの跳びは $\Delta(E)$ なので、二階の分布微分は
+透過項の留数を決めるには、$\Delta(E)$ が固有エネルギー $E_n$ の近くでどう変化するかを知ればよい。そのために、点ポテンシャルを加えたときの束縛状態のエネルギーの変化を求める。式 (@matching-def) の $f(x;E)$ は連続で、傾きの跳びは $\Delta(E)$ なので、二階の分布微分は
 $$
 \partial_x^2 f=(u-E)f+\Delta(E)\delta(x-x_0)
 $$
@@ -462,7 +553,7 @@ $$
 
 #### 3.2.6. 透過項の留数
 
-束縛状態では両 Jost 解は同じ固有関数に比例する。左 Jost 解に合わせて符号を選んだ実規格化固有関数を
+束縛状態では両 Jost 解は同じ固有関数に比例する。左 Jost 解に合わせて符号を選んだ、規格化された実数値の固有関数を
 $$
 \begin{gathered}
 \psi_n(x)=c_nf_-(x,-i\kappa_n),\qquad c_n>0,\\
@@ -501,7 +592,7 @@ $$
 =\frac{c_n\psi_n(x)}{E-E_n}+O(1).
 \tag{transmission-energy-pole}
 $$
-極係数 $c_n\psi_n(x)$ は、接続点 $x_0$ の選択に依存しない。
+$1/(E-E_n)$ の係数 $c_n\psi_n(x)$ は、接続点 $x_0$ の選択に依存しない。
 最後に $E-E_n=(k-i\kappa_n)(k+i\kappa_n)$ なので
 $$
 \frac{2ik}{E-E_n}=\frac{i}{k-i\kappa_n}+O(1).
@@ -550,12 +641,10 @@ F(s)=\underbrace{\frac1{2\pi}\int_{\mathbb R}b(k)e^{-iks}\,dk}_{\widehat b(s)/(2
 $$
 入射項と反射項の変換の和から透過項の変換を引くと0になる。式 (@reflected-transform)、(@transmitted-transform)、(@bound-transform) を代入すると、透過項を引く負号と式 (@transmitted-transform) の負号により、束縛状態項は正となる：
 $$
-\begin{aligned}
-0={}&K(x,y)+\underbrace{\frac{\widehat b(x+y)}{2\pi}
-+\sum_{n=1}^Nc_n^2e^{\kappa_n(x+y)}}_{F(x+y)}\\
-&+\int_{-\infty}^xK(x,z)\,\Bigl[\underbrace{\frac{\widehat b(z+y)}{2\pi}
+0=K(x,y)+\underbrace{\frac{\widehat b(x+y)}{2\pi}
++\sum_{n=1}^Nc_n^2e^{\kappa_n(x+y)}}_{F(x+y)}
++\int_{-\infty}^xK(x,z)\,\Bigl[\underbrace{\frac{\widehat b(z+y)}{2\pi}
 +\sum_{n=1}^Nc_n^2e^{\kappa_n(z+y)}}_{F(z+y)}\Bigr]\,dz.
-\end{aligned}
 \tag{glm-data-assembly}
 $$
 となる。積分の外の二項は $F(x+y)$、積分内の二項は $F(z+y)$ そのものである。従って、
@@ -563,7 +652,7 @@ $$
 \boxed{0=K(x,y)+F(x+y)+\int_{-\infty}^xK(x,z)F(z+y)\,dz.}\qquad y<x.
 \tag{glm}
 $$
-となる。これが左 GLM 方程式である。既知の $F$ に対して、これは $K(x,\cdot)$ の線形積分方程式である。実際のポテンシャルから得た散乱データには、ここまで構成した核が解として存在する。補足で示す一意性により、その核を散乱データから決められる。解を対角へ連続に延長し、式 (@potential-from-diagonal) の対角微分を取れば $u$ が復元される。
+となる。これが左 GLM 方程式である。既知の $F$ に対して、これは $K(x,\cdot)$ の線形積分方程式である。実際のポテンシャルから得た散乱データには、ここまで構成した核が解として存在する。補足で示す一意性により、その核を散乱データから決められる。解を対角へ連続に延長し、式 (@potential-from-diagonal) に従って $K(x,x)$ を $x$ で微分して2倍すれば $u$ が復元される。
 
 
 <details id="glm-uniqueness">
@@ -599,62 +688,42 @@ $$
 
 #### 3.3.1. 1ソリトン解
 
-反射がなく、束縛状態が一つだけの場合に GLM 方程式を解いてみよう。散乱データは固有値 $-\kappa_1^2$ と規格化定数 $c_1>0$ であり、まず時刻を固定する。束縛状態の左端での形を全空間へ延ばした指数関数を
+反射がなく、束縛状態が一つの場合を考える。時刻を固定し、固有値を $-\kappa_1^2$、規格化定数を $c_1>0$ とし、指数関数の中身を $\theta_1(x)=\kappa_1x+\log c_1$ と書く。規格化された束縛状態 $\psi_1=c_1f_-(x,-i\kappa_1)$ は、Jost 解の核表示から
 $$
-e_1(x)=c_1e^{\kappa_1x}
-$$
-と書く。Jost 解の核表示に $k=-i\kappa_1$ を代入し、$c_1$ を掛けると、規格化された束縛状態 $\psi_1=c_1f_-(x,-i\kappa_1)$ は
-$$
-\begin{aligned}
-\psi_1(x)=e_1(x)+\int_{-\infty}^xK(x,z)e_1(z)\,dz.
-\end{aligned}
+\psi_1(x)=e^{\theta_1(x)}+\int_{-\infty}^xK(x,z)e^{\theta_1(z)}\,dz.
 \tag{equation-4d4b5b9253}
 $$
-と表される。
 
-ここで散乱データ関数は $F(x+y)=e_1(x)e_1(y)$ と分離できる。GLM 方程式 (@glm) は
+この場合は $F(x+y)=e^{\theta_1(x)}e^{\theta_1(y)}$ なので、GLM 方程式 (@glm) の後二項を上の $\psi_1(x)$ でまとめると、
 $$
-K(x,y)+e_1(y)\left[e_1(x)+\int_{-\infty}^xK(x,z)e_1(z)\,dz\right]=0.
-$$
-角括弧は式 (@equation-4d4b5b9253) の $\psi_1(x)$ なので、
-$$
-K(x,y)=-\psi_1(x)e_1(y).
+K(x,y)=-\psi_1(x)e^{\theta_1(y)}.
 \tag{equation-3e233dbbbe}
 $$
-固定した $x$ では、未知の核を求める問題が一つの値 $\psi_1(x)$ を求める問題になった。これを式 (@equation-4d4b5b9253) に戻すと、
+これを $\psi_1$ の積分表示に戻して指数関数を積分すれば、各 $x$ で $\psi_1(x)$ を決める一つの一次方程式になる。
 $$
-\psi_1(x)=e_1(x)-\psi_1(x)\int_{-\infty}^xe_1(z)^2\,dz.
-$$
-積分は $e_1(x)^2/(2\kappa_1)$ だから、
-$$
-\boxed{\psi_1(x)=\frac{e_1(x)}{1+e_1(x)^2/(2\kappa_1)}.}
+\left(1+\frac{e^{2\theta_1(x)}}{2\kappa_1}\right)\psi_1(x)=e^{\theta_1(x)}.
 \tag{equation-aedf434e36}
 $$
-自由方程式の解 $e_1$ は右へ向かって増大するが、この分母によって $\psi_1$ は右端でも減衰する。左端の指数的な形から、両端で減衰する束縛状態の波形が復元された。
 
-ポテンシャルは核の対角値から得られる。式 (@equation-3e233dbbbe) と (@equation-aedf434e36) より
+<span id="eq-equation-5ae839fb7f"></span>
+
+この式を解いて $K(x,x)=-\psi_1(x)e^{\theta_1(x)}$ に代入する。$e^{2\theta_1(x_0)}=2\kappa_1$ となる位置を $x_0$ とすれば、
 $$
-K(x,x)=-\frac{e_1(x)^2}{1+e_1(x)^2/(2\kappa_1)}.
-\tag{equation-5ae839fb7f}
-$$
-波形の中心を読み取るため、分母の二項が等しくなる位置を $x_0$ とする。すなわち $c_1^2e^{2\kappa_1x_0}/(2\kappa_1)=1$ と置くと
-$$
-\frac{e_1(x)^2}{2\kappa_1}=e^{2\kappa_1(x-x_0)},\qquad
 K(x,x)=-\kappa_1\left[1+\tanh\!\bigl(\kappa_1(x-x_0)\bigr)\right].
 \tag{equation-79f6682db2}
 $$
-対角復元式 $u=2\,dK(x,x)/dx$ で微分すれば、
+従って $u=2\frac{dK(x,x)}{dx}$ より、
 $$
 \boxed{u(x)=-2\kappa_1^2\operatorname{sech}^2\!\bigl(\kappa_1(x-x_0)\bigr).}
 \tag{equation-817ec0d626}
 $$
-固有値を指定する $\kappa_1$ が最小値 $-2\kappa_1^2$ と幅の尺度 $1/\kappa_1$ を決め、規格化定数 $c_1$ が中心 $x_0$ を決める。
+$\kappa_1$ が深さと幅を、$c_1$ が中心 $x_0$ を決める。
 
-第2節の時間発展 $c_1(t)=c_1(0)e^{-4\kappa_1^3t}$ を戻すと、中心を定める条件 $c_1(t)^2e^{2\kappa_1x_0(t)}/(2\kappa_1)=1$ から
+時間発展を戻すと $\theta_1(x,t)=\theta_1(x,0)+\kappa_1^3t$ となる。中心の条件 $e^{2\theta_1(x_0(t),t)}=2\kappa_1$ から
 $$
-x_0(t)=x_0(0)+4\kappa_1^2t
+x_0(t)=x_0(0)-\kappa_1^2t.
 \tag{equation-adf234d48b}
 $$
-となる。$\kappa_1$ は時間に依らないので、復元した波は形を保ち、速度 $4\kappa_1^2$ で移動する。これが一ソリトン解である。 水面の変位は $\eta=-u$ なので、その波は高さ $2\kappa_1^2$ の山として進む。
+$\kappa_1$ は一定なので、波形は速度 $-\kappa_1^2$ で形を保って進む。水面の変位は $\eta=-u$ であり、高さ $2\kappa_1^2$ の山に対応する。
 
 <div data-visual-slot="reconstruction"></div>

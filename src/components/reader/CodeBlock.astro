@@ -1,0 +1,5 @@
+---
+interface Props { source?: string; language?: string }
+const {source, language = 'text'} = Astro.props;
+---
+<pre data-code-language={language}>{source === undefined ? <slot /> : <code>{source}</code>}</pre>

@@ -1,7 +1,7 @@
 {
   "reader_contract": {
-    "version": 28,
-    "purpose": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
+    "version": 44,
+    "purpose": "KdVという具体例を手がかりに、可積分系に共通して現れる構造を理解する。具体的な計算と理論間の関係をたどる探索的な流れを持ち、特定の解法や最終的な理論一つを第一目標にはしない。",
     "basis": "2026-10-19 ユーザー回答: 微積分・フーリエ変換・留数定理の基本は既知。逆散乱法固有の関係や計算は説明が必要。 追加明示: Schrödinger方程式は既知。既知と未導入は区別する。 追加明示: 既知の場合は記号を正しく指定すれば復元できるとみなす。ただし復元作業を強制せず、コストゼロで正しく理解できること。",
     "concept_available": [
       {
@@ -49,8 +49,8 @@
       },
       {
         "item": "時間順序付き発展とDyson展開",
-        "scope": "量子系の順序付き発展を既知の足場に使う。位置順序付き2x2方程式への対応とKへの再整理は本文で導く。",
-        "basis": "2026-10-21 ユーザーがこの対応を理解として明示的に採用。"
+        "scope": "時間・位置順序付き指数P expと順序付き発展は既知として使う。第6章では一般的な反復代入・Dyson級数の導出や収束の説明を再掲せず、今回の係数行列、状態との対応、端点因子と場の括弧を説明する。",
+        "basis": "2026-10-21 ユーザーがこの対応を理解として明示的に採用。 2026-11-03ユーザー明示:「P expくらいしってるのは前提でしょ」。"
       },
       {
         "item": "線形変換の形式的な積分核表示",
@@ -61,6 +61,23 @@
         "item": "反エルミートな生成子とユニタリ時間発展",
         "scope": "反エルミートなBによるU_t=BUはユニタリな時間発展であり、ノルムを保存するという基本関係は既知として使う。今回の具体的なBが反エルミートであることは既知とせず、境界項、微分と掛け算の随伴、積の順序を明示して本文で確かめる。",
         "basis": "2026-10-21 ユーザー明示: Bがanti-Hermitianであることと、ユニタリ変換だからノルムが保存されることを述べれば十分。"
+      },
+      {
+        "item": "CFTの基本知識",
+        "scope": "第6章でCFTに入る位置以降はVirasoro、エネルギー運動量テンソル、OPE、正規積、自由ボソンとその頂点演算子、Wickの定理を既知とする。一般的レビューは行わず、このノート固有の規約・規格化と量子KdV保存量構成の接続を説明する。Feigin–Frenkelの構成や全次数の存在証明は引き続き学ぶ内容。",
+        "basis": "2026-11-05ユーザー明示: CFTの基本的知識とOPE等をすべて仮定し、入口でその旨を明示する。"
+      },
+      {
+        "item": "複体・コホモロジー",
+        "scope": "第6章では複体、コホモロジー、核・像・商空間を既知として用いる。Feigin–Frenkel複体の各項・微分・内部次数・空間微分との関係、および局所保存量への降下は本章で指定し説明する。",
+        "basis": "2026-11-05 ユーザー明示。",
+        "recognizable_forms": [
+          "複体",
+          "コホモロジー",
+          "核",
+          "像",
+          "商空間"
+        ]
       }
     ],
     "detail_to_recover": [
@@ -86,7 +103,7 @@
       }
     ],
     "conventions_to_supply": [
-      "Intro and section2.1: eta is scaled surface displacement, upward positive, eta_t+6eta eta_x+eta_xxx=0. At section2.2 define u=-eta once and use u as the Schrodinger potential thereafter; soliton speed v and all scattering/GLM conventions retained. Early plots and numerical frames show eta. A final eta=-u recall interprets recovered potential as wave height.",
+      "Intro and section2.1: eta is scaled surface displacement, upward positive, eta_t=(eta_xxx+6eta eta_x)/4. At section2.2 define u=-eta once and use u as the Schrodinger potential thereafter; soliton speed v and all scattering/GLM conventions retained. Early plots and numerical frames show eta. A final eta=-u recall interprets recovered potential as wave height.",
       "L=-∂x²+u; f±~exp(ikx) at ±infinity",
       "Prime retains its established x-derivative meaning; wave-number derivatives use ∂k, including ∂kW. W is defined as W(x,k); ∂xW=0 permits suppressing x without changing the underlying definition. Keep ∂k f_-(x,-k) unchanged.",
       "left incidence b,c throughout the note",
@@ -94,11 +111,11 @@
       "left K; u=+2 dK(x,x)/dx",
       "K is the combined plane-wave weight of all ordered potential corrections to the fixed-u linear transformation; free identity is outside K. Derive its representation/support/recursion, with convergence and regularity in the disclosure. Direct substitution into the source-integral equation closes an equation for K(x,y); integration coordinates x',y'; no auxiliary coupling or f_n decomposition",
       "same left kernels and normalization throughout scattering time evolution and multi-state reconstruction",
-      "v is physical soliton speed; c_n are normalized left-tail amplitudes; one-state uses c_1,kappa_1",
-      "hat denotes the Fourier transform with no prefactor; extraction/inverse carries 1/(2pi)",
-      "bold f=(f,f_x); D_0=[[0,1],[-k^2,0]] represents x differentiation on free solutions; free propagation is exp(d D_0); V is potential action; I subscript denotes interaction picture on state and action. Keep P-ordered interaction evolution visible and derive the sine integral by restoring free propagation; U(t) remains Lax-time evolution",
+      "v is signed soliton velocity; v<0 in the adopted Sato time; c_n are normalized left-tail amplitudes; one-state uses c_1,kappa_1",
+      "In scattering/Fourier passages, hats on test functions and b denote the Fourier transform with no prefactor; extraction/inverse carries1/(2pi). In quantum chapters, hats on fields/charges indicate quantum objects, introduced with their operation/normalization. Do not identify the normalized quantum boson Phihat with the unscaled classical primitive phi.",
+      "bold f=(f,f_x/(ik)) for k nonzero; D_0=ik[[0,1],[1,0]], V=u/(ik)[[0,0],[1,0]]. This scaled basis is Euclidean-unitary for real-k free propagation. I labels interaction pictures consistently: f_I,V_I remove D0 in Jost construction; M_I transports the locally defined Miura/gauge state after removing diag(j,-j). M(x,a;k) transports the original scaled state; U(t) remains Lax-time evolution.",
       "bold symbols group known scalar components into columns; psi_n=c_n f_-(x,-i kappa_n) is established before the matrix reconstruction",
-      "Bound-state tails: c_n(t) is the normalized left-tail coefficient, tilde c_n(t) the right-tail coefficient; psi_n~c_n(t) exp(kappa_n x) at minus infinity and ~tilde c_n(t) exp(-kappa_n x) at plus infinity. Left coefficient evolves by exp(-4 kappa_n^3 t), right by exp(+4 kappa_n^3 t).",
+      "Bound-state tails: c_n(t) is the normalized left-tail coefficient, tilde c_n(t) the right-tail coefficient; psi_n~c_n(t) exp(kappa_n x) at minus infinity and ~tilde c_n(t) exp(-kappa_n x) at plus infinity. Left coefficient evolves by exp(+kappa_n^3 t), right by exp(-kappa_n^3 t).",
       "Residues: normalize both endpoint Jost solutions to value one at the origin, and join their left/right halves as f(x;E). Define Delta(E) as the actual right-minus-left derivative jump and show its two derivative ratios explicitly. Identify the already-defined W as the numerator of this difference without teaching Wronskian again. Delta is the identical point-potential strength. Derive E−E_n=Delta(E)|psi_n(0)|²+O(Delta²) and substitute visibly into the transmitted quotient. Keep Wronskian computation in section6, the c_n normalization at use, and final residue i c_n² f_-. The earlier finite-start x_* is not reused as a matching coordinate."
     ],
     "new_or_unconfirmed": [
@@ -173,11 +190,11 @@
         "time-dependent entries",
         "explicit two-state determinant versus product",
         "separated limits, centers and time ordering",
-        "computed synchronized potential/term-fraction figure",
+        "computed potential spacetime and separated-profile figure",
         "general subset pair-product statement"
       ],
       "supplement": "Principal-minor expansion and elementary row-elimination proof of the Cauchy determinant; existing eigenstate normalization and density proofs retained.",
-      "figure": "Determinant.astro + visuals/determinant.js; exact kappa=(1,2), C11=3 exp(2x-8t), C22=3 exp(4x-64t); fractions normalized by determinant; shared x coordinates.",
+      "figure": "Determinant.astro delegates to DeterminantSpacetime.astro; visuals/determinant.js computes the common potential from the four determinant terms with kappa=(1,5/4), diagonalFactor=9 and pair factor=1/81. The active reader-facing figure displays the potential in spacetime and separated profiles, not normalized determinant-term fractions.",
       "local_dependencies": [
         "Restate the Jost kernel representation before substituting k=-i kappa_n and multiplying by c_n.",
         "State the reflectionless F(s) and its separated F(x+y) form beside the actual GLM equation before substitution; do not require distant definition recall.",
@@ -197,7 +214,7 @@
         "形式逆S⁻¹を導入しP=S∂xS⁻¹、P²=-Lを導く",
         "高次KdV流と保存量へ進む"
       ],
-      "conventions": "L=-∂x²+u、P²=-L、B_n=(P^n)_≥0、t1=x、t3=-4t。前段の物理時間tを保持。",
+      "conventions": "L=-∂x²+u、P²=-L、B_n=(P^n)_≥0、t1=x、t=t3。冒頭から同じ時間規格化を使う。",
       "formal_scope": "Kからの表示は大波数展開。一般の負冪級数は形式積で扱い、収束を前提にしない。",
       "spec": "reviews/kdv-sato-voa/hierarchy.spec.md"
     },
@@ -216,6 +233,99 @@
       ],
       "navigation": "The contents show h2/h3 main questions; h4 headings are local body landmarks. Source levels/numbers are preserved in composition; prior shared heading URLs remain compatibility anchors.",
       "authority": "reviews/kdv-structure/20261022/headings.spec.md"
+    },
+    "motivation_acceptance": {
+      "objective": "読者の読みたい気持ちを育て、説明の進展でその関心を保ち深める。",
+      "scope": "章の入口、主題が切り替わる説明単位、その単位の受入時。各段落へ新しい導入を追加する規則ではない。",
+      "evidence": "読者が今何に関心を持てるか、その根拠となる本文または明示された読む目的を記録する。問い・具体例・意外な事実・用途・直接の説明などの選択は、読者と内容に応じて行う。",
+      "failure": "読む理由が成立しない単位はFAIL。内容予告、手順の明瞭さ、正しい計算、構成を著者から与えるという位置付けだけでは合格にしない。未習の着想を読者へ要求して関心を作らない。",
+      "continuity": "既に成立した関心を引き継げる箇所は、その根拠を参照して進める。未解決の問いの提示や特定の型を全ての導入へ要求しない。",
+      "hierarchy_entry": "§2.2で与えたBの係数の組合せがなぜ働くかを、§4で構成から理解する。この入口で解法や微分を移す着想を読者へ要求しない。",
+      "authority": "project-linked study-note skill: references/reader-position.md#judge-motivation-at-the-explanatory-unit-boundary"
+    },
+    "hierarchy_conservation_route": {
+      "scope": "§4.3 無限個の保存量",
+      "reader_value": "Lax発展の共役変換から、波形にかかる保存量を冪のトレースとしてまとめて理解する。",
+      "entry": "§2.2のL(t)=U(t)L(0)U(t)^{-1}を再掲し、有限行列の冪のトレースと巡回性を示す。",
+      "supplied_tool": "Adler–Maninトレースを新しい道具として導入する。∂^{-1}係数の選択を読者の既得知識からの推論として装わない。",
+      "main_path": [
+        "共役変換と有限行列のトレース",
+        "res_∂AとTr_AM A=∫res_∂A dx",
+        "平面波・複素kの係数抽出・核の対角値",
+        "対角上での部分積分による積分後の巡回性",
+        "Pの冪のLax発展と全階層時間での保存",
+        "最初の二つの波形積分と高次への継続"
+      ],
+      "proof_scope": "主証明は積分後の巡回性を直接示す。局所保存則の全微分の導出は独立した補足とし、保存積分の証明の前提にしない。",
+      "notation": "Ae^{ikx}、B=Σ b_m(x)∂^m、有限行列のtrと形式級数のTr_AMを区別する。",
+      "boundary_scope": "用いる負冪係数と必要な導関数は急減衰し、反復部分積分の対角での境界項が消える。任意のSによる共役不変性は主張しない。",
+      "review_surface": "detailsとsummaryを丸ごと除いた実際の本文を、段落ごとに前進して確認する。"
+    },
+    "purpose_evidence": "2026-10-30 ユーザー明示: 「KdVという具体例を中心にすること」「そこから、integrable systemの普遍的構造を理解すること」「もうすこしwanderingなノートになった」。逆散乱法・量子KdV・W algebraのいずれも単独の第一目標ではない。",
+    "inverse_scattering_learning_goal": "GLM方程式の導出で、散乱データから核、核からポテンシャルに至る操作・計算・根拠を再構成できる。",
+    "w3_notation": {
+      "scope": "Chapter7, canonical content/sections/w3.md",
+      "formal_residue": "res_partial denotes the coefficient of partial^-1, with the convention established in the classical hierarchy.",
+      "fields": "Classical coefficient fields alpha,beta and improved spin3 field W=beta-alpha_x/2. Normalized quantum counterparts are hat alpha=-(24/c)T and hat W=-i(-24/c)^(3/2)W_BHK. BHK qualifier identifies the distinct source normalization; modes remain conventional L_n,W_n. c and all branch/sign conventions unchanged.",
+      "hamiltonian": "H=-circle_integral W is classical. Quantum comparison uses the direct expression -circle_integral hat W, without an extra persistent name.",
+      "integrals": "hat I_k^(3) identifies the third-reduction/source-normalized family and distinguishes preceding quantum KdV hat I_k. Density weight is k+1; no separate T_s density aliases. k is positive and not divisible by3.",
+      "composite_mode": "Lambda_n keeps the quadratic composite. Its L_n coefficient is (4-n^2)/20 for even n and (9-n^2)/20 for odd n; there is no separate x_n coefficient name.",
+      "current_indices": "hat j_i is a quantum current component; hat j_(i,n) is its Fourier mode. Component indices i,j differ from Fourier n,m. Coefficient derivatives use a subscript, while right-acting differential operators retain partial_y.",
+      "authority": "Adopted chapter7 notation refinement2026-11-02; source/convention coefficients preserved. Decision evidence in reviews/kdv-chapters-20261030/w3-notation-20261102/."
+    },
+    "document_notation": {
+      "scope": "All7 chapters, actual composed manuscript, figures and executable interfaces",
+      "spectral": "E is the scalar Schrodinger spectral value, E=k^2 and E_n=-kappa_n^2. Generic unrelated matrix eigenvalues may use lambda_j. k is wave number and kappa_n positive decay constant.",
+      "formal_coefficients": "P=partial+sum p_r partial^(-r) in all reductions. p_(r,x) denotes the x derivative of p_r. Cubic coefficients alpha,beta belong to P^3 and are distinct; arbitrary A coefficients a_j remain generic.",
+      "phases": "xi_j=sqrt(-v_j)(x-v_j t-x_j) is the early travelling coordinate. theta_j=kappa_j x+kappa_j^3 t+log c_j(0) is logarithmic normalized left tail. Under v_j=-kappa_j^2 and c_j(0)=sqrt(2kappa_j)exp(-kappa_j x_j), C_jj=exp(2xi_j)=exp(2theta_j)/(2kappa_j). Labels may be permuted in comparing symmetric two-soliton determinants.",
+      "transport": "U(t) denotes Hilbert-space Lax-time evolution. M transports original scaled two-state data. M_I transports the specified Miura interaction-picture explicit state pair (exp(-phi)f, exp(phi)g). mathcal M(k)=mathcal M(0) M_I(2pi,0;k) is the half-endpoint-corrected exchange matrix; chi=tr M=tr[mathcal M(0)mathcal M(k)]. No B alias for mathcal M(0).",
+      "insertions": "Within the transport bracket proof tilde h_i(x) and tilde r_12(x) denote insertions of the corresponding constant matrices between transport from0 to x and x to2pi, in their respective tensor spaces. This is one insertion rule, not conjugation. Constant h_i,r_ij stay unmodified in the Jacobi calculation.",
+      "formal_residue": "res_partial always means coefficient of partial^-1; contour residues retain their contour/coordinate labels and are not the same operation.",
+      "boson": "Classical phi_x=j. The normalized quantum boson is capital Phihat with Phihat_x=i sqrt(c/3) jhat and unit logarithmic contraction. Existing b/c branch, vertex charges, local products and central charge unchanged.",
+      "screening_interface": "x_n in the screening calculator is a local Heisenberg state-field variable representing partial_x^n Phihat/(n-1)!, not a global Fourier creator. Monomials represent the local normally ordered free-field basis;1 represents the identity local field. D_-b=sum n x_(n+1) partial_(x_n)-b x_1 differentiates the full charged field. Source a_-n names this local realization only.",
+      "plotted_bound_states": "Legend/caption identify actual ordinate E_n+2psi_n, not psi_n itself. Norms and model arrays remain unchanged.",
+      "authority": "Whole-document user correction2026-11-02; design comparisons and independent inventories under reviews/kdv-notation/20261102. Rules adopted subject to final affected-route verification; record contains current reader meanings, not blanket no-overload policy.",
+      "tensor_and_trace": "Pair-row/pair-column component convention (X tensorY)_(ab,cd)=X_ac Y_bd, basis11,12,21,22. Classical matrix-valued Poisson brackets are entrywise in that representation; tr12 is the full4x4 auxiliary trace. In the quantum section the same auxiliary trace is partial relative to the shared, untraced CFT state space. In three auxiliary spaces r_ij acts on ordered factors i,j and as identity on the remaining factor.",
+      "local_letter_cost": "Do not name the one-use gauged state vector v. Show its two components directly at M_I definition. At that entry show the connection matrix inside known P exp without an A alias. Introduce A with its explicit matrix only at the subsequent field-variation/Poisson calculation, where deltaA and [h,A] expose reusable operations. No tutorial on known ordered exponentials.",
+      "cft_transfer": "Chapter6: standard cylinder stress T(x)=(c/6)uhat; bold T(lambda) is the quantum transfer operator; mathcalT remains the ordered field product. Quantum hatmathcalM(lambda) is the half-endpoint-corrected BLZ matrix, hatmathcalM(0)=exp[-i pi(b/2)sqrt(c/3) jhat0 h], boldT=tr_aux[hatmathcalM(0)hatmathcalM(lambda)]. lambda=ik in the classical comparison; integral is ordinary dx. q=exp(i pi b^2/2), q^1/2=exp(i pi b^2/4). Literal ordered-integral domain0<b^2<1, c<−2, sqrt(c/3) positive imaginary. Standard fundamental h,e± use [e+,e−]=h.",
+      "global_vertex": "Chapter6: Phihat0 obeys [Phihat0,jhat0]=−1/sqrt(c/3). V_sigma is negative-mode exponential, one Weyl zero-mode exponential exp[sigma b(Phihat0+i sqrt(c/3) jhat0 x)], positive-mode exponential. V_sigma shifts F_p to F_(p+sigma b/sqrt(c/3)); hatF_p is their direct sum. Local polynomial normal product alone does not select the global zero-mode ordering. Source BLZ phi=−bPhihat/2, beta²=b²/2, P_source=−(b/2)sqrt(c/3)jhat0.",
+      "feigin_frenkel": "Chapter6: current j in local coordinate w=ix; T(w)=(c/6)uhat(x), ∂w=−i∂x. b determines c=13−3b²−12/b². S± are the two affine screening actions; the first selects the Virasoro algebra. C^k uses k for cochain stage, H^k_m uses m for internal weight, avoiding confusion with current j. A cochain of H1 weight m corresponds to a local integral of degree m and density weight m+1. The regular classical-limit identification is part of the supplied quantum-complex construction, not a limit at fixed contraction-one current."
+    },
+    "chapter6_route": {
+      "scope": "Entire chapter6; unchanged note-wide purpose and chapters1–5 reader baseline.",
+      "objective_relation": "Understand the Feigin–Frenkel construction of quantum KdV local integrals: solve a screening condition in a concrete example, understand the finite problem at each weight, use imported tools with explicit interfaces to follow the all-order existence and commutativity arguments.",
+      "audience": "Common baseline remains. Supply the chapter-specific Poisson/Hamiltonian/Miura structure. At the CFT entry assume basic CFT, including Virasoro, OPE, normal products, free boson vertex operators and Wick theorem. Complexes and cohomology, including kernels, images and quotients, are also prerequisites. Teach the particular screening complex and its connection to local charges; import quantum-group/BGG construction details.",
+      "selected_plan": [
+        "Minimal KdV Hamiltonian structure and Virasoro quantization",
+        "One free-field realization and the two screening operations",
+        "A complete weight-four screening calculation constructing Ihat3; weight-six extension in executable support",
+        "Quantum correction equations, the supplied Feigin–Frenkel complex and its H1 relation to local integrals",
+        "Classical cohomology input, finite-dimensional Euler/rank/parity argument, and explicit density-to-integral descent",
+        "Closure and odd degree imply mutual commutativity; normalized classical limit and chapter7 continuation"
+      ],
+      "classical_scope": "Supply the second bracket and show one KdV Hamiltonian flow. Classical transport, endpoint algebra and r/CYBE are not prerequisites of this route.",
+      "coverage_authority": "The user approved explicitly using tools to carry away the whole framework, and requested a detailed structure. The exact example, headings, order and six-section partition are current proposals. Old manuscript content and tags do not require retention.",
+      "branch_interface": "Chapter7 uses Hamiltonian generation, Virasoro field, local products, free-field realization and commuting local integrals; no transfer construction is assumed.",
+      "source_status": "Generic/formal Feigin–Frenkel local-family result; density H0 is not the charges. Retain the derivative descent through H1 and the regular rescaled-family interface. Prior transfer-asymptotic source records remain historical material outside this main route.",
+      "authority": "2026-11-04 user approved tool-based framework teaching and requested detailed structure. Active spec reviews/kdv-chapters-20261030/chapter6-cft-transfer-20261104/active.spec.md.",
+      "state": "User-authorized first draft realized and published to matched public preview. See ff-draft-status.json for revision-bound reader/figure/build checks and incomplete final terminology evidence."
+    },
+    "chapter6_reader_effort": {
+      "scope": "Entire chapter6, Feigin–Frenkel framework route.",
+      "source": "reviews/kdv-chapters-20261030/chapter6-cft-transfer-20261104/active.spec.md",
+      "principle": "Judge attention, reconstruction and simultaneous retention against usable understanding. Reduce actual calculations and expose tool inputs/outputs; do not manufacture brevity by omitting equations.",
+      "realization": "Close one complete screening calculation before the all-order question. Import the hard complex construction/classical cohomology data, but derive the dimension-preservation argument, the descent to local integrals and the odd-degree commutativity reasoning.",
+      "baseline_change": "Basic CFT and complexes/cohomology are prerequisites; retain note-specific conventions, the concrete complex and charge correspondence. Supply Poisson/Hamiltonian/Miura at their uses as needed by the preceding chapters."
+    },
+    "chapter6_terminology": {
+      "record": "reviews/kdv-chapters-20261030/terminology-application-20261105/preparation.md",
+      "density_grading": "中性密度の共形次元",
+      "complex_grading": "各C^kの内部次数；荷電場の共形次元とは区別",
+      "superscript": "コホモロジー次数",
+      "integral_degree": "密度の共形次元より1小さい",
+      "h_reference": "δf=∂hを満たす場hとして参照",
+      "vertex": "Vαは頂点演算子",
+      "screening_kernel": "Tとその導関数の正規積で生成される場の空間"
     }
   },
   "visualExamples": {

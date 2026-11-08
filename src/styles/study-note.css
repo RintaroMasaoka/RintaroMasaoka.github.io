@@ -73,6 +73,8 @@ button { cursor: pointer; }
 .note-content h3 { scroll-margin-top: 80px; margin: 44px 0 16px; font-size: 19px; font-weight: 600; line-height: 1.55; }
 .note-content h4 { scroll-margin-top: 80px; margin: 34px 0 12px; color: var(--heading); font-size: 16px; font-weight: 600; line-height: 1.65; }
 .note-content p { margin: 0 0 21px; }
+/* Figures keep their authored size and sit at the center of the reading column. */
+.note-content img { display: block; max-width: 100%; height: auto; margin-inline: auto; }
 .note-content > p:first-of-type { color: var(--secondary); font-size: 16px; }
 .note-content strong { color: var(--heading); }
 .note-content a { color: var(--accent); text-underline-offset: 3px; }
@@ -102,6 +104,20 @@ button { cursor: pointer; }
 .note-content blockquote p:last-child { margin-bottom: 0; }
 .note-content code:not(pre code) { padding: .12em .32em; border-radius: 3px; background: var(--code-bg); color: var(--code-ink); font: .87em ui-monospace, SFMono-Regular, monospace; }
 .note-content pre { overflow-x: auto; margin: 28px 0; padding: 18px; border: 1px solid var(--line); background: var(--soft); font: 12px/1.75 ui-monospace, SFMono-Regular, monospace; }
+.note-content .note-code { margin:24px 0; min-width:0; max-width:100%; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--surface); }
+.note-code-toolbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:0!important; padding:5px 12px; border-bottom:1px solid var(--line); color:var(--muted); background:var(--soft); font:12px/1.5 var(--font-ui); }
+.note-code-toolbar button { min-height:36px; padding:4px 8px; border:0; border-radius:3px; background:transparent; color:var(--ink); font:inherit; }
+.note-code-toolbar button:hover { background:var(--hover); }
+.note-code-toolbar button:focus-visible,.note-code pre:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+.note-content .note-code pre { margin:0; padding:14px 16px 14px 0; border:0; background:var(--surface)!important; color:var(--ink)!important; overflow:auto; white-space:pre; tab-size:4; }
+.note-content .note-code pre,.note-content .note-code pre code { font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-ligatures:none; letter-spacing:0; white-space:pre; }
+.note-code pre code { counter-reset:code-line; }
+.note-code pre code > .line::before { counter-increment:code-line; content:counter(code-line); display:inline-block; width:3.5em; padding-right:1.25em; text-align:right; color:var(--muted); user-select:none; }
+:root[data-theme="dark"] .note-code .shiki span,.dark .note-code .shiki span { color:var(--shiki-dark)!important; }
+.note-math-output { margin:18px 0; }
+.note-math-output-line { overflow-x:auto; padding:4px 0; }
+.note-content .note-math-output-line .katex-display { margin:4px 0; padding:0; text-align:left; overflow:visible; scrollbar-gutter:auto; font-size:1em; }
+.note-content .note-math-output-line .katex-display > .katex { width:max-content; min-width:0; text-align:left; }
 .note-content hr { margin: 50px 0; border: 0; border-top: 1px solid var(--line); }
 .concept-figure { display: block; max-width: 100%; overflow-x: auto; margin: 24px 0; }
 .concept-figure img { display: block; width: 100%; min-width: 600px; height: auto; }
@@ -393,3 +409,32 @@ html { scroll-padding-top: 84px; }
 .note-resources a { color: var(--secondary); text-underline-offset: 3px; }
 .source-citation { margin-bottom: 16px; }
 .source-citation p { margin: 4px 0; }
+
+/* Opt-in local vector diagrams inherit the reader's ink and paper. */
+.study-note-diagram {
+  --figure-paper: var(--paper);
+  --figure-blue: #185f9b; --figure-red: #af3d42;
+  --figure-blue-soft: #e9f0f6; --figure-red-soft: #f7e9ea;
+  --figure-gray: #777e79; --figure-gray-soft: #b6bcb6; --figure-soft: #eaece7;
+  display: block; max-width: 100%; color: var(--ink); text-align: center;
+}
+.study-note-diagram > svg { display: inline-block; max-width: 100%; height: auto; vertical-align: middle; }
+:root[data-theme="dark"] .study-note-diagram {
+  --figure-blue: #83bee9; --figure-red: #f2989e;
+  --figure-blue-soft: #243b4b; --figure-red-soft: #462d32;
+  --figure-gray: #a4afa6; --figure-gray-soft: #697b6d; --figure-soft: #28332c;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .study-note-diagram {
+    --figure-blue: #83bee9; --figure-red: #f2989e;
+    --figure-blue-soft: #243b4b; --figure-red-soft: #462d32;
+    --figure-gray: #a4afa6; --figure-gray-soft: #697b6d; --figure-soft: #28332c;
+  }
+}
+@media print {
+  :root[data-theme] .study-note-diagram, :root:not([data-theme]) .study-note-diagram {
+    --figure-blue: #185f9b; --figure-red: #af3d42;
+    --figure-blue-soft: #e9f0f6; --figure-red-soft: #f7e9ea;
+    --figure-gray: #777e79; --figure-gray-soft: #b6bcb6; --figure-soft: #eaece7;
+  }
+}
